@@ -1,6 +1,6 @@
 import React from 'react';
-import {s} from "../../utils";
-import {Button} from '../../../src';
+import {s} from "../utils";
+import {Button} from '../../src';
 
 export default {
     title: 'Atoms/Button',

@@ -69,6 +69,7 @@ module.exports = {
         '132': '33rem',
       },
       borderWidth: {
+        '1': '1px',
         '3': '3px',
       },
       boxShadow: {
