@@ -1,12 +1,31 @@
+import clsx from 'clsx';
 import React from 'react';
+import TagSvg from '../images/icons/SvgTag';
 
-export function Tag({}: TagProps) {
+const colors = {
+    default :'bg-purple-400',
+    secondary :'bg-red-400',
+    success : 'bg-green-600',
+    info : 'bg-purple-700',
+    warning : 'bg-yellow-400',
+    danger : 'bg-red-600',
+    light : 'bg-gray-200',
+    dark : 'bg-gray-900',
+}
+
+export function Tag({color = 'default', text}: TagProps) {
     return (
-        <div>TAG</div>
+        <div className={clsx(colors[color] || colors['default'], 'text-xs inline-flex font-bold uppercase pr-4 py-1 rounded-lg text-white')}>
+            <TagSvg />
+            {text}
+        </div>
     );
 }
 
 export interface TagProps {
+    theme?: string,
+    text?: string,
+    color?: 'default' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'light' | 'dark'
 }
 
 export default Tag
