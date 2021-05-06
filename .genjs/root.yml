@@ -1,0 +1,16 @@
+type: monorepo-js-libs
+
+vars:
+  postcss: true
+  storybooks: true
+  svg_components: true
+  generator_package: true
+  makefile:
+    deployable_storybooks: true
+    generate_target: true
+    targets:
+      migrate: "true"
+      start-react-admin-ui: make package-storybook p=react-admin-ui
+
+  readme:
+    name: libs-js

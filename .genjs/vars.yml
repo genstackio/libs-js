@@ -1,0 +1,11 @@
+author: {name: Olivier Hoareau, email: cto@genstackio.co}
+company: genstackio
+project_prefix: genstackio
+project_name: libs-js
+project_description: Genstackio's JS/Typescript Libraries
+project_git_url: git@github.com:genstackio/libs-js.git
+github_aws_profile: genstackio-${{env.env}}
+npm_scope: genstackio
+scm: github
+license: ISC
+node_version: 16.1.0
