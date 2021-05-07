@@ -1,10 +1,10 @@
 import React from 'react';
 import {s} from "../utils";
-import {Button} from '../../src';
+import {Badge} from '../../src';
 
 export default {
-    title: 'Atoms/Button',
-    component: Button,
+    title: 'Atoms/Badge',
+    component: Badge,
     argTypes: {
         children: { control: 'text' },
         color: { control: {type: 'select'}, options: ['primary', 'secondary', 'default'] },
@@ -14,6 +14,6 @@ export default {
 
 }
 
-const Template = args => <Button {...args} />;
+const Template = args => <Badge {...args} />;
 
-export const basic = s(Template, {children: "button"})
+export const basic = s(Template, {variant: "pill"})
