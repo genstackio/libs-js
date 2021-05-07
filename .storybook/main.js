@@ -1,6 +1,9 @@
 module.exports = {
-    addons: [
-        '@storybook/addon-viewport/register',
+    stories: [`${process.cwd()}/__stories__/**/*.stories.tsx`],
+    "addons": [
+        "@storybook/addon-essentials",
+        '@storybook/addon-knobs/register',
+        '@storybook/addon-a11y',
         {
             name: '@storybook/addon-storysource',
             options: {
@@ -13,10 +16,15 @@ module.exports = {
                 },
             },
         },
-        '@storybook/addon-knobs/register',
-        '@storybook/addon-actions/register',
+        "@storybook/addon-links",
+        '@storybook/addon-postcss',
+        'storybook-mobile',
+        'storybook-addon-apollo-client',
+        'storybook-addon-themes',
+        'storybook-tailwind-dark-mode',
+        'storybook-addon-grid',
+        '@whitespace/storybook-addon-html',
     ],
-    stories: [`${process.cwd()}/__stories__/**/*.stories.tsx`],
     webpackFinal: async config => {
         config.module.rules.push({
             test: /\.(ts|tsx)$/,
