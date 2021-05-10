@@ -1,6 +1,7 @@
 import React, {ReactNode} from 'react';
 import clsx from "clsx";
 import colorClass from "../utils/colorClass";
+import {box_color, box_variant} from '../types';
 
 export function Button({children, color = 'primary', variant = 'filled', large, disabled}: ButtonProps) {
     return (
@@ -10,8 +11,8 @@ export function Button({children, color = 'primary', variant = 'filled', large, 
 
 export interface ButtonProps {
     children?: ReactNode,
-    color?: 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'light' | 'dark',
-    variant?: 'filled' | 'outlined' | 'contained',
+    color?: box_color,
+    variant?: box_variant,
     large?: boolean,
     disabled?: boolean,
 }

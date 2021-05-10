@@ -42,6 +42,7 @@ module.exports = {
       },
       boxShadow: {
         'container': '0px 8px 24px rgb(66 63 55 / 10%), 0px -2px 24px rgb(66 63 55 / 2%)',
+        'block': '0 0 20px rgb(8 21 66 / 5%)',
       },
       animation: {
         bounce200: 'bounce 1s infinite 200ms',
