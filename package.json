@@ -6,7 +6,7 @@
   "private": true,
   "license": "ISC",
   "scripts": {
-    "deploy-storybooks": "storybook-to-aws-s3 --bucket-path=dev-genstackio-platform-storybook/ --aws-profile=genstackio-dev --packages=packages --out=public",
+    "deploy-storybooks": "storybook-to-aws-s3 --bucket-path=dev-genstack-platform-storybook/ --aws-profile=genstack-dev --packages=packages --out=public",
     "test": "jest --config jest.config.js"
   },
   "workspaces": [

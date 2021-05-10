@@ -61,7 +61,7 @@ jobs:
       - name: Add AWS Role Profile
         uses: ohoareau/actions/aws-role-profile-add@master
         with:
-          name: genstackio-${{env.env}}
+          name: genstack-${{env.env}}
           source: default
           role: ${{env.AWS_DEPLOY_ACCOUNT_ROLE_ARN}}
 

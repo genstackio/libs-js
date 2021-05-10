@@ -1,10 +1,10 @@
 author: {name: Olivier Hoareau, email: cto@genstackio.co}
 company: genstackio
-project_prefix: genstackio
+project_prefix: genstack
 project_name: libs-js
 project_description: Genstackio's JS/Typescript Libraries
 project_git_url: git@github.com:genstackio/libs-js.git
-github_aws_profile: genstackio-${{env.env}}
+github_aws_profile: genstack-${{env.env}}
 npm_scope: genstackio
 scm: github
 license: ISC

@@ -1,4 +1,4 @@
-prefix ?= genstackio
+prefix ?= genstack
 bucket_prefix ?= $(prefix)-libs-js
 env ?= dev
 AWS_PROFILE ?= $(prefix)-$(env)
