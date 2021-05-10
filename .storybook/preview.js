@@ -74,7 +74,6 @@ export const parameters = {
       date: /Date$/,
     },
   },
-  layout: 'fullscreen',
   viewport: {
     viewports: getResponsiveViewPorts(), // newViewports would be an ViewportMap. (see below for examples)
     defaultViewport: 'fullWidth',
