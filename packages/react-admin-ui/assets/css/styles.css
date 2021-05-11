@@ -8,6 +8,7 @@
 @layer components {
 
     :root {
+        --bg-color-progressbar: #059669;
     }
 
 }
