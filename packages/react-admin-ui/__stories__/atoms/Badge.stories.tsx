@@ -6,21 +6,13 @@ export default {
     title: 'Atoms/Badge',
     component: Badge,
     argTypes: {
+        text: { control: 'text' },
+        variant: { control: {type: 'select'}, options: ['pill', 'tag'], defaultValue: 'pill' },
+        color: { control: {type: 'select'}, options: ['default', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
     },
 
 }
 
-const Template = args => (
-    <div className={'flex flex row items-center space-x-6'}>
-        <Badge {...args} color={'default'} text={'1'} />
-        <Badge {...args} color={'secondary'} text={'2'} />
-        <Badge {...args} color={'success'} text={'3'} />
-        <Badge {...args} color={'info'} text={'4'} />
-        <Badge {...args} color={'warning'} text={'5'} />
-        <Badge {...args} color={'danger'} text={'6'} />
-        <Badge {...args} color={'light'} text={'7'} />
-        <Badge {...args} color={'dark'} text={'8'} />
-    </div>
-);
+const Template = args => (<Badge {...args} />);
 
-export const basic = s(Template, {variant: "pill"})
+export const basic = s(Template, {})

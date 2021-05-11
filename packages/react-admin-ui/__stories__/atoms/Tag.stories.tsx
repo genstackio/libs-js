@@ -7,20 +7,10 @@ export default {
     component: Tag,
     argTypes: {
         text: { control: 'text' },
+        color: { control: {type: 'select'}, options: ['default', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'], defaultValue: 'default' },
     },
 
 }
 
-const Template = args => (
-    <div className={'flex flex row items-center space-x-6'}>
-        <Tag {...args} color={'default'} />
-        <Tag {...args} color={'secondary'} />
-        <Tag {...args} color={'success'} />
-        <Tag {...args} color={'info'} />
-        <Tag {...args} color={'warning'} />
-        <Tag {...args} color={'danger'} />
-        <Tag {...args} color={'light'} />
-        <Tag {...args} color={'dark'} />
-    </div>
-);
+const Template = args => (<Tag {...args} />);
 export const basic = s(Template, {text: "je suis un tag"})

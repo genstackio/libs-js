@@ -7,20 +7,10 @@ export default {
     component: Pill,
     argTypes: {
         text: { control: 'text' },
+        color: { control: {type: 'select'}, options: ['default', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'], defaultValue: 'default' },
     },
 
 }
 
-const Template = args => (
-    <div className={'flex flex row items-center space-x-6'}>
-        <Pill {...args} color={'default'} />
-        <Pill {...args} color={'secondary'} />
-        <Pill {...args} color={'success'} />
-        <Pill {...args} color={'info'} />
-        <Pill {...args} color={'warning'} />
-        <Pill {...args} color={'danger'} />
-        <Pill {...args} color={'light'} />
-        <Pill {...args} color={'dark'} />
-    </div>
-);
+const Template = args => (<Pill {...args} />);
 export const basic = s(Template, {text: "8"})
