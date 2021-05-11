@@ -1,6 +1,6 @@
 module.exports = {
   purge: {
-    content: ['./src/**/*.tsx'],
+    content: ['./src/**/*.tsx', './src/**/*.ts'],
     options: {
       safelist: {
         standard: [/^theme-/],
