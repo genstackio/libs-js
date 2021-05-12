@@ -1,11 +1,11 @@
 import clsx from 'clsx';
-import colorClass from '../utils/colorClass';
+import boxClass from '../utils/boxClass';
 import {box_color, box_variant} from '../types';
 import Icon from "./Icon";
 
 export function Tag({color, icon, size, text, variant}: TagProps) {
     return (
-        <div className={clsx(colorClass({color: color, variant: variant}),
+        <div className={clsx(boxClass({color: color, variant: variant}),
             'inline-flex pr-4 pl-4 rounded-lg text-white font-bold uppercase pt-1 py-1 space-x-1'
         )}>
             {text && <div>{text}</div>}

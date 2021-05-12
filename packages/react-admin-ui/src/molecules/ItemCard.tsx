@@ -1,7 +1,7 @@
 import {Block, Tag, Icon, Text} from "../atoms";
 import {box_color, box_variant} from "../types";
 
-export function ItemCard({blockColor ='light', blockVariant='outlined', colorDate, colorDescription, colorSubTitle, colorTitle, date, description, icon, size, subTitle, title}: ItemCardProps) {
+export function ItemCard({blockColor = 'light', blockVariant = 'outlined', colorDate, colorDescription, colorSubTitle, colorTitle, date, description, icon, size, subTitle, title}: ItemCardProps) {
     return (
         <Block variant={blockVariant} color={blockColor} >
             <div className={'flex justify-between mb-6'}>

@@ -13,3 +13,5 @@ export type size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type status = 'online' | 'offline' | 'busy';
 export type tag = {text?: string, color?: box_color, variant?: box_variant, icon?: string};
 export type target = Function | string;
+export type variant = string;
+export type color = string;

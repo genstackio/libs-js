@@ -1,7 +1,7 @@
 import {ReactNode, useCallback} from 'react';
 import clsx from "clsx";
 import Icon from "./Icon";
-import colorClass from "../utils/colorClass";
+import buttonClass from "../utils/buttonClass";
 import {box_color, box_variant, target} from '../types';
 
 export function Button({children, classes, color = 'primary', disabled,  icon, large, onClick, variant = 'filled'}: ButtonProps) {
@@ -12,7 +12,7 @@ export function Button({children, classes, color = 'primary', disabled,  icon, l
     return (
         <button
             disabled={disabled}
-            className={clsx(classes, colorClass({color, variant, disabled}), 'py-2 px-4 rounded inline-flex items-center', disabled && 'opacity-50 cursor-not-allowed', large && 'w-60')}
+            className={clsx(classes, buttonClass({color, variant, disabled}), 'py-2 px-4 rounded inline-flex items-center', disabled && 'opacity-50 cursor-not-allowed', large && 'w-60')}
             onClick={handleClick}
         >
             {icon && <Icon icon={icon} />}

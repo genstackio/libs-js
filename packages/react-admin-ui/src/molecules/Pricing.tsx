@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import {Block, Button, Text} from '../atoms';
-import colorClass from "../utils/colorClass";
+import boxClass from "../utils/boxClass";
 import {box_color, box_variant, image, target} from "../types";
 
 export function Pricing({items}: PricingProps) {
@@ -11,7 +11,7 @@ export function Pricing({items}: PricingProps) {
                     <div key={index} className={'uppercase'}>
                         {item && item.name && <Text text={item.name} variant='title4'/>}
                     </div>
-                    <div className={clsx(colorClass({color: item.color, variant: item.variant}), 'flex rounded-full h-32 w-32 items-center justify-center')}>
+                    <div className={clsx(boxClass({color: item.color, variant: item.variant}), 'flex rounded-full h-32 w-32 items-center justify-center')}>
                         <Text text={item.currency} variant='description'/>
                         <Text text={`${item.price}`} variant='title1'/>
                         <Text text={item.period} variant='subtitle'/>

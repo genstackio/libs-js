@@ -85,6 +85,5 @@
     "storybook-mobile": "^0.1.31",
     "storybook-tailwind-dark-mode": "^1.0.9",
     "tailwindcss": "^2.1.1"
-  },
-  "gitHead": "0f67d1ac87c3bfd2390d1bad98b5396c06375518"
+  }
 }
