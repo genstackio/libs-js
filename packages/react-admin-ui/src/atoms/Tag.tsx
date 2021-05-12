@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import React from 'react';
-import TagSvg from '../images/icons/SvgTag';
 
 const colors = {
     default :'bg-purple-400',
@@ -15,15 +14,13 @@ const colors = {
 
 export function Tag({color = 'default', text}: TagProps) {
     return (
-        <div className={clsx(colors[color] || colors['default'], 'text-xs inline-flex font-bold uppercase pr-4 py-1 rounded-lg text-white')}>
-            <TagSvg />
+        <div className={clsx(colors[color] || colors['default'], 'text-xs inline-flex font-bold uppercase pr-4 pl-4 py-1 rounded-lg text-white')}>
             {text}
         </div>
     );
 }
 
 export interface TagProps {
-    theme?: string,
     text?: string,
     color?: 'default' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'light' | 'dark'
 }

@@ -1,10 +1,9 @@
 import clsx from 'clsx';
 import React from 'react';
-import PillSvg from '../images/icons/SvgPill';
 
 const colors = {
-    default :'bg-purple-400',
-    secondary :'bg-red-400',
+    default : 'bg-purple-400',
+    secondary : 'bg-red-400',
     success : 'bg-green-600',
     info : 'bg-purple-700',
     warning : 'bg-yellow-400',
@@ -15,8 +14,7 @@ const colors = {
 
 export function Pill({color = 'default', text}: PillProps) {
     return (
-        <div className={clsx(colors[color] || colors['default'], 'text-xs inline-flex font-bold uppercase pr-2 py-1 rounded-full h-6 w-6 text-white')}>
-            <PillSvg />
+        <div className={clsx(colors[color] || colors['default'], 'text-xs inline-flex font-bold uppercase pl-2 pr-2 py-1 rounded-full text-white')}>
             {text}
         </div>
     );
