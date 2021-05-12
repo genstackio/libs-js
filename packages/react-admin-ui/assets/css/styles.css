@@ -8,7 +8,8 @@
 @layer components {
 
     :root {
-        --bg-color-progressbar: #059669;
+        --primary-color: #059669;
+        --hover-color:#fcb600;
     }
 
 }

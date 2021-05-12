@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.11.3-deprecations.1",
     "i18next": "^20.2.1",
     "react-color": "^2.19.3",
     "react-hook-form": "^7.2.3",
