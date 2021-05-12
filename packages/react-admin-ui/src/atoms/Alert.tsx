@@ -1,31 +1,30 @@
-import React from 'react';
+import React, {ReactNode, useCallback, useState} from 'react';
 import clsx from 'clsx';
+import colorClass from "../utils/colorClass";
+import {box_color, box_variant} from '../types';
+import CloseIcon from '@material-ui/icons/Close';
 
-const colors = {
-    default :'bg-purple-400',
-    secondary :'bg-red-400',
-    success : 'bg-green-600',
-    info : 'bg-purple-700',
-    warning : 'bg-yellow-400',
-    danger : 'bg-red-600',
-    light : 'bg-gray-200 text-gray-900', 
-    dark : 'bg-gray-900',
-}
-
-export function Alert({color = 'default', text}: AlertProps) {
+export function Alert({children, color = 'primary', variant = 'contained', closable = false}: AlertProps) {
+    const [show, setShow] = useState(true);
+    const handleClick = useCallback(() => setShow(false), [setShow]);
+    if (!show) return null
     return (
-        <div className={clsx(
-            colors[color] || colors['default'], 
-            'px-4 py-4 leading-normal text-white my-5 h-14'
-        )}>
-  <p>{text}</p>
-</div>
+        <div className={clsx(colorClass({color, variant}), 'px-4 py-4 leading-normal flex items-center justify-between')}>
+            <div className={'w-full'}>{children || ''}</div>
+            {closable && (
+                <div className={'cursor-pointer'}>
+                    <CloseIcon onClick={handleClick} />
+                </div>
+            )}
+        </div>
     );
 }
 
 export interface AlertProps {
-    text?: string,
-    color?: 'default' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'light' | 'dark'
+    children?: ReactNode,
+    color?: box_color,
+    variant?: box_variant,
+    closable?: boolean,
 }
 
 export default Alert

@@ -1,4 +1,5 @@
 export * from './Accordion'
+export * from './AlertPanel'
 export * from './Avatars'
 export * from './Breadcrumb'
 export * from './List'
