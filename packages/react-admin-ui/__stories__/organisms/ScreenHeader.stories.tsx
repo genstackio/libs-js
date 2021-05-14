@@ -1,18 +1,17 @@
 import React from 'react';
 import {s} from "../utils";
-import {Breadcrumb} from '../../src';
+import {ScreenHeader} from '../../src';
 
 export default {
-    title: 'Molecules/Breadcrumb',
-    component: Breadcrumb,
+    title: 'Organisms/ScreenHeader',
+    component: ScreenHeader,
     argTypes: {
         items: { control: {type: 'object'} },
         color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
-        right: { control: {type: 'boolean'} }
     },
 }
 
-const Template = args => <Breadcrumb {...args} />
+const Template = args => <ScreenHeader {...args} />
 
 export const basic = s(Template, {
     items: [
@@ -21,11 +20,11 @@ export const basic = s(Template, {
             target: "https://www.google.com/",
         },
         {
-            label: "Library",
+            label: "Project",
             target: "https://www.google.com/",
         },
         {
-            label: "Data",
+            label: "Create Project",
             target: "https://www.google.com/",
         },
     ]
