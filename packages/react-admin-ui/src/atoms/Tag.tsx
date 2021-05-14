@@ -1,21 +1,11 @@
 import clsx from 'clsx';
 import React from 'react';
+import colorClass from "../utils/colorClass";
 import {box_color} from "../types";
 
-const colors = {
-    primary :'bg-primary',
-    secondary :'bg-secondary',
-    success : 'bg-success',
-    info : 'bg-info',
-    warning : 'bg-warning',
-    danger : 'bg-danger',
-    light : 'bg-light',
-    dark : 'bg-dark',
-}
-
-export function Tag({color = 'primary', text}: TagProps) {
+export function Tag({color, text}: TagProps) {
     return (
-        <div className={clsx(colors[color], 'text-xs inline-flex font-bold uppercase pr-4 pl-4 py-1 rounded-lg text-white')}>
+        <div className={clsx(colorClass({color: color, variant: 'contained'}), 'text-xs inline-flex font-bold uppercase pr-4 pl-4 py-1 rounded-lg text-white')}>
             {text}
         </div>
     );

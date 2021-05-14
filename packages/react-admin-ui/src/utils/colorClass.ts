@@ -16,6 +16,7 @@ export const commonStyles = {
     'filled-danger': 'text-danger',
     'filled-light': 'text-black',
     'filled-dark': 'text-dark',
+    'filled-none': 'bg-white text-dark',
     'outlined-primary': 'bg-transparent text-primary border border-primary',
     'outlined-secondary': 'bg-transparent text-secondary border border-secondary',
     'outlined-success': 'bg-transparent text-success border border-success',
@@ -24,6 +25,7 @@ export const commonStyles = {
     'outlined-danger': 'bg-transparent text-danger border border-danger',
     'outlined-light': 'bg-transparent text-black border border-light',
     'outlined-dark': 'bg-transparent text-dark border border-dark',
+    'outlined-none': 'bg-white text-dark',
     'contained-primary': 'bg-primary text-white',
     'contained-secondary': 'bg-secondary text-white',
     'contained-success': 'bg-success text-white',
@@ -32,6 +34,7 @@ export const commonStyles = {
     'contained-danger': 'bg-danger text-white',
     'contained-light': 'bg-light text-dark',
     'contained-dark': 'bg-dark text-white',
+    'contained-none': 'bg-white text-dark',
 }
 
 export const nonDisabledStyles = {
@@ -43,6 +46,7 @@ export const nonDisabledStyles = {
     'filled-danger': 'hover:bg-danger hover:bg-opacity-20 focus:outline-none',
     'filled-light': 'hover:bg-light focus:outline-none',
     'filled-dark': 'hover:bg-dark hover:bg-opacity-20 focus:outline-none',
+    'filled-none': 'bg-white text-dark',
     'outlined-primary': 'hover:bg-primary hover:text-white hover:border-transparent focus:outline-none',
     'outlined-secondary': 'hover:bg-secondary hover:text-white hover:border-transparent focus:outline-none',
     'outlined-success': 'hover:bg-success hover:text-white hover:border-transparent focus:outline-none',
@@ -51,6 +55,7 @@ export const nonDisabledStyles = {
     'outlined-danger': 'hover:bg-danger hover:text-white hover:border-transparent focus:outline-none',
     'outlined-light': 'hover:bg-light hover:text-dark hover:border-transparent focus:outline-none',
     'outlined-dark': 'hover:bg-dark hover:text-white hover:border-transparent focus:outline-none',
+    'outlined-none': 'bg-white text-dark',
     'contained-primary': 'hover:bg-opacity-70 focus:outline-none',
     'contained-secondary': 'hover:bg-opacity-70 focus:outline-none',
     'contained-success': 'hover:bg-opacity-70 focus:outline-none',
@@ -59,6 +64,7 @@ export const nonDisabledStyles = {
     'contained-danger': 'hover:bg-opacity-70 focus:outline-none',
     'contained-light': 'hover:bg-opacity-50 focus:outline-none',
     'contained-dark': 'hover:bg-opacity-70 focus:outline-none',
+    'contained-none': 'bg-white text-dark',
 }
 
 export function colorClass({disabled = false, ...attributes}: {variant?: variant, color?: color, disabled?: boolean}) {

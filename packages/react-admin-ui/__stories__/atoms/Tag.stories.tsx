@@ -7,7 +7,7 @@ export default {
     component: Tag,
     argTypes: {
         text: { control: 'text' },
-        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'], defaultValue: 'primary' },
+        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark', 'none'], defaultValue: 'primary' },
     },
 
 }
