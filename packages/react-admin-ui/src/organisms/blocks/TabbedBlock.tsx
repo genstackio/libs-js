@@ -34,7 +34,7 @@ export function TabbedBlock({items = [], color, variant = 'outlined'}: TabbedBlo
     return (
         <Block variant={variant} color={color}>
             <AppBar position="static" elevation={0} color={'transparent'}>
-                <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" className={'bg-transparent border-b-1 border-gray-200'} TabIndicatorProps={{className: colorClass({color, variant})}}>
+                <Tabs variant={'scrollable'} scrollButtons={'on'} value={value} onChange={handleChange} aria-label="simple tabs example" className={'bg-transparent border-b-1 border-gray-200'} TabIndicatorProps={{className: colorClass({color, variant})}}>
                     {items.map(({title, disabled}, index) => (
                         <Tab label={title} key={index} id={`simple-tab-${index}`} aria-controls={`simple-tabpanel-${index}`} disabled={disabled} className={'focus:outline-none'} />
                     ))}
