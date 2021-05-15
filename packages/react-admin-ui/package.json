@@ -27,6 +27,7 @@
     "build-storybook": "yarn --silent generate && build-storybook -c ../../.storybook -o public"
   },
   "dependencies": {
+    "react-dropzone-uploader": "^2.11.0",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.11.3-deprecations.1",
     "apexcharts": "^3.26.3",
