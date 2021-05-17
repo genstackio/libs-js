@@ -1,6 +1,6 @@
 import React from 'react';
 import Pill from './Pill';
-import Tag from './Tag';
+import Tag, {TagProps} from './Tag';
 
 export function Badge({variant = 'tag', ...props}: BadgeProps) {
     switch (variant) {
@@ -10,7 +10,7 @@ export function Badge({variant = 'tag', ...props}: BadgeProps) {
     }
 }
 
-export interface BadgeProps {
+export interface BadgeProps extends TagProps {
     variant?: 'tag' | 'pill',
 }
 

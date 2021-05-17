@@ -8,7 +8,7 @@ export default {
     argTypes: {
         text: { control: 'text' },
         variant: { control: {type: 'select'}, options: ['pill', 'tag'], defaultValue: 'pill' },
-        color: { control: {type: 'select'}, options: ['default', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
+        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
     },
 
 }

@@ -7,7 +7,7 @@ export default {
     component: Pill,
     argTypes: {
         text: { control: 'text' },
-        color: { control: {type: 'select'}, options: ['default', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'], defaultValue: 'default' },
+        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'], defaultValue: 'primary' },
     },
 
 }
