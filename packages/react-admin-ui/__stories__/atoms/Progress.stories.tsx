@@ -5,9 +5,14 @@ import {Progress} from '../../src';
 export default {
     title: 'Atoms/Progress',
     component: Progress,
-    argTypes: { },
+    argTypes: {
+        variant: { control: {type: 'select'}, options: ['linear', 'circular'] },
+        progressValue: { control: {type: 'number'} },
+    },
 }
 
 const Template = args => <Progress {...args} />;
 
-export const basic = s(Template, {})
+export const basic = s(Template, {
+    progressValue: 33,
+})

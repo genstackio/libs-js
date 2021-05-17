@@ -7,11 +7,11 @@ export function Block({title, children, color, variant = 'contained'}: BlockProp
     return (
         <div className={clsx('rounded-2xl relative flex flex-col shadow-block', colorClass({color, variant}))}>
             {title && (
-                <div className={'p-10 border-b-1'}>
+                <div className={'p-10 border-b-1 xs:p-4'}>
                     <h5 className={'text-2xl'}>{title}</h5>
                 </div>
             )}
-            <div className={'p-10 text-md'}>
+            <div className={'p-10 text-md xs:p-4'}>
                 {children || ''}
             </div>
         </div>
