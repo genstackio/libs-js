@@ -1,4 +1,3 @@
-import React from 'react';
 import Text from "../../atoms/Text";
 import Block from "../../atoms/Block";
 import {box_color, box_variant} from "../../types";

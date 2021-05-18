@@ -1,4 +1,3 @@
-import React from 'react';
 import Badge from '../atoms/Badge';
 import clsx from "clsx";
 import {box_color} from "../types";

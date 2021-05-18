@@ -1,4 +1,4 @@
-import React, {ReactNode, useCallback, useState} from 'react';
+import {ReactNode, useCallback, useState} from 'react';
 import Text from "../../atoms/Text";
 import Icon from "../../atoms/Icon";
 import Block from "../../atoms/Block";

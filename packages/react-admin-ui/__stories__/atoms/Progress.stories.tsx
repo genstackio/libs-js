@@ -1,4 +1,3 @@
-import React from 'react';
 import {s} from "../utils";
 import {Progress} from '../../src';
 

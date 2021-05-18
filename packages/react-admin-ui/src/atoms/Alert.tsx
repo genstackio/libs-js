@@ -1,4 +1,4 @@
-import React, {ReactNode, useCallback, useState} from 'react';
+import {ReactNode, useCallback, useState} from 'react';
 import clsx from 'clsx';
 import colorClass from "../utils/colorClass";
 import {box_color, box_variant} from '../types';

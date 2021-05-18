@@ -1,4 +1,3 @@
-import React from 'react';
 import Pill from './Pill';
 import {badge_variant, box_color} from "../types";
 import Tag, {TagProps} from './Tag';

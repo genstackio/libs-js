@@ -20,7 +20,7 @@
       "dom",
       "es2018"
     ],
-    "jsx": "react"
+    "jsx": "react-jsx"
   },
   "exclude": [
     "node_modules",

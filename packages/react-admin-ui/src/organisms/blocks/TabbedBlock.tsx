@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import {useState, useCallback, ReactNode, ChangeEvent} from 'react';
 import {Block} from "../../atoms";
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
@@ -23,14 +23,14 @@ function TabPanel({children, value, index, ...props}: TabPanelProps) {
 }
 
 interface TabPanelProps {
-    children?: React.ReactNode;
+    children?: ReactNode;
     index: any;
     value: any;
 }
 
 export function TabbedBlock({items = [], color, variant = 'outlined'}: TabbedBlockProps) {
-    const [value, setValue] = React.useState(0);
-    const handleChange = useCallback((event: React.ChangeEvent<{}>, newValue: number) => setValue(newValue), [setValue]);
+    const [value, setValue] = useState(0);
+    const handleChange = useCallback((event: ChangeEvent<{}>, newValue: number) => setValue(newValue), [setValue]);
     return (
         <Block variant={variant} color={color}>
             <AppBar position="static" elevation={0} color={'transparent'}>

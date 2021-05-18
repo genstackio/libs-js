@@ -1,4 +1,3 @@
-import React from 'react';
 import {box_color} from "../types";
 import {Breadcrumb} from "../molecules";
 

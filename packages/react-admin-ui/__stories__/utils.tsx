@@ -1,4 +1,3 @@
-import React from "react";
 import {select} from "@storybook/addon-knobs";
 import i18nFactory from "../src/utils/i18nFactory";
 import translations from "../src/configs/translations";

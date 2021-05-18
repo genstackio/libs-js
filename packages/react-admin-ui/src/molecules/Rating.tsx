@@ -1,4 +1,3 @@
-import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import RatingUI from '@material-ui/lab/Rating';
 import StarBorderIcon from '@material-ui/icons/StarBorder';

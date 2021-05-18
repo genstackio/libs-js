@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function LoginAuthPage({}: LoginAuthPageProps) {
     return (
         <div>LOGIN PAGE</div>

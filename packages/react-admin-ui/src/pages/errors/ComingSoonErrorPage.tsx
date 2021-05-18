@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function ComingSoonErrorPage({}: ComingSoonErrorPageProps) {
     return (
         <div>COMING SOON ERROR PAGE</div>

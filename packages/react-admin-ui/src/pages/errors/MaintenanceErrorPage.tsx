@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function MaintenanceErrorPage({}: MaintenanceErrorPageProps) {
     return (
         <div>MAINTENANCE ERROR PAGE</div>

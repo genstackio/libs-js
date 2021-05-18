@@ -1,4 +1,3 @@
-import React from 'react';
 import {Alert, Tag, Pill} from "../../atoms";
 
 export function FiguresBlock({ title, price, pill, tag, ...props }: FiguresBlockProps) {

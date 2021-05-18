@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function MainMenu({}: MainMenuProps) {
     return (
         <div>MAIN MENU</div>

@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import {ReactNode} from 'react';
 import {Button} from "../atoms";
 import MuiModal from "@material-ui/core/Modal";
 
