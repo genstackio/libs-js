@@ -6,28 +6,26 @@ export default {
     title: 'Molecules/List',
     component: List,
     argTypes: {
-        text: { control: 'text' },
-        variant: { control: {type: 'select'}, options: ['pill', 'tag'], defaultValue: 'pill' },
-        color: { control: {type: 'select'}, options: ['default', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
+        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark', 'none'], defaultValue: 'none' },
     },
 
 }
 
 const Template = args => <List {...args} />;
+
 export const basic = s(Template, {
     items: [
         {
             text: 'Item1',
-            variant: 'pill',
-            color: 'success',
         },
         {
             text: 'Item2',
-            variant: 'tag',
+            color: 'warning',
+            badge: {label: '32', color: 'danger', variant: 'tag'},
         },
         {
             text: 'Item3',
-            variant: 'pill',
         }
-    ]
+    ],
+    badge: {label: '19', color: 'dark', variant: 'pill'}
 })

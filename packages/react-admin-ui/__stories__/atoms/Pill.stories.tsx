@@ -7,10 +7,8 @@ export default {
     component: Pill,
     argTypes: {
         text: { control: 'text' },
-        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'], defaultValue: 'primary' },
+        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark', 'none'] },
     },
-
 }
-
 const Template = args => (<Pill {...args} />);
 export const basic = s(Template, {text: "8"})
