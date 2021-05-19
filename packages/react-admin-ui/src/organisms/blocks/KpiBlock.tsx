@@ -21,7 +21,7 @@ export function KpiBlock({icon, name, quantity, bgIcon, color, variant = 'contai
                     {icon && <Icon icon={icon} />}
                     {quantity && <div>
                         <Text text={name} variant={'description'} />
-                        <Text text={`\${quantity}`} variant={'title5'} />
+                        <Text text={`${quantity}`} variant={'title5'} />
                     </div>}
                 </div>
                 {bgIcon && <div className={clsx('absolute -right-5', isHover && 'transform -rotate-12 scale-110')}>
