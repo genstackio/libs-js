@@ -1,4 +1,3 @@
-import React from 'react';
 import Text, {TextProps} from "../Text";
 
 export function TitleText({level = 1, ...props}: TitleTextProps) {

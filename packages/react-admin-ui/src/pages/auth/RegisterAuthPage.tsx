@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function RegisterAuthPage({}: RegisterAuthPageProps) {
     return (
         <div>REGISTER PAGE</div>

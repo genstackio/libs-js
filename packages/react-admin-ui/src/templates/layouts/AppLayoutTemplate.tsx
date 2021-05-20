@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function AppLayoutTemplatePage({}: AppLayoutTemplatePageProps) {
     return (
         <div>APP LAYOUT TEMPLATE</div>

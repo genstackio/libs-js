@@ -1,4 +1,3 @@
-import React from 'react';
 import {s} from "../../utils";
 import {GoalBlock} from '../../../src';
 

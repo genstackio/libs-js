@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import {useCallback, useState, ChangeEvent} from 'react';
 import clsx from "clsx";
 import colorClass from "../utils/colorClass";
 import Select from '@material-ui/core/Select';
@@ -18,7 +18,7 @@ export function Dropdown({menuItems, variant, color}: DropdownProps) {
     const classes = useStyles();
     const [value, setValue] = useState<string | number | undefined>(menuItems[0].name);
     const [open, setOpen] = useState(false);
-    const handleChange = useCallback((event: React.ChangeEvent<{ value: unknown }>) => {
+    const handleChange = useCallback((event: ChangeEvent<{ value: unknown }>) => {
         setValue(event.target.value as number);
     }, [setValue, value]);
     const handleClose = useCallback(() => {

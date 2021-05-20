@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 import Block from "../../atoms/Block";
 import Badge from "../../atoms/Badge";
 import Progress from "../../atoms/Progress";

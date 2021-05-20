@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import React from 'react';
 import {box_color} from "../types";
 import colorClass from "../utils/colorClass";
 

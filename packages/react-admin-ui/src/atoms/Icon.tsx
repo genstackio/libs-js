@@ -1,4 +1,4 @@
-import React, {ReactNode} from "react";
+import {ReactNode} from "react";
 
 export function Icon({icon, ...props}) {
     switch (typeof icon) {

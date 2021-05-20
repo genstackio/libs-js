@@ -1,4 +1,3 @@
-import React from 'react';
 import {Button} from "../../atoms";
 import Block from "../../atoms/Block";
 import {box_color, box_variant} from "../../types";

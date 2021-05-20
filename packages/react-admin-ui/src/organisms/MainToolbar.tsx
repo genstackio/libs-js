@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function MainToolbar({}: MainToolbarProps) {
     return (
         <div>MAIN TOOLBAR</div>

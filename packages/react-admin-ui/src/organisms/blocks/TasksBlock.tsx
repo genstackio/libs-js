@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function TasksBlock({}: TasksBlockProps) {
     return (
         <div>TASKS BLOCK</div>
