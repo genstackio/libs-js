@@ -1,11 +1,8 @@
-import React from 'react';
-
 const variantsp1 = {
     left: 'border-l-4 p-4 blockquote',
     center: 'border-0 text-center',
     right: 'border-r-4 text-right p-4 blockquote',
 }
-
 const variantsp2 = {
     left: 'p-4 blockquote text-gray-400',
     right: 'p-4 blockquote text-right text-gray-400',

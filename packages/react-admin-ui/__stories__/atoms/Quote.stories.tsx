@@ -1,4 +1,3 @@
-import React from 'react';
 import {s} from "../utils";
 import {Quote} from '../../src';
 
