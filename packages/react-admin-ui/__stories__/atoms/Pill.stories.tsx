@@ -1,12 +1,12 @@
-import {s} from "../utils";
+import {args, s} from "../utils";
 import {Pill} from '../../src';
 
 export default {
     title: 'Atoms/Pill',
     component: Pill,
     argTypes: {
-        text: { control: 'text' },
-        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark', 'none'] },
+        text: args.text,
+        color: args.color,
     },
 }
 const Template = args => (<Pill {...args} />);

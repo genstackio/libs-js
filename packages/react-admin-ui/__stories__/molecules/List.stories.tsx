@@ -1,11 +1,13 @@
-import {s} from "../utils";
+import {args, s} from "../utils";
 import {List} from '../../src';
 
 export default {
     title: 'Molecules/List',
     component: List,
     argTypes: {
-        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark', 'none'], defaultValue: 'none' },
+        color: args.color,
+        items: args.items,
+        badge: args.badge,
     },
 
 }

@@ -1,4 +1,4 @@
-import {s} from "../../utils";
+import {args, s} from "../../utils";
 import {SummaryChartBlock} from '../../../src';
 import StoreIcon from '@material-ui/icons/Store';
 import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -8,14 +8,15 @@ export default {
     title: 'Organisms/Blocks/SummaryChartBlock',
     component: SummaryChartBlock,
     argTypes: {
-        title: { control: {type: 'text'} },
-        subtitle: { control: {type: 'text'} },
-        datas: { control: {type: 'object'} },
-        dashboardItems: { control: {type: 'object'} },
-        btnLabel: { control: {type: 'text'} },
-        chartItems: { control: {type: 'object'} },
-        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
-        variant: { control: {type: 'select'}, options: ['filled', 'outlined', 'contained'] },
+        title: args.title,
+        subtitle: args.subtitle,
+        datas: args.datas,
+        dashboardItems: args.chartItems,
+        btnLabel: args.btnLabel,
+        chartItems: args.chartItems,
+        color: args.color,
+        variant: args.blockVariant,
+        padding: args.padding,
     },
 }
 

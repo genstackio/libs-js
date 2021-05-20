@@ -18,15 +18,15 @@ const states = {
     'busy': 'bg-red-500',
 }
 
-export function Avatar({names, image, size = 'medium', shape = 'circular', status = undefined}: AvatarProps) {
+export function Avatar({name, image, size = 'md', shape = 'circular', status = undefined}: AvatarProps) {
     const getInitial = useCallback(() => {
         let initials = ''
-        const fullName = names.split(' ')
+        const fullName = name.split(' ')
         fullName.forEach(element => {
             initials += element.charAt(0)
         });
         return initials.slice(0, 3).toUpperCase()
-    }, [names])
+    }, [name])
 
     return (
         <div className={clsx('inline-block', status && 'relative')}>
@@ -38,9 +38,9 @@ export function Avatar({names, image, size = 'medium', shape = 'circular', statu
 }
 
 export interface AvatarProps {
-    names: string,
+    name: string,
     image?: any,
-    size?: 'small' | 'medium' | 'large',
+    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
     shape?: 'circular' | 'rounded',
     status?: 'online' | 'offline' | 'busy',
 }

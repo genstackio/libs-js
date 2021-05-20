@@ -1,17 +1,19 @@
-import {s} from "../utils";
+import {args, s} from "../utils";
 import {Button} from '../../src';
 
 export default {
     title: 'Atoms/Button',
     component: Button,
     argTypes: {
-        children: { control: 'text' },
-        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
-        variant: { control: {type: 'select'}, options: ['filled', 'outlined', 'contained'] },
-        disabled: { control: 'boolean' }
+        children: args.children,
+        color: args.color,
+        variant: args.blockVariant,
+        disabled: args.disabled,
+        large: args.large,
+        classes: args.classes,
+        onClick: args.onClick,
     },
 }
-
 
 const Template = args => <Button {...args} />;
 
@@ -22,9 +24,9 @@ export const basic = s(Template, {
 });
 
 export const showcase = s(args => (
-    <div className={'flex flex-col space-y-4'}>
+    <div className={'space-y-2'}>
         <p>FILLED</p>
-        <div className={'flex flex-row items-center space-x-4'}>
+        <div className={'flex items-center space-x-4'}>
             <Template children={'primary'} color={'primary'} />
             <Template children={'secondary'} color={'secondary'} />
             <Template children={'success'} color={'success'} />
@@ -35,7 +37,7 @@ export const showcase = s(args => (
             <Template children={'dark'} color={'dark'} />
         </div>
         <p>OUTLINED</p>
-        <div className={'flex flex-row items-center space-x-4'}>
+        <div className={'flex items-center space-x-4'}>
             <Template children={'primary'} color={'primary'} variant={'outlined'} />
             <Template children={'primary'} color={'primary'} variant={'outlined'} />
             <Template children={'secondary'} color={'secondary'} variant={'outlined'} />
@@ -47,7 +49,7 @@ export const showcase = s(args => (
             <Template children={'dark'} color={'dark'} variant={'outlined'} />
         </div>
         <p>CONTAINED</p>
-        <div className={'flex flex-row items-center space-x-4'}>
+        <div className={'flex items-center space-x-4'}>
             <Template children={'primary'} color={'primary'} variant={'contained'} />
             <Template children={'secondary'} color={'secondary'} variant={'contained'} />
             <Template children={'success'} color={'success'} variant={'contained'} />
@@ -58,7 +60,7 @@ export const showcase = s(args => (
             <Template children={'dark'} color={'dark'} variant={'contained'} />
         </div>
         <p>DISABLED</p>
-        <div className={'flex flex-row items-center space-x-4'}>
+        <div className={'flex items-center space-x-4'}>
             <Template children={'primary'} color={'primary'} disabled />
             <Template children={'secondary'} color={'secondary'} disabled />
             <Template children={'success'} color={'success'} disabled />
@@ -68,7 +70,7 @@ export const showcase = s(args => (
             <Template children={'light'} color={'light'} disabled />
             <Template children={'dark'} color={'dark'} disabled />
         </div>
-        <div className={'flex flex-row items-center space-x-4'}>
+        <div className={'flex items-center space-x-4'}>
             <Template children={'primary'} color={'primary'} variant={'outlined'} disabled />
             <Template children={'secondary'} color={'secondary'} variant={'outlined'} disabled />
             <Template children={'success'} color={'success'} variant={'outlined'} disabled />
@@ -78,7 +80,7 @@ export const showcase = s(args => (
             <Template children={'light'} color={'light'} variant={'outlined'} disabled />
             <Template children={'dark'} color={'dark'} variant={'outlined'} disabled />
         </div>
-        <div className={'flex flex-row items-center space-x-4'}>
+        <div className={'flex items-center space-x-4'}>
             <Template children={'primary'} color={'primary'} variant={'contained'} disabled />
             <Template children={'secondary'} color={'secondary'} variant={'contained'} disabled />
             <Template children={'success'} color={'success'} variant={'contained'} disabled />
@@ -89,15 +91,15 @@ export const showcase = s(args => (
             <Template children={'dark'} color={'dark'} variant={'contained'} disabled />
         </div>
         <p>LARGE</p>
-        <div className={'flex flex-row items-center space-x-4'}>
+        <div className={'flex items-center space-x-4'}>
             <Template children={'primary'} color={'primary'} large />
             <Template children={'secondary'} color={'secondary'} large />
         </div>
-        <div className={'flex flex-row items-center space-x-4'}>
+        <div className={'flex items-center space-x-4'}>
             <Template children={'primary'} color={'primary'} variant={'outlined'} large />
             <Template children={'secondary'} color={'secondary'} variant={'outlined'} large />
         </div>
-        <div className={'flex flex-row items-center space-x-4'}>
+        <div className={'flex items-center space-x-4'}>
             <Template children={'primary'} color={'primary'} variant={'contained'} large />
             <Template children={'secondary'} color={'secondary'} variant={'contained'} large />
         </div>

@@ -1,6 +1,7 @@
 import {ReactNode} from 'react';
 import {Button} from "../atoms";
 import MuiModal from "@material-ui/core/Modal";
+import {box_color, box_variant} from "../types";
 
 export function Modal({children, title, buttonsItems, opened = false, onClose}: ModalProps) {
     return (
@@ -27,7 +28,7 @@ export function Modal({children, title, buttonsItems, opened = false, onClose}: 
 
 export interface ModalProps {
     title?: string,
-    buttonsItems?: any,
+    buttonsItems?: {variant?: box_variant, color?: box_color, onClick?: Function, label?: string}[],
     opened?: boolean,
     onClose?: Function,
     children?: ReactNode,

@@ -6,7 +6,7 @@ export function ScreenHeader({items = [], color = 'primary'}: ScreenHeaderProps)
     return (
         <div className={'flex justify-between items-center'}>
             <div className={'text-2xl font-semibold'}>{title}</div>
-            <Breadcrumb items={items} color={color} right />
+            <Breadcrumb items={items} color={color} toRight />
         </div>
     );
 }

@@ -24,13 +24,13 @@ const useStyles = makeStyles({
     }
 });
 
-export function Breadcrumb({items = [], color = 'primary', right = false}: BreadcrumbProps) {
+export function Breadcrumb({items = [], color = 'primary', toRight = false}: BreadcrumbProps) {
     const classes = useStyles();
     const breadcrumbItems = items.slice(0, (items.length - 1));
     const lastItem = items.slice(items.length - 1)[0];
 
     return (
-        <Breadcrumbs aria-label="breadcrumb" classes={right ? {ol: classes.root} : undefined}>
+        <Breadcrumbs aria-label="breadcrumb" classes={toRight ? {ol: classes.root} : undefined}>
             {breadcrumbItems.map(({label, target}, index) => (
                 <Link className={clsx(colors[color])} href={target} key={index}>
                     {index === 0 && <HomeOutlinedIcon className={clsx(colors[color], 'flex items-center')} />}
@@ -45,7 +45,7 @@ export function Breadcrumb({items = [], color = 'primary', right = false}: Bread
 export interface BreadcrumbProps {
     items: {label?: string, target?: string}[],
     color?: box_color,
-    right?: boolean,
+    toRight?: boolean,
 }
 
 export default Breadcrumb

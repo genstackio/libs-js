@@ -1,13 +1,13 @@
-import {s} from "../utils";
+import {args, s} from "../utils";
 import {Breadcrumb} from '../../src';
 
 export default {
     title: 'Molecules/Breadcrumb',
     component: Breadcrumb,
     argTypes: {
-        items: { control: {type: 'object'} },
-        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
-        right: { control: {type: 'boolean'} }
+        items: args.items,
+        color: args.color,
+        toRight:args.toRight,
     },
 }
 

@@ -1,15 +1,16 @@
-import {s} from "../../utils";
+import {args, s} from "../../utils";
 import {GoalBlock} from '../../../src';
 
 export default {
     title: 'Organisms/Blocks/GoalBlock',
     component: GoalBlock,
     argTypes: {
-        values: { control: {type: 'object'} },
-        badgeLabel: { control: {type: 'text'} },
-        unit: { control: {type: 'select'}, options: [undefined, '$', '€', '£'] },
-        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
-        variant: { control: {type: 'select'}, options: ['filled', 'outlined', 'contained'] },
+        values: args.values,
+        badgeLabel: args.badgeLabel,
+        unit: args.unit,
+        color: args.color,
+        variant: args.blockVariant,
+        padding: args.padding,
     },
 }
 

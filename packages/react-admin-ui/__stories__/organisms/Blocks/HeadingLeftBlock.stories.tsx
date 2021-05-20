@@ -1,16 +1,17 @@
-import {s} from "../../utils";
+import {args, s} from "../../utils";
 import {HeadingLeftBlock} from '../../../src';
 
 export default {
     title: 'Organisms/Blocks/HeadingLeftBlock',
     component: HeadingLeftBlock,
     argTypes: {
-        title: { control: {type: 'text'} },
-        subtitle: { control: {type: 'text'} },
-        description: { control: {type: 'text'} },
-        btnLabel: { control: {type: 'text'} },
-        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
-        variant: { control: {type: 'select'}, options: ['filled', 'outlined', 'contained'] },
+        title: args.title,
+        subtitle: args.subtitle,
+        description: args.description,
+        btnLabel: args.btnLabel,
+        color: args.color,
+        variant: args.blockVariant,
+        padding: args.padding,
     },
 }
 

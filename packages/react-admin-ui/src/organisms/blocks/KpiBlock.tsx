@@ -1,11 +1,10 @@
 import {ReactNode, useCallback, useState} from 'react';
+import clsx from "clsx";
 import Text from "../../atoms/Text";
 import Icon from "../../atoms/Icon";
-import Block from "../../atoms/Block";
-import {box_color} from "../../types";
-import clsx from "clsx";
+import Block, {BaseBlockProps} from "../../atoms/Block";
 
-export function KpiBlock({icon, name, quantity, bgIcon, color, variant = 'contained'}: KpiBlockProps) {
+export function KpiBlock({icon, name, quantity, bgIcon, ...props}: KpiBlockProps) {
     const [isHover, setIsHover] = useState(false);
     const onHover = useCallback(() => {
         setIsHover(true)
@@ -15,7 +14,7 @@ export function KpiBlock({icon, name, quantity, bgIcon, color, variant = 'contai
     }, [setIsHover]);
 
     return (
-        <Block variant={variant} color={color}>
+        <Block {...props}>
             <div className={'flex justify-between items-center'} onMouseOver={onHover} onMouseLeave={onLeave}>
                 <div className={'flex items-center space-x-6'}>
                     {icon && <Icon icon={icon} />}
@@ -32,13 +31,11 @@ export function KpiBlock({icon, name, quantity, bgIcon, color, variant = 'contai
     );
 }
 
-export interface KpiBlockProps {
+export interface KpiBlockProps extends BaseBlockProps {
     icon?: string | ReactNode,
     name?: string,
     quantity?: number,
     bgIcon?: string | ReactNode,
-    color?: box_color,
-    variant?: 'contained',
 }
 
 export default KpiBlock

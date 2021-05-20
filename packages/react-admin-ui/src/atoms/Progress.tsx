@@ -23,32 +23,31 @@ const useStyles = makeStyles({
     root: {
       flexGrow: 1,
     },
-  });
+});
 
-export function Progress({variant = 'linear', progressValue = 0}: ProgressProps) {
+export function Progress({variant = 'linear', value = 0}: ProgressProps) {
   const classes = useStyles();
   switch (variant) {
       case 'circular':
           return (
               <div className={'relative inline-flex'}>
-                  <CircularProgress variant="determinate" value={progressValue} color={'inherit'} size={75} thickness={5}/>
-                  {progressValue && <div className={'absolute inset-0 flex justify-center items-center font-semibold'}>{progressValue.toString()+'%'}</div>}
+                  <CircularProgress variant="determinate" value={value} color={'inherit'} size={75} thickness={5}/>
+                  {value && <div className={'absolute inset-0 flex justify-center items-center font-semibold'}>{value.toString()+'%'}</div>}
               </div>
           );
       default:
       case 'linear':
           return (
             <div className={classes.root}>
-              <BorderLinearProgress variant='determinate' value={progressValue} />
+              <BorderLinearProgress variant='determinate' value={value} />
             </div>
           );
   }
-
 }
 
 export interface ProgressProps {
     variant?: 'linear' | 'circular',
-    progressValue?: number,
+    value?: number,
 }
 
 export default Progress

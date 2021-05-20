@@ -1,8 +1,8 @@
-import {Alert, Tag, Pill} from "../../atoms";
+import {Block, Tag, Pill, BaseBlockProps} from "../../atoms";
 
-export function FiguresBlock({ title, price, pill, tag, ...props }: FiguresBlockProps) {
+export function FiguresBlock({title, price, pill, tag, ...props}: FiguresBlockProps) {
     return (
-        <Alert {...props}>
+        <Block {...props}>
             <div className={'flex '}>
             <div>
                 {title && <div className= {'text-2xl mr-8 inline-block'}>{title}</div>}
@@ -17,11 +17,11 @@ export function FiguresBlock({ title, price, pill, tag, ...props }: FiguresBlock
                 <Pill text= {pill.text} color= {pill.color} />
             </div>
             </div>
-        </Alert>
+        </Block>
     );
 }
 
-export interface FiguresBlockProps {
+export interface FiguresBlockProps extends BaseBlockProps {
     title?: string,
     price?: string,
     pill?: any,
