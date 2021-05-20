@@ -1,15 +1,14 @@
-import {s} from "../utils";
+import {args, s} from "../utils";
 import {Dropdown} from '../../src';
 
 export default {
     title: 'Atoms/Dropdown',
     component: Dropdown,
     argTypes: {
-        menuItems: { control: {type: 'object'} },
-        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
-        variant: { control: {type: 'select'}, options: ['filled', 'outlined', 'contained'] },
+        menuItems: args.menuItems,
+        color: args.color,
+        variant: args.blockVariant,
     },
-
 }
 
 const Template = args => <Dropdown {...args} />;

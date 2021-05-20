@@ -1,13 +1,13 @@
-import {s} from "../utils";
+import {args, s} from "../utils";
 import {Accordion} from '../../src';
 
 export default {
     title: 'Molecules/Accordion',
     component: Accordion,
     argTypes: {
-        items: { control: {type: 'object'} },
-        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
-        variant: { control: {type: 'select'}, options: ['filled', 'outlined', 'contained'] },
+        items: args.items,
+        color: args.color,
+        variant: args.blockVariant,
     },
 }
 

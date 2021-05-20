@@ -1,13 +1,14 @@
-import {s} from "../utils";
+import {args, s} from "../utils";
 import {Alert} from '../../src';
 
 export default {
     title: 'Atoms/Alert',
     component: Alert,
     argTypes: {
-        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
-        variant: { control: {type: 'select'}, options: ['filled', 'outlined', 'contained'] },
-        closable: { control: {type: 'boolean'} },
+        color: args.color,
+        variant: args.blockVariant,
+        closable: args.closable,
+        children: args.children,
     },
 }
 

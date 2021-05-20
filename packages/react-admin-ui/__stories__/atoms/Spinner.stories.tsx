@@ -1,13 +1,12 @@
-import {s} from "../utils";
+import {args, s} from "../utils";
 import {Spinner} from '../../src';
 
 export default {
     title: 'Atoms/Spinner',
     component: Spinner,
     argTypes: {
-        variant: { control: {type: 'select'}, options: ['full-circle', 'half-circle', 'separate-circle', 'dotted-circle', 'dots', 'squares'] },
+        variant: args.spinnerVariant,
     },
-
 }
 
 const Template = args => <Spinner {...args} />;

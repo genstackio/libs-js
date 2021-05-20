@@ -1,13 +1,14 @@
-import {s} from "../utils";
+import {args, s} from "../utils";
 import {AlertPanel} from '../../src';
 
 export default {
     title: 'Molecules/AlertPanel',
     component: AlertPanel,
     argTypes: {
-        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
-        variant: { control: {type: 'select'}, options: ['filled', 'outlined', 'contained'] },
-        closable: { control: {type: 'boolean'} },
+        color: args.color,
+        variant: args.blockVariant,
+        title: args.title,
+        closable: args.closable,
     },
 }
 

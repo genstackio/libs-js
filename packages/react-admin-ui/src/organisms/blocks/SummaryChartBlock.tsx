@@ -1,10 +1,9 @@
 import {ReactNode, useCallback, useState} from 'react';
 import Icon from "../../atoms/Icon";
 import Chart from "react-apexcharts";
-import Block from "../../atoms/Block";
+import Block, {BaseBlockProps} from "../../atoms/Block";
 import {ApexOptions} from "apexcharts";
 import Button from "../../atoms/Button";
-import {box_color, box_variant} from "../../types";
 
 const defaultOptions: ApexOptions = {
     chart: {
@@ -62,14 +61,14 @@ const defaultOptions: ApexOptions = {
     }
 };
 
-export function SummaryChartBlock({title, subtitle, datas, dashboardItems = [], btnLabel, chartItems = [], color, variant = 'filled'}: SummaryChartBlockProps) {
+export function SummaryChartBlock({title, subtitle, datas, dashboardItems = [], btnLabel, chartItems = [], ...props}: SummaryChartBlockProps) {
     const [series, setSeries] = useState(datas[0]);
     const options = {...defaultOptions, xaxis: {...(defaultOptions.xaxis || {})}};
     options.xaxis.categories = series.categories;
     options.colors = series.colors;
     const handleClick = useCallback((data) => () => setSeries(data), [setSeries]);
     return (
-        <Block color={color} variant={variant}>
+        <Block padding={'none'} {...props}>
             <div className={'w-full grid grid-cols-4'}>
                 <div className={'md:col-span-4 border-r-1 md:border-r-0 md:border-b-1 p-6 xs:p-2 flex flex-col md:space-y-4'}>
                     <div className={'flex justify-between items-center mb-2'}>
@@ -77,7 +76,7 @@ export function SummaryChartBlock({title, subtitle, datas, dashboardItems = [], 
                             <div className={'font-bold'}>{title}</div>
                             <div className={'text-sm'}>{subtitle}</div>
                         </div>
-                        {btnLabel && <Button classes={'hidden md:block'} color={color} variant={'contained'}>{btnLabel}</Button>}
+                        {btnLabel && <Button classes={'hidden md:block'} color={props.color} variant={'contained'}>{btnLabel}</Button>}
                     </div>
                     {dashboardItems && <div className={'mb-2 md:flex md:flex-wrap md:justify-between md:items-center'}>
                         {dashboardItems.map(({value, description}, index) => (
@@ -87,13 +86,13 @@ export function SummaryChartBlock({title, subtitle, datas, dashboardItems = [], 
                             </div>
                         ))}
                     </div>}
-                    {btnLabel && <Button classes={'self-start md:hidden'} color={color} variant={'contained'}>{btnLabel}</Button>}
+                    {btnLabel && <Button classes={'self-start md:hidden'} color={props.color} variant={'contained'}>{btnLabel}</Button>}
                 </div>
                 <div className={'col-span-3 md:col-span-4'}>
                     <div  className={'relative h-3/4 min-h-250 md:h-auto p-6 xs:p-2'}>
                         <div className={'absolute xs:static top-2 left-2 flex'}>
                             {datas.map((data, index) => (
-                                <Button variant={'filled'} color={color} key={index} onClick={handleClick(data)} disabled={series === data}>{data.label}</Button>
+                                <Button variant={'filled'} color={props.color} key={index} onClick={handleClick(data)} disabled={series === data}>{data.label}</Button>
                             ))}
                         </div>
                         <Chart height={'100%'} options={options} series={series.series} type="area" />
@@ -117,15 +116,13 @@ export function SummaryChartBlock({title, subtitle, datas, dashboardItems = [], 
     );
 }
 
-export interface SummaryChartBlockProps {
+export interface SummaryChartBlockProps extends BaseBlockProps {
     title?: string,
     subtitle?: string,
     datas: {label?: string, categories?: string[], colors?: string[], series: {name?: string, data?: number[]}[]}[],
     dashboardItems?: {value?: string, description?: string}[],
     btnLabel?: string,
     chartItems?: {icon?: ReactNode, color?: string, name?: string, value?: number}[],
-    color?: box_color,
-    variant?: box_variant,
 }
 
 export default SummaryChartBlock

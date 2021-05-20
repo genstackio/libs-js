@@ -1,15 +1,15 @@
 import {useState} from 'react';
-import {s} from "../utils";
+import {args, s} from "../utils";
 import {Button, Modal} from '../../src';
 
 export default {
     title: 'Molecules/Modal',
     component: Modal,
     argTypes: {
-        title: { control: {type: 'text'} },
-        buttonsItems: { control: {type: 'object'} },
-        opened: { control: {type: 'boolean'} },
-        onClose: { control: {type: 'object'} },
+        title: args.title,
+        buttonsItems: args.buttonsItems,
+        opened: args.opened,
+        onClose: args.onClose,
     },
 }
 

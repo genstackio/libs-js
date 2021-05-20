@@ -1,14 +1,15 @@
-import React from 'react';
-import {s} from "../../utils";
+import {args, s} from "../../utils";
 import PeriodFigureBlock from "../../../src/organisms/blocks/PeriodFigureBlock";
 
 export default {
     title: 'Organisms/Blocks/PeriodFigureBlock',
     component: PeriodFigureBlock,
     argTypes: {
-        children: {control: {type: 'text'}},
-        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark', 'none'], defaultValue: 'none' },
-        variant: { control: {type: 'select'}, options: ['filled', 'outlined', 'contained'] },
+        items: args.items,
+        icon: args.icon,
+        color: args.color,
+        variant: args.blockVariant,
+        padding: args.padding,
     },
 
 }

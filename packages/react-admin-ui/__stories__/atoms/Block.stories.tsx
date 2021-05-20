@@ -1,16 +1,18 @@
-import {s} from "../utils";
+import {args, s} from "../utils";
 import {Block} from '../../src';
 
 export default {
     title: 'Atoms/Block',
     component: Block,
     argTypes: {
-        title: {control: {type: 'text'}},
-        children: {control: {type: 'text'}},
-        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
-        variant: { control: {type: 'select'}, options: ['filled', 'outlined', 'contained'] },
+        title: args.title,
+        children: args.children,
+        color: args.color,
+        variant: args.blockVariant,
+        padding: args.padding,
+        bntLabel: args.btnLabel,
+        dropdownItems: args. dropdownItems,
     },
-
 }
 
 const Template = args => <Block {...args} />;

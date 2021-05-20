@@ -1,15 +1,17 @@
-import {s} from "../../utils";
+import {args, s} from "../../utils";
 import {KpiBlock} from '../../../src';
 
 export default {
     title: 'Organisms/Blocks/KpiBlock',
     component: KpiBlock,
     argTypes: {
-        icon: { control: {type: 'object'} },
-        name: { control: {type: 'text'} },
-        quantity: { control: {type: 'number'} },
-        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
-        variant: { control: {type: 'select'}, options: ['contained'], defaultValue: 'contained' },
+        icon: args.icon,
+        bgIcon: args.bgIcon,
+        name: args.name,
+        quantity: args.quantity,
+        color: args.color,
+        variant: args.blockVariant,
+        padding: args.padding,
     },
 }
 

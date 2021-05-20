@@ -1,14 +1,13 @@
-import {s} from "../utils";
+import {args, s} from "../utils";
 import {Tag} from '../../src';
 
 export default {
     title: 'Atoms/Tag',
     component: Tag,
     argTypes: {
-        text: { control: 'text' },
-        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark', 'none'], defaultValue: 'primary' },
+        text: args.text,
+        color: args.color,
     },
-
 }
 
 const Template = args => (<Tag {...args} />);

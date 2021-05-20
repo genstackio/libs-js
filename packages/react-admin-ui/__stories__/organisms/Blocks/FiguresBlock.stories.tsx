@@ -1,13 +1,17 @@
-import {s} from "../../utils";
+import {args, s} from "../../utils";
 import {FiguresBlock} from '../../../src';
 
 export default {
     title: 'Organisms/Blocks/FiguresBlock',
     component: FiguresBlock,
     argTypes: {
-        items: { control: {type: 'object'} },
-        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
-        variant: { control: {type: 'select'}, options: ['filled', 'outlined', 'contained'] },
+        title: args.title,
+        price: args.price,
+        tag: args.tag,
+        pill: args.pill,
+        color: args.color,
+        variant: args.blockVariant,
+        padding: args.padding,
     },
 }
 

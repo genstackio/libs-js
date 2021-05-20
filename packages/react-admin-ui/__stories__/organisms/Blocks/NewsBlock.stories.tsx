@@ -9,8 +9,8 @@ export default {
         items: { control: {type: 'object'} },
         btnLabel: { control: {type: 'text'} },
         dropdownItems: { control: {type: 'object'} },
-        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
-        variant: { control: {type: 'select'}, options: ['filled', 'outlined', 'contained'] },
+        color: args.color,
+       variant: args.blockVariant,
     },
 }
 

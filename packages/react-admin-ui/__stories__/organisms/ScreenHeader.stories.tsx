@@ -1,12 +1,12 @@
-import {s} from "../utils";
+import {args, s} from "../utils";
 import {ScreenHeader} from '../../src';
 
 export default {
     title: 'Organisms/ScreenHeader',
     component: ScreenHeader,
     argTypes: {
-        items: { control: {type: 'object'} },
-        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
+        items: args.items,
+        color: args.color,
     },
 }
 

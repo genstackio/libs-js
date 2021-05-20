@@ -1,14 +1,14 @@
-import {s} from "../utils";
+import {args, s} from "../utils";
 import {Text} from '../../src';
 
 export default {
     title: 'Atoms/Text',
     component: Text,
     argTypes: {
-        color: { control: {type: 'select'}, options: ['inherit', 'primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
-        variant: { control: {type:'select'}, options :['title1', 'title2', 'title3', 'title4', 'title5', 'title6', 'subtitle', 'underline', 'body', 'description'] }
+        color: args.color,
+        variant: args.textVariant,
+        text: args.text,
     },
-
 }
 
 const Template = args => <Text {...args}/>;

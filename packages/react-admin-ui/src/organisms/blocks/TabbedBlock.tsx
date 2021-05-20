@@ -1,10 +1,9 @@
 import {useState, useCallback, ReactNode, ChangeEvent} from 'react';
-import {Block} from "../../atoms";
+import {BaseBlockProps, Block} from "../../atoms";
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import AppBar from '@material-ui/core/AppBar';
 import colorClass from "../../utils/colorClass";
-import {box_color, box_variant} from "../../types";
 
 function TabPanel({children, value, index, ...props}: TabPanelProps) {
     return (
@@ -28,13 +27,13 @@ interface TabPanelProps {
     value: any;
 }
 
-export function TabbedBlock({items = [], color, variant = 'outlined'}: TabbedBlockProps) {
+export function TabbedBlock({items = [], ...props}: TabbedBlockProps) {
     const [value, setValue] = useState(0);
     const handleChange = useCallback((event: ChangeEvent<{}>, newValue: number) => setValue(newValue), [setValue]);
     return (
-        <Block variant={variant} color={color}>
+        <Block padding={'none'} {...props}>
             <AppBar position="static" elevation={0} color={'transparent'}>
-                <Tabs variant={'scrollable'} scrollButtons={'on'} value={value} onChange={handleChange} aria-label="simple tabs example" className={'bg-transparent border-b-1 border-gray-200'} TabIndicatorProps={{className: colorClass({color, variant})}}>
+                <Tabs variant={'scrollable'} scrollButtons={'on'} value={value} onChange={handleChange} aria-label="simple tabs example" className={'bg-transparent border-b-1 border-gray-200'} TabIndicatorProps={{className: colorClass({color: props.color, variant: 'outlined'})}}>
                     {items.map(({title, disabled}, index) => (
                         <Tab label={title} key={index} id={`simple-tab-${index}`} aria-controls={`simple-tabpanel-${index}`} disabled={disabled} className={'focus:outline-none'} />
                     ))}
@@ -49,10 +48,8 @@ export function TabbedBlock({items = [], color, variant = 'outlined'}: TabbedBlo
     );
 }
 
-export interface TabbedBlockProps {
+export interface TabbedBlockProps extends BaseBlockProps {
     items?: {title?: any, content?: any, disabled?: boolean}[],
-    color?: box_color,
-    variant?: box_variant,
 }
 
 export default TabbedBlock
