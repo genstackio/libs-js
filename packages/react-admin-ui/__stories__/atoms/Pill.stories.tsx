@@ -1,4 +1,4 @@
-import {args, s} from "../utils";
+import {args, s} from '../utils';
 import {Pill} from '../../src';
 
 export default {
@@ -7,7 +7,11 @@ export default {
     argTypes: {
         text: args.text,
         color: args.color,
+        variant: args.blockVariant,
     },
 }
 const Template = args => (<Pill {...args} />);
-export const basic = s(Template, {text: "8"})
+
+export const basic = s(Template, {
+    text: "8",
+})

@@ -11,7 +11,7 @@ export function GoalBlock({values, badgeLabel, unit, ...props}: GoalBlockProps) 
                 <div className={'space-y-2'}>
                     <div className={'flex justify-between items-center space-x-4 xs:space-x-2'}>
                         <div className={'text-2xl font-semibold'}>{formatAmount(values.current, unit)}</div>
-                        {badgeLabel && <Badge variant={'tag'} color={props.color} text={badgeLabel} />}
+                        {badgeLabel && <Badge type={'tag'} color={props.color} text={badgeLabel} />}
                     </div>
                     <div className={'text-sm font-light'}>{values.text}</div>
                 </div>

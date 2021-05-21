@@ -88,7 +88,7 @@ export const args = {
     status: { control: {type: 'select'}, options: ['online', 'offline', 'busy'] },
     unit: { control: {type: 'select'}, options: [undefined, '$', '€', '£', 'M'] },
     badgeVariant: { control: {type: 'select'}, options: ['pill', 'tag', 'none'] },
-    blockVariant: { control: {type: 'select'}, options: ['filled', 'outlined', 'contained'] },
+    blockVariant: { control: {type: 'select'}, options: ['filled', 'outlined', 'contained'], defaultValue: 'contained' },
     progressVariant: { control: {type: 'select'}, options: ['linear', 'circular'] },
     spinnerVariant: { control: {type: 'select'}, options: ['full-circle', 'half-circle', 'separate-circle', 'dotted-circle', 'dots', 'squares'] },
     textVariant: { control: {type:'select'}, options :['title1', 'title2', 'title3', 'title4', 'title5', 'title6', 'subtitle', 'underline', 'body', 'description'] },
@@ -99,4 +99,5 @@ export const args = {
     onClick: { table: {disable: true} },
     onClose: { table: {disable: true} },
     default: { control: {type: 'text'} },
+    iconCorner: { control: {type: 'select'}, options: ['settings', 'query_builder', 'notifications_none_icon', 'none'] },
 };

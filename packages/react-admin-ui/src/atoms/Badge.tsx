@@ -1,10 +1,10 @@
 import Pill from './Pill';
-import {badge_variant, box_color} from "../types";
-import Tag, {TagProps} from './Tag';
+import {box_color, badge_variant, box_variant} from "../types";
+import Tag from './Tag';
 
-export function Badge({variant, ...props}: BadgeProps) {
+export function Badge({type, ...props}: BadgeProps) {
     if (!props.text) return null;
-    switch (variant) {
+    switch (type) {
         case 'pill': return <Pill  {...props}  />;
         case 'none': return null;
         default:
@@ -12,10 +12,11 @@ export function Badge({variant, ...props}: BadgeProps) {
     }
 }
 
-export interface BadgeProps extends TagProps {
-    variant?: badge_variant,
+export interface BadgeProps {
+    variant?: box_variant,
     color?: box_color,
     text?: string,
+    type?: badge_variant,
 }
 
 export default Badge
