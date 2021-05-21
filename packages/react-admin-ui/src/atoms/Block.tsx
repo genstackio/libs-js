@@ -7,7 +7,7 @@ import {box_color, box_variant} from "../types";
 
 const paddings = {
     none: '',
-    default: 'p-10 text-md xs:p-4'
+    default: 'p-10 xs:p-4'
 }
 export function Block({title, padding = 'default', children, color, variant = 'filled', btnLabel, dropdownItems}: BlockProps) {
     return (

@@ -1,4 +1,5 @@
 export * from './CalendarBlock'
+export * from './FigureBlock'
 export * from './FiguresBlock'
 export * from './GoalBlock'
 export * from './HeadingBlock'
