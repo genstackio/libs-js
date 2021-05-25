@@ -15,52 +15,48 @@ const Template = args => <Gallery {...args} />;
 export const basic = s(Template, {
     items: [
         {
-            url: 'https://image-placeholder.com/images/actual-size/200x200.png',
+            url: 'https://picsum.photos/200/200',
             alt: 'alt',
         },
         {
-            url: 'https://image-placeholder.com/images/actual-size/200x200.png',
+            url: 'https://picsum.photos/200/200',
             alt: 'alt',
         },
         {
-            url: 'https://image-placeholder.com/images/actual-size/200x200.png',
+            url: 'https://picsum.photos/200/200',
             alt: 'alt',
         },
         {
-            url: 'https://image-placeholder.com/images/actual-size/200x200.png',
+            url: 'https://picsum.photos/200/200',
             alt: 'alt',
         },
         {
-            url: 'https://image-placeholder.com/images/actual-size/200x200.png',
+            url: 'https://picsum.photos/200/200',
             alt: 'alt',
         },
         {
-            url: 'https://image-placeholder.com/images/actual-size/200x200.png',
+            url: 'https://picsum.photos/200/200',
             alt: 'alt',
         },
         {
-            url: 'https://image-placeholder.com/images/actual-size/200x200.png',
+            url: 'https://picsum.photos/200/200',
             alt: 'alt',
         },
         {
-            url: 'https://image-placeholder.com/images/actual-size/200x200.png',
+            url: 'https://picsum.photos/200/200',
             alt: 'alt',
         },
         {
-            url: 'https://image-placeholder.com/images/actual-size/200x200.png',
+            url: 'https://picsum.photos/200/200',
             alt: 'alt',
         },
         {
-            url: 'https://image-placeholder.com/images/actual-size/200x200.png',
+            url: 'https://picsum.photos/200/200',
             alt: 'alt',
         },
         {
-            url: 'https://image-placeholder.com/images/actual-size/200x200.png',
+            url: 'https://picsum.photos/200/200',
             alt: 'alt',
         },
-        {
-            url: 'https://image-placeholder.com/images/actual-size/200x200.png',
-            alt: 'alt',
-        }
-    ],
+    ]
 })
