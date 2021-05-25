@@ -1,14 +1,14 @@
-import {s} from "../../utils";
+import {args, s} from "../../utils";
 import {NewsBlock} from '../../../src';
 
 export default {
     title: 'Organisms/Blocks/NewsBlock',
     component: NewsBlock,
     argTypes: {
-        title: { control: {type: 'text'} },
-        items: { control: {type: 'object'} },
-        btnLabel: { control: {type: 'text'} },
-        dropdownItems: { control: {type: 'object'} },
+        title: args.title,
+        items: args.items,
+        btnLabel: args.btnLabel,
+        dropdownItems: args.dropdownItems,
         color: args.color,
        variant: args.blockVariant,
     },

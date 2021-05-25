@@ -1,5 +1,5 @@
 import {args, s} from "../../utils";
-import PeriodFigureBlock from "../../../src/organisms/blocks/PeriodFigureBlock";
+import {PeriodFigureBlock} from "../../../src";
 
 export default {
     title: 'Organisms/Blocks/PeriodFigureBlock',
