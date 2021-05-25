@@ -41,6 +41,7 @@ export function Ribbon({children, color, text, position = 'top-left', horizontal
                 </div>
                 {top_space ? children : ''}
             </div>}
+            {(horizontal || vertical) ? '' : <div>{children}</div>}
         </div>
     );
 }
