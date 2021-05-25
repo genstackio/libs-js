@@ -88,7 +88,8 @@ export const basic = s(Template, {
         {
             icon: <AttachMoneyIcon className={'text-white'} />,
             color: 'primary',
-            name: 'Sales Forcasting',
+            series: [{data: [40, 90, 80, 100, 70, 120, 30, 80, 20, 73, 60]}],
+            name: 'Sales Forecasting',
             value: '$9,478.50',
         },
     ],
