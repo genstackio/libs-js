@@ -22,3 +22,16 @@ export const basic = s(Template, {
         " maiestatis adscisceret, futurum laborum quoque socium, quos Arctoae provinciae diu fessae\n" +
         " poscebant.",
 })
+
+export const withIcone = s(Template, {
+    title: "First French Kebab",
+    subTitle: "Toujours convoité, jamais égalé !!!",
+    text: "Advenit post multos Scudilo Scutariorum tribunus velamento subagrestis ingenii\n" +
+        " persuasionis opifex callidus. qui eum adulabili sermone seriis admixto solus omnium proficisci\n" +
+        " pellexit vultu adsimulato saepius replicando quod flagrantibus votis eum videre frater cuperet\n" +
+        " patruelis, siquid per inprudentiam gestum est remissurus ut mitis et clemens, participemque eum suae\n" +
+        " maiestatis adscisceret, futurum laborum quoque socium, quos Arctoae provinciae diu fessae\n" +
+        " poscebant.",
+    icon: 'local_bar',
+    size: 40,
+})

@@ -1,8 +1,8 @@
+import {ReactNode} from "react";
 import {box_color, ribbon_position} from "../types";
 import clsx from "clsx";
 import colorClass from "../utils/colorClass";
-import {ReactNode} from "react";
-import Icon from '@material-ui/core/Icon';
+import Icon from "./Icon";
 
 export function Ribbon({children, color, text, position = 'top-left', horizontal, vertical}: RibbonProps) {
     let triangle_position, horizontal_rectangle_position, triangle_rotate, vertical_rectangle_position, top_space, bottom_space
@@ -36,7 +36,7 @@ export function Ribbon({children, color, text, position = 'top-left', horizontal
                 <div className='mt-24'/>
                 <div className={clsx(vertical_rectangle_position, '')}>
                     <div className={clsx(colorClass({color: color, variant: 'contained'}), 'w-32 transform rotate-90 text-center text-white py-1')}>
-                        <Icon>settings</Icon>
+                        <Icon icon='settings' />
                     </div>
                 </div>
                 {top_space ? children : ''}

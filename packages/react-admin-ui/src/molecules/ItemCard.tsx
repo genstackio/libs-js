@@ -1,11 +1,14 @@
-import {Block} from "../atoms";
+import {Block, Icon} from "../atoms";
 import {box_color, box_variant} from "../types";
 
-export function ItemCard({title, subTitle, text, ...props}: ItemCardProps) {
+export function ItemCard({title, subTitle, text, size, icon, ...props}: ItemCardProps) {
     return (
         <Block variant={props.blockVariant} color={props.blockColor}>
             <div className='absolute left-4'>
                     <div className="grid grid-rows-2 grid-flow-col gap-4">
+                        <div className='row-span-2 ml-4'>
+                            {icon ? <Icon size={size}  icon={icon} /> : <div/>}
+                        </div>
                         <div className='row-span-1'>
                             <h1 className='font-extrabold text-3xl'>{title}</h1>
                         </div>
@@ -25,6 +28,8 @@ export interface ItemCardProps {
     text?: string,
     blockVariant?: box_variant,
     blockColor?: box_color,
+    icon?: string,
+    size?: number,
 }
 
 export default ItemCard
