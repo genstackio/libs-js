@@ -22,4 +22,10 @@ export const custom = s(Template, {
     text: "je suis un tag",
     variant: 'outlined',
     icon: 'settings',
+    size: 21,
+})
+export const noText = s(Template, {
+    variant: 'outlined',
+    icon: 'settings',
+    size: 21,
 })

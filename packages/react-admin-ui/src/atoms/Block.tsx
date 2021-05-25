@@ -9,7 +9,7 @@ import Icon from "./Icon";
 
 const paddings = {
     none: '',
-    default: 'p-10 xs:p-4'
+    default: 'p-10'
 }
 
 export function Block({title, icon, padding = 'default', variant = 'filled', children, color ='light', btnLabel, dropdownItems, image}: BlockProps) {

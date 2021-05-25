@@ -3,7 +3,6 @@ import colorClass from "../utils/colorClass";
 import {box_color, box_variant, badge} from "../types";
 import {makeStyles} from "@material-ui/core/styles";
 import MuiAccordion from "@material-ui/core/Accordion";
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import {Icon, Badge} from "../atoms";
@@ -17,7 +16,7 @@ const useStyles = makeStyles({
     }
 });
 
-export function Accordion({items = [], color, variant}: AccordionProps) {
+export function Accordion({items = [], color, variant, expandIcon}: AccordionProps) {
     const classes = useStyles();
     const [expanded, setExpanded] = useState<number | false>(false);
     const handleChange = useCallback((panel: number) => (event: ChangeEvent<{}>, newExpanded: boolean) => {
@@ -27,7 +26,7 @@ export function Accordion({items = [], color, variant}: AccordionProps) {
             {items.map(({icon, title, badge, content}, index) => (
                 <MuiAccordion elevation={0} key={index} classes={classes} className={clsx(classes.root, 'rounded-t-md mb-2')} square={true} expanded={expanded === index} onChange={handleChange(index)}>
                     <MuiAccordionSummary
-                        expandIcon={<ExpandMoreIcon className={clsx(colorClass({color, variant}))} />}
+                        expandIcon={expandIcon ? <Icon className={clsx(colorClass({color, variant}))} icon={expandIcon} />:undefined}
                         aria-controls={`panel${index}-content`} id={`panel${index}-header`}
                         className={clsx('rounded-t-md', colorClass({color, variant}))}>
                         <div className={'w-full flex justify-between items-center'}>
@@ -41,11 +40,11 @@ export function Accordion({items = [], color, variant}: AccordionProps) {
                     <MuiAccordionDetails className={'py-3 px-4'}>
                         {typeof content === 'string' && <div className={'text-sm tracking-wider'}>{content}</div>}
                         {Array.isArray(content) &&
-                            <div className={'flex flex-col space-y-4'}>
-                                {content.map(({label, target}, index) => (
-                                    <a key={index} className={'text-gray-400'} href={target}>-  {label}</a>
-                                ))}
-                            </div>
+                        <div className={'flex flex-col space-y-4'}>
+                            {content.map(({label, target}, index) => (
+                                <a key={index} className={'text-gray-400'} href={target}>-  {label}</a>
+                            ))}
+                        </div>
                         }
                     </MuiAccordionDetails>
                 </MuiAccordion>
@@ -58,6 +57,7 @@ export interface AccordionProps {
     items: {icon?: string, title?: string, badge?: badge, content?: string | any[]}[]
     color?: box_color,
     variant?: box_variant,
+    expandIcon?: string,
 }
 
 export default Accordion
