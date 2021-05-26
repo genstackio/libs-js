@@ -16,11 +16,11 @@ export function Block({title, padding = 'default', variant = 'filled', children,
         <div className={clsx('rounded-2xl relative flex flex-col shadow-block',colorClass({color, variant}))}>
             <Container bgImage={image} className='rounded-2xl'>
                 { title && (
-                <div className={clsx(paddings['default'], 'border-b-1 flex justify-between items-center')}>
-                    <h5 className={'text-2xl'}>{title}</h5>
-                    {btnLabel && <Button color={color}>{btnLabel}</Button>}
-                    {dropdownItems && <Dropdown menuItems={dropdownItems} color={color} variant={variant} />}
-                </div>
+                    <div className={clsx(paddings['default'], 'border-b-1 flex justify-between items-center')}>
+                        <h5 className={'text-2xl'}>{title}</h5>
+                        {btnLabel && <Button color={color}>{btnLabel}</Button>}
+                        {dropdownItems && <Dropdown menuItems={dropdownItems} color={color} variant={variant} />}
+                    </div>
                 )}
                 <div className={clsx(paddings[padding], 'text-md')}>
                     {children || ''}
