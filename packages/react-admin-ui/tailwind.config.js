@@ -26,6 +26,18 @@ module.exports = {
       'xs': {'max': '600px'},
       // => @media (max-width: 600px) { ... }
     },
+    fontFamily: {
+      title1: ['Rubik'],
+      title2: ['Rubik'],
+      title3: ['Rubik'],
+      title4: ['Rubik'],
+      title5: ['Rubik'],
+      title6: ['Rubik'],
+      subtitle: ['Rubik'],
+      underline: ['Rubik'],
+      body: ['Rubik'],
+      description: ['Rubik'],
+    },
     extend: {
       colors: {
         primary: '#7366FF',

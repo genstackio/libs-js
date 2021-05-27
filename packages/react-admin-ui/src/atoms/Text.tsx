@@ -14,16 +14,16 @@ const colors = {
 }
 
 const variants = {
-    title1: 'text-6xl font-bold',
-    title2: 'text-5xl font-bold',
-    title3: 'text-4xl font-bold',
-    title4: 'text-3xl font-bold',
-    title5: 'text-2xl font-bold',
-    title6: 'text-xl font-bold',
-    subtitle:'text-lg font-light',
-    underline: 'text-base underline',
-    body: 'text-base',
-    description: 'text-sm',
+    title1: 'text-6xl font-bold font-title1',
+    title2: 'text-5xl font-bold font-title2',
+    title3: 'text-4xl font-bold font-title3',
+    title4: 'text-3xl font-bold font-title4',
+    title5: 'text-2xl font-bold font-title5',
+    title6: 'text-xl font-bold font-title6',
+    subtitle:'text-lg font-light font-subtitle',
+    underline: 'text-base underline font-underline',
+    body: 'text-base font-body',
+    description: 'text-sm font-description',
 }
 
 export function Text({text, color = 'inherit', variant = 'body'}: TextProps) {
