@@ -3,6 +3,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700|Google+Sans+Text:400');
 
 /*noinspection CssUnknownTarget*/
+@import "react-dropzone-uploader/dist/styles.css";
+/*noinspection CssUnknownTarget*/
 @import "swiper/swiper-bundle.css";
 
 @tailwind base;

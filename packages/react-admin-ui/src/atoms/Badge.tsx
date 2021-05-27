@@ -3,6 +3,7 @@ import {badge_variant, box_color} from "../types";
 import Tag, {TagProps} from './Tag';
 
 export function Badge({variant, ...props}: BadgeProps) {
+    if (!props.text) return null;
     switch (variant) {
         case 'pill': return <Pill  {...props}  />;
         case 'none': return null;
