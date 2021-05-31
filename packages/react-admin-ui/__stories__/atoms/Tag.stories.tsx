@@ -1,4 +1,4 @@
-import {args, s} from "../utils";
+import {args, s} from '../utils';
 import {Tag} from '../../src';
 
 export default {
@@ -6,9 +6,20 @@ export default {
     component: Tag,
     argTypes: {
         text: args.text,
+        icon: args.iconCorner,
         color: args.color,
+        variant: args.blockVariant,
     },
 }
 
 const Template = args => (<Tag {...args} />);
-export const basic = s(Template, {text: "je suis un tag"})
+
+export const basic = s(Template, {
+    text: "je suis un tag",
+})
+
+export const custom = s(Template, {
+    text: "je suis un tag",
+    variant: 'outlined',
+    icon: 'settings',
+})

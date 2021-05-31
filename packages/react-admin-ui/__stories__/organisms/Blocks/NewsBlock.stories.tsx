@@ -1,4 +1,4 @@
-import {args, s} from "../../utils";
+import {args, s} from '../../utils';
 import {NewsBlock} from '../../../src';
 
 export default {
@@ -17,24 +17,24 @@ export default {
 const Template = args => <NewsBlock {...args} />;
 
 export const basic = s(Template, {
-    title: 'News & Update',
+    title: "News & Update",
     items: [
         {
-            title: '36% off For pixel lights Couslations Types.',
-            content: 'Lorem Ipsum is simply dummy...'
+            title: "36% off For pixel lights Couslations Types.",
+            content: "Lorem Ipsum is simply dummy..."
         },
         {
-            title: 'We are produce new product this',
-            content: 'Lorem Ipsum is simply text of the printing...'},
+            title: "We are produce new product this",
+            content: "Lorem Ipsum is simply text of the printing..."},
         {
-            title: '50% off For COVID Couslations Types.',
-            content: 'Lorem Ipsum is simply dummy...'
+            title: "50% off For COVID Couslations Types.",
+            content: "Lorem Ipsum is simply dummy..."
         },
     ],
-    btnLabel: 'More...',
+    btnLabel: "More...",
     dropdownItems: [
-        {name: 'Today'},
-        {name: 'Tomorrow'},
-        {name: 'Yesterday'},
+        {name: "Today"},
+        {name: "Tomorrow"},
+        {name: "Yesterday"},
     ]
 });

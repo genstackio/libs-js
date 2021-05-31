@@ -5,7 +5,9 @@
 /*noinspection CssUnknownTarget*/
 @import "react-dropzone-uploader/dist/styles.css";
 /*noinspection CssUnknownTarget*/
-@import "swiper/swiper-bundle.css";
+@import 'swiper/swiper-bundle.css';
+/*noinspection CssUnknownTarget*/
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 
 @tailwind base;
 @tailwind components;
