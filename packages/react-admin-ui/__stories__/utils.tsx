@@ -69,6 +69,7 @@ export const args = {
     buttonsItems: { control: {type: 'object'} },
     chartItems: { control: {type: 'object'} },
     chart: { control: {type: 'object'} },
+    columns: { control: {type: 'object'} },
     dashboardItems: { control: {type: 'object'} },
     datas: { control: {type: 'object'} },
     dropdownItems: { control: {type: 'object'} },
