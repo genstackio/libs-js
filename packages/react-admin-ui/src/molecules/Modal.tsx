@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import {MouseEventHandler, ReactNode} from 'react';
 import {Button} from "../atoms";
 import MuiModal from "@material-ui/core/Modal";
 import {box_color, box_variant} from "../types";
@@ -28,9 +28,9 @@ export function Modal({children, title, buttonsItems, opened = false, onClose}: 
 
 export interface ModalProps {
     title?: string,
-    buttonsItems?: {variant?: box_variant, color?: box_color, onClick?: Function, label?: string}[],
+    buttonsItems?: {variant?: box_variant, color?: box_color, onClick?: MouseEventHandler, label?: string}[],
     opened?: boolean,
-    onClose?: Function,
+    onClose?: MouseEventHandler,
     children?: ReactNode,
 }
 

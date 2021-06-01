@@ -1,6 +1,6 @@
 import {Accordion} from './';
 import {TextBlock} from './';
-import {badge_variant, box_color, box_variant} from "../types";
+import {badge, box_color, box_variant} from "../types";
 
 export function Menu ({items= [], title, text, color, variant}: MenuProps) {
     return(
@@ -16,8 +16,7 @@ export function Menu ({items= [], title, text, color, variant}: MenuProps) {
 export interface MenuProps {
     title?: string,
     text?: string,
-    items: {icon?: string, title?: string, badge?: {type: badge_variant, variant: box_variant, label: string, color: box_color}, content?: string | any[]}[]
+    items: {icon?: string, title?: string, badge?: badge, content?: string | string[]}[]
     color?: box_color,
-    type?: badge_variant,
     variant?: box_variant,
 }

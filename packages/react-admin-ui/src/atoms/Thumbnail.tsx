@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import {image} from '../types';
 
 const sizes = {
     'xl': 'w-24 h-30 text-5xl',
@@ -16,7 +17,7 @@ export function Thumbnail({image, size = 'xl', shape = 'rounded'}: ThumbnailProp
 }
 
 export interface ThumbnailProps {
-    image?: any,
+    image?: image,
     size?: 'xl',
     shape?: 'rounded',
 }

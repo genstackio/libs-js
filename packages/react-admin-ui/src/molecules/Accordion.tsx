@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import colorClass from "../utils/colorClass";
-import {badge_variant, box_color, box_variant} from "../types";
+import {box_color, box_variant, badge} from "../types";
 import {makeStyles} from "@material-ui/core/styles";
 import MuiAccordion from "@material-ui/core/Accordion";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -55,9 +55,8 @@ export function Accordion({items = [], color, variant}: AccordionProps) {
 }
 
 export interface AccordionProps {
-    items: {icon?: string, title?: string, badge?: {type: badge_variant, variant: box_variant, label: string, color: box_color}, content?: string | any[]}[]
+    items: {icon?: string, title?: string, badge?: badge, content?: string | any[]}[]
     color?: box_color,
-    type?: badge_variant,
     variant?: box_variant,
 }
 
