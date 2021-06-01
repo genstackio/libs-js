@@ -35,7 +35,7 @@ export function Accordion({items = [], color, variant}: AccordionProps) {
                                 {icon && <Icon icon={icon} />}
                                 <div className={'font-bold'}>{title}</div>
                             </div>
-                            {badge && <Badge color={badge.color} variant={badge.type} text={badge.label} />}
+                            {badge && <Badge color={badge.color} variant={badge.variant} type={badge.type} text={badge.label} />}
                         </div>
                     </MuiAccordionSummary>
                     <MuiAccordionDetails className={'py-3 px-4'}>
@@ -43,7 +43,7 @@ export function Accordion({items = [], color, variant}: AccordionProps) {
                         {Array.isArray(content) &&
                             <div className={'flex flex-col space-y-4'}>
                                 {content.map(({label, target}, index) => (
-                                    <a className={'text-gray-400'} href={target}>-  {label}</a>
+                                    <a key={index} className={'text-gray-400'} href={target}>-  {label}</a>
                                 ))}
                             </div>
                         }
@@ -55,8 +55,9 @@ export function Accordion({items = [], color, variant}: AccordionProps) {
 }
 
 export interface AccordionProps {
-    items: {icon?: string, title?: string, badge?: {type: badge_variant, label: string, color: box_color}, content?: string | any[]}[]
+    items: {icon?: string, title?: string, badge?: {type: badge_variant, variant: box_variant, label: string, color: box_color}, content?: string | any[]}[]
     color?: box_color,
+    type?: badge_variant,
     variant?: box_variant,
 }
 

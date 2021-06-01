@@ -64,12 +64,12 @@ module.exports = {
         outlined_secondary2: 'black',
       },
       chartColors: {
-        filled_primary: ['#7366FF', '#F73164', '#FC740D'],
-        contained_primary: ['#7366FF', '#F73164', '#FC740D'],
-        outlined_primary: ['#7366FF', '#F73164', '#FC740D'],
-        filled_secondary: ['#F73164', '#FC740D', '#29B6F6'],
-        contained_secondary: ['#F73164', '#FC740D', '#29B6F6'],
-        outlined_secondary: ['#F73164', '#FC740D', '#29B6F6'],
+        filled_primary: ['#29B6F6', '#F73164', '#FC740D'],
+        contained_primary: ['#29B6F6', '#F73164', '#FC740D'],
+        outlined_primary: ['#29B6F6', '#F73164', '#FC740D'],
+        filled_secondary: ['#000', '#FC740D', '#29B6F6'],
+        contained_secondary: ['#000', '#FC740D', '#29B6F6'],
+        outlined_secondary: ['#000', '#FC740D', '#29B6F6'],
       },
       chartBgColors: {
         filled_primary: ['#FCF8FE', '#F7EEFF'],

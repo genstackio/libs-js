@@ -28,6 +28,7 @@ export const basic = s(Template,  {
             title: 'Dashboard',
             badge: {
                 type: 'tag',
+                variant: 'contained',
                 label: '2',
                 color: 'success',
             },
@@ -46,6 +47,7 @@ export const basic = s(Template,  {
             title: 'Widgets',
             badge: {
                 type: 'pill',
+                variant: 'contained',
                 label: '2',
                 color: 'danger',
             },
