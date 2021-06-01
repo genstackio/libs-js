@@ -1,4 +1,5 @@
 import {Block, Tag, Pill, BaseBlockProps} from "../../atoms";
+import {pill, tag} from '../../types';
 
 export function FigureBlock({title, price, pill, tag, ...props}: FigureBlockProps) {
     return (
@@ -24,8 +25,8 @@ export function FigureBlock({title, price, pill, tag, ...props}: FigureBlockProp
 export interface FigureBlockProps extends BaseBlockProps {
     title?: string,
     price?: string,
-    pill?: any,
-    tag?: any,
+    pill?: pill,
+    tag?: tag,
 }
 
 export default FigureBlock

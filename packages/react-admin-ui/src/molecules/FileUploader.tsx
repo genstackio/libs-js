@@ -1,6 +1,7 @@
 import {useCallback} from 'react';
 import Dropzone from 'react-dropzone-uploader/dist/react-dropzone-uploader';
 import {Block} from "../atoms";
+import {box_color, box_variant} from '../types';
 
 const defaultDropzoneStyle = {
     dropzone: {
@@ -56,9 +57,9 @@ export function FileUploader({
 }
 
 export interface FileUploaderProps {
-    color?: any,
-    variant?: any,
-    title?: any,
+    color?: box_color,
+    variant?: box_variant,
+    title?: string,
     url?: string,
     accept?: string,
     placeholder?: string,

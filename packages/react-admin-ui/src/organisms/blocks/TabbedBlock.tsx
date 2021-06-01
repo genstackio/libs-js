@@ -23,8 +23,8 @@ function TabPanel({children, value, index, ...props}: TabPanelProps) {
 
 interface TabPanelProps {
     children?: ReactNode;
-    index: any;
-    value: any;
+    index: number;
+    value: number;
 }
 
 export function TabbedBlock({items = [], ...props}: TabbedBlockProps) {
@@ -49,7 +49,7 @@ export function TabbedBlock({items = [], ...props}: TabbedBlockProps) {
 }
 
 export interface TabbedBlockProps extends BaseBlockProps {
-    items?: {title?: any, content?: any, disabled?: boolean}[],
+    items?: {title?: string, content?: string, disabled?: boolean}[],
 }
 
 export default TabbedBlock

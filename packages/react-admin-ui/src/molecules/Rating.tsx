@@ -3,6 +3,7 @@ import RatingUI from '@material-ui/lab/Rating';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import {ChangeEvent} from "react";
 
 const StyledRating = withStyles({
   iconFilled: {
@@ -35,7 +36,7 @@ export interface RatingProps {
     text?: string,
     defaultValue?: number,
     value?: number,
-    onChange?: any,
+    onChange?: (event: ChangeEvent<{}>, value: number | null) => void,
 }
 
 export default Rating

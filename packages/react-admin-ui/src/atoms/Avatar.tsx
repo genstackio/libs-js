@@ -1,5 +1,6 @@
 import {useCallback} from 'react';
 import clsx from "clsx";
+import {image} from '../types';
 
 const sizes = {
     'xs': 'w-8 h-8 text-xs',
@@ -39,7 +40,7 @@ export function Avatar({name, image, size = 'md', shape = 'circular', status = u
 
 export interface AvatarProps {
     name: string,
-    image?: any,
+    image?: image,
     size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
     shape?: 'circular' | 'rounded',
     status?: 'online' | 'offline' | 'busy',

@@ -3,7 +3,7 @@ import Button from '../../atoms/Button';
 import Block, {BaseBlockProps} from '../../atoms/Block';
 import {Avatar} from '../../atoms';
 import {Corner} from "../../molecules";
-import {icon_variant} from "../../types";
+import {image, icon_variant} from "../../types";
 
 export function HeadingBlock(
     {title, text, btnLabel, image, iconTitle,
@@ -46,7 +46,7 @@ export interface HeadingBlockProps extends BaseBlockProps {
     title: string,
     text: string,
     btnLabel: string,
-    image: any,
+    image: image,
     topLeft?: boolean,
     textCornerTopLeft?: string,
     iconCornerTopLeft?: icon_variant,

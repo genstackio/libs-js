@@ -1,6 +1,6 @@
 import Badge from '../atoms/Badge';
 import clsx from "clsx";
-import {box_color} from "../types";
+import {badge, box_color} from "../types";
 import colorClass from "../utils/colorClass";
 
 export function List({items=[], color, badge}: ListProps) {
@@ -29,7 +29,7 @@ export function List({items=[], color, badge}: ListProps) {
 export interface ListProps {
     items?: any[],
     color?: box_color,
-    badge?: any,
+    badge?: badge,
 }
 
 export default List

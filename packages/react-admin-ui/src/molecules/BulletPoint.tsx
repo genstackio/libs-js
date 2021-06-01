@@ -2,6 +2,7 @@ import {ReactNode} from 'react';
 import clsx from "clsx";
 import Icon from "../atoms/Icon";
 import {BaseBlockProps, Block} from "../atoms";
+import {box_variant, box_color} from '../types';
 
 export function BulletPoint({title, text, icon, ...props}: BulletPointProps) {
     return (
@@ -21,8 +22,8 @@ export function BulletPoint({title, text, icon, ...props}: BulletPointProps) {
 
 export interface BulletPointProps extends BaseBlockProps {
     icon?: string | ReactNode,
-    variant?: any,
-    color?: any,
+    variant?: box_variant,
+    color?: box_color,
     title?: ReactNode,
     text?: ReactNode,
 }

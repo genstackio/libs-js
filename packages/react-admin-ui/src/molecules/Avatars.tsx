@@ -1,5 +1,5 @@
 import Avatar from '../atoms/Avatar';
-
+import {image} from '../types';
 export function Avatars({items = []}: AvatarsProps) {
     return (
         <div className="-space-x-4">
@@ -11,7 +11,7 @@ export function Avatars({items = []}: AvatarsProps) {
 }
 
 export interface AvatarsProps {
-    items?: {name: string, image?: any, size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl', shape?: 'circular' | 'rounded', status?: 'online' | 'offline' | 'busy'}[],
+    items?: {name: string, image?: image, size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl', shape?: 'circular' | 'rounded', status?: 'online' | 'offline' | 'busy'}[],
 }
 
 export default Avatars
