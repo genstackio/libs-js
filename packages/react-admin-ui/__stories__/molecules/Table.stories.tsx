@@ -8,17 +8,16 @@ export default {
     argTypes: {
         items: args.items,
         columns: args.columns,
+        selection: args.selection,
+        rowsPerPage: args.rowsPerPage,
     },
 }
 
 const Template = args => <Table {...args} />;
 
 export const basic = s(Template,  {
+    columns: [{id: 'b', label: 'Checkbox'}, {id: 'c', format: 'badge'}, {id: 'a', label: 'Colonne A', format: v => formatAmount(v, '€')}],
     items: [{a: 12, b: true, c: 'hello', d: 'test'}, {a: 13, b: false, c: 'world', d: 'invisible'}],
-    columns: [{id: 'b', label: 'Checkbox'}, {id: 'c'}, {id: 'a', label: 'Colonne A', format: v => formatAmount(v, '€')}],
-})
-
-export const withBadge = s(Template,  {
-    items: [{a: 12, b: true, c: 'hello'}, {a: 13, b: false, c: 'world'}],
-    columns: [{id: 'c', format: 'badge'}, {id: 'a', label: 'Colonne A', format: v => formatAmount(v, 'EUR')}],
+    selection: true,
+    rowsPerPage: 3,
 })

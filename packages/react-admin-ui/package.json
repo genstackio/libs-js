@@ -29,6 +29,7 @@
   "dependencies": {
     "react-dropzone-uploader": "^2.11.0",
     "@material-ui/icons": "^4.11.2",
+    "@material-ui/data-grid": "^4.0.0-alpha.30",
     "@material-ui/lab": "^4.0.0-alpha.58",
     "apexcharts": "^3.26.3",
     "i18next": "^20.2.1",
