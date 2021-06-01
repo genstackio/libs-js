@@ -6,4 +6,5 @@ export type image = {url: string, alt: string};
 export type ribbon_position = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 export type badge = {variant?: box_variant, color?: box_color, text?: string, type?: badge_variant, label?: string};
 export type pill = {text?: string, color?: box_color, variant?: box_variant};
-export type tag = {text?: string, color?: box_color, variant?: box_variant, icon?: string}
+export type tag = {text?: string, color?: box_color, variant?: box_variant, icon?: string};
+export type basic_size = 'sm' | 'md' | 'lg';
