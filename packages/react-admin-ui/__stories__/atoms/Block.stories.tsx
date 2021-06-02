@@ -12,6 +12,7 @@ export default {
         padding: args.padding,
         bntLabel: args.btnLabel,
         dropdownItems: args.dropdownItems,
+        icon :args.icon,
     },
 }
 
