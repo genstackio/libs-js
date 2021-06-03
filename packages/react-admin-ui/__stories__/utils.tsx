@@ -92,6 +92,7 @@ export const args = {
     progressVariant: { control: {type: 'select'}, options: ['linear', 'circular'] },
     spinnerVariant: { control: {type: 'select'}, options: ['full-circle', 'half-circle', 'separate-circle', 'dotted-circle', 'dots', 'squares'] },
     textVariant: { control: {type:'select'}, options :['title1', 'title2', 'title3', 'title4', 'title5', 'title6', 'subtitle', 'underline', 'body', 'description'] },
+    paginationVariant: { control: {type:'select'}, options :['text', 'outlined'] },
     classes: { table: {disable: true} },
     icon: { table: {disable: true} },
     bgIcon: { table: {disable: true} },
