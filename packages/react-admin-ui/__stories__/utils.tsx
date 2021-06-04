@@ -68,6 +68,7 @@ export const args = {
     opened: { control: {type: 'boolean'} },
     selection: { control: {type: 'boolean'} },
     striped: { control: {type: 'boolean'} },
+    actions: { control: {type: 'object'} },
     badge: { control: {type: 'object'} },
     buttonsItems: { control: {type: 'object'} },
     chartItems: { control: {type: 'object'} },

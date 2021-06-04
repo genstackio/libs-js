@@ -28,7 +28,7 @@ export function Modal({children, title, buttonsItems, opened = false, onClose}: 
 
 export interface ModalProps {
     title?: string,
-    buttonsItems?: {variant?: box_variant, color?: box_color, onClick?: MouseEventHandler, label?: string}[],
+    buttonsItems?: {variant?: box_variant, color?: box_color, onClick?: Function|string, label?: string}[],
     opened?: boolean,
     onClose?: MouseEventHandler,
     children?: ReactNode,
