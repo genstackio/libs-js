@@ -12,10 +12,10 @@ const paddings = {
     default: 'p-10'
 }
 
-export function Block({title, icon, padding = 'default', variant = 'filled', children, color ='light', btnLabel, dropdownItems, image}: BlockProps) {
+export function Block({title, icon, padding = 'default', variant = 'filled', children, color ='light', btnLabel, dropdownItems, image, className, classes = {}}: BlockProps) {
     return (
-        <div className={clsx('rounded-2xl relative flex flex-col shadow-block',colorClass({color, variant}))}>
-            <Container bgImage={image} className='rounded-2xl'>
+        <div className={clsx('rounded-2xl relative flex flex-col shadow-block', colorClass({color, variant}))} >
+            <Container bgImage={image} className={clsx(className,classes.root,'rounded-2xl')}>
                 { title && (
                 <div className={clsx(paddings['default'], 'border-b-1 flex justify-between items-center')}>
                     <h5 className={'text-2xl'}>{title}</h5>
@@ -24,7 +24,7 @@ export function Block({title, icon, padding = 'default', variant = 'filled', chi
                     {icon && <Icon icon={icon}/>}
                 </div>
                 )}
-                <div className={clsx(paddings[padding], 'text-md')}>
+                <div className={clsx(paddings[padding], classes.content, 'text-md')}>
                     {children || ''}
                 </div>
             </Container>
@@ -37,6 +37,8 @@ export interface BaseBlockProps {
     color?: box_color,
     variant?: box_variant,
     children?: ReactNode,
+    className?: string,
+    classes?: {[key: string]: string},
 }
 
 export interface BlockProps extends BaseBlockProps {
