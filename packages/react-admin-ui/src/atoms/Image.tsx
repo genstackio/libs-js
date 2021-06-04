@@ -1,6 +1,6 @@
 export function Image({url, alt, className}: ImageProps) {
     return (
-            <img src={url} alt={alt} className={className} />
+        <img src={url} alt={alt} className={className} />
     )
 }
 
