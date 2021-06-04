@@ -11,6 +11,10 @@ const defaultOptions : ApexOptions = {
         toolbar: {
             show: false
         },
+        sparkline: {
+            enabled: true,
+        },
+        redrawOnParentResize: true
     },
     dataLabels: {
         enabled: false
@@ -51,7 +55,7 @@ export function AreaChart({series, variant = 'filled', color = 'primary'}: AreaC
     }, [] as {data: number[]}[]);
 
     return (
-        <Chart type='area' options={options} series={newData} height={"250px"} />
+        <Chart type='area' options={options} series={newData} height={'250px'}/>
     );
 }
 
