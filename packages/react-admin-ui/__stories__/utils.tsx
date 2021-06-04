@@ -55,6 +55,7 @@ export const args = {
     text: { control: {type: 'text'} },
     textValue: { control: {type: 'text'} },
     title: { control: {type: 'text'} },
+    overline: { control: {type: 'text'} },
     defaultValue: { control: {type: 'number'} },
     progress: { control: {type: 'number'} },
     quantity: { control: {type: 'number'} },
