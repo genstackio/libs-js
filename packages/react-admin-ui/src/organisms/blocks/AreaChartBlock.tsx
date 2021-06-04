@@ -5,7 +5,7 @@ import {AreaChart, AreaChartProps} from "../../molecules";
 
 export function AreaChartBlock({series, title, stats, subtitle, value,...props}: AreaChartBlockProps) {
     return (
-        <Block title={title} {...props}>
+        <Block {...props}>
             { subtitle && <div className={'flex justify-between items-center mb2'}>
                 <div className={'flex items-center space-x-2'}>
                     <Text text={subtitle} variant={'body'} />
