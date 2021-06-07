@@ -3,8 +3,7 @@ import Chart from "react-apexcharts";
 import {ApexOptions} from "apexcharts";
 import formatAmount from "../../utils/formatAmount";
 import Block, {BaseBlockProps} from "../../atoms/Block";
-import ExpandLess from "../../atoms/icons/ExpandLessIcon";
-import ExpandMore from "../../atoms/icons/ExpandMoreIcon";
+import {Icon} from "../../atoms";
 
 export function ProgressChartBlock({title, progress, value, unit, chart,...props}: ProgressChartBlockProps) {
     return (
@@ -14,8 +13,8 @@ export function ProgressChartBlock({title, progress, value, unit, chart,...props
                     {title && <Text text={title} variant={'title6'} />}
                     {progress && <div className={'flex items-center'}>
                         <Text text={`${progress}%`} variant={'description'} />
-                        {progress > 0 && <ExpandLess />}
-                        {progress < 0 && <ExpandMore />}
+                        {progress > 0 && <Icon icon={'expand_less_icon'} />}
+                        {progress < 0 && <Icon icon={'expand_more_icon'} />}
                     </div>}
                 </div>
                 {value && <Text text={formatAmount(value, unit)} variant={'title5'} />}

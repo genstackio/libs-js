@@ -1,4 +1,3 @@
-import {MouseEventHandler} from "react";
 import clsx from "clsx";
 import Block from '../atoms/Block';
 import Button from "../atoms/Button";
@@ -34,7 +33,7 @@ export function Pricing({items}: PricingProps) {
 }
 
 export interface PricingProps {
-    items: {color?: box_color, currency?: string, features?: {title?: string}[], image?: image, label?: string, name: string, onClick: MouseEventHandler, period: string, price: number, variant?: box_variant}[],
+    items: {color?: box_color, currency?: string, features?: {title?: string}[], image?: image, label?: string, name: string, onClick: Function|string, period: string, price: number, variant?: box_variant}[],
 }
 
 export default Pricing
