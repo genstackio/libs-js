@@ -17,7 +17,7 @@ const StyledRating = withStyles({
 export function Rating({text, defaultValue, value, onChange}: RatingProps) {
   return (
     <div>
-        <Box component="fieldset" mb={3} borderColor="transparent">
+        <Box component="fieldset" borderColor="transparent">
             <Typography component="legend">{text}</Typography>
             <StyledRating name="customized-color"
                           defaultValue={defaultValue}
