@@ -2,7 +2,8 @@ import Chart from "react-apexcharts";
 import {ApexOptions} from "apexcharts";
 import {box_color} from "../types";
 import tailwindConfig from "../../tailwind.config";
-import Text from "../atoms/Text"
+import Text from "../atoms/Text";
+import { lighten } from '@material-ui/core/styles';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 
@@ -34,13 +35,12 @@ const defaultOptions : ApexOptions = {
             },
             dataLabels: {
                 name: {
-                    color: "#8258fc",
                     fontSize: "1.5em",
                 },
                 value: {
                     fontSize: "1em",
+                    fontWeight: 600,
                     show: true,
-                    fontFamily: undefined,
                     color: "#000000",
                 }
             }
@@ -55,17 +55,19 @@ const defaultOptions : ApexOptions = {
             opacityFrom: 1,
             opacityTo: 1,
             stops: [0, 100],
-            gradientToColors: ['#c170fc'],
             type: 'horizontal'
         }
     },
     stroke: {
-        dashArray: 24 ,
+        dashArray: 24,
     }
 };
 
 export function RateChart({value, color = 'primary', title, subtitle, overline}: RateChartProps) {
-    const options = {...defaultOptions, colors: [tailwindColors[color]], labels: [title]};
+    const options = {...defaultOptions, colors: [tailwindColors[color]], labels: [title], plotOptions:{...defaultOptions.plotOptions || {}}};
+    options.plotOptions.radialBar!.dataLabels!.name!.color = tailwindColors[color];
+    options.plotOptions.radialBar!.hollow!.background = lighten(tailwindColors[color], 0.9);
+    options.fill!.gradient!.gradientToColors = [lighten(tailwindColors[color], 0.5)];
     return (
         <div>
             <Chart type='radialBar' options={options} series={[[value]]} height={'450px'} />
