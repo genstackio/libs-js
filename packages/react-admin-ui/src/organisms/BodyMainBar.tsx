@@ -8,7 +8,7 @@ export function BodyMainBar({children, actions = []}: BodyMainBarProps) {
             <div className={'flex-1'}>
                 {children || ''}
             </div>
-            <div className={'flex items-center space-x-4 flex-wrap sm:space-x-2 xs:space-x-0'}>
+            <div className={'x-buttons'}>
                 {actions.map(({color, variant, target, label, icon}) => (
                     <div className={'xs:mt-2 xs:w-full'}>
                         <Button color={color} variant={variant} onClick={target} icon={icon}>{label}</Button>

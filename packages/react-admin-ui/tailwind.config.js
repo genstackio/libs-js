@@ -33,6 +33,7 @@ module.exports = {
       title4: ['Rubik'],
       title5: ['Rubik'],
       title6: ['Rubik'],
+      title7: ['Rubik'],
       subtitle: ['Rubik'],
       underline: ['Rubik'],
       body: ['Rubik'],
@@ -109,7 +110,10 @@ module.exports = {
       },
       minHeight: {
         '250': '250px',
-      }
+      },
+      fontSize: {
+        xxl: '16rem',
+      },
     },
   },
   variants: {
