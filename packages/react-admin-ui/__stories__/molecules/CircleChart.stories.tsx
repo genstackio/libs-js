@@ -13,8 +13,5 @@ export default {
 const Template = args => <CircleChart {...args} />
 
 export const basic = s(Template, {
-    series: [
-        [40],
-        [70],
-    ],
+    series: [40, 70],
 });

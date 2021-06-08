@@ -30,7 +30,7 @@ export function CircleChart({series, variant = 'filled', color = 'primary'}: Cir
 };
 
 export interface CircleChartProps {
-    series: number[][],
+    series: number[],
     color?: box_color,
     variant?: box_variant,
 }
