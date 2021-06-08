@@ -5,7 +5,7 @@ import {image} from '../types';
 export function Card({image, title, description, content, value}: CardProps) {
     return (
         <Block padding='none'>
-            <Image className={'w-full rounded-t-2xl'} url={image.url} alt={image.alt}/>
+            <Image className={'w-full rounded-t-2xl card-hover'} url={image.url} alt={image.alt}/>
             <div className={"p-10 border-b-2"}>
                 <h6 className='mb-2 text-2xl text-bold'>{title}</h6>
                 <p className={'mb-2'}>{description}</p>

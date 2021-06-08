@@ -14,7 +14,7 @@ const Template = args => <Card {...args} />
 
 export const basic = s(Template, {
     image: {
-        url: 'https://picsum.photos/300/100',
+        url: 'https://picsum.photos/1900/500',
         alt: 'image',
     },
     title: "Web Design",
