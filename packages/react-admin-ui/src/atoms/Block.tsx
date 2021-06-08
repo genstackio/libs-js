@@ -13,21 +13,26 @@ const paddings = {
 }
 
 export function Block({title, icon, padding = 'default', variant = 'filled', children, color ='light', btnLabel, dropdownItems, image, className, classes = {}}: BlockProps) {
+    const content = <>
+        { title && (
+            <div className={clsx(paddings['default'], 'border-b-1 flex justify-between items-center')}>
+                <h5 className={'text-2xl'}>{title}</h5>
+                {btnLabel && <Button color={color}>{btnLabel}</Button>}
+                {dropdownItems && <Dropdown menuItems={dropdownItems} color={color} variant={variant} />}
+                {icon && <Icon icon={icon}/>}
+            </div>
+        )}
+        <div className={clsx(paddings[padding], classes.content, 'text-md')}>
+            {children || ''}
+        </div>
+    </>
     return (
         <div className={clsx('rounded-2xl relative flex flex-col shadow-block', colorClass({color, variant}))} >
+            {image &&
             <Container bgImage={image} className={clsx(className,classes.root,'rounded-2xl')}>
-                { title && (
-                <div className={clsx(paddings['default'], 'border-b-1 flex justify-between items-center')}>
-                    <h5 className={'text-2xl'}>{title}</h5>
-                    {btnLabel && <Button color={color}>{btnLabel}</Button>}
-                    {dropdownItems && <Dropdown menuItems={dropdownItems} color={color} variant={variant} />}
-                    {icon && <Icon icon={icon}/>}
-                </div>
-                )}
-                <div className={clsx(paddings[padding], classes.content, 'text-md')}>
-                    {children || ''}
-                </div>
-            </Container>
+                content
+            </Container>}
+            { !image && content}
         </div>
     );
 }
