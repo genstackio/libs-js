@@ -1,9 +1,7 @@
 import {ReactNode, useCallback, useState} from 'react';
-import Icon from "../../atoms/Icon";
 import Chart from "react-apexcharts";
-import Block, {BaseBlockProps} from "../../atoms/Block";
 import {ApexOptions} from "apexcharts";
-import Button from "../../atoms/Button";
+import {BaseBlockProps, Block, Button, Icon} from "../../atoms";
 
 const defaultOptions: ApexOptions = {
     chart: {
@@ -61,7 +59,7 @@ const defaultOptions: ApexOptions = {
     }
 };
 
-export function SummaryChartBlock({title, subtitle, datas, dashboardItems = [], btnLabel, chartItems = [], ...props}: SummaryChartBlockProps) {
+export function SummaryChartBlock({btnLabel, chartItems = [], dashboardItems = [], datas, subtitle, title, ...props}: SummaryChartBlockProps) {
     const [series, setSeries] = useState(datas[0]);
     const options = {...defaultOptions, xaxis: {...(defaultOptions.xaxis || {})}};
     options.xaxis.categories = series.categories;
@@ -117,12 +115,28 @@ export function SummaryChartBlock({title, subtitle, datas, dashboardItems = [], 
 }
 
 export interface SummaryChartBlockProps extends BaseBlockProps {
-    title?: string,
-    subtitle?: string,
-    datas: {label?: string, categories?: string[], colors?: string[], series: {name?: string, data?: number[]}[]}[],
-    dashboardItems?: {value?: string, description?: string}[],
     btnLabel?: string,
-    chartItems?: {icon?: ReactNode, color?: string, name?: string, value?: number}[],
+    chartItems?: {
+        color?: string,
+        icon?: ReactNode,
+        name?: string,
+        value?: number,
+    }[],
+    dashboardItems?: {
+        description?: string,
+        value?: string,
+    }[],
+    datas: {
+        categories?: string[],
+        colors?: string[],
+        label?: string,
+        series: {
+            name?: string,
+            data?: number[]
+        }[],
+    }[],
+    subtitle?: string,
+    title?: string,
 }
 
 export default SummaryChartBlock

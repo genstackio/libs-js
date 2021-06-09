@@ -24,7 +24,7 @@ const useStyles = makeStyles({
     },
 });
 
-export function Progress({variant = 'linear', value = 0}: ProgressProps) {
+export function Progress({value = 0, variant = 'linear'}: ProgressProps) {
   const classes = useStyles();
   switch (variant) {
       case 'circular':
@@ -45,8 +45,8 @@ export function Progress({variant = 'linear', value = 0}: ProgressProps) {
 }
 
 export interface ProgressProps {
-    variant?: 'linear' | 'circular',
     value?: number,
+    variant?: 'linear' | 'circular',
 }
 
 export default Progress

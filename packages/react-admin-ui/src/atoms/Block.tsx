@@ -12,7 +12,7 @@ const paddings = {
     default: 'p-10'
 }
 
-export function Block({title, icon, padding = 'default', variant = 'filled', children, color ='light', btnLabel, dropdownItems, image, className, classes = {}}: BlockProps) {
+export function Block({btnLabel, children, classes = {}, className, color ='light', dropdownItems, icon, image, padding = 'default', title, variant = 'filled'}: BlockProps) {
     const content = <>
         { title && (
             <div className={clsx(paddings['default'], 'border-b-1 flex justify-between items-center')}>
@@ -38,20 +38,24 @@ export function Block({title, icon, padding = 'default', variant = 'filled', chi
 }
 
 export interface BaseBlockProps {
-    padding?: 'default' | 'none',
-    color?: box_color,
-    variant?: box_variant,
     children?: ReactNode,
+    classes?: {
+        [key: string]: string
+    },
     className?: string,
-    classes?: {[key: string]: string},
+    color?: box_color,
+    padding?: 'default' | 'none',
+    variant?: box_variant,
 }
 
 export interface BlockProps extends BaseBlockProps {
-    title?: ReactNode,
-    icon?: string,
     btnLabel?: string,
-    dropdownItems?: {name?: string}[],
+    dropdownItems?: {
+        name?: string
+    }[],
+    icon?: string,
     image?: image,
+    title?: ReactNode,
 }
 
 export default Block

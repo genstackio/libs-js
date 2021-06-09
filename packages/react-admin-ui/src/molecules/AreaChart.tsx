@@ -45,7 +45,7 @@ const defaultOptions : ApexOptions = {
 
 };
 
-export function AreaChart({series, variant = 'filled', color = 'primary'}: AreaChartProps) {
+export function AreaChart({color = 'primary', series, variant = 'filled'}: AreaChartProps) {
     const col = `${variant}_${color}`;
     const options = {...defaultOptions, colors: tailwindChartColors[col],};
 

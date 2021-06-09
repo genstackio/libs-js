@@ -1,7 +1,6 @@
-import Block from "../../atoms/Block";
-import {BaseBlockProps, Button} from "../../atoms";
+import {BaseBlockProps, Block, Button} from "../../atoms";
 
-export function NewsBlock({title, items = [], btnLabel, dropdownItems, ...props}: NewsBlockProps) {
+export function NewsBlock({btnLabel, dropdownItems, items = [], title, ...props}: NewsBlockProps) {
     return (
         <Block padding={'none'} {...props} title={title} dropdownItems={dropdownItems}>
             {items.map(({title, content}, index) => (
@@ -18,10 +17,16 @@ export function NewsBlock({title, items = [], btnLabel, dropdownItems, ...props}
 }
 
 export interface NewsBlockProps extends BaseBlockProps  {
-    title?: string,
-    items?: {title?: string, content?: string}[],
     btnLabel?: string,
-    dropdownItems?: {name?: string}[],
+    dropdownItems?: {
+        name?: string
+    }[],
+    items?: {
+        title?: string,
+        content?: string
+    }[],
+    title?: string,
+
 }
 
 export default NewsBlock

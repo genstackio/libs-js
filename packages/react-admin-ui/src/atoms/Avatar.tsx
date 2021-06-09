@@ -1,6 +1,6 @@
 import {useCallback} from 'react';
 import clsx from "clsx";
-import {image} from '../types';
+import {image, shape, size, status} from '../types';
 
 const sizes = {
     'xs': 'w-8 h-8 text-xs',
@@ -19,7 +19,7 @@ const states = {
     'busy': 'bg-red-500',
 }
 
-export function Avatar({name, image, size = 'md', shape = 'circular', status = undefined}: AvatarProps) {
+export function Avatar({image, name, size = 'md', shape = 'circular', status = undefined}: AvatarProps) {
     const getInitial = useCallback(() => {
         let initials = ''
         const fullName = name.split(' ')
@@ -41,9 +41,9 @@ export function Avatar({name, image, size = 'md', shape = 'circular', status = u
 export interface AvatarProps {
     name: string,
     image?: image,
-    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
-    shape?: 'circular' | 'rounded',
-    status?: 'online' | 'offline' | 'busy',
+    size?: size,
+    shape?: shape,
+    status?: status,
 }
 
 export default Avatar

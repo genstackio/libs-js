@@ -2,9 +2,9 @@ import {ReactNode, useCallback} from 'react';
 import clsx from "clsx";
 import Icon from "./Icon";
 import colorClass from "../utils/colorClass";
-import {box_color, box_variant} from '../types';
+import {box_color, box_variant, target} from '../types';
 
-export function Button({children, classes, color = 'primary', variant = 'filled', large, disabled, onClick, icon}: ButtonProps) {
+export function Button({children, classes, color = 'primary', disabled,  icon, large, onClick, variant = 'filled'}: ButtonProps) {
     const handleClick = useCallback (() => {
         ('function' === typeof onClick) && onClick();
         ('string' === typeof onClick) && (location.href = onClick);
@@ -25,11 +25,11 @@ export interface ButtonProps {
     children?: ReactNode,
     classes?: string,
     color?: box_color,
-    variant?: box_variant,
-    large?: boolean,
     disabled?: boolean,
-    onClick?: Function|string,
     icon?: string,
+    large?: boolean,
+    onClick?: target,
+    variant?: box_variant,
 }
 
 export default Button

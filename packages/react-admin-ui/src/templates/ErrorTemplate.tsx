@@ -1,7 +1,7 @@
-import {box_color} from "../types";
+import {box_color, target} from "../types";
 import {Button, Icon, Text} from "../atoms";
 
-export function ErrorTemplate({code, message, actions, icon, color}: ErrorTemplateProps) {
+export function ErrorTemplate({actions, code, color, icon, message}: ErrorTemplateProps) {
     return (
         <div className={'h-screen flex items-center'}>
             <div className={'text-center max-w-3xl mx-auto'}>
@@ -21,11 +21,14 @@ export function ErrorTemplate({code, message, actions, icon, color}: ErrorTempla
 }
 
 export interface ErrorTemplateProps {
-    code: number,
-    message: string,
-    actions?: {label?: string, target?: Function|string}[],
-    icon?: string,
+    actions?: {
+        label?: string,
+        target?: target
+    }[],
     color?: box_color,
+    code: number,
+    icon?: string,
+    message: string,
 }
 
 export default ErrorTemplate

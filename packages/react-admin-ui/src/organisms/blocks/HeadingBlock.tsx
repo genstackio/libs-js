@@ -1,16 +1,13 @@
-import Pill from '../../atoms/Pill';
-import Button from '../../atoms/Button';
-import Block, {BaseBlockProps} from '../../atoms/Block';
-import {Avatar} from '../../atoms';
+import {Avatar, BaseBlockProps, Block, Button, Pill} from '../../atoms';
 import {Corner} from "../../molecules";
 import {image, icon_variant} from "../../types";
 
 export function HeadingBlock(
-    {title, text, btnLabel, image, iconTitle,
-        topLeft, textCornerTopLeft, iconCornerTopLeft,
-        topRight, textCornerTopRight, iconCornerTopRight,
-        bottomLeft, textCornerBottomLeft, iconCornerBottomLeft,
-        bottomRight, textCornerBottomRight, iconCornerBottomRight,
+    {btnLabel, iconTitle, image, text, title,
+        iconCornerTopLeft, textCornerTopLeft, topLeft,
+        iconCornerTopRight, textCornerTopRight, topRight,
+        bottomLeft, iconCornerBottomLeft, textCornerBottomLeft,
+        bottomRight, iconCornerBottomRight, textCornerBottomRight,
         ...props}: HeadingBlockProps) {
 
     return (
@@ -43,23 +40,23 @@ export function HeadingBlock(
 }
 
 export interface HeadingBlockProps extends BaseBlockProps {
-    title: string,
-    text: string,
-    btnLabel: string,
-    image: image,
-    topLeft?: boolean,
-    textCornerTopLeft?: string,
-    iconCornerTopLeft?: icon_variant,
-    topRight?: boolean,
-    textCornerTopRight?: string,
-    iconCornerTopRight?: icon_variant,
     bottomLeft?: boolean,
-    textCornerBottomLeft?: string,
-    iconCornerBottomLeft?: icon_variant,
     bottomRight?: boolean,
-    textCornerBottomRight?: string,
+    btnLabel: string,
+    iconCornerBottomLeft?: icon_variant,
     iconCornerBottomRight?: icon_variant,
+    iconCornerTopLeft?: icon_variant,
+    iconCornerTopRight?: icon_variant,
     iconTitle?: string,
+    image: image,
+    text: string,
+    textCornerBottomLeft?: string,
+    textCornerBottomRight?: string,
+    textCornerTopLeft?: string,
+    textCornerTopRight?: string,
+    title: string,
+    topLeft?: boolean,
+    topRight?: boolean,
 }
 
 export default HeadingBlock

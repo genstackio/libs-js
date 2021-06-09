@@ -4,7 +4,7 @@ import colorClass from "../utils/colorClass";
 import {box_color, box_variant} from '../types';
 import CloseIcon from '@material-ui/icons/Close';
 
-export function Alert({children, color = 'primary', variant = 'contained', closable = false}: AlertProps) {
+export function Alert({children, closable = false, color = 'primary', variant = 'contained'}: AlertProps) {
     const [show, setShow] = useState(true);
     const handleClick = useCallback(() => setShow(false), [setShow]);
     if (!show) return null
@@ -22,9 +22,9 @@ export function Alert({children, color = 'primary', variant = 'contained', closa
 
 export interface AlertProps {
     children?: ReactNode,
+    closable?: boolean,
     color?: box_color,
     variant?: box_variant,
-    closable?: boolean,
 }
 
 export default Alert

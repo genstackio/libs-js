@@ -1,3 +1,4 @@
+import {ChangeEvent, useState, useCallback} from "react";
 import clsx from "clsx";
 import colorClass from "../utils/colorClass";
 import {box_color, box_variant, badge} from "../types";
@@ -6,7 +7,6 @@ import MuiAccordion from "@material-ui/core/Accordion";
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import {Icon, Badge} from "../atoms";
-import {ChangeEvent, useState, useCallback} from "react";
 
 const useStyles = makeStyles({
     root: {
@@ -16,7 +16,7 @@ const useStyles = makeStyles({
     }
 });
 
-export function Accordion({items = [], color, variant, expandIcon}: AccordionProps) {
+export function Accordion({color, expandIcon, items = [], variant}: AccordionProps) {
     const classes = useStyles();
     const [expanded, setExpanded] = useState<number | false>(false);
     const handleChange = useCallback((panel: number) => (event: ChangeEvent<{}>, newExpanded: boolean) => {
@@ -54,10 +54,15 @@ export function Accordion({items = [], color, variant, expandIcon}: AccordionPro
 }
 
 export interface AccordionProps {
-    items: {icon?: string, title?: string, badge?: badge, content?: string | any[]}[]
     color?: box_color,
-    variant?: box_variant,
     expandIcon?: string,
+    items: {
+        badge?: badge,
+        content?: string | any[],
+        icon?: string,
+        title?: string,
+    }[]
+    variant?: box_variant,
 }
 
 export default Accordion

@@ -1,4 +1,5 @@
 import Text, {TextProps} from "../Text";
+import {level} from "../../types";
 
 export function TitleText({level = 1, ...props}: TitleTextProps) {
     return (
@@ -7,7 +8,7 @@ export function TitleText({level = 1, ...props}: TitleTextProps) {
 }
 
 export interface TitleTextProps extends Omit<TextProps, 'variant'> {
-    level?: 1 | 2 | 3 | 4 | 5 | 6,
+    level?: level,
 }
 
 export default TitleText

@@ -66,11 +66,16 @@ export function Table(props: TableProps) {
 }
 
 export interface TableProps {
-    columns: {id: string, label?: string, format?: any, width?: number}[],
-    items: any[],
-    selection?: boolean,
-    rowsPerPage?: number,
     color?: box_color,
+    columns: {
+        id: string,
+        format?: any,
+        label?: string,
+        width?: number
+    }[],
+    items: any[],
+    rowsPerPage?: number,
+    selection?: boolean,
     striped?: boolean,
 }
 

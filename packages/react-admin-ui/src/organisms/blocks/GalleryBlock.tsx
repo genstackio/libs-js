@@ -2,7 +2,7 @@ import {ReactNode} from 'react';
 import {BaseBlockProps, Block} from "../../atoms";
 import {Gallery} from "../../molecules";
 
-export function GalleryBlock({text, items=[], ...props}: GalleryBlockProps) {
+export function GalleryBlock({items=[], text, ...props}: GalleryBlockProps) {
     return (
         <Block {...props}>
             <div className={'flex justify-between items-center border-b-2 my-8'}>
@@ -18,8 +18,8 @@ export function GalleryBlock({text, items=[], ...props}: GalleryBlockProps) {
 }
 
 export interface GalleryBlockProps extends BaseBlockProps {
-    text?: ReactNode,
     items?: any[],
+    text?: ReactNode,
 }
 
 export default GalleryBlock

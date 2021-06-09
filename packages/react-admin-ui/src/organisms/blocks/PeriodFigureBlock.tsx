@@ -1,8 +1,7 @@
 import {ReactNode} from 'react';
-import {PeriodBlock} from "../../atoms";
-import {BaseBlockProps, Block} from "../../atoms";
+import {BaseBlockProps, Block, PeriodBlock} from "../../atoms";
 
-export function PeriodFigureBlock({items=[], icon, ...props}: PeriodFigureBlockProps) {
+export function PeriodFigureBlock({icon, items=[], ...props}: PeriodFigureBlockProps) {
     return (
         <Block {...props}>
             {icon && (

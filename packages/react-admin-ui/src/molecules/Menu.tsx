@@ -14,9 +14,14 @@ export function Menu ({items= [], title, text, color, variant}: MenuProps) {
 }
 
 export interface MenuProps {
+    color?: box_color,
+    items: {
+        badge?: badge,
+        content?: string | string[],
+        icon?: string,
+        title?: string,
+    }[],
     title?: string,
     text?: string,
-    items: {icon?: string, title?: string, badge?: badge, content?: string | string[]}[],
-    color?: box_color,
     variant?: box_variant,
 }

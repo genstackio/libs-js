@@ -1,8 +1,7 @@
 import {ReactNode} from 'react';
-import {BaseBlockProps, Block} from "../atoms";
-import Icon from "../atoms/Icon";
+import {BaseBlockProps, Block, Icon} from "../atoms";
 
-export function TextBlock({title, text, icon, ...props}: TextBlockProps) {
+export function TextBlock({icon, text, title,  ...props}: TextBlockProps) {
     return (
         <Block {...props}>
                 {title && (
@@ -21,9 +20,9 @@ export function TextBlock({title, text, icon, ...props}: TextBlockProps) {
 }
 
 export interface TextBlockProps extends BaseBlockProps {
-    icon?: string | ReactNode,
-    title?: ReactNode,
+    icon?: ReactNode,
     text?: ReactNode,
+    title?: ReactNode,
 }
 
 export default TextBlock

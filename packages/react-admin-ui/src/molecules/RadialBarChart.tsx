@@ -38,7 +38,7 @@ const defaultOptions : ApexOptions = {
     }
 };
 
-export function RadialBarChart({series, variant = 'filled', color = 'primary', labels, title}: RadialBarChartProps) {
+export function RadialBarChart({color = 'primary', labels, series, title, variant = 'filled'}: RadialBarChartProps) {
     const col = `${variant}_${color}`;
     const options = {...defaultOptions, colors: tailwindChartColors[col], plotOptions:{...defaultOptions.plotOptions || {}}, labels:labels};
     options.plotOptions.radialBar!.dataLabels!.total!.label= title;
@@ -49,11 +49,11 @@ export function RadialBarChart({series, variant = 'filled', color = 'primary', l
 };
 
 export interface RadialBarChartProps {
-    series: number[],
     color?: box_color,
-    variant?: box_variant,
     labels?: string[],
+    series: number[],
     title?: string,
+    variant?: box_variant,
 }
 
 export default RadialBarChart

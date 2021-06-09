@@ -70,7 +70,7 @@ const defaultOptions : ApexOptions = {
     ]
 };
 
-export function BarChart({series, variant = 'filled', color = 'primary', labels}: BarChartProps) {
+export function BarChart({color = 'primary', labels, series, variant = 'filled'}: BarChartProps) {
     const col = `${variant}_${color}`;
     const options = {...defaultOptions, colors: tailwindChartColors[col], labels: labels};
 
@@ -85,9 +85,9 @@ export function BarChart({series, variant = 'filled', color = 'primary', labels}
 }
 
 export interface BarChartProps {
-    series: number[][],
     color?: box_color,
     labels?: string[],
+    series: number[][],
     variant?: box_variant,
 }
 

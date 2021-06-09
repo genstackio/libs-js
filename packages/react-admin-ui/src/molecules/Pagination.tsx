@@ -112,12 +112,12 @@ export function Pagination(props: PaginationProps) {
 }
 
 export interface PaginationProps {
-    total?: number,
-    size?: basic_size,
-    color?: box_color,
     boundaryCount?: number,
+    color?: box_color,
     disabledPass?: boolean,
     disabledSkip?: boolean,
+    size?: basic_size,
+    total?: number,
 }
 
 export default Pagination

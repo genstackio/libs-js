@@ -1,7 +1,6 @@
-import Text from "../../atoms/Text";
-import Block, {BaseBlockProps} from "../../atoms/Block";
+import {BaseBlockProps, Block, Text} from "../../atoms";
 
-export function HeadingLeftBlock({title, subtitle, description, btnLabel, ...props}: HeadingLeftBlockProps) {
+export function HeadingLeftBlock({btnLabel, description, subtitle, title, ...props}: HeadingLeftBlockProps) {
     return (
         <Block {...props} title={title} btnLabel={btnLabel}>
             <div className={'space-y-2'}>
@@ -13,10 +12,11 @@ export function HeadingLeftBlock({title, subtitle, description, btnLabel, ...pro
 }
 
 export interface HeadingLeftBlockProps extends BaseBlockProps {
-    title?: string,
-    subtitle?: string,
-    description?: string,
     btnLabel?: string,
+    description?: string,
+    subtitle?: string,
+    title?: string,
+
 }
 
 export default HeadingLeftBlock

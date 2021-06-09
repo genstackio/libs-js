@@ -53,7 +53,7 @@ const defaultOptions: ApexOptions = {
     }]
 };
 
-export function RadarChart({variant = 'filled', color = 'primary', isMenu = true, labels = [], series = []}: RadarChartProps) {
+export function RadarChart({color = 'primary', isMenu = true, labels = [], series = [], variant = 'filled'}: RadarChartProps) {
     const col = `${variant}_${color}`;
     const options = {...defaultOptions, chart: {toolbar: {show: isMenu}}, labels: labels, colors: tailwindChartColors[col], plotOptions: {radar: {polygons: {fill: {colors: tailwindChartBgColors[col]}}}}, markers: {...defaultOptions.markers || {}}, xaxis: {...defaultOptions.xaxis || {}}};
     options.markers.strokeColors = tailwindChartColors[col];
@@ -70,10 +70,13 @@ export function RadarChart({variant = 'filled', color = 'primary', isMenu = true
 }
 
 export interface RadarChartProps {
+    color?: box_color,
     isMenu?: boolean,
     labels?: string[],
-    color?: box_color,
-    series?: {name?: string, data?: number[]}[],
+    series?: {
+        data?: number[],
+        name?: string,
+    }[],
     variant?: box_variant,
 }
 

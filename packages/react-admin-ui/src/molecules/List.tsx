@@ -3,10 +3,10 @@ import clsx from "clsx";
 import {badge, box_color} from "../types";
 import colorClass from "../utils/colorClass";
 
-export function List({items=[], color, badge}: ListProps) {
+export function List({badge, color, items=[]}: ListProps) {
     return (
         <div>
-            <ul className='px-0'>
+            <ul className={'px-0'}>
             {items.map((item, index) => (
                 <li
                 key={index}
@@ -27,9 +27,9 @@ export function List({items=[], color, badge}: ListProps) {
 }
 
 export interface ListProps {
-    items?: any[],
-    color?: box_color,
     badge?: badge,
+    color?: box_color,
+    items?: any[],
 }
 
 export default List

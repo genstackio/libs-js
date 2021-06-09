@@ -1,12 +1,9 @@
 import {ReactNode, useCallback, useState} from "react";
 import Rating from "./Rating";
-import Text from "../atoms/Text";
-import Icon from "../atoms/Icon";
-import Image from "../atoms/Image";
-import Badge from "../atoms/Badge";
+import {Badge, Icon, Image, Text} from "../atoms";
 import {badge, image} from "../types";
 
-export function SmallItemCard({children, title, rating, image, badges, closable = false}: SmallItemCardProps) {
+export function SmallItemCard({badges, children, closable = false, image, rating, title }: SmallItemCardProps) {
     const [show, setShow] = useState(true);
     const handleClick = useCallback(() => setShow(false), [setShow]);
     if (!show) return null
@@ -31,12 +28,12 @@ export function SmallItemCard({children, title, rating, image, badges, closable 
 }
 
 export interface SmallItemCardProps {
-    title?: string,
-    rating?: number,
-    image?: image,
     badges?: badge[],
-    closable?: boolean,
     children?: ReactNode,
+    closable?: boolean,
+    image?: image,
+    rating?: number,
+    title?: string,
 }
 
 export default SmallItemCard

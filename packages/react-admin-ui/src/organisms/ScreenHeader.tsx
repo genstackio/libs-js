@@ -1,7 +1,7 @@
 import {box_color} from "../types";
 import {Breadcrumb} from "../molecules";
 
-export function ScreenHeader({items = [], color = 'primary'}: ScreenHeaderProps) {
+export function ScreenHeader({color = 'primary', items = []}: ScreenHeaderProps) {
     const title = items.slice(items.length - 1)[0].label;
     return (
         <div className={'flex justify-between items-center'}>
@@ -12,8 +12,11 @@ export function ScreenHeader({items = [], color = 'primary'}: ScreenHeaderProps)
 }
 
 export interface ScreenHeaderProps {
-    items: {label?: string, target?: string}[],
     color?: box_color,
+    items: {
+        label?: string,
+        target?: string
+    }[],
 }
 
 export default ScreenHeader

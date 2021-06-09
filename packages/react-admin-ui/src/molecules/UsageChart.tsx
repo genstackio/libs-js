@@ -1,6 +1,6 @@
 import {Progress} from "../atoms";
 
-export function UsageChart({value, max, unit}: UsageChartProps) {
+export function UsageChart({max, unit, value}: UsageChartProps) {
     return (
         <div>
             <Progress value={value / max * 100} />
@@ -14,9 +14,9 @@ export function UsageChart({value, max, unit}: UsageChartProps) {
 }
 
 export interface UsageChartProps {
-    value: number,
     max: number,
     unit?: string,
+    value: number,
 }
 
 export default UsageChart

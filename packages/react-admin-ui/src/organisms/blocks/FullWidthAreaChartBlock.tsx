@@ -1,9 +1,8 @@
-import {BaseBlockProps, Block} from "../../atoms";
-import Text from "../../atoms/Text";
 import SettingsIcon from '@material-ui/icons/Settings';
+import {BaseBlockProps, Block, Text} from "../../atoms";
 import  {AreaChart, AreaChartProps} from "../../molecules";
 
-export function FullWidthAreaChartBlock({series, title, overline, value,...props}: FullWidthAreaChartBlockProps) {
+export function FullWidthAreaChartBlock({overline, series, title, value,...props}: FullWidthAreaChartBlockProps) {
     return (
         <Block padding={"none"}{...props}>
             <div className={'p-10'}>
@@ -19,9 +18,9 @@ export function FullWidthAreaChartBlock({series, title, overline, value,...props
 }
 
 export interface FullWidthAreaChartBlockProps extends BaseBlockProps, Omit<AreaChartProps, "color">{
-    title?: string,
     overline?: string,
     subtitle?: string,
+    title?: string,
     value?: string,
 }
 

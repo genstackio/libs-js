@@ -63,7 +63,7 @@ const defaultOptions : ApexOptions = {
     }
 };
 
-export function RateChart({value, color = 'primary', title, subtitle, overline}: RateChartProps) {
+export function RateChart({color = 'primary', overline, subtitle, title, value}: RateChartProps) {
     const options = {...defaultOptions, colors: [tailwindColors[color]], labels: [title], plotOptions:{...defaultOptions.plotOptions || {}}};
     options.plotOptions.radialBar!.dataLabels!.name!.color = tailwindColors[color];
     options.plotOptions.radialBar!.hollow!.background = lighten(tailwindColors[color], 0.9);
@@ -81,11 +81,11 @@ export function RateChart({value, color = 'primary', title, subtitle, overline}:
 };
 
 export interface RateChartProps {
-    value: number,
     color?: box_color,
-    title: string,
-    subtitle: string,
     overline: string,
+    subtitle: string,
+    title: string,
+    value: number,
 }
 
 export default RateChart

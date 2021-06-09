@@ -1,15 +1,17 @@
+import {ReactNode} from "react";
 import {image} from "../types";
 import {Block, Image, Text} from "../atoms";
-import {ReactNode} from "react";
 
-export function MiniCard({image, title, children}: MiniCardProps) {
+export function MiniCard({children, image, title}: MiniCardProps) {
     return (
-        <div className='w-2/3 rounded-2xl'>
+        <div className={'w-2/3 rounded-2xl'}>
             <Block padding='none'>
-                {image && <div className='flex justify-center'><Image url={image.url} alt={image.alt}
-                                                                      className='w-full rounded-t-2xl'/></div>}
+                {image &&
+                    <div className={'flex justify-center'}>
+                        <Image className={'w-full rounded-t-2xl'} url={image.url} alt={image.alt} />
+                    </div>}
                 {children || ''}
-                <div className='ml-8'><Text variant="title4" text={title}/></div>
+                <div className={'ml-8'}><Text variant="title4" text={title}/></div>
             </Block>
         </div>
     );

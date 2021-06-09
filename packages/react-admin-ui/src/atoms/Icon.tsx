@@ -14,7 +14,7 @@ export function Icon({icon, size = 20, ...props}) {
 }
 
 export interface IconProps {
-    icon?: string | ReactNode,
+    icon?: ReactNode,
     size?: number,
 }
 
