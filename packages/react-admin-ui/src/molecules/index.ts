@@ -1,6 +1,7 @@
 export * from './Accordion'
 export * from './AlertPanel'
 export * from './AreaChart'
+export * from './ArcChart'
 export * from './Avatars'
 export * from './BarChart'
 export * from './Breadcrumb'
