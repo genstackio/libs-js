@@ -48,7 +48,7 @@ export function ArcChart({value, color = 'primary'}: ArcChartProps) {
     );
 }
 
-export interface ArcChartProps {s
+export interface ArcChartProps {
     value: number,
     color?: box_color,
 }
