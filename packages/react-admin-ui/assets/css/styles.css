@@ -20,6 +20,10 @@
         --hover-color:#fcb600;
     }
 
+    .x-buttons {
+        @apply flex items-center flex-wrap space-x-4 sm:space-x-2 xs:space-x-0
+    }
+
     /* Css for Thumbnail :: start */
     .animated {
         -webkit-animation-duration: 1.5s;
