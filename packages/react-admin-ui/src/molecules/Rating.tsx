@@ -12,12 +12,15 @@ const StyledRating = withStyles({
   iconHover: {
     color: 'var(--hover-color)',
   },
+  root: {
+      verticalAlign: 'middle',
+  }
 })(RatingUI);
 
-export function Rating({text, defaultValue, value, onChange}: RatingProps) {
+export function Rating({text, defaultValue, value, onChange, readOnly = false}: RatingProps) {
   return (
     <div>
-        <Box component="fieldset" mb={3} borderColor="transparent">
+        <Box component="fieldset" borderColor="transparent">
             <Typography component="legend">{text}</Typography>
             <StyledRating name="customized-color"
                           defaultValue={defaultValue}
@@ -25,10 +28,10 @@ export function Rating({text, defaultValue, value, onChange}: RatingProps) {
                           precision={0.5}
                           emptyIcon={<StarBorderIcon fontSize="inherit" />}
                           onChange={onChange}
+                          readOnly={readOnly}
             />
         </Box>
     </div>
-    
   );
 }
 
@@ -37,6 +40,7 @@ export interface RatingProps {
     defaultValue?: number,
     value?: number,
     onChange?: (event: ChangeEvent<{}>, value: number | null) => void,
+    readOnly?: boolean,
 }
 
 export default Rating
