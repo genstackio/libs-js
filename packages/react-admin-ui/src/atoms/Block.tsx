@@ -11,7 +11,11 @@ const paddings = {
     default: 'p-10'
 }
 
-export function Block({btnLabel, children, classes = {}, className, color = 'light', dropdownItems, icon, image, padding = 'default', title, variant = 'filled'}: BlockProps) {
+const elevations = {
+    '1': 'shadow-block',
+    '2': 'shadow-upper-block',
+}
+export function Block({elevation = 1, btnLabel, children, classes = {}, className, color = 'light', dropdownItems, icon, image, padding = 'default', title, variant = 'filled'}: BlockProps) {
     const content = <>
         { title && (
             <div className={clsx(paddings['default'], 'border-b-1 flex justify-between items-center')}>
@@ -26,7 +30,7 @@ export function Block({btnLabel, children, classes = {}, className, color = 'lig
         </div>
     </>
     return (
-        <div className={clsx('rounded-2xl relative flex flex-col shadow-block', boxClass({color, variant}))} >
+        <div className={clsx('rounded-2xl relative flex flex-col', elevations[`${elevation}`], boxClass({color, variant}))} >
             {image && (
                 <Container bgImage={image} className={clsx(className,classes.root,'rounded-2xl')}>
                     {content}
@@ -44,6 +48,7 @@ export interface BaseBlockProps {
     color?: box_color,
     padding?: box_padding,
     variant?: box_variant,
+    elevation?: number,
 }
 
 export interface BlockProps extends BaseBlockProps {
