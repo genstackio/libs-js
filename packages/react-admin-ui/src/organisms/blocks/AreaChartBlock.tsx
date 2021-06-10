@@ -1,4 +1,3 @@
-import SettingsIcon from '@material-ui/icons/Settings';
 import {BaseBlockProps, Block, Icon, Text} from "../../atoms";
 import {AreaChart, AreaChartProps} from "../../molecules";
 
