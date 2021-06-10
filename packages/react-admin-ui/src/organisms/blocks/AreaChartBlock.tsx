@@ -1,5 +1,5 @@
 import SettingsIcon from '@material-ui/icons/Settings';
-import {BaseBlockProps, Block, Text} from "../../atoms";
+import {BaseBlockProps, Block, Icon, Text} from "../../atoms";
 import {AreaChart, AreaChartProps} from "../../molecules";
 
 export function AreaChartBlock({series, stats, subtitle, title, value, ...props}: AreaChartBlockProps) {
@@ -10,7 +10,7 @@ export function AreaChartBlock({series, stats, subtitle, title, value, ...props}
                     <Text text={subtitle} variant={'body'} />
                     <Text text={value} color={'primary'} variant={'title6'} />
                 </div>
-                <SettingsIcon className={'animate-spin'}/>
+                <Icon icon={'settings'} className={'animate-spin'}/>
             </div>}
             { stats && <Text text={`${stats}`} color={'dark'} variant={'title5'}/>}
             <AreaChart color={props.color} series={series}/>
