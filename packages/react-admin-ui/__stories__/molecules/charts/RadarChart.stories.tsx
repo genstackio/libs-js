@@ -1,8 +1,8 @@
-import {args, s} from "../utils";
-import {RadarChart} from '../../src';
+import {args, s} from "../../utils";
+import {RadarChart} from '../../../src';
 
 export default {
-    title: 'Molecules/RadarChart',
+    title: 'Molecules/charts/RadarChart',
     component: RadarChart,
     argTypes: {
         isMenu: args.isMenu,

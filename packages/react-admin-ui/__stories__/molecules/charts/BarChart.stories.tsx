@@ -1,8 +1,8 @@
-import {args, s} from "../utils";
-import {BarChart} from "../../src";
+import {args, s} from "../../utils";
+import {BarChart} from "../../../src";
 
 export default {
-    title: 'Molecules/BarChart',
+    title: 'Molecules/charts/BarChart',
     component: BarChart,
     argTypes: {
         color:args.color,

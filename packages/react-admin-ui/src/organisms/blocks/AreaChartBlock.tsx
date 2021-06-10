@@ -1,5 +1,5 @@
 import {BaseBlockProps, Block, Icon, Text} from "../../atoms";
-import {AreaChart, AreaChartProps} from "../../molecules";
+import {AreaChart, AreaChartProps} from "../../molecules/charts";
 
 export function AreaChartBlock({series, stats, subtitle, title, value, ...props}: AreaChartBlockProps) {
     return (

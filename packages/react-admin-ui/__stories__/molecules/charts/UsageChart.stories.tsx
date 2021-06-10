@@ -1,5 +1,5 @@
-import {s} from "../utils";
-import {UsageChart} from '../../src';
+import {s} from "../../utils";
+import {UsageChart} from '../../../src';
 
 export default {
     title: 'Molecules/UsageChart',

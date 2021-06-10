@@ -1,7 +1,7 @@
 import Chart from "react-apexcharts";
 import {ApexOptions} from "apexcharts";
-import tailwindConfig from "../../tailwind.config"
-import {box_color} from "../types";
+import tailwindConfig from "../../../tailwind.config"
+import {box_color} from "../../types";
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 

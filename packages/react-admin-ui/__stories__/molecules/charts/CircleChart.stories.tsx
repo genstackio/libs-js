@@ -1,8 +1,8 @@
-import {args, s} from "../utils";
-import {CircleChart} from "../../src";
+import {args, s} from "../../utils";
+import {CircleChart} from "../../../src";
 
 export default {
-    title: 'Molecules/CircleChart',
+    title: 'Molecules/charts/CircleChart',
     component: CircleChart,
     argTypes: {
         color:args.color,

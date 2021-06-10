@@ -1,5 +1,5 @@
 import {BaseBlockProps, Block} from "../../atoms";
-import {CircleChart, CircleChartProps} from "../../molecules";
+import {CircleChart, CircleChartProps} from "../../molecules/charts";
 
 export function CircleChartBlock({icon, series, stats, subtitle, title, value, ...props}: CircleChartBlockProps) {
     return (

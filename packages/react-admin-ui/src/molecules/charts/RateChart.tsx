@@ -1,8 +1,8 @@
 import Chart from "react-apexcharts";
 import {ApexOptions} from "apexcharts";
-import {box_color} from "../types";
-import tailwindConfig from "../../tailwind.config";
-import Text from "../atoms/Text";
+import {box_color} from "../../types";
+import tailwindConfig from "../../../tailwind.config";
+import Text from "../../atoms/Text";
 import { lighten } from '@material-ui/core/styles';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;

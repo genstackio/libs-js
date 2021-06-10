@@ -10,12 +10,9 @@ export default {
     argTypes: {
         title: args.title,
         subtitle: args.subtitle,
-        datas: args.datas,
         dashboardItems: args.chartItems,
         btnLabel: args.btnLabel,
         chartItems: args.chartItems,
-        color: args.color,
-        variant: args.blockVariant,
         padding: args.padding,
     },
 }
@@ -25,38 +22,6 @@ const Template = args => <SummaryChartBlock {...args} />;
 export const basic = s(Template, {
     title: "Dashboard",
     subtitle: "Overview of last month",
-    datas: [
-        {
-            label: 'Yearly',
-            categories: ['Jan', 'Fev', 'Mars', 'Avr', 'Mai', 'Juin', 'Juil', 'Aout', 'Sept', 'Oct', 'Nov', 'Dec', 'Jan'],
-            colors: ["#7366FF", "#F73164"],
-            series: [
-                {
-                    name: "Online",
-                    data: [6, 20, 15, 40, 18, 20, 18, 23, 18, 35, 30, 55, 0],
-                },
-                {
-                    name: "Store",
-                    data: [2, 22, 35, 32, 40, 25, 50, 38, 42, 28, 20, 45, 0],
-                }
-            ],
-        },
-        {
-            label: 'Weekly',
-            categories: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'],
-            colors: ["#7366FF", "#F73164"],
-            series: [
-                {
-                    name: "Online",
-                    data: [6, 20, 33, 18, 20, 15, 0],
-                },
-                {
-                    name: "Store",
-                    data: [2, 35, 82, 15, 60, 35, 0],
-                }
-            ],
-        }
-    ],
     dashboardItems: [
         {
             value: '$4055.56',
@@ -92,5 +57,37 @@ export const basic = s(Template, {
             name: 'Sales Forecasting',
             value: '$9,478.50',
         },
+    ],
+    datas: [
+        {
+            label: 'Yearly',
+            categories: ['Jan', 'Fev', 'Mars', 'Avr', 'Mai', 'Juin', 'Juil', 'Aout', 'Sept', 'Oct', 'Nov', 'Dec', 'Jan'],
+            colors: ["#7366FF", "#F73164"],
+            series: [
+                {
+                    name: "Online",
+                    data: [6, 20, 15, 40, 18, 20, 18, 23, 18, 35, 30, 55, 0],
+                },
+                {
+                    name: "Store",
+                    data: [2, 22, 35, 32, 40, 25, 50, 38, 42, 28, 20, 45, 0],
+                }
+            ],
+        },
+        {
+            label: 'Weekly',
+            categories: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'],
+            colors: ["#7366FF", "#F73164"],
+            series: [
+                {
+                    name: "Online",
+                    data: [6, 20, 33, 18, 20, 15, 0],
+                },
+                {
+                    name: "Store",
+                    data: [2, 35, 82, 15, 60, 35, 0],
+                }
+            ],
+        }
     ],
 });

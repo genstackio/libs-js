@@ -1,4 +1,4 @@
-import {Progress} from "../atoms";
+import {Progress} from "../../atoms";
 
 export function UsageChart({max, unit, value}: UsageChartProps) {
     return (

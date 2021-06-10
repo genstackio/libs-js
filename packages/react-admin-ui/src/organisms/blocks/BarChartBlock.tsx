@@ -1,6 +1,6 @@
 import MuiSettingsIcon from '@material-ui/icons/Settings';
 import {BaseBlockProps, Block, Text} from "../../atoms";
-import {BarChart, BarChartProps} from "../../molecules";
+import {BarChart, BarChartProps} from "../../molecules/charts";
 
 export function BarChartBlock({labels, series, stats, subtitle, title, value, ...props}: BarChartBlockProps) {
     return (

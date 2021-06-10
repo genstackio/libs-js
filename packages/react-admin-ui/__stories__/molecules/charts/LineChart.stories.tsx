@@ -1,8 +1,8 @@
-import {args, s} from "../utils";
-import {LineChart} from '../../src';
+import {args, s} from "../../utils";
+import {LineChart} from '../../../src';
 
 export default {
-    title: 'Molecules/LineChart',
+    title: 'Molecules/charts/LineChart',
     component: LineChart,
     argTypes: {
         title: args.title,

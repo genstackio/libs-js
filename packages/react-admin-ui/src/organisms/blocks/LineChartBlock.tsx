@@ -1,5 +1,5 @@
 import {BaseBlockProps, Block} from "../../atoms";
-import {LineChart} from "../../molecules";
+import {LineChart} from "../../molecules/charts";
 
 export function LineChartBlock({description, labels, series = [], title, ...props}: LineChartBlockProps) {
     return (

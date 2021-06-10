@@ -1,9 +1,9 @@
 import {args, s} from "../../utils";
-import {ProgressChartBlock} from '../../../src';
+import {ProgressChart} from '../../../src';
 
 export default {
-    title: 'Organisms/Blocks/ProgressChartBlock',
-    component: ProgressChartBlock,
+    title: 'Molecules/charts/ProgressChart',
+    component: ProgressChart,
     argTypes: {
         title: args.title,
         progress: args.progress,
@@ -12,11 +12,10 @@ export default {
         series: args.series,
         color: args.color,
         variant: args.blockVariant,
-        padding: args.padding,
     },
 }
 
-const Template = args => <ProgressChartBlock {...args} />;
+const Template = args => <ProgressChart {...args} />;
 
 export const basic = s(Template, {
     title: 'SALE',

@@ -1,8 +1,8 @@
-import {args, s} from "../utils";
-import {RateChart} from "../../src";
+import {args, s} from "../../utils";
+import {RateChart} from "../../../src";
 
 export default {
-    title: 'Molecules/RateChart',
+    title: 'Molecules/charts/RateChart',
     component: RateChart,
     argTypes: {
         color:args.color,

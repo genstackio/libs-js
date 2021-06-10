@@ -1,5 +1,5 @@
 import {BaseBlockProps, Block} from "../../atoms";
-import {RadarChart} from "../../molecules";
+import {RadarChart} from "../../molecules/charts";
 
 export function RadarChartBlock({dropdownItems, labels, series, title, ...props}: RadarChartBlockProps) {
     return (

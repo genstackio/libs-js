@@ -1,8 +1,8 @@
-import {args, s} from "../utils";
-import {ArcChart} from "../../src";
+import {args, s} from "../../utils";
+import {ArcChart} from "../../../src";
 
 export default {
-    title: 'Molecules/ArcChart',
+    title: 'Molecules/charts/ArcChart',
     component: ArcChart,
     argTypes: {
         color:args.color,

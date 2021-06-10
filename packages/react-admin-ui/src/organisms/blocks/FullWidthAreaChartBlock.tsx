@@ -1,6 +1,6 @@
 import SettingsIcon from '@material-ui/icons/Settings';
 import {BaseBlockProps, Block, Text} from "../../atoms";
-import  {AreaChart, AreaChartProps} from "../../molecules";
+import  {AreaChart, AreaChartProps} from "../../molecules/charts";
 
 export function FullWidthAreaChartBlock({overline, series, title, value,...props}: FullWidthAreaChartBlockProps) {
     return (
