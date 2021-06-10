@@ -50,6 +50,7 @@ export const args = {
     badges: { control: {type: 'object'} },
     badgeLabel: {control: {type: 'text'}},
     badgeVariant: { control: {type: 'select'}, options: ['pill', 'tag', 'none'] },
+    bgColor: { control: {type: 'color'} },
     bgIcon: { table: {disable: true} },
     blockVariant: { control: {type: 'select'}, options: ['filled', 'outlined', 'contained'] },
     btnLabel: {control: {type: 'text'}},

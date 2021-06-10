@@ -1,8 +1,11 @@
 import {ReactNode} from "react";
 import {image} from "../types";
 
-export function Container({bgImage, children, className}: ContainerProps) {
-    const style = bgImage ? { backgroundImage: 'url('+bgImage.url+')'}:undefined
+export function Container({bgImage, bgColor, className, children}: ContainerProps) {
+    const style = {
+        backgroundImage: (bgImage ? 'url('+bgImage.url+')' : undefined),
+        backgroundColor: (bgColor ? bgColor : undefined),
+    };
     return (
         <div className={className} style={style}>
             {children || ''}
@@ -12,8 +15,9 @@ export function Container({bgImage, children, className}: ContainerProps) {
 
 export interface ContainerProps {
     bgImage?: image,
-    children?: ReactNode,
+    bgColor?: string,
     className?: string,
+    children?: ReactNode,
 }
 
 export default Container
