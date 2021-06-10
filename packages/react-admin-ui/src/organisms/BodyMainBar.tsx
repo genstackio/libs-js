@@ -1,8 +1,8 @@
 import {ReactNode} from "react";
 import {Button} from "../atoms/Button";
-import {box_color, box_variant} from "../types";
+import {box_color, box_variant, target} from "../types";
 
-export function BodyMainBar({children, actions = []}: BodyMainBarProps) {
+export function BodyMainBar({actions = [], children}: BodyMainBarProps) {
     return (
         <div className={'flex justify-between items-center flex-wrap'}>
             <div className={'flex-1'}>
@@ -20,7 +20,13 @@ export function BodyMainBar({children, actions = []}: BodyMainBarProps) {
 }
 
 export interface BodyMainBarProps {
-    actions: {color?: box_color, variant?: box_variant, label?: string, target?: Function|string, icon?: string}[],
+    actions: {
+        color?: box_color,
+        icon?: string,
+        label?: string,
+        target?: target,
+        variant?: box_variant,
+    }[],
     children: ReactNode,
 }
 

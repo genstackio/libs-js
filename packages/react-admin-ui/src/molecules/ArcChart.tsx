@@ -39,7 +39,7 @@ const defaultOptions : ApexOptions = {
     },
 };
 
-export function ArcChart({value, color = 'primary'}: ArcChartProps) {
+export function ArcChart({color = 'primary', value}: ArcChartProps) {
     const options = {...defaultOptions, colors: [tailwindColors[color]], plotOptions:{...defaultOptions.plotOptions || {}}};
     options.plotOptions.radialBar!.dataLabels!.value!.color = tailwindColors[color];
 
@@ -49,8 +49,8 @@ export function ArcChart({value, color = 'primary'}: ArcChartProps) {
 }
 
 export interface ArcChartProps {
-    value: number,
     color?: box_color,
+    value: number,
 }
 
 export default ArcChart

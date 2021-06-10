@@ -1,9 +1,9 @@
 import {useState, useCallback, ReactNode, ChangeEvent} from 'react';
-import {BaseBlockProps, Block} from "../../atoms";
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import AppBar from '@material-ui/core/AppBar';
 import colorClass from "../../utils/colorClass";
+import {BaseBlockProps, Block} from "../../atoms";
 
 function TabPanel({children, value, index, ...props}: TabPanelProps) {
     return (
@@ -49,7 +49,11 @@ export function TabbedBlock({items = [], ...props}: TabbedBlockProps) {
 }
 
 export interface TabbedBlockProps extends BaseBlockProps {
-    items?: {title?: string, content?: string, disabled?: boolean}[],
+    items?: {
+        content?: string,
+        disabled?: boolean,
+        title?: string,
+    }[],
 }
 
 export default TabbedBlock

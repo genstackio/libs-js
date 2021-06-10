@@ -1,9 +1,8 @@
-import {BaseBlockProps, Block} from "../../atoms";
-import Text from "../../atoms/Text";
 import MuiSettingsIcon from '@material-ui/icons/Settings';
+import {BaseBlockProps, Block, Text} from "../../atoms";
 import {BarChart, BarChartProps} from "../../molecules";
 
-export function BarChartBlock({series, title, stats, subtitle, value, labels,...props}: BarChartBlockProps) {
+export function BarChartBlock({labels, series, stats, subtitle, title, value, ...props}: BarChartBlockProps) {
     return (
         <Block title={title}  {...props}>
             { subtitle && <div className={'flex justify-between items-center mb2'}>
@@ -20,9 +19,9 @@ export function BarChartBlock({series, title, stats, subtitle, value, labels,...
 }
 
 export interface BarChartBlockProps extends BaseBlockProps, Omit<BarChartProps, "color">{
-    title?: string,
     stats?: number,
     subtitle?: string,
+    title?: string,
     value?: string,
 }
 

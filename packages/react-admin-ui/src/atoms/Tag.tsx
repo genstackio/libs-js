@@ -3,7 +3,7 @@ import colorClass from '../utils/colorClass';
 import {box_color, box_variant} from '../types';
 import Icon from "./Icon";
 
-export function Tag({color, text, variant, icon, size}: TagProps) {
+export function Tag({color, icon, size, text, variant}: TagProps) {
     return (
         <div className={clsx(colorClass({color: color, variant: variant}),
             'inline-flex pr-4 pl-4 rounded-lg text-white font-bold uppercase pt-1 py-1 space-x-1'
@@ -15,11 +15,11 @@ export function Tag({color, text, variant, icon, size}: TagProps) {
 }
 
 export interface TagProps {
-    text?: string,
     color?: box_color,
-    variant?: box_variant,
     icon?: string,
     size?: number,
+    text?: string,
+    variant?: box_variant,
 }
 
 export default Tag

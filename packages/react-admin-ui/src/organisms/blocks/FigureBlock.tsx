@@ -1,7 +1,7 @@
 import {Block, Tag, Pill, BaseBlockProps} from "../../atoms";
 import {pill, tag} from '../../types';
 
-export function FigureBlock({title, price, pill, tag, ...props}: FigureBlockProps) {
+export function FigureBlock({pill, price, tag, title, ...props}: FigureBlockProps) {
     return (
         <Block {...props}>
             <div className={'flex '}>
@@ -23,10 +23,10 @@ export function FigureBlock({title, price, pill, tag, ...props}: FigureBlockProp
 }
 
 export interface FigureBlockProps extends BaseBlockProps {
-    title?: string,
-    price?: string,
     pill?: pill,
+    price?: string,
     tag?: tag,
+    title?: string,
 }
 
 export default FigureBlock

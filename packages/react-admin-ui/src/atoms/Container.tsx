@@ -1,7 +1,7 @@
 import {ReactNode} from "react";
 import {image} from "../types";
 
-export function Container({bgImage, className, children}: ContainerProps) {
+export function Container({bgImage, children, className}: ContainerProps) {
     const style = bgImage ? { backgroundImage: 'url('+bgImage.url+')'}:undefined
     return (
         <div className={className} style={style}>
@@ -12,8 +12,8 @@ export function Container({bgImage, className, children}: ContainerProps) {
 
 export interface ContainerProps {
     bgImage?: image,
-    className?: string,
     children?: ReactNode,
+    className?: string,
 }
 
 export default Container

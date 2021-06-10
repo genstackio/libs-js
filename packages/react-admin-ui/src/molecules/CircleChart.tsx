@@ -20,7 +20,7 @@ const defaultOptions : ApexOptions = {
     },
 };
 
-export function CircleChart({series, variant = 'filled', color = 'primary'}: CircleChartProps) {
+export function CircleChart({color = 'primary', series, variant = 'filled'}: CircleChartProps) {
     const col = `${variant}_${color}`;
     const options = {...defaultOptions, colors: tailwindChartColors[col]};
 
@@ -30,8 +30,8 @@ export function CircleChart({series, variant = 'filled', color = 'primary'}: Cir
 };
 
 export interface CircleChartProps {
-    series: number[][],
     color?: box_color,
+    series: number[][],
     variant?: box_variant,
 }
 

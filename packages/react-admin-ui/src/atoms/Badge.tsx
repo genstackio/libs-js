@@ -13,10 +13,10 @@ export function Badge({type, ...props}: BadgeProps) {
 }
 
 export interface BadgeProps {
-    variant?: box_variant,
     color?: box_color,
     text?: string,
     type?: badge_variant,
+    variant?: box_variant,
 }
 
 export default Badge

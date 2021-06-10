@@ -1,11 +1,9 @@
-import Text from "../../atoms/Text";
 import Chart from "react-apexcharts";
 import {ApexOptions} from "apexcharts";
 import formatAmount from "../../utils/formatAmount";
-import Block, {BaseBlockProps} from "../../atoms/Block";
-import {Icon} from "../../atoms";
+import {BaseBlockProps, Block, Icon, Text} from "../../atoms";
 
-export function ProgressChartBlock({title, progress, value, unit, chart,...props}: ProgressChartBlockProps) {
+export function ProgressChartBlock({chart, progress, title, unit, value, ...props}: ProgressChartBlockProps) {
     return (
         <Block padding={'none'} {...props}>
             <div className={'p-10 flex justify-between items-center max-h-80'}>
@@ -25,11 +23,11 @@ export function ProgressChartBlock({title, progress, value, unit, chart,...props
 }
 
 export interface ProgressChartBlockProps extends BaseBlockProps {
-    title?: string,
-    progress?: number,
-    value?: number,
-    unit?: string,
     chart?: ApexOptions,
+    progress?: number,
+    title?: string,
+    unit?: string,
+    value?: number,
 }
 
 export default ProgressChartBlock

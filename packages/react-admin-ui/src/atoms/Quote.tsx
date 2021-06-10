@@ -9,7 +9,7 @@ const positionsp2 = {
     center: 'text-center text-gray-400',
 }
 
-export function Quote({text, title, position = 'left'}: QuoteProps) {
+export function Quote({position = 'left', text, title}: QuoteProps) {
     return (
         <div>
             <blockquote>

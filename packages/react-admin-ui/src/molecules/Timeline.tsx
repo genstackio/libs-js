@@ -9,17 +9,17 @@ import {box_color} from "../types";
 export function Timeline({items}) {
     const last = items.length;
     return (
-            <MuiTimeline align="left">
+            <MuiTimeline align='left'>
                 {items.map((item, index) => (
                     <div key={index}>
                     <MuiTimelineItem>
                             <MuiTimelineSeparator>
-                                <MuiTimelineDot variant="outlined" color={item.color} />
+                                <MuiTimelineDot variant='outlined' color={item.color} />
                                 {index !== (last - 1) ? <MuiTimelineConnector /> : ''}
                             </MuiTimelineSeparator>
-                            <MuiTimelineContent className="-mt-4">
-                                <p className="text-md text-bold">{item.title}</p>
-                                <p className="text-sm text-gray-400">{item.description}</p>
+                            <MuiTimelineContent className={'-mt-4'}>
+                                <p className={'text-md text-bold'}>{item.title}</p>
+                                <p className={'text-sm text-gray-400'}>{item.description}</p>
                             </MuiTimelineContent>
                     </MuiTimelineItem>
                     </div>
@@ -29,7 +29,11 @@ export function Timeline({items}) {
 }
 
 export interface TimelineProps {
-    items: {color: box_color, title: string, description: string}[],
+    items: {
+        color: box_color,
+        description: string,
+        title: string,
+    }[],
 }
 
 export default Timeline

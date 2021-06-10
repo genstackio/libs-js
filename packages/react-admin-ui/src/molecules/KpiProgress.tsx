@@ -1,8 +1,7 @@
 import {ReactNode} from 'react';
-import {BaseBlockProps, Block} from "../atoms";
-import {Progress} from "../atoms";
+import {BaseBlockProps, Block, Progress} from "../atoms";
 
-export function KpiProgress({text, value, goal, unit, ...props}: KpiProgressProps) {
+export function KpiProgress({goal, text, unit, value, ...props}: KpiProgressProps) {
     return (
         <Block {...props}>
             <div className={'flex justify-between items-center'}>
@@ -19,10 +18,10 @@ export function KpiProgress({text, value, goal, unit, ...props}: KpiProgressProp
 }
 
 export interface KpiProgressProps extends BaseBlockProps {
-    text?: ReactNode,
-    value: number,
     goal: number,
+    text?: ReactNode,
     unit?: string,
+    value: number,
 }
 
 export default KpiProgress

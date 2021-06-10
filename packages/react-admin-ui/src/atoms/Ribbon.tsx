@@ -4,7 +4,7 @@ import clsx from "clsx";
 import colorClass from "../utils/colorClass";
 import Icon from "./Icon";
 
-export function Ribbon({children, color, text, position = 'top-left', horizontal, vertical}: RibbonProps) {
+export function Ribbon({children, color, horizontal, position = 'top-left', text, vertical}: RibbonProps) {
     let triangle_position, horizontal_rectangle_position, triangle_rotate, vertical_rectangle_position, top_space, bottom_space
     {(() => {
         switch (position) {
@@ -28,12 +28,12 @@ export function Ribbon({children, color, text, position = 'top-left', horizontal
                 <div className={clsx(triangle_position, 'w-5 overflow-hidden inline-block')}>
                     <div className={clsx(colorClass({color: color, variant: 'contained'}), triangle_rotate)} />
                 </div>
-                <div className='mt-8'/>
+                <div className={'mt-8'} />
                 {top_space ? children : ''}
             </div>}
             { vertical && <div>
                 {bottom_space ? children : ''}
-                <div className='mt-24'/>
+                <div className={'mt-24'} />
                 <div className={clsx(vertical_rectangle_position, '')}>
                     <div className={clsx(colorClass({color: color, variant: 'contained'}), 'w-32 transform rotate-90 text-center text-white py-1')}>
                         <Icon icon='settings' />
@@ -47,12 +47,12 @@ export function Ribbon({children, color, text, position = 'top-left', horizontal
 }
 
 export interface RibbonProps {
-    text?: string,
-    color?: box_color,
-    position?: ribbon_position,
-    vertical?: boolean,
-    horizontal?: boolean,
     children?: ReactNode,
+    color?: box_color,
+    horizontal?: boolean,
+    position?: ribbon_position,
+    text?: string,
+    vertical?: boolean,
 }
 
 export default Ribbon

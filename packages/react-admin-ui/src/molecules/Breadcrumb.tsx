@@ -6,14 +6,15 @@ import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 
 const colors = {
+    danger: 'text-danger',
+    dark: 'text-dark',
+    info: 'text-info',
+    inherit: 'text-current',
+    light: 'text-light',
     primary: 'text-primary',
     secondary: 'text-secondary',
     success: 'text-success',
-    info: 'text-info',
     warning: 'text-warning',
-    danger: 'text-danger',
-    light: 'text-light',
-    dark: 'text-dark',
 }
 
 const useStyles = makeStyles({
@@ -43,8 +44,11 @@ export function Breadcrumb({items = [], color = 'primary', toRight = false}: Bre
 }
 
 export interface BreadcrumbProps {
-    items: {label?: string, target?: string}[],
     color?: box_color,
+    items: {
+        label?: string,
+        target?: string,
+    }[],
     toRight?: boolean,
 }
 

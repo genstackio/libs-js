@@ -8,7 +8,7 @@ const shapes = {
     'rounded': 'rounded-lg',
 }
 
-export function Thumbnail({image, size = 'xl', shape = 'rounded'}: ThumbnailProps) {
+export function Thumbnail({image, shape = 'rounded', size = 'xl'}: ThumbnailProps) {
     return (
         <div className={clsx('inline-block animated tada')}>
             {image && <img src={image.url} alt={image.alt} className={clsx(sizes[size], shapes[shape])} />}
@@ -18,8 +18,8 @@ export function Thumbnail({image, size = 'xl', shape = 'rounded'}: ThumbnailProp
 
 export interface ThumbnailProps {
     image?: image,
-    size?: 'xl',
     shape?: 'rounded',
+    size?: 'xl',
 }
 
 export default Thumbnail

@@ -1,12 +1,12 @@
 import Tag from '../atoms/Tag';
 import {box_color, box_variant, icon_variant} from "../types";
 
-export function Corner({text, variant, color, iconCorner, items = [], ...props}: CornerProps) {
+export function Corner({color, iconCorner, items = [], text, variant, ...props}: CornerProps) {
     return (
         <div>
 
             {items.map(({text, variant, icon, color}, index) => (
-                <div className='py-1'>
+                <div className={'py-1'}>
                     <Tag key={index} text={text} variant={variant} color={color} icon={iconCorner} {...props} />
                 </div>
             ))}
@@ -16,11 +16,16 @@ export function Corner({text, variant, color, iconCorner, items = [], ...props}:
 }
 
 export interface CornerProps {
-    text?: string,
-    variant?: box_variant,
     color?: box_color,
     iconCorner?: icon_variant,
-    items?: {text?: string, variant?: box_variant, icon?: string, color?:box_color}[],
+    items?: {
+        color?:box_color,
+        icon?: string,
+        text?: string,
+        variant?: box_variant,
+    }[],
+    text?: string,
+    variant?: box_variant,
 }
 
 export default Corner

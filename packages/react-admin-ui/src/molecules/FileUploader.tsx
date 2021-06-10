@@ -15,8 +15,8 @@ const defaultDropzoneStyle = {
 };
 
 export function FileUploader({
-     url, placeholder, submitLabel, nonEmptyPlaceholder, accept, dropzoneStyle = undefined,
-     onSubmit, onFileUpload, onFileAbort, onFileRemove, ...props
+     accept, dropzoneStyle = undefined, nonEmptyPlaceholder, placeholder, submitLabel, url,
+     onFileAbort, onFileUpload, onFileRemove, onSubmit, ...props
 }: FileUploaderProps) {
 
     dropzoneStyle = (null === dropzoneStyle) ? undefined : (dropzoneStyle || defaultDropzoneStyle);
@@ -38,8 +38,8 @@ export function FileUploader({
         <>
             <div id="toast" />
             <Block {...props}>
-                <div className="flex flex-col px-4 py-6 bg-white text-blue tracking-wide uppercase
-                    border border-blue cursor-pointer hover:bg-blue-300 hover:text-white">
+                <div className={'flex flex-col px-4 py-6 bg-white text-blue tracking-wide uppercase ' +
+                                'border border-blue cursor-pointer hover:bg-blue-300 hover:text-white'}>
                     <Dropzone
                         inputContent= { placeholder }
                         submitButtonContent= { submitLabel }
@@ -57,19 +57,19 @@ export function FileUploader({
 }
 
 export interface FileUploaderProps {
-    color?: box_color,
-    variant?: box_variant,
-    title?: string,
-    url?: string,
     accept?: string,
-    placeholder?: string,
-    submitLabel?: string,
+    color?: box_color,
+    dropzoneStyle?: object | null,
     nonEmptyPlaceholder?: string,
-    onSubmit?: Function,
+    onFileAbort?: Function,
     onFileRemove?: Function,
     onFileUpload?: Function,
-    onFileAbort?: Function,
-    dropzoneStyle?: object|null,
+    onSubmit?: Function,
+    placeholder?: string,
+    submitLabel?: string,
+    title?: string,
+    url?: string,
+    variant?: box_variant,
 }
 
 export default FileUploader

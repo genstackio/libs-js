@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     }
 });
 
-export function Dropdown({menuItems, variant, color}: DropdownProps) {
+export function Dropdown({color, menuItems, variant}: DropdownProps) {
     const classes = useStyles();
     const [value, setValue] = useState<string | number | undefined>(menuItems[0].name);
     const [open, setOpen] = useState(false);
@@ -49,8 +49,10 @@ export function Dropdown({menuItems, variant, color}: DropdownProps) {
 }
 
 export interface DropdownProps {
-    menuItems: {name?: string | number}[],
     color?: box_color,
+    menuItems: {
+        name?: string | number
+    }[],
     variant?: box_variant,
 }
 

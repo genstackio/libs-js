@@ -1,9 +1,7 @@
-import Block, {BaseBlockProps} from "../../atoms/Block";
-import Badge from "../../atoms/Badge";
-import Progress from "../../atoms/Progress";
+import {Badge, BaseBlockProps, Block, Progress} from "../../atoms";
 import formatAmount from "../../utils/formatAmount";
 
-export function GoalBlock({values, badgeLabel, unit, ...props}: GoalBlockProps) {
+export function GoalBlock({badgeLabel, unit, values, ...props}: GoalBlockProps) {
     const progressValue = Math.round((values.current / values.goal) * 100);
     return (
         <Block {...props}>
@@ -22,9 +20,13 @@ export function GoalBlock({values, badgeLabel, unit, ...props}: GoalBlockProps) 
 }
 
 export interface GoalBlockProps extends BaseBlockProps {
-    values: {current: number, goal: number, text?: string},
     badgeLabel?: string,
     unit?: string,
+    values: {
+        current: number,
+        goal: number,
+        text?: string
+    },
 }
 
 export default GoalBlock

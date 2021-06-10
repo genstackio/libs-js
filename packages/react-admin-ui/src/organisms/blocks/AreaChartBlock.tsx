@@ -1,8 +1,8 @@
-import {BaseBlockProps, Block} from "../../atoms";
-import {Text,Icon} from "../../atoms";
+import SettingsIcon from '@material-ui/icons/Settings';
+import {BaseBlockProps, Block, Icon, Text} from "../../atoms";
 import {AreaChart, AreaChartProps} from "../../molecules";
 
-export function AreaChartBlock({series, title, stats, subtitle, value,...props}: AreaChartBlockProps) {
+export function AreaChartBlock({series, stats, subtitle, title, value, ...props}: AreaChartBlockProps) {
     return (
         <Block {...props}>
             { subtitle && <div className={'flex justify-between items-center mb2'}>
@@ -19,9 +19,9 @@ export function AreaChartBlock({series, title, stats, subtitle, value,...props}:
 }
 
 export interface AreaChartBlockProps extends BaseBlockProps, Omit<AreaChartProps, "color">{
-    title?: string,
     stats?: number,
     subtitle?: string,
+    title?: string,
     value?: string,
 }
 

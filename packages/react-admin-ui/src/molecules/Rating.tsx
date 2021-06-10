@@ -17,7 +17,7 @@ const StyledRating = withStyles({
   }
 })(RatingUI);
 
-export function Rating({text, defaultValue, value, onChange, readOnly = false}: RatingProps) {
+export function Rating({defaultValue, onChange, readOnly = false, text, value}: RatingProps) {
   return (
     <div>
         <Box component="fieldset" borderColor="transparent">
@@ -36,11 +36,14 @@ export function Rating({text, defaultValue, value, onChange, readOnly = false}: 
 }
 
 export interface RatingProps {
-    text?: string,
     defaultValue?: number,
-    value?: number,
-    onChange?: (event: ChangeEvent<{}>, value: number | null) => void,
+    onChange?: (
+        event: ChangeEvent<{}>,
+        value: number | null
+    ) => void,
     readOnly?: boolean,
+    text?: string,
+    value?: number,
 }
 
 export default Rating

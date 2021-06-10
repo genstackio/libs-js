@@ -1,8 +1,9 @@
 import Avatar from '../atoms/Avatar';
-import {image} from '../types';
+import {image, shape, size, status} from '../types';
+
 export function Avatars({items = []}: AvatarsProps) {
     return (
-        <div className="-space-x-4">
+        <div className={'-space-x-4'}>
             {items.map(item => (
                 <Avatar name={item.name} image={item.image} size={item.size} shape={item.shape} status={item.status} />
             ))}
@@ -11,7 +12,13 @@ export function Avatars({items = []}: AvatarsProps) {
 }
 
 export interface AvatarsProps {
-    items?: {name: string, image?: image, size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl', shape?: 'circular' | 'rounded', status?: 'online' | 'offline' | 'busy'}[],
+    items?: {
+        image?: image,
+        name: string,
+        shape?: shape,
+        size?: size,
+        status?: status,
+    }[],
 }
 
 export default Avatars

@@ -20,7 +20,7 @@ const defaultOptions: ApexOptions = {
     }
 };
 
-export function LineChart({series, labels, title, color= 'primary', variant = 'filled'}: LineChartProps) {
+export function LineChart({color= 'primary', labels, series, title, variant = 'filled'}: LineChartProps) {
     const col = `${variant}_${color}`;
     const options = {...defaultOptions, labels: labels, colors: tailwindChartColors[col]};
     const datas: any = [];
@@ -36,10 +36,10 @@ export function LineChart({series, labels, title, color= 'primary', variant = 'f
 }
 
 export interface LineChartProps {
-    series: number[][],
-    labels?: string[],
-    title?: string,
     color?: box_color,
+    labels?: string[],
+    series: number[][],
+    title?: string,
     variant?: box_variant,
 }
 

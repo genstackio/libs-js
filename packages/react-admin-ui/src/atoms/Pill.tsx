@@ -12,8 +12,8 @@ export function Pill({color, text, variant}: PillProps) {
 }
 
 export interface PillProps {
-    text?: string,
     color?: box_color,
+    text?: string,
     variant?: box_variant,
 }
 

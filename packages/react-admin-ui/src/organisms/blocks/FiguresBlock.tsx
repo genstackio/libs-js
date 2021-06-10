@@ -1,8 +1,7 @@
-import Text from "../../atoms/Text";
 import Chart from "react-apexcharts";
 import {box_color} from "../../types";
 import {ApexOptions} from "apexcharts";
-import Block, {BaseBlockProps} from "../../atoms/Block";
+import {BaseBlockProps, Block, Text} from "../../atoms";
 
 export function FiguresBlock({items, ...props}: FiguresBlockProps) {
     return (
@@ -23,7 +22,15 @@ export function FiguresBlock({items, ...props}: FiguresBlockProps) {
 }
 
 export interface FiguresBlockProps extends BaseBlockProps {
-    items?: {options?: ApexOptions, series?: {data?: number[]}[], value?: number, name?: string, color: box_color}[],
+    items?: {
+        color: box_color,
+        name?: string,
+        options?: ApexOptions,
+        series?: {
+            data?: number[]
+        }[],
+        value?: number,
+    }[],
 }
 
 export default FiguresBlock
