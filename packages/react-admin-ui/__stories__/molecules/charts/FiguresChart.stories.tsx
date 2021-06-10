@@ -18,7 +18,6 @@ export default {
 
 const Template = args => <FiguresChart {...args} />;
 
-
 export const basic = s(Template, {
     items: [
         {

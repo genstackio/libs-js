@@ -2,7 +2,7 @@ import {s} from "../../utils";
 import {UsageChart} from '../../../src';
 
 export default {
-    title: 'Molecules/UsageChart',
+    title: 'Molecules/charts/UsageChart',
     component: UsageChart,
 }
 

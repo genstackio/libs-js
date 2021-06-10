@@ -55,7 +55,6 @@ const defaultOptions = {
 };
 
 export function FiguresChart({items, ...props}: FiguresChartProps) {
-
     return (
         <div>
             {items && <div className={'grid grid-cols-4 xs:grid-cols-1 divide-x xs:divide-x-0'}>
