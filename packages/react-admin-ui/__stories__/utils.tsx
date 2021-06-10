@@ -45,6 +45,7 @@ export function s(Component, args, opts: any = {}) {
 
 export const args = {
     actions: { control: {type: 'object'} },
+    author:{ control: {type: 'text'}},
     badge: { control: {type: 'object'} },
     badges: { control: {type: 'object'} },
     badgeLabel: {control: {type: 'text'}},
@@ -61,9 +62,11 @@ export const args = {
     code: { control: {type: 'number'} },
     color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
     columns: { control: {type: 'object'} },
-    content: {control: {type: 'text'}},
+    comments : { control: {type: 'number'} },
+    content: { control: {type: 'text'} },
     dashboardItems: { control: {type: 'object'} },
     datas: { control: {type: 'object'} },
+    date: { control: {type: 'number'} },
     default: { control: {type: 'text'} },
     defaultValue: { control: {type: 'number'} },
     description: {control: {type: 'text'}},
@@ -78,6 +81,7 @@ export const args = {
     items: { control: {type: 'object'} },
     labels: { control: {type: 'object'} },
     large: { control: {type: 'boolean'} },
+    likes : {control:{type: 'number'}},
     logo: { control: {type: 'object'} },
     menuItems: { control: {type: 'object'} },
     message: { control: {type: 'text'} },
