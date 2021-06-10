@@ -14,7 +14,7 @@
     "templates"
   ],
   "publishConfig": {
-    "access": "private"
+    "access": "public"
   },
   "scripts": {
     "build": "tsc",
@@ -32,5 +32,6 @@
     "@types/yeoman-generator": "^3.1.4",
     "babel-loader": "^8.1.0",
     "source-map-loader": "^0.2.4"
-  }
+  },
+  "gitHead": "0f67d1ac87c3bfd2390d1bad98b5396c06375518"
 }
