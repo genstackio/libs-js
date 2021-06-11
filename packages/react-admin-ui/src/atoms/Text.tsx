@@ -18,6 +18,7 @@ const variants = {
     cross: 'text-base line-through',
     description: 'text-sm font-description',
     subtitle:'text-lg font-light font-subtitle',
+    title0: 'lg:text-9xl md:text-7xl sm:text-4xl font-bold font-title1',
     title1: 'text-6xl font-bold font-title1',
     title2: 'text-5xl font-bold font-title2',
     title3: 'text-4xl font-bold font-title3',
@@ -37,7 +38,7 @@ export function Text({color = 'inherit', text, variant = 'body'}: TextProps) {
 export interface TextProps {
     color?: 'inherit' | box_color,
     text?: string,
-    variant?: 'body' | 'cross' | 'description' | 'overline' | 'subtitle' | 'text' | 'title1' | 'title2' | 'title3' | 'title4' | 'title5' | 'title6' | 'title7' | 'underline',
+    variant?: 'body' | 'cross' | 'description' | 'overline' | 'subtitle' | 'text' | 'title0' | 'title1' | 'title2' | 'title3' | 'title4' | 'title5' | 'title6' | 'title7' | 'underline',
 }
 
 export default Text
