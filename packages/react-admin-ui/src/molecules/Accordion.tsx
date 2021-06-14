@@ -1,6 +1,7 @@
 import {ChangeEvent, useState, useCallback} from "react";
 import clsx from "clsx";
-import colorClass from "../utils/colorClass";
+import textClass from "../utils/textClass";
+import buttonClass from "../utils/buttonClass";
 import {box_color, box_variant, badge} from "../types";
 import {makeStyles} from "@material-ui/core/styles";
 import MuiAccordion from "@material-ui/core/Accordion";
@@ -26,9 +27,9 @@ export function Accordion({color, expandIcon, items = [], variant}: AccordionPro
             {items.map(({icon, title, badge, content}, index) => (
                 <MuiAccordion elevation={0} key={index} classes={classes} className={clsx(classes.root, 'rounded-t-md mb-2')} square={true} expanded={expanded === index} onChange={handleChange(index)}>
                     <MuiAccordionSummary
-                        expandIcon={expandIcon ? <Icon className={clsx(colorClass({color, variant}))} icon={expandIcon} />:undefined}
+                        expandIcon={expandIcon ? <Icon className={clsx(textClass({color, variant}))} icon={expandIcon} />:undefined}
                         aria-controls={`panel${index}-content`} id={`panel${index}-header`}
-                        className={clsx('rounded-t-md', colorClass({color, variant}))}>
+                        className={clsx('rounded-t-md', buttonClass({color, variant}))}>
                         <div className={'w-full flex justify-between items-center'}>
                             <div className={'flex justify-between items-center space-x-2'}>
                                 {icon && <Icon icon={icon} />}

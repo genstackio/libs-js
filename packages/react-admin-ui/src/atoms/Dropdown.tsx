@@ -1,6 +1,7 @@
 import {useCallback, useState, ChangeEvent} from 'react';
 import clsx from "clsx";
-import colorClass from "../utils/colorClass";
+import buttonClass from "../utils/buttonClass";
+import textClass from "../utils/textClass";
 import Select from '@material-ui/core/Select';
 import {box_color, box_variant} from "../types";
 import MenuItem from '@material-ui/core/MenuItem';
@@ -34,9 +35,9 @@ export function Dropdown({color, menuItems, variant}: DropdownProps) {
                 open={open} onClose={handleClose} onOpen={handleOpen}
                 defaultValue={value} onChange={handleChange}
                 variant={'filled'} disableUnderline classes={classes}
-                className={clsx(colorClass({color, variant}), 'rounded-lg')}
+                className={clsx(buttonClass({color, variant}), 'rounded-lg')}
                 inputProps={{classes: {
-                    icon: colorClass({color, variant}),
+                    icon: textClass({color, variant}),
                     root: 'p-2',
                 }}}
             >

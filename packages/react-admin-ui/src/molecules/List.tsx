@@ -1,7 +1,7 @@
 import Badge from '../atoms/Badge';
 import clsx from "clsx";
 import {badge, box_color} from "../types";
-import colorClass from "../utils/colorClass";
+import boxClass from "../utils/boxClass";
 
 export function List({badge, color, items=[]}: ListProps) {
     return (
@@ -11,7 +11,7 @@ export function List({badge, color, items=[]}: ListProps) {
                 <li
                 key={index}
                 className={clsx(
-                    colorClass({color: item.color || color, variant: 'contained'}),
+                    boxClass({color: item.color || color, variant: 'contained'}),
                     'border list-none rounded-sm px-3 py-3 flex justify-between')}>
                             {item.text}
                     {(item.badge || badge)  && <Badge

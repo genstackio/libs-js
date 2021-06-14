@@ -2,7 +2,7 @@ import {ReactNode} from 'react';
 import clsx from 'clsx';
 import Button from './Button';
 import Dropdown from './Dropdown';
-import colorClass from '../utils/colorClass';
+import boxClass from '../utils/boxClass';
 import {box_color, box_variant, image} from '../types';
 import Container from './Container';
 import Icon from "./Icon";
@@ -27,7 +27,7 @@ export function Block({btnLabel, children, classes = {}, className, color ='ligh
         </div>
     </>
     return (
-        <div className={clsx('rounded-2xl relative flex flex-col shadow-block', colorClass({color, variant}))} >
+        <div className={clsx('rounded-2xl relative flex flex-col shadow-block', boxClass({color, variant}))} >
             {image &&
             <Container bgImage={image} className={clsx(className,classes.root,'rounded-2xl')}>
                 content
