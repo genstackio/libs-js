@@ -1,7 +1,7 @@
-import {ReactNode, useCallback, useState} from "react";
+import {useCallback, useState} from "react";
 import Rating from "./Rating";
 import {Badge, Icon, Image, Text} from "../atoms";
-import {badge, image} from "../types";
+import {badge, children, image, rich_text} from "../types";
 
 export function SmallItemCard({badges, children, closable = false, image, rating, title }: SmallItemCardProps) {
     const [show, setShow] = useState(true);
@@ -10,10 +10,10 @@ export function SmallItemCard({badges, children, closable = false, image, rating
     return(
         <div className={'relative flex border-1 border-gray-300 py-4 rounded-lg max-w-2xl'}>
             {closable && <Icon icon={'close'} onClick={handleClick} className={'absolute top-2 right-2 cursor-pointer'} />}
-            {image && <Image url={image.url} alt={image.alt} className={'object-none mx-6'} />}
+            {image && <Image {...image} className={'object-none mx-6'} />}
             <div className={'flex-1 flex flex-col justify-between'}>
                 <div className={'space-y-2'}>
-                    <Text text={title} variant={'title6'} />
+                    {title && <Text text={title} variant={'title6'} />}
                     <Rating value={rating} readOnly />
                     <div>{children || ''}</div>
                 </div>
@@ -29,11 +29,11 @@ export function SmallItemCard({badges, children, closable = false, image, rating
 
 export interface SmallItemCardProps {
     badges?: badge[],
-    children?: ReactNode,
+    children?: children,
     closable?: boolean,
     image?: image,
     rating?: number,
-    title?: string,
+    title?: rich_text,
 }
 
 export default SmallItemCard

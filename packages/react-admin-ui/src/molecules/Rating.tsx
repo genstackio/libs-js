@@ -4,6 +4,7 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import {ChangeEvent} from "react";
+import {rich_text} from "../types";
 
 const StyledRating = withStyles({
   iconFilled: {
@@ -21,7 +22,7 @@ export function Rating({defaultValue, onChange, readOnly = false, text, value}: 
   return (
     <div>
         <Box component="fieldset" borderColor="transparent">
-            <Typography component="legend">{text}</Typography>
+            {text && <Typography component="legend">{text}</Typography>}
             <StyledRating name="customized-color"
                           defaultValue={defaultValue}
                           value={value}
@@ -42,7 +43,7 @@ export interface RatingProps {
         value: number | null
     ) => void,
     readOnly?: boolean,
-    text?: string,
+    text?: rich_text,
     value?: number,
 }
 

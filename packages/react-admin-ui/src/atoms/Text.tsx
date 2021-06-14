@@ -1,6 +1,5 @@
 import clsx from 'clsx';
-import {box_color} from "../types";
-import {ReactNode} from "react";
+import {text_variant, box_color_inherit, rich_text} from "../types";
 
 const colors = {
     danger: 'text-danger',
@@ -37,9 +36,9 @@ export function Text({color = 'inherit', text, variant = 'body'}: TextProps) {
 }
 
 export interface TextProps {
-    color?: 'inherit' | box_color,
-    text?: ReactNode,
-    variant?: 'body' | 'cross' | 'description' | 'overline' | 'subtitle' | 'text' | 'title0' | 'title1' | 'title2' | 'title3' | 'title4' | 'title5' | 'title6' | 'title7' | 'underline',
+    color?: box_color_inherit,
+    text?: rich_text,
+    variant?: text_variant,
 }
 
 export default Text

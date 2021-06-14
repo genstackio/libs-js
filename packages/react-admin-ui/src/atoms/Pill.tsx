@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import {box_color, box_variant} from '../types';
+import {box_color, box_variant, rich_text} from '../types';
 import boxClass from '../utils/boxClass';
 
 export function Pill({color, text, variant}: PillProps) {
@@ -13,7 +13,7 @@ export function Pill({color, text, variant}: PillProps) {
 
 export interface PillProps {
     color?: box_color,
-    text?: string,
+    text?: rich_text,
     variant?: box_variant,
 }
 

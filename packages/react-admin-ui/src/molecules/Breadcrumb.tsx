@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import {box_color} from "../types";
+import {box_color, breadcrumb_item} from "../types";
 import Link from '@material-ui/core/Link';
 import {makeStyles} from "@material-ui/core/styles";
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
@@ -33,7 +33,7 @@ export function Breadcrumb({items = [], color = 'primary', toRight = false}: Bre
     return (
         <Breadcrumbs aria-label="breadcrumb" classes={toRight ? {ol: classes.root} : undefined}>
             {breadcrumbItems.map(({label, target}, index) => (
-                <Link className={clsx(colors[color])} href={target} key={index}>
+                <Link className={clsx(colors[color])} key={index} {...(('function' === typeof target) ? {href: '#'} : {href: target as string})}>
                     {index === 0 && <HomeOutlinedIcon className={clsx(colors[color], 'flex items-center')} />}
                     {index !== 0 && <div>{label}</div>}
                 </Link>
@@ -45,10 +45,7 @@ export function Breadcrumb({items = [], color = 'primary', toRight = false}: Bre
 
 export interface BreadcrumbProps {
     color?: box_color,
-    items: {
-        label?: string,
-        target?: string,
-    }[],
+    items: breadcrumb_item[],
     toRight?: boolean,
 }
 

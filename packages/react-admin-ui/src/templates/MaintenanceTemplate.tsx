@@ -5,7 +5,7 @@ export function MaintenanceTemplate({logo, title, description, actions = [], col
     return (
         <div className={'h-screen flex items-center'}>
             <div className={'text-center max-w-3xl mx-auto'}>
-                <div className={'flex justify-center'}><Icon className={'text-gray-500'} icon={logo} size={200} /><Icon className={'text-gray-500'} icon={logo} size={60}/><Icon className={'text-gray-500'} icon={logo} size={120}/></div>
+                <div className={'flex justify-center'}><Icon className={'text-gray-500'} icon={logo} size={200} /><Icon className={'text-gray-500'} icon={logo} size={60} /><Icon className={'text-gray-500'} icon={logo} size={120} /></div>
                 <div className={'flex justify-center mb-4'}>
                     <Text text={title} variant={'title0'} color={color} />
                 </div>

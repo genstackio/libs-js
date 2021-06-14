@@ -4,7 +4,7 @@ import {CircleChart, CircleChartProps} from "../../molecules";
 export function CircleChartBlock({icon, series, stats, subtitle, title, value, ...props}: CircleChartBlockProps) {
     return (
         <Block title={title} icon={'trending_up'} {...props}>
-            <CircleChart color={props.color} series={series}/>
+            <CircleChart color={props.color} series={series} />
         </Block>
     );
 }

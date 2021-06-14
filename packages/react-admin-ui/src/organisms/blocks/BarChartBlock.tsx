@@ -10,10 +10,10 @@ export function BarChartBlock({labels, series, stats, subtitle, title, value, ..
                     <Text text={subtitle} variant={'body'} />
                     <Text text={value} color={'primary'} variant={'title6'} />
                 </div>
-                <MuiSettingsIcon className={'animate-spin'}/>
+                <MuiSettingsIcon className={'animate-spin'} />
             </div>}
-            { stats && <Text text={`${stats}`} color={'dark'} variant={'title5'}/>}
-            <BarChart color={props.color} labels={labels} series={series}/>
+            { stats && <Text text={`${stats}`} color={'dark'} variant={'title5'} />}
+            <BarChart color={props.color} labels={labels} series={series} />
         </Block>
     );
 }

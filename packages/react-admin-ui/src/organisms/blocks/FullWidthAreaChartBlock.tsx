@@ -8,11 +8,11 @@ export function FullWidthAreaChartBlock({overline, series, title, value,...props
             <div className={'p-10'}>
                 { title && <div className={'flex justify-between items-center mb2'}>
                         <Text text={title} variant={'body'} />
-                    <SettingsIcon className={'animate-spin'}/>
+                    <SettingsIcon className={'animate-spin'} />
                 </div>}
-                { overline && <Text text={`${overline}`} color={'dark'} variant={'title5'}/>}
+                { overline && <Text text={`${overline}`} color={'dark'} variant={'title5'} />}
             </div>
-            <AreaChart color={props.color} series={series}/>
+            <AreaChart color={props.color} series={series} />
         </Block>
     );
 }

@@ -1,5 +1,4 @@
-import {ReactNode} from "react";
-import {box_color, ribbon_position} from "../types";
+import {box_color, children, ribbon_position, rich_text} from "../types";
 import clsx from "clsx";
 import boxClass from "../utils/boxClass";
 import Icon from "./Icon";
@@ -36,7 +35,7 @@ export function Ribbon({children, color, horizontal, position = 'top-left', text
                 <div className={'mt-24'} />
                 <div className={clsx(vertical_rectangle_position, '')}>
                     <div className={clsx(boxClass({color: color, variant: 'contained'}), 'w-32 transform rotate-90 text-center text-white py-1')}>
-                        <Icon icon='settings' />
+                        <Icon icon={'settings'} />
                     </div>
                 </div>
                 {top_space ? children : ''}
@@ -47,11 +46,11 @@ export function Ribbon({children, color, horizontal, position = 'top-left', text
 }
 
 export interface RibbonProps {
-    children?: ReactNode,
+    children?: children,
     color?: box_color,
     horizontal?: boolean,
     position?: ribbon_position,
-    text?: string,
+    text?: rich_text,
     vertical?: boolean,
 }
 

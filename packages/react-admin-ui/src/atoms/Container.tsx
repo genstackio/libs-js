@@ -1,5 +1,4 @@
-import {ReactNode} from "react";
-import {image} from "../types";
+import {children, class_name, image} from "../types";
 
 export function Container({bgImage, bgColor, className, children}: ContainerProps) {
     const style = {
@@ -16,8 +15,8 @@ export function Container({bgImage, bgColor, className, children}: ContainerProp
 export interface ContainerProps {
     bgImage?: image,
     bgColor?: string,
-    className?: string,
-    children?: ReactNode,
+    className?: class_name,
+    children?: children,
 }
 
 export default Container

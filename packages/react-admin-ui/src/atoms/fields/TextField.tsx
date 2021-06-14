@@ -16,9 +16,9 @@ export function TextField({disabled, error, errorText, label, placeHolder}: Text
                        name={label}
                        placeholder={placeHolder}
                        disabled={disabled}
-                       type='text'
+                       type={'text'}
                 />
-                {error && <span className='flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1'>
+                {error && <span className={'flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1'}>
                     {errorText}
                 </span>}
             </div>

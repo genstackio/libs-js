@@ -1,3 +1,5 @@
+import {class_name} from "../types";
+
 export function Image({alt, className, url}: ImageProps) {
     return (
         <img src={url} alt={alt} className={className} />
@@ -6,7 +8,7 @@ export function Image({alt, className, url}: ImageProps) {
 
 export interface ImageProps {
     alt: string,
-    className?: string,
+    className?: class_name,
     url: string,
 }
 

@@ -1,5 +1,5 @@
 import {Accordion} from './';
-import {box_color, box_variant} from "../types";
+import {box_color, box_variant, faq_item} from "../types";
 
 export function Faq ({color, expandIcon, items = [], variant}: FaqProps) {
     return(
@@ -10,11 +10,6 @@ export function Faq ({color, expandIcon, items = [], variant}: FaqProps) {
 export interface FaqProps {
     color?: box_color,
     expandIcon: string,
-    items: {
-        content?: string,
-        icon?: string,
-        title?: string,
-    }[],
+    items: faq_item[],
     variant?: box_variant,
-
 }

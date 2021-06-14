@@ -3,7 +3,7 @@ import clsx from "clsx";
 import buttonClass from "../utils/buttonClass";
 import textClass from "../utils/textClass";
 import Select from '@material-ui/core/Select';
-import {box_color, box_variant} from "../types";
+import {box_color, box_variant, dropdown_item} from "../types";
 import MenuItem from '@material-ui/core/MenuItem';
 import {makeStyles} from "@material-ui/core/styles";
 
@@ -51,9 +51,7 @@ export function Dropdown({color, menuItems, variant}: DropdownProps) {
 
 export interface DropdownProps {
     color?: box_color,
-    menuItems: {
-        name?: string | number
-    }[],
+    menuItems: dropdown_item[],
     variant?: box_variant,
 }
 

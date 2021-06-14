@@ -18,22 +18,22 @@ export function HeadingBlock(
             {topRight  && <div className = 'absolute top-4 right-4'>
                 <Corner color = {props.color} variant={props.variant} text={textCornerTopRight} iconCorner={iconCornerTopRight} />
             </div>}
-            <div className = 'flex items-center flex-col mt-4'>
-                <Avatar name = {'toto'} />
-                <div className = 'flex inline-block'>
-                    <h1 className ='font-black text-3xl'>{title}</h1>
-                    <div className = 'ml-2 font-bold'>
-                        <Pill text = {iconTitle} color = {props.color} />
+            <div className={'flex items-center flex-col mt-4'}>
+                <Avatar name={'noname'} />
+                <div className={'flex inline-block'}>
+                    <h1 className={'font-black text-3xl'}>{title}</h1>
+                    <div className={'ml-2 font-bold'}>
+                        <Pill text={iconTitle} color={props.color} />
                     </div>
                 </div>
-                <h2 className = 'm-4'>{text}</h2>
-                <Button children = {btnLabel} variant={props.variant} color={props.color}  />
+                <h2 className={'m-4'}>{text}</h2>
+                <Button variant={props.variant} color={props.color}>{btnLabel}</Button>
             </div>
-            {bottomLeft  && <div className = 'absolute bottom-4 left-4'>
-                <Corner color = {props.color} variant={props.variant} text={textCornerBottomLeft} iconCorner={iconCornerBottomLeft} />
+            {bottomLeft  && <div className={'absolute bottom-4 left-4'}>
+                <Corner color={props.color} variant={props.variant} text={textCornerBottomLeft} iconCorner={iconCornerBottomLeft} />
             </div>}
-            {bottomRight  && <div className = 'absolute bottom-4 right-4'>
-                <Corner color = {props.color} variant={props.variant} text={textCornerBottomRight} iconCorner={iconCornerBottomRight} />
+            {bottomRight  && <div className={'absolute bottom-4 right-4'}>
+                <Corner color={props.color} variant={props.variant} text={textCornerBottomRight} iconCorner={iconCornerBottomRight} />
             </div>}
         </Block>
     );

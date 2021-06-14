@@ -1,7 +1,7 @@
 import {DataGrid, GridCellParams, GridColDef, GridValueFormatterParams} from '@material-ui/data-grid';
 import {makeStyles} from "@material-ui/core/styles";
 import tailwindConfig from "../../tailwind.config"
-import {box_color} from "../types";
+import {box_color, table_column, table_row} from "../types";
 import {Badge} from "../atoms";
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
@@ -67,13 +67,8 @@ export function Table(props: TableProps) {
 
 export interface TableProps {
     color?: box_color,
-    columns: {
-        id: string,
-        format?: any,
-        label?: string,
-        width?: number
-    }[],
-    items: any[],
+    columns: table_column[],
+    items: table_row[],
     rowsPerPage?: number,
     selection?: boolean,
     striped?: boolean,

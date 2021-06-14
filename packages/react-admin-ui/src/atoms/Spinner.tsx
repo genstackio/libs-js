@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import {spinner_variant} from '../types';
 
 const variants = {
     'dots': 'h-3 w-3 bg-danger rounded-full',
@@ -9,18 +10,8 @@ const variants = {
     'squares': 'h-4 w-1 bg-info',
 }
 
-const loaderType = (variant) => {
-    switch(variant) {
-        case 'dots':
-        case 'squares':
-            return false;
-        default:
-            return true;
-    }
-}
-
 export function Spinner({variant = 'half-circle'}: SpinnerProps) {
-    let isSpin = loaderType(variant)
+    let isSpin = ('dots' !== variant) && ('squares' !== variant);
     return (
         <div>
             {isSpin && <div className={clsx(variants[variant], 'h-20 w-20 rounded-full animate-spin')} />}
@@ -34,7 +25,7 @@ export function Spinner({variant = 'half-circle'}: SpinnerProps) {
 }
 
 export interface SpinnerProps {
-    variant?: 'dots' | 'dotted-circle' | 'full-circle' | 'half-circle' | 'separate-circle' | 'squares',
+    variant?: spinner_variant,
 }
 
 export default Spinner

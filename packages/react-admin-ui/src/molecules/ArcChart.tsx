@@ -44,7 +44,7 @@ export function ArcChart({color = 'primary', value}: ArcChartProps) {
     options.plotOptions.radialBar!.dataLabels!.value!.color = tailwindColors[color];
 
     return (
-        <Chart type='radialBar' options={options} series={[[value]]} />
+        <Chart type={'radialBar'} options={options} series={[[value]]} />
     );
 }
 

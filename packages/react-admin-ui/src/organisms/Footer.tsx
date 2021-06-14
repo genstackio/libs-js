@@ -1,3 +1,5 @@
+import {rich_text} from "../types";
+
 export function Footer({content}: FooterProps) {
     return (
         <div className={'p-4 text-center text-sm'}>{content}</div>
@@ -5,7 +7,7 @@ export function Footer({content}: FooterProps) {
 }
 
 export interface FooterProps {
-    content?: string,
+    content?: rich_text,
 }
 
 export default Footer
