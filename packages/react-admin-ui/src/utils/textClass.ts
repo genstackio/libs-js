@@ -8,7 +8,7 @@ export const styles = {
         'filled-info': 'text-info',
         'filled-warning': 'text-warning',
         'filled-danger': 'text-danger',
-        'filled-light': 'text-black',
+        'filled-light': 'text-light',
         'filled-dark': 'text-dark',
         'filled-none': 'text-dark',
         'outlined-primary': 'text-primary',

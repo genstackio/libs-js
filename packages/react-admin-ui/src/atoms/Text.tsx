@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import {text_variant, box_color_inherit, rich_text, text_component} from "../types";
+import {text_variant, box_color_inherit, rich_text, text_component, class_name} from "../types";
 
 const colors = {
     danger: 'text-danger',
@@ -29,9 +29,9 @@ const variants = {
     underline: 'text-base underline font-underline',
 }
 
-export function Text({color = 'inherit', text, variant = 'body', component = 'div'}: TextProps) {
+export function Text({className, color = 'inherit', text, variant = 'body', component = 'div'}: TextProps) {
     const props = {
-        className: clsx(colors[color], variants[variant]),
+        className: clsx(colors[color], variants[variant], className),
         children: text,
     };
     switch (component) {
@@ -49,10 +49,11 @@ export function Text({color = 'inherit', text, variant = 'body', component = 'di
 }
 
 export interface TextProps {
+    className?: class_name,
+    component?: text_component,
     color?: box_color_inherit,
     text?: rich_text,
     variant?: text_variant,
-    component?: text_component,
 }
 
 export default Text

@@ -1,4 +1,4 @@
-import {BaseBlockProps, Block, Progress} from "../atoms";
+import {BaseBlockProps, Block, Progress, Text} from "../atoms";
 import {rich_text} from "../types";
 
 export function KpiProgress({goal, text, unit, value, ...props}: KpiProgressProps) {
@@ -6,9 +6,10 @@ export function KpiProgress({goal, text, unit, value, ...props}: KpiProgressProp
         <Block {...props}>
             <div className={'flex justify-between items-center'}>
                 <div className={'flex-col'}>
-                    <h5 className={'flex-1'}>{text}</h5>
-                    <div className={'text-bold text-4xl flex-1'}>
-                        <p>{value || ''}{unit}</p>
+                    <Text className={'flex-1'} variant={'description'} text={text} color={props.color}/>
+                    <div className={'flex inline'}>
+                        <Text className={'flex-1'} variant={'title3'} text={value || ''} color={props.color}/>
+                        <Text className={'flex-1'} variant={'title3'} text={unit} color={props.color}/>
                     </div>
                 </div>
             </div>
