@@ -1,3 +1,5 @@
+import {alignment, rich_text} from '../types';
+
 const positionsp1 = {
     left: 'border-l-4 p-4 blockquote',
     center: 'border-0 text-center',
@@ -13,17 +15,17 @@ export function Quote({position = 'left', text, title}: QuoteProps) {
     return (
         <div>
             <blockquote>
-                <p className={positionsp1[position]}>{text}</p>
-                <p className={positionsp2[position]}>- {title}</p>
+                {text && <p className={positionsp1[position]}>{text}</p>}
+                {title && <p className={positionsp2[position]}>- {title}</p>}
             </blockquote>
         </div>
     );
 }
 
 export interface QuoteProps {
-    position?: 'left' | 'center' | 'right',
-    text?: string,
-    title?: string,
+    position?: alignment,
+    text?: rich_text,
+    title?: rich_text,
 }
 
 export default Quote

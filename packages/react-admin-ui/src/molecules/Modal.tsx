@@ -1,9 +1,9 @@
-import {MouseEventHandler, ReactNode} from 'react';
+import {MouseEventHandler} from 'react';
 import {Button} from "../atoms";
 import MuiModal from "@material-ui/core/Modal";
-import {box_color, box_variant, target} from "../types";
+import {action_item, children, rich_text} from "../types";
 
-export function Modal({buttonsItems, children, onClose, opened = false, title}: ModalProps) {
+export function Modal({buttonsItems = [], children, onClose, opened = false, title}: ModalProps) {
     return (
         <MuiModal className={'flex justify-center items-center'} open={opened}>
             <div className={'bg-white border border-gray-300 rounded-md w-8/12 sm:w-11/12 xs:w-full'}>
@@ -13,11 +13,11 @@ export function Modal({buttonsItems, children, onClose, opened = false, title}: 
                 </div>
                 <hr />
                 {children || ''}
-                {buttonsItems && <div>
+                {buttonsItems.length && <div>
                     <hr />
                     <div className={'flex justify-end space-x-4 m-4'}>
-                        {buttonsItems.map(({ label, variant, color, onClick }) => (
-                            <Button variant={variant} color={color} onClick={onClick}>{label}</Button>
+                        {buttonsItems.map(({ label, variant, color, target }) => (
+                            <Button variant={variant} color={color} onClick={target}>{label}</Button>
                         ))}
                     </div>
                 </div>}
@@ -27,16 +27,11 @@ export function Modal({buttonsItems, children, onClose, opened = false, title}: 
 }
 
 export interface ModalProps {
-    buttonsItems?: {
-        color?: box_color,
-        label?: string,
-        onClick?: target,
-        variant?: box_variant,
-    }[],
-    children?: ReactNode,
+    buttonsItems?: action_item[],
+    children?: children,
     opened?: boolean,
     onClose?: MouseEventHandler,
-    title?: string,
+    title?: rich_text,
 }
 
 export default Modal

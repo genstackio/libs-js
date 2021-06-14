@@ -1,6 +1,6 @@
-import {useCallback} from 'react';
 import clsx from "clsx";
 import {image, shape, size, status} from '../types';
+import getInitials from "../utils/getInitials";
 
 const sizes = {
     'xs': 'w-8 h-8 text-xs',
@@ -20,18 +20,9 @@ const states = {
 }
 
 export function Avatar({image, name, size = 'md', shape = 'circular', status = undefined}: AvatarProps) {
-    const getInitial = useCallback(() => {
-        let initials = ''
-        const fullName = name.split(' ')
-        fullName.forEach(element => {
-            initials += element.charAt(0)
-        });
-        return initials.slice(0, 3).toUpperCase()
-    }, [name])
-
     return (
         <div className={clsx('inline-block', status && 'relative')}>
-            {!image && <div className={clsx(sizes[size], shapes[shape], 'text-white bg-gray-400 flex items-center justify-center')}>{getInitial()}</div>}
+            {!image && <div className={clsx(sizes[size], shapes[shape], 'text-white bg-gray-400 flex items-center justify-center')}>{getInitials(name)}</div>}
             {image && <img src={image.url} alt={image.alt} className={clsx(sizes[size], shapes[shape])} />}
             {status && <div className={clsx(states[status], 'absolute bottom-0 right-0 w-1/4 h-1/4 rounded-full border-1 border-white')} />}
         </div>

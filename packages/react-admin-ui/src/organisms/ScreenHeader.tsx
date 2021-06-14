@@ -1,4 +1,4 @@
-import {box_color} from "../types";
+import {box_color, screen_header_item} from "../types";
 import {Breadcrumb} from "../molecules";
 
 export function ScreenHeader({color = 'primary', items = []}: ScreenHeaderProps) {
@@ -13,10 +13,7 @@ export function ScreenHeader({color = 'primary', items = []}: ScreenHeaderProps)
 
 export interface ScreenHeaderProps {
     color?: box_color,
-    items: {
-        label?: string,
-        target?: string
-    }[],
+    items: screen_header_item[],
 }
 
 export default ScreenHeader

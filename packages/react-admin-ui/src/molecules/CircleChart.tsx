@@ -1,7 +1,7 @@
 import Chart from "react-apexcharts";
 import {ApexOptions} from "apexcharts";
 import tailwindConfig from "../../tailwind.config"
-import {box_color, box_variant} from "../types";
+import {box_color, box_variant, chart_series} from "../types";
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 
@@ -25,13 +25,13 @@ export function CircleChart({color = 'primary', series, variant = 'filled'}: Cir
     const options = {...defaultOptions, colors: tailwindChartColors[col]};
 
     return (
-        <Chart type='radialBar' options={options} series={series} />
+        <Chart type={'radialBar'} options={options} series={series} />
     );
-};
+}
 
 export interface CircleChartProps {
     color?: box_color,
-    series: number[][],
+    series: chart_series,
     variant?: box_variant,
 }
 

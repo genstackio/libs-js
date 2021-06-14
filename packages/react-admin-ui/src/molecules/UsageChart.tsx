@@ -1,4 +1,5 @@
 import {Progress} from "../atoms";
+import {rich_text} from "../types";
 
 export function UsageChart({max, unit, value}: UsageChartProps) {
     return (
@@ -15,7 +16,7 @@ export function UsageChart({max, unit, value}: UsageChartProps) {
 
 export interface UsageChartProps {
     max: number,
-    unit?: string,
+    unit?: rich_text,
     value: number,
 }
 

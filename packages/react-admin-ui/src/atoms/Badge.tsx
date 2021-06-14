@@ -1,20 +1,23 @@
 import Pill from './Pill';
-import {box_color, badge_variant, box_variant} from "../types";
+import {box_color, badge_variant, box_variant, rich_text} from "../types";
 import Tag from './Tag';
+
+const types = {
+    pill: Pill,
+    none: undefined,
+    tag: Tag,
+    default: Tag,
+};
 
 export function Badge({type, ...props}: BadgeProps) {
     if (!props.text) return null;
-    switch (type) {
-        case 'pill': return <Pill  {...props}  />;
-        case 'none': return null;
-        default:
-        case 'tag': return <Tag {...props} />;
-    }
+    const Component = types[type || 'default'] || types.default;
+    return Component ? <Component {...props} /> : null;
 }
 
 export interface BadgeProps {
     color?: box_color,
-    text?: string,
+    text?: rich_text,
     type?: badge_variant,
     variant?: box_variant,
 }

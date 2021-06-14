@@ -1,23 +1,23 @@
 import Badge from '../atoms/Badge';
 import clsx from "clsx";
-import {badge, box_color} from "../types";
+import {badge, box_color, list_item} from "../types";
 import boxClass from "../utils/boxClass";
 
-export function List({badge, color, items=[]}: ListProps) {
+export function List({badge: globalBadge, color: globalColor, items=[]}: ListProps) {
     return (
         <div>
             <ul className={'px-0'}>
-            {items.map((item, index) => (
+            {items.map(({color, text, badge}, index) => (
                 <li
                 key={index}
                 className={clsx(
-                    boxClass({color: item.color || color, variant: 'contained'}),
+                    boxClass({color: color || globalColor, variant: 'contained'}),
                     'border list-none rounded-sm px-3 py-3 flex justify-between')}>
-                            {item.text}
-                    {(item.badge || badge)  && <Badge
-                        variant={item.badge?.variant || badge?.variant}
-                        color={item.badge?.color || badge?.color}
-                        text={item.badge?.text || badge?.label} />
+                            {text || ''}
+                    {(badge || globalBadge)  && <Badge
+                        variant={badge?.variant || globalBadge?.variant}
+                        color={badge?.color || globalBadge?.color}
+                        text={badge?.text || globalBadge?.label} />
                     }
                 </li>
             ))}
@@ -29,7 +29,7 @@ export function List({badge, color, items=[]}: ListProps) {
 export interface ListProps {
     badge?: badge,
     color?: box_color,
-    items?: any[],
+    items?: list_item[],
 }
 
 export default List

@@ -1,7 +1,7 @@
 import Chart from "react-apexcharts";
 import {ApexOptions} from "apexcharts";
 import tailwindConfig from "../../tailwind.config"
-import {box_color, box_variant} from "../types";
+import {box_color, box_variant, chart_serie} from "../types";
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 
@@ -44,14 +44,14 @@ export function RadialBarChart({color = 'primary', labels, series, title, varian
     options.plotOptions.radialBar!.dataLabels!.total!.label= title;
 
     return (
-        <Chart type='radialBar' options={options} series={series} />
+        <Chart type={'radialBar'} options={options} series={series} />
     );
-};
+}
 
 export interface RadialBarChartProps {
     color?: box_color,
     labels?: string[],
-    series: number[],
+    series: chart_serie,
     title?: string,
     variant?: box_variant,
 }

@@ -9,10 +9,10 @@ export function AreaChartBlock({series, stats, subtitle, title, value, ...props}
                     <Text text={subtitle} variant={'body'} />
                     <Text text={value} color={'primary'} variant={'title6'} />
                 </div>
-                <Icon icon={'settings'} className={'animate-spin'}/>
+                <Icon icon={'settings'} className={'animate-spin'} />
             </div>}
-            { stats && <Text text={`${stats}`} color={'dark'} variant={'title5'}/>}
-            <AreaChart color={props.color} series={series}/>
+            { stats && <Text text={`${stats}`} color={'dark'} variant={'title5'} />}
+            <AreaChart color={props.color} series={series} />
         </Block>
     );
 }

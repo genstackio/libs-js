@@ -1,9 +1,9 @@
 import { makeStyles, createStyles, withStyles, Theme } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import {progress_variant} from '../types';
 
-const BorderLinearProgress = withStyles((theme: Theme) =>
-  createStyles({
+const BorderLinearProgress = withStyles((theme: Theme) => createStyles({
     root: {
       height: 10,
       borderRadius: 5,
@@ -15,8 +15,7 @@ const BorderLinearProgress = withStyles((theme: Theme) =>
       borderRadius: 5,
       backgroundColor: 'var(--primary-color)',
     },
-  }),
-)(LinearProgress);
+}))(LinearProgress);
 
 const useStyles = makeStyles({
     root: {
@@ -30,7 +29,7 @@ export function Progress({value = 0, variant = 'linear'}: ProgressProps) {
       case 'circular':
           return (
               <div className={'relative inline-flex'}>
-                  <CircularProgress variant="determinate" value={value} color={'inherit'} size={75} thickness={5}/>
+                  <CircularProgress variant="determinate" value={value} color={'inherit'} size={75} thickness={5} />
                   {value && <div className={'absolute inset-0 flex justify-center items-center font-semibold'}>{value.toString()+'%'}</div>}
               </div>
           );
@@ -38,7 +37,7 @@ export function Progress({value = 0, variant = 'linear'}: ProgressProps) {
       case 'linear':
           return (
             <div className={classes.root}>
-              <BorderLinearProgress variant='determinate' value={value} />
+              <BorderLinearProgress variant={'determinate'} value={value} />
             </div>
           );
   }
@@ -46,7 +45,7 @@ export function Progress({value = 0, variant = 'linear'}: ProgressProps) {
 
 export interface ProgressProps {
     value?: number,
-    variant?: 'linear' | 'circular',
+    variant?: progress_variant,
 }
 
 export default Progress

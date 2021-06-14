@@ -1,7 +1,7 @@
 import Chart from "react-apexcharts";
 import {ApexOptions} from "apexcharts";
 import tailwindConfig from "../../tailwind.config"
-import {box_color, box_variant} from "../types";
+import {box_color, box_variant, chart_series} from "../types";
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 
@@ -80,14 +80,14 @@ export function BarChart({color = 'primary', labels, series, variant = 'filled'}
     }, [] as {data: number[]}[]);
 
     return (
-        <Chart type='bar' options={options} series={newData} height={"250px"} />
+        <Chart type={'bar'} options={options} series={newData} height={'250px'} />
     );
 }
 
 export interface BarChartProps {
     color?: box_color,
     labels?: string[],
-    series: number[][],
+    series: chart_series,
     variant?: box_variant,
 }
 

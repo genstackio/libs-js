@@ -1,6 +1,6 @@
 import Chart from "react-apexcharts";
 import {ApexOptions} from "apexcharts";
-import {box_color} from "../types";
+import {box_color, rich_text} from "../types";
 import tailwindConfig from "../../tailwind.config";
 import Text from "../atoms/Text";
 import { lighten } from '@material-ui/core/styles';
@@ -70,20 +70,20 @@ export function RateChart({color = 'primary', overline, subtitle, title, value}:
     options.fill!.gradient!.gradientToColors = [lighten(tailwindColors[color], 0.5)];
     return (
         <div>
-            <Chart type='radialBar' options={options} series={[[value]]} height={'450px'} />
+            <Chart type={'radialBar'} options={options} series={[[value]]} height={'450px'} />
             <div className={'text-center mt-2'}>
-                <Text text={subtitle} color={color} variant={'title6'}/>
-                <Text text={overline}/>
+                {subtitle && <Text text={subtitle} color={color} variant={'title6'} />}
+                {overline && <Text text={overline} />}
             </div>
         </div>
 
     );
-};
+}
 
 export interface RateChartProps {
     color?: box_color,
-    overline: string,
-    subtitle: string,
+    overline: rich_text,
+    subtitle: rich_text,
     title: string,
     value: number,
 }

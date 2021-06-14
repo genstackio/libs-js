@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import boxClass from '../utils/boxClass';
-import {box_color, box_variant} from '../types';
+import {box_color, box_variant, rich_text} from '../types';
 import Icon from "./Icon";
 
 export function Tag({color, icon, size, text, variant}: TagProps) {
@@ -18,7 +18,7 @@ export interface TagProps {
     color?: box_color,
     icon?: string,
     size?: number,
-    text?: string,
+    text?: rich_text,
     variant?: box_variant,
 }
 

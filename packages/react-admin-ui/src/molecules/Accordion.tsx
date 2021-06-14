@@ -2,7 +2,7 @@ import {ChangeEvent, useState, useCallback} from "react";
 import clsx from "clsx";
 import textClass from "../utils/textClass";
 import buttonClass from "../utils/buttonClass";
-import {box_color, box_variant, badge} from "../types";
+import {box_color, box_variant, accordion_item} from "../types";
 import {makeStyles} from "@material-ui/core/styles";
 import MuiAccordion from "@material-ui/core/Accordion";
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
@@ -42,8 +42,8 @@ export function Accordion({color, expandIcon, items = [], variant}: AccordionPro
                         {typeof content === 'string' && <div className={'text-sm tracking-wider'}>{content}</div>}
                         {Array.isArray(content) &&
                         <div className={'flex flex-col space-y-4'}>
-                            {content.map(({label, target}, index) => (
-                                <a key={index} className={'text-gray-400'} href={target}>-  {label}</a>
+                            {(content as any[]).map(({label, target}, index) => (
+                                <a key={index} className={'text-gray-400'} {...(('function' === typeof target) ? {href: '#', onClick: target as any} : {href: target as string})}>-  {label}</a>
                             ))}
                         </div>
                         }
@@ -57,12 +57,7 @@ export function Accordion({color, expandIcon, items = [], variant}: AccordionPro
 export interface AccordionProps {
     color?: box_color,
     expandIcon?: string,
-    items: {
-        badge?: badge,
-        content?: string | any[],
-        icon?: string,
-        title?: string,
-    }[]
+    items: accordion_item[]
     variant?: box_variant,
 }
 

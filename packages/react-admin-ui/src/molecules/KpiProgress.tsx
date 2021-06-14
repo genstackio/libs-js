@@ -1,5 +1,5 @@
-import {ReactNode} from 'react';
 import {BaseBlockProps, Block, Progress} from "../atoms";
+import {rich_text} from "../types";
 
 export function KpiProgress({goal, text, unit, value, ...props}: KpiProgressProps) {
     return (
@@ -19,8 +19,8 @@ export function KpiProgress({goal, text, unit, value, ...props}: KpiProgressProp
 
 export interface KpiProgressProps extends BaseBlockProps {
     goal: number,
-    text?: ReactNode,
-    unit?: string,
+    text?: rich_text,
+    unit?: rich_text,
     value: number,
 }
 

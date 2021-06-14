@@ -1,10 +1,10 @@
-import {ReactNode, useCallback} from 'react';
+import {useCallback} from 'react';
 import clsx from "clsx";
 import Icon from "./Icon";
 import buttonClass from "../utils/buttonClass";
-import {box_color, box_variant, target} from '../types';
+import {box_color, box_variant, children, class_name, target} from '../types';
 
-export function Button({children, classes, color = 'primary', disabled,  icon, large, onClick, variant = 'filled'}: ButtonProps) {
+export function Button({children, className, color = 'primary', disabled,  icon, large, onClick, variant = 'filled'}: ButtonProps) {
     const handleClick = useCallback (() => {
         ('function' === typeof onClick) && onClick();
         ('string' === typeof onClick) && (location.href = onClick);
@@ -12,7 +12,7 @@ export function Button({children, classes, color = 'primary', disabled,  icon, l
     return (
         <button
             disabled={disabled}
-            className={clsx(classes, buttonClass({color, variant, disabled}), 'py-2 px-4 rounded inline-flex items-center', disabled && 'opacity-50 cursor-not-allowed', large && 'w-60')}
+            className={clsx(className, buttonClass({color, variant, disabled}), 'py-2 px-4 rounded inline-flex items-center', disabled && 'opacity-50 cursor-not-allowed', large && 'w-60')}
             onClick={handleClick}
         >
             {icon && <Icon icon={icon} />}
@@ -22,8 +22,8 @@ export function Button({children, classes, color = 'primary', disabled,  icon, l
 }
 
 export interface ButtonProps {
-    children?: ReactNode,
-    classes?: string,
+    children?: children,
+    className?: class_name,
     color?: box_color,
     disabled?: boolean,
     icon?: string,

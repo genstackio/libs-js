@@ -1,12 +1,12 @@
 import {Image} from '../atoms';
-import {image} from "../types";
+import {gallery_image} from "../types";
 
 export function Gallery({items = []}: GalleryProps) {
     return (
         <div className={'grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-3'}>
             {items.map((item, index) => (
                 <div className={'border-double border-4 rounded-md'} key={index}>
-                    <Image className={'w-full'} url={item.url} alt={item.alt}/>
+                    <Image className={'w-full'} {...item} />
                 </div>
             ))}
         </div>
@@ -14,7 +14,7 @@ export function Gallery({items = []}: GalleryProps) {
 }
 
 export interface GalleryProps {
-    items?: image[],
+    items?: gallery_image[],
 }
 
 export default Gallery

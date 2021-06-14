@@ -1,6 +1,6 @@
 import {ReactNode} from "react";
 import {Button} from "../atoms/Button";
-import {box_color, box_variant, target} from "../types";
+import {action_item} from "../types";
 
 export function BodyMainBar({actions = [], children}: BodyMainBarProps) {
     return (
@@ -20,13 +20,7 @@ export function BodyMainBar({actions = [], children}: BodyMainBarProps) {
 }
 
 export interface BodyMainBarProps {
-    actions: {
-        color?: box_color,
-        icon?: string,
-        label?: string,
-        target?: target,
-        variant?: box_variant,
-    }[],
+    actions: action_item[],
     children: ReactNode,
 }
 

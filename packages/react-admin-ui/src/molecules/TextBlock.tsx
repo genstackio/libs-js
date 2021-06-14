@@ -1,5 +1,5 @@
-import {ReactNode} from 'react';
 import {BaseBlockProps, Block, Icon} from "../atoms";
+import {rich_text} from "../types";
 
 export function TextBlock({icon, text, title,  ...props}: TextBlockProps) {
     return (
@@ -7,7 +7,7 @@ export function TextBlock({icon, text, title,  ...props}: TextBlockProps) {
                 {title && (
                     <div className={'flex justify-between items-center'}>
                         <div className={'flex-col'}>
-                            <h5 className={'text-2xl flex-1'}>{title}</h5>
+                            {title && <h5 className={'text-2xl flex-1'}>{title}</h5>}
                             <div className={'text-md flex-1'}>
                                 <p>{text || ''}</p>
                             </div>
@@ -20,9 +20,9 @@ export function TextBlock({icon, text, title,  ...props}: TextBlockProps) {
 }
 
 export interface TextBlockProps extends BaseBlockProps {
-    icon?: ReactNode,
-    text?: ReactNode,
-    title?: ReactNode,
+    icon?: string,
+    text?: rich_text,
+    title?: rich_text,
 }
 
 export default TextBlock

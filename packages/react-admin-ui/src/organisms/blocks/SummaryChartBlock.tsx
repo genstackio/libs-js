@@ -74,7 +74,7 @@ export function SummaryChartBlock({btnLabel, chartItems = [], dashboardItems = [
                             <div className={'font-bold'}>{title}</div>
                             <div className={'text-sm'}>{subtitle}</div>
                         </div>
-                        {btnLabel && <Button classes={'hidden md:block'} color={props.color} variant={'contained'}>{btnLabel}</Button>}
+                        {btnLabel && <Button className={'hidden md:block'} color={props.color} variant={'contained'}>{btnLabel}</Button>}
                     </div>
                     {dashboardItems && <div className={'mb-2 md:flex md:flex-wrap md:justify-between md:items-center'}>
                         {dashboardItems.map(({value, description}, index) => (
@@ -84,7 +84,7 @@ export function SummaryChartBlock({btnLabel, chartItems = [], dashboardItems = [
                             </div>
                         ))}
                     </div>}
-                    {btnLabel && <Button classes={'self-start md:hidden'} color={props.color} variant={'contained'}>{btnLabel}</Button>}
+                    {btnLabel && <Button className={'self-start md:hidden'} color={props.color} variant={'contained'}>{btnLabel}</Button>}
                 </div>
                 <div className={'col-span-3 md:col-span-4'}>
                     <div  className={'relative h-3/4 min-h-250 md:h-auto p-6 xs:p-2'}>
