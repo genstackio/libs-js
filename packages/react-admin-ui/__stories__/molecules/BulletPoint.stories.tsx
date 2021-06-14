@@ -26,5 +26,5 @@ export const basic = s(Template, {
                 <polyline points="10 9 9 9 8 9"></polyline>
             </svg>),
     title: "Donec pede justo",
-    text: "Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.",
+    text: "Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Cras dapibus.",
 })

@@ -1,22 +1,20 @@
 import {ReactNode} from 'react';
-import {BaseBlockProps, Block, Icon} from "../atoms";
+import {Icon, Text} from "../atoms";
 import {box_color, box_variant} from '../types';
 
-export function BulletPoint({icon, text, title, ...props}: BulletPointProps) {
+export function BulletPoint({icon, text, title, color}: BulletPointProps) {
     return (
-        <Block {...props}>
-                <div className={'flex items-center'}>
-                    {icon && <Icon icon={icon} />}
-                    <div className={'flex-column ml-4'}>
-                        <h6 className={'text-2xl font-bold'}>{title}</h6>
-                        <p>{text || ''}</p>
-                    </div>
+        <div className={'flex items-center'}>
+            {icon && <Icon icon={icon}/>}
+            <div className={'flex-column ml-4'}>
+                <Text text={title} variant={'title5'} color={color}/>
+                <Text text={text} variant={'body'} color={color}/>
             </div>
-        </Block>
+        </div>
     );
 }
 
-export interface BulletPointProps extends BaseBlockProps {
+export interface BulletPointProps {
     color?: box_color,
     icon?: ReactNode,
     text?: ReactNode,
