@@ -31,7 +31,7 @@ export function Breadcrumb({items = [], color = 'primary', toRight = false}: Bre
     const lastItem = items.slice(items.length - 1)[0];
 
     return (
-        <Breadcrumbs aria-label="breadcrumb" classes={toRight ? {ol: classes.root} : undefined}>
+        <Breadcrumbs aria-label={'breadcrumb'} classes={toRight ? {ol: classes.root} : undefined}>
             {breadcrumbItems.map(({label, target}, index) => (
                 <Link className={clsx(colors[color])} key={index} {...(('function' === typeof target) ? {href: '#'} : {href: target as string})}>
                     {index === 0 && <HomeOutlinedIcon className={clsx(colors[color], 'flex items-center')} />}

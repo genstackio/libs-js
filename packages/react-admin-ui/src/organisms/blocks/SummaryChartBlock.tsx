@@ -93,7 +93,7 @@ export function SummaryChartBlock({btnLabel, chartItems = [], dashboardItems = [
                                 <Button variant={'filled'} color={props.color} key={index} onClick={handleClick(data)} disabled={series === data}>{data.label}</Button>
                             ))}
                         </div>
-                        <Chart height={'100%'} options={options} series={series.series} type="area" />
+                        <Chart type={'area'} height={'100%'} options={options} series={series.series} />
                     </div>
                     {chartItems && <div className={'h-1/4 md:h-auto border-t-1 p-6 xs:p-2 flex md:flex-wrap justify-between md:space-y-3'}>
                         {chartItems.map(({icon, color, name, value}, index) => (

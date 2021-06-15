@@ -4,7 +4,7 @@ import {box_color, box_variant, rich_text} from '../types';
 export function BulletPoint({icon, text, title, color}: BulletPointProps) {
     return (
         <div className={'flex items-center'}>
-            {icon && <Icon icon={icon} />}
+            <Icon icon={icon} />
             <div className={'flex-column ml-4'}>
                 {title && <Text text={title} variant={'title5'} color={color} />}
                 {text && <Text text={text} variant={'body'} color={color} />}

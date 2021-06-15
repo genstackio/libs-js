@@ -1,9 +1,9 @@
 import {BaseBlockProps, Block} from "../../atoms";
 import {RadarChart} from "../../molecules";
 
-export function RadarChartBlock({dropdownItems, labels, series, title, ...props}: RadarChartBlockProps) {
+export function RadarChartBlock({labels, series, ...props}: RadarChartBlockProps) {
     return (
-        <Block padding={'none'} title={title} {...props} dropdownItems={dropdownItems}>
+        <Block padding={'none'} {...props}>
             <RadarChart color={props.color} variant={props.variant} isMenu={false} labels={labels} series={series} />
         </Block>
     );

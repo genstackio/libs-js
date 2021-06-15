@@ -1,9 +1,9 @@
 import {BaseBlockProps, Block} from "../../atoms";
 import {LineChart} from "../../molecules";
 
-export function LineChartBlock({description, labels, series = [], title, ...props}: LineChartBlockProps) {
+export function LineChartBlock({description, labels, series = [], ...props}: LineChartBlockProps) {
     return (
-        <Block title={title} {...props}>
+        <Block {...props}>
             <LineChart color={props.color} variant={props.variant} labels={labels} series={series} title={description} />
         </Block>
     );

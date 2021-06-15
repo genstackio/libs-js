@@ -15,15 +15,17 @@ export function KpiBlock({icon, name, quantity, bgIcon, ...props}: KpiBlockProps
         <Block {...props}>
             <div className={'flex justify-between items-center'} onMouseOver={onHover} onMouseLeave={onLeave}>
                 <div className={'flex items-center space-x-6'}>
-                    {icon && <Icon icon={icon} />}
+                    <Icon icon={icon} />
                     {quantity && <div>
                         <Text text={name} variant={'description'} />
                         <Text text={`${quantity}`} variant={'title5'} />
                     </div>}
                 </div>
-                {bgIcon && <div className={clsx('absolute -right-5', isHover && 'transform -rotate-12 scale-110')}>
-                    <Icon icon={bgIcon} />
-                </div>}
+                {bgIcon && (
+                    <div className={clsx('absolute -right-5', isHover && 'transform -rotate-12 scale-110')}>
+                        <Icon icon={bgIcon} />
+                    </div>
+                )}
             </div>
         </Block>
     );

@@ -17,7 +17,7 @@ export function ProgressChartBlock({chart, progress, title, unit, value, ...prop
                 </div>
                 {value && <Text text={formatAmount(value, unit)} variant={'title5'} />}
             </div>
-            <Chart height={180} options={chart} series={chart?.series} type="area" />
+            <Chart type={'area'} height={180} options={chart} series={chart?.series} />
         </Block>
     );
 }

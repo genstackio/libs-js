@@ -32,7 +32,7 @@ export function Accordion({color, expandIcon, items = [], variant}: AccordionPro
                         className={clsx('rounded-t-md', buttonClass({color, variant}))}>
                         <div className={'w-full flex justify-between items-center'}>
                             <div className={'flex justify-between items-center space-x-2'}>
-                                {icon && <Icon icon={icon} />}
+                                <Icon icon={icon} />
                                 <div className={'font-bold'}>{title}</div>
                             </div>
                             {badge && <Badge color={badge.color} variant={badge.variant} type={badge.type} text={badge.label} />}

@@ -1,8 +1,8 @@
 import {BaseBlockProps, Block, Button} from "../../atoms";
 
-export function NewsBlock({btnLabel, dropdownItems, items = [], title, ...props}: NewsBlockProps) {
+export function NewsBlock({btnLabel, items = [], ...props}: NewsBlockProps) {
     return (
-        <Block padding={'none'} {...props} title={title} dropdownItems={dropdownItems}>
+        <Block padding={'none'} {...props}>
             {items.map(({title, content}, index) => (
                 <div key={index} className={'px-8 py-6 border-b-1 xs:px-4 xs:py-3'}>
                     <div className={'font-semibold text-lg'}>{title}</div>

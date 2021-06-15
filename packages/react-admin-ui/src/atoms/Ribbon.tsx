@@ -22,10 +22,10 @@ export function Ribbon({children, color, horizontal, position = 'top-left', text
         <div>
             { horizontal && <div>
                 {bottom_space ? children : ''}
-                <div className={clsx(boxClass({color: color, variant: 'contained'}), horizontal_rectangle_position,
+                <div className={clsx(boxClass({color, variant: 'contained'}), horizontal_rectangle_position,
                     'py-2 w-28 h-10 text-center shadow-md font-sans uppercase ')}>{text}</div>
                 <div className={clsx(triangle_position, 'w-5 overflow-hidden inline-block')}>
-                    <div className={clsx(boxClass({color: color, variant: 'contained'}), triangle_rotate)} />
+                    <div className={clsx(boxClass({color, variant: 'contained'}), triangle_rotate)} />
                 </div>
                 <div className={'mt-8'} />
                 {top_space ? children : ''}
@@ -34,7 +34,7 @@ export function Ribbon({children, color, horizontal, position = 'top-left', text
                 {bottom_space ? children : ''}
                 <div className={'mt-24'} />
                 <div className={clsx(vertical_rectangle_position, '')}>
-                    <div className={clsx(boxClass({color: color, variant: 'contained'}), 'w-32 transform rotate-90 text-center text-white py-1')}>
+                    <div className={clsx(boxClass({color, variant: 'contained'}), 'w-32 transform rotate-90 text-center text-white py-1')}>
                         <Icon icon={'settings'} />
                     </div>
                 </div>

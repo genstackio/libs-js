@@ -8,7 +8,7 @@ import {BaseBlockProps, Block} from "../../atoms";
 function TabPanel({children, value, index, ...props}: TabPanelProps) {
     return (
         <div
-            role="tabpanel"
+            role={'tabpanel'}
             hidden={value !== index}
             id={`simple-tabpanel-${index}`}
             aria-labelledby={`simple-tab-${index}`}
@@ -32,8 +32,8 @@ export function TabbedBlock({items = [], ...props}: TabbedBlockProps) {
     const handleChange = useCallback((event: ChangeEvent<{}>, newValue: number) => setValue(newValue), [setValue]);
     return (
         <Block padding={'none'} {...props}>
-            <AppBar position="static" elevation={0} color={'transparent'}>
-                <Tabs variant={'scrollable'} scrollButtons={'on'} value={value} onChange={handleChange} aria-label="simple tabs example" className={'bg-transparent border-b-1 border-gray-200'} TabIndicatorProps={{className: bgClass({color: props.color, variant: 'outlined'})}}>
+            <AppBar position={'static'} elevation={0} color={'transparent'}>
+                <Tabs variant={'scrollable'} scrollButtons={'on'} value={value} onChange={handleChange} aria-label={'simple tabs example'} className={'bg-transparent border-b-1 border-gray-200'} TabIndicatorProps={{className: bgClass({color: props.color, variant: 'outlined'})}}>
                     {items.map(({title, disabled}, index) => (
                         <Tab label={title} key={index} id={`simple-tab-${index}`} aria-controls={`simple-tabpanel-${index}`} disabled={disabled} className={'focus:outline-none'} />
                     ))}

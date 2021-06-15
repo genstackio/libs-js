@@ -7,7 +7,7 @@ export function ItemCard({blockColor = 'light', blockVariant = 'outlined', color
             <div className={'flex justify-between mb-6'}>
                 <div className={'flex mb-6'}>
                     <div className={'row-span-2 ml-4 mt-2'}>
-                        {icon ? <Icon size={size}  icon={icon} /> : <div/>}
+                        <Icon size={size} icon={icon} />
                     </div>
                     <div>
                         {title && <Text text={title} color={colorTitle} variant={'title5'} />}
