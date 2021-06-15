@@ -1,4 +1,4 @@
-import {Avatar, BaseBlockProps, Block, Button, Pill} from '../../atoms';
+import {Avatar, BaseBlockProps, Block, Button, Pill, Text} from '../../atoms';
 import {Corner} from "../../molecules";
 import {image, icon_variant} from "../../types";
 
@@ -12,21 +12,25 @@ export function HeadingBlock(
 
     return (
         <Block {...props} image={image}>
-            {topLeft  && <div className = 'absolute top-4 left-4'>
-                <Corner color = {props.color} variant={props.variant} text={textCornerTopLeft} iconCorner={iconCornerTopLeft} />
-            </div>}
-            {topRight  && <div className = 'absolute top-4 right-4'>
-                <Corner color = {props.color} variant={props.variant} text={textCornerTopRight} iconCorner={iconCornerTopRight} />
-            </div>}
+            {topLeft && (
+                <div className={'absolute top-4 left-4'}>
+                    <Corner color={props.color} variant={props.variant} text={textCornerTopLeft} iconCorner={iconCornerTopLeft} />
+                </div>
+            )}
+            {topRight && (
+                <div className={'absolute top-4 right-4'}>
+                    <Corner color={props.color} variant={props.variant} text={textCornerTopRight} iconCorner={iconCornerTopRight} />
+                </div>
+            )}
             <div className={'flex items-center flex-col mt-4'}>
                 <Avatar name={'noname'} />
                 <div className={'flex inline-block'}>
-                    <h1 className={'font-black text-3xl'}>{title}</h1>
+                    <Text text={title} variant={'title4'} />
                     <div className={'ml-2 font-bold'}>
                         <Pill text={iconTitle} color={props.color} />
                     </div>
                 </div>
-                <h2 className={'m-4'}>{text}</h2>
+                <Text className={'m-4'} text={text} variant={'body'} />
                 <Button variant={props.variant} color={props.color}>{btnLabel}</Button>
             </div>
             {bottomLeft  && <div className={'absolute bottom-4 left-4'}>

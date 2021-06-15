@@ -1,5 +1,5 @@
-import {Accordion} from './';
-import {TextBlock} from './';
+import Accordion from './Accordion';
+import TextBlock from './TextBlock';
 import {menu_item, box_color, box_variant, rich_text} from "../types";
 
 export function Menu ({items = [], title, text, color, variant}: MenuProps) {

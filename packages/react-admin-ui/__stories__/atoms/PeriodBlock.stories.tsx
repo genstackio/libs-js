@@ -5,6 +5,7 @@ export default {
     title: 'Atoms/PeriodBlock',
     component: PeriodBlock,
     argTypes: {
+        color: args.color,
         text: args.text,
         value: args.textValue,
     },

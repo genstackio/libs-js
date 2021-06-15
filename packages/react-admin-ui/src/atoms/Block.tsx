@@ -5,6 +5,7 @@ import boxClass from '../utils/boxClass';
 import {box_color, box_variant, box_padding, image, classes, class_name, rich_text, children, dropdown_item} from '../types';
 import Container from './Container';
 import Icon from "./Icon";
+import Text from "./Text";
 
 const paddings = {
     none: '',
@@ -19,7 +20,7 @@ export function Block({elevation = 1, btnLabel, children, classes = {}, classNam
     const content = <>
         { title && (
             <div className={clsx(paddings['default'], 'border-b-1 flex justify-between items-center')}>
-                <h5 className={'text-2xl'}>{title}</h5>
+                <Text variant={'title5'} text={title} />
                 {btnLabel && <Button color={color}>{btnLabel}</Button>}
                 {dropdownItems && <Dropdown menuItems={dropdownItems} color={color} variant={variant} />}
                 <Icon icon={icon} />

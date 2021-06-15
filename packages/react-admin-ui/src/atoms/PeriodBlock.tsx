@@ -1,17 +1,18 @@
-import {rich_text} from "../types";
+import {box_color_inherit, rich_text} from "../types";
+import {Text} from "./Text";
 
-export function PeriodBlock({text, value}: PeriodBlockProps) {
+export function PeriodBlock({color, text, value}: PeriodBlockProps) {
     return (
         <div className={'h-24 border-r-2 border-gray-100 py-2 text-center'}>
-            {text && <h5 className={'text-xl px-2 mb-2'}>{text}</h5>}
-            {value && <h2 className={'text-4xl font-black'}>{value}</h2>}
+            {text && <Text className={'px-2 mb-2'} variant={'title6'} text={text} color={color}/>}
+            {value && <Text variant={'title3'} text={value} color={color}/>}
         </div>
     );
 }
 
 export interface PeriodBlockProps {
+    color?: box_color_inherit,
     text?: rich_text,
     value?: rich_text,
 }
-
 export default PeriodBlock

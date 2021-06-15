@@ -1,7 +1,8 @@
 import Chart from "react-apexcharts";
 import {ApexOptions} from "apexcharts";
 import tailwindConfig from "../../../tailwind.config"
-import {box_color, box_variant, rich_text, chart_series} from "../../types";
+import {box_color, box_variant, chart_series, rich_text} from "../../types";
+import Text from "../../atoms/Text";
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 const defaultOptions: ApexOptions = {
@@ -9,12 +10,12 @@ const defaultOptions: ApexOptions = {
         toolbar: {
             tools: {
                 download: true,
+                pan: false,
+                reset: false,
                 selection: false,
                 zoom: false,
                 zoomin: false,
                 zoomout: false,
-                pan: false,
-                reset: false,
             },
         },
     }
@@ -29,7 +30,7 @@ export function LineChart({color= 'primary', labels, series, title, variant = 'f
     });
     return (
         <div>
-            {title && <h3>{title}</h3>}
+            {title && <Text text={title} variant={'subtitle'} />}
             <Chart options={options} series={datas} type={'line'} />
         </div>
     );
