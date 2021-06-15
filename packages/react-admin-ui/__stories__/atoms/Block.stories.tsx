@@ -9,13 +9,11 @@ export default {
     component: Block,
     argTypes: {
         title: args.title,
+        subtitle: args.subtitle,
         children: args.children,
         color: args.color,
         variant: args.blockVariant,
         padding: args.padding,
-        bntLabel: args.btnLabel,
-        dropdownItems: args.dropdownItems,
-        icon :args.icon,
     },
 }
 
@@ -113,8 +111,6 @@ export const circleChart = s(({series, ...props}) => (
     ],
 });
 
-const primaryOptions =  { colors: ["#7366FF"]};
-const secondaryOptions =  {colors: ["#F73164"]};
 
 export const figuresChart = s(({items, ...props}) => (
     <Block padding={'none'} {...props}>
@@ -123,32 +119,28 @@ export const figuresChart = s(({items, ...props}) => (
 ), {
     items: [
         {
-            options: primaryOptions,
             series: [{data: [400, 900, 800, 1000, 700, 1200, 300]}],
             value: 1001,
             name: 'Purchase',
-            color: 'dark'
+            colors: ["#7366FF"]
         },
         {
-            options: secondaryOptions,
             series: [{data: [400, 600, 900, 800, 1000, 1200, 500]}],
             value: 1005,
             name: 'Sales',
-            color: 'dark'
+            colors: ["#F73164"],
         },
         {
-            options: primaryOptions,
             series: [{data: [1100, 900, 600, 1000, 700, 1200, 300]}],
             value: 100,
             name: 'Sales return',
-            color: 'dark'
+            colors: ["#7366FF"]
         },
         {
-            options: secondaryOptions,
             series: [{data: [400, 600, 800, 1000, 700, 1100, 300]}],
             value: 101,
             name: 'Purchase ret',
-            color: 'dark'
+            colors: ["#F73164"],
         },
     ]
 });
@@ -167,9 +159,9 @@ export const lineChart = s(({labels, series, description, ...props}) => (
     variant: 'filled',
 });
 
-export const progressChart = s(({series, title, ...props}) => (
+export const progressChart = s(({series, title, progress, value, unit, ...props}) => (
     <Block padding={'none'} {...props}>
-        <ProgressChart color={props.color} variant={props.variant} series={series} title={title} />
+        <ProgressChart color={props.color} variant={props.variant} series={series} title={title} progress={progress} value={value} unit={unit}/>
     </Block>
 ), {
     title: 'SALE',
