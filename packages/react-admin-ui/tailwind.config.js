@@ -104,6 +104,7 @@ module.exports = {
         'container': '0px 8px 24px rgb(66 63 55 / 10%), 0px -2px 24px rgb(66 63 55 / 2%)',
         'block': '0 0 20px rgb(8 21 66 / 5%)',
         'upper-block': '0 0 40px rgb(8 21 66 / 20%)',
+        'top': '20px 20px 20px rgb(8 21 66 / 5%)',
       },
       animation: {
         bounce200: 'bounce 1s infinite 200ms',
@@ -111,6 +112,13 @@ module.exports = {
       },
       minHeight: {
         '250': '250px',
+      },
+      height: {
+        sm: '8px',
+        md: '16px',
+        lg: '24px',
+        xl: '48px',
+        xxl: '82px',
       },
       fontSize: {
         xxl: '16rem',
