@@ -18,7 +18,7 @@ export function Block({btnLabel, children, classes = {}, className, color = 'lig
                 <h5 className={'text-2xl'}>{title}</h5>
                 {btnLabel && <Button color={color}>{btnLabel}</Button>}
                 {dropdownItems && <Dropdown menuItems={dropdownItems} color={color} variant={variant} />}
-                {icon && <Icon icon={icon} />}
+                <Icon icon={icon} />
             </div>
         )}
         <div className={clsx(paddings[padding], classes.content, 'text-md')}>

@@ -65,7 +65,7 @@ export function RadarChart({color = 'primary', isMenu = true, labels = [], serie
         }
     }
     return (
-        <Chart options={options} series={series} type="radar" />
+        <Chart type={'radar'} options={options} series={series} />
     );
 }
 

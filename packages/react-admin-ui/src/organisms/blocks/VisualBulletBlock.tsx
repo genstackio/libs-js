@@ -9,7 +9,7 @@ export function VisualBulletBlock({icon_color, items, text_color, variant, ...pr
         <Block {...props}>
             {items.map((item, index) => (
                 <div key={index} className={'flex items-center'}>
-                    {item.icon && <Icon className={clsx('mb-5', textClass({color: icon_color}))} size={40} icon={item.icon} />}
+                    <Icon className={clsx('mb-5', textClass({color: icon_color}))} size={40} icon={item.icon} />
                     <div className={clsx('flex-column ml-4', boxClass({color: text_color, variant}))}>
                         <h6 className={'text-xl font-bold'}>{item.title}</h6>
                         <p>{item.subTitle || ''}</p>

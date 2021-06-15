@@ -12,7 +12,7 @@ export function TextBlock({icon, text, title,  ...props}: TextBlockProps) {
                                 <p>{text || ''}</p>
                             </div>
                         </div>
-                        {icon && <Icon icon={icon} />}
+                        <Icon icon={icon} />
                     </div>
                 )}
         </Block>

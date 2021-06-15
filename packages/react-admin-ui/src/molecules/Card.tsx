@@ -32,7 +32,7 @@ export function Card({image, title, description, content, value, link, color, va
                     </div>
                 </div>
             </div>
-            <div className={"p-10 border-b-2"}>
+            <div className={'p-10 border-b-2'}>
                 {title && <h6 className={'mb-2 text-2xl text-bold'}>{title}</h6>}
                 {description && <p className={'mb-2'}>{description}</p>}
             </div>

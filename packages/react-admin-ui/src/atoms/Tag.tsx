@@ -5,11 +5,11 @@ import Icon from "./Icon";
 
 export function Tag({color, icon, size, text, variant}: TagProps) {
     return (
-        <div className={clsx(boxClass({color: color, variant: variant}),
+        <div className={clsx(boxClass({color, variant}),
             'inline-flex pr-4 pl-4 rounded-lg text-white font-bold uppercase pt-1 py-1 space-x-1'
         )}>
             {text && <div>{text}</div>}
-            {icon ? <Icon size={size} icon={icon} />:<div />}
+            <Icon size={size} icon={icon} />
         </div>
     );
 }

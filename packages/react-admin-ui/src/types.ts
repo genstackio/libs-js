@@ -44,6 +44,7 @@ export type table_column = {id: string, format?: any, label?: string, width?: nu
 export type table_row = any;
 export type timeline_item = {color: box_color, description: rich_text, title: rich_text};
 export type screen_header_item = {label?: rich_text, target?: target};
+export type text_component = 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
 export type pricing_item = {
     color?: box_color,
     currency?: string,

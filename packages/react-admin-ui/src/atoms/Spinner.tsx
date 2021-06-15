@@ -15,11 +15,13 @@ export function Spinner({variant = 'half-circle'}: SpinnerProps) {
     return (
         <div>
             {isSpin && <div className={clsx(variants[variant], 'h-20 w-20 rounded-full animate-spin')} />}
-            {!isSpin && <div className={'flex space-x-1'}>
-                <div className={clsx(variants[variant], 'animate-bounce')} />
-                <div className={clsx(variants[variant], 'animate-bounce200')} />
-                <div className={clsx(variants[variant], 'animate-bounce400')} />
-            </div>}
+            {!isSpin && (
+                <div className={'flex space-x-1'}>
+                    <div className={clsx(variants[variant], 'animate-bounce')} />
+                    <div className={clsx(variants[variant], 'animate-bounce200')} />
+                    <div className={clsx(variants[variant], 'animate-bounce400')} />
+                </div>
+            )}
         </div>
     );
 }

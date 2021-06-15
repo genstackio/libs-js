@@ -15,7 +15,7 @@ export function Button({children, className, color = 'primary', disabled,  icon,
             className={clsx(className, buttonClass({color, variant, disabled}), 'py-2 px-4 rounded inline-flex items-center', disabled && 'opacity-50 cursor-not-allowed', large && 'w-60')}
             onClick={handleClick}
         >
-            {icon && <Icon icon={icon} />}
+            <Icon icon={icon} />
             {children || ''}
         </button>
     );

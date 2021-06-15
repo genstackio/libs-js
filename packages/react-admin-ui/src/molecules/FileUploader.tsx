@@ -36,7 +36,7 @@ export function FileUploader({
 
     return(
         <>
-            <div id="toast" />
+            <div id={'toast'} />
             <Block {...props}>
                 <div className={'flex flex-col px-4 py-6 bg-white text-blue tracking-wide uppercase ' +
                                 'border border-blue cursor-pointer hover:bg-blue-300 hover:text-white'}>

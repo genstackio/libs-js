@@ -2,9 +2,9 @@ import MuiSettingsIcon from '@material-ui/icons/Settings';
 import {BaseBlockProps, Block, Text} from "../../atoms";
 import {BarChart, BarChartProps} from "../../molecules";
 
-export function BarChartBlock({labels, series, stats, subtitle, title, value, ...props}: BarChartBlockProps) {
+export function BarChartBlock({labels, series, stats, subtitle, value, ...props}: BarChartBlockProps) {
     return (
-        <Block title={title}  {...props}>
+        <Block {...props}>
             { subtitle && <div className={'flex justify-between items-center mb2'}>
                 <div className={'flex items-center space-x-2'}>
                     <Text text={subtitle} variant={'body'} />

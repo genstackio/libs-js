@@ -21,13 +21,13 @@ const StyledRating = withStyles({
 export function Rating({defaultValue, onChange, readOnly = false, text, value}: RatingProps) {
   return (
     <div>
-        <Box component="fieldset" borderColor="transparent">
-            {text && <Typography component="legend">{text}</Typography>}
-            <StyledRating name="customized-color"
+        <Box component={'fieldset'} borderColor={'transparent'}>
+            {text && <Typography component={'legend'}>{text}</Typography>}
+            <StyledRating name={'customized-color'}
                           defaultValue={defaultValue}
                           value={value}
                           precision={0.5}
-                          emptyIcon={<StarBorderIcon fontSize="inherit" />}
+                          emptyIcon={<StarBorderIcon fontSize={'inherit'} />}
                           onChange={onChange}
                           readOnly={readOnly}
             />

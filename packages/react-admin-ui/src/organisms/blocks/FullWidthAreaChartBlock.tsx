@@ -4,7 +4,7 @@ import  {AreaChart, AreaChartProps} from "../../molecules";
 
 export function FullWidthAreaChartBlock({overline, series, title, value,...props}: FullWidthAreaChartBlockProps) {
     return (
-        <Block padding={"none"}{...props}>
+        <Block padding={'none'} {...props}>
             <div className={'p-10'}>
                 { title && <div className={'flex justify-between items-center mb2'}>
                         <Text text={title} variant={'body'} />

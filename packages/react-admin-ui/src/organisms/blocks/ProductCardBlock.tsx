@@ -14,8 +14,8 @@ export function ProductCardBlock({color = 'primary', description, image, initial
             <Block>
                 {image && <Image url={image.url} alt={image.alt} />}
                 {rating && <div className={'mt-4'}><Rating defaultValue={rating} /></div>}
-                <Text variant="title5" text={title} />
-                <Text variant="description" text={description} />
+                <Text variant={'title5'} text={title} />
+                <Text variant={'description'} text={description} />
                 <div className={'flex inline font-extrabold mt-2'}>
                     <div><Text variant={'title6'} text={price} color={color} /></div>
                     <div className={'pl-8'}><Text variant={'cross'} text={initialPrice} /></div>
