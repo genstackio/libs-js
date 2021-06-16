@@ -44,6 +44,7 @@ export function s(Component, args, opts: any = {}) {
 }
 
 export const args = {
+    _disable: { table: {disable: true} },
     actions: { control: {type: 'object'} },
     author:{ control: {type: 'text'}},
     badge: { control: {type: 'object'} },
@@ -75,6 +76,8 @@ export const args = {
     dropdownItems: { control: {type: 'object'} },
     error: { control: {type: 'boolean'} },
     errorText: { control: {type: 'text'} },
+    fieldType: { control: {type: 'select'}, options: ['text', 'email', 'password'] },
+    fieldValue: { control: {type: 'text'}},
     form: { control: {type: 'object'} },
     icon: { table: {disable: true} },
     iconCorner: { control: {type: 'select'}, options: ['settings', 'query_builder', 'notifications_none_icon', 'none'] },
@@ -99,7 +102,7 @@ export const args = {
     padding: { control: {type: 'radio'}, options: ['none', 'default'] },
     paginationVariant: { control: {type:'select'}, options :['text', 'outlined'] },
     pill: { control: {type: 'object'} },
-    placeHolder: { control: {type: 'text'} },
+    placeholder: { control: {type: 'text'} },
     position: { control: {type:'select'}, options: ['left', 'center', 'right'] },
     price: { control: {type: 'text'} },
     progress: { control: {type: 'number'} },
