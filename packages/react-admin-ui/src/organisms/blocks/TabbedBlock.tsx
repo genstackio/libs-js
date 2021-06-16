@@ -1,31 +1,11 @@
-import {useState, useCallback, ReactNode, ChangeEvent} from 'react';
+import {useState, useCallback, ChangeEvent} from 'react';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import AppBar from '@material-ui/core/AppBar';
 import bgClass from "../../utils/bgClass";
 import {BaseBlockProps, Block} from "../../atoms";
-
-function TabPanel({children, value, index, ...props}: TabPanelProps) {
-    return (
-        <div
-            role={'tabpanel'}
-            hidden={value !== index}
-            id={`simple-tabpanel-${index}`}
-            aria-labelledby={`simple-tab-${index}`}
-            {...props}
-        >
-            {value === index && (
-                <div className={'p-3 text-sm'}>{children}</div>
-            )}
-        </div>
-    );
-}
-
-interface TabPanelProps {
-    children?: ReactNode;
-    index: number;
-    value: number;
-}
+import TabPanel from "../../molecules/TabPanel";
+import {tab_item} from '../../types';
 
 export function TabbedBlock({items = [], ...props}: TabbedBlockProps) {
     const [value, setValue] = useState(0);
@@ -49,11 +29,7 @@ export function TabbedBlock({items = [], ...props}: TabbedBlockProps) {
 }
 
 export interface TabbedBlockProps extends BaseBlockProps {
-    items?: {
-        content?: string,
-        disabled?: boolean,
-        title?: string,
-    }[],
+    items?: tab_item[],
 }
 
 export default TabbedBlock
