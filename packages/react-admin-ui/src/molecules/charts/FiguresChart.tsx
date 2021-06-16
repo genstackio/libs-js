@@ -51,7 +51,6 @@ const defaultOptions = {
     yaxis: {
         show: false
     },
-    colors: [],
 };
 
 export function FiguresChart({items}: FiguresChartProps) {
