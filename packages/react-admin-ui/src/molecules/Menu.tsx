@@ -1,16 +1,19 @@
 import Accordion from './Accordion';
-import TextBlock from './TextBlock';
-import {menu_item, box_color, box_variant, rich_text} from "../types";
+import {Block, Text} from "../atoms";
+import {menu_item, box_color, rich_text, accordion_variant} from "../types";
+import clsx from "clsx";
 
-export function Menu ({items = [], title, text, color, variant}: MenuProps) {
+export function Menu({items = [], title, text, color = 'primary', variant = 'light'}: MenuProps) {
+    const hasSection = !!(title || text);
     return(
         <div>
-            {(title || text) && (
-                <div className={'mb-2'}>
-                    <TextBlock title={title} text={text} color={color} variant={variant} />
-                </div>
+            {hasSection && (
+                <Block padding={'small'} elevation={0} color={color} className={'x-m-small bg-opacity-5'} variant={'contained'} corner={'rounded-small'}>
+                    <Text text={title} color={color} variant={'section'} />
+                    <Text text={text} color={'dark'} variant={'xsmall'} />
+                </Block>
             )}
-            <Accordion items={items} color={color} variant={variant} />
+            <Accordion className={clsx('x-m-small', hasSection && 'mt-0')} items={items} color={color} variant={variant} expandIcon={'navigate_next'} />
         </div>
     );
 }
@@ -20,5 +23,5 @@ export interface MenuProps {
     items: menu_item[],
     title?: rich_text,
     text?: rich_text,
-    variant?: box_variant,
+    variant?: accordion_variant,
 }

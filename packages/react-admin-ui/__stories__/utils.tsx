@@ -44,6 +44,7 @@ export function s(Component, args, opts: any = {}) {
 }
 
 export const args = {
+    accordionVariant: { control: {type: 'select'}, options: ['filled', 'outlined', 'contained', 'light'] },
     _disable: { table: {disable: true} },
     actions: { control: {type: 'object'} },
     author:{ control: {type: 'text'}},

@@ -14,9 +14,13 @@ const colors = {
 }
 
 const variants = {
+    xsmall: 'text-xxs font-small',
+    small: 'text-xs font-small',
     body: 'text-base font-body',
+    section: 'text-base font-body font-medium tracking-wide leading-tight',
     cross: 'text-base line-through',
     description: 'text-sm font-description',
+    subsection: 'text-sm font-subsection font-medium',
     subtitle:'text-lg font-light font-subtitle',
     title0: 'lg:text-9xl md:text-7xl sm:text-4xl font-bold font-title1',
     title1: 'text-6xl font-bold font-title1',

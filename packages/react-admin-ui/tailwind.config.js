@@ -38,8 +38,13 @@ module.exports = {
       underline: ['Rubik'],
       body: ['Rubik'],
       description: ['Rubik'],
+      subsection: ['Roboto'],
+      small: ['Rubik'],
     },
     extend: {
+      width: {
+        drawer: '280px',
+      },
       colors: {
         primary: '#7366FF',
         secondary: '#F73164',
@@ -122,6 +127,7 @@ module.exports = {
       },
       fontSize: {
         xxl: '16rem',
+        xxs: '0.6875rem',
       },
     },
   },

@@ -31,12 +31,6 @@ export const basic = s(Template, {
         {
             icon: <HomeOutlinedIcon/>,
             title: 'Dashboard',
-            badge: {
-                type: 'tag',
-                variant: 'contained',
-                label: '2',
-                color: 'success',
-            },
             content: [{
                 label: 'Default',
                 target: 'https://www.google.com/webhp?hl=fr&sa=X&ved=0ahUKEwj8oNu2_uvwAhUiBmMBHeFQB30QPAgI',
