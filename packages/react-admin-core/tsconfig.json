@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "rootDir": "./src",
+    "outDir": "./lib",
+    "composite": true,
+    "lib": ["dom"]
+  },
+  "include": ["./src"],
+  "references": [
+    {"path": "../react-admin-ui"},
+    {"path": "../react-contexts"}
+  ]
+}
