@@ -1,24 +1,22 @@
 import clsx from "clsx";
-import {image} from '../types';
+import {image, corner} from '../types';
+import Image from './Image';
 
 const sizes = {
     'xl': 'w-24 h-30 text-5xl',
 }
-const shapes = {
-    'rounded': 'rounded-lg',
-}
 
-export function Thumbnail({image, shape = 'rounded', size = 'xl'}: ThumbnailProps) {
+export function Thumbnail({image, corner = 'rounded-xsmall', size = 'xl'}: ThumbnailProps) {
     return (
         <div className={clsx('inline-block animated tada')}>
-            {image && <img src={image.url} alt={image.alt} className={clsx(sizes[size], shapes[shape])} />}
+            {image && <Image {...image} corner={corner} className={sizes[size]} />}
         </div>
     );
 }
 
 export interface ThumbnailProps {
     image?: image,
-    shape?: 'rounded',
+    corner?: corner,
     size?: 'xl',
 }
 

@@ -4,7 +4,7 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import {ChangeEvent} from "react";
-import {rich_text} from "../types";
+import {flag, rich_text} from "../types";
 
 const StyledRating = withStyles({
   iconFilled: {
@@ -42,7 +42,7 @@ export interface RatingProps {
         event: ChangeEvent<{}>,
         value: number | null
     ) => void,
-    readOnly?: boolean,
+    readOnly?: flag,
     text?: rich_text,
     value?: number,
 }

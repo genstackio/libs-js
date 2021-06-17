@@ -7,7 +7,7 @@ export function Pricing({items = []}: PricingProps) {
     return (
         <div className={'flex inline'}>
             {items.map((item, index) => (
-                <Block image={item.image} classes={{content: 'space-y-3 flex justify-center items-center flex-col pr-4 pl-4'}}>
+                <Block image={item.image} contentClassName={'space-y-3 flex justify-center items-center flex-col pr-4 pl-4'}>
                     <div key={index} className={'uppercase'}>
                         {item && <Text text={item.name} variant={'title4'} />}
                     </div>

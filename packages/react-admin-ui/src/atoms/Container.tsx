@@ -1,23 +1,14 @@
-import {children, class_name, corner, image} from "../types";
+import {children, class_name, image} from "../types";
 import clsx from "clsx";
+import cornerClass, {corner} from "../mappings/corners";
 
-const corners = {
-    'rounded': 'rounded-2xl',
-    'top-rounded': 'rounded-t-2xl',
-    'left-rounded': 'rounded-l-2xl',
-    'rounded-small': 'rounded-xl',
-    'top-rounded-small': 'rounded-t-xl',
-    'left-rounded-small': 'rounded-l-xl',
-    'square': '',
-};
-
-export function Container({bgImage, bgColor, corner = 'square', className, children}: ContainerProps) {
+export function Container({bgImage, bgColor, corner, className, children}: ContainerProps) {
     const style = {
         backgroundImage: (bgImage ? 'url('+bgImage.url+')' : undefined),
         backgroundColor: (bgColor ? bgColor : undefined),
     };
     return (
-        <div className={clsx(corners[corner], className)} style={style}>
+        <div className={clsx(cornerClass(corner), className)} style={style}>
             {children || ''}
         </div>
     );

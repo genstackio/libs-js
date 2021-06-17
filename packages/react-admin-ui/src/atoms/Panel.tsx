@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import boxClass from "../utils/boxClass";
-import {box_color, box_variant, children} from '../types';
+import {children} from '../types';
+import {box_color} from '../mappings/box-colors';
+import {box_variant} from '../mappings/box-variants';
 
 export function Panel({children, color = 'primary', variant = 'contained'}: PanelProps) {
     return (

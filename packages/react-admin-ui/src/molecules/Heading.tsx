@@ -1,5 +1,6 @@
-import {box_color_inherit, rich_text} from "../types";
+import {rich_text} from "../types";
 import Text from '../atoms/Text';
+import {text_color} from "../mappings/text-colors";
 
 export function Heading({text, color}: HeadingProps) {
     return (
@@ -13,7 +14,7 @@ export function Heading({text, color}: HeadingProps) {
 
 export interface HeadingProps {
     text?: rich_text,
-    color?: box_color_inherit,
+    color?: text_color,
 }
 
 export default Heading

@@ -1,7 +1,7 @@
 import {useCallback, useState} from "react";
 import Rating from "./Rating";
 import {Badge, Icon, Image, Text} from "../atoms";
-import {badge, children, image, rich_text} from "../types";
+import {badge, children, flag, image, rich_text} from "../types";
 
 export function SmallItemCard({badges, children, closable = false, image, rating, title }: SmallItemCardProps) {
     const [show, setShow] = useState(true);
@@ -30,7 +30,7 @@ export function SmallItemCard({badges, children, closable = false, image, rating
 export interface SmallItemCardProps {
     badges?: badge[],
     children?: children,
-    closable?: boolean,
+    closable?: flag,
     image?: image,
     rating?: number,
     title?: rich_text,

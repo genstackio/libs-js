@@ -2,7 +2,7 @@ import {ChangeEvent, useState, useCallback} from "react";
 import clsx from "clsx";
 import textClass from "../utils/textClass";
 import buttonClass from "../utils/buttonClass";
-import {box_color, accordion_item, accordion_variant, class_name} from "../types";
+import {accordion_item, accordion_variant, class_name, text_color} from "../types";
 import {withStyles} from "@material-ui/core/styles";
 import MuiAccordion from "@material-ui/core/Accordion";
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
@@ -80,7 +80,7 @@ export function Accordion({className, color = 'default', expandIcon, items = [],
 
 export interface AccordionProps {
     className?: class_name,
-    color?: box_color,
+    color?: text_color,
     expandIcon?: string,
     items: accordion_item[]
     variant?: accordion_variant,

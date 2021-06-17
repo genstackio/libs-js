@@ -5,6 +5,7 @@ import clsx from "clsx";
 import {useMemo} from "react";
 import {useTranslation} from "react-i18next";
 import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
+import {flag}from '../../types';
 
 const useStyles = makeStyles({
     root: {
@@ -57,11 +58,11 @@ export function CheckboxField({defaultValue = true, label, name, disabled = fals
 }
 
 export interface CheckboxFieldProps {
-    defaultValue?: boolean,
+    defaultValue?: flag,
     label?: string,
     name?: string,
-    disabled?: boolean,
-    required?: boolean,
+    disabled?: flag,
+    required?: flag,
     errors?: {[key: string]: any},
     helper?: string,
     options?: any,

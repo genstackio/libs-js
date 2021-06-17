@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import {useTranslation} from "react-i18next";
 import {useMemo} from "react";
+import {flag} from '../../types';
 
 export function TextField({disabled = false, type = 'text', required = false, helper, errors = {}, defaults = {}, label, placeholder, register = () => ({}), name, options = {}, ...props}: TextFieldProps) {
     name = name || 'text';
@@ -57,16 +58,16 @@ export function TextField({disabled = false, type = 'text', required = false, he
 }
 
 export interface TextFieldProps {
-    required?: boolean,
+    required?: flag,
     type?: string,
-    disabled?: boolean,
+    disabled?: flag,
     errors?: {[key: string]: any},
     defaults?: {[key: string]: any},
     label?: string,
     placeholder?: string,
     name?: string,
     onChange?: any,
-    autoFocus?: boolean,
+    autoFocus?: flag,
     value?: any,
     options?: any,
     helper?: string,

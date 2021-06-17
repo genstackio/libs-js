@@ -1,7 +1,7 @@
 import Chart from "react-apexcharts";
 import {ApexOptions} from "apexcharts";
 import tailwindConfig from "../../../tailwind.config"
-import {box_color, box_variant} from "../../types";
+import {box_color, box_variant, flag} from "../../types";
 
 const tailwindTextColors = tailwindConfig.theme.extend.textColors;
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
@@ -71,7 +71,7 @@ export function RadarChart({color = 'primary', isMenu = true, labels = [], serie
 
 export interface RadarChartProps {
     color?: box_color,
-    isMenu?: boolean,
+    isMenu?: flag,
     labels?: string[],
     series?: {
         data?: number[],

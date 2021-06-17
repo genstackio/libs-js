@@ -1,6 +1,8 @@
 import clsx from 'clsx';
-import {box_color, box_variant, rich_text} from '../types';
+import {rich_text} from '../types';
 import boxClass from '../utils/boxClass';
+import {box_color} from '../mappings/box-colors';
+import {box_variant} from '../mappings/box-variants';
 
 export function Pill({color, text, variant}: PillProps) {
     return (

@@ -1,6 +1,7 @@
 import {useCallback, useState} from 'react';
 import CloseIcon from '@material-ui/icons/Close';
 import Panel, {PanelProps} from "./Panel";
+import {flag} from '../types';
 
 export function Alert({children, closable = false, color = 'primary', variant = 'contained', ...props}: AlertProps) {
     const [show, setShow] = useState(true);
@@ -19,7 +20,7 @@ export function Alert({children, closable = false, color = 'primary', variant = 
 }
 
 export interface AlertProps extends PanelProps {
-    closable?: boolean,
+    closable?: flag,
 }
 
 export default Alert

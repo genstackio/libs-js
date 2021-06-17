@@ -1,7 +1,7 @@
 import {MouseEventHandler} from 'react';
 import {Button} from "../atoms";
 import MuiModal from "@material-ui/core/Modal";
-import {action_item, children, rich_text} from "../types";
+import {action_item, children, flag, rich_text} from "../types";
 
 export function Modal({buttonsItems = [], children, onClose, opened = false, title}: ModalProps) {
     return (
@@ -29,7 +29,7 @@ export function Modal({buttonsItems = [], children, onClose, opened = false, tit
 export interface ModalProps {
     buttonsItems?: action_item[],
     children?: children,
-    opened?: boolean,
+    opened?: flag,
     onClose?: MouseEventHandler,
     title?: rich_text,
 }

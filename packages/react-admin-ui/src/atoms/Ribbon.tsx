@@ -1,7 +1,8 @@
-import {box_color, children, ribbon_position, rich_text} from "../types";
+import {children, flag, ribbon_position, rich_text} from "../types";
 import clsx from "clsx";
 import boxClass from "../utils/boxClass";
 import Icon from "./Icon";
+import {box_color} from '../mappings/box-colors';
 
 export function Ribbon({children, color, horizontal, position = 'top-left', text, vertical}: RibbonProps) {
     let triangle_position, horizontal_rectangle_position, triangle_rotate, vertical_rectangle_position, top_space, bottom_space
@@ -48,10 +49,10 @@ export function Ribbon({children, color, horizontal, position = 'top-left', text
 export interface RibbonProps {
     children?: children,
     color?: box_color,
-    horizontal?: boolean,
+    horizontal?: flag,
     position?: ribbon_position,
     text?: rich_text,
-    vertical?: boolean,
+    vertical?: flag,
 }
 
 export default Ribbon

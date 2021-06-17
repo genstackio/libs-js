@@ -1,5 +1,6 @@
-import {box_color_inherit, rich_text} from "../types";
+import {rich_text} from "../types";
 import {Text} from "./Text";
+import {text_color} from "../mappings/text-colors";
 
 export function PeriodBlock({color, text, value}: PeriodBlockProps) {
     return (
@@ -11,7 +12,7 @@ export function PeriodBlock({color, text, value}: PeriodBlockProps) {
 }
 
 export interface PeriodBlockProps {
-    color?: box_color_inherit,
+    color?: text_color,
     text?: rich_text,
     value?: rich_text,
 }

@@ -1,6 +1,6 @@
 import LinearProgress from '@material-ui/core/LinearProgress';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import {progress_variant} from '../types';
+import {progress_variant} from '../mappings/progress-variants';
 
 const variants = {
     circular: CircularProgress,

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import {box_color, breadcrumb_item} from "../types";
+import {box_color, breadcrumb_item, flag} from "../types";
 import Link from '@material-ui/core/Link';
 import {makeStyles} from "@material-ui/core/styles";
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
@@ -46,7 +46,7 @@ export function Breadcrumb({items = [], color = 'primary', toRight = false}: Bre
 export interface BreadcrumbProps {
     color?: box_color,
     items: breadcrumb_item[],
-    toRight?: boolean,
+    toRight?: flag,
 }
 
 export default Breadcrumb

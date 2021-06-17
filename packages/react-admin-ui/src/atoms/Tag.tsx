@@ -1,7 +1,9 @@
 import clsx from 'clsx';
 import boxClass from '../utils/boxClass';
-import {box_color, box_variant, icon, rich_text} from '../types';
+import {icon, rich_text} from '../types';
 import Icon from "./Icon";
+import {box_color} from '../mappings/box-colors';
+import {box_variant} from '../mappings/box-variants';
 
 export function Tag({color, icon, size, text, variant}: TagProps) {
     return (

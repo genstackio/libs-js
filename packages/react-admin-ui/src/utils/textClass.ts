@@ -1,4 +1,5 @@
-import clsxm, {clsxm_params} from "./clsxm";
+import clsxm from "./clsxm";
+import {clsxm_params} from "../types";
 
 export const styles = {
     common: {
