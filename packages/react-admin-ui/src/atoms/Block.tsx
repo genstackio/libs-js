@@ -1,72 +1,39 @@
 import clsx from 'clsx';
-import Button from './Button';
-import Dropdown from './Dropdown';
 import boxClass from '../utils/boxClass';
-import {box_color, box_variant, box_padding, icon, image, classes, class_name, rich_text, children, dropdown_item} from '../types';
+import {box_color, box_variant, box_padding, image, class_name, children, corner} from '../types';
 import Container from './Container';
-import Icon from "./Icon";
-import Text from "./Text";
-
-const paddings = {
-    none: '',
-    default: 'p-10',
-    small: 'x-p-small',
-}
-
-const corners = {
-    'rounded': 'rounded-2xl',
-    'rounded-small': 'rounded-xl',
-    'square': '',
-};
+import BlockHeader, {BlockHeaderProps} from "./BlockHeader";
+import BlockContent, {BlockContentProps} from "./BlockContent";
 
 const elevations = {
     '1': 'shadow-block',
     '2': 'shadow-upper-block',
 }
-export function Block({elevation = 1, corner = 'rounded', btnLabel, children, classes = {}, className, containerClassName, color = 'light', dropdownItems, icon, image, padding = 'default', title, variant = 'filled'}: BlockProps) {
-    const content = <>
-        { title && (
-            <div className={clsx(paddings['default'], 'border-b-1 flex justify-between items-center')}>
-                <Text variant={'title5'} text={title} />
-                {btnLabel && <Button color={color}>{btnLabel}</Button>}
-                {dropdownItems && <Dropdown menuItems={dropdownItems} color={color} variant={variant} />}
-                <Icon icon={icon} />
-            </div>
-        )}
-        <div className={clsx(paddings[padding], classes.content, 'text-md')}>
-            {children || ''}
-        </div>
-    </>
+
+export function Block({elevation = 1, corner = 'rounded', btnLabel, children, className, contentClassName, color = 'default', dropdownItems, icon, image, padding = 'default', title, variant = 'filled'}: BlockProps) {
     return (
-        <div className={clsx(className, !image && containerClassName, corners[corner || 'rounded'], 'relative flex flex-col', elevations[`${elevation}`], boxClass({color, variant}))} >
-            {image && (
-                <Container bgImage={image} className={clsx(containerClassName, classes.root)}>
-                    {content}
-                </Container>
-            )}
-            {!image && content}
-        </div>
+        <Container corner={corner} bgImage={image} className={clsx(className, 'relative flex flex-col', elevations[`${elevation}`], boxClass({color, variant}))} >
+            <BlockHeader title={title} btnLabel={btnLabel} dropdownItems={dropdownItems} color={color} variant={variant} icon={icon} />
+            <BlockContent padding={padding} className={contentClassName}>
+                {children || ''}
+            </BlockContent>
+        </Container>
     );
 }
 
-export interface BaseBlockProps {
+export interface BaseBlockProps extends BlockHeaderProps, BlockContentProps {
     children?: children,
-    classes?: classes,
     className?: class_name,
-    containerClassName?: class_name,
+    contentClassName?: class_name,
     color?: box_color,
     padding?: box_padding,
     variant?: box_variant,
     elevation?: number,
-    corner?: 'rounded' | 'rounded-small' | 'square',
+    corner?: corner,
 }
 
 export interface BlockProps extends BaseBlockProps {
-    btnLabel?: rich_text,
-    dropdownItems?: dropdown_item[],
-    icon?: icon,
     image?: image,
-    title?: rich_text,
 }
 
 export default Block

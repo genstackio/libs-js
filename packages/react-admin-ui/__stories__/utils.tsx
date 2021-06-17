@@ -81,6 +81,7 @@ export const args = {
     fieldValue: { control: {type: 'text'}},
     form: { control: {type: 'object'} },
     icon: { table: {disable: true} },
+    corner: { control: {type: 'select'}, options: ['rounded', 'top-rounded', 'left-rounded', 'rounded-small', 'top-rounded-small', 'left-rounded-small'] },
     iconCorner: { control: {type: 'select'}, options: ['settings', 'query_builder', 'notifications_none_icon', 'none'] },
     image: { control: {type: 'object'} },
     initialPrice: { control: {type: 'object'} },

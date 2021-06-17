@@ -14,6 +14,7 @@ export default {
         color: args.color,
         variant: args.blockVariant,
         padding: args.padding,
+        corner: args.corner,
     },
 }
 

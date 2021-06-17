@@ -43,7 +43,7 @@ const StyledAccordionSummary = withStyles({
     expanded: {},
 })(MuiAccordionSummary);
 
-export function Accordion({className, color, expandIcon, items = [], variant}: AccordionProps) {
+export function Accordion({className, color = 'default', expandIcon, items = [], variant}: AccordionProps) {
     const [expanded, setExpanded] = useState<number | false>(false);
     const handleChange = useCallback((panel: number) => (event: ChangeEvent<{}>, newExpanded: boolean) => {
         setExpanded(newExpanded ? panel : false)}, [setExpanded]);
