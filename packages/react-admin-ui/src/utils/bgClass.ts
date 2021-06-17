@@ -87,6 +87,15 @@ export const styles = {
         'contained-light': 'hover:bg-opacity-50',
         'contained-dark': 'hover:bg-opacity-70',
         'contained-none': '',
+        'light-primary': 'hover:bg-primary hover:bg-opacity-25',
+        'light-secondary': 'hover:bg-secondary hover:bg-opacity-25',
+        'light-success': 'hover:bg-success hover:bg-opacity-25',
+        'light-info': 'hover:bg-info hover:bg-opacity-25',
+        'light-warning': 'hover:bg-warning hover:bg-opacity-25',
+        'light-danger': 'hover:bg-danger hover:bg-opacity-25',
+        'light-light': 'hover:bg-light hover:bg-opacity-25',
+        'light-dark': 'hover:bg-dark hover:bg-opacity-25',
+        'light-none': 'hover:bg-none hover:bg-opacity-25',
     },
 };
 

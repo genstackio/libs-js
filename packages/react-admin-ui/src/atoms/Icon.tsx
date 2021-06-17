@@ -8,7 +8,7 @@ export function Icon({icon, size = 20, ...props}) {
             if (('/' === icon.slice(0, 1)) || ('http' === icon.slice(0, 4))) {
                 return <img src={icon} alt={''} {...props} />;
             }
-            if (size) return <MuiIcon {...props}  style={{ fontSize: size }}>{icon}</MuiIcon>;
+            if (size) return <MuiIcon {...props} style={{fontSize: size}}>{icon}</MuiIcon>;
             return <MuiIcon {...props}>{icon}</MuiIcon>;
         default:
             return icon;

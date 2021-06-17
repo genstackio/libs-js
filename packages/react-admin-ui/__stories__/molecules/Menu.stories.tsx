@@ -11,7 +11,7 @@ export default {
         title: args.title,
         text: args.children,
         color: args.color,
-        variant: args.blockVariant,
+        variant: args.accordionVariant,
         padding: args.padding,
         items: args.items,
     },

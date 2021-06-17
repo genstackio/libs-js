@@ -24,6 +24,14 @@
         @apply flex items-center flex-wrap space-x-4 sm:space-x-2 xs:space-x-0
     }
 
+    .x-p-small {
+        padding: 15px 17px;
+    }
+
+    .x-m-small {
+        margin: 15px 20px 13px 20px;
+    }
+
     /* Css for Thumbnail :: start */
     .animated {
         -webkit-animation-duration: 1.5s;

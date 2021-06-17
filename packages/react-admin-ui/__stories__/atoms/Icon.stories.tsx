@@ -13,5 +13,5 @@ export default {
 const Template = args => <Icon {...args} />;
 
 export const basic = s(Template, {
-    icon: 'https://image-placeholder.com/images/actual-size/240x320.png',
+    icon: 'phone',
 })

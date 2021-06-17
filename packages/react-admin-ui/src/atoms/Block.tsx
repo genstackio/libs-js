@@ -9,14 +9,21 @@ import Text from "./Text";
 
 const paddings = {
     none: '',
-    default: 'p-10'
+    default: 'p-10',
+    small: 'x-p-small',
 }
+
+const corners = {
+    'rounded': 'rounded-2xl',
+    'rounded-small': 'rounded-xl',
+    'square': '',
+};
 
 const elevations = {
     '1': 'shadow-block',
     '2': 'shadow-upper-block',
 }
-export function Block({elevation = 1, btnLabel, children, classes = {}, className, color = 'light', dropdownItems, icon, image, padding = 'default', title, variant = 'filled'}: BlockProps) {
+export function Block({elevation = 1, corner = 'rounded', btnLabel, children, classes = {}, className, containerClassName, color = 'light', dropdownItems, icon, image, padding = 'default', title, variant = 'filled'}: BlockProps) {
     const content = <>
         { title && (
             <div className={clsx(paddings['default'], 'border-b-1 flex justify-between items-center')}>
@@ -31,9 +38,9 @@ export function Block({elevation = 1, btnLabel, children, classes = {}, classNam
         </div>
     </>
     return (
-        <div className={clsx('rounded-2xl relative flex flex-col', elevations[`${elevation}`], boxClass({color, variant}))} >
+        <div className={clsx(className, !image && containerClassName, corners[corner || 'rounded'], 'relative flex flex-col', elevations[`${elevation}`], boxClass({color, variant}))} >
             {image && (
-                <Container bgImage={image} className={clsx(className,classes.root,'rounded-2xl')}>
+                <Container bgImage={image} className={clsx(containerClassName, classes.root)}>
                     {content}
                 </Container>
             )}
@@ -46,10 +53,12 @@ export interface BaseBlockProps {
     children?: children,
     classes?: classes,
     className?: class_name,
+    containerClassName?: class_name,
     color?: box_color,
     padding?: box_padding,
     variant?: box_variant,
     elevation?: number,
+    corner?: 'rounded' | 'rounded-small' | 'square',
 }
 
 export interface BlockProps extends BaseBlockProps {

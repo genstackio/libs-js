@@ -1,5 +1,6 @@
 import {ReactNode} from "react";
 
+
 export type alignment = 'left' | 'center' | 'right';
 export type badge = {variant?: box_variant, color?: box_color, text?: string, type?: badge_variant, label?: string};
 export type badge_variant = 'tag' | 'pill' | 'none';
@@ -7,7 +8,8 @@ export type basic_size = 'sm' | 'md' | 'lg';
 export type box_color = 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'light' | 'dark';
 export type box_color_inherit = 'inherit' | box_color;
 export type box_variant = 'filled' | 'outlined' | 'contained' | 'none';
-export type box_padding = 'default' | 'none';
+export type accordion_variant = box_variant | 'light' ;
+export type box_padding = 'default' | 'none' | 'small';
 export type icon_variant = 'settings' | 'query_builder' | 'notifications_none_icon' | 'none';
 export type progress_variant = 'linear' | 'circular';
 export type image = {url: string, alt: string};
@@ -30,7 +32,7 @@ export type dropdown_item = {name?: string};
 export type item = {badge?: badge, content?: rich_text | string[], icon?: icon, title?: rich_text};
 export type menu_item = item;
 export type spinner_variant = 'dots' | 'dotted-circle' | 'full-circle' | 'half-circle' | 'separate-circle' | 'squares';
-export type text_variant = 'body' | 'cross' | 'description' | 'overline' | 'subtitle' | 'text' | 'title0' | 'title1' | 'title2' | 'title3' | 'title4' | 'title5' | 'title6' | 'title7' | 'underline';
+export type text_variant = 'body' | 'cross' | 'small' | 'description' | 'overline' | 'subtitle' | 'text' | 'title0' | 'title1' | 'title2' | 'title3' | 'title4' | 'title5' | 'title6' | 'title7' | 'underline' | 'section' | 'xsmall' | 'subsection';
 export type accordion_item = item;
 export type list_item = {badge?: badge, color?: box_color, text?: rich_text};
 export type faq_item = accordion_item;
