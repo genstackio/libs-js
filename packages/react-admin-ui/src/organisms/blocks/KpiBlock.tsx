@@ -1,6 +1,7 @@
 import {ReactNode, useCallback, useState} from 'react';
 import clsx from "clsx";
-import {BaseBlockProps, Block, Icon, Text} from "../../atoms";
+import {BaseBlockProps, Block, Icon} from "../../atoms";
+import {Kpi} from "../../molecules";
 
 export function KpiBlock({icon, name, quantity, bgIcon, ...props}: KpiBlockProps) {
     const [isHover, setIsHover] = useState(false);
@@ -14,13 +15,7 @@ export function KpiBlock({icon, name, quantity, bgIcon, ...props}: KpiBlockProps
     return (
         <Block {...props}>
             <div className={'flex justify-between items-center'} onMouseOver={onHover} onMouseLeave={onLeave}>
-                <div className={'flex items-center space-x-6'}>
-                    <Icon icon={icon} />
-                    {quantity && <div>
-                        <Text text={name} variant={'description'} />
-                        <Text text={`${quantity}`} variant={'title5'} />
-                    </div>}
-                </div>
+                <Kpi icon={icon} name={name} quantity={quantity} color={props.color}/>
                 {bgIcon && (
                     <div className={clsx('absolute -right-5', isHover && 'transform -rotate-12 scale-110')}>
                         <Icon icon={bgIcon} />
@@ -36,7 +31,6 @@ export interface KpiBlockProps extends BaseBlockProps {
     icon?: ReactNode,
     name?: string,
     quantity?: number,
-
 }
 
 export default KpiBlock
