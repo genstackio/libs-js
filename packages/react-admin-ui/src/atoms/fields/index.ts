@@ -1,5 +1,6 @@
 export * from './AdditionalAddressField'
 export * from './AddressField'
+export * from './CheckboxField'
 export * from './EmailField'
 export * from './FirstNameField'
 export * from './LastNameField'
