@@ -1,13 +1,8 @@
-import {useMemo} from "react";
 import TextField, {TextFieldProps} from "./TextField";
 
-export function AdditionalAddressField({options = {}, ...props}: AdditionalAddressFieldProps) {
-    options = useMemo(() => ({
-        ...options,
-    }), [options]);
-
+export function AdditionalAddressField(props: AdditionalAddressFieldProps) {
     return (
-        <TextField name={'additionalAddress'} {...props} options={options} />
+        <TextField name={'additionalAddress'} {...props} />
     );
 }
 

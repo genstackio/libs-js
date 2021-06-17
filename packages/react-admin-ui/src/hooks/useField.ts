@@ -3,7 +3,7 @@ import {register} from "../types";
 import {useTranslation} from "react-i18next";
 
 // noinspection JSUnusedLocalSymbols
-export function useField({name = 'text', required = false, disabled = false, helper, placeholder, errors = {}, defaultValue = undefined, defaults = {}, options = {}, label, register = (name: string, options: any) => {}, field, ...extra}: field_def_params) {
+export function useField({name = 'text', required = false, disabled = false, helper, placeholder, errors = {}, defaultValue = undefined, defaultValues = {}, options = {}, label, register = (name: string, options: any) => {}, field, ...extra}: field_def_params) {
     const {t} = useTranslation();
 
     options = useMemo(() => ({
@@ -17,7 +17,7 @@ export function useField({name = 'text', required = false, disabled = false, hel
     const errorData = errors[name] || errors['all'];
     const error = errorData ? (errorData.message || t(['constraints_required'])) : undefined;
     const enrichedRegister = (extraOptions = {}) => register(name, {...options, ...extraOptions});
-    defaultValue = undefined !== defaultValue ? defaultValue : defaults[name];
+    defaultValue = undefined !== defaultValue ? defaultValue : defaultValues[name];
 
     return {
         name, label, placeholder, error, required, helper, options, disabled, defaultValue,
@@ -31,7 +31,7 @@ export interface field_def_params {
     disabled?: boolean,
     helper?: string,
     defaultValue?: any,
-    defaults?: {[key: string]: any},
+    defaultValues?: {[key: string]: any},
     errors?: {[key: string]: any},
     options?: {[key: string]: any},
     label?: string,

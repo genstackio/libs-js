@@ -39,6 +39,14 @@ export default {
             "video_player_btn_label": "Découvrir",
             "follow_us_button_label": "Suivez-nous",
             "gallery_title": "En direct d'Instagram",
+
+            "form_login_title": "Connexion",
+            "form_login_subtitle": "Saisissez vos email et mot de passe",
+            "form_login_forgot_password_label": "Se souvenir de moi",
+            "form_login_submit_label": "Connexion",
+            "form_login_other_login_methods_title": "Autres méthodes de connexion",
+            "form_login_register_question": "Pas encore de compte ?",
+            "form_login_register_label": "Créez-en un !",
         }
     }
 }
