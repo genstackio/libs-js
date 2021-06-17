@@ -10,8 +10,8 @@ export function PhoneField({options = {}, ...props}: PhoneFieldProps) {
             value: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/,
             message: t('constraints_phone')
         },
-        minLength: 3,
-        maxLength: 20,
+        minLength: {value: 3, message: t('constraints_not_enough_digit', {min: 3})},
+        maxLength: {value: 20, message: t('constraints_too_much_digit', {max: 20})},
     }), [options]);
 
     return (

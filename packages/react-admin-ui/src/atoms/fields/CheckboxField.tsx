@@ -60,7 +60,7 @@ export interface CheckboxFieldProps {
     helper?: string,
     options?: any,
     onChange?: Function,
-    register: register,
+    register?: register,
     field?: boolean,
 }
 

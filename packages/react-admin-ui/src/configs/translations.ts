@@ -7,6 +7,10 @@ export default {
             "constraints_generic": "Veuillez vérifier cette valeur",
             "constraints_email": "Format d'email invalide",
             "constraints_phone": "Numéro de téléphone invalide",
+            "constraints_not_enough_digit": "Minimum {{min}} chiffre(s) / caractère(s)",
+            "constraints_too_much_digit": "Maximum {{max}} chiffre(s) / caractère(s)",
+            "constraints_too_short": "Minimum {{min}} caractères",
+            "constraints_too_long": "Maximum {{max}} caractères",
             "password_length": "8 caractères minimum requis",
             "field_privacy_policy_label": "J'accepte la politique de confidentialité",
             "field_privacy_policy_description": "Politique de confidentialité...",
@@ -20,6 +24,7 @@ export default {
             "field_password_label": "Mot de passe",
             "field_password_confirmation_label": "Confirmation de mot de passe",
             "field_phone_label": "Téléphone",
+            "field_otp_label": "OTP",
             "field_text_label": "Texte",
             "field_username_label": "Identifiant",
             "field_zipcode_label": "Code postal",
@@ -58,6 +63,21 @@ export default {
             "form_register_other_login_methods_title": "Autres méthodes de connexion",
             "form_register_login_question": "Déjà un compte ?",
             "form_register_login_label": "Je me connecte",
+
+            "form_forgot_password_send_otp_title": "Mot de passe oublié",
+            "form_forgot_password_send_otp_subtitle": "Merci de saisir votre numéro de mobile",
+            "form_forgot_password_send_otp_submit_label": "Envoyer le code",
+
+            "form_forgot_password_fill_in_otp_title": "Code de vérification",
+            "form_forgot_password_fill_in_otp_subtitle": "Merci de saisir le code qui vient de vous être envoyé",
+            "form_forgot_password_fill_in_otp_forgot_password_label": "J'ai oublié mon mot de passe...",
+            "form_forgot_password_fill_in_otp_submit_label": "Valider",
+            "form_forgot_password_fill_in_otp_not_received": "Vous n'avez rien reçu ?",
+            "form_forgot_password_fill_in_otp_resend_label": "Renvoyez moi un code",
+
+            "form_forgot_password_create_password_title": "Nouveau mot de passe",
+            "form_forgot_password_create_password_subtitle": "Merci de choisir un nouveau mot de passe",
+            "form_forgot_password_create_password_submit_label": "Enregister",
         }
     }
 }
