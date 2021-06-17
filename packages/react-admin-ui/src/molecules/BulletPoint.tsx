@@ -6,8 +6,8 @@ export function BulletPoint({icon, text, title, color}: BulletPointProps) {
         <div className={'flex items-center'}>
             <Icon icon={icon} />
             <div className={'flex-column ml-4'}>
-                {title && <Text text={title} variant={'title5'} color={color} />}
-                {text && <Text text={text} variant={'body'} color={color} />}
+                <Text text={title} variant={'title5'} color={color} />
+                <Text text={text} variant={'body'} color={color} />
             </div>
         </div>
     );

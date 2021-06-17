@@ -72,8 +72,8 @@ export function RateChart({color = 'primary', overline, subtitle, title, value}:
         <div>
             <Chart type={'radialBar'} options={options} series={[[value]]} height={'450px'} />
             <div className={'text-center mt-2'}>
-                {subtitle && <Text text={subtitle} color={color} variant={'title6'} />}
-                {overline && <Text text={overline} />}
+                <Text text={subtitle} color={color} variant={'title6'} />
+                <Text text={overline} />
             </div>
         </div>
 

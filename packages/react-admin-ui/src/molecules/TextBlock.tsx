@@ -9,7 +9,7 @@ export function TextBlock({icon, text, title, ...props}: TextBlockProps) {
             {title && (
                 <div className={clsx(textClass({color: props.color, variant: props.variant}), 'flex justify-between items-center')}>
                     <div className={'flex-col'}>
-                        {title && <Text className={'flex-1'} color={props.color} text={title} variant={'title5'} />}
+                        <Text className={'flex-1'} color={props.color} text={title} variant={'title5'} />
                         <div className={'text-md flex-1'}>
                             <Text color={props.color} text={text || ''} variant={'body'} />
                         </div>

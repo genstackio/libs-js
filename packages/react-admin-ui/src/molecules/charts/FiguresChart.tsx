@@ -61,8 +61,8 @@ export function FiguresChart({items}: FiguresChartProps) {
                     <div className={'p-6 flex-1 flex items-center space-x-2'} key={index}>
                         <Chart type={'bar'} width={'80px'} height={'80px'} options={defaultOptions} series={series} />
                         <div>
-                            {value && <Text text={`${value}`} color={color} variant={'title6'} />}
-                            {name && <Text text={name} color={color} variant={'description'} />}
+                            <Text text={`${value}`} color={color} variant={'title6'} />
+                            <Text text={name} color={color} variant={'description'} />
                         </div>
                     </div>
                 ))}

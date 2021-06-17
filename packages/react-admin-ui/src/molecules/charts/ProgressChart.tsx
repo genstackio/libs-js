@@ -68,12 +68,13 @@ export function ProgressChart({series, progress, title, unit, value, color = 'pr
         <div>
             <div className={'p-10 flex justify-between items-center max-h-80'}>
                 <div>
-                    {title && <Text text={title} variant={'title6'} />}
-                    {progress && <div className={'flex items-center'}>
-                        <Text text={`${progress}%`} variant={'description'} />
-                        {progress > 0 && <Icon icon={'expand_less_icon'} />}
-                        {progress < 0 && <Icon icon={'expand_more_icon'} />}
-                    </div>}
+                    <Text text={title} variant={'title6'} />
+                    {progress && (
+                        <div className={'flex items-center'}>
+                            <Text text={`${progress}%`} variant={'description'} />
+                            <Icon icon={progress > 0 ? 'expand_less_icon' : 'expand_more_icon'} />
+                        </div>
+                    )}
                 </div>
                 {value && <Text text={formatAmount(value, unit)} variant={'title5'} />}
             </div>

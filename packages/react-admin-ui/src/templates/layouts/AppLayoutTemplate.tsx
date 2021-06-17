@@ -13,13 +13,13 @@ export function AppLayoutTemplate({logo, menu, children, toolbar, ...props}: App
         <div className={'flex h-screen'}>
             <div className={clsx('w-1/6', !show && 'hidden')}>
                 <div className={'p-5 h-xxl flex flex-inline shadow-top justify-between items-center'}>
-                    <Image className={'bg-auto'} {...logo}/>
+                    <Image className={'bg-auto'} {...logo} />
                     <div onClick={handleClick}>
                         <Icon icon={'apps_outlined'} className={'hover:text-primary'} />
                     </div>
                 </div>
                 <div className={'p-5'}>
-                    <Menu items={menu} {...props}/>
+                    <Menu items={menu} {...props} />
                 </div>
             </div>
             <div className={'w-5/6'}>

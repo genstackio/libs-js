@@ -30,6 +30,7 @@ const variants = {
 }
 
 export function Text({className, color = 'inherit', text, variant = 'body', component = 'div'}: TextProps) {
+    if (!text) return null;
     const props = {
         className: clsx(colors[color], variants[variant], className),
         children: text,

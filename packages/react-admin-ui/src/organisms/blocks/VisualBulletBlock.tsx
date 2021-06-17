@@ -12,7 +12,7 @@ export function VisualBulletBlock({icon_color, items, text_color, ...props}: Vis
                     <Icon className={clsx('mb-5', textClass({color: icon_color}))} size={40} icon={item.icon} />
                     <div className={clsx('flex-column ml-4', boxClass({color: text_color, variant: props.variant}))}>
                         <Text color={props.color} text={item.title} variant={'title6'} />
-                        <p>{item.subTitle || ''}</p>
+                        <p>{item.subtitle || ''}</p>
                     </div>
                 </div>
             ))}
@@ -24,7 +24,7 @@ export interface VisualBulletBlockProps extends BaseBlockProps {
     icon_color?: box_color,
     items: {
         icon: string,
-        subTitle: string,
+        subtitle: string,
         title: string,
     }[],
     text_color?: box_color,

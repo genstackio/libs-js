@@ -15,7 +15,7 @@ export function KpiBlock({icon, name, quantity, bgIcon, ...props}: KpiBlockProps
     return (
         <Block {...props}>
             <div className={'flex justify-between items-center'} onMouseOver={onHover} onMouseLeave={onLeave}>
-                <Kpi icon={icon} name={name} quantity={quantity} color={props.color}/>
+                <Kpi icon={icon} name={name} quantity={quantity} color={props.color} />
                 {bgIcon && (
                     <div className={clsx('absolute -right-5', isHover && 'transform -rotate-12 scale-110')}>
                         <Icon icon={bgIcon} />

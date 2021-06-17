@@ -6,10 +6,10 @@ export function KpiProgress({goal, text, unit, value, ...props}: KpiProgressProp
         <Block {...props}>
             <div className={'flex justify-between items-center'}>
                 <div className={'flex-col'}>
-                    <Text className={'flex-1'} variant={'description'} text={text} color={props.color}/>
+                    <Text className={'flex-1'} variant={'description'} text={text} color={props.color} />
                     <div className={'flex inline'}>
-                        <Text className={'flex-1'} variant={'title3'} text={value || ''} color={props.color}/>
-                        <Text className={'flex-1'} variant={'title3'} text={unit} color={props.color}/>
+                        <Text className={'flex-1'} variant={'title3'} text={value || ''} color={props.color} />
+                        <Text className={'flex-1'} variant={'title3'} text={unit} color={props.color} />
                     </div>
                 </div>
             </div>

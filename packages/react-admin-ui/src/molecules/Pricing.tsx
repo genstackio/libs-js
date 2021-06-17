@@ -9,7 +9,7 @@ export function Pricing({items = []}: PricingProps) {
             {items.map((item, index) => (
                 <Block image={item.image} classes={{content: 'space-y-3 flex justify-center items-center flex-col pr-4 pl-4'}}>
                     <div key={index} className={'uppercase'}>
-                        {item && item.name && <Text text={item.name} variant={'title4'} />}
+                        {item && <Text text={item.name} variant={'title4'} />}
                     </div>
                     <div className={clsx(boxClass({color: item.color, variant: item.variant}), 'flex rounded-full h-32 w-32 items-center justify-center')}>
                         <Text text={item.currency} variant={'description'} />

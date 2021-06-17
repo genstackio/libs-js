@@ -13,7 +13,7 @@ export function SmallItemCard({badges, children, closable = false, image, rating
             {image && <Image {...image} className={'object-none mx-6'} />}
             <div className={'flex-1 flex flex-col justify-between'}>
                 <div className={'space-y-2'}>
-                    {title && <Text text={title} variant={'title6'} />}
+                    <Text text={title} variant={'title6'} />
                     <Rating value={rating} readOnly />
                     <div>{children || ''}</div>
                 </div>

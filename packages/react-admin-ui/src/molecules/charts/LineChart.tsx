@@ -30,7 +30,7 @@ export function LineChart({color= 'primary', labels, series, title, variant = 'f
     });
     return (
         <div>
-            {title && <Text text={title} variant={'subtitle'} />}
+            <Text text={title} variant={'subtitle'} />
             <Chart options={options} series={datas} type={'line'} />
         </div>
     );

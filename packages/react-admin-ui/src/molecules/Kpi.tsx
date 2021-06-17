@@ -8,11 +8,11 @@ export function Kpi({icon, name, quantity, color}: KpiProps) {
     return (
         <div className={'flex items-center space-x-6'}>
             <div className={clsx(boxClass({color}))}>
-                <Icon icon={icon}/>
+                <Icon icon={icon} />
             </div>
             {quantity && <div>
-            <Text text={name} variant={'description'} color={color}/>
-            <Text text={`${quantity}`} variant={'title5'} color={color}/>
+            <Text text={name} variant={'description'} color={color} />
+            <Text text={`${quantity}`} variant={'title5'} color={color} />
             </div>}
         </div>
     );

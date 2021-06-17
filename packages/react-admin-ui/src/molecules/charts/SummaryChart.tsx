@@ -11,8 +11,8 @@ export function SummaryChart({chartItems = [],btnLabel, datas, dashboardItems = 
             <div className={'md:col-span-4 border-r-1 md:border-r-0 md:border-b-1 p-6 xs:p-2 flex flex-col md:space-y-4'}>
                 <div className={'flex justify-between items-center mb-2'}>
                     <div>
-                        <div className={'font-bold'}>{title}</div>
-                        <div className={'text-sm'}>{subtitle}</div>
+                        {title && <div className={'font-bold'}>{title}</div>}
+                        {subtitle && <div className={'text-sm'}>{subtitle}</div>}
                     </div>
                     {btnLabel && <Button className={'hidden md:block'} color={props.color} variant={'contained'}>{btnLabel}</Button>}
                 </div>
@@ -27,7 +27,7 @@ export function SummaryChart({chartItems = [],btnLabel, datas, dashboardItems = 
                 {btnLabel && <Button className={'self-start md:hidden'} color={props.color} variant={'contained'}>{btnLabel}</Button>}
             </div>
             <div className={'col-span-3 md:col-span-4'}>
-                <AreaLineChart datas={datas} color={props.color}/>
+                <AreaLineChart datas={datas} color={props.color} />
                 {chartItems && <div className={'h-1/4 md:h-auto border-t-1 p-6 xs:p-2 flex md:flex-wrap justify-between md:space-y-3'}>
                     {chartItems.map(({icon, color, name, value}, index) => (
                         <div className={'flex items-center space-x-2'} key={index}>

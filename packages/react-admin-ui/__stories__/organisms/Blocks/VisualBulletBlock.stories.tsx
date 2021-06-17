@@ -19,22 +19,22 @@ export const basic = s(Template, {
         {
             icon: "local_shipping",
             title: "Free Shipping",
-            subTitle: "Free Shipping World Wide",
+            subtitle: "Free Shipping World Wide",
         },
         {
             icon: "timer",
             title: "24 X 7 Service",
-            subTitle: "Online Service For New Customer",
+            subtitle: "Online Service For New Customer",
         },
         {
             icon: "redeem",
             title: "Festival Offer",
-            subTitle: "New Online Special Festival",
+            subtitle: "New Online Special Festival",
         },
         {
             icon: "credit_card",
             title: "Online Payment",
-            subTitle: "Contrary To Popular Belief",
+            subtitle: "Contrary To Popular Belief",
         },
     ]
 })

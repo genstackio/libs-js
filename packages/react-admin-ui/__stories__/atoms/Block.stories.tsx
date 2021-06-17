@@ -35,9 +35,9 @@ export const withBackgroundImage = s(Template, {
     },
 })
 
-export const areaChart = s(({title, subTitle, value, series, ...props}) => (
+export const areaChart = s(({title, subtitle, value, series, ...props}) => (
     <Block {...props}>
-        <StatsChartHeader subTitle={title} value={value} stats={subTitle} />
+        <StatsChartHeader subtitle={title} value={value} stats={subtitle} />
         <AreaChart color={props.color} series={series}/>
     </Block>
 ), {
@@ -47,12 +47,12 @@ export const areaChart = s(({title, subTitle, value, series, ...props}) => (
         [30, 80, 60],
     ],
     title: (<>Today Total sale <b>89.21%</b></>),
-    subTitle: '$300056',
+    subtitle: '$300056',
 });
 
-export const fullWidthAreaChart = s(({title, subTitle, value, series, ...props}) => (
+export const fullWidthAreaChart = s(({title, subtitle, value, series, ...props}) => (
     <Block padding={'none'} {...props}>
-        <StatsChartHeader className={'p-10'} subTitle={title} value={value} stats={subTitle} />
+        <StatsChartHeader className={'p-10'} subtitle={title} value={value} stats={subtitle} />
         <AreaChart color={props.color} series={series}/>
     </Block>
 ), {
@@ -62,7 +62,7 @@ export const fullWidthAreaChart = s(({title, subTitle, value, series, ...props})
         [30, 80, 60],
     ],
     title: (<>Today Total sale <b>89.21%</b></>),
-    subTitle: '$300056',
+    subtitle: '$300056',
 });
 
 export const radarChart = s(({labels, series, ...props}) => (
@@ -83,9 +83,9 @@ export const radarChart = s(({labels, series, ...props}) => (
     }],
 });
 
-export const barChart = s(({labels, subTitle, value, stats, series, ...props}) => (
+export const barChart = s(({labels, subtitle, value, stats, series, ...props}) => (
     <Block {...props}>
-        <StatsChartHeader stats={stats} subTitle={subTitle} value={value} />
+        <StatsChartHeader stats={stats} subtitle={subtitle} value={value} />
         <BarChart color={props.color} labels={labels} series={series} />
     </Block>
 ), {
