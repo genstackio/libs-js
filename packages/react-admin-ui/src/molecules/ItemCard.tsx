@@ -1,5 +1,5 @@
 import {Block, Tag, Icon, Text} from "../atoms";
-import {box_color, box_variant, rich_text} from "../types";
+import {box_color, box_variant, icon, rich_text} from "../types";
 
 export function ItemCard({blockColor = 'light', blockVariant = 'outlined', colorDate, colorDescription, colorSubTitle, colorTitle, date, description, icon, size, subtitle, title}: ItemCardProps) {
     return (
@@ -30,7 +30,7 @@ export interface ItemCardProps {
     colorTitle?: box_color,
     date?: string,
     description?: rich_text,
-    icon?: string,
+    icon?: icon,
     subtitle?: rich_text,
     size?: number,
     text?: rich_text,

@@ -2,7 +2,7 @@ import {useCallback} from 'react';
 import clsx from "clsx";
 import Icon from "./Icon";
 import buttonClass from "../utils/buttonClass";
-import {box_color, box_variant, children, class_name, target} from '../types';
+import {box_color, box_variant, children, class_name, icon, target} from '../types';
 
 export function Button({children, className, color = 'primary', disabled,  icon, large, onClick, variant = 'filled'}: ButtonProps) {
     const handleClick = useCallback (() => {
@@ -26,7 +26,7 @@ export interface ButtonProps {
     className?: class_name,
     color?: box_color,
     disabled?: boolean,
-    icon?: string,
+    icon?: icon,
     large?: boolean,
     onClick?: target,
     variant?: box_variant,

@@ -50,7 +50,6 @@ export interface CardProps {
     onClick?: target,
     color?: box_color,
     variant?: box_variant,
-    icon?: string,
     link?: string,
     value?: number,
     image: image,

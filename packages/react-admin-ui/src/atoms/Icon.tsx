@@ -1,4 +1,4 @@
-import {ReactNode} from "react";
+import {icon} from '../types';
 import MuiIcon from '@material-ui/core/Icon';
 
 export function Icon({icon, size = 20, ...props}) {
@@ -16,7 +16,7 @@ export function Icon({icon, size = 20, ...props}) {
 }
 
 export interface IconProps {
-    icon?: ReactNode,
+    icon?: icon,
     size?: number,
 }
 

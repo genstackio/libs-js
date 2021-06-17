@@ -1,5 +1,5 @@
 import {Icon, Text} from "../atoms";
-import {box_color, box_variant, rich_text} from '../types';
+import {box_color, box_variant, icon, rich_text} from '../types';
 
 export function BulletPoint({icon, text, title, color}: BulletPointProps) {
     return (
@@ -15,7 +15,7 @@ export function BulletPoint({icon, text, title, color}: BulletPointProps) {
 
 export interface BulletPointProps {
     color?: box_color,
-    icon?: string,
+    icon?: icon,
     text?: rich_text,
     title?: rich_text,
     variant?: box_variant,

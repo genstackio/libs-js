@@ -1,7 +1,8 @@
-import {ReactNode, useCallback, useState} from 'react';
+import {useCallback, useState} from 'react';
 import clsx from "clsx";
 import {BaseBlockProps, Block, Icon} from "../../atoms";
 import {Kpi} from "../../molecules";
+import {icon} from '../../types';
 
 export function KpiBlock({icon, name, quantity, bgIcon, ...props}: KpiBlockProps) {
     const [isHover, setIsHover] = useState(false);
@@ -27,8 +28,8 @@ export function KpiBlock({icon, name, quantity, bgIcon, ...props}: KpiBlockProps
 }
 
 export interface KpiBlockProps extends BaseBlockProps {
-    bgIcon?: ReactNode,
-    icon?: ReactNode,
+    bgIcon?: icon,
+    icon?: icon,
     name?: string,
     quantity?: number,
 }

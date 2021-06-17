@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import Button from './Button';
 import Dropdown from './Dropdown';
 import boxClass from '../utils/boxClass';
-import {box_color, box_variant, box_padding, image, classes, class_name, rich_text, children, dropdown_item} from '../types';
+import {box_color, box_variant, box_padding, icon, image, classes, class_name, rich_text, children, dropdown_item} from '../types';
 import Container from './Container';
 import Icon from "./Icon";
 import Text from "./Text";
@@ -55,7 +55,7 @@ export interface BaseBlockProps {
 export interface BlockProps extends BaseBlockProps {
     btnLabel?: rich_text,
     dropdownItems?: dropdown_item[],
-    icon?: string,
+    icon?: icon,
     image?: image,
     title?: rich_text,
 }

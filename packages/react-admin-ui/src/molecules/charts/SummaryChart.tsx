@@ -1,7 +1,6 @@
 import Button from "../../atoms/Button";
-import {box_color} from "../../types";
+import {box_color, icon} from "../../types";
 import {Icon} from "../../atoms/Icon";
-import {ReactNode} from "react";
 import AreaLineChart from "./AreaLineChart";
 
 export function SummaryChart({chartItems = [],btnLabel, datas, dashboardItems = [], subtitle, title, ...props}: SummaryChartProps) {
@@ -60,7 +59,7 @@ export interface SummaryChartProps {
     btnLabel?: string,
     chartItems?: {
         color?: string,
-        icon?: ReactNode,
+        icon?: icon,
         name?: string,
         value?: number,
     }[],

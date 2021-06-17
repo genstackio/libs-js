@@ -1,4 +1,4 @@
-import {box_color, target} from "../types";
+import {box_color, icon, target} from "../types";
 import {Button, Icon, Text} from "../atoms";
 
 export function ErrorTemplate({actions, code, color, icon, message}: ErrorTemplateProps) {
@@ -27,7 +27,7 @@ export interface ErrorTemplateProps {
     }[],
     color?: box_color,
     code: number,
-    icon?: string,
+    icon?: icon,
     message: string,
 }
 
