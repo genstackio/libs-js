@@ -8,6 +8,7 @@ export default {
             "constraints_email": "Format d'email invalide",
             "constraints_phone": "Numéro de téléphone invalide",
             "password_length": "8 caractères minimum requis",
+            "field_remember_password_label": "Se souvenir de moi",
             "field_additionaladdress_label": "Complément d'adresse",
             "field_address_label": "Adresse",
             "field_number_label": "Nombre",
@@ -42,7 +43,7 @@ export default {
 
             "form_login_title": "Connexion",
             "form_login_subtitle": "Saisissez vos email et mot de passe",
-            "form_login_forgot_password_label": "Se souvenir de moi",
+            "form_login_forgot_password_label": "J'ai oublié mon mot de passe...",
             "form_login_submit_label": "Connexion",
             "form_login_other_login_methods_title": "Autres méthodes de connexion",
             "form_login_register_question": "Pas encore de compte ?",

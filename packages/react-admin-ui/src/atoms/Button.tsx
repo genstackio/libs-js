@@ -5,8 +5,8 @@ import buttonClass from "../utils/buttonClass";
 import {box_color, box_variant, children, class_name, flag, icon, target} from '../types';
 
 export function Button({children, className, color = 'primary', disabled,  icon, large, onClick, variant = 'filled'}: ButtonProps) {
-    const handleClick = useCallback (() => {
-        ('function' === typeof onClick) && onClick();
+    const handleClick = useCallback (event => {
+        ('function' === typeof onClick) && onClick(event);
         ('string' === typeof onClick) && (location.href = onClick);
     }, [onClick]);
     return (
