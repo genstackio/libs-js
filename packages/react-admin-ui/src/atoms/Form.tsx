@@ -9,7 +9,7 @@ export function Form({defaultValues, children, onSubmit}) {
                 return child.props.field
                     ? React.createElement(child.type, {
                         ...{
-                            defaults: defaultValues,
+                            defaultValues,
                             errors,
                             ...child.props,
                             register,
