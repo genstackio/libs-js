@@ -7,9 +7,11 @@ export function PhoneField({options = {}, ...props}: PhoneFieldProps) {
     options = useMemo(() => ({
         ...options,
         pattern: {
-            value: /^((\+)33|0)[1-9](\d{2}){4}$/i,
+            value: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/,
             message: t(['field_phone_error'])
-        }
+        },
+        minLength: 3,
+        maxLength: 20,
     }), [options]);
 
     return (
