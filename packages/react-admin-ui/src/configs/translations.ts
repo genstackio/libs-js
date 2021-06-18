@@ -6,6 +6,7 @@ export default {
             "constraints_required": "Requis",
             "constraints_generic": "Veuillez vérifier cette valeur",
             "constraints_email": "Format d'email invalide",
+            "constraints_phone": "Numéro de téléphone invalide",
             "password_length": "8 caractères minimum requis",
             "field_additionaladdress_label": "Complément d'adresse",
             "field_address_label": "Adresse",
