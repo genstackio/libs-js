@@ -16,6 +16,7 @@ export default {
             "field_password_label": "Mot de passe",
             "field_password_confirmation_label": "Confirmation de mot de passe",
             "field_phone_label": "Téléphone",
+            "field_phone_error": "Numéro de téléphone invalide",
             "field_text_label": "Texte",
             "field_username_label": "Identifiant",
             "field_zipcode_label": "Code postal",
