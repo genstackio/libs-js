@@ -8,6 +8,8 @@ export default {
             "constraints_email": "Format d'email invalide",
             "constraints_phone": "Numéro de téléphone invalide",
             "password_length": "8 caractères minimum requis",
+            "field_privacy_policy_label": "J'accepte la politique de confidentialité",
+            "field_privacy_policy_description": "Politique de confidentialité...",
             "field_remember_password_label": "Se souvenir de moi",
             "field_additionaladdress_label": "Complément d'adresse",
             "field_address_label": "Adresse",
@@ -48,6 +50,14 @@ export default {
             "form_login_other_login_methods_title": "Autres méthodes de connexion",
             "form_login_register_question": "Pas encore de compte ?",
             "form_login_register_label": "Créez-en un !",
+
+            "form_register_title": "Inscription",
+            "form_register_subtitle": "Saisissez vos email et mot de passe",
+            "form_register_forgot_password_label": "J'ai oublié mon mot de passe...",
+            "form_register_submit_label": "Je crée mon compte",
+            "form_register_other_login_methods_title": "Autres méthodes de connexion",
+            "form_register_login_question": "Déjà un compte ?",
+            "form_register_login_label": "Je me connecte",
         }
     }
 }
