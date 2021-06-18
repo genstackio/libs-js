@@ -83,6 +83,9 @@ export default {
             "form_forgot_password_create_password_submit_label": "Enregister",
 
            "locale_change_value": "Choisissez votre langue",
+
+            "form_data_field_label": "Dialogue de sélection de date",
+            "form_data_field_format": "dd/MM/yyyy",
         }
     },
     "it-IT": {
@@ -95,6 +98,7 @@ export default {
         "translation": {
             "locale_change_value": "Choose your language",
             "form_login_title": "Connection",
+
         }
     }
 }
