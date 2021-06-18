@@ -8,7 +8,7 @@ export function PhoneField({options = {}, ...props}: PhoneFieldProps) {
         ...options,
         pattern: {
             value: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/,
-            message: t(['field_phone_error'])
+            message: t('constraints_phone')
         },
         minLength: 3,
         maxLength: 20,
