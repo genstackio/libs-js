@@ -11,7 +11,6 @@ export function LastNameField({options = {}, ...props}: LastNameFieldProps) {
     );
 }
 
-export interface LastNameFieldProps extends TextFieldProps {
-}
+export interface LastNameFieldProps extends TextFieldProps {}
 
 export default LastNameField

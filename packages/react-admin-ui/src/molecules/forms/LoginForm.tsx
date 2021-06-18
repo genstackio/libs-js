@@ -2,7 +2,6 @@ import {UsernameField, PasswordField, RememberPasswordField, Button, Text} from 
 import {useTranslation} from "react-i18next";
 import {useForm} from "react-hook-form";
 import {box_color} from '../../mappings/box-colors';
-import {box_variant} from '../../mappings/box-variants';
 import {useCallback} from "react";
 import {flag} from "../../types";
 
@@ -83,7 +82,6 @@ export interface LoginFormProps {
     onForgotPasswordClick?: Function,
     defaultValues?: any,
     color?: box_color,
-    variant?: box_variant,
     socialLogins?: flag,
     rememberMe?: flag,
 }
