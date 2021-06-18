@@ -89,6 +89,7 @@ export const args = {
     errorText: { control: {type: 'text'} },
     fieldType: { control: {type: 'select'}, options: ['text', 'email', 'password'] },
     fieldValue: { control: {type: 'text'}},
+    rows: { control: {type: 'number'}},
     form: { control: {type: 'object'} },
     icon: { table: {disable: true} },
     corner: { control: {type: 'select'}, options: Object.keys(corners) },
