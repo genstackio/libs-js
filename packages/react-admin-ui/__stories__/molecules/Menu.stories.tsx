@@ -1,12 +1,12 @@
 import {Menu} from '../../src'
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import AirplayOutlinedIcon from '@material-ui/icons/AirplayOutlined';
 
 export default {
     title: 'Molecules/Menu',
     component: Menu,
-    argTypes: {
+    argTypes: a({
         icon: args.icon,
         title: args.title,
         text: args.children,
@@ -14,7 +14,7 @@ export default {
         variant: args.accordionVariant,
         padding: args.padding,
         items: args.items,
-    },
+    }),
 }
 
 const Template = args => <Menu {...args} />;

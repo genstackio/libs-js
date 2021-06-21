@@ -1,10 +1,10 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {HeadingLeft} from '../../src';
 
 export default {
     title: 'Molecules/HeadingLeft',
     component: HeadingLeft,
-    argTypes: {
+    argTypes: a({
         title: args.title,
         subtitle: args.subtitle,
         description: args.description,
@@ -12,7 +12,7 @@ export default {
         color: args.color,
         variant: args.blockVariant,
         padding: args.padding,
-    },
+    }),
 }
 
 const Template = args => <HeadingLeft {...args} />;

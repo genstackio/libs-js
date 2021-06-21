@@ -1,15 +1,15 @@
-import {args, s} from '../utils';
+import {args, s, a} from '../utils';
 import {Tag} from '../../src';
 
 export default {
     title: 'Atoms/Tag',
     component: Tag,
-    argTypes: {
+    argTypes: a({
         text: args.text,
         icon: args.iconCorner,
         color: args.color,
         variant: args.blockVariant,
-    },
+    }),
 }
 
 const Template = args => (<Tag {...args} />);

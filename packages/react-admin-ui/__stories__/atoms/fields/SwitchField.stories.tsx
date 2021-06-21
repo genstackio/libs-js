@@ -1,10 +1,10 @@
-import {args, s} from "../../utils";
+import {args, s, a} from "../../utils";
 import {SwitchField} from '../../../src';
 
 export default {
     title: 'Atoms/fields/SwitchField',
     component: SwitchField,
-    argTypes: {
+    argTypes: a({
         label: args.label,
         disabled: args.disabled,
         required: args.required,
@@ -16,7 +16,7 @@ export default {
         onChange: args._disable,
         options: args._disable,
         field: args._disable,
-    },
+    }),
 }
 
 const Template = args => <SwitchField {...args} />;

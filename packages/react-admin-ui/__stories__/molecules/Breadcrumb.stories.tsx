@@ -1,14 +1,14 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {Breadcrumb} from '../../src';
 
 export default {
     title: 'Molecules/Breadcrumb',
     component: Breadcrumb,
-    argTypes: {
+    argTypes: a({
         items: args.items,
         color: args.color,
         toRight:args.toRight,
-    },
+    }),
 }
 
 const Template = args => <Breadcrumb {...args} />

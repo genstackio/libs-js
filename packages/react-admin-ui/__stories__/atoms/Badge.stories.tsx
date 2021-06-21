@@ -1,12 +1,12 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {Badge} from '../../src';
 
 export default {
     title: 'Atoms/Badge',
     component: Badge,
-    argTypes: {
+    argTypes: a({
         color: args.color,
-    },
+    }),
 }
 
 const Template = args => (<Badge {...args} />);

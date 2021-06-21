@@ -1,10 +1,10 @@
-import {args, s} from "../../utils";
+import {args, s, a} from "../../utils";
 import {OtpField} from '../../../src';
 
 export default {
     title: 'Atoms/fields/OtpField',
     component: OtpField,
-    argTypes: {
+    argTypes: a({
         disabled: args.disabled,
         label: args.label,
         placeholder: args.placeholder,
@@ -15,7 +15,7 @@ export default {
         onChange: args._disable,
         options: args._disable,
         value: args.fieldValue,
-    },
+    }),
 }
 
 const Template = args => <OtpField {...args} />;

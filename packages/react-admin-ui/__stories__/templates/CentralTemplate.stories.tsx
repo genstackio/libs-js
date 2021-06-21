@@ -1,14 +1,14 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {CentralTemplate} from '../../src';
 
 export default {
     title: 'Templates/CentralTemplate',
     component: CentralTemplate,
-    argTypes: {
+    argTypes: a({
         color: args.color,
         image: args.image,
         message: args.message,
-    },
+    }),
 }
 
 const Template = args => <CentralTemplate {...args} />

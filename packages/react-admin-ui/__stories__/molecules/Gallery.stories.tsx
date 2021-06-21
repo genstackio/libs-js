@@ -1,12 +1,12 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {Gallery} from '../../src';
 
 export default {
     title: 'Molecules/Gallery',
     component: Gallery,
-    argTypes: {
+    argTypes: a({
         items: args.items,
-    },
+    }),
 
 }
 

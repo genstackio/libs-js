@@ -1,14 +1,14 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {Accordion} from '../../src';
 
 export default {
     title: 'Molecules/Accordion',
     component: Accordion,
-    argTypes: {
+    argTypes: a({
         items: args.items,
         color: args.color,
         variant: args.accordionVariant,
-    },
+    }),
 }
 
 const Template = args => <Accordion {...args} />;

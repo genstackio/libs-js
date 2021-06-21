@@ -1,10 +1,10 @@
-import {args, s} from "../../utils";
+import {args, s, a} from "../../utils";
 import {UsernameField} from '../../../src';
 
 export default {
     title: 'Atoms/fields/UsernameField',
     component: UsernameField,
-    argTypes: {
+    argTypes: a({
         disabled: args.disabled,
         label: args.label,
         placeholder: args.placeholder,
@@ -15,7 +15,7 @@ export default {
         onChange: args._disable,
         options: args._disable,
         value: args.fieldValue,
-    },
+    }),
 }
 
 const Template = args => <UsernameField {...args} />;

@@ -1,17 +1,17 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {KpiProgress} from '../../src';
 
 export default {
     title: 'Molecules/KpiProgress',
     component: KpiProgress,
-    argTypes: {
+    argTypes: a({
         text: args.title,
         value: args.value,
         unit: args.unit,
         color: args.color,
         variant: args.blockVariant,
         padding: args.padding,
-    },
+    }),
 }
 
 const Template = args => <KpiProgress {...args} />;

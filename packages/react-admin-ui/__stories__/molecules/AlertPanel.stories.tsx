@@ -1,15 +1,15 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {AlertPanel} from '../../src';
 
 export default {
     title: 'Molecules/AlertPanel',
     component: AlertPanel,
-    argTypes: {
+    argTypes: a({
         color: args.color,
         variant: args.blockVariant,
         title: args.title,
         closable: args.closable,
-    },
+    }),
 }
 
 const Template = args => (

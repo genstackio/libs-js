@@ -1,15 +1,15 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {Login2Template} from '../../src';
 
 export default {
     title: 'Templates/Login2Template',
     component: Login2Template,
-    argTypes: {
+    argTypes: a({
         image: args.image,
         bgColor: args.bgColor,
         logo: args.logo,
         form: args.form,
-    },
+    }),
 }
 
 const Template = args => <Login2Template {...args} />

@@ -1,18 +1,18 @@
 import {Table} from '../../src'
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import formatAmount from "../../src/utils/formatAmount";
 
 export default {
     title: 'Molecules/Table',
     component: Table,
-    argTypes: {
+    argTypes: a({
         items: args.items,
         columns: args.columns,
         selection: args.selection,
         rowsPerPage: args.rowsPerPage,
         color: args.color,
         striped: args.striped,
-    },
+    }),
 }
 
 const Template = args => <Table {...args} />;

@@ -1,16 +1,16 @@
-import {args, s} from "../../utils";
+import {args, s, a} from "../../utils";
 import {PeriodFigureBlock} from "../../../src";
 
 export default {
     title: 'Organisms/Blocks/PeriodFigureBlock',
     component: PeriodFigureBlock,
-    argTypes: {
+    argTypes: a({
         items: args.items,
         icon: args.icon,
         color: args.color,
         variant: args.blockVariant,
         padding: args.padding,
-    },
+    }),
 
 }
 

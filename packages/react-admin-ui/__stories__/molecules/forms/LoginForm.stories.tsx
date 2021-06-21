@@ -1,10 +1,10 @@
-import {args, s} from "../../utils";
+import {args, s, a} from "../../utils";
 import {LoginForm} from '../../../src';
 
 export default {
     title: 'Molecules/forms/LoginForm',
     component: LoginForm,
-    argTypes: {
+    argTypes: a({
         color: args.color,
         onSubmit: args._disable,
         onRegisterClick: args._disable,
@@ -12,7 +12,7 @@ export default {
         defaultValues: args._disable,
         variant: args._disable,
         socialLogins: args.flag,
-    },
+    }),
 }
 
 const Template = args => <LoginForm {...args} />;

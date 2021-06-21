@@ -1,12 +1,12 @@
-import {s} from "../utils";
+import {s, a} from "../utils";
 import {Block, LoginForm, ForgotPasswordForm, RegisterForm} from '../../src';
 import {useCallback} from "react";
 
 export default {
     title: 'Showcases/Forms',
     component: () => null,
-    argTypes: {
-    },
+    argTypes: a({
+    }),
 }
 
 export const basic = s(() => {

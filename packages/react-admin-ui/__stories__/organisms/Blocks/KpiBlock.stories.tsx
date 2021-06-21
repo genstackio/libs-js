@@ -1,10 +1,10 @@
-import {args, s} from "../../utils";
+import {args, s, a} from "../../utils";
 import {KpiBlock} from '../../../src';
 
 export default {
     title: 'Organisms/Blocks/KpiBlock',
     component: KpiBlock,
-    argTypes: {
+    argTypes: a({
         icon: args.icon,
         bgIcon: args.bgIcon,
         name: args.name,
@@ -12,7 +12,7 @@ export default {
         color: args.color,
         variant: args.blockVariant,
         padding: args.padding,
-    },
+    }),
 }
 
 const Template = args => <KpiBlock {...args} />;

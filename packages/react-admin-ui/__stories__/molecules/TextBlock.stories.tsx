@@ -1,17 +1,17 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {TextBlock} from '../../src';
 
 export default {
     title: 'Molecules/TextBlock',
     component: TextBlock,
-    argTypes: {
+    argTypes: a({
         icon: args.icon,
         title: args.title,
         text: args.children,
         color: args.color,
         variant: args.blockVariant,
         padding: args.padding,
-    },
+    }),
 }
 
 const Template = args => <TextBlock {...args} />;

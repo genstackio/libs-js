@@ -1,12 +1,12 @@
-import {s} from "../../utils";
+import {s, a} from "../../utils";
 import {SendOtpForgotPasswordForm} from '../../../src';
 
 
 export default {
     title: 'Molecules/forms/SendOtpForgotPasswordForm',
     component: SendOtpForgotPasswordForm,
-    argTypes: {
-    },
+    argTypes: a({
+    }),
 }
 
 const Template = args => <SendOtpForgotPasswordForm {...args} />;

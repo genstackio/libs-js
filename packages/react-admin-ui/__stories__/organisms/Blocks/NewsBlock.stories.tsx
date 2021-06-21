@@ -4,14 +4,14 @@ import {NewsBlock} from '../../../src';
 export default {
     title: 'Organisms/Blocks/NewsBlock',
     component: NewsBlock,
-    argTypes: {
+    argTypes: a({
         title: args.title,
         items: args.items,
         btnLabel: args.btnLabel,
         dropdownItems: args.dropdownItems,
         color: args.color,
        variant: args.blockVariant,
-    },
+    }),
 }
 
 const Template = args => <NewsBlock {...args} />;

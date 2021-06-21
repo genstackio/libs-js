@@ -1,15 +1,15 @@
-import {args, s} from "../../utils";
+import {args, s, a} from "../../utils";
 import {AreaChart} from "../../../src";
 
 export default {
     title: 'Molecules/charts/AreaChart',
     component: AreaChart,
-    argTypes: {
+    argTypes: a({
         title: args.title,
         overline: args.overline,
         color:args.color,
         series: args.series,
-    },
+    }),
 }
 
 const Template = args => <AreaChart {...args} />

@@ -1,4 +1,4 @@
-import {args, s} from "../../utils";
+import {args, s, a} from "../../utils";
 import {SummaryChart} from '../../../src';
 import StoreIcon from "@material-ui/icons/Store";
 import FavoriteIcon from "@material-ui/icons/Favorite";
@@ -7,11 +7,11 @@ import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 export default {
     title: 'Molecules/charts/SummaryChart',
     component: SummaryChart,
-    argTypes: {
+    argTypes: a({
         datas: args.datas,
         color: args.color,
         variant: args.blockVariant,
-    },
+    }),
 }
 
 const Template = args => <SummaryChart {...args} />;

@@ -1,13 +1,13 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {ScreenHeader} from '../../src';
 
 export default {
     title: 'Organisms/ScreenHeader',
     component: ScreenHeader,
-    argTypes: {
+    argTypes: a({
         items: args.items,
         color: args.color,
-    },
+    }),
 }
 
 const Template = args => <ScreenHeader {...args} />

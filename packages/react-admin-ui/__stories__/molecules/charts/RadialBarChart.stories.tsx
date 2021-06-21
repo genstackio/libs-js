@@ -1,15 +1,15 @@
-import {args, s} from "../../utils";
+import {args, s, a} from "../../utils";
 import {RadialBarChart} from "../../../src";
 
 export default {
     title: 'Molecules/charts/RadialBarChart',
     component: RadialBarChart,
-    argTypes: {
+    argTypes: a({
         color:args.color,
         series: args.series,
         labels:args.labels,
         title:args.title,
-    },
+    }),
 }
 
 const Template = args => <RadialBarChart {...args} />

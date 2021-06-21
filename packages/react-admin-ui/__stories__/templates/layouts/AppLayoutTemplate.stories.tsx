@@ -1,4 +1,4 @@
-import {args, s} from "../../utils";
+import {args, s, a} from "../../utils";
 import {AppLayoutTemplate} from '../../../src';
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import AirplayOutlinedIcon from "@material-ui/icons/AirplayOutlined";
@@ -6,7 +6,7 @@ import AirplayOutlinedIcon from "@material-ui/icons/AirplayOutlined";
 export default {
     title: 'Templates/Layout/AppLayoutTemplate',
     component: AppLayoutTemplate,
-    argTypes: {
+    argTypes: a({
         logo: args.logo,
         menu: args.menu,
         toolbar: args.toolbar,

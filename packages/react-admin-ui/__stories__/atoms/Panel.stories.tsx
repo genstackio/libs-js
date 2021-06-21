@@ -1,14 +1,14 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {Panel} from '../../src';
 
 export default {
     title: 'Atoms/Panel',
     component: Panel,
-    argTypes: {
+    argTypes: a({
         color: args.color,
         variant: args.blockVariant,
         children: args.children,
-    },
+    }),
 }
 
 const Template = args => <Panel {...args} />;

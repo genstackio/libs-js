@@ -1,13 +1,13 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {BodyMainBar, Icon} from '../../src';
 
 export default {
     title: 'Organisms/BodyMainBar',
     component: BodyMainBar,
-    argTypes: {
+    argTypes: a({
         children: args.children,
         actions : args.actions,
-    },
+    }),
 }
 
 const Template = args => <BodyMainBar {...args} />

@@ -1,10 +1,10 @@
 import {Faq} from '../../src'
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 
 export default {
     title: 'Molecules/Faq',
     component: Faq,
-    argTypes: {
+    argTypes: a({
         icon: args.icon,
         title: args.title,
         text: args.children,
@@ -12,7 +12,7 @@ export default {
         variant: args.blockVariant,
         padding: args.padding,
         items: args.items,
-    },
+    }),
 }
 
 const Template = args => <Faq {...args} />;

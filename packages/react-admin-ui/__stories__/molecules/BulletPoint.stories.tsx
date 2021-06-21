@@ -1,16 +1,16 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {BulletPoint} from '../../src';
 
 export default {
     title: 'Molecules/BulletPoint',
     component: BulletPoint,
-    argTypes: {
+    argTypes: a({
         icon: args.icon,
         title: args.title,
         text: args.text,
         color: args.color,
         variant: args.textVariant,
-    },
+    }),
 }
 
 const Template = args => <BulletPoint {...args} />;

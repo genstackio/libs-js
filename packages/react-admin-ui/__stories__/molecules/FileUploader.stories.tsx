@@ -1,15 +1,15 @@
 import {useCallback} from 'react';
-import {s} from "../utils";
+import {s, a} from "../utils";
 import {FileUploader} from '../../src';
 
 export default {
     title: 'Molecules/FileUploader',
     component: FileUploader,
-    argTypes: {
+    argTypes: a({
         accept: {control: {type: 'text'}},
         color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
         variant: { control: {type: 'select'}, options: ['filled', 'outlined', 'contained'] },
-    },
+    }),
 
 }
 

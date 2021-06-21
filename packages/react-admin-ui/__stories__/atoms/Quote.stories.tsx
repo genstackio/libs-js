@@ -1,14 +1,14 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {Quote} from '../../src';
 
 export default {
     title: 'Atoms/Quote',
     component: Text,
-    argTypes: {
+    argTypes: a({
         position: args.position,
         title: args.title,
         text: args.text,
-    },
+    }),
 }
 
 const Template = args => <Quote {...args}/>;

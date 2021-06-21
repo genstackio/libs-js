@@ -1,12 +1,12 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {LocaleChange} from '../../src';
 
 export default {
     title: 'Atoms/LocaleChange',
     component: LocaleChange,
-    argTypes: {
+    argTypes: a({
       locales: args.locales
-    },
+    }),
 }
 
 const Template = args => <LocaleChange {...args} />;

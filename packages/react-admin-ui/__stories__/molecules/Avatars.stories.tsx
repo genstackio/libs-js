@@ -1,12 +1,12 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {Avatars} from '../../src';
 
 export default {
     title: 'Molecules/Avatars',
     component: Avatars,
-    argTypes: {
+    argTypes: a({
         items: args.items,
-    },
+    }),
 }
 
 const Template = args => <Avatars {...args}  />;
@@ -35,5 +35,5 @@ export const basic = s(Template, {
         size:'sm',
         },
     ]
-    
+
 })

@@ -1,16 +1,16 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {Avatar} from '../../src';
 
 export default {
     title: 'Atoms/Avatar',
     component: Avatar,
-    argTypes: {
+    argTypes: a({
         name: args.name,
         image: args.image,
         size: args.size,
         shape: args.shape,
         status: args.status,
-    },
+    }),
 }
 
 const Template = args => <Avatar {...args} />;

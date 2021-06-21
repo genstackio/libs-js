@@ -1,12 +1,12 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {Timeline} from '../../src';
 
 export default {
     title: 'Molecules/Timeline',
     component: Timeline,
-    argTypes: {
+    argTypes: a({
         items: args.items,
-    },
+    }),
 }
 
 const Template = args => <Timeline {...args} />;

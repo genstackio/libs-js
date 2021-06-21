@@ -1,16 +1,16 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {ErrorTemplate} from '../../src';
 
 export default {
     title: 'Templates/ErrorTemplate',
     component: ErrorTemplate,
-    argTypes: {
+    argTypes: a({
         code: args.code,
         message: args.message,
         actions: args.actions,
         icon: args.icon,
         color: args.color,
-    },
+    }),
 }
 
 const Template = args => <ErrorTemplate {...args} />

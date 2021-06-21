@@ -1,16 +1,16 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {Card} from "../../src";
 
 export default {
     title: 'Molecules/Card',
     component: Card,
-    argTypes: {
+    argTypes: a({
         title: args.title,
         description: args.text,
         color: args.color,
         variant: args.blockVariant,
         onClick: args.onClick,
-    },
+    }),
 }
 
 const Template = args => <Card {...args} />

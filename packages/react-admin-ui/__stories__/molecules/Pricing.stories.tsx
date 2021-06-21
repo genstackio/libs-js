@@ -1,12 +1,12 @@
-import {args, s} from '../utils';
+import {args, s, a} from '../utils';
 import {Pricing} from '../../src';
 
 export default {
     title: 'Molecules/Pricing',
     component: Pricing,
-    argTypes: {
+    argTypes: a({
         items: args.items,
-    },
+    }),
 
 }
 

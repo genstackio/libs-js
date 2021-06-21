@@ -1,10 +1,10 @@
-import {args, s} from "../../utils";
+import {args, s, a} from "../../utils";
 import {HeadingBlock} from '../../../src';
 
 export default {
     title: 'Organisms/Blocks/HeadingBlock',
     component: HeadingBlock,
-    argTypes: {
+    argTypes: a({
         color: args.color,
         variant: args.blockVariant,
         padding: args.padding,
@@ -12,7 +12,7 @@ export default {
         iconCornerTopRight: args.iconCorner,
         iconCornerBottomLeft: args.iconCorner,
         iconCornerBottomRight: args.iconCorner,
-    },
+    }),
 }
 
 const Template = args => <HeadingBlock {...args} />;

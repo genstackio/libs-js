@@ -22,7 +22,7 @@ translationNames.sort();
 
 export function uiStory(Component, {}: {apiMocks: object|false} = {apiMocks: {}}) {
     return args => {
-        const lang = langSelect();
+        const lang = args['locale'] || langSelect();
         const i18n = i18nFactory({lng: lang});
 
         return  (
@@ -33,6 +33,13 @@ export function uiStory(Component, {}: {apiMocks: object|false} = {apiMocks: {}}
           </StylesProvider>
         )
     }
+}
+
+export function a(x: any = {}) {
+  return {
+    locale: args.locale,
+    ...x,
+  };
 }
 
 export function s(Component, args, opts: any = {}) {
@@ -106,6 +113,7 @@ export const args = {
     likes : {control:{type: 'number'}},
     logo: { control: {type: 'object'} },
     locales: { control: {type: 'object'} },
+    locale: {control: {type: 'select'}, options: ['fr-FR', 'en-GB', 'it-IT']},
     menuItems: { control: {type: 'object'} },
     menu: { control: {type: 'object'} },
     message: { control: {type: 'text'} },

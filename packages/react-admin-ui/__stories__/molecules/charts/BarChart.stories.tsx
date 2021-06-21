@@ -1,14 +1,14 @@
-import {args, s} from "../../utils";
+import {args, s, a} from "../../utils";
 import {BarChart} from "../../../src";
 
 export default {
     title: 'Molecules/charts/BarChart',
     component: BarChart,
-    argTypes: {
+    argTypes: a({
         color:args.color,
         series: args.series,
         labels:args.labels,
-    },
+    }),
 }
 
 const Template = args => <BarChart {...args} />

@@ -1,16 +1,16 @@
-import {args, s} from "../../utils";
+import {args, s, a} from "../../utils";
 import {LineChart} from '../../../src';
 
 export default {
     title: 'Molecules/charts/LineChart',
     component: LineChart,
-    argTypes: {
+    argTypes: a({
         title: args.title,
         color: args.color,
         variant: args.blockVariant,
         labels: args.labels,
         series: args.series,
-    },
+    }),
 }
 
 const Template = args => <LineChart {...args} />;

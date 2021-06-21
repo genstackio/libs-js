@@ -1,13 +1,13 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {Image} from '../../src';
 
 export default {
     title: 'Atoms/Image',
     component: Image,
-    argTypes: {
+    argTypes: a({
         url: args.text,
         alt: args.text,
-    },
+    }),
 }
 
 const Template = args => <Image {...args} />;

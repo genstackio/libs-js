@@ -1,10 +1,10 @@
-import {args, s} from '../../utils';
+import {args, s, a} from '../../utils';
 import {ProductCardBlock} from '../../../src';
 
 export default {
     title: 'Organisms/Blocks/ProductCardBlock',
     component: ProductCardBlock,
-    argTypes: {
+    argTypes: a({
         color: args.color,
         description: args.description,
         image: args.image,
@@ -12,7 +12,7 @@ export default {
         price: args.price,
         rating: args.rating,
         title: args.title,
-    },
+    }),
 }
 
 const Template = args => <ProductCardBlock {...args} />;

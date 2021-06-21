@@ -1,12 +1,12 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {ButtonsGroup} from '../../src';
 
 export default {
     title: 'Molecules/ButtonsGroup',
     component: ButtonsGroup,
-    argTypes: {
+    argTypes: a({
         actions : args.actions,
-    },
+    }),
 }
 
 const Template = args => <ButtonsGroup {...args} />

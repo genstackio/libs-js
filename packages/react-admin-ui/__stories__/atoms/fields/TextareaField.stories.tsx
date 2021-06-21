@@ -1,10 +1,10 @@
-import {args, s} from "../../utils";
+import {args, s, a} from "../../utils";
 import {TextareaField} from '../../../src';
 
 export default {
     title: 'Atoms/fields/TextareaField',
     component: TextareaField,
-    argTypes: {
+    argTypes: a({
         disabled: args.disabled,
         label: args.label,
         placeholder: args.placeholder,
@@ -16,7 +16,7 @@ export default {
         options: args._disable,
         value: args.fieldValue,
         rows: args.rows,
-    },
+    }),
 }
 
 const Template = args => <TextareaField {...args} />;

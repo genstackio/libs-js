@@ -1,17 +1,17 @@
-import {args, s} from "../../utils";
+import {args, s, a} from "../../utils";
 import {GoalBlock} from '../../../src';
 
 export default {
     title: 'Organisms/Blocks/GoalBlock',
     component: GoalBlock,
-    argTypes: {
+    argTypes: a({
         values: args.values,
         badgeLabel: args.badgeLabel,
         unit: args.unit,
         color: args.color,
         variant: args.blockVariant,
         padding: args.padding,
-    },
+    }),
 }
 
 const Template = args => <GoalBlock {...args} />;

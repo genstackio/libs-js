@@ -1,14 +1,14 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {Dropdown} from '../../src';
 
 export default {
     title: 'Atoms/Dropdown',
     component: Dropdown,
-    argTypes: {
+    argTypes: a({
         menuItems: args.menuItems,
         color: args.color,
         variant: args.blockVariant,
-    },
+    }),
 }
 
 const Template = args => <Dropdown {...args} />;

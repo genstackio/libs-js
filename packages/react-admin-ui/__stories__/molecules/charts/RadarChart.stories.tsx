@@ -1,16 +1,16 @@
-import {args, s} from "../../utils";
+import {args, s, a} from "../../utils";
 import {RadarChart} from '../../../src';
 
 export default {
     title: 'Molecules/charts/RadarChart',
     component: RadarChart,
-    argTypes: {
+    argTypes: a({
         isMenu: args.isMenu,
         color: args.color,
         variant: args.blockVariant,
         labels: args.labels,
         series: args.series,
-    },
+    }),
 }
 
 const Template = args => <RadarChart {...args} />;

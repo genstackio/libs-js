@@ -1,15 +1,15 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {Pagination} from '../../src';
 
 export default {
     title: 'Molecules/Pagination',
     component: Pagination,
-    argTypes: {
+    argTypes: a({
         size: args.size,
         color: args.color,
         disabledPass: args.disabled,
         disabledSkip: args.disabled,
-    },
+    }),
 }
 
 const Template = args => <Pagination {...args} />;

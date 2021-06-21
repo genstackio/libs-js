@@ -1,4 +1,4 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {ProgressChart, SummaryChart, AreaChart, BarChart, Block, CircleChart, LineChart, RadarChart, FiguresChart, StatsChartHeader} from '../../src';
 import StoreIcon from "@material-ui/icons/Store";
 import FavoriteIcon from "@material-ui/icons/Favorite";
@@ -7,7 +7,7 @@ import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 export default {
     title: 'Atoms/Block',
     component: Block,
-    argTypes: {
+    argTypes: a({
         title: args.title,
         subtitle: args.subtitle,
         children: args.children,
@@ -15,7 +15,7 @@ export default {
         variant: args.blockVariant,
         padding: args.padding,
         corner: args.corner,
-    },
+    }),
 }
 
 const Template = args => <Block {...args} />;

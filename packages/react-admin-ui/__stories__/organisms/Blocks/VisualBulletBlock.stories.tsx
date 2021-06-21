@@ -1,15 +1,15 @@
-import {args, s} from "../../utils";
+import {args, s, a} from "../../utils";
 import {VisualBulletBlock} from '../../../src';
 
 export default {
     title: 'Organisms/Blocks/VisualBulletBlock',
     component: VisualBulletBlock,
-    argTypes: {
+    argTypes: a({
         items: args.items,
         icon_color: args.color,
         text_color:args.color,
         variant: args.blockVariant,
-    },
+    }),
 }
 
 const Template = args => <VisualBulletBlock {...args} />;

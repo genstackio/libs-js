@@ -1,15 +1,15 @@
-import {args, s} from "../../utils";
+import {args, s, a} from "../../utils";
 import {TabbedBlock} from '../../../src';
 
 export default {
     title: 'Organisms/Blocks/TabbedBlock',
     component: TabbedBlock,
-    argTypes: {
+    argTypes: a({
         items: args.items,
         color: args.color,
         variant: args.blockVariant,
         padding: args.padding,
-    },
+    }),
 }
 
 const Template = args => <TabbedBlock {...args} />;

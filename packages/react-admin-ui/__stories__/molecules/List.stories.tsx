@@ -1,14 +1,14 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {List} from '../../src';
 
 export default {
     title: 'Molecules/List',
     component: List,
-    argTypes: {
+    argTypes: a({
         color: args.color,
         items: args.items,
         badge: args.badge,
-    },
+    }),
 
 }
 

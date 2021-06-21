@@ -1,14 +1,14 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {Block, Ribbon} from '../../src';
 
 export default {
     title: 'Atoms/Ribbon',
     component: Ribbon,
-    argTypes: {
+    argTypes: a({
         text: args.text,
         color: args.color,
         position: args.ribbon,
-    },
+    }),
 }
 
 const Template = args => (<Ribbon {...args} />);

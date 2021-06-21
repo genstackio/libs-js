@@ -1,14 +1,14 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {LoginTemplate} from '../../src';
 
 export default {
     title: 'Templates/LoginTemplate',
     component: LoginTemplate,
-    argTypes: {
+    argTypes: a({
         image: args.image,
         logo: args.logo,
         form: args.form,
-    },
+    }),
 }
 
 const Template = args => <LoginTemplate {...args} />

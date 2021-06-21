@@ -1,10 +1,10 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {Figure} from '../../src';
 
 export default {
     title: 'Molecules/Figure',
     component: Figure,
-    argTypes: {
+    argTypes: a({
         title: args.title,
         price: args.price,
         tag: args.tag,
@@ -12,7 +12,7 @@ export default {
         color: args.color,
         variant: args.blockVariant,
         padding: args.padding,
-    },
+    }),
 }
 
 const Template = args => <Figure {...args} />;

@@ -1,16 +1,16 @@
 import {useState} from 'react';
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {Button, Modal} from '../../src';
 
 export default {
     title: 'Molecules/Modal',
     component: Modal,
-    argTypes: {
+    argTypes: a({
         title: args.title,
         buttonsItems: args.buttonsItems,
         opened: args.opened,
         onClose: args.onClose,
-    },
+    }),
 }
 
 const Template = args => {

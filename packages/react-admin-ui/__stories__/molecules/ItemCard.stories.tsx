@@ -1,13 +1,13 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {ItemCard} from '../../src';
 
 export default {
     title: 'Molecules/ItemCard',
     component: ItemCard,
-    argTypes: {
+    argTypes: a({
         blockVariant: args.blockVariant,
         blockColor: args.color,
-    },
+    }),
 }
 
 const Template = args => <ItemCard {...args} />;

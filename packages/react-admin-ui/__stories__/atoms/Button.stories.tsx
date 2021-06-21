@@ -1,10 +1,10 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {Button} from '../../src';
 
 export default {
     title: 'Atoms/Button',
     component: Button,
-    argTypes: {
+    argTypes: a({
         children: args.children,
         color: args.color,
         variant: args.blockVariant,
@@ -12,7 +12,7 @@ export default {
         large: args.large,
         classes: args.classes,
         onClick: args.onClick,
-    },
+    }),
 }
 
 const Template = args => <Button {...args} />;

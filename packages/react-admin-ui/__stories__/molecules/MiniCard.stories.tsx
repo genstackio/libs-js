@@ -1,10 +1,10 @@
-import {args, s} from '../utils';
+import {s, a} from '../utils';
 import {MiniCard} from '../../src';
 
 export default {
     title: 'Molecules/MiniCard',
     component: MiniCard,
-    argTypes: {},
+    argTypes: a({}),
 
 }
 

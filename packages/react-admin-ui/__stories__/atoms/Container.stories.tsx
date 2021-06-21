@@ -1,14 +1,14 @@
-import {args, s} from '../utils';
+import {args, s, a} from '../utils';
 import {Container} from '../../src';
 
 export default {
     title: 'Atoms/Container',
     component: Container,
-    argTypes: {
+    argTypes: a({
         text: args.text,
         color: args.color,
         variant: args.blockVariant,
-    },
+    }),
 }
 const Template = args => (<Container {...args} />);
 

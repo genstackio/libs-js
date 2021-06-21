@@ -1,16 +1,16 @@
-import {args, s} from "../../utils";
+import {args, s, a} from "../../utils";
 import {RateChart} from "../../../src";
 
 export default {
     title: 'Molecules/charts/RateChart',
     component: RateChart,
-    argTypes: {
+    argTypes: a({
         color:args.color,
         value: args.value,
         title: args.title,
         subtitle: args.subtitle,
         overline: args.overline,
-    },
+    }),
 }
 
 const Template = args => <RateChart {...args} />

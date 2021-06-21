@@ -1,12 +1,12 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {Spinner} from '../../src';
 
 export default {
     title: 'Atoms/Spinner',
     component: Spinner,
-    argTypes: {
+    argTypes: a({
         variant: args.spinnerVariant,
-    },
+    }),
 }
 
 const Template = args => <Spinner {...args} />;

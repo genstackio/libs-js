@@ -1,14 +1,14 @@
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 import {Thumbnail} from '../../src';
 
 export default {
     title: 'Atoms/Thumbnail',
     component: Thumbnail,
-    argTypes: {
+    argTypes: a({
         image: args.image,
         size: args.size,
         shape: args.shape,
-    },
+    }),
 }
 
 const Template = args => <Thumbnail {...args} />;

@@ -1,17 +1,17 @@
 import {SmallItemCard} from '../../src'
-import {args, s} from "../utils";
+import {args, s, a} from "../utils";
 
 export default {
     title: 'Molecules/SmallItemCard',
     component: SmallItemCard,
-    argTypes: {
+    argTypes: a({
         title: args.title,
         rating: args.rating,
         image: args.image,
         badges: args.badges,
         closable: args.closable,
         children: args.children,
-    },
+    }),
 }
 
 const Template = args => <SmallItemCard {...args} />;

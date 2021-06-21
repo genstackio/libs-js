@@ -1,10 +1,10 @@
-import {args, s} from "../../utils";
+import {args, s, a} from "../../utils";
 import {ProgressChart} from '../../../src';
 
 export default {
     title: 'Molecules/charts/ProgressChart',
     component: ProgressChart,
-    argTypes: {
+    argTypes: a({
         title: args.title,
         progress: args.progress,
         value: args.value,
@@ -12,7 +12,7 @@ export default {
         series: args.series,
         color: args.color,
         variant: args.blockVariant,
-    },
+    }),
 }
 
 const Template = args => <ProgressChart {...args} />;
