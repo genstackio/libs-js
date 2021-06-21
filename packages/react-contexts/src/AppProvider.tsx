@@ -1,6 +1,11 @@
 import {ReactNode} from 'react';
 import ErrorBoundary from './ErrorBoundary';
-import {StorageProvider, LocationProvider, ApiProvider, UserProvider, CartProvider, NavigationProvider} from './contexts';
+import {StorageProvider} from './contexts/StorageContext';
+import {LocationProvider} from './contexts/LocationContext';
+import {ApiProvider} from './contexts/ApiContext';
+import {UserProvider} from './contexts/UserContext';
+import {CartProvider} from './contexts/CartContext';
+import {NavigationProvider} from './contexts/NavigationContext';
 
 export function AppProvider({themeProvider: ThemeProvider, translationProvider: TranslationProvider, graphqlProvider: GraphqlProvider, error, storage, location, graphql, theme, translation, api, cart, user, navigation, children}: AppProviderProps) {
     let content = children || '';
