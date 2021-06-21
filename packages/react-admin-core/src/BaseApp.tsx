@@ -36,7 +36,7 @@ export function BaseApp({prefix = 'app', routes = [], screenImporter, loadingCom
                 <Suspense fallback={<LoadingScreen />}>
                     <Switch>
                         {routes.map((route, i) => (
-                            <Route screenImporter={screenImporter} key={i} {...route} user={user} />
+                            <Route screenImporter={screenImporter} key={i} {...route} user={user.user} />
                         ))}
                     </Switch>
                 </Suspense>
