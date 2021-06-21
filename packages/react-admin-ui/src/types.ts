@@ -83,3 +83,4 @@ export type clsxm_params = {
         hoverable?: any,
     },
 }
+export type locales = {value: string, language: rich_text};

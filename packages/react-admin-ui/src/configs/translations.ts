@@ -81,6 +81,20 @@ export default {
             "form_forgot_password_create_password_title": "Nouveau mot de passe",
             "form_forgot_password_create_password_subtitle": "Merci de choisir un nouveau mot de passe",
             "form_forgot_password_create_password_submit_label": "Enregister",
+
+           "locale_change_value": "Choisissez votre langue",
+        }
+    },
+    "it-IT": {
+        "translation": {
+            "locale_change_value": "Scegli la tua lingua",
+            "form_login_title": "Connessione",
+        }
+    },
+    "en-GB": {
+        "translation": {
+            "locale_change_value": "Choose your language",
+            "form_login_title": "Connection",
         }
     }
 }
