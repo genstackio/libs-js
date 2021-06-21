@@ -83,3 +83,4 @@ export type clsxm_params = {
         hoverable?: any,
     },
 }
+export type locales = {value: 'fr-FR' | 'en-GB' | 'it-IT', language: 'Français' | 'English' | 'Italiano'};

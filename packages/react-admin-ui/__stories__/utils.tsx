@@ -105,6 +105,7 @@ export const args = {
     large: { control: {type: 'boolean'} },
     likes : {control:{type: 'number'}},
     logo: { control: {type: 'object'} },
+    locales: { control: {type: 'object'} },
     menuItems: { control: {type: 'object'} },
     menu: { control: {type: 'object'} },
     message: { control: {type: 'text'} },
