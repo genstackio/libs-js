@@ -15,7 +15,7 @@ export function UrlField({options = {}, ...props}: UrlFieldProps) {
     }), [options]);
 
     return (
-        <TextField name={'URL'} {...props} options={options} />
+        <TextField name={'url'} {...props} options={options} />
     );
 }
 
