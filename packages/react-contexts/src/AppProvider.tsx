@@ -15,7 +15,7 @@ export function AppProvider({themeProvider: ThemeProvider, translationProvider: 
     theme && ThemeProvider && (content = <ThemeProvider value={theme}>{content}</ThemeProvider>);
     translation && TranslationProvider && (content = <TranslationProvider value={translation}>{content}</TranslationProvider>);
     api && (content = <ApiProvider value={api}>{content}</ApiProvider>);
-    graphql && (content = <GraphqlProvider value={graphql}>{content}</GraphqlProvider>);
+    graphql && GraphqlProvider && (content = <GraphqlProvider value={graphql}>{content}</GraphqlProvider>);
     location && (content = <LocationProvider value={location}>{content}</LocationProvider>);
     storage && (content = <StorageProvider value={storage}>{content}</StorageProvider>);
 
