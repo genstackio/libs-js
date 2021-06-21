@@ -1,6 +1,6 @@
 {
   "name": "@genstackio/react-admin-core",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "React Admin Core for Genstackio",
   "license": "MIT",
   "main": "lib/index.js",
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@genstackio/react-admin-ui": "^0.6.5",
-    "@genstackio/react-contexts": "^0.1.1",
+    "@genstackio/react-contexts": "^0.1.2",
     "@material-ui/data-grid": "^4.0.0-alpha.30",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.58",
