@@ -1,14 +1,18 @@
-import {ComponentType, Suspense} from 'react';
+import {ComponentType, Suspense, useMemo} from 'react';
 import Route from "./Route";
 import DefaultLoadingScreen from './screens/DefaultLoadingScreen';
 import DefaultErrorScreen from './screens/DefaultErrorScreen';
 import {BrowserRouter as Router, Switch} from "react-router-dom";
 import {route} from "./types";
-import {AppProvider} from "@genstackio/react-contexts";
-import useAppContext from "@genstackio/react-contexts/lib/hooks/useAppContext";
+import {AppProvider, useAppContext} from "@genstackio/react-contexts";
+import coreTranslations from './configs/translations';
+import adminUiTranslations from '@genstackio/react-admin-ui/lib/configs/translations';
 
-export function BaseApp({prefix = 'app', routes = [], screenImporter, loadingComponent: LoadingComponent = undefined}: BaseAppProps) {
+export function BaseApp({prefix = 'app', routes = [], screenImporter, loadingComponent: LoadingComponent = undefined, translations = {}}: BaseAppProps) {
     const LoadingScreen = LoadingComponent || DefaultLoadingScreen;
+    const computedTranslations = useMemo(() => [...(Array.isArray(translations) ? translations : [translations]), coreTranslations, adminUiTranslations],
+        [translations]
+    );
     const {api, baseTheme, cart, client, i18n, navigation, storage, user} = useAppContext({
         storageKeys: {
             user: `${prefix}_user`,
@@ -18,7 +22,7 @@ export function BaseApp({prefix = 'app', routes = [], screenImporter, loadingCom
         themes: {},
         muiTheme: {},
         queries: {},
-        translations: {},
+        translations: computedTranslations,
     });
     return (
         <AppProvider error={DefaultErrorScreen}
@@ -50,6 +54,7 @@ export interface BaseAppProps {
     routes?: route[],
     screenImporter?: (name: string) => any,
     loadingComponent?: ComponentType,
+    translations?: {[key: string]: {[key: string]: {[key: string]: string}}} | {[key: string]: {[key: string]: {[key: string]: string}}}[],
 }
 
 export default BaseApp
