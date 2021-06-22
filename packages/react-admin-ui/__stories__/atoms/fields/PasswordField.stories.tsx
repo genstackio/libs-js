@@ -15,6 +15,7 @@ export default {
         onChange: args._disable,
         options: args._disable,
         value: args.fieldValue,
+        kind: args._disable,
     }),
 }
 

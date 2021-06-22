@@ -1,5 +1,5 @@
 import {args, s, a} from "../../utils";
-import {DateField, TextField} from '../../../src';
+import {DateField} from '../../../src';
 
 export default {
     title: 'Atoms/fields/DateField',
@@ -15,6 +15,7 @@ export default {
         onChange: args._disable,
         options: args._disable,
         value: args.fieldValue,
+        kind: args._disable,
     }),
 }
 

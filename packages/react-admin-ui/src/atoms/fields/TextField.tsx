@@ -3,8 +3,8 @@ import {class_name, flag, register} from '../../types';
 import {useField} from "../../hooks/useField";
 import FieldSet from "../FieldSet";
 
-export function TextField({className, type = 'text', ...props}: TextFieldProps) {
-    const {name, required, label, error, helper, disabled, register, placeholder, options, defaultValue, extra} = useField(props);
+export function TextField({className, ...props}: TextFieldProps) {
+    const {name, required, label, error, helper, disabled, register, placeholder, options, defaultValue, type, extra} = useField(props);
     return (
         <FieldSet className={className} name={name} label={label} options={options} error={error} helper={helper}>
             <input className={clsx(

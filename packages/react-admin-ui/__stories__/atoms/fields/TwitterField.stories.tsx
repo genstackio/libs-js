@@ -1,9 +1,9 @@
 import {args, s, a} from "../../utils";
-import {FirstNameField} from '../../../src';
+import {TwitterField} from '../../../src';
 
 export default {
-    title: 'Atoms/fields/FirstNameField',
-    component: FirstNameField,
+    title: 'Atoms/fields/TwitterField',
+    component: TwitterField,
     argTypes: a({
         disabled: args.disabled,
         label: args.label,
@@ -19,6 +19,6 @@ export default {
     }),
 }
 
-const Template = args => <FirstNameField {...args} />;
+const Template = args => <TwitterField {...args} />;
 
 export const basic = s(Template, {})

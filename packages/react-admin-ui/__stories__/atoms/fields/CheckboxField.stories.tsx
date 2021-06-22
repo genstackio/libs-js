@@ -13,6 +13,7 @@ export default {
         errors: args._disable,
         register: args._disable,
         options: args._disable,
+        kind: args._disable,
     }),
 }
 
