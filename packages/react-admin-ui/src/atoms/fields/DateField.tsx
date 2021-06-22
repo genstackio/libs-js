@@ -1,7 +1,6 @@
 import {useTranslation} from "react-i18next";
 import 'date-fns';
 import {useCallback, useState} from 'react';
-import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import {KeyboardDatePicker, MuiPickersUtilsProvider,} from '@material-ui/pickers';
 
