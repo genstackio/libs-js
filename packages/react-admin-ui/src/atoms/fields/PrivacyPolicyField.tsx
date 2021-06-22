@@ -7,7 +7,7 @@ export function PrivacyPolicyField({onClick, color, ...props} : PrivacyPolicyFie
     const {t} = useTranslation();
     return (
         <>
-            <CheckboxField name={'privacyPolicy'} label={t('field_privacy_policy_label')} {...props} />
+            <CheckboxField kind={'privacyPolicy'} {...props} />
             {onClick && (
                 <div onClick={onClick as any}>
                     <Text text={t('field_privacy_policy_description')} color={color} variant={'subsection'} />

@@ -15,7 +15,7 @@ export function IpAddressField({options = {}, ...props}: IpAddressFieldProps) {
     }), [options]);
 
     return (
-        <TextField name={'ip_address'} {...props} options={options} />
+        <TextField kind={'ipAddress'} {...props} options={options} />
     );
 }
 

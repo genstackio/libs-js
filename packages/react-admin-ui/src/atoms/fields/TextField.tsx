@@ -41,6 +41,7 @@ export interface TextFieldProps {
     helper?: string,
     register?: register,
     field?: boolean,
+    kind?: string,
 }
 
 export default TextField

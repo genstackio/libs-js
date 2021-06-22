@@ -7,7 +7,7 @@ export function LastNameField({options = {}, ...props}: LastNameFieldProps) {
     }), [options]);
 
     return (
-        <TextField name={'lastName'} {...props} options={options} />
+        <TextField kind={'lastName'} {...props} options={options} />
     );
 }
 

@@ -2,7 +2,7 @@ import EmailField, {EmailFieldProps} from "./EmailField";
 
 export function UsernameField({...props}: UsernameFieldProps) {
     return (
-        <EmailField name={'username'} {...props} />
+        <EmailField kind={'username'} {...props} />
     );
 }
 

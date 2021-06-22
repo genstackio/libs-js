@@ -11,13 +11,13 @@ export function TextareaField({className, ...props}: TextareaFieldProps) {
                 'text-sm sm:text-base w-full border rounded placeholder-gray-400 ' +
                 'focus:border-indigo-400 focus:outline-none py-2 px-2 focus:ring-2',
                 error && 'border border-red-500 focus:border-red-500 ring-red-300')}
-                   placeholder={placeholder}
-                   disabled={disabled}
-                   name={name}
-                   required={required}
-                   {...register()}
-                   {...extra}
-             />
+                      placeholder={placeholder}
+                      disabled={disabled}
+                      name={name}
+                      required={required}
+                      {...register()}
+                      {...extra}
+            />
         </FieldSet>
     );
 }
@@ -39,6 +39,7 @@ export interface TextareaFieldProps {
     register?: register,
     field?: boolean,
     rows?: number,
+    kind?: string,
 }
 
 export default TextareaField

@@ -2,7 +2,7 @@ import TextField, {TextFieldProps} from "./TextField";
 
 export function OtpField(props: OtpFieldProps) {
     return (
-        <TextField name={'otp'} {...props} />
+        <TextField kind={'otp'} {...props} />
     );
 }
 

@@ -6,7 +6,7 @@ export function NumberField({options = {}, ...props}: NumberFieldProps) {
         ...options,
     }), [options])
     return (
-        <TextField name={'number'} type={'number'} {...props} />
+        <TextField kind={'number'} type={'number'} {...props} />
     );
 }
 

@@ -7,49 +7,49 @@ import MuiSwitch from '@material-ui/core/Switch';
 import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
-        root: {
-            width: 42,
-            height: 26,
-            padding: 0,
-            margin: '1rem',
-        },
-        switchBase: {
-            padding: 1,
-            '&$checked': {
-                transform: 'translateX(16px)',
-                color: 'white',
-                '& + $track': {
-                    backgroundColor: '#7366FF',
-                    opacity: 1,
-                    border: 'none',
-                },
-            },
-            '&$focusVisible $thumb': {
-                color: '#7366FF',
-                border: '6px solid #fff',
-            },
-            "&$disabled": {
-                color: '#EEEEEE',
-                '& + $track': {
-                    backgroundColor: '#DADADA',
-                    opacity: 1,
-                    border: 'none',
-                },
+    root: {
+        width: 42,
+        height: 26,
+        padding: 0,
+        margin: '1rem',
+    },
+    switchBase: {
+        padding: 1,
+        '&$checked': {
+            transform: 'translateX(16px)',
+            color: 'white',
+            '& + $track': {
+                backgroundColor: '#7366FF',
+                opacity: 1,
+                border: 'none',
             },
         },
-        thumb: {
-            width: 24,
-            height: 24,
+        '&$focusVisible $thumb': {
+            color: '#7366FF',
+            border: '6px solid #fff',
         },
-        track: {
-            borderRadius: 26 / 2,
-            border: '1px solid #DADADA',
-            backgroundColor: '#FAFAFA',
-            opacity: 1,
+        "&$disabled": {
+            color: '#EEEEEE',
+            '& + $track': {
+                backgroundColor: '#DADADA',
+                opacity: 1,
+                border: 'none',
+            },
         },
-        checked: {},
-        focusVisible: {},
-        disabled: {},
+    },
+    thumb: {
+        width: 24,
+        height: 24,
+    },
+    track: {
+        borderRadius: 26 / 2,
+        border: '1px solid #DADADA',
+        backgroundColor: '#FAFAFA',
+        opacity: 1,
+    },
+    checked: {},
+    focusVisible: {},
+    disabled: {},
 });
 
 export function SwitchField({onChange, ...props}: SwitchFieldProps) {
@@ -58,7 +58,6 @@ export function SwitchField({onChange, ...props}: SwitchFieldProps) {
     return (
         <div className={'mb-2'}>
             <div>
-                <FieldLabel name={name} label={label} options={options} />
                 <MuiSwitch
                     focusVisibleClassName={classes.focusVisible}
                     disableRipple
@@ -78,6 +77,7 @@ export function SwitchField({onChange, ...props}: SwitchFieldProps) {
                     {...register()}
                     {...extra}
                 />
+                <FieldLabel name={name} label={label} options={options} />
                 <FieldError error={error} />
                 <FieldHelper helper={helper} />
             </div>
@@ -97,6 +97,7 @@ export interface SwitchFieldProps {
     helper?: string,
     register?: register,
     field?: boolean,
+    kind?: string,
 }
 
 export default SwitchField
