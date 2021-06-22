@@ -1,8 +1,9 @@
+import clsx from "clsx";
 import TextField, {TextFieldProps} from "./TextField";
 
-export function ColorField(props: ColorFieldProps) {
+export function ColorField({className, ...props}: ColorFieldProps) {
     return (
-        <TextField kind={'color'} type={'color'} {...props}  />
+        <TextField kind={'color'} type={'color'} className={clsx('x-field-min-h', className)} {...props} />
     );
 }
 

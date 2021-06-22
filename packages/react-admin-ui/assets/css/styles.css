@@ -20,6 +20,10 @@
         --hover-color:#fcb600;
     }
 
+    .x-field-min-h {
+        min-height: 64px;
+    }
+
     .x-buttons {
         @apply flex items-center flex-wrap space-x-4 sm:space-x-2 xs:space-x-0
     }

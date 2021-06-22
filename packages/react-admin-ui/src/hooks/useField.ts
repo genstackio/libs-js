@@ -3,9 +3,10 @@ import {register} from "../types";
 import {useTranslation} from "react-i18next";
 
 // noinspection JSUnusedLocalSymbols
-export function useField({name, required = false, kind, disabled = false, helper, placeholder, errors = {}, defaultValue = undefined, defaultValues = {}, options = {}, label, register = (name: string, options: any) => {}, field, ...extra}: field_def_params, defaults: {name?: string, kind?: string} = {}) {
+export function useField({name, required = false, kind, disabled = false, helper, type, placeholder, errors = {}, defaultValue = undefined, defaultValues = {}, options = {}, label, register = (name: string, options: any) => {}, field, ...extra}: field_def_params, defaults: {name?: string, kind?: string} = {}) {
     const {t} = useTranslation();
-    kind = (kind || defaults.kind || 'text') as string;
+    type = (type || 'text') as string;
+    kind = (kind || defaults.kind || type) as string;
     name = (name || defaults.name || kind) as string;
     options = useMemo(() => ({
         ...options,
@@ -22,12 +23,13 @@ export function useField({name, required = false, kind, disabled = false, helper
 
     return {
         name, label, placeholder, error, required, helper, options, disabled, defaultValue, kind,
-        register: enrichedRegister, extra,
+        register: enrichedRegister, extra, type,
     };
 }
 
 export interface field_def_params {
     name?: string,
+    type?: string,
     required?: boolean,
     disabled?: boolean,
     helper?: string,

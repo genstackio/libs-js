@@ -1,9 +1,9 @@
 import {args, s, a} from "../../utils";
-import {FirstNameField} from '../../../src';
+import {FaxField} from '../../../src';
 
 export default {
-    title: 'Atoms/fields/FirstNameField',
-    component: FirstNameField,
+    title: 'Atoms/fields/FaxField',
+    component: FaxField,
     argTypes: a({
         disabled: args.disabled,
         label: args.label,
@@ -19,6 +19,6 @@ export default {
     }),
 }
 
-const Template = args => <FirstNameField {...args} />;
+const Template = args => <FaxField {...args} />;
 
 export const basic = s(Template, {})
