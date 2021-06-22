@@ -6,3 +6,4 @@ export * from './LoginForm';
 export * from './OrganizationForm';
 export * from './RegisterForm';
 export * from './SendOtpForgotPasswordForm';
+export * from './UserProfileForm';

@@ -1,36 +1,12 @@
-import {useTranslation} from "react-i18next";
-import 'date-fns';
-import {useCallback, useState} from 'react';
-import DateFnsUtils from '@date-io/date-fns';
-import {KeyboardDatePicker, MuiPickersUtilsProvider,} from '@material-ui/pickers';
+import TextField, {TextFieldProps} from './TextField';
 
-export function DateField({now}: DateFieldProps) {
-    const {t} = useTranslation();
-    const [selectedDate, setSelectedDate] = useState<Date | null>(
-        new Date (now as Date)
-    );
-
-    const handleDateChange = useCallback((date: Date | null) => {
-        setSelectedDate(date);
-    }, [setSelectedDate]);
-
+export function DateField(props: DateFieldProps) {
     return (
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <KeyboardDatePicker
-                label={t('field_date_label')}
-                format={t('field_date_format')}
-                value={selectedDate}
-                onChange={handleDateChange}
-                KeyboardButtonProps={{
-                    'aria-label': t('field_date_aria_label'),
-                }}
-            />
-        </MuiPickersUtilsProvider>
+        <TextField kind={'date'} type={'date'} {...props} />
     );
 }
 
-export interface DateFieldProps {
-    now?: Date,
+export interface DateFieldProps extends TextFieldProps {
 }
 
 export default DateField

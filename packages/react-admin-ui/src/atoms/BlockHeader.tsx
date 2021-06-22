@@ -12,7 +12,7 @@ export function BlockHeader({className, btnLabel, color = 'primary', dropdownIte
         <div className={clsx(paddingClass('default'), 'border-b-1 flex justify-between items-center', className)}>
             <Text variant={'title5'} text={title} />
             {btnLabel && <Button color={color}>{btnLabel}</Button>}
-            {dropdownItems && <Dropdown menuItems={dropdownItems} color={color} variant={variant} />}
+            {dropdownItems && <Dropdown items={dropdownItems} color={color} variant={variant} />}
             <Icon icon={icon} />
         </div>
     );
