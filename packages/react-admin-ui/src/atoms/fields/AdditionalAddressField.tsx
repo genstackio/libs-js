@@ -2,7 +2,7 @@ import TextField, {TextFieldProps} from "./TextField";
 
 export function AdditionalAddressField(props: AdditionalAddressFieldProps) {
     return (
-        <TextField name={'additionalAddress'} {...props} />
+        <TextField kind={'additionalAddress'} {...props} />
     );
 }
 

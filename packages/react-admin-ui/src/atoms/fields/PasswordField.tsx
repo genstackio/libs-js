@@ -10,7 +10,7 @@ export function PasswordField({options = {}, ...props}: PasswordFieldProps) {
         ...options,
     }), [options])
     return (
-        <TextField name={'password'} type={'password'} {...props} />
+        <TextField kind={'password'} type={'password'} {...props} />
     );
 }
 

@@ -31,7 +31,7 @@ const useStyles = makeStyles({
 
 export function CheckboxField({className, onChange, ...props}: CheckboxFieldProps) {
     const classes = useStyles();
-    const {name, label, required, error, helper, disabled, register, options, defaultValue = false, extra} = useField(props);
+    const {name, label, required, error, helper, disabled, register, options, defaultValue = false, extra} = useField(props, {kind: 'checkbox'});
     return (
         <FieldSet className={className} name={name} label={label} options={options} error={error} helper={helper}>
             <div className={'flex items-center'}>
@@ -62,6 +62,7 @@ export interface CheckboxFieldProps {
     onChange?: Function,
     register?: register,
     field?: boolean,
+    kind?: string,
 }
 
 export default CheckboxField

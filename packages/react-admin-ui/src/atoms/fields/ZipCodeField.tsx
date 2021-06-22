@@ -7,7 +7,7 @@ export function ZipCodeField({options = {}, ...props}: ZipCodeFieldProps) {
     }), [options]);
 
     return (
-        <TextField name={'zipCode'} {...props} options={options} />
+        <TextField kind={'zipCode'} {...props} options={options} />
     );
 }
 

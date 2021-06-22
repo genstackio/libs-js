@@ -7,7 +7,7 @@ export function FirstNameField({options = {}, ...props}: FirstNameFieldProps) {
     }), [options]);
 
     return (
-        <TextField name={'firstName'} {...props} options={options} />
+        <TextField kind={'firstName'} {...props} options={options} />
     );
 }
 

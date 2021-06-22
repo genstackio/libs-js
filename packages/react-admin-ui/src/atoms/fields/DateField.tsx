@@ -17,18 +17,15 @@ export function DateField({now}: DateFieldProps) {
 
     return (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <Grid container justify='space-around'>
-                <KeyboardDatePicker
-                    margin={'normal'}
-                    label={t('form_data_field_label')}
-                    format={t('form_data_field_format')}
-                    value={selectedDate}
-                    onChange={handleDateChange}
-                    KeyboardButtonProps={{
-                        'aria-label': 'change date',
-                    }}
-                />
-            </Grid>
+            <KeyboardDatePicker
+                label={t('field_date_label')}
+                format={t('field_date_format')}
+                value={selectedDate}
+                onChange={handleDateChange}
+                KeyboardButtonProps={{
+                    'aria-label': t('field_date_aria_label'),
+                }}
+            />
         </MuiPickersUtilsProvider>
     );
 }
