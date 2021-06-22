@@ -45,17 +45,24 @@ export default {
             "field_firstname_placeholder": "Marie",
             "field_lastname_placeholder": "Dupond",
             "field_password_placeholder": "Saisir un mot de passe",
-            "field_passwordconfirmation_placeholder": "Resaisir le même mot de passe",
+            "field_passwordconfirmation_placeholder": "Saisir le même mot de passe",
             "field_phone_placeholder": "0102030405",
             "field_text_placeholder": "Votre texte ici",
             "field_username_placeholder": "marie@monemail.com",
             "field_zipcode_placeholder": "75001",
+            "field_password_current_label": "Mot de passe actuel",
+            "field_password_new_label": "Nouveau mot de passe",
+
             "login_btn_label": "Se connecter",
             "field_date_format": "dd/MM/yyyy",
             "return_btn_label": "Retour",
             "video_player_btn_label": "Découvrir",
             "follow_us_button_label": "Suivez-nous",
             "gallery_title": "En direct d'Instagram",
+
+            "form_change_password_title": "Changement de mot de passe",
+            "form_change_password_subtitle": "Choisissez un nouveau mot de passe",
+            "form_change_password_submit_label": "Changer",
 
             "form_login_title": "Connexion",
             "form_login_subtitle": "Saisissez vos email et mot de passe",
@@ -143,11 +150,18 @@ export default {
             "field_username_placeholder": "maria@myemail.it",
             "field_zipcode_placeholder": "1032",
             "field_date_format": "dd/MM/yyyy",
+            "field_password_current_label": "Password attuale",
+            "field_password_new_label": "Nuova password",
+
             "login_btn_label": "Per accedere",
             "return_btn_label": "Ritorno",
             "video_player_btn_label": "Scoprire",
             "follow_us_button_label": "Seguici",
             "gallery_title": "In diretta da Instagram",
+
+            "form_change_password_title": "Cambio di password",
+            "form_change_password_subtitle": "Scegli una nuova password",
+            "form_change_password_submit_label": "Cambiare",
 
             "form_login_title": "Accesso",
             "form_login_subtitle": "Inserisci la tua email e la tua password",
@@ -235,11 +249,18 @@ export default {
             "field_username_placeholder": "mary@myemail.com",
             "field_zipcode_placeholder": "1020",
             "field_date_format": "MM/dd/yy",
+            "field_password_current_label": "Actual password",
+            "field_password_new_label": "New password",
+
             "login_btn_label": "Login",
             "return_btn_label": "Back",
             "video_player_btn_label": "Discover",
             "follow_us_button_label": "Follow-us",
             "gallery_title": "Live from Insta",
+
+            "form_change_password_title": "Password change",
+            "form_change_password_subtitle": "Choose a new password",
+            "form_change_password_submit_label": "Change",
 
             "form_login_title": "Login",
             "form_login_subtitle": "Please fill in your email and password",

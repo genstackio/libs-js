@@ -1,4 +1,4 @@
-import {s, a} from "../../utils";
+import {s, a} from '../../utils';
 import {FillInOtpForgotPasswordForm} from '../../../src';
 
 

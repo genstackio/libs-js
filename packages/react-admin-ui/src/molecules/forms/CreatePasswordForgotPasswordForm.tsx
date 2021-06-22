@@ -1,7 +1,7 @@
-import {RememberPasswordField, Button, Form, Text, PasswordField, PasswordConfirmationField} from "../../atoms";
-import {useTranslation} from "react-i18next";
-import {box_color} from "../../mappings/box-colors";
-import {flag} from "../../types";
+import {RememberPasswordField, Button, Form, Text, PasswordField, PasswordConfirmationField} from '../../atoms';
+import {useTranslation} from 'react-i18next';
+import {box_color} from '../../mappings/box-colors';
+import {flag} from '../../types';
 
 export function CreatePasswordForgotPasswordForm({onSubmit, confirm = false, rememberMe = false, color, defaultValues = {}} : CreatePasswordForgotPasswordFormProps) {
     const {t} = useTranslation();
@@ -14,7 +14,7 @@ export function CreatePasswordForgotPasswordForm({onSubmit, confirm = false, rem
                 <PasswordField field required autoFocus />
                 {confirm && <PasswordConfirmationField field required />}
                 {rememberMe && <RememberPasswordField field />}
-                <div className="flex justify-center mt-6">
+                <div className={'flex justify-center mt-6'}>
                     <Button className={'w-full items-center justify-center'} variant={'contained'} color={color}>{t('form_forgot_password_create_password_submit_label')}</Button>
                 </div>
             </Form>

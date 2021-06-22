@@ -1,4 +1,4 @@
-import {s, a} from "../../utils";
+import {s, a} from '../../utils';
 import {CreatePasswordForgotPasswordForm} from '../../../src';
 
 export default {

@@ -1,4 +1,4 @@
-import {s, a} from "../../utils";
+import {s, args, a} from '../../utils';
 import {SendOtpForgotPasswordForm} from '../../../src';
 
 
@@ -6,6 +6,7 @@ export default {
     title: 'Molecules/forms/SendOtpForgotPasswordForm',
     component: SendOtpForgotPasswordForm,
     argTypes: a({
+      color: args.color,
     }),
 }
 

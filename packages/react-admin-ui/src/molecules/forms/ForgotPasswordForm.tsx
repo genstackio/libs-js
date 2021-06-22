@@ -1,4 +1,4 @@
-import {useCallback, useState} from "react";
+import {useCallback, useState} from 'react';
 import SendOtpForgotPasswordForm from './SendOtpForgotPasswordForm';
 import FillInOtpForgotPasswordForm from './FillInOtpForgotPasswordForm';
 import CreatePasswordForgotPasswordForm from './CreatePasswordForgotPasswordForm';

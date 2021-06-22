@@ -1,4 +1,4 @@
-import {args, s, a} from "../../utils";
+import {args, s, a} from '../../utils';
 import {RegisterForm} from '../../../src';
 
 export default {
