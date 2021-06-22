@@ -1,4 +1,4 @@
-import {args, s, a} from "../../utils";
+import {args, s, a} from '../../utils';
 import {LoginForm} from '../../../src';
 
 export default {

@@ -1,9 +1,9 @@
-import {UsernameField, PasswordField, RememberPasswordField, Button, Text} from "../../atoms";
-import {useTranslation} from "react-i18next";
-import {useForm} from "react-hook-form";
+import {UsernameField, PasswordField, RememberPasswordField, Button, Text} from '../../atoms';
+import {useTranslation} from 'react-i18next';
+import {useForm} from 'react-hook-form';
 import {box_color} from '../../mappings/box-colors';
-import {useCallback} from "react";
-import {flag} from "../../types";
+import {useCallback} from 'react';
+import {flag} from '../../types';
 
 export function LoginForm({onSubmit, onRegisterClick, onForgotPasswordClick, color = 'primary', defaultValues = {}, socialLogins = false, rememberMe = false}: LoginFormProps) {
     const {t} = useTranslation();
@@ -20,18 +20,18 @@ export function LoginForm({onSubmit, onRegisterClick, onForgotPasswordClick, col
     }, []);
     return (
         <div className={'w-full flex flex-col'}>
-            <div className="w-full flex justify-center">
+            <div className={'w-full flex justify-center'}>
                 <form onSubmit={handleSubmit(onSubmit as any)} className={'w-full'}>
                     <Text text={t('form_login_title')} variant={'title6'} color={color} />
                     <Text className={'text-gray-500 mb-4'} text={t('form_login_subtitle')} variant={'body'} color={color} />
                     <UsernameField {...field} required autoFocus />
-                    <div className="mb-6">
-                        <div className="block text-gray-700 text-sm mb-2">
-                            <div className="w-full py-2 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
+                    <div className={'mb-6'}>
+                        <div className={'block text-gray-700 text-sm mb-2'}>
+                            <div className={'w-full py-2 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline'}>
                                 <PasswordField {...field} required />
                             </div>
                             {(rememberMe || onForgotPasswordClick) && (
-                                <div className="mb-4 flex items-center justify-between">
+                                <div className={'mb-4 flex items-center justify-between'}>
                                     {rememberMe && (
                                         <div className={'text-red-500'}>
                                             <RememberPasswordField {...field} />
@@ -44,7 +44,7 @@ export function LoginForm({onSubmit, onRegisterClick, onForgotPasswordClick, col
                                     )}
                                 </div>
                             )}
-                            <div className="flex justify-center">
+                            <div className={'flex justify-center'}>
                                 <Button className={'w-full items-center justify-center'} variant={'contained'} color={color}>{t('form_login_submit_label')}</Button>
                             </div>
                         </div>
