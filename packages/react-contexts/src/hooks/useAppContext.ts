@@ -1,15 +1,25 @@
 import {useCallback, useMemo, useState} from 'react';
 import formatLng from '../utils/formatLng';
 import createClient, {gql, jwtDecode, useLazyQuery, useMutation, useQuery} from '@ohoareau/apollo-client-jwt';
-import {decoded_token, user, storage, cart, user_context_value} from '../types';
+import {
+  decoded_token,
+  user,
+  storage,
+  cart,
+  user_context_value,
+  locales_context_value,
+  images_context_value,
+  app_context_params,
+} from '../types';
 import MuiLink from '@material-ui/core/Link';
 import fetch from 'isomorphic-fetch';
 import mergeCartItems from '../utils/mergeCartItems';
 import i18nFactory from "../utils/i18nFactory";
 
 
-export function useAppContext({storageKeys, themes, muiTheme, queries, translations}) {
-    const {theme = 'default', lang = 'fr-fr'} = {};
+export function useAppContext({storageKeys, themes, muiTheme, queries, translations, locales, defaultLocale = 'en-US', fallbackLocale = 'en-US', getImage}: app_context_params) {
+    const {theme = 'default'} = {};
+    const lang = defaultLocale; // @todo detect from localeStorage for instance
     const storage = useMemo<storage|undefined>(() => {
         const s = 'undefined' === typeof localStorage ? undefined : localStorage;
         if (!s) return undefined;
@@ -122,11 +132,17 @@ export function useAppContext({storageKeys, themes, muiTheme, queries, translati
         return i18nFactory({lng: formatLng(locale), resources: translations});
     }, [i18nFactory, locale, translations]);
 
+  const localesProviderValue: locales_context_value = useMemo(() => ({locales: locales || [], default: defaultLocale, fallback: fallbackLocale}), [locales, defaultLocale, fallbackLocale]);
+  // noinspection JSUnusedLocalSymbols
+  const imagesProviderValue: images_context_value = useMemo(() => ({get: getImage || ((key: string) => undefined)}), [locales, defaultLocale, fallbackLocale]);
+
     return {
         client: api.client, i18n, baseTheme: muiTheme, pageTheme: themeFactory, storage, locale,
         user: userProviderValue, api: apiProviderValue,
         cart: cartProviderValue,
         navigation: navigationProviderValue,
+        locales: localesProviderValue,
+        images: imagesProviderValue,
         themes
     };
 }
