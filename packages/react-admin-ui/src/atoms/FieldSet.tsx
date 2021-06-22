@@ -7,7 +7,7 @@ import FieldError from "./FieldError";
 export function FieldSet({className, name, label, options, children, error, helper}: FieldSetProps) {
     return (
         <div className={clsx('mb-2', className)}>
-            <div>
+            <div className={'focus-within:font-bold'}>
                 <FieldLabel name={name} label={label} options={options} />
                 {children || ''}
                 <FieldError error={error} />

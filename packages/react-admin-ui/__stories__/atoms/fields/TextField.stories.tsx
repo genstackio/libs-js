@@ -14,7 +14,7 @@ export default {
         defaults: args._disable,
         onChange: args._disable,
         options: args._disable,
-        value: args.fieldValue,
+        value: args._disable,
         kind: args._disable,
     }),
 }
@@ -22,6 +22,24 @@ export default {
 const Template = args => <TextField {...args} />;
 
 export const basic = s(Template, {
+})
+
+export const withPrepend = s(args => (
+    <div>
+        <Template prepend={'@'} {...args} />
+        <Template prepend={'hello'} {...args} />
+        <Template prependIcon={'people'} {...args} />
+    </div>
+), {
+})
+
+export const withAppend = s(Template, {
+    append: 'units',
+})
+
+export const withPrependAndAppend = s(Template, {
+    prepend: <p>Hello&nbsp;world</p>,
+    append: <p>Bye&nbsp;bye</p>,
 })
 
 export const showcase = s(props => (

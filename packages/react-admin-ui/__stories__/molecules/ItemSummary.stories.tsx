@@ -1,4 +1,4 @@
-import {args, s, a} from "../utils";
+import {args, s} from "../utils";
 import {ItemSummary} from '../../src';
 
 export default {
@@ -9,7 +9,7 @@ export default {
         author:args.author,
         likes: args.likes,
         comments:args.comments,
-    }),
+    },
 }
 
 const Template = args => <ItemSummary {...args} />

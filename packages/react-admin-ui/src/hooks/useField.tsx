@@ -1,9 +1,10 @@
 import {useMemo} from "react";
-import {register} from "../types";
+import {icon, register, rich_text} from "../types";
 import {useTranslation} from "react-i18next";
+import {Icon} from "../atoms";
 
 // noinspection JSUnusedLocalSymbols
-export function useField({name, required = false, kind, disabled = false, helper, type, placeholder, errors = {}, defaultValue = undefined, defaultValues = {}, options = {}, label, register = (name: string, options: any) => {}, field, ...extra}: field_def_params, defaults: {name?: string, kind?: string} = {}) {
+export function useField({name, required = false, prepend, prependIcon, append, appendIcon, kind, disabled = false, helper, type, placeholder, errors = {}, defaultValue = undefined, defaultValues = {}, options = {}, label, register = (name: string, options: any) => {}, field, ...extra}: field_def_params, defaults: {name?: string, kind?: string} = {}) {
     const {t} = useTranslation();
     type = (type || 'text') as string;
     kind = (kind || defaults.kind || type) as string;
@@ -21,15 +22,23 @@ export function useField({name, required = false, kind, disabled = false, helper
     const enrichedRegister = (extraOptions = {}) => register(name, {...options, ...extraOptions});
     defaultValue = undefined !== defaultValue ? defaultValue : defaultValues[name];
 
+    prependIcon = prependIcon ? <Icon icon={prependIcon} /> : undefined;
+    appendIcon = appendIcon ? <Icon icon={appendIcon} /> : undefined;
     return {
         name, label, placeholder, error, required, helper, options, disabled, defaultValue, kind,
         register: enrichedRegister, extra, type,
+        prepend: (prepend && prependIcon) ? <>{prepend}{prependIcon}</> : (prepend ? prepend : (prependIcon ? prependIcon : undefined)),
+        append: (append && appendIcon) ? <>{append}{appendIcon}</> : (append ? append : (appendIcon ? appendIcon : undefined)),
     };
 }
 
 export interface field_def_params {
     name?: string,
     type?: string,
+    prepend?: rich_text,
+    prependIcon?: icon,
+    append?: rich_text,
+    appendIcon?: icon,
     required?: boolean,
     disabled?: boolean,
     helper?: string,

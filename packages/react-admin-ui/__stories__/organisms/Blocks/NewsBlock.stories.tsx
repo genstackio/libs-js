@@ -1,4 +1,4 @@
-import {args, s} from '../../utils';
+import {args, a, s} from '../../utils';
 import {NewsBlock} from '../../../src';
 
 export default {

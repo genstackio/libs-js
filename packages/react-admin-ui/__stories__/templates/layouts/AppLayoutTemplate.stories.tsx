@@ -15,7 +15,7 @@ export default {
         text: args.children,
         color: args.color,
         variant: args.blockVariant,
-    },
+    }),
 }
 
 const Template = args => <AppLayoutTemplate {...args} />

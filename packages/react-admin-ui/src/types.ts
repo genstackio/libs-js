@@ -45,6 +45,7 @@ export type chart_serie = number[];
 export type chart_series = chart_serie[];
 export type avatar_item = {image?: image, name: string, shape?: shape, size?: size, status?: status};
 export type breadcrumb_item = {label?: rich_text, target?: target};
+export type select_item = {value?: string, label?: rich_text};
 export type news_item = {title?: rich_text, content?: rich_text};
 export type tab_item = {title?: rich_text, content?: rich_text, disabled?: flag};
 export type corner_item = {color?: box_color, icon?: icon, text?: rich_text, variant?: box_variant};

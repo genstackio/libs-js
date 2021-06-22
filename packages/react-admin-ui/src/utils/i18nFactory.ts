@@ -19,7 +19,7 @@ export function i18nFactory({fallbackLng = undefined, lng = undefined, resources
                 escapeValue: false,
             },
             react: {
-                wait: true,
+                useSuspense: true,
             },
         })
     ;
