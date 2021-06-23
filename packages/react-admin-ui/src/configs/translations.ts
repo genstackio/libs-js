@@ -43,6 +43,10 @@ export default {
             "field_text_label": "Texte",
             "field_username_label": "Email",
             "field_zipcode_label": "Code postal",
+            "field_gender_label": "Sexe",
+            "field_password_current_label": "Mot de passe actuel",
+            "field_password_new_label": "Nouveau mot de passe",
+            "field_birthdate_label": "Date de naissance",
 
             "field_generic_disabled_placeholder": "disabled",
             "field_generic_required_placeholder": "required",
@@ -67,11 +71,16 @@ export default {
             "field_text_placeholder": "Votre texte ici",
             "field_username_placeholder": "marie@monemail.com",
             "field_zipcode_placeholder": "75001",
-            "field_password_current_label": "Mot de passe actuel",
-            "field_password_new_label": "Nouveau mot de passe",
+            "field_birthdate_placeholder": "01/01/1970",
+
+            "field_date_format": "dd/MM/yyyy",
+
+            "field_gender_value_man_label": "Homme",
+            "field_gender_value_woman_label": "Femme",
+            "field_gender_value_nonbinary_label": "Non binaire",
+            "field_gender_value_notspecified_label": "Non spécifié",
 
             "login_btn_label": "Se connecter",
-            "field_date_format": "dd/MM/yyyy",
             "return_btn_label": "Retour",
             "video_player_btn_label": "Découvrir",
             "follow_us_button_label": "Suivez-nous",
@@ -92,6 +101,10 @@ export default {
             "form_login_other_login_methods_title": "Autres méthodes de connexion",
             "form_login_register_question": "Pas encore de compte ?",
             "form_login_register_label": "Créez-en un !",
+
+            "form_user_profile_title": "Votre profil",
+            "form_user_profile_subtitle": "Modifiez vos informations",
+            "form_user_profile_submit_label": "Sauvegarder",
 
             "form_register_title": "Inscription",
             "form_register_subtitle": "Saisissez vos email et mot de passe",
@@ -116,7 +129,7 @@ export default {
             "form_forgot_password_create_password_subtitle": "Merci de choisir un nouveau mot de passe",
             "form_forgot_password_create_password_submit_label": "Enregister",
 
-            "locale_change_value": "Choisissez votre langue"
+            "locale_change_value": "Choisissez votre langue",
         }
     },
     "it-IT": {
@@ -143,6 +156,7 @@ export default {
             "field_city_label": "Città",
             "field_fax_label": "Fax",
             "field_facebook_label": "Facebook",
+            "field_gender_label": "Sesso",
             "field_twitter_label": "Twitter",
             "field_instagram_label": "Instagram",
             "field_linkedin_label": "LinkedIn",
@@ -163,6 +177,14 @@ export default {
             "field_text_label": "Testo",
             "field_username_label": "Nome utente",
             "field_zipcode_label": "Codice postale",
+            "field_birthdate_label": "Data di nascita",
+            "field_password_current_label": "Password attuale",
+            "field_password_new_label": "Nuova password",
+
+            "field_gender_value_man_label": "Uomo",
+            "field_gender_value_woman_label": "Femmina",
+            "field_gender_value_nonbinary_label": "Non-binario",
+            "field_gender_value_notspecified_label": "Non specificato",
 
             "field_generic_disabled_placeholder": "disabilitato",
             "field_generic_required_placeholder": "necessario",
@@ -187,9 +209,9 @@ export default {
             "field_text_placeholder": "Il tuo testo qui",
             "field_username_placeholder": "maria@myemail.it",
             "field_zipcode_placeholder": "1032",
+            "field_birthdate_placeholder": "01/01/1970",
+
             "field_date_format": "dd/MM/yyyy",
-            "field_password_current_label": "Password attuale",
-            "field_password_new_label": "Nuova password",
 
             "login_btn_label": "Per accedere",
             "return_btn_label": "Ritorno",
@@ -213,10 +235,14 @@ export default {
             "form_login_register_question": "Non hai ancora un account?",
             "form_login_register_label": "Crearne uno!",
 
+            "form_user_profile_title": "Il tuo profilo",
+            "form_user_profile_subtitle": "Modifica le tue informazioni",
+            "form_user_profile_submit_label": "Salva",
+
             "form_register_title": "Iscrizione",
             "form_register_subtitle": "Inserisci la tua email e la tua password",
             "form_register_forgot_password_label": "Ho dimenticato la mia password...",
-            "form_register_submit_label": "Creo il mio account\n",
+            "form_register_submit_label": "Creo il mio account",
             "form_register_other_login_methods_title": "Altri metodi di connessione",
             "form_register_login_question": "Hai già un account?",
             "form_register_login_label": "io connetto",
@@ -263,6 +289,7 @@ export default {
             "field_city_label": "City",
             "field_fax_label": "Fax",
             "field_facebook_label": "Facebook",
+            "field_gender_label": "Sex",
             "field_twitter_label": "Twitter",
             "field_instagram_label": "Instagram",
             "field_linkedin_label": "LinkedIn",
@@ -283,6 +310,14 @@ export default {
             "field_text_label": "Text",
             "field_username_label": "Login",
             "field_zipcode_label": "Zip code",
+            "field_password_current_label": "Actual password",
+            "field_password_new_label": "New password",
+            "field_birthdate_label": "Birth date",
+
+            "field_gender_value_man_label": "Man",
+            "field_gender_value_woman_label": "Woman",
+            "field_gender_value_nonbinary_label": "Non-binary",
+            "field_gender_value_notspecified_label": "Not specified",
 
             "field_generic_disabled_placeholder": "disabled",
             "field_generic_required_placeholder": "required",
@@ -307,9 +342,9 @@ export default {
             "field_text_placeholder": "Your text here",
             "field_username_placeholder": "mary@myemail.com",
             "field_zipcode_placeholder": "1020",
+            "field_birthdate_placeholder": "01/01/1970",
+
             "field_date_format": "MM/dd/yy",
-            "field_password_current_label": "Actual password",
-            "field_password_new_label": "New password",
 
             "login_btn_label": "Login",
             "return_btn_label": "Back",
@@ -341,6 +376,10 @@ export default {
             "form_register_login_question": "Already an account?",
             "form_register_login_label": "Login",
 
+            "form_user_profile_title": "Your profile",
+            "form_user_profile_subtitle": "Edit your informations",
+            "form_user_profile_submit_label": "Save",
+
             "form_forgot_password_send_otp_title": "Forgot password",
             "form_forgot_password_send_otp_subtitle": "Please fill in your mobile number",
             "form_forgot_password_send_otp_submit_label": "Send code",
@@ -356,7 +395,7 @@ export default {
             "form_forgot_password_create_password_subtitle": "Please choose a new password",
             "form_forgot_password_create_password_submit_label": "Save",
 
-            "locale_change_value": "Select your language"
+            "locale_change_value": "Select your language",
         }
     }
 }

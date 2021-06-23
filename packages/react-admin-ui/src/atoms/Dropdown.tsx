@@ -15,9 +15,9 @@ const useStyles = makeStyles({
     }
 });
 
-export function Dropdown({color, menuItems, variant}: DropdownProps) {
+export function Dropdown({color, items = [], variant}: DropdownProps) {
     const classes = useStyles();
-    const [value, setValue] = useState<string | number | undefined>(menuItems[0].name);
+    const [value, setValue] = useState<string | number | undefined>(items[0]?.name);
     const [open, setOpen] = useState(false);
     const handleChange = useCallback((event: ChangeEvent<{ value: unknown }>) => {
         setValue(event.target.value as number);
@@ -41,7 +41,7 @@ export function Dropdown({color, menuItems, variant}: DropdownProps) {
                     root: 'p-2',
                 }}}
             >
-                {menuItems.map(({name}, index) => (
+                {items.map(({name}, index) => (
                     <MenuItem key={index} value={name}>{name}</MenuItem>
                 ))}
             </Select>
@@ -51,7 +51,7 @@ export function Dropdown({color, menuItems, variant}: DropdownProps) {
 
 export interface DropdownProps {
     color?: box_color,
-    menuItems: dropdown_item[],
+    items?: dropdown_item[],
     variant?: box_variant,
 }
 

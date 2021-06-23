@@ -5,7 +5,7 @@ export default {
     title: 'Atoms/Dropdown',
     component: Dropdown,
     argTypes: a({
-        menuItems: args.menuItems,
+        items: args.items,
         color: args.color,
         variant: args.blockVariant,
     }),
@@ -14,7 +14,7 @@ export default {
 const Template = args => <Dropdown {...args} />;
 
 export const basic = s(Template, {
-    menuItems: [
+    items: [
         {name: 'Today'},
         {name: 'Tomorrow'},
         {name: 'Yesterday'},
