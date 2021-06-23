@@ -1,5 +1,5 @@
-import {args, s, a} from '../utils';
-import {Pill} from '../../src';
+import { args, s, a } from '../utils';
+import { Pill } from '../../src';
 
 export default {
     title: 'Atoms/Pill',
@@ -9,9 +9,9 @@ export default {
         color: args.color,
         variant: args.blockVariant,
     }),
-}
-const Template = args => (<Pill {...args} />);
+};
+const Template = (args) => <Pill {...args} />;
 
 export const basic = s(Template, {
-    text: "8",
-})
+    text: '8',
+});

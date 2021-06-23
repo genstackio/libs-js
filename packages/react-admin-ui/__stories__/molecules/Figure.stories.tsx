@@ -1,5 +1,5 @@
-import {args, s, a} from "../utils";
-import {Figure} from '../../src';
+import { args, s, a } from '../utils';
+import { Figure } from '../../src';
 
 export default {
     title: 'Molecules/Figure',
@@ -13,15 +13,16 @@ export default {
         variant: args.blockVariant,
         padding: args.padding,
     }),
-}
+};
 
-const Template = args => <Figure {...args} />;
+const Template = (args) => <Figure {...args} />;
 
 export const basic = s(Template, {
     title: 'Our Sale Value',
     price: '$745425',
-    tag: {text: 'New', color: 'success'},
+    tag: { text: 'New', color: 'success' },
     pill: {
         text: 'coeur',
-        color: 'warning'}
+        color: 'warning',
+    },
 });

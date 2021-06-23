@@ -1,10 +1,8 @@
 export function TasksBlock({}: TasksBlockProps) {
-    return (
-        <div>TASKS BLOCK</div>
-    );
+    return <div>TASKS BLOCK</div>;
 }
 
-export interface TasksBlockProps {
-}
+/* eslint @typescript-eslint/no-empty-interface: 0 */
+export interface TasksBlockProps {}
 
-export default TasksBlock
+export default TasksBlock;

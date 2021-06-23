@@ -1,11 +1,9 @@
-import PhoneField, {PhoneFieldProps} from "./PhoneField";
+import PhoneField, { PhoneFieldProps } from './PhoneField';
 
 export function FaxField(props: FaxFieldProps) {
-    return (
-        <PhoneField kind={'fax'} {...props} />
-    );
+    return <PhoneField kind={'fax'} {...props} />;
 }
 
-export interface FaxFieldProps extends PhoneFieldProps {}
+export type FaxFieldProps = PhoneFieldProps;
 
-export default FaxField
+export default FaxField;

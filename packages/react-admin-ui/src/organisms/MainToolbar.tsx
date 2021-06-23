@@ -1,10 +1,8 @@
 export function MainToolbar({}: MainToolbarProps) {
-    return (
-        <div>MAIN TOOLBAR</div>
-    );
+    return <div>MAIN TOOLBAR</div>;
 }
 
-export interface MainToolbarProps {
-}
+/* eslint @typescript-eslint/no-empty-interface: 0 */
+export interface MainToolbarProps {}
 
-export default MainToolbar
+export default MainToolbar;

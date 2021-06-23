@@ -1,11 +1,9 @@
-import TextField, {TextFieldProps} from "./TextField";
+import TextField, { TextFieldProps } from './TextField';
 
 export function NameField(props: NameFieldProps) {
-    return (
-        <TextField kind={'name'} {...props} />
-    );
+    return <TextField kind={'name'} {...props} />;
 }
 
-export interface NameFieldProps extends TextFieldProps {}
+export type NameFieldProps = TextFieldProps;
 
-export default NameField
+export default NameField;

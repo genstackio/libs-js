@@ -1,8 +1,8 @@
-import Chart from "react-apexcharts";
-import {ApexOptions} from "apexcharts";
-import tailwindConfig from "../../../tailwind.config"
-import {box_color, box_variant, chart_series, rich_text} from "../../types";
-import Text from "../../atoms/Text";
+import Chart from 'react-apexcharts';
+import { ApexOptions } from 'apexcharts';
+import tailwindConfig from '../../../tailwind.config';
+import { box_color, box_variant, chart_series, rich_text } from '../../types';
+import Text from '../../atoms/Text';
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 const defaultOptions: ApexOptions = {
@@ -18,15 +18,15 @@ const defaultOptions: ApexOptions = {
                 zoomout: false,
             },
         },
-    }
+    },
 };
 
-export function LineChart({color= 'primary', labels, series, title, variant = 'filled'}: LineChartProps) {
+export function LineChart({ color = 'primary', labels, series, title, variant = 'filled' }: LineChartProps) {
     const col = `${variant}_${color}`;
-    const options = {...defaultOptions, labels: labels, colors: tailwindChartColors[col]};
+    const options = { ...defaultOptions, labels: labels, colors: tailwindChartColors[col] };
     const datas: any = [];
-    series.forEach(data => {
-        datas.push({data});
+    series.forEach((data) => {
+        datas.push({ data });
     });
     return (
         <div>
@@ -37,11 +37,11 @@ export function LineChart({color= 'primary', labels, series, title, variant = 'f
 }
 
 export interface LineChartProps {
-    color?: box_color,
-    labels?: string[],
-    series: chart_series,
-    title?: rich_text,
-    variant?: box_variant,
+    color?: box_color;
+    labels?: string[];
+    series: chart_series;
+    title?: rich_text;
+    variant?: box_variant;
 }
 
-export default LineChart
+export default LineChart;

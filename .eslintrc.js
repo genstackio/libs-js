@@ -27,5 +27,12 @@ module.exports = {
   ],
   rules: {
     "react/react-in-jsx-scope": "off",
+      "@typescript-eslint/ban-types": ["error",
+          {
+              "types": {
+                  "Function": false
+              }
+          }
+      ]
   }
 }

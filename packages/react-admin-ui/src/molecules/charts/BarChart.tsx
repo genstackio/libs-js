@@ -1,48 +1,47 @@
-import Chart from "react-apexcharts";
-import {ApexOptions} from "apexcharts";
-import tailwindConfig from "../../../tailwind.config"
-import {box_color, box_variant} from "../../types";
+import Chart from 'react-apexcharts';
+import { ApexOptions } from 'apexcharts';
+import tailwindConfig from '../../../tailwind.config';
+import { box_color, box_variant } from '../../types';
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 
-const defaultOptions : ApexOptions = {
-
+const defaultOptions: ApexOptions = {
     chart: {
         toolbar: {
-            show: false
+            show: false,
         },
     },
     dataLabels: {
-        enabled: false
+        enabled: false,
     },
     legend: {
-        show: false
+        show: false,
     },
     grid: {
-        show: false
+        show: false,
     },
     xaxis: {
         labels: {
-            show: true
+            show: true,
         },
         axisBorder: {
-            show: true
+            show: true,
         },
         axisTicks: {
-            show: true
-        }
+            show: true,
+        },
     },
     yaxis: {
-        show: false
+        show: false,
     },
     stroke: {
-        show:false
+        show: false,
     },
     plotOptions: {
         bar: {
             borderRadius: 7,
             columnWidth: '30%',
-        }
+        },
     },
     responsive: [
         {
@@ -52,7 +51,7 @@ const defaultOptions : ApexOptions = {
                     bar: {
                         borderRadius: 4,
                         columnWidth: '30%',
-                    }
+                    },
                 },
             },
         },
@@ -63,33 +62,30 @@ const defaultOptions : ApexOptions = {
                     bar: {
                         borderRadius: 1,
                         columnWidth: '30%',
-                    }
+                    },
                 },
             },
-        }
-    ]
+        },
+    ],
 };
 
-export function BarChart({color = 'primary', labels, series, variant = 'filled'}: BarChartProps) {
+export function BarChart({ color = 'primary', labels, series, variant = 'filled' }: BarChartProps) {
     const col = `${variant}_${color}`;
-    const options = {...defaultOptions, colors: tailwindChartColors[col], labels: labels};
+    const options = { ...defaultOptions, colors: tailwindChartColors[col], labels: labels };
 
-    const newData: {data: number[]}[] = series.reduce((acc, data) => {
-        acc.push({data: data});
+    const newData: { data: number[] }[] = series.reduce((acc, data) => {
+        acc.push({ data: data });
         return acc;
-    }, [] as {data: number[]}[]);
+    }, [] as { data: number[] }[]);
 
-    return (
-
-        <Chart type='bar' options={options} series={newData} height={"250px"} />
-    );
+    return <Chart type="bar" options={options} series={newData} height={'250px'} />;
 }
 
 export interface BarChartProps {
-    color?: box_color,
-    labels?: string[],
-    series: number[][],
-    variant?: box_variant,
+    color?: box_color;
+    labels?: string[];
+    series: number[][];
+    variant?: box_variant;
 }
 
-export default BarChart
+export default BarChart;

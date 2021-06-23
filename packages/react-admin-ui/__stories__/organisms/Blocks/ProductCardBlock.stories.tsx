@@ -1,5 +1,5 @@
-import {args, s, a} from '../../utils';
-import {ProductCardBlock} from '../../../src';
+import { args, s, a } from '../../utils';
+import { ProductCardBlock } from '../../../src';
 
 export default {
     title: 'Organisms/Blocks/ProductCardBlock',
@@ -13,18 +13,18 @@ export default {
         rating: args.rating,
         title: args.title,
     }),
-}
+};
 
-const Template = args => <ProductCardBlock {...args} />;
+const Template = (args) => <ProductCardBlock {...args} />;
 
 export const basic = s(Template, {
-    description: "Simply dummy text of the printing.",
+    description: 'Simply dummy text of the printing.',
     image: {
         url: 'https://picsum.photos/250/400',
         alt: 'alt',
     },
-    initialPrice: "$350.00",
-    price: "$26.00",
+    initialPrice: '$350.00',
+    price: '$26.00',
     rating: 5,
     title: "Man's Shirt",
 });

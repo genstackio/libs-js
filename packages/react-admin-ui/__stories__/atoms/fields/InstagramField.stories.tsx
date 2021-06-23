@@ -1,5 +1,5 @@
-import {args, s, a} from "../../utils";
-import {InstagramField} from '../../../src';
+import { args, s, a } from '../../utils';
+import { InstagramField } from '../../../src';
 
 export default {
     title: 'Atoms/fields/InstagramField',
@@ -17,8 +17,8 @@ export default {
         value: args.fieldValue,
         kind: args._disable,
     }),
-}
+};
 
-const Template = args => <InstagramField {...args} />;
+const Template = (args) => <InstagramField {...args} />;
 
-export const basic = s(Template, {})
+export const basic = s(Template, {});

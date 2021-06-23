@@ -1,4 +1,4 @@
-import clsxmp from "../utils/clsxmp";
+import clsxmp from '../utils/clsxmp';
 
 export const paddings = {
     none: '',
@@ -6,14 +6,10 @@ export const paddings = {
     small: 'x-p-small',
 };
 
-export type padding =
-      'none'
-    | 'default'
-    | 'small'
-;
+export type padding = 'none' | 'default' | 'small';
 
 export const defaultPadding = 'none';
 
-export const paddingClass = (v: padding|undefined, e: any = {}) => clsxmp(v, defaultPadding, paddings, e);
+export const paddingClass = (v: padding | undefined, e: any = {}) => clsxmp(v, defaultPadding, paddings, e);
 
-export default paddingClass
+export default paddingClass;

@@ -1,11 +1,9 @@
-import TextField, {TextFieldProps} from "./TextField";
+import TextField, { TextFieldProps } from './TextField';
 
 export function OtpField(props: OtpFieldProps) {
-    return (
-        <TextField kind={'otp'} {...props} />
-    );
+    return <TextField kind={'otp'} {...props} />;
 }
 
-export interface OtpFieldProps extends TextFieldProps {}
+export type OtpFieldProps = TextFieldProps;
 
-export default OtpField
+export default OtpField;

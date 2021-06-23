@@ -1,11 +1,9 @@
-import PasswordField, {PasswordFieldProps} from "./PasswordField";
+import PasswordField, { PasswordFieldProps } from './PasswordField';
 
 export function PasswordConfirmationField(props: PasswordConfirmationFieldProps) {
-    return (
-        <PasswordField kind={'passwordConfirmation'} {...props} />
-    );
+    return <PasswordField kind={'passwordConfirmation'} {...props} />;
 }
 
-export interface PasswordConfirmationFieldProps extends PasswordFieldProps {}
+export type PasswordConfirmationFieldProps = PasswordFieldProps;
 
-export default PasswordConfirmationField
+export default PasswordConfirmationField;

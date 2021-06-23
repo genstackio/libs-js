@@ -1,5 +1,5 @@
-import {a, args, s} from "../../utils";
-import {TimeField} from '../../../src';
+import { a, args, s } from '../../utils';
+import { TimeField } from '../../../src';
 
 export default {
     title: 'Atoms/fields/TimeField',
@@ -17,10 +17,10 @@ export default {
         value: args.fieldValue,
         kind: args._disable,
     }),
-}
+};
 
-const Template = args => <TimeField {...args} />;
+const Template = (args) => <TimeField {...args} />;
 
 export const basic = s(Template, {
-  defaultValue: '11:54',
-})
+    defaultValue: '11:54',
+});

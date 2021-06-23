@@ -1,12 +1,12 @@
-import {Icon, Text} from "../atoms";
-import {box_color, icon} from "../types";
-import clsx from "clsx";
-import boxClass from "../utils/boxClass";
+import { Icon, Text } from '../atoms';
+import { box_color, icon } from '../types';
+import clsx from 'clsx';
+import boxClass from '../utils/boxClass';
 
-export function Kpi({icon, name, quantity, color}: KpiProps) {
+export function Kpi({ icon, name, quantity, color }: KpiProps) {
     return (
         <div className={'flex items-center space-x-6'}>
-            <div className={clsx(boxClass({color}))}>
+            <div className={clsx(boxClass({ color }))}>
                 <Icon icon={icon} />
             </div>
             {quantity && (
@@ -20,10 +20,10 @@ export function Kpi({icon, name, quantity, color}: KpiProps) {
 }
 
 export interface KpiProps {
-    icon?: icon,
-    name?: string,
-    quantity?: number,
-    color?: box_color,
+    icon?: icon;
+    name?: string;
+    quantity?: number;
+    color?: box_color;
 }
 
-export default Kpi
+export default Kpi;

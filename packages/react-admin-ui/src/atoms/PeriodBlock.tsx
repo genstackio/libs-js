@@ -1,8 +1,8 @@
-import {rich_text} from "../types";
-import {Text} from "./Text";
-import {text_color} from "../mappings/text-colors";
+import { rich_text } from '../types';
+import { Text } from './Text';
+import { text_color } from '../mappings/text-colors';
 
-export function PeriodBlock({color, text, value}: PeriodBlockProps) {
+export function PeriodBlock({ color, text, value }: PeriodBlockProps) {
     return (
         <div className={'h-24 border-r-2 border-gray-100 py-2 text-center'}>
             <Text className={'px-2 mb-2'} variant={'title6'} text={text} color={color} />
@@ -12,8 +12,8 @@ export function PeriodBlock({color, text, value}: PeriodBlockProps) {
 }
 
 export interface PeriodBlockProps {
-    color?: text_color,
-    text?: rich_text,
-    value?: rich_text,
+    color?: text_color;
+    text?: rich_text;
+    value?: rich_text;
 }
-export default PeriodBlock
+export default PeriodBlock;

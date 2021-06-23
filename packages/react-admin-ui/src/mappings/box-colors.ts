@@ -1,4 +1,4 @@
-import clsxmp from "../utils/clsxmp";
+import clsxmp from '../utils/clsxmp';
 
 export const boxColors = {
     primary: 'bg-primary',
@@ -14,7 +14,7 @@ export const boxColors = {
 };
 
 export type box_color =
-      'primary'
+    | 'primary'
     | 'secondary'
     | 'success'
     | 'info'
@@ -23,11 +23,10 @@ export type box_color =
     | 'light'
     | 'dark'
     | 'none'
-    | 'default'
-;
+    | 'default';
 
 export const defaultBoxColor = 'default';
 
-export const boxColorClass = (v: box_color|undefined, e: any = {}) => clsxmp(v, defaultBoxColor, boxColors, e);
+export const boxColorClass = (v: box_color | undefined, e: any = {}) => clsxmp(v, defaultBoxColor, boxColors, e);
 
-export default boxColorClass
+export default boxColorClass;

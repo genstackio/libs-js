@@ -1,5 +1,5 @@
-import {args, s, a} from "../../utils";
-import {FirstNameField} from '../../../src';
+import { args, s, a } from '../../utils';
+import { FirstNameField } from '../../../src';
 
 export default {
     title: 'Atoms/fields/FirstNameField',
@@ -17,8 +17,8 @@ export default {
         value: args.fieldValue,
         kind: args._disable,
     }),
-}
+};
 
-const Template = args => <FirstNameField {...args} />;
+const Template = (args) => <FirstNameField {...args} />;
 
-export const basic = s(Template, {})
+export const basic = s(Template, {});

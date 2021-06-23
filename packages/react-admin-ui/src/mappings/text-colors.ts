@@ -1,5 +1,5 @@
-import clsxmp from "../utils/clsxmp";
-import {box_color} from "./box-colors";
+import clsxmp from '../utils/clsxmp';
+import { box_color } from './box-colors';
 
 export const textColors = {
     primary: 'text-primary',
@@ -15,12 +15,10 @@ export const textColors = {
     inherit: 'text-current',
 };
 
-export type text_color = box_color
-    | 'inherit'
-;
+export type text_color = box_color | 'inherit';
 
 export const defaultTextColor = 'inherit';
 
-export const textColorClass = (v: text_color|undefined, e: any = {}) => clsxmp(v, defaultTextColor, textColors, e);
+export const textColorClass = (v: text_color | undefined, e: any = {}) => clsxmp(v, defaultTextColor, textColors, e);
 
-export default textColorClass
+export default textColorClass;

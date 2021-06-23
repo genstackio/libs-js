@@ -1,11 +1,9 @@
-import UrlField, {UrlFieldProps} from "./UrlField";
+import UrlField, { UrlFieldProps } from './UrlField';
 
 export function TwitterField(props: TwitterFieldProps) {
-    return (
-        <UrlField kind={'twitter'} {...props} />
-    );
+    return <UrlField kind={'twitter'} {...props} />;
 }
 
-export interface TwitterFieldProps extends UrlFieldProps {}
+export type TwitterFieldProps = UrlFieldProps;
 
-export default TwitterField
+export default TwitterField;

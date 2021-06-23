@@ -1,5 +1,5 @@
-import {args, s, a} from "../utils";
-import {Login2Template} from '../../src';
+import { args, s, a } from '../utils';
+import { Login2Template } from '../../src';
 
 export default {
     title: 'Templates/Login2Template',
@@ -10,9 +10,9 @@ export default {
         logo: args.logo,
         form: args.form,
     }),
-}
+};
 
-const Template = args => <Login2Template {...args} />
+const Template = (args) => <Login2Template {...args} />;
 
 export const basic = s(Template, {
     image: {
@@ -24,5 +24,5 @@ export const basic = s(Template, {
         alt: 'Logo',
     },
     bgColor: '#F8F9FE',
-    form: (<div>Login Form</div>)
+    form: <div>Login Form</div>,
 });

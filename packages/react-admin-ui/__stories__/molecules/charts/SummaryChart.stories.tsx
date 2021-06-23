@@ -1,8 +1,8 @@
-import {args, s, a} from "../../utils";
-import {SummaryChart} from '../../../src';
-import StoreIcon from "@material-ui/icons/Store";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
+import { args, s, a } from '../../utils';
+import { SummaryChart } from '../../../src';
+import StoreIcon from '@material-ui/icons/Store';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
 export default {
     title: 'Molecules/charts/SummaryChart',
@@ -12,13 +12,13 @@ export default {
         color: args.color,
         variant: args.blockVariant,
     }),
-}
+};
 
-const Template = args => <SummaryChart {...args} />;
+const Template = (args) => <SummaryChart {...args} />;
 
 export const basic = s(Template, {
-    title: "Dashboard",
-    subtitle: "Overview of last month",
+    title: 'Dashboard',
+    subtitle: 'Overview of last month',
     dashboardItems: [
         {
             value: '$4055.56',
@@ -50,7 +50,7 @@ export const basic = s(Template, {
         {
             icon: <AttachMoneyIcon className={'text-white'} />,
             color: 'primary',
-            series: [{data: [40, 90, 80, 100, 70, 120, 30, 80, 20, 73, 60]}],
+            series: [{ data: [40, 90, 80, 100, 70, 120, 30, 80, 20, 73, 60] }],
             name: 'Sales Forecasting',
             value: '$9,478.50',
         },
@@ -58,33 +58,47 @@ export const basic = s(Template, {
     datas: [
         {
             label: 'Yearly',
-            categories: ['Jan', 'Fev', 'Mars', 'Avr', 'Mai', 'Juin', 'Juil', 'Aout', 'Sept', 'Oct', 'Nov', 'Dec', 'Jan'],
-            colors: ["#7366FF", "#F73164"],
+            categories: [
+                'Jan',
+                'Fev',
+                'Mars',
+                'Avr',
+                'Mai',
+                'Juin',
+                'Juil',
+                'Aout',
+                'Sept',
+                'Oct',
+                'Nov',
+                'Dec',
+                'Jan',
+            ],
+            colors: ['#7366FF', '#F73164'],
             series: [
                 {
-                    name: "Online",
+                    name: 'Online',
                     data: [6, 20, 15, 40, 18, 20, 18, 23, 18, 35, 30, 55, 0],
                 },
                 {
-                    name: "Store",
+                    name: 'Store',
                     data: [2, 22, 35, 32, 40, 25, 50, 38, 42, 28, 20, 45, 0],
-                }
+                },
             ],
         },
         {
             label: 'Weekly',
             categories: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'],
-            colors: ["#7366FF", "#F73164"],
+            colors: ['#7366FF', '#F73164'],
             series: [
                 {
-                    name: "Online",
+                    name: 'Online',
                     data: [6, 20, 33, 18, 20, 15, 0],
                 },
                 {
-                    name: "Store",
+                    name: 'Store',
                     data: [2, 35, 82, 15, 60, 35, 0],
-                }
+                },
             ],
-        }
+        },
     ],
 });

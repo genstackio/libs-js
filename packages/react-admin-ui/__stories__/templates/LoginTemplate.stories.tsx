@@ -1,5 +1,5 @@
-import {args, s, a} from "../utils";
-import {LoginTemplate} from '../../src';
+import { args, s, a } from '../utils';
+import { LoginTemplate } from '../../src';
 
 export default {
     title: 'Templates/LoginTemplate',
@@ -9,9 +9,9 @@ export default {
         logo: args.logo,
         form: args.form,
     }),
-}
+};
 
-const Template = args => <LoginTemplate {...args} />
+const Template = (args) => <LoginTemplate {...args} />;
 
 export const basic = s(Template, {
     image: {
@@ -22,5 +22,5 @@ export const basic = s(Template, {
         url: 'https://via.placeholder.com/120x40?text=Logo',
         alt: 'Logo',
     },
-    form: (<div>Login Form</div>)
+    form: <div>Login Form</div>,
 });

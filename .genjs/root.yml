@@ -11,6 +11,7 @@ vars:
     targets:
       migrate: "true"
       start-react-admin-ui: make package-storybook p=react-admin-ui
+      format: yarn lint
 
   readme:
     name: libs-js

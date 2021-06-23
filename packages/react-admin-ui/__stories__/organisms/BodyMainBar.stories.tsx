@@ -1,23 +1,34 @@
-import {args, s, a} from "../utils";
-import {BodyMainBar, Icon} from '../../src';
+import { args, s, a } from '../utils';
+import { BodyMainBar, Icon } from '../../src';
 
 export default {
     title: 'Organisms/BodyMainBar',
     component: BodyMainBar,
     argTypes: a({
         children: args.children,
-        actions : args.actions,
+        actions: args.actions,
     }),
-}
+};
 
-const Template = args => <BodyMainBar {...args} />
+const Template = (args) => <BodyMainBar {...args} />;
 
 export const basic = s(Template, {
-    children: (<div className={'flex space-x-4'}>
-        <div className={'flex items-center '}><Icon icon={'all_inclusive'} />All</div>
-        <div className={'flex items-center'}><Icon icon={'track_changes'} />Doing</div>
-        <div className={'flex items-center'}><Icon icon={'check_circle_outlined'} />Done</div>
-    </div>),
+    children: (
+        <div className={'flex space-x-4'}>
+            <div className={'flex items-center '}>
+                <Icon icon={'all_inclusive'} />
+                All
+            </div>
+            <div className={'flex items-center'}>
+                <Icon icon={'track_changes'} />
+                Doing
+            </div>
+            <div className={'flex items-center'}>
+                <Icon icon={'check_circle_outlined'} />
+                Done
+            </div>
+        </div>
+    ),
     actions: [
         {
             color: 'primary',
@@ -38,5 +49,5 @@ export const basic = s(Template, {
             label: 'Third',
             target: 'https://www.google.com/',
         },
-    ]
+    ],
 });

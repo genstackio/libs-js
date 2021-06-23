@@ -1,5 +1,5 @@
-import {Menu} from '../../src'
-import {args, s, a} from "../utils";
+import { Menu } from '../../src';
+import { args, s, a } from '../utils';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import AirplayOutlinedIcon from '@material-ui/icons/AirplayOutlined';
 
@@ -15,16 +15,16 @@ export default {
         padding: args.padding,
         items: args.items,
     }),
-}
+};
 
-const Template = args => <Menu {...args} />;
+const Template = (args) => <Menu {...args} />;
 
-export const basic = s(Template,  {
-    title: "General",
-    text: "Dashboard, Widgets & Layout.",
+export const basic = s(Template, {
+    title: 'General',
+    text: 'Dashboard, Widgets & Layout.',
     items: [
         {
-            icon: <HomeOutlinedIcon/>,
+            icon: <HomeOutlinedIcon />,
             title: 'Dashboard',
             badge: {
                 type: 'tag',
@@ -32,18 +32,19 @@ export const basic = s(Template,  {
                 label: '2',
                 color: 'success',
             },
-            content: [{
+            content: [
+                {
                     label: 'Default',
                     target: 'https://www.google.com/webhp?hl=fr&sa=X&ved=0ahUKEwj8oNu2_uvwAhUiBmMBHeFQB30QPAgI',
                 },
                 {
                     label: 'Ecommerce',
                     target: 'https://www.google.com/webhp?hl=fr&sa=X&ved=0ahUKEwj8oNu2_uvwAhUiBmMBHeFQB30QPAgI',
-                }
-            ]
+                },
+            ],
         },
         {
-            icon: <AirplayOutlinedIcon/>,
+            icon: <AirplayOutlinedIcon />,
             title: 'Widgets',
             badge: {
                 type: 'pill',
@@ -51,24 +52,36 @@ export const basic = s(Template,  {
                 label: '2',
                 color: 'danger',
             },
-            content: [{
-                label: 'General',
-                target: 'https://www.google.com/webhp?hl=fr&sa=X&ved=0ahUKEwj8oNu2_uvwAhUiBmMBHeFQB30QPAgI',
-            },
+            content: [
+                {
+                    label: 'General',
+                    target: 'https://www.google.com/webhp?hl=fr&sa=X&ved=0ahUKEwj8oNu2_uvwAhUiBmMBHeFQB30QPAgI',
+                },
                 {
                     label: 'Chart',
                     target: 'https://www.google.com/webhp?hl=fr&sa=X&ved=0ahUKEwj8oNu2_uvwAhUiBmMBHeFQB30QPAgI',
-                }
-            ]
+                },
+            ],
         },
         {
-            icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                       className="feather feather-layout">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                        <line x1="3" y1="9" x2="21" y2="9"></line>
-                        <line x1="9" y1="21" x2="9" y2="9"></line>
-                    </svg>,
+            icon: (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="feather feather-layout"
+                >
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="3" y1="9" x2="21" y2="9"></line>
+                    <line x1="9" y1="21" x2="9" y2="9"></line>
+                </svg>
+            ),
             title: 'Page Layout',
             content: [
                 {
@@ -99,7 +112,7 @@ export const basic = s(Template,  {
                     label: 'Footer Fixed',
                     target: 'https://www.google.com/webhp?hl=fr&sa=X&ved=0ahUKEwj8oNu2_uvwAhUiBmMBHeFQB30QPAgI',
                 },
-            ]
-        }
-    ]
-})
+            ],
+        },
+    ],
+});

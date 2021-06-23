@@ -1,16 +1,16 @@
-import {useCallback, useState} from 'react';
-import clsx from "clsx";
-import {BaseBlockProps, Block, Icon} from "../../atoms";
-import {Kpi} from "../../molecules";
-import {icon} from '../../types';
+import { useCallback, useState } from 'react';
+import clsx from 'clsx';
+import { BaseBlockProps, Block, Icon } from '../../atoms';
+import { Kpi } from '../../molecules';
+import { icon } from '../../types';
 
-export function KpiBlock({icon, name, quantity, bgIcon, ...props}: KpiBlockProps) {
+export function KpiBlock({ icon, name, quantity, bgIcon, ...props }: KpiBlockProps) {
     const [isHover, setIsHover] = useState(false);
     const onHover = useCallback(() => {
-        setIsHover(true)
+        setIsHover(true);
     }, [setIsHover]);
     const onLeave = useCallback(() => {
-        setIsHover(false)
+        setIsHover(false);
     }, [setIsHover]);
 
     return (
@@ -28,10 +28,10 @@ export function KpiBlock({icon, name, quantity, bgIcon, ...props}: KpiBlockProps
 }
 
 export interface KpiBlockProps extends BaseBlockProps {
-    bgIcon?: icon,
-    icon?: icon,
-    name?: string,
-    quantity?: number,
+    bgIcon?: icon;
+    icon?: icon;
+    name?: string;
+    quantity?: number;
 }
 
-export default KpiBlock
+export default KpiBlock;

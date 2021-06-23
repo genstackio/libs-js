@@ -1,5 +1,5 @@
-import {args, s, a} from "../../utils";
-import {FacebookField} from '../../../src';
+import { args, s, a } from '../../utils';
+import { FacebookField } from '../../../src';
 
 export default {
     title: 'Atoms/fields/FacebookField',
@@ -17,8 +17,8 @@ export default {
         value: args.fieldValue,
         kind: args._disable,
     }),
-}
+};
 
-const Template = args => <FacebookField {...args} />;
+const Template = (args) => <FacebookField {...args} />;
 
-export const basic = s(Template, {})
+export const basic = s(Template, {});

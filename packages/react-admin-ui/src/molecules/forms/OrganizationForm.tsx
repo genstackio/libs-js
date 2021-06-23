@@ -1,9 +1,19 @@
-import {useForm} from '../../hooks/useForm';
-import {FieldGroup, LastNameField, CityField, AddressField, AdditionalAddressField, ZipCodeField, PhoneField, EmailField, UrlField} from "../../atoms";
-import {BaseFormProps} from "./BaseForm";
+import { useForm } from '../../hooks/useForm';
+import {
+    FieldGroup,
+    LastNameField,
+    CityField,
+    AddressField,
+    AdditionalAddressField,
+    ZipCodeField,
+    PhoneField,
+    EmailField,
+    UrlField,
+} from '../../atoms';
+import { BaseFormProps } from './BaseForm';
 
 export function OrganizationForm(props: OrganizationFormProps) {
-    const {Form, SubmitButton, field} = useForm(props, 'organization');
+    const { Form, SubmitButton, field } = useForm(props, 'organization');
 
     return (
         <Form>
@@ -26,7 +36,6 @@ export function OrganizationForm(props: OrganizationFormProps) {
     );
 }
 
-export interface OrganizationFormProps extends BaseFormProps {
-}
+export type OrganizationFormProps = BaseFormProps;
 
-export default OrganizationForm
+export default OrganizationForm;

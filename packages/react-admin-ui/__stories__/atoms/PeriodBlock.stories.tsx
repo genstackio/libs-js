@@ -1,5 +1,5 @@
-import {args, s, a} from "../utils";
-import {PeriodBlock} from '../../src';
+import { args, s, a } from '../utils';
+import { PeriodBlock } from '../../src';
 
 export default {
     title: 'Atoms/PeriodBlock',
@@ -9,11 +9,11 @@ export default {
         text: args.text,
         value: args.textValue,
     }),
-}
+};
 
-const Template = args => (<PeriodBlock {...args} />);
+const Template = (args) => <PeriodBlock {...args} />;
 
 export const basic = s(Template, {
     text: 'Daily',
     value: '36%',
-})
+});

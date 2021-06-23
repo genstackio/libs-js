@@ -1,5 +1,5 @@
-import {args, s, a} from "../../utils";
-import {ZipCodeField} from '../../../src';
+import { args, s, a } from '../../utils';
+import { ZipCodeField } from '../../../src';
 
 export default {
     title: 'Atoms/fields/ZipCodeField',
@@ -17,8 +17,8 @@ export default {
         value: args.fieldValue,
         kind: args._disable,
     }),
-}
+};
 
-const Template = args => <ZipCodeField {...args} />;
+const Template = (args) => <ZipCodeField {...args} />;
 
-export const basic = s(Template, {})
+export const basic = s(Template, {});

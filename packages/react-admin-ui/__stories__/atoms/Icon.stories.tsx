@@ -1,5 +1,5 @@
-import {args, s, a} from "../utils";
-import {Icon} from '../../src';
+import { args, s, a } from '../utils';
+import { Icon } from '../../src';
 
 export default {
     title: 'Atoms/Icon',
@@ -8,10 +8,10 @@ export default {
         url: args.text,
         alt: args.text,
     }),
-}
+};
 
-const Template = args => <Icon {...args} />;
+const Template = (args) => <Icon {...args} />;
 
 export const basic = s(Template, {
     icon: 'phone',
-})
+});

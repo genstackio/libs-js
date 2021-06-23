@@ -1,5 +1,5 @@
-import {args, s, a} from "../../utils";
-import {PasswordConfirmationField} from '../../../src';
+import { args, s, a } from '../../utils';
+import { PasswordConfirmationField } from '../../../src';
 
 export default {
     title: 'Atoms/fields/PasswordConfirmationField',
@@ -17,8 +17,8 @@ export default {
         value: args.fieldValue,
         kind: args._disable,
     }),
-}
+};
 
-const Template = args => <PasswordConfirmationField {...args} />;
+const Template = (args) => <PasswordConfirmationField {...args} />;
 
-export const basic = s(Template, {})
+export const basic = s(Template, {});

@@ -1,5 +1,5 @@
-import {args, s, a} from "../../utils";
-import {CityField} from '../../../src';
+import { args, s, a } from '../../utils';
+import { CityField } from '../../../src';
 
 export default {
     title: 'Atoms/fields/CityField',
@@ -17,8 +17,8 @@ export default {
         value: args.fieldValue,
         kind: args._disable,
     }),
-}
+};
 
-const Template = args => <CityField {...args} />;
+const Template = (args) => <CityField {...args} />;
 
-export const basic = s(Template, {})
+export const basic = s(Template, {});

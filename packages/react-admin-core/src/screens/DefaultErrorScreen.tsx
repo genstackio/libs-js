@@ -1,6 +1,4 @@
 export function DefaultErrorScreen() {
-    return (
-        <div>An unexpected error occured.</div>
-    );
+    return <div>An unexpected error occured.</div>;
 }
-export default DefaultErrorScreen
+export default DefaultErrorScreen;

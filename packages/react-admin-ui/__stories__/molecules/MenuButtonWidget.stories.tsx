@@ -1,5 +1,5 @@
-import {MenuButtonWidget} from '../../src'
-import {args, s, a} from "../utils";
+import { MenuButtonWidget } from '../../src';
+import { args, s, a } from '../utils';
 
 export default {
     title: 'Molecules/MenuButtonWidget',
@@ -8,11 +8,11 @@ export default {
         items: args.items,
         color: args.color,
     }),
-}
+};
 
-const Template = args => <MenuButtonWidget {...args} />;
+const Template = (args) => <MenuButtonWidget {...args} />;
 
-export const basic = s(Template,  {
+export const basic = s(Template, {
     items: [
         {
             icon: 'person',
@@ -30,4 +30,4 @@ export const basic = s(Template,  {
             target: () => alert('Logout'),
         },
     ],
-})
+});

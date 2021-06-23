@@ -1,19 +1,26 @@
-import {ComponentType, Suspense, useMemo} from 'react';
-import Route from "./Route";
+import { ComponentType, Suspense, useMemo } from 'react';
+import Route from './Route';
 import DefaultLoadingScreen from './screens/DefaultLoadingScreen';
 import DefaultErrorScreen from './screens/DefaultErrorScreen';
-import {BrowserRouter as Router, Switch} from "react-router-dom";
-import {route} from "./types";
-import {AppProvider, useAppContext} from "@genstackio/react-contexts";
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { route } from './types';
+import { AppProvider, useAppContext } from '@genstackio/react-contexts';
 import coreTranslations from './configs/translations';
 import adminUiTranslations from '@genstackio/react-admin-ui/lib/configs/translations';
 
-export function BaseApp({prefix = 'app', routes = [], screenImporter, loadingComponent: LoadingComponent = undefined, translations = {}}: BaseAppProps) {
+export function BaseApp({
+    prefix = 'app',
+    routes = [],
+    screenImporter,
+    loadingComponent: LoadingComponent = undefined,
+    translations = {},
+}: BaseAppProps) {
     const LoadingScreen = LoadingComponent || DefaultLoadingScreen;
-    const computedTranslations = useMemo(() => [...(Array.isArray(translations) ? translations : [translations]), coreTranslations, adminUiTranslations],
-        [translations]
+    const computedTranslations = useMemo(
+        () => [...(Array.isArray(translations) ? translations : [translations]), coreTranslations, adminUiTranslations],
+        [translations],
     );
-    const {api, baseTheme, cart, client, i18n, navigation, storage, user} = useAppContext({
+    const { api, baseTheme, cart, client, i18n, navigation, storage, user } = useAppContext({
         storageKeys: {
             user: `${prefix}_user`,
             cart: `${prefix}_cart`,
@@ -25,16 +32,17 @@ export function BaseApp({prefix = 'app', routes = [], screenImporter, loadingCom
         translations: computedTranslations,
     });
     return (
-        <AppProvider error={DefaultErrorScreen}
-                     storage={storage}
-                     location={location}
-                     translation={i18n}
-                     theme={baseTheme}
-                     api={api}
-                     cart={cart}
-                     user={user}
-                     graphql={client}
-                     navigation={navigation}
+        <AppProvider
+            error={DefaultErrorScreen}
+            storage={storage}
+            location={location}
+            translation={i18n}
+            theme={baseTheme}
+            api={api}
+            cart={cart}
+            user={user}
+            graphql={client}
+            navigation={navigation}
         >
             <Router>
                 <Suspense fallback={<LoadingScreen />}>
@@ -50,11 +58,13 @@ export function BaseApp({prefix = 'app', routes = [], screenImporter, loadingCom
 }
 
 export interface BaseAppProps {
-    prefix?: string,
-    routes?: route[],
-    screenImporter?: (name: string) => any,
-    loadingComponent?: ComponentType,
-    translations?: {[key: string]: {[key: string]: {[key: string]: string}}} | {[key: string]: {[key: string]: {[key: string]: string}}}[],
+    prefix?: string;
+    routes?: route[];
+    screenImporter?: (name: string) => any;
+    loadingComponent?: ComponentType;
+    translations?:
+        | { [key: string]: { [key: string]: { [key: string]: string } } }
+        | { [key: string]: { [key: string]: { [key: string]: string } } }[];
 }
 
-export default BaseApp
+export default BaseApp;

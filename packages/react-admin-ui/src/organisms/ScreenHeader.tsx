@@ -1,7 +1,7 @@
-import {box_color, screen_header_item} from "../types";
-import {Breadcrumb} from "../molecules";
+import { box_color, screen_header_item } from '../types';
+import { Breadcrumb } from '../molecules';
 
-export function ScreenHeader({color = 'primary', items = []}: ScreenHeaderProps) {
+export function ScreenHeader({ color = 'primary', items = [] }: ScreenHeaderProps) {
     const title = items.slice(items.length - 1)[0].label;
     return (
         <div className={'flex justify-between items-center'}>
@@ -12,8 +12,8 @@ export function ScreenHeader({color = 'primary', items = []}: ScreenHeaderProps)
 }
 
 export interface ScreenHeaderProps {
-    color?: box_color,
-    items: screen_header_item[],
+    color?: box_color;
+    items: screen_header_item[];
 }
 
-export default ScreenHeader
+export default ScreenHeader;

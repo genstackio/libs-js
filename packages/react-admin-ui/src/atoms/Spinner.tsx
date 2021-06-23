@@ -1,10 +1,10 @@
-import clsx from "clsx";
-import spinnerClass, {spinner_variant, spinner_size, spinner_color} from '../mappings/spinners';
-import {useMemo} from "react";
+import clsx from 'clsx';
+import spinnerClass, { spinner_variant, spinner_size, spinner_color } from '../mappings/spinners';
+import { useMemo } from 'react';
 
-export function Spinner({variant = 'half-circle', size = 'md', color = 'primary'}: SpinnerProps) {
-    let isSpin = ('dots' !== variant) && ('squares' !== variant);
-    const def = useMemo(() => ({variant, size, color}), [variant, size, color]);
+export function Spinner({ variant = 'half-circle', size = 'md', color = 'primary' }: SpinnerProps) {
+    const isSpin = 'dots' !== variant && 'squares' !== variant;
+    const def = useMemo(() => ({ variant, size, color }), [variant, size, color]);
     const computedClassName = useMemo(() => spinnerClass(def), [def]);
     return (
         <div>
@@ -21,9 +21,9 @@ export function Spinner({variant = 'half-circle', size = 'md', color = 'primary'
 }
 
 export interface SpinnerProps {
-    variant?: spinner_variant,
-    size?: spinner_size,
-    color?: spinner_color,
+    variant?: spinner_variant;
+    size?: spinner_size;
+    color?: spinner_color;
 }
 
-export default Spinner
+export default Spinner;

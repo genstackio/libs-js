@@ -1,4 +1,4 @@
-import clsxmp from "../utils/clsxmp";
+import clsxmp from '../utils/clsxmp';
 
 export const progressVariants = {
     circular: '',
@@ -6,14 +6,11 @@ export const progressVariants = {
     default: '',
 };
 
-export type progress_variant =
-      'circular'
-    | 'linear'
-    | 'default'
-;
+export type progress_variant = 'circular' | 'linear' | 'default';
 
 export const defaultProgressVariant = 'default';
 
-export const progressVariantClass = (v: progress_variant|undefined, e: any = {}) => clsxmp(v, defaultProgressVariant, progressVariants, e);
+export const progressVariantClass = (v: progress_variant | undefined, e: any = {}) =>
+    clsxmp(v, defaultProgressVariant, progressVariants, e);
 
-export default progressVariantClass
+export default progressVariantClass;

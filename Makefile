@@ -33,6 +33,9 @@ deploy: deploy-storybooks invalidate-cache
 deploy-storybooks:
 	@yarn --silent deploy-storybooks
 
+format:
+	@yarn lint
+
 generate:
 	@yarn --silent genjs
 
@@ -86,6 +89,7 @@ test-only:
 		changed \
 		clean clean-buildinfo clean-coverage clean-lib clean-modules \
 		deploy deploy-storybooks \
+		format \
 		generate \
 		install install-packages install-root \
 		invalidate-cache \

@@ -1,5 +1,5 @@
-import {args, s, a} from "../../utils";
-import {CheckboxField} from '../../../src';
+import { args, s, a } from '../../utils';
+import { CheckboxField } from '../../../src';
 
 export default {
     title: 'Atoms/fields/CheckboxField',
@@ -15,11 +15,11 @@ export default {
         options: args._disable,
         kind: args._disable,
     }),
-}
+};
 
-const Template = args => <CheckboxField {...args} />;
+const Template = (args) => <CheckboxField {...args} />;
 
 export const basic = s(Template, {
     label: 'Checkbox',
     name: 'checkbox',
-})
+});

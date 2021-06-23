@@ -1,4 +1,4 @@
-import getInitials from "../../src/utils/getInitials";
+import getInitials from '../../src/utils/getInitials';
 
 describe('getInitials', () => {
     [
@@ -8,9 +8,9 @@ describe('getInitials', () => {
         ['maurice olivari', 'MO'],
         ['Alphonso della Vega', 'ADV'],
         ['Alphonso  Della     vega', 'ADV'],
-    ].forEach(
-        ([name, expected]) => it(`${name} => ${expected}`, () => {
+    ].forEach(([name, expected]) =>
+        it(`${name} => ${expected}`, () => {
             expect(getInitials(name)).toEqual(expected);
-        })
+        }),
     );
 });

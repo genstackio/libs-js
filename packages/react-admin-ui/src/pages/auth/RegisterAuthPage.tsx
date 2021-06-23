@@ -1,10 +1,8 @@
 export function RegisterAuthPage({}: RegisterAuthPageProps) {
-    return (
-        <div>REGISTER PAGE</div>
-    );
+    return <div>REGISTER PAGE</div>;
 }
 
-export interface RegisterAuthPageProps {
-}
+/* eslint @typescript-eslint/no-empty-interface: 0 */
+export interface RegisterAuthPageProps {}
 
-export default RegisterAuthPage
+export default RegisterAuthPage;

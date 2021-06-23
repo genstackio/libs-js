@@ -1,5 +1,5 @@
-import {args, s, a} from "../utils";
-import {Badge} from '../../src';
+import { args, s, a } from '../utils';
+import { Badge } from '../../src';
 
 export default {
     title: 'Atoms/Badge',
@@ -7,16 +7,16 @@ export default {
     argTypes: a({
         color: args.color,
     }),
-}
+};
 
-const Template = args => (<Badge {...args} />);
+const Template = (args) => <Badge {...args} />;
 
 export const basic = s(Template, {
-    text: "je suis un tag",
+    text: 'je suis un tag',
 });
 export const custom = s(Template, {
     color: 'success',
-    text: "pill tu perds",
+    text: 'pill tu perds',
     variant: 'contained',
     type: 'pill',
 });

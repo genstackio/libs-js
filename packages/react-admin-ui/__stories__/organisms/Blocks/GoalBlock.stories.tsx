@@ -1,5 +1,5 @@
-import {args, s, a} from "../../utils";
-import {GoalBlock} from '../../../src';
+import { args, s, a } from '../../utils';
+import { GoalBlock } from '../../../src';
 
 export default {
     title: 'Organisms/Blocks/GoalBlock',
@@ -12,16 +12,16 @@ export default {
         variant: args.blockVariant,
         padding: args.padding,
     }),
-}
+};
 
-const Template = args => <GoalBlock {...args} />;
+const Template = (args) => <GoalBlock {...args} />;
 
 export const basic = s(Template, {
-    badgeLabel: "Hot",
+    badgeLabel: 'Hot',
     values: {
         current: 95900,
         goal: 150000,
-        text: 'Purchase Order Value'
+        text: 'Purchase Order Value',
     },
-    unit: '€'
+    unit: '€',
 });

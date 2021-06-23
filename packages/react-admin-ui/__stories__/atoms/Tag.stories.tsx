@@ -1,5 +1,5 @@
-import {args, s, a} from '../utils';
-import {Tag} from '../../src';
+import { args, s, a } from '../utils';
+import { Tag } from '../../src';
 
 export default {
     title: 'Atoms/Tag',
@@ -10,22 +10,22 @@ export default {
         color: args.color,
         variant: args.blockVariant,
     }),
-}
+};
 
-const Template = args => (<Tag {...args} />);
+const Template = (args) => <Tag {...args} />;
 
 export const basic = s(Template, {
-    text: "je suis un tag",
-})
+    text: 'je suis un tag',
+});
 
 export const custom = s(Template, {
-    text: "je suis un tag",
+    text: 'je suis un tag',
     variant: 'outlined',
     icon: 'settings',
     size: 21,
-})
+});
 export const noText = s(Template, {
     variant: 'outlined',
     icon: 'settings',
     size: 21,
-})
+});

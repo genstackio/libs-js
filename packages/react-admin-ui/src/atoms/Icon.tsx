@@ -1,14 +1,19 @@
-import {icon} from '../types';
+import { icon } from '../types';
 import MuiIcon from '@material-ui/core/Icon';
 
-export function Icon({icon, size = 20, ...props}) {
+export function Icon({ icon, size = 20, ...props }) {
     if (!icon) return null;
     switch (typeof icon) {
         case 'string':
-            if (('/' === icon.slice(0, 1)) || ('http' === icon.slice(0, 4))) {
+            if ('/' === icon.slice(0, 1) || 'http' === icon.slice(0, 4)) {
                 return <img src={icon} alt={''} {...props} />;
             }
-            if (size) return <MuiIcon {...props} style={{fontSize: size}}>{icon}</MuiIcon>;
+            if (size)
+                return (
+                    <MuiIcon {...props} style={{ fontSize: size }}>
+                        {icon}
+                    </MuiIcon>
+                );
             return <MuiIcon {...props}>{icon}</MuiIcon>;
         default:
             return icon;
@@ -16,8 +21,8 @@ export function Icon({icon, size = 20, ...props}) {
 }
 
 export interface IconProps {
-    icon?: icon,
-    size?: number,
+    icon?: icon;
+    size?: number;
 }
 
-export default Icon
+export default Icon;

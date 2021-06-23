@@ -1,3 +1,3 @@
-export const createDefaultProductContextValue = (defaultValue: any|undefined = undefined) => defaultValue;
+export const createDefaultProductContextValue = (defaultValue: any | undefined = undefined) => defaultValue;
 
-export default createDefaultProductContextValue
+export default createDefaultProductContextValue;

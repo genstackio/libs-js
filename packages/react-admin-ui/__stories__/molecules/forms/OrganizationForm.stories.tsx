@@ -1,18 +1,18 @@
-import {args, s, a} from "../../utils";
-import {OrganizationForm} from '../../../src';
+import { args, s, a } from '../../utils';
+import { OrganizationForm } from '../../../src';
 
 export default {
-  title: 'Molecules/forms/OrganizationForm',
-  component: OrganizationForm,
-  argTypes: a({
-    color: args.color,
-    defaultValues: args._disable,
-    onSubmit: args._disable,
-  }),
-}
+    title: 'Molecules/forms/OrganizationForm',
+    component: OrganizationForm,
+    argTypes: a({
+        color: args.color,
+        defaultValues: args._disable,
+        onSubmit: args._disable,
+    }),
+};
 
-const Template = args => <OrganizationForm {...args} />;
+const Template = (args) => <OrganizationForm {...args} />;
 
 export const basic = s(Template, {
-  onSubmit: v => alert(JSON.stringify(v, null, 4)),
-})
+    onSubmit: (v) => alert(JSON.stringify(v, null, 4)),
+});

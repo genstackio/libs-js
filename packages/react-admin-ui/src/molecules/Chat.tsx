@@ -1,10 +1,8 @@
 export function Chat({}: ChatProps) {
-    return (
-        <div>CHAT</div>
-    );
+    return <div>CHAT</div>;
 }
 
-export interface ChatProps {
-}
+/* eslint @typescript-eslint/no-empty-interface: 0 */
+export interface ChatProps {}
 
-export default Chat
+export default Chat;

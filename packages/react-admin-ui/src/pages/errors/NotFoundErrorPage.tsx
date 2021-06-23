@@ -1,10 +1,8 @@
 export function NotFoundErrorPage({}: NotFoundErrorPageProps) {
-    return (
-        <div>NOT FOUND ERROR PAGE</div>
-    );
+    return <div>NOT FOUND ERROR PAGE</div>;
 }
 
-export interface NotFoundErrorPageProps {
-}
+/* eslint @typescript-eslint/no-empty-interface: 0 */
+export interface NotFoundErrorPageProps {}
 
-export default NotFoundErrorPage
+export default NotFoundErrorPage;

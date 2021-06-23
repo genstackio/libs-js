@@ -1,5 +1,5 @@
-import {args, s, a} from "../../utils";
-import {PasswordField} from '../../../src';
+import { args, s, a } from '../../utils';
+import { PasswordField } from '../../../src';
 
 export default {
     title: 'Atoms/fields/PasswordField',
@@ -17,8 +17,8 @@ export default {
         value: args.fieldValue,
         kind: args._disable,
     }),
-}
+};
 
-const Template = args => <PasswordField {...args} />;
+const Template = (args) => <PasswordField {...args} />;
 
-export const basic = s(Template, {})
+export const basic = s(Template, {});

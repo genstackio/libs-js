@@ -1,12 +1,9 @@
-import TextField, {TextFieldProps} from "./TextField";
+import TextField, { TextFieldProps } from './TextField';
 
 export function AdditionalAddressField(props: AdditionalAddressFieldProps) {
-    return (
-        <TextField kind={'additionalAddress'} {...props} />
-    );
+    return <TextField kind={'additionalAddress'} {...props} />;
 }
 
-export interface AdditionalAddressFieldProps extends TextFieldProps {
-}
+export type AdditionalAddressFieldProps = TextFieldProps;
 
-export default AdditionalAddressField
+export default AdditionalAddressField;

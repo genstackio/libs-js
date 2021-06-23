@@ -1,15 +1,15 @@
-import {args, s, a} from "../utils";
-import {ButtonsGroup} from '../../src';
+import { args, s, a } from '../utils';
+import { ButtonsGroup } from '../../src';
 
 export default {
     title: 'Molecules/ButtonsGroup',
     component: ButtonsGroup,
     argTypes: a({
-        actions : args.actions,
+        actions: args.actions,
     }),
-}
+};
 
-const Template = args => <ButtonsGroup {...args} />
+const Template = (args) => <ButtonsGroup {...args} />;
 
 export const basic = s(Template, {
     actions: [
@@ -32,5 +32,5 @@ export const basic = s(Template, {
             label: 'Third',
             target: 'https://www.google.com/',
         },
-    ]
+    ],
 });

@@ -1,5 +1,5 @@
-import {args, s, a} from "../../utils";
-import {BirthDateField} from '../../../src';
+import { args, s, a } from '../../utils';
+import { BirthDateField } from '../../../src';
 
 export default {
     title: 'Atoms/fields/BirthDateField',
@@ -17,10 +17,10 @@ export default {
         value: args.fieldValue,
         kind: args._disable,
     }),
-}
+};
 
-const Template = args => <BirthDateField {...args} />;
+const Template = (args) => <BirthDateField {...args} />;
 
 export const basic = s(Template, {
     now: '2020-03-18T21:11:54',
-})
+});

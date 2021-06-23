@@ -1,5 +1,5 @@
-import {a, args, s} from "../../utils";
-import {ColorField} from '../../../src';
+import { a, args, s } from '../../utils';
+import { ColorField } from '../../../src';
 
 export default {
     title: 'Atoms/fields/ColorField',
@@ -17,9 +17,8 @@ export default {
         value: args.fieldValue,
         kind: args._disable,
     }),
-}
+};
 
-const Template = args => <ColorField {...args} />;
+const Template = (args) => <ColorField {...args} />;
 
-export const basic = s(Template, {
-})
+export const basic = s(Template, {});

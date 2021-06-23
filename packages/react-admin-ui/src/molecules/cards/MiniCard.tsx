@@ -1,7 +1,7 @@
-import {children, image, rich_text} from "../../types";
-import {Block, Image, Text} from "../../atoms";
+import { children, image, rich_text } from '../../types';
+import { Block, Image, Text } from '../../atoms';
 
-export function MiniCard({children, image, title}: MiniCardProps) {
+export function MiniCard({ children, image, title }: MiniCardProps) {
     return (
         <div className={'w-2/3 rounded-2xl'}>
             <Block padding={'none'}>
@@ -22,9 +22,9 @@ export function MiniCard({children, image, title}: MiniCardProps) {
 }
 
 export interface MiniCardProps {
-    children?: children,
-    image?: image,
-    title?: rich_text,
+    children?: children;
+    image?: image;
+    title?: rich_text;
 }
 
-export default MiniCard
+export default MiniCard;

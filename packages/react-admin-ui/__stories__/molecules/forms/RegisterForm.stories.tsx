@@ -1,5 +1,5 @@
-import {args, s, a} from '../../utils';
-import {RegisterForm} from '../../../src';
+import { args, s, a } from '../../utils';
+import { RegisterForm } from '../../../src';
 
 export default {
     title: 'Molecules/forms/RegisterForm',
@@ -13,18 +13,18 @@ export default {
         variant: args._disable,
         socialLogins: args.flag,
     }),
-}
+};
 
-const Template = args => <RegisterForm {...args} />;
+const Template = (args) => <RegisterForm {...args} />;
 
 export const basic = s(Template, {
-    onSubmit: v => alert(JSON.stringify(v, null, 4)),
+    onSubmit: (v) => alert(JSON.stringify(v, null, 4)),
     onPrivacyPolicyClick: undefined,
     onLoginClick: undefined,
-})
+});
 
 export const prePopulated = s(Template, {
-    onSubmit: v => alert(JSON.stringify(v, null, 4)),
+    onSubmit: (v) => alert(JSON.stringify(v, null, 4)),
     onPrivacyPolicyClick: undefined,
     defaultValues: {
         username: 'olivier@phppro.fr',
@@ -32,19 +32,19 @@ export const prePopulated = s(Template, {
         firstName: 'Olivier',
     },
     onLoginClick: undefined,
-})
+});
 
 export const withSocialLogins = s(Template, {
-    onSubmit: v => alert(JSON.stringify(v, null, 4)),
+    onSubmit: (v) => alert(JSON.stringify(v, null, 4)),
     onPrivacyPolicyClick: undefined,
     socialLogins: true,
     onLoginClick: undefined,
-})
+});
 
 export const allOptions = s(Template, {
-    onSubmit: v => alert(JSON.stringify(v, null, 4)),
+    onSubmit: (v) => alert(JSON.stringify(v, null, 4)),
     onPrivacyPolicyClick: () => alert('privacy policy clicked!'),
     onLoginClick: () => alert('login clicked!'),
     socialLogins: true,
     rememberMe: true,
-})
+});

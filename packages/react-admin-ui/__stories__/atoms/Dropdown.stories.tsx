@@ -1,5 +1,5 @@
-import {args, s, a} from "../utils";
-import {Dropdown} from '../../src';
+import { args, s, a } from '../utils';
+import { Dropdown } from '../../src';
 
 export default {
     title: 'Atoms/Dropdown',
@@ -9,14 +9,10 @@ export default {
         color: args.color,
         variant: args.blockVariant,
     }),
-}
+};
 
-const Template = args => <Dropdown {...args} />;
+const Template = (args) => <Dropdown {...args} />;
 
 export const basic = s(Template, {
-    items: [
-        {name: 'Today'},
-        {name: 'Tomorrow'},
-        {name: 'Yesterday'},
-    ]
+    items: [{ name: 'Today' }, { name: 'Tomorrow' }, { name: 'Yesterday' }],
 });

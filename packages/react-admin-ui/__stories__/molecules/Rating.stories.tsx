@@ -1,5 +1,5 @@
-import {args, s, a} from "../utils";
-import {Rating} from '../../src';
+import { args, s, a } from '../utils';
+import { Rating } from '../../src';
 
 export default {
     title: 'Molecules/Rating',
@@ -10,8 +10,8 @@ export default {
         value: args.value,
         onChange: args.onChange,
     }),
-}
+};
 
-const Template = args => <Rating {...args} />;
+const Template = (args) => <Rating {...args} />;
 
-export const basic = s(Template, {text: 'Eval'});
+export const basic = s(Template, { text: 'Eval' });

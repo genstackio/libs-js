@@ -1,10 +1,8 @@
 export function MaintenanceErrorPage({}: MaintenanceErrorPageProps) {
-    return (
-        <div>MAINTENANCE ERROR PAGE</div>
-    );
+    return <div>MAINTENANCE ERROR PAGE</div>;
 }
 
-export interface MaintenanceErrorPageProps {
-}
+/* eslint @typescript-eslint/no-empty-interface: 0 */
+export interface MaintenanceErrorPageProps {}
 
-export default MaintenanceErrorPage
+export default MaintenanceErrorPage;

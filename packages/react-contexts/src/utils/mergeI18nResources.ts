@@ -12,7 +12,7 @@ export function mergeI18nResources(resources: any) {
                     acc3[resourceNamespace] = resourceKeys;
                     return acc3;
                 }
-                acc3[resourceNamespace] = {...(resourceKeys as any), ...acc3[resourceNamespace]};
+                acc3[resourceNamespace] = { ...(resourceKeys as any), ...acc3[resourceNamespace] };
                 return acc3;
             }, acc2[resourceLang]);
             return acc2;
@@ -20,4 +20,4 @@ export function mergeI18nResources(resources: any) {
     }, {} as any);
 }
 
-export default mergeI18nResources
+export default mergeI18nResources;

@@ -1,62 +1,71 @@
-import {useCallback} from 'react';
-import {s, a} from "../utils";
-import {FileUploader} from '../../src';
+import { useCallback } from 'react';
+import { s, a } from '../utils';
+import { FileUploader } from '../../src';
 
 export default {
     title: 'Molecules/FileUploader',
     component: FileUploader,
     argTypes: a({
-        accept: {control: {type: 'text'}},
-        color: { control: {type: 'select'}, options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'] },
-        variant: { control: {type: 'select'}, options: ['filled', 'outlined', 'contained'] },
-    }),
-
-}
-
-const Template = args => <FileUploader {...args} />;
-const Uploader = props => {
-    const toast = useCallback(
-        (color, message) => {
-            const el = document.getElementById('toast')
-            const classes = 'rounded-t-md mb-2 w-48 bg-opacity-25 bg-blue-500 border-blue-700 border-l-4 py-2 px-3 shadow-md mb-2';
-            if (el !== null) {
-                el.innerHTML = message;
-                el.className = classes;
-                setTimeout(() => {
-                    el.className = el.className.replace(classes, '');
-                    el.innerHTML = ''
-                }, 3000)
-            }
+        accept: { control: { type: 'text' } },
+        color: {
+            control: { type: 'select' },
+            options: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'],
         },
-        []
+        variant: { control: { type: 'select' }, options: ['filled', 'outlined', 'contained'] },
+    }),
+};
+
+const Template = (args) => <FileUploader {...args} />;
+const Uploader = (props) => {
+    const toast = useCallback((color, message) => {
+        const el = document.getElementById('toast');
+        const classes =
+            'rounded-t-md mb-2 w-48 bg-opacity-25 bg-blue-500 border-blue-700 border-l-4 py-2 px-3 shadow-md mb-2';
+        if (el !== null) {
+            el.innerHTML = message;
+            el.className = classes;
+            setTimeout(() => {
+                el.className = el.className.replace(classes, '');
+                el.innerHTML = '';
+            }, 3000);
+        }
+    }, []);
+
+    const onFileUpload = useCallback(
+        (meta) => {
+            toast('blue', `${meta.name} uploaded.`);
+        },
+        [toast],
     );
 
-    const onFileUpload = useCallback(meta => {
-        toast('blue',`${meta.name} uploaded.`)
-    }, [toast]);
+    const onFileRemove = useCallback(
+        (meta) => {
+            toast('green', `${meta.name} removed.`);
+        },
+        [toast],
+    );
 
-    const onFileRemove = useCallback(meta => {
-        toast( 'green',`${meta.name} removed.`)
-    }, [toast]);
-
-    const onFileAbort = useCallback(meta => {
-        toast('red',`${meta.name} aborted.`)
-    }, [toast]);
+    const onFileAbort = useCallback(
+        (meta) => {
+            toast('red', `${meta.name} aborted.`);
+        },
+        [toast],
+    );
 
     const onSubmit = useCallback(() => {
-        toast('yellow',`submitted.`)
+        toast('yellow', `submitted.`);
     }, [toast]);
 
-
     return (
-        <Template {...props}
-                  onFileUpload={onFileUpload}
-                  onFileRemove={onFileRemove}
-                  onFileAbort={onFileAbort}
-                  onSubmit={onSubmit}
+        <Template
+            {...props}
+            onFileUpload={onFileUpload}
+            onFileRemove={onFileRemove}
+            onFileAbort={onFileAbort}
+            onSubmit={onSubmit}
         />
-    )
-}
+    );
+};
 
 export const basic = s(Uploader, {});
 export const customized = s(Uploader, {

@@ -1,1 +1,3 @@
 - /packages/generator-package/
+- /.storybook/main.js
+- /tsconfig.json

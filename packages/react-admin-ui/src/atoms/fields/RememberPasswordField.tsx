@@ -1,12 +1,9 @@
-import CheckboxField, {CheckboxFieldProps} from "./CheckboxField";
+import CheckboxField, { CheckboxFieldProps } from './CheckboxField';
 
 export function RememberPasswordField(props: RememberPasswordFieldProps) {
-    return (
-        <CheckboxField kind={'rememberPassword'} {...props} />
-    );
+    return <CheckboxField kind={'rememberPassword'} {...props} />;
 }
 
-export interface RememberPasswordFieldProps extends CheckboxFieldProps {
-}
+export type RememberPasswordFieldProps = CheckboxFieldProps;
 
-export default RememberPasswordField
+export default RememberPasswordField;
