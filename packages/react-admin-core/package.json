@@ -1,6 +1,6 @@
 {
   "name": "@genstackio/react-admin-core",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "description": "React Admin Core for Genstackio",
   "license": "MIT",
   "main": "lib/index.js",
@@ -35,6 +35,8 @@
     "react-i18next": "^11.8.13"
   },
   "peerDependencies": {
+    "@genstackio/react-admin-ui": "^0.6.9",
+    "@genstackio/react-contexts": "^0.1.4",
     "@material-ui/core": "^4.11.3",
     "@types/react-router-dom": "^5.1.7",
     "autoprefixer": "^10.2.5",
@@ -43,15 +45,15 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
-    "tailwindcss": "^2.1.1",
-    "@genstackio/react-admin-ui": "^0.6.9",
-    "@genstackio/react-contexts": "^0.1.4"
+    "tailwindcss": "^2.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.13.16",
     "@babel/preset-env": "^7.13.15",
     "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.13.0",
+    "@genstackio/react-admin-ui": "^0.6.10",
+    "@genstackio/react-contexts": "^0.1.5",
     "@material-ui/core": "^4.11.3",
     "@ohoareau/svg2comp": "^0.1.2",
     "@storybook/addon-a11y": "^6.2.9",
@@ -90,8 +92,6 @@
     "storybook-mobile": "^0.1.31",
     "storybook-tailwind-dark-mode": "^1.0.9",
     "swiper": "^6.5.7",
-    "tailwindcss": "^2.1.1",
-    "@genstackio/react-admin-ui": "^0.6.9",
-    "@genstackio/react-contexts": "^0.1.4"
+    "tailwindcss": "^2.1.1"
   }
 }
