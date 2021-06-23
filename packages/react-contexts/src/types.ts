@@ -82,6 +82,28 @@ export type sections_context_value = {
     detectedSections: {id: string, selected?: boolean}[],
 };
 
+export type locale = {
+  id: string,
+  label: string,
+};
+
+export type locales_context_value = {
+    default: string | undefined,
+    fallback: string | undefined,
+    locales: locale[],
+};
+
+export type image = {
+  url: string,
+  alt: string,
+};
+
+export type image_getter = (key: string) => image | undefined;
+
+export type images_context_value = {
+    get?: image_getter,
+};
+
 export type page_context_value = {
     uid: string,
     lang: string,
@@ -89,3 +111,15 @@ export type page_context_value = {
 
 export type theme = {[key: string]: any};
 export type themes = {default: theme, [key: string]: theme};
+
+export type app_context_params = {
+  storageKeys?: any,
+  themes?: any,
+  muiTheme?: any,
+  queries?: any,
+  translations?: any,
+  locales?: locale[],
+  defaultLocale?: string,
+  fallbackLocale?: string,
+  getImage?: image_getter,
+};

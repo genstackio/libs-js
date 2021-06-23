@@ -1,38 +1,38 @@
 import "../assets/css/styles.css";
-import i18nFactory from "../src/utils/i18nFactory";
+import {i18nFactory} from "@genstackio/react-contexts";
 import {I18nextProvider} from "react-i18next";
-import {select} from "@storybook/addon-knobs";
-import { StylesProvider } from '@material-ui/core/styles';
+import {StylesProvider} from '@material-ui/core/styles';
+import {LocalesProvider} from "@genstackio/react-contexts/lib/contexts/LocalesContext";
 import translations from "../src/configs/translations";
-import {boxVariants} from "../lib/mappings/box-variants";
-import {boxColors} from "../lib/mappings/box-colors";
-import {corners} from "../lib/mappings/corners";
-import {paddings} from "../lib/mappings/paddings";
-import {alignments} from "../lib/mappings/alignments";
-import {progressVariants} from "../lib/mappings/progress-variants";
-import {shapes} from "../lib/mappings/shapes";
-import {spinnerVariants} from "../lib/mappings/spinner-variants";
-import {statuses} from "../lib/mappings/statuses";
-import {textVariants} from "../lib/mappings/text-variants";
-
-export const langSelect = () => select('lang', translationNames, 'fr-FR');
+import {boxVariants} from "../src/mappings/box-variants";
+import {boxColors} from "../src/mappings/box-colors";
+import {corners} from "../src/mappings/corners";
+import {paddings} from "../src/mappings/paddings";
+import {alignments} from "../src/mappings/alignments";
+import {progressVariants} from "../src/mappings/progress-variants";
+import {shapes} from "../src/mappings/shapes";
+import {spinnerVariants} from "../src/mappings/spinner-variants";
+import {statuses} from "../src/mappings/statuses";
+import {textVariants} from "../src/mappings/text-variants";
+import {argtypes, st} from '@genstackio/react-storybook';
 
 const translationNames = Object.keys(translations);
 translationNames.sort();
+const locales = {locales: translationNames.map(t => ({id: t, label: t})), default: translationNames[0], fallback: translationNames[0]};
 
-export function uiStory(Component, {}: {apiMocks: object|false} = {apiMocks: {}}) {
-    return args => {
-        const lang = args['locale'] || langSelect();
-        const i18n = i18nFactory({lng: lang});
+function Provider(args) {
+  const lang = args['locale'];
+  const i18n = i18nFactory({lng: lang});
 
-        return  (
-          <StylesProvider injectFirst>
-            <I18nextProvider i18n={i18n}>
-                <Component {...args} />
-            </I18nextProvider>
-          </StylesProvider>
-        )
-    }
+  return  (
+    <LocalesProvider value={locales}>
+      <StylesProvider injectFirst>
+        <I18nextProvider i18n={i18n}>
+          {args.children}
+        </I18nextProvider>
+      </StylesProvider>
+    </LocalesProvider>
+  )
 }
 
 export function a(x: any = {}) {
@@ -43,27 +43,12 @@ export function a(x: any = {}) {
 }
 
 export function s(Component, args, opts: any = {}) {
-    const story = (Object.assign as any)(uiStory(Component, opts).bind({}), {args});
-    story.story = story.story || {};
-    story.story.parameters = story.story.parameters || {};
-    story.story.parameters.themes = {
-        list: [
-            { name: 'orange', class: 'theme-orange', color: 'orange' },
-            { name: 'blue', class: 'theme-blue', color: 'blue' },
-            { name: 'green', class: 'theme-green', color: 'green' },
-            { name: 'brown', class: 'theme-brown', color: 'brown' }
-        ],
-    };
-    story.story.parameters.grid = {
-        columns: 12,
-    };
-    return story;
+  return st(Component, args, {...opts, provider: Provider, providerProps: {locale: true}});
 }
 
 export const args = {
+    ...argtypes,
     accordionVariant: { control: {type: 'select'}, options: ['filled', 'outlined', 'contained', 'light'] },
-    flag: { control: {type: 'boolean'} },
-    _disable: { table: {disable: true}},
     actions: { control: {type: 'object'} },
     author:{ control: {type: 'text'}},
     badge: { control: {type: 'object'} },
@@ -79,7 +64,6 @@ export const args = {
     chartItems: { control: {type: 'object'} },
     children: {control: {type: 'text'}},
     classes: { table: {disable: true} },
-    closable: { control: {type: 'boolean'} },
     code: { control: {type: 'number'} },
     color: { control: {type: 'select'}, options: Object.keys(boxColors) },
     columns: { control: {type: 'object'} },
@@ -90,8 +74,6 @@ export const args = {
     date: { control: {type: 'number'} },
     default: { control: {type: 'text'} },
     defaultValue: { control: {type: 'number'} },
-    description: {control: {type: 'text'}},
-    disabled: { control: {type: 'boolean'} },
     dropdownItems: { control: {type: 'object'} },
     error: { control: {type: 'boolean'} },
     errorText: { control: {type: 'text'} },
@@ -99,41 +81,26 @@ export const args = {
     fieldValue: { control: {type: 'text'}},
     rows: { control: {type: 'number'}},
     form: { control: {type: 'object'} },
-    helper: { control: {type: 'text'} },
     icon: { table: {disable: true} },
     corner: { control: {type: 'select'}, options: Object.keys(corners) },
     iconCorner: { control: {type: 'select'}, options: ['settings', 'query_builder', 'notifications_none_icon', 'none'] },
-    image: { control: {type: 'object'} },
     initialPrice: { control: {type: 'object'} },
     isMenu: { control: {type: 'boolean'} },
     items: { control: {type: 'object'} },
-    label: { control: {type: 'text'} },
     labels: { control: {type: 'object'} },
     large: { control: {type: 'boolean'} },
     likes : {control:{type: 'number'}},
-    logo: { control: {type: 'object'} },
     locales: { control: {type: 'object'} },
-    locale: {control: {type: 'select'}, options: ['fr-FR', 'en-GB', 'it-IT']},
+    locale: {control: {type: 'select'}, options: translationNames},
     menuItems: { control: {type: 'object'} },
     menu: { control: {type: 'object'} },
-    message: { control: {type: 'text'} },
-    name: { control: {type: 'text'} },
-    onChange: { table: {disable: true} },
-    onClick: { table: {disable: true} },
-    onClose: { table: {disable: true} },
-    opened: { control: {type: 'boolean'} },
-    overline: { control: {type: 'text'} },
     padding: { control: {type: 'radio'}, options: Object.keys(paddings) },
     paginationVariant: { control: {type:'select'}, options :['text', 'outlined'] },
     pill: { control: {type: 'object'} },
-    placeholder: { control: {type: 'text'} },
     position: { control: {type:'select'}, options: Object.keys(alignments) },
     price: { control: {type: 'text'} },
     progress: { control: {type: 'number'} },
     progressVariant: { control: {type: 'select'}, options: Object.keys(progressVariants) },
-    quantity: { control: {type: 'number'} },
-    rating: { control: {type: 'number'} },
-    required: { control: {type: 'boolean'} },
     ribbon: { control: {type: 'select'}, options: ['top-left', 'top-right', 'bottom-left', 'bottom-right'] },
     rowsPerPage: { control: {type: 'number'} },
     selection: { control: {type: 'boolean'} },
@@ -143,14 +110,11 @@ export const args = {
     spinnerVariant: { control: {type: 'select'}, options: Object.keys(spinnerVariants) },
     status: { control: {type: 'select'}, options: Object.keys(statuses) },
     striped: { control: {type: 'boolean'} },
-    subtitle: { control: {type: 'text'} },
     tag: { control: {type: 'object'} },
-    text: { control: {type: 'text'} },
     textValue: { control: {type: 'text'} },
     textVariant: { control: {type:'select'}, options: Object.keys(textVariants) },
     toolbar: { control: {type: 'object'} },
     toRight: { control: {type: 'boolean'} },
-    title: { control: {type: 'text'} },
     unit: { control: {type: 'select'}, options: [undefined, '$', '€', '£', 'M'] },
     value: { control: {type: 'number'} },
     values: { control: {type: 'object'} },
