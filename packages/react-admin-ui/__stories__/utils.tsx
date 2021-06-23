@@ -22,7 +22,7 @@ const locales = {locales: translationNames.map(t => ({id: t, label: t})), defaul
 
 function Provider(args) {
   const lang = args['locale'];
-  const i18n = i18nFactory({lng: lang});
+  const i18n = i18nFactory({lng: lang, resources: translations});
 
   return  (
     <LocalesProvider value={locales}>
