@@ -2,9 +2,10 @@ import {useMemo} from "react";
 import {icon, register, rich_text} from "../types";
 import {useTranslation} from "react-i18next";
 import {Icon} from "../atoms";
+import clsx from "clsx";
 
 // noinspection JSUnusedLocalSymbols
-export function useField({name, required = false, prepend, prependIcon, append, appendIcon, kind, disabled = false, helper, type, placeholder, errors = {}, defaultValue = undefined, defaultValues = {}, options = {}, label, register = (name: string, options: any) => {}, field, ...extra}: field_def_params, defaults: {name?: string, kind?: string} = {}) {
+export function useField({name, className, required = false, half = false, threeOf5 = false, twoOf5 = false, prepend, prependIcon, append, appendIcon, kind, disabled = false, helper, type, placeholder, errors = {}, defaultValue = undefined, defaultValues = {}, options = {}, label, register = (name: string, options: any) => {}, field, ...extra}: field_def_params, defaults: {name?: string, kind?: string} = {}) {
     const {t} = useTranslation();
     type = (type || 'text') as string;
     kind = (kind || defaults.kind || type) as string;
@@ -24,7 +25,11 @@ export function useField({name, required = false, prepend, prependIcon, append, 
 
     prependIcon = prependIcon ? <Icon icon={prependIcon} /> : undefined;
     appendIcon = appendIcon ? <Icon icon={appendIcon} /> : undefined;
+
+    className = clsx(className, half && 'w-1/2 xs:w-full', threeOf5 && 'w-3/5 xs:w-full', twoOf5 && 'w-2/5 xs:w-full') || undefined;
+
     return {
+        className,
         name, label, placeholder, error, required, helper, options, disabled, defaultValue, kind,
         register: enrichedRegister, extra, type,
         prepend: (prepend && prependIcon) ? <>{prepend}{prependIcon}</> : (prepend ? prepend : (prependIcon ? prependIcon : undefined)),

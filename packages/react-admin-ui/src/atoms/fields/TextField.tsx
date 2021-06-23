@@ -3,8 +3,9 @@ import {class_name, flag, icon, register, rich_text} from '../../types';
 import {useField} from "../../hooks/useField";
 import FieldSet from "../FieldSet";
 
-export function TextField({className, ...props}: TextFieldProps) {
-    const {name, required, label, error, helper, disabled, register, placeholder, options, defaultValue, type, prepend, append, extra} = useField(props);
+export function TextField(props: TextFieldProps) {
+    const {className, name, required, label, error, helper, disabled, register, placeholder, options, defaultValue, type, prepend, append, extra} = useField(props);
+
     return (
         <FieldSet className={className} name={name} label={label} options={options} error={error} helper={helper}>
             <div className={clsx(
@@ -26,6 +27,7 @@ export function TextField({className, ...props}: TextFieldProps) {
                        defaultValue={defaultValue}
                        name={name}
                        required={required}
+                       {...((type === 'password') ? {autoComplete: 'new-password'} : {})}
                        {...register()}
                        {...extra}
                 />
@@ -59,6 +61,9 @@ export interface TextFieldProps {
     appendIcon?: icon,
     prepend?: rich_text,
     prependIcon?: icon,
+    half?: flag,
+    threeOf5?: flag,
+    twoOf5?: flag,
 }
 
 export default TextField
