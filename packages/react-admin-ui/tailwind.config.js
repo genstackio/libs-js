@@ -129,6 +129,9 @@ module.exports = {
         xxl: '16rem',
         xxs: '0.6875rem',
       },
+      maxWidth: {
+        xxs: '12rem'
+      }
     },
   },
   variants: {

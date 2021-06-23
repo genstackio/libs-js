@@ -85,3 +85,4 @@ export type clsxm_params = {
     },
 }
 export type locales = {value: string, language: rich_text};
+export type menu_button_item = {icon?: icon, label?: rich_text, target?: target};
