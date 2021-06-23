@@ -1,8 +1,8 @@
-import {SmallItemCard} from '../../src'
-import {args, s, a} from "../utils";
+import {SmallItemCard} from '../../../src'
+import {args, s, a} from "../../utils";
 
 export default {
-    title: 'Molecules/SmallItemCard',
+    title: 'Molecules/cards/SmallItemCard',
     component: SmallItemCard,
     argTypes: a({
         title: args.title,

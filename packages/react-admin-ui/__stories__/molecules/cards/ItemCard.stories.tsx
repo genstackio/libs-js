@@ -1,8 +1,8 @@
-import {args, s, a} from "../utils";
-import {ItemCard} from '../../src';
+import {args, s, a} from "../../utils";
+import {ItemCard} from '../../../src';
 
 export default {
-    title: 'Molecules/ItemCard',
+    title: 'Molecules/cards/ItemCard',
     component: ItemCard,
     argTypes: a({
         blockVariant: args.blockVariant,

@@ -1,8 +1,8 @@
-import {args, s, a} from "../utils";
-import {Card} from "../../src";
+import {args, s, a} from "../../utils";
+import {Card} from "../../../src";
 
 export default {
-    title: 'Molecules/Card',
+    title: 'Molecules/cards/Card',
     component: Card,
     argTypes: a({
         title: args.title,
