@@ -6,6 +6,8 @@ export default {
     component: Spinner,
     argTypes: a({
         variant: args.spinnerVariant,
+        size: args.spinnerSize,
+        color: args.spinnerColor,
     }),
 }
 

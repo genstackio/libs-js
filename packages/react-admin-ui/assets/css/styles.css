@@ -36,6 +36,25 @@
         margin: 15px 20px 13px 20px;
     }
 
+    .x-border-l-transparent {
+        border-left-color: transparent !important;
+    }
+    .x-border-t-transparent {
+        border-top-color: transparent !important;
+    }
+    .x-border-r-transparent {
+        border-right-color: transparent !important;
+    }
+    .x-border-b-transparent {
+        border-bottom-color: transparent !important;
+    }
+    .x-border-x-transparent {
+        @apply x-border-l-transparent x-border-r-transparent
+    }
+    .x-border-y-transparent {
+        @apply x-border-t-transparent x-border-b-transparent
+    }
+
     /* Css for Thumbnail :: start */
     .animated {
         -webkit-animation-duration: 1.5s;
