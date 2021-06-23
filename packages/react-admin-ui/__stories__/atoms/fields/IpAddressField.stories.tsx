@@ -1,5 +1,5 @@
-import {args, s, a} from "../../utils";
-import {IpAddressField} from '../../../src';
+import { args, s, a } from '../../utils';
+import { IpAddressField } from '../../../src';
 
 export default {
     title: 'Atoms/fields/IpAddressField',
@@ -17,8 +17,8 @@ export default {
         value: args.fieldValue,
         kind: args._disable,
     }),
-}
+};
 
-const Template = args => <IpAddressField {...args} />;
+const Template = (args) => <IpAddressField {...args} />;
 
-export const basic = s(Template, {})
+export const basic = s(Template, {});

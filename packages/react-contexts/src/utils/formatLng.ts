@@ -3,4 +3,4 @@ export function formatLng(value: string) {
     return `${a}-${b.toUpperCase()}`;
 }
 
-export default formatLng
+export default formatLng;

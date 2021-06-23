@@ -1,68 +1,64 @@
-import Chart from "react-apexcharts";
-import {ApexOptions} from "apexcharts";
-import tailwindConfig from "../../../tailwind.config"
-import {box_color, box_variant, chart_series} from "../../types";
+import Chart from 'react-apexcharts';
+import { ApexOptions } from 'apexcharts';
+import tailwindConfig from '../../../tailwind.config';
+import { box_color, box_variant, chart_series } from '../../types';
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 
-const defaultOptions : ApexOptions = {
-
+const defaultOptions: ApexOptions = {
     chart: {
         toolbar: {
-            show: false
+            show: false,
         },
         sparkline: {
             enabled: true,
         },
-        redrawOnParentResize: true
+        redrawOnParentResize: true,
     },
     dataLabels: {
-        enabled: false
+        enabled: false,
     },
     legend: {
-        show: false
+        show: false,
     },
     grid: {
-        show: false
+        show: false,
     },
     xaxis: {
         labels: {
-            show: false
+            show: false,
         },
         axisBorder: {
-            show: false
+            show: false,
         },
         axisTicks: {
-            show: false
-        }
+            show: false,
+        },
     },
     yaxis: {
-        show: false
+        show: false,
     },
     stroke: {
-        show:false
+        show: false,
     },
-
 };
 
-export function AreaChart({color = 'primary', series, variant = 'filled'}: AreaChartProps) {
+export function AreaChart({ color = 'primary', series, variant = 'filled' }: AreaChartProps) {
     const col = `${variant}_${color}`;
-    const options = {...defaultOptions, colors: tailwindChartColors[col],};
+    const options = { ...defaultOptions, colors: tailwindChartColors[col] };
 
-    const newData: {data: number[]}[] = series.reduce((acc, data) => {
-        acc.push({data: data});
+    const newData: { data: number[] }[] = series.reduce((acc, data) => {
+        acc.push({ data: data });
         return acc;
-    }, [] as {data: number[]}[]);
+    }, [] as { data: number[] }[]);
 
-    return (
-        <Chart type={'area'} options={options} series={newData} height={'250px'} />
-    );
+    return <Chart type={'area'} options={options} series={newData} height={'250px'} />;
 }
 
 export interface AreaChartProps {
-    series: chart_series,
-    color?: box_color,
-    variant?: box_variant,
+    series: chart_series;
+    color?: box_color;
+    variant?: box_variant;
 }
 
-export default AreaChart
+export default AreaChart;

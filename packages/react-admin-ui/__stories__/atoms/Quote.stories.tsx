@@ -1,5 +1,5 @@
-import {args, s, a} from "../utils";
-import {Quote} from '../../src';
+import { args, s, a } from '../utils';
+import { Quote } from '../../src';
 
 export default {
     title: 'Atoms/Quote',
@@ -9,12 +9,12 @@ export default {
         title: args.title,
         text: args.text,
     }),
-}
+};
 
-const Template = args => <Quote {...args}/>;
+const Template = (args) => <Quote {...args} />;
 
-export const basic = s (Template, {
+export const basic = s(Template, {
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.',
     title: 'Someone famous in Source Title',
     position: 'left',
-})
+});

@@ -1,5 +1,5 @@
-import {args, s, a} from "../utils";
-import {HeadingLeft} from '../../src';
+import { args, s, a } from '../utils';
+import { HeadingLeft } from '../../src';
 
 export default {
     title: 'Molecules/HeadingLeft',
@@ -13,9 +13,9 @@ export default {
         variant: args.blockVariant,
         padding: args.padding,
     }),
-}
+};
 
-const Template = args => <HeadingLeft {...args} />;
+const Template = (args) => <HeadingLeft {...args} />;
 
 export const basic = s(Template, {
     title: 'Alert',

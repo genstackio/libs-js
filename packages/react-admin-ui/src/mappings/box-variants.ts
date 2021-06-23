@@ -1,4 +1,4 @@
-import clsxmp from "../utils/clsxmp";
+import clsxmp from '../utils/clsxmp';
 
 export const boxVariants = {
     filled: '',
@@ -7,15 +7,11 @@ export const boxVariants = {
     none: '',
 };
 
-export type box_variant =
-      'filled'
-    | 'outlined'
-    | 'contained'
-    | 'none'
-;
+export type box_variant = 'filled' | 'outlined' | 'contained' | 'none';
 
 export const defaultBoxVariant = 'filled';
 
-export const boxVariantClass = (v: box_variant|undefined, e: any = {}) => clsxmp(v, defaultBoxVariant, boxVariants, e);
+export const boxVariantClass = (v: box_variant | undefined, e: any = {}) =>
+    clsxmp(v, defaultBoxVariant, boxVariants, e);
 
-export default boxVariantClass
+export default boxVariantClass;

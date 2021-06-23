@@ -1,5 +1,5 @@
-import {args, s, a} from "../../utils";
-import {SwitchField} from '../../../src';
+import { args, s, a } from '../../utils';
+import { SwitchField } from '../../../src';
 
 export default {
     title: 'Atoms/fields/SwitchField',
@@ -18,8 +18,8 @@ export default {
         field: args._disable,
         kind: args._disable,
     }),
-}
+};
 
-const Template = args => <SwitchField {...args} />;
+const Template = (args) => <SwitchField {...args} />;
 
-export const basic = s(Template, {})
+export const basic = s(Template, {});

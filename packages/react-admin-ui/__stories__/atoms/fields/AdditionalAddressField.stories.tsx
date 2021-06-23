@@ -1,5 +1,5 @@
-import {args, s, a} from "../../utils";
-import {AdditionalAddressField} from '../../../src';
+import { args, s, a } from '../../utils';
+import { AdditionalAddressField } from '../../../src';
 
 export default {
     title: 'Atoms/fields/AdditionalAddressField',
@@ -17,8 +17,8 @@ export default {
         value: args.fieldValue,
         kind: args._disable,
     }),
-}
+};
 
-const Template = args => <AdditionalAddressField {...args} />;
+const Template = (args) => <AdditionalAddressField {...args} />;
 
-export const basic = s(Template, {})
+export const basic = s(Template, {});

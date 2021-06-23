@@ -1,5 +1,5 @@
-import {SmallItemCard} from '../../../src'
-import {args, s, a} from "../../utils";
+import { SmallItemCard } from '../../../src';
+import { args, s, a } from '../../utils';
 
 export default {
     title: 'Molecules/cards/SmallItemCard',
@@ -12,26 +12,30 @@ export default {
         closable: args.closable,
         children: args.children,
     }),
-}
+};
 
-const Template = args => <SmallItemCard {...args} />;
+const Template = (args) => <SmallItemCard {...args} />;
 
-export const basic = s(Template,  {
+export const basic = s(Template, {
     title: "Fancy Women's Cotton",
     rating: 5,
     image: {
         url: 'https://image-placeholder.com/images/actual-size/75x75.png',
         alt: 'alt',
     },
-    badges: [{
-        variant: 'contained',
-        color: 'primary',
-        type: 'tag',
-        text: 'Processing',
-    }],
+    badges: [
+        {
+            variant: 'contained',
+            color: 'primary',
+            type: 'tag',
+            text: 'Processing',
+        },
+    ],
     closable: true,
-    children: (<div>
-        <div>Price : 210$</div>
-        <div className={'text-success'}>In stock</div>
-    </div>)
-})
+    children: (
+        <div>
+            <div>Price : 210$</div>
+            <div className={'text-success'}>In stock</div>
+        </div>
+    ),
+});

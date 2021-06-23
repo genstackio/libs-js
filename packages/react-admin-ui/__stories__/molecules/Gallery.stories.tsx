@@ -1,5 +1,5 @@
-import {args, s, a} from "../utils";
-import {Gallery} from '../../src';
+import { args, s, a } from '../utils';
+import { Gallery } from '../../src';
 
 export default {
     title: 'Molecules/Gallery',
@@ -7,10 +7,9 @@ export default {
     argTypes: a({
         items: args.items,
     }),
+};
 
-}
-
-const Template = args => <Gallery {...args} />;
+const Template = (args) => <Gallery {...args} />;
 
 export const basic = s(Template, {
     items: [
@@ -58,5 +57,5 @@ export const basic = s(Template, {
             url: 'https://picsum.photos/200/200',
             alt: 'alt',
         },
-    ]
-})
+    ],
+});

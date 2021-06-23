@@ -1,27 +1,27 @@
 import Checkbox from '@material-ui/core/Checkbox';
 import Text from '../Text';
-import {makeStyles} from "@material-ui/core/styles";
-import clsx from "clsx";
+import { makeStyles } from '@material-ui/core/styles';
+import clsx from 'clsx';
 import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
-import {class_name, flag, register} from '../../types';
-import {useField} from "../../hooks";
-import FieldSet from "../FieldSet";
+import { class_name, flag, register } from '../../types';
+import { useField } from '../../hooks';
+import FieldSet from '../FieldSet';
 
 const useStyles = makeStyles({
     root: {
-        "&.MuiCheckbox-root:hover": {
+        '&.MuiCheckbox-root:hover': {
             backgroundColor: 'transparent',
         },
-        "&:not(.Mui-checked)": {
+        '&:not(.Mui-checked)': {
             color: '#000',
         },
-        "&.Mui-checked": {
+        '&.Mui-checked': {
             color: '#000',
         },
-        "&.Mui-checked:hover": {
+        '&.Mui-checked:hover': {
             backgroundColor: 'transparent',
         },
-        "&$disabled": {
+        '&$disabled': {
             color: '#6B7280',
         },
     },
@@ -29,19 +29,34 @@ const useStyles = makeStyles({
     disabled: {},
 });
 
-export function CheckboxField({className, onChange, ...props}: CheckboxFieldProps) {
+export function CheckboxField({ className, onChange, ...props }: CheckboxFieldProps) {
     const classes = useStyles();
-    const {name, label, required, error, helper, disabled, register, options, defaultValue = false, extra} = useField(props, {kind: 'checkbox'});
+    const {
+        name,
+        label,
+        required,
+        error,
+        helper,
+        disabled,
+        register,
+        options,
+        defaultValue = false,
+        extra,
+    } = useField(props, { kind: 'checkbox' });
     return (
         <FieldSet className={className} name={name} label={label} options={options} error={error} helper={helper}>
             <div className={'flex items-center'}>
-                <Checkbox checkedIcon={<CheckBoxOutlinedIcon/>} classes={classes}
-                          disabled={disabled} disableRipple defaultChecked={defaultValue}
-                          onChange={onChange}
-                          name={name}
-                          required={required}
-                          {...register()}
-                          {...extra}
+                <Checkbox
+                    checkedIcon={<CheckBoxOutlinedIcon />}
+                    classes={classes}
+                    disabled={disabled}
+                    disableRipple
+                    defaultChecked={defaultValue}
+                    onChange={onChange}
+                    name={name}
+                    required={required}
+                    {...register()}
+                    {...extra}
                 />
                 <Text text={label} className={clsx(disabled && 'text-gray-500')} />
             </div>
@@ -50,19 +65,19 @@ export function CheckboxField({className, onChange, ...props}: CheckboxFieldProp
 }
 
 export interface CheckboxFieldProps {
-    className?: class_name,
-    defaultValue?: flag,
-    label?: string,
-    name?: string,
-    disabled?: flag,
-    required?: flag,
-    errors?: {[key: string]: any},
-    helper?: string,
-    options?: any,
-    onChange?: Function,
-    register?: register,
-    field?: boolean,
-    kind?: string,
+    className?: class_name;
+    defaultValue?: flag;
+    label?: string;
+    name?: string;
+    disabled?: flag;
+    required?: flag;
+    errors?: { [key: string]: any };
+    helper?: string;
+    options?: any;
+    onChange?: Function;
+    register?: register;
+    field?: boolean;
+    kind?: string;
 }
 
-export default CheckboxField
+export default CheckboxField;

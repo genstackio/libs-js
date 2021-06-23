@@ -1,5 +1,5 @@
-import {args, s, a} from "../../utils";
-import {LinkedinField} from '../../../src';
+import { args, s, a } from '../../utils';
+import { LinkedinField } from '../../../src';
 
 export default {
     title: 'Atoms/fields/LinkedinField',
@@ -17,8 +17,8 @@ export default {
         value: args.fieldValue,
         kind: args._disable,
     }),
-}
+};
 
-const Template = args => <LinkedinField {...args} />;
+const Template = (args) => <LinkedinField {...args} />;
 
-export const basic = s(Template, {})
+export const basic = s(Template, {});

@@ -1,5 +1,6 @@
-import DefaultLinkComponent from "../DefaultLinkComponent";
+import DefaultLinkComponent from '../DefaultLinkComponent';
 
-export const createDefaultLinkContextValue = (defaultValue: any = undefined): any => defaultValue || DefaultLinkComponent;
+export const createDefaultLinkContextValue = (defaultValue: any = undefined): any =>
+    defaultValue || DefaultLinkComponent;
 
-export default createDefaultLinkContextValue
+export default createDefaultLinkContextValue;

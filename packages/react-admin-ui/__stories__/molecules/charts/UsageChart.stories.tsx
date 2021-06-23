@@ -1,15 +1,15 @@
-import {s} from "../../utils";
-import {UsageChart} from '../../../src';
+import { s } from '../../utils';
+import { UsageChart } from '../../../src';
 
 export default {
     title: 'Molecules/charts/UsageChart',
     component: UsageChart,
-}
+};
 
-const Template = args => <UsageChart {...args} />;
+const Template = (args) => <UsageChart {...args} />;
 
-export const basic = s(Template,  {
+export const basic = s(Template, {
     value: 25,
     max: 100,
-    unit: "GB",
-})
+    unit: 'GB',
+});

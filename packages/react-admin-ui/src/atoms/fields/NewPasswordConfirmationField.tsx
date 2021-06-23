@@ -1,11 +1,9 @@
-import PasswordConfirmationField, {PasswordConfirmationFieldProps} from "./PasswordConfirmationField";
+import PasswordConfirmationField, { PasswordConfirmationFieldProps } from './PasswordConfirmationField';
 
 export function NewPasswordConfirmationField(props: NewPasswordConfirmationFieldProps) {
-    return (
-        <PasswordConfirmationField kind={'newPasswordConfirmation'} {...props} />
-    );
+    return <PasswordConfirmationField kind={'newPasswordConfirmation'} {...props} />;
 }
 
-export interface NewPasswordConfirmationFieldProps extends PasswordConfirmationFieldProps {}
+export type NewPasswordConfirmationFieldProps = PasswordConfirmationFieldProps;
 
-export default NewPasswordConfirmationField
+export default NewPasswordConfirmationField;

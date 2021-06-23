@@ -1,10 +1,8 @@
 export function MainMenu({}: MainMenuProps) {
-    return (
-        <div>MAIN MENU</div>
-    );
+    return <div>MAIN MENU</div>;
 }
 
-export interface MainMenuProps {
-}
+/* eslint @typescript-eslint/no-empty-interface: 0 */
+export interface MainMenuProps {}
 
-export default MainMenu
+export default MainMenu;

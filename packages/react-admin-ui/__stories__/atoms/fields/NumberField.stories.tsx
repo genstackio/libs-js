@@ -1,5 +1,5 @@
-import {args, s, a} from "../../utils";
-import {NumberField} from '../../../src';
+import { args, s, a } from '../../utils';
+import { NumberField } from '../../../src';
 
 export default {
     title: 'Atoms/fields/NumberField',
@@ -17,8 +17,8 @@ export default {
         value: args.fieldValue,
         kind: args._disable,
     }),
-}
+};
 
-const Template = args => <NumberField {...args} />;
+const Template = (args) => <NumberField {...args} />;
 
-export const basic = s(Template, {})
+export const basic = s(Template, {});

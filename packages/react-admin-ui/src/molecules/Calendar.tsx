@@ -1,10 +1,8 @@
 export function Calendar({}: CalendarProps) {
-    return (
-        <div>CALENDAR</div>
-    );
+    return <div>CALENDAR</div>;
 }
 
-export interface CalendarProps {
-}
+/* eslint @typescript-eslint/no-empty-interface: 0 */
+export interface CalendarProps {}
 
-export default Calendar
+export default Calendar;

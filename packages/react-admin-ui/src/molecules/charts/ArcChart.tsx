@@ -1,21 +1,21 @@
-import Chart from "react-apexcharts";
-import {ApexOptions} from "apexcharts";
-import tailwindConfig from "../../../tailwind.config"
-import {box_color} from "../../types";
+import Chart from 'react-apexcharts';
+import { ApexOptions } from 'apexcharts';
+import tailwindConfig from '../../../tailwind.config';
+import { box_color } from '../../types';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 
-const defaultOptions : ApexOptions = {
+const defaultOptions: ApexOptions = {
     chart: {
         toolbar: {
-            show: false
+            show: false,
         },
     },
     dataLabels: {
-        enabled: false
+        enabled: false,
     },
     legend: {
-        show: false
+        show: false,
     },
     plotOptions: {
         radialBar: {
@@ -31,26 +31,28 @@ const defaultOptions : ApexOptions = {
                     fontSize: '2em',
                     fontWeight: 600,
                     formatter: function (val) {
-                        return val + '%'
-                    }
-                }
+                        return val + '%';
+                    },
+                },
             },
         },
     },
 };
 
-export function ArcChart({color = 'primary', value}: ArcChartProps) {
-    const options = {...defaultOptions, colors: [tailwindColors[color]], plotOptions:{...defaultOptions.plotOptions || {}}};
+export function ArcChart({ color = 'primary', value }: ArcChartProps) {
+    const options = {
+        ...defaultOptions,
+        colors: [tailwindColors[color]],
+        plotOptions: { ...(defaultOptions.plotOptions || {}) },
+    };
     options.plotOptions.radialBar!.dataLabels!.value!.color = tailwindColors[color];
 
-    return (
-        <Chart type={'radialBar'} options={options} series={[[value]]} />
-    );
+    return <Chart type={'radialBar'} options={options} series={[[value]]} />;
 }
 
 export interface ArcChartProps {
-    color?: box_color,
-    value: number,
+    color?: box_color;
+    value: number;
 }
 
-export default ArcChart
+export default ArcChart;

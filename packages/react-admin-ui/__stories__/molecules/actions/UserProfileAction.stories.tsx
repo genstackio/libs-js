@@ -1,6 +1,6 @@
-import {args, s, a} from '../../utils';
-import {UserProfileAction} from '../../../src';
-import MockPanel from "../../MockPanel";
+import { args, s, a } from '../../utils';
+import { UserProfileAction } from '../../../src';
+import MockPanel from '../../MockPanel';
 
 export default {
     title: 'Molecules/actions/UserProfileAction',
@@ -12,14 +12,13 @@ export default {
         defaultValues: args._disable,
         variant: args._disable,
     }),
-}
+};
 
-const Template = args => (
+const Template = (args) => (
     <>
         <UserProfileAction {...args} />
         <MockPanel />
     </>
 );
 
-export const basic = s(Template, {
-})
+export const basic = s(Template, {});

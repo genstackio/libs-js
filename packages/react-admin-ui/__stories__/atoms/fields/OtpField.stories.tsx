@@ -1,5 +1,5 @@
-import {args, s, a} from "../../utils";
-import {OtpField} from '../../../src';
+import { args, s, a } from '../../utils';
+import { OtpField } from '../../../src';
 
 export default {
     title: 'Atoms/fields/OtpField',
@@ -17,8 +17,8 @@ export default {
         value: args.fieldValue,
         kind: args._disable,
     }),
-}
+};
 
-const Template = args => <OtpField {...args} />;
+const Template = (args) => <OtpField {...args} />;
 
-export const basic = s(Template, {})
+export const basic = s(Template, {});

@@ -1,5 +1,5 @@
-import {args, s, a} from "../../utils";
-import {LineChart} from '../../../src';
+import { args, s, a } from '../../utils';
+import { LineChart } from '../../../src';
 
 export default {
     title: 'Molecules/charts/LineChart',
@@ -11,9 +11,9 @@ export default {
         labels: args.labels,
         series: args.series,
     }),
-}
+};
 
-const Template = args => <LineChart {...args} />;
+const Template = (args) => <LineChart {...args} />;
 
 export const basic = s(Template, {
     title: 'Fondamental Analysis of Stocks',

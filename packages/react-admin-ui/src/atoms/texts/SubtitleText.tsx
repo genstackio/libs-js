@@ -1,12 +1,9 @@
-import Text, {TextProps} from "../Text";
+import Text, { TextProps } from '../Text';
 
 export function SubtitleText(props: SubtitleTextProps) {
-    return (
-        <Text {...props} variant={'subtitle'} />
-    );
+    return <Text {...props} variant={'subtitle'} />;
 }
 
-export interface SubtitleTextProps extends Omit<TextProps, 'variant'> {
-}
+export type SubtitleTextProps = Omit<TextProps, 'variant'>;
 
-export default SubtitleText
+export default SubtitleText;

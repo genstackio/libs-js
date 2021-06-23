@@ -1,5 +1,5 @@
-import {args, s, a} from "../../utils";
-import {PhoneField} from '../../../src';
+import { args, s, a } from '../../utils';
+import { PhoneField } from '../../../src';
 
 export default {
     title: 'Atoms/fields/PhoneField',
@@ -17,8 +17,8 @@ export default {
         value: args.fieldValue,
         kind: args._disable,
     }),
-}
+};
 
-const Template = args => <PhoneField {...args} />;
+const Template = (args) => <PhoneField {...args} />;
 
-export const basic = s(Template, {})
+export const basic = s(Template, {});

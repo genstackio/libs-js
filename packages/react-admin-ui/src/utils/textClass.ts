@@ -1,5 +1,5 @@
-import clsxm from "./clsxm";
-import {clsxm_params} from "../types";
+import clsxm from './clsxm';
+import { clsxm_params } from '../types';
 
 export const styles = {
     common: {
@@ -111,4 +111,4 @@ export const styles = {
 
 export const textClass = (params: clsxm_params) => clsxm(params, styles);
 
-export default textClass
+export default textClass;

@@ -1,11 +1,9 @@
-import PasswordField, {PasswordFieldProps} from "./PasswordField";
+import PasswordField, { PasswordFieldProps } from './PasswordField';
 
 export function CurrentPasswordField(props: CurrentPasswordFieldProps) {
-    return (
-        <PasswordField kind={'currentPassword'} {...props} />
-    );
+    return <PasswordField kind={'currentPassword'} {...props} />;
 }
 
-export interface CurrentPasswordFieldProps extends PasswordFieldProps {}
+export type CurrentPasswordFieldProps = PasswordFieldProps;
 
-export default CurrentPasswordField
+export default CurrentPasswordField;

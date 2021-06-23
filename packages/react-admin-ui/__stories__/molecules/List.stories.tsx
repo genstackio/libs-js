@@ -1,5 +1,5 @@
-import {args, s, a} from "../utils";
-import {List} from '../../src';
+import { args, s, a } from '../utils';
+import { List } from '../../src';
 
 export default {
     title: 'Molecules/List',
@@ -9,10 +9,9 @@ export default {
         items: args.items,
         badge: args.badge,
     }),
+};
 
-}
-
-const Template = args => <List {...args} />;
+const Template = (args) => <List {...args} />;
 
 export const basic = s(Template, {
     items: [
@@ -22,11 +21,11 @@ export const basic = s(Template, {
         {
             text: 'Item2',
             color: 'warning',
-            badge: {label: '32', color: 'danger', variant: 'tag'},
+            badge: { label: '32', color: 'danger', variant: 'tag' },
         },
         {
             text: 'Item3',
-        }
+        },
     ],
-    badge: {label: '19', color: 'dark', variant: 'pill'}
-})
+    badge: { label: '19', color: 'dark', variant: 'pill' },
+});

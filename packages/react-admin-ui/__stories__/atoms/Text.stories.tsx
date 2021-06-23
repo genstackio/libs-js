@@ -1,5 +1,5 @@
-import {args, s, a} from "../utils";
-import {Text} from '../../src';
+import { args, s, a } from '../utils';
+import { Text } from '../../src';
 
 export default {
     title: 'Atoms/Text',
@@ -9,12 +9,12 @@ export default {
         variant: args.textVariant,
         text: args.text,
     }),
-}
+};
 
-const Template = args => <Text {...args}/>;
+const Template = (args) => <Text {...args} />;
 
-export const basic = s (Template, {
+export const basic = s(Template, {
     text: 'texte',
     color: 'inherit',
     variant: 'body',
-})
+});

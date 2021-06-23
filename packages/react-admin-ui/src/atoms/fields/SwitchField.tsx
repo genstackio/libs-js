@@ -1,10 +1,10 @@
-import FieldLabel from "../FieldLabel";
-import FieldError from "../FieldError";
-import FieldHelper from "../FieldHelper";
-import {flag, register} from '../../types';
-import {useField} from "../../hooks/useField";
+import FieldLabel from '../FieldLabel';
+import FieldError from '../FieldError';
+import FieldHelper from '../FieldHelper';
+import { flag, register } from '../../types';
+import { useField } from '../../hooks/useField';
 import MuiSwitch from '@material-ui/core/Switch';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
     root: {
@@ -28,7 +28,7 @@ const useStyles = makeStyles({
             color: '#7366FF',
             border: '6px solid #fff',
         },
-        "&$disabled": {
+        '&$disabled': {
             color: '#EEEEEE',
             '& + $track': {
                 backgroundColor: '#DADADA',
@@ -52,9 +52,9 @@ const useStyles = makeStyles({
     disabled: {},
 });
 
-export function SwitchField({onChange, ...props}: SwitchFieldProps) {
+export function SwitchField({ onChange, ...props }: SwitchFieldProps) {
     const classes = useStyles(props);
-    const {name, required, label, error, helper, disabled, register, options, defaultValue, extra} = useField(props);
+    const { name, required, label, error, helper, disabled, register, options, defaultValue, extra } = useField(props);
     return (
         <div className={'mb-2'}>
             <div>
@@ -86,18 +86,18 @@ export function SwitchField({onChange, ...props}: SwitchFieldProps) {
 }
 
 export interface SwitchFieldProps {
-    required?: flag,
-    disabled?: flag,
-    errors?: {[key: string]: any},
-    defaults?: {[key: string]: any},
-    label?: string,
-    name?: string,
-    onChange?: any,
-    options?: any,
-    helper?: string,
-    register?: register,
-    field?: boolean,
-    kind?: string,
+    required?: flag;
+    disabled?: flag;
+    errors?: { [key: string]: any };
+    defaults?: { [key: string]: any };
+    label?: string;
+    name?: string;
+    onChange?: any;
+    options?: any;
+    helper?: string;
+    register?: register;
+    field?: boolean;
+    kind?: string;
 }
 
-export default SwitchField
+export default SwitchField;

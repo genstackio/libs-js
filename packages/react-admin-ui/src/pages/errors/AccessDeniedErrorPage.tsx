@@ -1,10 +1,8 @@
 export function AccessDeniedErrorPage({}: AccessDeniedErrorPageProps) {
-    return (
-        <div>ACCESS DENIED ERROR PAGE</div>
-    );
+    return <div>ACCESS DENIED ERROR PAGE</div>;
 }
 
-export interface AccessDeniedErrorPageProps {
-}
+/* eslint @typescript-eslint/no-empty-interface: 0 */
+export interface AccessDeniedErrorPageProps {}
 
-export default AccessDeniedErrorPage
+export default AccessDeniedErrorPage;

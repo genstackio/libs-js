@@ -1,11 +1,11 @@
-import {children, class_name, image} from "../types";
-import clsx from "clsx";
-import cornerClass, {corner} from "../mappings/corners";
+import { children, class_name, image } from '../types';
+import clsx from 'clsx';
+import cornerClass, { corner } from '../mappings/corners';
 
-export function Container({bgImage, bgColor, corner, className, children}: ContainerProps) {
+export function Container({ bgImage, bgColor, corner, className, children }: ContainerProps) {
     const style = {
-        backgroundImage: (bgImage ? 'url('+bgImage.url+')' : undefined),
-        backgroundColor: (bgColor ? bgColor : undefined),
+        backgroundImage: bgImage ? 'url(' + bgImage.url + ')' : undefined,
+        backgroundColor: bgColor ? bgColor : undefined,
     };
     return (
         <div className={clsx(cornerClass(corner), className)} style={style}>
@@ -15,11 +15,11 @@ export function Container({bgImage, bgColor, corner, className, children}: Conta
 }
 
 export interface ContainerProps {
-    corner?: corner,
-    bgImage?: image,
-    bgColor?: string,
-    className?: class_name,
-    children?: children,
+    corner?: corner;
+    bgImage?: image;
+    bgColor?: string;
+    className?: class_name;
+    children?: children;
 }
 
-export default Container
+export default Container;

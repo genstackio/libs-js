@@ -1,5 +1,5 @@
-import {args, s, a} from "../utils";
-import {Heading} from '../../src';
+import { args, s, a } from '../utils';
+import { Heading } from '../../src';
 
 export default {
     title: 'Molecules/Heading',
@@ -8,10 +8,10 @@ export default {
         text: args.title,
         items: args.items,
     }),
-}
+};
 
-const Template = args => <Heading {...args} />;
+const Template = (args) => <Heading {...args} />;
 
-export const basic = s(Template,  {
-    text: "IMAGE GALLERY",
-})
+export const basic = s(Template, {
+    text: 'IMAGE GALLERY',
+});

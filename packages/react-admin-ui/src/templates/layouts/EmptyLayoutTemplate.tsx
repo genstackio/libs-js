@@ -1,10 +1,8 @@
 export function EmptyLayoutTemplatePage({}: EmptyLayoutTemplatePageProps) {
-    return (
-        <div>EMPTY LAYOUT TEMPLATE</div>
-    );
+    return <div>EMPTY LAYOUT TEMPLATE</div>;
 }
 
-export interface EmptyLayoutTemplatePageProps {
-}
+/* eslint @typescript-eslint/no-empty-interface: 0 */
+export interface EmptyLayoutTemplatePageProps {}
 
-export default EmptyLayoutTemplatePage
+export default EmptyLayoutTemplatePage;

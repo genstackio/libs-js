@@ -2,7 +2,6 @@ module.exports = {
     stories: [`${process.cwd()}/__stories__/**/*.stories.tsx`],
     "addons": [
         "@storybook/addon-essentials",
-        '@storybook/addon-knobs/register',
         '@storybook/addon-a11y',
         {
             name: '@storybook/addon-storysource',
@@ -18,7 +17,6 @@ module.exports = {
         },
         "@storybook/addon-links",
         '@storybook/addon-postcss',
-//        'storybook-mobile',
         'storybook-addon-apollo-client',
         'storybook-addon-themes',
         'storybook-tailwind-dark-mode',

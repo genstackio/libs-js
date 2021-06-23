@@ -1,7 +1,7 @@
-import {Alert, AlertProps} from "../atoms";
-import {rich_text} from "../types";
+import { Alert, AlertProps } from '../atoms';
+import { rich_text } from '../types';
 
-export function AlertPanel({children, title, ...props}: AlertPanelProps) {
+export function AlertPanel({ children, title, ...props }: AlertPanelProps) {
     return (
         <Alert {...props}>
             {title && (
@@ -16,7 +16,7 @@ export function AlertPanel({children, title, ...props}: AlertPanelProps) {
 }
 
 export interface AlertPanelProps extends AlertProps {
-    title?: rich_text,
+    title?: rich_text;
 }
 
-export default AlertPanel
+export default AlertPanel;

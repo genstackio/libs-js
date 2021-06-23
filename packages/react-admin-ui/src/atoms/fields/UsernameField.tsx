@@ -1,12 +1,9 @@
-import EmailField, {EmailFieldProps} from "./EmailField";
+import EmailField, { EmailFieldProps } from './EmailField';
 
-export function UsernameField({...props}: UsernameFieldProps) {
-    return (
-        <EmailField kind={'username'} {...props} />
-    );
+export function UsernameField({ ...props }: UsernameFieldProps) {
+    return <EmailField kind={'username'} {...props} />;
 }
 
-export interface UsernameFieldProps extends EmailFieldProps {
-}
+export type UsernameFieldProps = EmailFieldProps;
 
-export default UsernameField
+export default UsernameField;

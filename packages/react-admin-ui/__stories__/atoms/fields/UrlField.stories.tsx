@@ -1,5 +1,5 @@
-import {args, s, a} from "../../utils";
-import {UrlField} from '../../../src';
+import { args, s, a } from '../../utils';
+import { UrlField } from '../../../src';
 
 export default {
     title: 'Atoms/fields/UrlField',
@@ -17,8 +17,8 @@ export default {
         value: args.fieldValue,
         kind: args._disable,
     }),
-}
+};
 
-const Template = args => <UrlField {...args} />;
+const Template = (args) => <UrlField {...args} />;
 
-export const basic = s(Template, {})
+export const basic = s(Template, {});

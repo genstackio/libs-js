@@ -1,68 +1,74 @@
-import Chart from "react-apexcharts";
-import {Text} from "../../atoms/Text";
-import {Icon} from "../../atoms/Icon";
-import formatAmount from "../../utils/formatAmount";
-import {ApexOptions} from "apexcharts";
-import tailwindConfig from "../../../tailwind.config"
-import {box_color, box_variant} from "../../types";
+import Chart from 'react-apexcharts';
+import { Text } from '../../atoms/Text';
+import { Icon } from '../../atoms/Icon';
+import formatAmount from '../../utils/formatAmount';
+import { ApexOptions } from 'apexcharts';
+import tailwindConfig from '../../../tailwind.config';
+import { box_color, box_variant } from '../../types';
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 
 const defaultOptions: ApexOptions = {
     chart: {
         toolbar: {
-            show: false
+            show: false,
         },
         sparkline: {
-            enabled: true
-        }
+            enabled: true,
+        },
     },
     stroke: {
-        curve: 'smooth'
+        curve: 'smooth',
     },
     dataLabels: {
-        enabled: false
+        enabled: false,
     },
-    legend: {
-
-    },
+    legend: {},
     grid: {
-        show: false
+        show: false,
     },
     xaxis: {
         labels: {
-            show: false
+            show: false,
         },
         axisBorder: {
-            show: false
+            show: false,
         },
         axisTicks: {
-            show: false
+            show: false,
         },
     },
     yaxis: {
-        show: false
+        show: false,
     },
     fill: {
         type: 'gradient',
         gradient: {
             shade: 'light',
-            type: "vertical",
+            type: 'vertical',
             shadeIntensity: 0.5,
             opacityFrom: 0.8,
             opacityTo: 0,
-        }
-    }
-}
+        },
+    },
+};
 
-export function ProgressChart({series, progress, title, unit, value, color = 'primary', variant = 'filled'}: ProgressChartProps) {
+export function ProgressChart({
+    series,
+    progress,
+    title,
+    unit,
+    value,
+    color = 'primary',
+    variant = 'filled',
+}: ProgressChartProps) {
     const col = `${variant}_${color}`;
-    const options = {...defaultOptions, colors : tailwindChartColors[col]};
+    const options = { ...defaultOptions, colors: tailwindChartColors[col] };
 
-    const newData: {data: number[]}[] = series.reduce((acc, data) => {
-        acc.push({data: data});
+    const newData: { data: number[] }[] = series.reduce((acc, data) => {
+        acc.push({ data: data });
         return acc;
-    }, [] as {data: number[]}[]);
+    }, [] as { data: number[] }[]);
 
     return (
         <div>
@@ -84,13 +90,13 @@ export function ProgressChart({series, progress, title, unit, value, color = 'pr
 }
 
 export interface ProgressChartProps {
-    series: number[][],
-    progress?: number,
-    title?: string,
-    unit?: string,
-    value?: number,
-    color?: box_color,
-    variant?: box_variant,
+    series: number[][];
+    progress?: number;
+    title?: string;
+    unit?: string;
+    value?: number;
+    color?: box_color;
+    variant?: box_variant;
 }
 
-export default ProgressChart
+export default ProgressChart;

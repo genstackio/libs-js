@@ -1,5 +1,5 @@
-import {args, s, a} from "../utils";
-import {Footer} from '../../src';
+import { args, s, a } from '../utils';
+import { Footer } from '../../src';
 
 export default {
     title: 'Organisms/Footer',
@@ -7,10 +7,10 @@ export default {
     argTypes: a({
         content: args.content,
     }),
-}
+};
 
-const Template = args => <Footer {...args} />
+const Template = (args) => <Footer {...args} />;
 
 export const basic = s(Template, {
-    content: 'Footer Text Example'
+    content: 'Footer Text Example',
 });

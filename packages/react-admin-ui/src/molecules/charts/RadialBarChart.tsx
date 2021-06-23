@@ -1,27 +1,26 @@
-import Chart from "react-apexcharts";
-import {ApexOptions} from "apexcharts";
-import tailwindConfig from "../../../tailwind.config"
-import {box_color, box_variant, chart_serie} from "../../types";
+import Chart from 'react-apexcharts';
+import { ApexOptions } from 'apexcharts';
+import tailwindConfig from '../../../tailwind.config';
+import { box_color, box_variant, chart_serie } from '../../types';
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 
-const defaultOptions : ApexOptions = {
-
+const defaultOptions: ApexOptions = {
     chart: {
         toolbar: {
-            show: false
+            show: false,
         },
     },
     dataLabels: {
-        enabled: false
+        enabled: false,
     },
     legend: {
-        show: false
+        show: false,
     },
     plotOptions: {
         radialBar: {
             dataLabels: {
-                value:{
+                value: {
                     fontSize: '1.5em',
                 },
                 total: {
@@ -29,31 +28,34 @@ const defaultOptions : ApexOptions = {
                     show: true,
                     formatter: function (w) {
                         return w.globals.seriesTotals.reduce((a, b) => {
-                            return a + b
-                        }, 0)
-                    }
-                }
-            }
-        }
-    }
+                            return a + b;
+                        }, 0);
+                    },
+                },
+            },
+        },
+    },
 };
 
-export function RadialBarChart({color = 'primary', labels, series, title, variant = 'filled'}: RadialBarChartProps) {
+export function RadialBarChart({ color = 'primary', labels, series, title, variant = 'filled' }: RadialBarChartProps) {
     const col = `${variant}_${color}`;
-    const options = {...defaultOptions, colors: tailwindChartColors[col], plotOptions:{...defaultOptions.plotOptions || {}}, labels:labels};
-    options.plotOptions.radialBar!.dataLabels!.total!.label= title;
+    const options = {
+        ...defaultOptions,
+        colors: tailwindChartColors[col],
+        plotOptions: { ...(defaultOptions.plotOptions || {}) },
+        labels: labels,
+    };
+    options.plotOptions.radialBar!.dataLabels!.total!.label = title;
 
-    return (
-        <Chart type={'radialBar'} options={options} series={series} />
-    );
+    return <Chart type={'radialBar'} options={options} series={series} />;
 }
 
 export interface RadialBarChartProps {
-    color?: box_color,
-    labels?: string[],
-    series: chart_serie,
-    title?: string,
-    variant?: box_variant,
+    color?: box_color;
+    labels?: string[];
+    series: chart_serie;
+    title?: string;
+    variant?: box_variant;
 }
 
-export default RadialBarChart
+export default RadialBarChart;

@@ -1,10 +1,8 @@
 export function BasicLayoutTemplatePage({}: BasicLayoutTemplatePageProps) {
-    return (
-        <div>BASIC LAYOUT TEMPLATE</div>
-    );
+    return <div>BASIC LAYOUT TEMPLATE</div>;
 }
 
-export interface BasicLayoutTemplatePageProps {
-}
+/* eslint @typescript-eslint/no-empty-interface: 0 */
+export interface BasicLayoutTemplatePageProps {}
 
-export default BasicLayoutTemplatePage
+export default BasicLayoutTemplatePage;

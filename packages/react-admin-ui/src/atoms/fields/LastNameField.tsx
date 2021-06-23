@@ -1,16 +1,17 @@
-import {useMemo} from "react";
-import TextField, {TextFieldProps} from "./TextField";
+import { useMemo } from 'react';
+import TextField, { TextFieldProps } from './TextField';
 
-export function LastNameField({options = {}, ...props}: LastNameFieldProps) {
-    options = useMemo(() => ({
-        ...options,
-    }), [options]);
-
-    return (
-        <TextField kind={'lastName'} {...props} options={options} />
+export function LastNameField({ options = {}, ...props }: LastNameFieldProps) {
+    options = useMemo(
+        () => ({
+            ...options,
+        }),
+        [options],
     );
+
+    return <TextField kind={'lastName'} {...props} options={options} />;
 }
 
-export interface LastNameFieldProps extends TextFieldProps {}
+export type LastNameFieldProps = TextFieldProps;
 
-export default LastNameField
+export default LastNameField;

@@ -1,11 +1,9 @@
-import UrlField, {UrlFieldProps} from "./UrlField";
+import UrlField, { UrlFieldProps } from './UrlField';
 
 export function LinkedinField(props: LinkedinFieldProps) {
-    return (
-        <UrlField kind={'linkedin'} {...props} />
-    );
+    return <UrlField kind={'linkedin'} {...props} />;
 }
 
-export interface LinkedinFieldProps extends UrlFieldProps {}
+export type LinkedinFieldProps = UrlFieldProps;
 
-export default LinkedinField
+export default LinkedinField;

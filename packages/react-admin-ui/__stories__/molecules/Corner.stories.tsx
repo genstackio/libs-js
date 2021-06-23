@@ -1,5 +1,5 @@
-import {args, s, a} from '../utils';
-import {Corner} from '../../src';
+import { args, s, a } from '../utils';
+import { Corner } from '../../src';
 
 export default {
     title: 'Molecules/Corner',
@@ -8,14 +8,14 @@ export default {
         color: args.color,
         variant: args.blockVariant,
         text: args.text,
-        iconCorner: args.iconCorner
+        iconCorner: args.iconCorner,
     }),
-}
+};
 
-const Template = args => (<Corner {...args} />);
+const Template = (args) => <Corner {...args} />;
 
 export const basic = s(Template, {
-    text: "je suis un tag",
+    text: 'je suis un tag',
     variant: 'contained',
     icon: 'account_balance_icon',
     color: 'primary',
@@ -24,39 +24,39 @@ export const basic = s(Template, {
 export const two = s(Template, {
     items: [
         {
-            text: "je suis tag 1",
+            text: 'je suis tag 1',
             variant: 'outlined',
             iconCorner: 'settings',
             color: 'success',
         },
         {
-            text: "je suis tag 2",
+            text: 'je suis tag 2',
             variant: 'contained',
             iconCorner: 'notifications_none_icon',
             color: 'warning',
-        }
-    ]
+        },
+    ],
 });
 
 export const three = s(Template, {
     items: [
         {
-            text: "je suis tag 1",
+            text: 'je suis tag 1',
             variant: 'outlined',
             iconCorner: 'settings',
             color: 'success',
         },
         {
-            text: "je suis tag 2",
+            text: 'je suis tag 2',
             variant: 'contained',
             iconCorner: 'notifications_none_icon',
             color: 'warning',
         },
         {
-            text: "je suis tag 3",
+            text: 'je suis tag 3',
             variant: 'contained',
             iconCorner: 'query_builder',
             color: 'danger',
-        }
-    ]
+        },
+    ],
 });

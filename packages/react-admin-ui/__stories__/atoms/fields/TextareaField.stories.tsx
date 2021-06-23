@@ -1,5 +1,5 @@
-import {args, s, a} from "../../utils";
-import {TextareaField} from '../../../src';
+import { args, s, a } from '../../utils';
+import { TextareaField } from '../../../src';
 
 export default {
     title: 'Atoms/fields/TextareaField',
@@ -18,8 +18,8 @@ export default {
         rows: args.rows,
         kind: args._disable,
     }),
-}
+};
 
-const Template = args => <TextareaField {...args} />;
+const Template = (args) => <TextareaField {...args} />;
 
-export const basic = s(Template, {})
+export const basic = s(Template, {});

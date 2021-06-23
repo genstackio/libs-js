@@ -1,25 +1,31 @@
-import {UsernameField, PasswordField, RememberPasswordField, Button, Text} from '../../atoms';
-import {useCallback} from 'react';
-import {flag} from '../../types';
-import {BaseFormProps} from "./BaseForm";
-import useForm from "../../hooks/useForm";
+import { UsernameField, PasswordField, RememberPasswordField, Button, Text } from '../../atoms';
+import { useCallback } from 'react';
+import { flag } from '../../types';
+import { BaseFormProps } from './BaseForm';
+import useForm from '../../hooks/useForm';
 
-export function LoginForm({onRegisterClick, onForgotPasswordClick, socialLogins = false, rememberMe = false, ...props}: LoginFormProps) {
-    const {Form, SubmitButton, field, tf, color} = useForm(props, 'login');
+export function LoginForm({
+    onRegisterClick,
+    onForgotPasswordClick,
+    socialLogins = false,
+    rememberMe = false,
+    ...props
+}: LoginFormProps) {
+    const { Form, SubmitButton, field, tf, color } = useForm(props, 'login');
 
-    const onFacebookClick = useCallback(event => {
+    const onFacebookClick = useCallback((event) => {
         event.preventDefault();
     }, []);
-    const onTwitterClick = useCallback(event => {
+    const onTwitterClick = useCallback((event) => {
         event.preventDefault();
     }, []);
-    const onLinkedInClick = useCallback(event => {
+    const onLinkedInClick = useCallback((event) => {
         event.preventDefault();
     }, []);
 
     const footer = onRegisterClick && (
         <>
-            <Text className={'text-gray-500 mr-2'} text={tf('register_question')} variant={'body'}/>
+            <Text className={'text-gray-500 mr-2'} text={tf('register_question')} variant={'body'} />
             <a href={'#'} onClick={onRegisterClick as any}>
                 <Text text={tf('register_label')} color={color} variant={'body'} />
             </a>
@@ -31,7 +37,11 @@ export function LoginForm({onRegisterClick, onForgotPasswordClick, socialLogins 
             <UsernameField {...field} required autoFocus />
             <div className={'mb-6'}>
                 <div className={'block text-gray-700 text-sm mb-2'}>
-                    <div className={'w-full py-2 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline'}>
+                    <div
+                        className={
+                            'w-full py-2 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline'
+                        }
+                    >
                         <PasswordField {...field} required />
                     </div>
                     {(rememberMe || onForgotPasswordClick) && (
@@ -43,7 +53,7 @@ export function LoginForm({onRegisterClick, onForgotPasswordClick, socialLogins 
                             )}
                             {onForgotPasswordClick && (
                                 <div onClick={onForgotPasswordClick as any}>
-                                    <Text text={tf('forgot_password_label')} color={color} variant={'body'}/>
+                                    <Text text={tf('forgot_password_label')} color={color} variant={'body'} />
                                 </div>
                             )}
                         </div>
@@ -54,13 +64,24 @@ export function LoginForm({onRegisterClick, onForgotPasswordClick, socialLogins 
             {socialLogins && (
                 <>
                     <div className={'flex mt-4 relative'}>
-                        <Text className={'text-gray-500'} text={tf('other_login_methods_title')} variant={'description'} color={color} />
+                        <Text
+                            className={'text-gray-500'}
+                            text={tf('other_login_methods_title')}
+                            variant={'description'}
+                            color={color}
+                        />
                         <hr className={'flex-1 mt-2 ml-2'} />
                     </div>
                     <div className={'mt-4 block flex flex-inline space-x-2 justify-center'}>
-                        <Button onClick={onLinkedInClick} variant={'outlined'} color={color}>Linkedin</Button>
-                        <Button onClick={onTwitterClick} variant={'outlined'} color={color}>Twitter</Button>
-                        <Button onClick={onFacebookClick} variant={'outlined'} color={color}>Facebook</Button>
+                        <Button onClick={onLinkedInClick} variant={'outlined'} color={color}>
+                            Linkedin
+                        </Button>
+                        <Button onClick={onTwitterClick} variant={'outlined'} color={color}>
+                            Twitter
+                        </Button>
+                        <Button onClick={onFacebookClick} variant={'outlined'} color={color}>
+                            Facebook
+                        </Button>
                     </div>
                 </>
             )}
@@ -68,10 +89,10 @@ export function LoginForm({onRegisterClick, onForgotPasswordClick, socialLogins 
     );
 }
 export interface LoginFormProps extends BaseFormProps {
-    onRegisterClick?: Function,
-    onForgotPasswordClick?: Function,
-    socialLogins?: flag,
-    rememberMe?: flag,
+    onRegisterClick?: Function;
+    onForgotPasswordClick?: Function;
+    socialLogins?: flag;
+    rememberMe?: flag;
 }
 
-export default LoginForm
+export default LoginForm;

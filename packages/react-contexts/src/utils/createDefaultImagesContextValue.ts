@@ -1,6 +1,8 @@
-import {images_context_value} from '../types';
+import { images_context_value } from '../types';
 
 // noinspection JSUnusedLocalSymbols
-export const createDefaultImagesContextValue = (defaultValue: images_context_value|undefined = undefined): images_context_value => defaultValue || {get: (key: string) => undefined};
+export const createDefaultImagesContextValue = (
+    defaultValue: images_context_value | undefined = undefined,
+): images_context_value => defaultValue || { get: (key: string) => undefined };
 
-export default createDefaultImagesContextValue
+export default createDefaultImagesContextValue;

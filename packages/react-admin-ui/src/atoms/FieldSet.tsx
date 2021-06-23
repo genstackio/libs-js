@@ -1,10 +1,10 @@
 import clsx from 'clsx';
-import {children, class_name} from '../types';
-import FieldHelper from "./FieldHelper";
-import FieldLabel from "./FieldLabel";
-import FieldError from "./FieldError";
+import { children, class_name } from '../types';
+import FieldHelper from './FieldHelper';
+import FieldLabel from './FieldLabel';
+import FieldError from './FieldError';
 
-export function FieldSet({className, name, label, options, children, error, helper}: FieldSetProps) {
+export function FieldSet({ className, name, label, options, children, error, helper }: FieldSetProps) {
     return (
         <div className={clsx('mb-2', className)}>
             <div className={'focus-within:font-bold'}>
@@ -18,13 +18,13 @@ export function FieldSet({className, name, label, options, children, error, help
 }
 
 export interface FieldSetProps {
-    className?: class_name,
-    label?: string,
-    name: string,
-    options?: any,
-    helper?: string,
-    children?: children,
-    error?: any,
+    className?: class_name;
+    label?: string;
+    name: string;
+    options?: any;
+    helper?: string;
+    children?: children;
+    error?: any;
 }
 
-export default FieldSet
+export default FieldSet;

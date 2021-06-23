@@ -1,38 +1,35 @@
-import Chart from "react-apexcharts";
-import {ApexOptions} from "apexcharts";
-import tailwindConfig from "../../../tailwind.config"
-import {box_color, box_variant, chart_series} from "../../types";
+import Chart from 'react-apexcharts';
+import { ApexOptions } from 'apexcharts';
+import tailwindConfig from '../../../tailwind.config';
+import { box_color, box_variant, chart_series } from '../../types';
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 
-const defaultOptions : ApexOptions = {
-
+const defaultOptions: ApexOptions = {
     chart: {
         toolbar: {
-            show: false
+            show: false,
         },
     },
     dataLabels: {
-        enabled: false
+        enabled: false,
     },
     legend: {
-        show: true
+        show: true,
     },
 };
 
-export function CircleChart({color = 'primary', series, variant = 'filled'}: CircleChartProps) {
+export function CircleChart({ color = 'primary', series, variant = 'filled' }: CircleChartProps) {
     const col = `${variant}_${color}`;
-    const options = {...defaultOptions, colors: tailwindChartColors[col]};
+    const options = { ...defaultOptions, colors: tailwindChartColors[col] };
 
-    return (
-        <Chart type={'radialBar'} options={options} series={series} />
-    );
+    return <Chart type={'radialBar'} options={options} series={series} />;
 }
 
 export interface CircleChartProps {
-    color?: box_color,
-    series: chart_series,
-    variant?: box_variant,
+    color?: box_color;
+    series: chart_series;
+    variant?: box_variant;
 }
 
-export default CircleChart
+export default CircleChart;

@@ -1,5 +1,5 @@
-import {args, s, a} from "../utils";
-import {Button} from '../../src';
+import { args, s, a } from '../utils';
+import { Button } from '../../src';
 
 export default {
     title: 'Atoms/Button',
@@ -13,9 +13,9 @@ export default {
         classes: args.classes,
         onClick: args.onClick,
     }),
-}
+};
 
-const Template = args => <Button {...args} />;
+const Template = (args) => <Button {...args} />;
 
 export const basic = s(Template, {
     children: 'label',
@@ -23,85 +23,182 @@ export const basic = s(Template, {
     variant: 'contained',
 });
 
-export const showcase = s(args => (
-    <div className={'space-y-2'}>
-        <p>FILLED</p>
-        <div className={'flex items-center space-x-4'}>
-            <Template children={'primary'} color={'primary'} />
-            <Template children={'secondary'} color={'secondary'} />
-            <Template children={'success'} color={'success'} />
-            <Template children={'info'} color={'info'} />
-            <Template children={'warning'} color={'warning'} />
-            <Template children={'danger'} color={'danger'} />
-            <Template children={'light'} color={'light'} />
-            <Template children={'dark'} color={'dark'} />
+export const showcase = s(
+    (args) => (
+        <div className={'space-y-2'}>
+            <p>FILLED</p>
+            <div className={'flex items-center space-x-4'}>
+                <Template color={'primary'}>{'primary'}</Template>
+                <Template color={'secondary'}>{'secondary'}</Template>
+                <Template color={'success'}>{'success'}</Template>
+                <Template color={'info'}>{'info'}</Template>
+                <Template color={'warning'}>{'warning'}</Template>
+                <Template color={'danger'}>{'danger'}</Template>
+                <Template color={'light'}>{'light'}</Template>
+                <Template color={'dark'}>{'dark'}</Template>
+            </div>
+            <p>OUTLINED</p>
+            <div className={'flex items-center space-x-4'}>
+                <Template color={'primary'} variant={'outlined'}>
+                    {'primary'}
+                </Template>
+                <Template color={'primary'} variant={'outlined'}>
+                    {'primary'}
+                </Template>
+                <Template color={'secondary'} variant={'outlined'}>
+                    {'secondary'}
+                </Template>
+                <Template color={'success'} variant={'outlined'}>
+                    {'success'}
+                </Template>
+                <Template color={'info'} variant={'outlined'}>
+                    {'info'}
+                </Template>
+                <Template color={'warning'} variant={'outlined'}>
+                    {'warning'}
+                </Template>
+                <Template color={'danger'} variant={'outlined'}>
+                    {'danger'}
+                </Template>
+                <Template color={'light'} variant={'outlined'}>
+                    {'light'}
+                </Template>
+                <Template color={'dark'} variant={'outlined'}>
+                    {'dark'}
+                </Template>
+            </div>
+            <p>CONTAINED</p>
+            <div className={'flex items-center space-x-4'}>
+                <Template color={'primary'} variant={'contained'}>
+                    {'primary'}
+                </Template>
+                <Template color={'secondary'} variant={'contained'}>
+                    {'secondary'}
+                </Template>
+                <Template color={'success'} variant={'contained'}>
+                    {'success'}
+                </Template>
+                <Template color={'info'} variant={'contained'}>
+                    {'info'}
+                </Template>
+                <Template color={'warning'} variant={'contained'}>
+                    {'warning'}
+                </Template>
+                <Template color={'danger'} variant={'contained'}>
+                    {'danger'}
+                </Template>
+                <Template color={'light'} variant={'contained'}>
+                    {'light'}
+                </Template>
+                <Template color={'dark'} variant={'contained'}>
+                    {'dark'}
+                </Template>
+            </div>
+            <p>DISABLED</p>
+            <div className={'flex items-center space-x-4'}>
+                <Template color={'primary'} disabled>
+                    {'primary'}
+                </Template>
+                <Template color={'secondary'} disabled>
+                    {'secondary'}
+                </Template>
+                <Template color={'success'} disabled>
+                    {'success'}
+                </Template>
+                <Template color={'info'} disabled>
+                    {'info'}
+                </Template>
+                <Template color={'warning'} disabled>
+                    {'warning'}
+                </Template>
+                <Template color={'danger'} disabled>
+                    {'danger'}
+                </Template>
+                <Template color={'light'} disabled>
+                    {'light'}
+                </Template>
+                <Template color={'dark'} disabled>
+                    {'dark'}
+                </Template>
+            </div>
+            <div className={'flex items-center space-x-4'}>
+                <Template color={'primary'} variant={'outlined'} disabled>
+                    {'primary'}
+                </Template>
+                <Template color={'secondary'} variant={'outlined'} disabled>
+                    {'secondary'}
+                </Template>
+                <Template color={'success'} variant={'outlined'} disabled>
+                    {'success'}
+                </Template>
+                <Template color={'info'} variant={'outlined'} disabled>
+                    {'info'}
+                </Template>
+                <Template color={'warning'} variant={'outlined'} disabled>
+                    {'warning'}
+                </Template>
+                <Template color={'danger'} variant={'outlined'} disabled>
+                    {'danger'}
+                </Template>
+                <Template color={'light'} variant={'outlined'} disabled>
+                    {'light'}
+                </Template>
+                <Template color={'dark'} variant={'outlined'} disabled>
+                    {'dark'}
+                </Template>
+            </div>
+            <div className={'flex items-center space-x-4'}>
+                <Template color={'primary'} variant={'contained'} disabled>
+                    {'primary'}
+                </Template>
+                <Template color={'secondary'} variant={'contained'} disabled>
+                    {'secondary'}
+                </Template>
+                <Template color={'success'} variant={'contained'} disabled>
+                    {'success'}
+                </Template>
+                <Template color={'info'} variant={'contained'} disabled>
+                    {'info'}
+                </Template>
+                <Template color={'warning'} variant={'contained'} disabled>
+                    {'warning'}
+                </Template>
+                <Template color={'danger'} variant={'contained'} disabled>
+                    {'danger'}
+                </Template>
+                <Template color={'light'} variant={'contained'} disabled>
+                    {'light'}
+                </Template>
+                <Template color={'dark'} variant={'contained'} disabled>
+                    {'dark'}
+                </Template>
+            </div>
+            <p>LARGE</p>
+            <div className={'flex items-center space-x-4'}>
+                <Template color={'primary'} large>
+                    {'primary'}
+                </Template>
+                <Template color={'secondary'} large>
+                    {'secondary'}
+                </Template>
+            </div>
+            <div className={'flex items-center space-x-4'}>
+                <Template color={'primary'} variant={'outlined'} large>
+                    {'primary'}
+                </Template>
+                <Template color={'secondary'} variant={'outlined'} large>
+                    {'secondary'}
+                </Template>
+            </div>
+            <div className={'flex items-center space-x-4'}>
+                <Template color={'primary'} variant={'contained'} large>
+                    {'primary'}
+                </Template>
+                <Template color={'secondary'} variant={'contained'} large>
+                    {'secondary'}
+                </Template>
+            </div>
         </div>
-        <p>OUTLINED</p>
-        <div className={'flex items-center space-x-4'}>
-            <Template children={'primary'} color={'primary'} variant={'outlined'} />
-            <Template children={'primary'} color={'primary'} variant={'outlined'} />
-            <Template children={'secondary'} color={'secondary'} variant={'outlined'} />
-            <Template children={'success'} color={'success'} variant={'outlined'} />
-            <Template children={'info'} color={'info'} variant={'outlined'} />
-            <Template children={'warning'} color={'warning'} variant={'outlined'} />
-            <Template children={'danger'} color={'danger'} variant={'outlined'} />
-            <Template children={'light'} color={'light'} variant={'outlined'} />
-            <Template children={'dark'} color={'dark'} variant={'outlined'} />
-        </div>
-        <p>CONTAINED</p>
-        <div className={'flex items-center space-x-4'}>
-            <Template children={'primary'} color={'primary'} variant={'contained'} />
-            <Template children={'secondary'} color={'secondary'} variant={'contained'} />
-            <Template children={'success'} color={'success'} variant={'contained'} />
-            <Template children={'info'} color={'info'} variant={'contained'} />
-            <Template children={'warning'} color={'warning'} variant={'contained'} />
-            <Template children={'danger'} color={'danger'} variant={'contained'} />
-            <Template children={'light'} color={'light'} variant={'contained'} />
-            <Template children={'dark'} color={'dark'} variant={'contained'} />
-        </div>
-        <p>DISABLED</p>
-        <div className={'flex items-center space-x-4'}>
-            <Template children={'primary'} color={'primary'} disabled />
-            <Template children={'secondary'} color={'secondary'} disabled />
-            <Template children={'success'} color={'success'} disabled />
-            <Template children={'info'} color={'info'} disabled />
-            <Template children={'warning'} color={'warning'} disabled />
-            <Template children={'danger'} color={'danger'} disabled />
-            <Template children={'light'} color={'light'} disabled />
-            <Template children={'dark'} color={'dark'} disabled />
-        </div>
-        <div className={'flex items-center space-x-4'}>
-            <Template children={'primary'} color={'primary'} variant={'outlined'} disabled />
-            <Template children={'secondary'} color={'secondary'} variant={'outlined'} disabled />
-            <Template children={'success'} color={'success'} variant={'outlined'} disabled />
-            <Template children={'info'} color={'info'} variant={'outlined'} disabled />
-            <Template children={'warning'} color={'warning'} variant={'outlined'} disabled />
-            <Template children={'danger'} color={'danger'} variant={'outlined'} disabled />
-            <Template children={'light'} color={'light'} variant={'outlined'} disabled />
-            <Template children={'dark'} color={'dark'} variant={'outlined'} disabled />
-        </div>
-        <div className={'flex items-center space-x-4'}>
-            <Template children={'primary'} color={'primary'} variant={'contained'} disabled />
-            <Template children={'secondary'} color={'secondary'} variant={'contained'} disabled />
-            <Template children={'success'} color={'success'} variant={'contained'} disabled />
-            <Template children={'info'} color={'info'} variant={'contained'} disabled />
-            <Template children={'warning'} color={'warning'} variant={'contained'} disabled />
-            <Template children={'danger'} color={'danger'} variant={'contained'} disabled />
-            <Template children={'light'} color={'light'} variant={'contained'} disabled />
-            <Template children={'dark'} color={'dark'} variant={'contained'} disabled />
-        </div>
-        <p>LARGE</p>
-        <div className={'flex items-center space-x-4'}>
-            <Template children={'primary'} color={'primary'} large />
-            <Template children={'secondary'} color={'secondary'} large />
-        </div>
-        <div className={'flex items-center space-x-4'}>
-            <Template children={'primary'} color={'primary'} variant={'outlined'} large />
-            <Template children={'secondary'} color={'secondary'} variant={'outlined'} large />
-        </div>
-        <div className={'flex items-center space-x-4'}>
-            <Template children={'primary'} color={'primary'} variant={'contained'} large />
-            <Template children={'secondary'} color={'secondary'} variant={'contained'} large />
-        </div>
-    </div>
-), {})
+    ),
+    {},
+);

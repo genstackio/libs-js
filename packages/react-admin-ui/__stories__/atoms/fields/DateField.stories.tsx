@@ -1,5 +1,5 @@
-import {args, s, a} from "../../utils";
-import {DateField} from '../../../src';
+import { args, s, a } from '../../utils';
+import { DateField } from '../../../src';
 
 export default {
     title: 'Atoms/fields/DateField',
@@ -17,10 +17,10 @@ export default {
         value: args.fieldValue,
         kind: args._disable,
     }),
-}
+};
 
-const Template = args => <DateField {...args} />;
+const Template = (args) => <DateField {...args} />;
 
 export const basic = s(Template, {
     now: '2020-03-18T21:11:54',
-})
+});

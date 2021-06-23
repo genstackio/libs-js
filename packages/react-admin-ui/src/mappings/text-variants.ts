@@ -1,4 +1,4 @@
-import clsxmp from "../utils/clsxmp";
+import clsxmp from '../utils/clsxmp';
 
 export const textVariants = {
     xsmall: 'text-xxs font-small',
@@ -10,7 +10,7 @@ export const textVariants = {
     description: 'text-sm font-description',
     overline: 'text-sm font-overline',
     subsection: 'text-sm font-subsection font-medium',
-    subtitle:'text-lg font-light font-subtitle',
+    subtitle: 'text-lg font-light font-subtitle',
     title0: 'lg:text-9xl md:text-7xl sm:text-4xl font-bold font-title1',
     title1: 'text-6xl font-bold font-title1',
     title2: 'text-5xl font-bold font-title2',
@@ -23,7 +23,7 @@ export const textVariants = {
 };
 
 export type text_variant =
-      'xsmall'
+    | 'xsmall'
     | 'small'
     | 'body'
     | 'section'
@@ -41,11 +41,11 @@ export type text_variant =
     | 'title5'
     | 'title6'
     | 'title7'
-    | 'underline'
-;
+    | 'underline';
 
 export const defaultTextVariant = 'body';
 
-export const textVariantClass = (v: text_variant|undefined, e: any = {}) => clsxmp(v, defaultTextVariant, textVariants, e);
+export const textVariantClass = (v: text_variant | undefined, e: any = {}) =>
+    clsxmp(v, defaultTextVariant, textVariants, e);
 
-export default textVariantClass
+export default textVariantClass;

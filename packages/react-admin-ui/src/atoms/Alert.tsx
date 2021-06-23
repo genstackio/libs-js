@@ -1,12 +1,12 @@
-import {useCallback, useState} from 'react';
+import { useCallback, useState } from 'react';
 import CloseIcon from '@material-ui/icons/Close';
-import Panel, {PanelProps} from "./Panel";
-import {flag} from '../types';
+import Panel, { PanelProps } from './Panel';
+import { flag } from '../types';
 
-export function Alert({children, closable = false, color = 'primary', variant = 'contained', ...props}: AlertProps) {
+export function Alert({ children, closable = false, color = 'primary', variant = 'contained', ...props }: AlertProps) {
     const [show, setShow] = useState(true);
     const handleClick = useCallback(() => setShow(false), [setShow]);
-    if (!show) return null
+    if (!show) return null;
     return (
         <Panel color={color} variant={variant} {...props}>
             <div className={'w-full'}>{children || ''}</div>
@@ -20,7 +20,7 @@ export function Alert({children, closable = false, color = 'primary', variant = 
 }
 
 export interface AlertProps extends PanelProps {
-    closable?: flag,
+    closable?: flag;
 }
 
-export default Alert
+export default Alert;

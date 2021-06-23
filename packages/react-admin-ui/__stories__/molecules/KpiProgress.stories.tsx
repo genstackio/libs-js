@@ -1,5 +1,5 @@
-import {args, s, a} from "../utils";
-import {KpiProgress} from '../../src';
+import { args, s, a } from '../utils';
+import { KpiProgress } from '../../src';
 
 export default {
     title: 'Molecules/KpiProgress',
@@ -12,13 +12,13 @@ export default {
         variant: args.blockVariant,
         padding: args.padding,
     }),
-}
+};
 
-const Template = args => <KpiProgress {...args} />;
+const Template = (args) => <KpiProgress {...args} />;
 
-export const basic = s(Template,  {
-    text: "Turnover",
+export const basic = s(Template, {
+    text: 'Turnover',
     value: 5348,
     goal: 10000,
     unit: '€',
-})
+});

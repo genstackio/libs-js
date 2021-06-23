@@ -1,10 +1,8 @@
 export function PasswordRecoverAuthPage({}: PasswordRecoverAuthPageProps) {
-    return (
-        <div>PASSWORD RECOVER AUTH PAGE</div>
-    );
+    return <div>PASSWORD RECOVER AUTH PAGE</div>;
 }
 
-export interface PasswordRecoverAuthPageProps {
-}
+/* eslint @typescript-eslint/no-empty-interface: 0 */
+export interface PasswordRecoverAuthPageProps {}
 
-export default PasswordRecoverAuthPage
+export default PasswordRecoverAuthPage;

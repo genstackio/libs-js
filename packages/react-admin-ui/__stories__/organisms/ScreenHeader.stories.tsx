@@ -1,5 +1,5 @@
-import {args, s, a} from "../utils";
-import {ScreenHeader} from '../../src';
+import { args, s, a } from '../utils';
+import { ScreenHeader } from '../../src';
 
 export default {
     title: 'Organisms/ScreenHeader',
@@ -8,23 +8,23 @@ export default {
         items: args.items,
         color: args.color,
     }),
-}
+};
 
-const Template = args => <ScreenHeader {...args} />
+const Template = (args) => <ScreenHeader {...args} />;
 
 export const basic = s(Template, {
     items: [
         {
-            label: "Home",
-            target: "https://www.google.com/",
+            label: 'Home',
+            target: 'https://www.google.com/',
         },
         {
-            label: "Project",
-            target: "https://www.google.com/",
+            label: 'Project',
+            target: 'https://www.google.com/',
         },
         {
-            label: "Create Project",
-            target: "https://www.google.com/",
+            label: 'Create Project',
+            target: 'https://www.google.com/',
         },
-    ]
+    ],
 });

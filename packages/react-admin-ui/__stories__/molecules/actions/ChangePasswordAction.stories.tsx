@@ -1,5 +1,5 @@
-import {args, s, a} from '../../utils';
-import {ChangePasswordAction} from '../../../src';
+import { args, s, a } from '../../utils';
+import { ChangePasswordAction } from '../../../src';
 
 export default {
     title: 'Molecules/actions/ChangePasswordAction',
@@ -10,9 +10,8 @@ export default {
         variant: args._disable,
         socialChangePasswords: args.flag,
     }),
-}
+};
 
-const Template = args => <ChangePasswordAction {...args} />;
+const Template = (args) => <ChangePasswordAction {...args} />;
 
-export const basic = s(Template, {
-})
+export const basic = s(Template, {});

@@ -1,5 +1,5 @@
-import {args, s, a} from "../utils";
-import {MaintenanceTemplate} from '../../src';
+import { args, s, a } from '../utils';
+import { MaintenanceTemplate } from '../../src';
 
 export default {
     title: 'Templates/MaintenanceTemplate',
@@ -12,9 +12,9 @@ export default {
         label: args.btnLabel,
         variant: args.blockVariant,
     }),
-}
+};
 
-const Template = args => <MaintenanceTemplate {...args} />
+const Template = (args) => <MaintenanceTemplate {...args} />;
 
 export const basic = s(Template, {
     logo: 'settings',
@@ -27,5 +27,5 @@ export const basic = s(Template, {
             label: 'BACK TO HOME PAGE',
             target: './',
         },
-    ]
+    ],
 });

@@ -1,6 +1,6 @@
-import {args, s, a} from '../../utils';
-import {LoginAction} from '../../../src';
-import MockPanel from "../../MockPanel";
+import { args, s, a } from '../../utils';
+import { LoginAction } from '../../../src';
+import MockPanel from '../../MockPanel';
 
 export default {
     title: 'Molecules/actions/LoginAction',
@@ -13,9 +13,9 @@ export default {
         variant: args._disable,
         socialLogins: args.flag,
     }),
-}
+};
 
-const Template = args => (
+const Template = (args) => (
     <>
         <LoginAction {...args} />
         <MockPanel />
@@ -25,4 +25,4 @@ const Template = args => (
 export const basic = s(Template, {
     onForgotPasswordClick: undefined,
     onRegisterClick: undefined,
-})
+});

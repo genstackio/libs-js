@@ -1,9 +1,17 @@
-import {EmailField, FirstNameField, LastNameField, PhoneField, AddressField, BirthDateField, GenderField} from '../../atoms/fields';
-import {useForm} from '../../hooks/useForm';
-import {BaseFormProps} from "./BaseForm";
+import {
+    EmailField,
+    FirstNameField,
+    LastNameField,
+    PhoneField,
+    AddressField,
+    BirthDateField,
+    GenderField,
+} from '../../atoms/fields';
+import { useForm } from '../../hooks/useForm';
+import { BaseFormProps } from './BaseForm';
 
-export function UserProfileForm(props : UserProfileFormProps) {
-    const {Form, SubmitButton, field} = useForm(props, 'user_profile');
+export function UserProfileForm(props: UserProfileFormProps) {
+    const { Form, SubmitButton, field } = useForm(props, 'user_profile');
 
     return (
         <Form>
@@ -19,6 +27,6 @@ export function UserProfileForm(props : UserProfileFormProps) {
     );
 }
 
-export interface UserProfileFormProps extends BaseFormProps {}
+export type UserProfileFormProps = BaseFormProps;
 
-export default UserProfileForm
+export default UserProfileForm;

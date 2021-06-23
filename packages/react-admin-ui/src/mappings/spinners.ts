@@ -1,5 +1,5 @@
-import clsxmp from "../utils/clsxmp";
-import clsx from "clsx";
+import clsxmp from '../utils/clsxmp';
+import clsx from 'clsx';
 
 export const spinners = {
     // xs
@@ -112,70 +112,58 @@ export const colorSpinners = {
 };
 
 export const spinnerVariants = {
-    'dots': true,
+    dots: true,
     'dotted-circle': true,
     'full-circle': true,
     'half-circle': true,
     'separate-circle': true,
-    'squares': true,
-    'circle': true,
+    squares: true,
+    circle: true,
 };
 
 export const spinnerColors = {
-    'primary': true,
-    'secondary': true,
-    'success': true,
-    'info': true,
-    'warning': true,
-    'danger': true,
-    'light': true,
-    'dark': true,
+    primary: true,
+    secondary: true,
+    success: true,
+    info: true,
+    warning: true,
+    danger: true,
+    light: true,
+    dark: true,
 };
 
 export const spinnerSizes = {
-    'xs': true,
-    'sm': true,
-    'md': true,
-    'lg': true,
-    'xl': true,
+    xs: true,
+    sm: true,
+    md: true,
+    lg: true,
+    xl: true,
 };
 
 export type spinner_variant =
-      'dots'
+    | 'dots'
     | 'dotted-circle'
     | 'full-circle'
     | 'half-circle'
     | 'separate-circle'
     | 'squares'
-    | 'circle'
-;
+    | 'circle';
 
-export type spinner_size =
-      'xs'
-    | 'sm'
-    | 'md'
-    | 'lg'
-    | 'xl'
-;
+export type spinner_size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-export type spinner_color =
-      'primary'
-    | 'secondary'
-    | 'success'
-    | 'info'
-    | 'warning'
-    | 'danger'
-    | 'light'
-    | 'dark'
-;
+export type spinner_color = 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'light' | 'dark';
 
 export const defaultSpinnerVariant = 'squares';
 
 export const defaultSpinnerSize = 'md';
 
-export const spinnerClass = ({variant, size, color}: {variant?: spinner_variant, size?: spinner_size, color?: spinner_color}, e: any = {}) => clsx(
-    clsxmp(`${size}-${variant}`, `${defaultSpinnerSize}-${defaultSpinnerVariant}`, spinners, e),
-    clsxmp(`${color}-${variant}`, `primary-${variant}`, colorSpinners, e)
-);
+export const spinnerClass = (
+    { variant, size, color }: { variant?: spinner_variant; size?: spinner_size; color?: spinner_color },
+    e: any = {},
+) =>
+    clsx(
+        clsxmp(`${size}-${variant}`, `${defaultSpinnerSize}-${defaultSpinnerVariant}`, spinners, e),
+        clsxmp(`${color}-${variant}`, `primary-${variant}`, colorSpinners, e),
+    );
 
-export default spinnerClass
+export default spinnerClass;

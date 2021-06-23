@@ -1,10 +1,8 @@
 export function LoginAuthPage({}: LoginAuthPageProps) {
-    return (
-        <div>LOGIN PAGE</div>
-    );
+    return <div>LOGIN PAGE</div>;
 }
 
-export interface LoginAuthPageProps {
-}
+/* eslint @typescript-eslint/no-empty-interface: 0 */
+export interface LoginAuthPageProps {}
 
-export default LoginAuthPage
+export default LoginAuthPage;

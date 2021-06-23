@@ -1,5 +1,5 @@
-import {args, s, a} from "../utils";
-import {Progress} from '../../src';
+import { args, s, a } from '../utils';
+import { Progress } from '../../src';
 
 export default {
     title: 'Atoms/Progress',
@@ -8,10 +8,10 @@ export default {
         variant: args.progressVariant,
         value: args.value,
     }),
-}
+};
 
-const Template = args => <Progress {...args} />;
+const Template = (args) => <Progress {...args} />;
 
 export const basic = s(Template, {
     value: 33,
-})
+});

@@ -1,5 +1,5 @@
-import {args, s, a} from "../../utils";
-import {SelectField} from '../../../src';
+import { args, s, a } from '../../utils';
+import { SelectField } from '../../../src';
 
 export default {
     title: 'Atoms/fields/SelectField',
@@ -18,14 +18,21 @@ export default {
         rows: args.rows,
         kind: args._disable,
     }),
-}
+};
 
-const Template = args => <SelectField {...args} />;
+const Template = (args) => <SelectField {...args} />;
 
 export const basic = s(Template, {
     values: [
-        {value: 1, label: 'First value'},
-        {value: 2, label: <p>Second <b>value</b></p>},
-        {value: 3, label: 'Third value'},
-    ]
-})
+        { value: 1, label: 'First value' },
+        {
+            value: 2,
+            label: (
+                <p>
+                    Second <b>value</b>
+                </p>
+            ),
+        },
+        { value: 3, label: 'Third value' },
+    ],
+});

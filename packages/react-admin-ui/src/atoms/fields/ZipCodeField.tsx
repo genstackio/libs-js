@@ -1,17 +1,17 @@
-import {useMemo} from "react";
-import TextField, {TextFieldProps} from "./TextField";
+import { useMemo } from 'react';
+import TextField, { TextFieldProps } from './TextField';
 
-export function ZipCodeField({options = {}, ...props}: ZipCodeFieldProps) {
-    options = useMemo(() => ({
-        ...options,
-    }), [options]);
-
-    return (
-        <TextField kind={'zipCode'} {...props} options={options} />
+export function ZipCodeField({ options = {}, ...props }: ZipCodeFieldProps) {
+    options = useMemo(
+        () => ({
+            ...options,
+        }),
+        [options],
     );
+
+    return <TextField kind={'zipCode'} {...props} options={options} />;
 }
 
-export interface ZipCodeFieldProps extends TextFieldProps {
-}
+export type ZipCodeFieldProps = TextFieldProps;
 
-export default ZipCodeField
+export default ZipCodeField;

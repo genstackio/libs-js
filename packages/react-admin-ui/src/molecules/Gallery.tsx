@@ -1,7 +1,7 @@
-import {Image} from '../atoms';
-import {gallery_image} from "../types";
+import { Image } from '../atoms';
+import { gallery_image } from '../types';
 
-export function Gallery({items = []}: GalleryProps) {
+export function Gallery({ items = [] }: GalleryProps) {
     return (
         <div className={'grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-3'}>
             {items.map((item, index) => (
@@ -14,7 +14,7 @@ export function Gallery({items = []}: GalleryProps) {
 }
 
 export interface GalleryProps {
-    items?: gallery_image[],
+    items?: gallery_image[];
 }
 
-export default Gallery
+export default Gallery;
