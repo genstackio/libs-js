@@ -1,5 +1,5 @@
-import {children, image, rich_text} from "../types";
-import {Block, Image, Text} from "../atoms";
+import {children, image, rich_text} from "../../types";
+import {Block, Image, Text} from "../../atoms";
 
 export function MiniCard({children, image, title}: MiniCardProps) {
     return (

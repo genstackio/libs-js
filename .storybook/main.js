@@ -18,7 +18,7 @@ module.exports = {
         },
         "@storybook/addon-links",
         '@storybook/addon-postcss',
-        'storybook-mobile',
+//        'storybook-mobile',
         'storybook-addon-apollo-client',
         'storybook-addon-themes',
         'storybook-tailwind-dark-mode',
