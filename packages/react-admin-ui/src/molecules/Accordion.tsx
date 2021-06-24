@@ -8,6 +8,7 @@ import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import { Icon, Badge, Text } from '../atoms';
+import {BoxProvider} from "@genstackio/react-contexts/lib/contexts/BoxContext";
 
 const StyledAccordion = withStyles({
     root: {
@@ -51,6 +52,7 @@ export function Accordion({ className, color = 'default', expandIcon, items = []
         },
         [setExpanded],
     );
+    const box = {color, variant};
     return (
         <div className={className}>
             {items.map(({ icon, title, badge, content }, index) => (
@@ -72,13 +74,15 @@ export function Accordion({ className, color = 'default', expandIcon, items = []
                             buttonClass({ color, variant }),
                         )}
                     >
-                        <div className={'w-full flex justify-between items-center'}>
-                            <div className={'flex justify-between items-center space-x-2'}>
-                                <Icon icon={icon} />
-                                <Text color={color} variant={'subsection'} text={title} />
+                        <BoxProvider value={box}>
+                            <div className={'w-full flex justify-between items-center'}>
+                                <div className={'flex justify-between items-center space-x-2'}>
+                                    <Icon icon={icon} />
+                                    <Text variant={'subsection'} text={title} />
+                                </div>
+                                {badge && <Badge {...badge} />}
                             </div>
-                            {badge && <Badge {...badge} />}
-                        </div>
+                        </BoxProvider>
                     </StyledAccordionSummary>
                     <MuiAccordionDetails className={'py-3 px-4 bg-white'}>
                         {typeof content === 'string' && <div className={'text-sm tracking-wider'}>{content}</div>}

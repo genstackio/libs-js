@@ -1,5 +1,6 @@
 export * from './useApi';
 export * from './useAppContext';
+export * from './useBox';
 export * from './useCart';
 export * from './useHasMounted';
 export * from './useLazyQueryApi';

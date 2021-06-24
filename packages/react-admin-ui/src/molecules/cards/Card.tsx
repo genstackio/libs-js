@@ -33,12 +33,12 @@ export function Card({ image, title, description, content, value, link, color, v
             </div>
             {(title || description) && (
                 <div className={'p-10 border-b-2'}>
-                    <Text className={'mb-2'} variant={'title5'} text={title} color={color} />
-                    <Text className={'mb-2'} variant={'description'} text={description} color={color} />
+                    <Text className={'mb-2'} variant={'title5'} text={title} />
+                    <Text className={'mb-2'} variant={'description'} text={description} />
                 </div>
             )}
             <div className="p-10 flex flex-inline justify-between items-center">
-                <Text color={color} text={content} variant={'body'} />
+                <Text text={content} variant={'body'} />
                 <Rating value={value} />
             </div>
         </Block>
