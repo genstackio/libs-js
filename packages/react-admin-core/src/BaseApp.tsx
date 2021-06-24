@@ -15,6 +15,7 @@ export function BaseApp({
     loadingComponent: LoadingComponent = undefined,
     translations = {},
     queries = {},
+    ...props
 }: BaseAppProps) {
     const LoadingScreen = LoadingComponent || DefaultLoadingScreen;
     const computedTranslations = useMemo(
@@ -44,6 +45,7 @@ export function BaseApp({
             user={user}
             graphql={client}
             navigation={navigation}
+            {...props}
         >
             <Router>
                 <Suspense fallback={<LoadingScreen />}>
@@ -63,10 +65,11 @@ export interface BaseAppProps {
     routes?: route[];
     screenImporter?: (name: string) => any;
     loadingComponent?: ComponentType;
-    queries?: any,
+    queries?: any;
     translations?:
         | { [key: string]: { [key: string]: { [key: string]: string } } }
         | { [key: string]: { [key: string]: { [key: string]: string } } }[];
+    [key: string]: any;
 }
 
 export default BaseApp;
