@@ -122,6 +122,7 @@ export type app_context_params = {
     themes?: any;
     muiTheme?: any;
     queries?: any;
+    callbacks?: any;
     translations?: any;
     locales?: locale[];
     defaultLocale?: string;

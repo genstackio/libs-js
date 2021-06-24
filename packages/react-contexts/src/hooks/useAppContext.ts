@@ -21,6 +21,7 @@ export function useAppContext({
     themes,
     muiTheme,
     queries,
+    callbacks,
     translations,
     locales,
     defaultLocale = 'en-US',
@@ -102,6 +103,10 @@ export function useAppContext({
         return (queries[name] || queries['*'])(gql);
     }, [queries]);
 
+    const getCallbacks = useCallback((name: string) =>
+        (!callbacks || !(callbacks[name] || callbacks['*'])) ? {} : (callbacks[name] || callbacks['*'])
+    , [callbacks]);
+
     const refreshUser = useCallback(async () => {
         const r = await api.client!.query({ query: getQuery('GET_CURRENT_USER') });
         if (!r || !r.data || !r.data.getCurrentUser) throw new Error('Unable to retrieve current user');
@@ -123,10 +128,11 @@ export function useAppContext({
 
     const apiProviderValue: any = useMemo<{
         getQuery: Function;
+        getCallbacks: Function;
         useMutation: Function;
         useQuery: Function;
         useLazyQuery: Function;
-    }>(() => ({ getQuery, useMutation, useQuery, useLazyQuery }), []);
+    }>(() => ({ getQuery, getCallbacks, useMutation, useQuery, useLazyQuery }), []);
     const cartProviderValue: any = useMemo<{ cart: cart | undefined; setCart: Function; resetCart: Function }>(
         () => ({ cart: fetchCartFromLocalStorage(), setCart: enrichedSetCart, resetCart }),
         [cart, enrichedSetCart, resetCart],
