@@ -1,10 +1,11 @@
-import { Image, Icon } from '../../atoms';
-import { Menu } from '../../molecules';
-import { box_color, box_variant, image, menu_item, rich_text, children } from '../../types';
-import { ReactNode, useCallback, useState } from 'react';
+import {ReactNode, useCallback, useState} from 'react';
 import clsx from 'clsx';
+import {Menu} from '../../molecules';
+import {Image, Icon} from '../../atoms';
+import textClass from "../../utils/textClass";
+import {box_color, box_variant, image, menu_item, rich_text, children} from '../../types';
 
-export function AppLayoutTemplate({ logo, menu, children, toolbar, ...props }: AppLayoutTemplateProps) {
+export function AppLayoutTemplate({logo, menu, children, toolbar, ...props}: AppLayoutTemplateProps) {
     const [show, setShow] = useState(true);
     const handleClick = useCallback(() => {
         setShow(!show);
@@ -12,24 +13,24 @@ export function AppLayoutTemplate({ logo, menu, children, toolbar, ...props }: A
     return (
         <div className={'flex h-screen'}>
             <div className={clsx('w-drawer', !show && 'hidden')}>
-                <div className={'p-5 h-xxl flex flex-inline shadow-top justify-between items-center'}>
+                <div className={'px-8 py-7 h-xxl shadow-toolbar flex justify-between items-center'}>
                     <Image className={'bg-auto'} {...logo} />
-                    <div onClick={handleClick}>
-                        <Icon icon={'apps_outlined'} className={'hover:text-primary'} />
-                    </div>
+                    <Icon icon={'apps_outlined'} className={textClass({ color: props.color, variant: 'light', hoverable: true })} onClick={handleClick} />
                 </div>
                 <Menu items={menu} {...props} />
             </div>
-            <div className={'w-5/6'}>
-                <div className={'p-5 h-xxl'}>
+            <div className={'flex-1'}>
+                <div className={'px-8 py-6 h-xxl'}>
                     {!show && (
                         <div onClick={handleClick}>
-                            <Icon icon={'menu'} className={'hover:text-primary'} />
+                            <Icon icon={'menu'} className={textClass({ color: props.color, variant: 'light', hoverable: true })} />
                         </div>
                     )}
                     {toolbar}
                 </div>
-                <div className={'p-5 h-screen shadow-block bg-[#F8F8F8]'}>{children || ''}</div>
+                <div className={'h-screen p-4 shadow-inside'}>
+                    {children || ''}
+                </div>
             </div>
         </div>
     );
