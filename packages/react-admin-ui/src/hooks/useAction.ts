@@ -6,6 +6,7 @@ export type action_postexecute_callback = (result: any) => Promise<any>;
 export type action_prepare_callback = (data: any) => Promise<any>;
 export type action_notify_callback = (result: any) => Promise<void>;
 export type action_convert_callback = (result: any) => Promise<any>;
+export type action_onsuccess_callback = (result: any) => Promise<void>;
 export type action_processerror_callback = (
     error: any,
     context: { name: string; values: any; options: any },
@@ -18,11 +19,13 @@ const prepare: action_prepare_callback = async (data) => ({ data });
 const notify: action_notify_callback = async (result) => undefined;
 const convert: action_convert_callback = async (result) => result;
 // noinspection JSUnusedLocalSymbols
+const onSuccess: action_onsuccess_callback = async (result) => undefined;
+// noinspection JSUnusedLocalSymbols
 const processError: action_processerror_callback = async (error, { name, values, options }) => undefined;
 
 export function useAction(name: string, options: any = {}) {
     const [execute, { loading, error, ...infos }, callbacks = {}] = useMutationApi(name, options);
-    const { preExecuteCb, postExecuteCb, prepareCb, convertCb, notifyCb, processErrorCb } = useMemo(
+    const { preExecuteCb, postExecuteCb, prepareCb, convertCb, notifyCb, processErrorCb, onSuccessCb } = useMemo(
         () => ({
             preExecuteCb: options.preExecute || callbacks['preExecute'] || preExecute,
             postExecuteCb: options.postExecute || callbacks['postExecute'] || postExecute,
@@ -30,6 +33,7 @@ export function useAction(name: string, options: any = {}) {
             convertCb: options.convert || callbacks['convert'] || convert,
             processErrorCb: options.processError || callbacks['processError'] || processError,
             notifyCb: options.notify || callbacks['notify'] || notify,
+            onSuccessCb: options.onSuccess || callbacks['onSuccess'] || onSuccess,
         }),
         [],
     );
@@ -45,6 +49,7 @@ export function useAction(name: string, options: any = {}) {
                 result = (await postExecuteCb(result, ctx)) || result;
                 result = (await convertCb(result, ctx)) || result;
                 await notifyCb(result, ctx);
+                await onSuccessCb(result, ctx);
             } catch (e) {
                 processErrorCb(e, ctx);
             }
