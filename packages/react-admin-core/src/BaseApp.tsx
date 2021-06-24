@@ -15,6 +15,7 @@ export function BaseApp({
     loadingComponent: LoadingComponent = undefined,
     translations = {},
     queries = {},
+    callbacks = {},
     apiOptions = {},
     ...props
 }: BaseAppProps) {
@@ -33,6 +34,7 @@ export function BaseApp({
         themes: {},
         muiTheme: {},
         queries,
+        callbacks,
         translations: computedTranslations,
     });
     return (
@@ -68,6 +70,7 @@ export interface BaseAppProps {
     screenImporter?: (name: string) => any;
     loadingComponent?: ComponentType;
     queries?: any;
+    callbacks?: any;
     apiOptions?: any;
     translations?:
         | { [key: string]: { [key: string]: { [key: string]: string } } }
