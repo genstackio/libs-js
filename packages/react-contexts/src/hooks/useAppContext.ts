@@ -16,10 +16,14 @@ import fetch from 'isomorphic-fetch';
 import mergeCartItems from '../utils/mergeCartItems';
 import i18nFactory from '../utils/i18nFactory';
 
+function defaultStorageKeyFactory(key: string) {
+    return `x_${key}`;
+}
+
 export function useAppContext({
-    storageKeys,
+    storageKeyFactory = defaultStorageKeyFactory,
     themes,
-    muiTheme,
+    theme,
     queries,
     callbacks,
     apiOptions = {},
@@ -29,8 +33,7 @@ export function useAppContext({
     fallbackLocale = 'en-US',
     getImage,
 }: app_context_params) {
-    const { theme = 'default' } = {};
-    const lang = defaultLocale; // @todo detect from localeStorage for instance
+    const { themeName = 'default' } = {};
     const storage = useMemo<storage | undefined>(() => {
         const s = 'undefined' === typeof localStorage ? undefined : localStorage;
         if (!s) return undefined;
@@ -47,12 +50,13 @@ export function useAppContext({
             removeItem: (key: string) => s.removeItem(key),
         };
     }, []);
-    const fetchUserFromLocalStorage = useCallback(() => storage?.getItem(storageKeys.user), [storage]);
-    const fetchCartFromLocalStorage = useCallback(() => storage?.getItem(storageKeys.cart), [storage]);
+    const fetchUserFromLocalStorage = useCallback(() => storage?.getItem(storageKeyFactory('user')), [storage]);
+    const fetchCartFromLocalStorage = useCallback(() => storage?.getItem(storageKeyFactory('cart')), [storage]);
+    const fetchLocaleFromLocalStorage = useCallback(() => storage?.getItem(storageKeyFactory('locale')), [storage]);
     const [user, setUser] = useState<user | undefined>(fetchUserFromLocalStorage);
     const [cart, setCart] = useState<cart | undefined>(fetchCartFromLocalStorage);
 
-    const locale = lang;
+    const locale = fetchLocaleFromLocalStorage() || defaultLocale;
     const enrichedSetCart = useCallback(
         (cart) => {
             const localStorageCart = fetchCartFromLocalStorage();
@@ -65,7 +69,7 @@ export function useAppContext({
             } else {
                 mergedCart = cart;
             }
-            storage?.setItem(storageKeys.cart, mergedCart);
+            storage?.setItem(storageKeyFactory('cart'), mergedCart);
             setCart(cart);
         },
         [storage, setCart, fetchCartFromLocalStorage],
@@ -73,14 +77,14 @@ export function useAppContext({
 
     const enrichedSetUser = useCallback(
         (user) => {
-            storage?.setItem(storageKeys.user, user);
+            storage?.setItem(storageKeyFactory('user'), user);
             setUser(user);
         },
         [storage, setUser],
     );
 
     const resetCart = useCallback(() => {
-        storage?.removeItem(storageKeys.cart);
+        storage?.removeItem(storageKeyFactory('cart'));
         setCart(undefined);
     }, [storage, setCart]);
 
@@ -187,9 +191,9 @@ export function useAppContext({
     const themeFactory = useCallback(
         (old: any = {}) => ({
             ...old,
-            ...((themes as any)[theme] || {}),
+            ...((themes as any)[themeName] || {}),
         }),
-        [themes, theme],
+        [themes, themeName],
     );
 
     const i18n = useMemo(() => {
@@ -209,7 +213,7 @@ export function useAppContext({
     return {
         client: api.client,
         i18n,
-        baseTheme: muiTheme,
+        baseTheme: theme,
         pageTheme: themeFactory,
         storage,
         locale,

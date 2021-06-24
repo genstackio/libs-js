@@ -118,9 +118,9 @@ export type theme = { [key: string]: any };
 export type themes = { default: theme; [key: string]: theme };
 
 export type app_context_params = {
-    storageKeys?: any;
+    storageKeyFactory?: (k: string) => string;
     themes?: any;
-    muiTheme?: any;
+    theme?: any;
     queries?: any;
     callbacks?: any;
     translations?: any;

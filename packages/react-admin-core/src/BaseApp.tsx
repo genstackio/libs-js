@@ -17,6 +17,8 @@ export function BaseApp({
     queries = {},
     callbacks = {},
     apiOptions = {},
+    themes = {},
+    theme = {},
     ...props
 }: BaseAppProps) {
     const LoadingScreen = LoadingComponent || DefaultLoadingScreen;
@@ -25,14 +27,10 @@ export function BaseApp({
         [translations],
     );
     const { api, baseTheme, cart, client, i18n, navigation, storage, user } = useAppContext({
-        storageKeys: {
-            user: `${prefix}_user`,
-            cart: `${prefix}_cart`,
-            locale: `${prefix}_locale`,
-        },
+        storageKeyFactory: (k: string) => `${prefix}_${k}`,
         apiOptions,
-        themes: {},
-        muiTheme: {},
+        themes,
+        theme,
         queries,
         callbacks,
         translations: computedTranslations,
@@ -72,6 +70,8 @@ export interface BaseAppProps {
     queries?: any;
     callbacks?: any;
     apiOptions?: any;
+    themes?: any;
+    theme?: any;
     translations?:
         | { [key: string]: { [key: string]: { [key: string]: string } } }
         | { [key: string]: { [key: string]: { [key: string]: string } } }[];
