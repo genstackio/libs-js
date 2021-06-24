@@ -94,8 +94,16 @@ export function useAppContext({
 
     const api: any = { client: undefined };
 
+    const getQuery = useCallback((name: string) => {
+        if (!queries || !(queries[name] || queries['*']))
+            throw new Error(`No query available for '${name}'`);
+        if ('function' !== typeof (queries[name] || queries['*']))
+            throw new Error(`Query must be a function for '${name}'`);
+        return (queries[name] || queries['*'])(gql);
+    }, [queries]);
+
     const refreshUser = useCallback(async () => {
-        const r = await api.client!.query({ query: queries.GET_CURRENT_USER(gql) });
+        const r = await api.client!.query({ query: getQuery('GET_CURRENT_USER') });
         if (!r || !r.data || !r.data.getCurrentUser) throw new Error('Unable to retrieve current user');
         await enrichedSetUser({ ...fetchUserFromLocalStorage(), ...r.data.getCurrentUser });
     }, [api, enrichedSetUser, fetchUserFromLocalStorage]) as any;
@@ -114,11 +122,11 @@ export function useAppContext({
     }, [enrichedSetUser]) as any;
 
     const apiProviderValue: any = useMemo<{
-        gql: Function;
+        getQuery: Function;
         useMutation: Function;
         useQuery: Function;
         useLazyQuery: Function;
-    }>(() => ({ gql, useMutation, useQuery, useLazyQuery }), []);
+    }>(() => ({ getQuery, useMutation, useQuery, useLazyQuery }), []);
     const cartProviderValue: any = useMemo<{ cart: cart | undefined; setCart: Function; resetCart: Function }>(
         () => ({ cart: fetchCartFromLocalStorage(), setCart: enrichedSetCart, resetCart }),
         [cart, enrichedSetCart, resetCart],
@@ -143,7 +151,7 @@ export function useAppContext({
     );
 
     const refreshTokens = useCallback(async (refreshToken: string, client: { mutate: Function }) => {
-        const r = await client.mutate({ mutation: queries.REFRESH_LOGIN(gql), variables: { data: { refreshToken } } });
+        const r = await client.mutate({ mutation: getQuery('REFRESH_LOGIN'), variables: { data: { refreshToken } } });
         if (!r || !r.data || !r.data.refreshAuthToken) throw new Error('Unable to refresh auth token');
         return {
             token: r.data.refreshAuthToken.token,
