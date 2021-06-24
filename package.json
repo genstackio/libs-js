@@ -32,7 +32,7 @@
     "postcss": "^8.3.5",
     "autoprefixer": "^10.2.6",
     "@storybook/storybook-deployer": "^2.8.10",
-    "postcss-loader": "^4.3.0",
+    "postcss-loader": "^4.2.0",
     "yo": "^4.2.0",
     "prettier": "^2.3.1",
     "eslint": "^7.29.0",
@@ -48,7 +48,8 @@
     "react-docgen-typescript": "^2.0.0"
   },
     "resolutions": {
-        "@material-ui/data-grid": "4.0.0-alpha.30"
+        "@material-ui/data-grid": "4.0.0-alpha.30",
+        "postcss-loader": "4.2.0"
     },
   "husky": {
     "hooks": {

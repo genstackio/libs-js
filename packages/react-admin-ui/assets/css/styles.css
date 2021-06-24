@@ -49,10 +49,12 @@
         border-bottom-color: transparent !important;
     }
     .x-border-x-transparent {
-        @apply x-border-l-transparent x-border-r-transparent
+        border-left-color: transparent !important;
+        border-right-color: transparent !important;
     }
     .x-border-y-transparent {
-        @apply x-border-t-transparent x-border-b-transparent
+        border-top-color: transparent !important;
+        border-bottom-color: transparent !important;
     }
 
     /* Css for Thumbnail :: start */
