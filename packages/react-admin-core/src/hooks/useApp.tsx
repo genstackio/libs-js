@@ -13,7 +13,7 @@ function ThemeProvider({value, children}: any) {
     return <MuiThemeProvider theme={value}>{children}</MuiThemeProvider>;
 }
 
-export function useApp({screenImporter, app, routes = [], translations = {}, queries = {}}: {screenImporter: Function, app: any, routes?: any[], translations?: any, queries?: any}) {
+export function useApp({screenImporter, app, routes = [], translations = {}, queries = {}}: {screenImporter: (key: string) => any, app: any, routes?: any[], translations?: any, queries?: any}) {
     return useMemo(() => ({
         prefix: app.prefix,
         screenImporter,
