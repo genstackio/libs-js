@@ -22,7 +22,7 @@ const Template = (args) => <AppLayoutTemplate {...args} />;
 
 export const basic = s(Template, {
     logo: {
-        url: 'https://via.placeholder.com/60',
+        url: 'https://via.placeholder.com/97x28?text=Logo',
         alt: 'Logo',
     },
     title: 'General',
