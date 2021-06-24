@@ -1,4 +1,5 @@
 export * from './createDefaultApiContextValue';
+export * from './createDefaultBoxContextValue';
 export * from './createDefaultCartContextValue';
 export * from './createDefaultLinkContextValue';
 export * from './createDefaultLocationContextValue';

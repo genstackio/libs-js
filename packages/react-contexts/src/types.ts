@@ -53,6 +53,11 @@ export type cart_context_value = {
     resetCart: () => any | undefined;
 };
 
+export type box_context_value = {
+    color: string|undefined;
+    variant: string|undefined;
+};
+
 export type navigation_context_value = {
     InternalLink: ComponentType;
     ExternalLink: ComponentType;

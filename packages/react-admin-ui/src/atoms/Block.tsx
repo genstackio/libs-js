@@ -5,6 +5,8 @@ import Container from './Container';
 import BlockHeader, { BlockHeaderProps } from './BlockHeader';
 import BlockContent, { BlockContentProps } from './BlockContent';
 import elevationClass, { elevation } from '../mappings/elevations';
+import {useMemo} from "react";
+import {BoxProvider} from "@genstackio/react-contexts/lib/contexts/BoxContext";
 
 export function Block({
     elevation = 1,
@@ -21,29 +23,32 @@ export function Block({
     title,
     variant = 'filled',
 }: BlockProps) {
+    const box = useMemo(() => ({color, variant}), [color, variant]);
     return (
-        <Container
-            corner={corner}
-            bgImage={image}
-            className={clsx(
-                className,
-                'relative flex flex-col',
-                elevationClass(elevation),
-                boxClass({ color, variant }),
-            )}
-        >
-            <BlockHeader
-                title={title}
-                btnLabel={btnLabel}
-                dropdownItems={dropdownItems}
-                color={color}
-                variant={variant}
-                icon={icon}
-            />
-            <BlockContent padding={padding} className={contentClassName}>
-                {children || ''}
-            </BlockContent>
-        </Container>
+        <BoxProvider value={box}>
+            <Container
+                corner={corner}
+                bgImage={image}
+                className={clsx(
+                    className,
+                    'relative flex flex-col',
+                    elevationClass(elevation),
+                    boxClass({ color, variant }),
+                )}
+            >
+                <BlockHeader
+                    title={title}
+                    btnLabel={btnLabel}
+                    dropdownItems={dropdownItems}
+                    color={color}
+                    variant={variant}
+                    icon={icon}
+                />
+                <BlockContent padding={padding} className={contentClassName}>
+                    {children || ''}
+                </BlockContent>
+            </Container>
+        </BoxProvider>
     );
 }
 
