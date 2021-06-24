@@ -14,7 +14,7 @@ export function TextBlock({ icon, text, title, ...props }: TextBlockProps) {
                     )}
                 >
                     <div className={'flex-col'}>
-                        <Text className={'flex-1'} color={props.color} text={title} variant={'title5'} />
+                        <Text className={'flex-1'} text={title} variant={'title5'} />
                         <div className={'text-md flex-1'}>
                             <Text text={text || ''} variant={'body'} />
                         </div>

@@ -2,36 +2,33 @@ import { Block, Tag, Icon, Text } from '../../atoms';
 import { box_color, box_variant, icon, rich_text } from '../../types';
 
 export function ItemCard({
-    blockColor = 'light',
-    blockVariant = 'outlined',
     colorDate,
     colorDescription,
-    colorSubTitle,
-    colorTitle,
     date,
     description,
     icon,
     size,
     subtitle,
     title,
+    ...props
 }: ItemCardProps) {
     return (
-        <Block variant={blockVariant} color={blockColor}>
+        <Block {...props}>
             <div className={'flex justify-between mb-6'}>
                 <div className={'flex mb-6'}>
                     <div className={'row-span-2 ml-4 mt-2'}>
                         <Icon size={size} icon={icon} />
                     </div>
                     <div>
-                        <Text text={title} color={colorTitle} variant={'title5'} />
-                        <Text text={subtitle} color={colorSubTitle} variant={'subtitle'} />
+                        <Text text={title} variant={'title5'} />
+                        <Text text={subtitle} variant={'subtitle'} />
                     </div>
                 </div>
                 <div className={'mt-2'}>
-                    {date ? <Text text={date} color={colorDate} variant={'overline'} /> : <Tag text={'new'} />}
+                    {date ? <Text text={date} variant={'overline'} /> : <Tag text={'new'} />}
                 </div>
             </div>
-            <Text text={description} color={colorDescription} variant={'body'} />
+            <Text text={description} variant={'body'} />
         </Block>
     );
 }
