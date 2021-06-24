@@ -14,6 +14,7 @@ export function BaseApp({
     screenImporter,
     loadingComponent: LoadingComponent = undefined,
     translations = {},
+    queries = {},
 }: BaseAppProps) {
     const LoadingScreen = LoadingComponent || DefaultLoadingScreen;
     const computedTranslations = useMemo(
@@ -28,7 +29,7 @@ export function BaseApp({
         },
         themes: {},
         muiTheme: {},
-        queries: {},
+        queries,
         translations: computedTranslations,
     });
     return (
@@ -62,6 +63,7 @@ export interface BaseAppProps {
     routes?: route[];
     screenImporter?: (name: string) => any;
     loadingComponent?: ComponentType;
+    queries?: any,
     translations?:
         | { [key: string]: { [key: string]: { [key: string]: string } } }
         | { [key: string]: { [key: string]: { [key: string]: string } } }[];
