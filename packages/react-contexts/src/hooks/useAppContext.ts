@@ -22,6 +22,7 @@ export function useAppContext({
     muiTheme,
     queries,
     callbacks,
+    apiOptions = {},
     translations,
     locales,
     defaultLocale = 'en-US',
@@ -94,6 +95,12 @@ export function useAppContext({
     }, [fetchUserFromLocalStorage]) as any;
 
     const api: any = { client: undefined };
+
+    apiOptions = {
+        uri: process.env.GRAPHQL_API_ENDPOINT || process.env.REACT_APP_API_ENDPOINT,
+        timeout: 5000,
+        ...apiOptions,
+    };
 
     const getQuery = useCallback((name: string) => {
         if (!queries || !(queries[name] || queries['*']))
@@ -173,8 +180,7 @@ export function useAppContext({
             refreshTokens,
             onLogout,
             onAuthError: onLogout,
-            uri: process.env.GRAPHQL_API_ENDPOINT,
-            timeout: 5000,
+            ...apiOptions,
         });
     }, [getCurrentTokens, setCurrentTokens, refreshTokens, onLogout]);
 

@@ -15,6 +15,7 @@ export function BaseApp({
     loadingComponent: LoadingComponent = undefined,
     translations = {},
     queries = {},
+    apiOptions = {},
     ...props
 }: BaseAppProps) {
     const LoadingScreen = LoadingComponent || DefaultLoadingScreen;
@@ -28,6 +29,7 @@ export function BaseApp({
             cart: `${prefix}_cart`,
             locale: `${prefix}_locale`,
         },
+        apiOptions,
         themes: {},
         muiTheme: {},
         queries,
@@ -66,6 +68,7 @@ export interface BaseAppProps {
     screenImporter?: (name: string) => any;
     loadingComponent?: ComponentType;
     queries?: any;
+    apiOptions?: any;
     translations?:
         | { [key: string]: { [key: string]: { [key: string]: string } } }
         | { [key: string]: { [key: string]: { [key: string]: string } } }[];

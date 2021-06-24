@@ -128,4 +128,5 @@ export type app_context_params = {
     defaultLocale?: string;
     fallbackLocale?: string;
     getImage?: image_getter;
+    apiOptions?: any;
 };
