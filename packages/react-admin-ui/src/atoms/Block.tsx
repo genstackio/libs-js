@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import boxClass from '../utils/boxClass';
-import { box_color, box_variant, padding, image, class_name, children, corner } from '../types';
+import {box_color, box_variant, padding, image, class_name, children, corner, target} from '../types';
 import Container from './Container';
 import BlockHeader, { BlockHeaderProps } from './BlockHeader';
 import BlockContent, { BlockContentProps } from './BlockContent';
@@ -22,6 +22,7 @@ export function Block({
     padding,
     title,
     variant = 'filled',
+    onClick,
 }: BlockProps) {
     const box = useMemo(() => ({color, variant}), [color, variant]);
     return (
@@ -35,6 +36,7 @@ export function Block({
                     elevationClass(elevation),
                     boxClass({ color, variant }),
                 )}
+                onClick={onClick}
             >
                 <BlockHeader
                     title={title}
@@ -61,6 +63,7 @@ export interface BaseBlockProps extends BlockHeaderProps, BlockContentProps {
     variant?: box_variant;
     elevation?: elevation;
     corner?: corner;
+    onClick?: target;
 }
 
 export interface BlockProps extends BaseBlockProps {

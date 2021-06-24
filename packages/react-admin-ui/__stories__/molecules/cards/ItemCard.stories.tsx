@@ -5,8 +5,8 @@ export default {
     title: 'Molecules/cards/ItemCard',
     component: ItemCard,
     argTypes: a({
-        blockVariant: args.blockVariant,
-        blockColor: args.color,
+        variant: args.blockVariant,
+        color: args.color,
     }),
 };
 
@@ -19,9 +19,6 @@ export const basic = s(Template, {
     description:
         'Advenit post multos Scudilo Scutariorum tribunus velamento subagrestis ingenii persuasionis opifex callidus. qui eum adulabili sermone seriis admixto solus omnium proficisci pellexit vultu adsimulato saepius replicando quod flagrantibus votis eum videre frater cuperet patruelis, siquid per inprudentiam gestum est remissurus ut mitis et clemens, participemque eum suaemaiestatis adscisceret, futurum laborum quoque socium, quos Arctoae provinciae diu fessae poscebant.',
     colorDate: 'dark',
-    colorTitle: 'primary',
-    colorSubTitle: 'dark',
-    colorDescription: 'dark',
 });
 
 export const withIcone = s(Template, {

@@ -4,9 +4,10 @@ export const paddings = {
     none: '',
     default: 'p-10',
     small: 'x-p-small',
+    xsmall: 'p-4',
 };
 
-export type padding = 'none' | 'default' | 'small';
+export type padding = 'none' | 'default' | 'small' | 'xsmall';
 
 export const defaultPadding = 'none';
 
