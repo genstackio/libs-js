@@ -1,10 +1,10 @@
-import {ComponentType, Suspense, useCallback, useMemo} from 'react';
+import {ComponentType, Suspense, useMemo} from 'react';
 import Route from './Route';
 import DefaultLoadingScreen from './screens/DefaultLoadingScreen';
 import DefaultErrorScreen from './screens/DefaultErrorScreen';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import { route } from './types';
-import { AppProvider, useAppContext } from '@genstackio/react-contexts';
+import {AppProvider, importer_context_params, useAppContext} from '@genstackio/react-contexts';
 import coreTranslations from './configs/translations';
 import adminUiTranslations from '@genstackio/react-admin-ui/lib/configs/translations';
 
@@ -35,7 +35,6 @@ export function BaseApp({
         callbacks,
         translations: computedTranslations,
     });
-    const screenImporter = useCallback((name: string) => importer('screen', name), [importer]);
     return (
         <AppProvider
             error={DefaultErrorScreen}
@@ -48,13 +47,14 @@ export function BaseApp({
             user={user}
             graphql={client}
             navigation={navigation}
+            importer={importer}
             {...props}
         >
             <Router>
                 <Suspense fallback={<LoadingScreen />}>
                     <Switch>
                         {routes.map((route, i) => (
-                            <Route screenImporter={screenImporter} key={i} {...route} user={user.user} />
+                            <Route key={i} {...route} user={user.user} />
                         ))}
                     </Switch>
                 </Suspense>
@@ -66,7 +66,7 @@ export function BaseApp({
 export interface BaseAppProps {
     prefix?: string;
     routes?: route[];
-    screenImporter?: (name: string) => any;
+    importer?: importer_context_params;
     loadingComponent?: ComponentType;
     queries?: any;
     callbacks?: any;

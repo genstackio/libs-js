@@ -1,5 +1,4 @@
 export type route = {
-    screenImporter?: (name: string) => any;
     user?: any;
     path?: string;
     secured?: boolean;

@@ -8,7 +8,8 @@ import { CartProvider } from './contexts/CartContext';
 import { NavigationProvider } from './contexts/NavigationContext';
 import { LocalesProvider } from './contexts/LocalesContext';
 import { ImagesProvider } from './contexts/ImagesContext';
-import { images_context_value, locales_context_value } from './types';
+import { ImporterProvider } from './contexts/ImporterContext';
+import {images_context_value, importer_context_params, locales_context_value} from './types';
 
 export function AppProvider({
     themeProvider: ThemeProvider,
@@ -27,19 +28,21 @@ export function AppProvider({
     user,
     navigation,
     children,
+    importer,
 }: AppProviderProps) {
     let content = children || '';
+    importer && (content = <ImporterProvider value={importer}>{content}</ImporterProvider>);
     navigation && (content = <NavigationProvider value={navigation}>{content}</NavigationProvider>);
     user && (content = <UserProvider value={user}>{content}</UserProvider>);
     cart && (content = <CartProvider value={cart}>{content}</CartProvider>);
-    theme && ThemeProvider && (content = <ThemeProvider value={theme}>{content}</ThemeProvider>);
+    api && (content = <ApiProvider value={api}>{content}</ApiProvider>);
+    graphql && GraphqlProvider && (content = <GraphqlProvider value={graphql}>{content}</GraphqlProvider>);
     images && (content = <ImagesProvider value={images}>{content}</ImagesProvider>);
     locales && (content = <LocalesProvider value={locales}>{content}</LocalesProvider>);
+    theme && ThemeProvider && (content = <ThemeProvider value={theme}>{content}</ThemeProvider>);
     translation &&
         TranslationProvider &&
         (content = <TranslationProvider value={translation}>{content}</TranslationProvider>);
-    api && (content = <ApiProvider value={api}>{content}</ApiProvider>);
-    graphql && GraphqlProvider && (content = <GraphqlProvider value={graphql}>{content}</GraphqlProvider>);
     location && (content = <LocationProvider value={location}>{content}</LocationProvider>);
     storage && (content = <StorageProvider value={storage}>{content}</StorageProvider>);
 
@@ -62,6 +65,7 @@ export interface AppProviderProps {
     cart: any;
     user: any;
     navigation: any;
+    importer?: importer_context_params;
     children?: ReactNode;
 }
 
