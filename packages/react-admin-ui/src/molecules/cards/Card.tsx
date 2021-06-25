@@ -1,5 +1,4 @@
-import { Clickable, Image, Block, Tag, Text } from '../../atoms';
-import { Rating } from '../';
+import { Clickable, Image, Block, Tag, Text, Rating } from '../../atoms';
 import { box_color, box_variant, image, rich_text, target } from '../../types';
 import { useCallback, useState } from 'react';
 import clsx from 'clsx';

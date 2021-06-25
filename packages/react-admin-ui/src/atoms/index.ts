@@ -30,6 +30,7 @@ export * from './Pill';
 export * from './Progress';
 export * from './progresses';
 export * from './Quote';
+export * from './Rating';
 export * from './Ribbon';
 export * from './Row';
 export * from './SearchBar';
