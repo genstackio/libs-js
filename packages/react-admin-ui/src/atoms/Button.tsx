@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import clsx from 'clsx';
 import Icon from './Icon';
 import buttonClass from '../utils/buttonClass';
-import { box_color, box_variant, children, class_name, flag, icon, target } from '../types';
+import { box_color, box_variant, children, class_name, flag, icon, target, size} from '../types';
 import { Spinner } from './Spinner';
 
 export function Button({
@@ -12,7 +12,7 @@ export function Button({
     color = 'primary',
     disabled,
     icon,
-    large,
+    size = 'md',
     onClick,
     variant = 'filled',
 }: ButtonProps) {
@@ -29,10 +29,10 @@ export function Button({
             disabled={disabled}
             className={clsx(
                 className,
-                buttonClass({ color, variant, disabled }),
+                buttonClass({ size, color, variant, disabled }),
                 'py-2 px-4 rounded inline-flex items-center',
                 disabled && 'opacity-50 cursor-not-allowed',
-                large && 'w-60',
+                'justify-center',
             )}
             onClick={handleClick}
         >
@@ -54,7 +54,7 @@ export interface ButtonProps {
     disabled?: flag;
     loading?: flag;
     icon?: icon;
-    large?: flag;
+    size?: size,
     onClick?: target;
     variant?: box_variant;
 }

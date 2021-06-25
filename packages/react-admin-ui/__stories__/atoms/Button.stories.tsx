@@ -9,9 +9,9 @@ export default {
         color: args.color,
         variant: args.blockVariant,
         disabled: args.disabled,
-        large: args.large,
         classes: args.classes,
         onClick: args.onClick,
+        size: args.size,
     }),
 };
 
@@ -69,19 +69,19 @@ export const showcase = s(
             </div>
             <p>CONTAINED</p>
             <div className={'flex items-center space-x-4'}>
-                <Template color={'primary'} variant={'contained'}>
+                <Template color={'primary'} variant={'contained'} size={'xs'}>
                     {'primary'}
                 </Template>
-                <Template color={'secondary'} variant={'contained'}>
+                <Template color={'secondary'} variant={'contained'} size={'sm'}>
                     {'secondary'}
                 </Template>
-                <Template color={'success'} variant={'contained'}>
+                <Template color={'success'} variant={'contained'} size={'md'}>
                     {'success'}
                 </Template>
-                <Template color={'info'} variant={'contained'}>
+                <Template color={'info'} variant={'contained'} size={'lg'}>
                     {'info'}
                 </Template>
-                <Template color={'warning'} variant={'contained'}>
+                <Template color={'warning'} variant={'contained'} size={'xl'}>
                     {'warning'}
                 </Template>
                 <Template color={'danger'} variant={'contained'}>
@@ -175,26 +175,26 @@ export const showcase = s(
             </div>
             <p>LARGE</p>
             <div className={'flex items-center space-x-4'}>
-                <Template color={'primary'} large>
+                <Template color={'primary'} size={'xl'}>
                     {'primary'}
                 </Template>
-                <Template color={'secondary'} large>
+                <Template color={'secondary'} size={'xl'}>
                     {'secondary'}
                 </Template>
             </div>
             <div className={'flex items-center space-x-4'}>
-                <Template color={'primary'} variant={'outlined'} large>
+                <Template color={'primary'} variant={'outlined'} size={'xl'}>
                     {'primary'}
                 </Template>
-                <Template color={'secondary'} variant={'outlined'} large>
+                <Template color={'secondary'} variant={'outlined'} size={'xl'}>
                     {'secondary'}
                 </Template>
             </div>
             <div className={'flex items-center space-x-4'}>
-                <Template color={'primary'} variant={'contained'} large>
+                <Template color={'primary'} variant={'contained'} size={'xl'}>
                     {'primary'}
                 </Template>
-                <Template color={'secondary'} variant={'contained'} large>
+                <Template color={'secondary'} variant={'contained'} size={'xl'}>
                     {'secondary'}
                 </Template>
             </div>

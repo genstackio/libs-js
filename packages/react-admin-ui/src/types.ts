@@ -77,6 +77,7 @@ export type clsxm_params = {
     hoverable?: flag;
     variant?: variant;
     color?: color;
+    size?: size,
     disabled?: flag;
     styles?: {
         common?: any;
