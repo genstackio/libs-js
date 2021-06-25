@@ -19,7 +19,7 @@ export function Route({
     screenName = secured && !user ? 'login' : screenName;
     const importer = useImporter();
     const Component = useMemo(
-        () => component || (screenName
+        () => component || ((screenName && importer)
                 ? importer('screen', formatScreenComponentName(screenName)): (() => null)
         ),
         [screenName, importer, component],
