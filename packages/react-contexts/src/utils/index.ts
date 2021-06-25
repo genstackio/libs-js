@@ -12,6 +12,7 @@ export * from './createDefaultLocalesContextValue';
 export * from './createDefaultImagesContextValue';
 export * from './createDefaultStorageContextValue';
 export * from './createDefaultUserContextValue';
+export * from './createDefaultTailwindContextValue';
 export * from './formatLng';
 export * from './i18nFactory';
 export * from './mergeCartItems';

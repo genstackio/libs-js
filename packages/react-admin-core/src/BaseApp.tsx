@@ -1,4 +1,4 @@
-import { ComponentType, Suspense, useMemo } from 'react';
+import {ComponentType, Suspense, useCallback, useMemo} from 'react';
 import Route from './Route';
 import DefaultLoadingScreen from './screens/DefaultLoadingScreen';
 import DefaultErrorScreen from './screens/DefaultErrorScreen';
@@ -11,7 +11,7 @@ import adminUiTranslations from '@genstackio/react-admin-ui/lib/configs/translat
 export function BaseApp({
     prefix = 'app',
     routes = [],
-    screenImporter,
+    importer,
     loadingComponent: LoadingComponent = undefined,
     translations = {},
     queries = {},
@@ -35,6 +35,7 @@ export function BaseApp({
         callbacks,
         translations: computedTranslations,
     });
+    const screenImporter = useCallback((name: string) => importer('screen', name), [importer]);
     return (
         <AppProvider
             error={DefaultErrorScreen}

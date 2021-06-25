@@ -1,4 +1,4 @@
-import { ComponentType } from 'react';
+import {ComponentType, LazyExoticComponent} from 'react';
 
 export type storage = {
     setItem: Function;
@@ -130,3 +130,5 @@ export type app_context_params = {
     getImage?: image_getter;
     apiOptions?: any;
 };
+
+export type importer_context_params = (type: string, name: string) => LazyExoticComponent<ComponentType<any>>
