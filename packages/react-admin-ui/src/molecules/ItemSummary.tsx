@@ -9,15 +9,15 @@ export function ItemSummary({ date, author, likes, comments }: ItemSummaryProps)
                 <div className={'ml-4'}>|</div>
             </div>
             <div className={'flex items-center space-x-2'}>
-                <Icon icon={'person'} size={20} />
+                <Icon icon={'person'} size={'lg'} />
                 <Text text={author} variant={'subtitle'} />
             </div>
             <div className={'flex items-center space-x-2'}>
-                <Icon icon={'thumb_up'} size={20} />
+                <Icon icon={'thumb_up'} size={'lg'} />
                 <Text text={`${likes}`} variant={'subtitle'} />
             </div>
             <div className={'flex items-center space-x-2'}>
-                <Icon icon={'question_answer'} size={20} />
+                <Icon icon={'question_answer'} size={'lg'} />
                 <Text text={`${comments}`} variant={'subtitle'} />
             </div>
         </div>

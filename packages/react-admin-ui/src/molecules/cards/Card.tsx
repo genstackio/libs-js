@@ -23,10 +23,10 @@ export function Card({ image, title, description, content, value, link, color, v
                 <div className={clsx('w-full absolute top-0', !isShown && 'hidden')}>
                     <div className={'flex flex-inline justify-center mt-14 sm:mt-6'}>
                         <a href={link}>
-                            <Tag icon={'link'} color={color} variant={variant} size={40} />
+                            <Tag icon={'link'} color={color} variant={variant} size={'5xl'} />
                         </a>
                         <div onClick={target}>
-                            <Tag icon={'system_update_alt'} color={color} variant={variant} size={40} />
+                            <Tag icon={'system_update_alt'} color={color} variant={variant} size={'5xl'} />
                         </div>
                     </div>
                 </div>

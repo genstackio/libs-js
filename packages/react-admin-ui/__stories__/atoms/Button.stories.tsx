@@ -11,7 +11,7 @@ export default {
         disabled: args.disabled,
         classes: args.classes,
         onClick: args.onClick,
-        size: args.size,
+        size: args.textSize,
     }),
 };
 

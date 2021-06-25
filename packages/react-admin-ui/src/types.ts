@@ -3,6 +3,7 @@ import { shape } from './mappings/shapes';
 import { status } from './mappings/statuses';
 import { box_color } from './mappings/box-colors';
 import { box_variant } from './mappings/box-variants';
+import { text_size } from "./mappings/text-sizes";
 
 export { corner } from './mappings/corners';
 export { alignment } from './mappings/alignments';
@@ -13,6 +14,7 @@ export { text_color } from './mappings/text-colors';
 export { text_variant } from './mappings/text-variants';
 export { box_color } from './mappings/box-colors';
 export { box_variant } from './mappings/box-variants';
+export { text_size } from './mappings/text-sizes';
 
 export type badge = { variant?: box_variant; color?: box_color; text?: string; type?: badge_variant; label?: string };
 export type badge_variant = 'tag' | 'pill' | 'none';
@@ -77,7 +79,7 @@ export type clsxm_params = {
     hoverable?: flag;
     variant?: variant;
     color?: color;
-    size?: size,
+    size?: text_size,
     disabled?: flag;
     styles?: {
         common?: any;
