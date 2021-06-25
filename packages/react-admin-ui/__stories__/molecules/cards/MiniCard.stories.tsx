@@ -7,16 +7,13 @@ export default {
     argTypes: a({}),
 };
 
-const Template = (args) => (
-    <MiniCard {...args}>
-        <div className="text-center">9 April 2018 | by: Admin | 0 Hits</div>
-    </MiniCard>
-);
+const Template = (args) => <MiniCard {...args} />;
 
 export const basic = s(Template, {
+    description: 'Perspicatis unde omnis iste natus error sit.Dummy text',
     image: {
         url: 'https://picsum.photos/550/400',
         alt: 'alt',
     },
-    title: 'Perspicatis unde omnis iste natus error sit.Dummy text',
+    title: '9 April 2018 | by: Admin | 0 Hits',
 });
