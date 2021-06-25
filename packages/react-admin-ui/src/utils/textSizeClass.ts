@@ -1,14 +1,9 @@
 import clsxm from './clsxm';
 import { clsxm_params } from '../types';
+import {textSizes} from '../mappings/text-sizes';
 
 export const styles = {
-    common: {
-        'xs': 'text-xs',
-        'sm': 'text-sm',
-        'md': 'text-md',
-        'lg': 'text-lg',
-        'xl': 'text-2xl',
-    },
+    common: textSizes,
 };
 
 export const textSizeClass = (params: clsxm_params) => clsxm(params, styles, ['size']);

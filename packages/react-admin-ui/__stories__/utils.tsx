@@ -19,6 +19,7 @@ import { argtypes, st } from '@genstackio/react-storybook';
 import { useMemo } from 'react';
 import { action } from '@storybook/addon-actions';
 import * as mocks from './mocks';
+import {textSizes} from "../src/mappings/text-sizes";
 
 const translationNames = Object.keys(translations);
 translationNames.sort();
@@ -165,6 +166,7 @@ export const args = {
     series: { control: { type: 'object' } },
     shape: { control: { type: 'select' }, options: Object.keys(shapes) },
     size: { control: { type: 'select' }, options: ['xs', 'sm', 'md', 'lg', 'xl'] },
+    textSize: { control: { type: 'select' }, options: Object.keys(textSizes) },
     spinnerVariant: { control: { type: 'select' }, options: Object.keys(spinnerVariants) },
     spinnerSize: { control: { type: 'select' }, options: Object.keys(spinnerSizes) },
     spinnerColor: { control: { type: 'select' }, options: Object.keys(spinnerColors) },

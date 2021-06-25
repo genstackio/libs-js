@@ -9,6 +9,7 @@ export default {
         icon: args.iconCorner,
         color: args.color,
         variant: args.blockVariant,
+        size: args.textSize,
     }),
 };
 

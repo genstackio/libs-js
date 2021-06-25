@@ -5,7 +5,7 @@ export function ErrorTemplate({ actions, code, color, icon, message }: ErrorTemp
     return (
         <div className={'h-screen flex items-center'}>
             <div className={'text-center max-w-3xl mx-auto'}>
-                <Icon icon={icon} size={100} className={`text-gray-300`} />
+                <Icon icon={icon} size={'8xl'} className={`text-gray-300`} />
                 <Text text={`${code}`} variant={'title7'} color={color} />
                 <Text text={message} variant={'subtitle'} />
                 {actions && (
