@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import clsx from 'clsx';
 import Icon from './Icon';
 import buttonClass from '../utils/buttonClass';
-import { box_color, box_variant, children, class_name, flag, icon, target, size} from '../types';
+import { box_color, box_variant, children, class_name, flag, icon, target, size } from '../types';
 import { Spinner } from './Spinner';
 
 export function Button({
@@ -54,7 +54,7 @@ export interface ButtonProps {
     disabled?: flag;
     loading?: flag;
     icon?: icon;
-    size?: size,
+    size?: size;
     onClick?: target;
     variant?: box_variant;
 }

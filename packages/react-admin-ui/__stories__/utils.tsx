@@ -19,7 +19,7 @@ import { argtypes, st } from '@genstackio/react-storybook';
 import { useMemo } from 'react';
 import { action } from '@storybook/addon-actions';
 import * as mocks from './mocks';
-import {textSizes} from "../src/mappings/text-sizes";
+import { textSizes } from '../src/mappings/text-sizes';
 
 const translationNames = Object.keys(translations);
 translationNames.sort();

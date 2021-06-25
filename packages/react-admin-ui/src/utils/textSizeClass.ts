@@ -1,6 +1,6 @@
 import clsxm from './clsxm';
 import { clsxm_params } from '../types';
-import {textSizes} from '../mappings/text-sizes';
+import { textSizes } from '../mappings/text-sizes';
 
 export const styles = {
     common: textSizes,

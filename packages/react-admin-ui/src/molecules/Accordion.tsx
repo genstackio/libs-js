@@ -8,7 +8,7 @@ import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import { Icon, Badge, Text } from '../atoms';
-import {BoxProvider} from "@genstackio/react-contexts/lib/contexts/BoxContext";
+import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
 
 const StyledAccordion = withStyles({
     root: {
@@ -52,7 +52,7 @@ export function Accordion({ className, color = 'default', expandIcon, items = []
         },
         [setExpanded],
     );
-    const box = {color, variant};
+    const box = { color, variant };
     return (
         <div className={className}>
             {items.map(({ icon, title, badge, content }, index) => (

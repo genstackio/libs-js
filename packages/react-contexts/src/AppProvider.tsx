@@ -9,7 +9,7 @@ import { NavigationProvider } from './contexts/NavigationContext';
 import { LocalesProvider } from './contexts/LocalesContext';
 import { ImagesProvider } from './contexts/ImagesContext';
 import { ImporterProvider } from './contexts/ImporterContext';
-import {images_context_value, importer_context_params, locales_context_value} from './types';
+import { images_context_value, importer_context_params, locales_context_value } from './types';
 
 export function AppProvider({
     themeProvider: ThemeProvider,

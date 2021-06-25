@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { rich_text, text_component, class_name } from '../types';
 import textColorClass, { text_color } from '../mappings/text-colors';
 import textVariantClass, { text_variant } from '../mappings/text-variants';
-import {box_context_value, useBox} from "@genstackio/react-contexts";
+import { box_context_value, useBox } from '@genstackio/react-contexts';
 
 const mappings = {
     // contained
@@ -47,9 +47,9 @@ const mappings = {
     'light-default': 'dark',
 
     'default-default': 'dark',
-}
+};
 
-function computeTextColorFromBox(box: box_context_value, forcedColor: text_color|undefined = undefined) {
+function computeTextColorFromBox(box: box_context_value, forcedColor: text_color | undefined = undefined) {
     if (forcedColor) return forcedColor;
     const k = [box.variant || 'default', box.color || 'default'].join('-');
     return mappings[k] || mappings['default-default'];

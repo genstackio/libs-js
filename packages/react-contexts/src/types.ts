@@ -1,4 +1,4 @@
-import {ComponentType, LazyExoticComponent} from 'react';
+import { ComponentType, LazyExoticComponent } from 'react';
 
 export type storage = {
     setItem: Function;
@@ -54,8 +54,8 @@ export type cart_context_value = {
 };
 
 export type box_context_value = {
-    color: string|undefined;
-    variant: string|undefined;
+    color: string | undefined;
+    variant: string | undefined;
 };
 
 export type navigation_context_value = {
@@ -131,4 +131,6 @@ export type app_context_params = {
     apiOptions?: any;
 };
 
-export type importer_context_params = undefined | ((type: string, name: string) => LazyExoticComponent<ComponentType<any>>);
+export type importer_context_params =
+    | undefined
+    | ((type: string, name: string) => LazyExoticComponent<ComponentType<any>>);

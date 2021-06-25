@@ -3,7 +3,7 @@ import { shape } from './mappings/shapes';
 import { status } from './mappings/statuses';
 import { box_color } from './mappings/box-colors';
 import { box_variant } from './mappings/box-variants';
-import { text_size } from "./mappings/text-sizes";
+import { text_size } from './mappings/text-sizes';
 
 export { corner } from './mappings/corners';
 export { alignment } from './mappings/alignments';
@@ -79,7 +79,7 @@ export type clsxm_params = {
     hoverable?: flag;
     variant?: variant;
     color?: color;
-    size?: text_size,
+    size?: text_size;
     disabled?: flag;
     styles?: {
         common?: any;

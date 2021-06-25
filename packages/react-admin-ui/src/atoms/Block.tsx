@@ -1,12 +1,12 @@
 import clsx from 'clsx';
 import boxClass from '../utils/boxClass';
-import {box_color, box_variant, padding, image, class_name, children, corner, target} from '../types';
+import { box_color, box_variant, padding, image, class_name, children, corner, target } from '../types';
 import Container from './Container';
 import BlockHeader, { BlockHeaderProps } from './BlockHeader';
 import BlockContent, { BlockContentProps } from './BlockContent';
 import elevationClass, { elevation } from '../mappings/elevations';
-import {useMemo} from "react";
-import {BoxProvider} from "@genstackio/react-contexts/lib/contexts/BoxContext";
+import { useMemo } from 'react';
+import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
 
 export function Block({
     elevation = 1,
@@ -24,7 +24,7 @@ export function Block({
     variant = 'filled',
     onClick,
 }: BlockProps) {
-    const box = useMemo(() => ({color, variant}), [color, variant]);
+    const box = useMemo(() => ({ color, variant }), [color, variant]);
     return (
         <BoxProvider value={box}>
             <Container

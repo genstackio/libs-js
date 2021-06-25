@@ -1,4 +1,4 @@
-import {children, class_name, image, target} from '../types';
+import { children, class_name, image, target } from '../types';
 import clsx from 'clsx';
 import cornerClass, { corner } from '../mappings/corners';
 
@@ -10,10 +10,10 @@ export function Container({ bgImage, bgColor, corner, className, children, onCli
     let content = children || '';
     if (onClick) {
         if ('string' === typeof onClick) {
-            content = <a href={onClick}>{content}</a>
+            content = <a href={onClick}>{content}</a>;
             onClick = undefined;
         } else {
-            ('function' !== typeof onClick) && (onClick = undefined);
+            'function' !== typeof onClick && (onClick = undefined);
         }
     }
     return (

@@ -1,5 +1,5 @@
 import { Block, Tag, Icon, Text } from '../../atoms';
-import {box_color, box_variant, icon, rich_text, text_size} from '../../types';
+import { box_color, box_variant, icon, rich_text, text_size } from '../../types';
 
 export function ItemCard({
     colorDate,
@@ -24,9 +24,7 @@ export function ItemCard({
                         <Text text={subtitle} variant={'subtitle'} />
                     </div>
                 </div>
-                <div className={'mt-2'}>
-                    {date ? <Text text={date} variant={'overline'} /> : <Tag text={'new'} />}
-                </div>
+                <div className={'mt-2'}>{date ? <Text text={date} variant={'overline'} /> : <Tag text={'new'} />}</div>
             </div>
             <Text text={description} variant={'body'} />
         </Block>

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import boxClass from '../utils/boxClass';
-import {icon, rich_text, text_size} from '../types';
+import { icon, rich_text, text_size } from '../types';
 import Icon from './Icon';
 import { box_color } from '../mappings/box-colors';
 import { box_variant } from '../mappings/box-variants';

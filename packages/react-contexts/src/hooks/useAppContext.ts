@@ -106,17 +106,20 @@ export function useAppContext({
         ...apiOptions,
     };
 
-    const getQuery = useCallback((name: string) => {
-        if (!queries || !(queries[name] || queries['*']))
-            throw new Error(`No query available for '${name}'`);
-        if ('function' !== typeof (queries[name] || queries['*']))
-            throw new Error(`Query must be a function for '${name}'`);
-        return (queries[name] || queries['*'])(gql);
-    }, [queries]);
+    const getQuery = useCallback(
+        (name: string) => {
+            if (!queries || !(queries[name] || queries['*'])) throw new Error(`No query available for '${name}'`);
+            if ('function' !== typeof (queries[name] || queries['*']))
+                throw new Error(`Query must be a function for '${name}'`);
+            return (queries[name] || queries['*'])(gql);
+        },
+        [queries],
+    );
 
-    const getCallbacks = useCallback((name: string) =>
-        (!callbacks || !(callbacks[name] || callbacks['*'])) ? {} : (callbacks[name] || callbacks['*'])
-    , [callbacks]);
+    const getCallbacks = useCallback(
+        (name: string) => (!callbacks || !(callbacks[name] || callbacks['*']) ? {} : callbacks[name] || callbacks['*']),
+        [callbacks],
+    );
 
     const refreshUser = useCallback(async () => {
         const r = await api.client!.query({ query: getQuery('GET_CURRENT_USER') });

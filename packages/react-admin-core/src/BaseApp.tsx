@@ -1,10 +1,10 @@
-import {ComponentType, Suspense, useMemo} from 'react';
+import { ComponentType, Suspense, useMemo } from 'react';
 import Route from './Route';
 import DefaultLoadingScreen from './screens/DefaultLoadingScreen';
 import DefaultErrorScreen from './screens/DefaultErrorScreen';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import { route } from './types';
-import {AppProvider, importer_context_params, useAppContext} from '@genstackio/react-contexts';
+import { AppProvider, importer_context_params, useAppContext } from '@genstackio/react-contexts';
 import coreTranslations from './configs/translations';
 import adminUiTranslations from '@genstackio/react-admin-ui/lib/configs/translations';
 
