@@ -1,6 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import { useMutationApi } from '@genstackio/react-contexts';
 import computeActionErrorMessage from '../utils/computeActionErrorMessage';
+import { useTranslation } from 'react-i18next';
 
 export type action_preexecute_callback = (order: any) => Promise<any>;
 export type action_postexecute_callback = (result: any) => Promise<any>;
@@ -48,6 +49,7 @@ const convertError: action_converterror_callback = (error, ctx) => {
 const formatError: action_formaterror_callback = (error) => error;
 
 export function useAction(name: string, options: any = {}) {
+    const { t } = useTranslation();
     const [execute, { loading, error, ...infos }, callbacks = {}] = useMutationApi(name, options);
     const {
         preExecuteCb,
@@ -73,29 +75,30 @@ export function useAction(name: string, options: any = {}) {
         }),
         [],
     );
+    const ctx = useMemo(() => ({ name, options, t }), [name, options, t]);
     const onSubmit = useCallback(
         async (values) => {
-            const ctx = { name, values, options };
+            const submitCtx = { ...ctx, values };
             try {
                 let order = {
-                    variables: await prepareCb(values, ctx),
+                    variables: await prepareCb(values, submitCtx),
                 };
-                order = (await preExecuteCb(order, ctx)) || order;
-                let result = await execute(order, ctx);
-                result = (await postExecuteCb(result, ctx)) || result;
-                result = (await convertCb(result, ctx)) || result;
-                await notifyCb(result, ctx);
-                await onSuccessCb(result, ctx);
+                order = (await preExecuteCb(order, submitCtx)) || order;
+                let result = await execute(order, submitCtx);
+                result = (await postExecuteCb(result, submitCtx)) || result;
+                result = (await convertCb(result, submitCtx)) || result;
+                await notifyCb(result, submitCtx);
+                await onSuccessCb(result, submitCtx);
             } catch (e) {
-                processErrorCb(formatErrorCb(convertErrorCb(e)), ctx);
+                processErrorCb(formatErrorCb(convertErrorCb(e, submitCtx), submitCtx), submitCtx);
             }
         },
-        [execute, prepareCb, preExecuteCb, postExecuteCb, convertCb, notifyCb, processErrorCb, convertErrorCb],
+        [execute, prepareCb, preExecuteCb, postExecuteCb, convertCb, notifyCb, processErrorCb, convertErrorCb, ctx],
     );
 
     return {
         onSubmit,
-        errors: error ? formatErrorCb(convertErrorCb(error)) : undefined,
+        errors: error ? formatErrorCb(convertErrorCb(error, ctx), ctx) : undefined,
         submitting: Boolean(loading),
         ...infos,
     };
