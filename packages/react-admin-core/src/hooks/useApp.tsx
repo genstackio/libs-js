@@ -1,9 +1,10 @@
-import { ComponentType, LazyExoticComponent, useMemo } from 'react';
+import { useMemo } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { ApolloProvider } from '@ohoareau/apollo-client-jwt';
 import { MuiThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { TailwindProvider } from '@genstackio/react-contexts/lib/contexts/TailwindContext';
+import { importer_function } from '@genstackio/react-contexts';
 
 function GraphqlProvider({ value, children }: any) {
     value && (children = <ApolloProvider client={value}>{children}</ApolloProvider>);
@@ -27,7 +28,7 @@ export function useApp({
     theme = {},
     queries = {},
 }: {
-    importer: (name: string, key: string) => LazyExoticComponent<ComponentType<any>>;
+    importer: importer_function;
     app: any;
     theme?: any;
     routes?: any[];

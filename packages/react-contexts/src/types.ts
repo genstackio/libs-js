@@ -131,6 +131,5 @@ export type app_context_params = {
     apiOptions?: any;
 };
 
-export type importer_context_params =
-    | undefined
-    | ((type: string, name: string) => LazyExoticComponent<ComponentType<any>>);
+export type importer_function = (name: string, key: string) => LazyExoticComponent<ComponentType<any>> | undefined;
+export type importer_context_params = undefined | importer_function;
