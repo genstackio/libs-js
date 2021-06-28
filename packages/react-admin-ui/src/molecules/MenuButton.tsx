@@ -4,8 +4,8 @@ import Text from '../atoms/Text';
 import Image from '../atoms/Image';
 import Popper from '@material-ui/core/Popper';
 import MenuButtonWidget from './MenuButtonWidget';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import { box_color, image, menu_button_item, rich_text } from '../types';
+import Clickable from '../atoms/Clickable';
 
 export function MenuButton({ image, label, description, items = [], color }: MenuButtonProps) {
     const [opened, setOpened] = useState(false);
@@ -23,23 +23,25 @@ export function MenuButton({ image, label, description, items = [], color }: Men
     }, [setOpened, setAnchorEl]);
 
     return (
-        <ClickAwayListener onClickAway={handleClickAway}>
-            <div className={'flex items-center space-x-4 cursor-pointer'} onClick={handleClick}>
-                {image && <Image {...image} corner={'rounded-xsmall'} />}
-                <div className={'sm:hidden'}>
-                    <Text text={label} variant={'description'} />
-                    {description && (
-                        <div className={'flex items-center'}>
-                            <Text text={description} variant={'small'} />
-                            <Icon icon={'expand_more'} />
-                        </div>
-                    )}
-                </div>
-                <Popper open={opened} anchorEl={anchorEl} placement={'bottom-start'} transition>
-                    <MenuButtonWidget items={items} color={color} />
-                </Popper>
+        <Clickable
+            className={'flex items-center space-x-4 cursor-pointer'}
+            onClick={handleClick}
+            onClickAway={handleClickAway}
+        >
+            {image && <Image {...image} corner={'rounded-xsmall'} />}
+            <div className={'sm:hidden'}>
+                <Text text={label} variant={'description'} />
+                {description && (
+                    <div className={'flex items-center'}>
+                        <Text text={description} variant={'small'} />
+                        <Icon icon={'expand_more'} />
+                    </div>
+                )}
             </div>
-        </ClickAwayListener>
+            <Popper open={opened} anchorEl={anchorEl} placement={'bottom-start'} transition>
+                <MenuButtonWidget items={items} color={color} />
+            </Popper>
+        </Clickable>
     );
 }
 

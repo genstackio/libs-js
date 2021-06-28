@@ -6,6 +6,7 @@ import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
 import { class_name, flag, register } from '../../types';
 import { useField } from '../../hooks';
 import FieldSet from '../FieldSet';
+import Row from '../Row';
 
 const useStyles = makeStyles({
     root: {
@@ -45,7 +46,7 @@ export function CheckboxField({ className, onChange, ...props }: CheckboxFieldPr
     } = useField(props, { kind: 'checkbox' });
     return (
         <FieldSet className={className} name={name} label={label} options={options} error={error} helper={helper}>
-            <div className={'flex items-center'}>
+            <Row center>
                 <Checkbox
                     checkedIcon={<CheckBoxOutlinedIcon />}
                     classes={classes}
@@ -59,7 +60,7 @@ export function CheckboxField({ className, onChange, ...props }: CheckboxFieldPr
                     {...extra}
                 />
                 <Text text={label} className={clsx(disabled && 'text-gray-500')} />
-            </div>
+            </Row>
         </FieldSet>
     );
 }

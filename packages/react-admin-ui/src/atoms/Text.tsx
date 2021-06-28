@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { rich_text, text_component, class_name } from '../types';
+import { rich_text, text_component, class_name, flag } from '../types';
 import textColorClass, { text_color } from '../mappings/text-colors';
 import textVariantClass, { text_variant } from '../mappings/text-variants';
 import { box_context_value, useBox } from '@genstackio/react-contexts';
@@ -55,11 +55,23 @@ function computeTextColorFromBox(box: box_context_value, forcedColor: text_color
     return mappings[k] || mappings['default-default'];
 }
 
-export function Text({ className, color = undefined, text, variant = 'body', component = 'div' }: TextProps) {
+export function Text({
+    className,
+    center = false,
+    color = undefined,
+    text,
+    variant = 'body',
+    component = 'div',
+}: TextProps) {
     if (!text) return null;
     const box = useBox();
     const props = {
-        className: clsx(textColorClass(computeTextColorFromBox(box, color)), textVariantClass(variant), className),
+        className: clsx(
+            textColorClass(computeTextColorFromBox(box, color)),
+            textVariantClass(variant),
+            center && 'text-center',
+            className,
+        ),
         children: text,
     };
     switch (component) {
@@ -91,6 +103,7 @@ export interface TextProps {
     color?: text_color;
     text?: rich_text;
     variant?: text_variant;
+    center?: flag;
 }
 
 export default Text;

@@ -57,30 +57,28 @@ export function SwitchField({ onChange, ...props }: SwitchFieldProps) {
     const { name, required, label, error, helper, disabled, register, options, defaultValue, extra } = useField(props);
     return (
         <div className={'mb-2'}>
-            <div>
-                <MuiSwitch
-                    focusVisibleClassName={classes.focusVisible}
-                    disableRipple
-                    classes={{
-                        root: classes.root,
-                        switchBase: classes.switchBase,
-                        thumb: classes.thumb,
-                        track: classes.track,
-                        checked: classes.checked,
-                        disabled: classes.disabled,
-                    }}
-                    name={name}
-                    checked={defaultValue}
-                    onChange={onChange}
-                    disabled={disabled}
-                    required={required}
-                    {...register()}
-                    {...extra}
-                />
-                <FieldLabel name={name} label={label} options={options} />
-                <FieldError error={error} />
-                <FieldHelper helper={helper} />
-            </div>
+            <MuiSwitch
+                focusVisibleClassName={classes.focusVisible}
+                disableRipple
+                classes={{
+                    root: classes.root,
+                    switchBase: classes.switchBase,
+                    thumb: classes.thumb,
+                    track: classes.track,
+                    checked: classes.checked,
+                    disabled: classes.disabled,
+                }}
+                name={name}
+                checked={defaultValue}
+                onChange={onChange}
+                disabled={disabled}
+                required={required}
+                {...register()}
+                {...extra}
+            />
+            <FieldLabel name={name} label={label} options={options} />
+            <FieldError error={error} />
+            <FieldHelper helper={helper} />
         </div>
     );
 }

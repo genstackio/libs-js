@@ -1,25 +1,17 @@
 import { children, class_name, image, target } from '../types';
 import clsx from 'clsx';
 import cornerClass, { corner } from '../mappings/corners';
+import Clickable from './Clickable';
 
 export function Container({ bgImage, bgColor, corner, className, children, onClick }: ContainerProps) {
     const style = {
         backgroundImage: bgImage ? 'url(' + bgImage.url + ')' : undefined,
         backgroundColor: bgColor ? bgColor : undefined,
     };
-    let content = children || '';
-    if (onClick) {
-        if ('string' === typeof onClick) {
-            content = <a href={onClick}>{content}</a>;
-            onClick = undefined;
-        } else {
-            'function' !== typeof onClick && (onClick = undefined);
-        }
-    }
     return (
-        <div className={clsx(cornerClass(corner), className)} style={style} onClick={onClick as any}>
-            {content}
-        </div>
+        <Clickable className={clsx('w-full', cornerClass(corner), className)} style={style} onClick={onClick as any}>
+            {children || ''}
+        </Clickable>
     );
 }
 

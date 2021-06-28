@@ -2,7 +2,10 @@ import { box_color } from '../../mappings/box-colors';
 import { flag, rich_text } from '../../types';
 import { ReactNode } from 'react';
 import AlertPanel from '../AlertPanel';
-import { Text } from '../../atoms/Text';
+import Text from '../../atoms/Text';
+import Column from '../../atoms/Column';
+import FormHeader from '../../atoms/FormHeader';
+import { FormFooter } from '../../atoms';
 
 export function BaseForm({
     title,
@@ -19,13 +22,9 @@ export function BaseForm({
     const { handleSubmit } = rhf;
     const error = errors && (errors[''] || errors['*'] || errors['_']);
     return (
-        <div className={'w-full flex flex-col'}>
-            {header && (
-                <div className={'w-full flex flex-col justify-center'}>
-                    <div className={'mt-4 flex flex-inline items-center justify-center'}>{header}</div>
-                </div>
-            )}
-            <div className={'w-full flex justify-center flex-col'}>
+        <Column>
+            <FormHeader>{header}</FormHeader>
+            <Column center>
                 <form onSubmit={handleSubmit(onSubmit as any)} className={'w-full'} aria-disabled={submitting}>
                     {title && <Text text={title} variant={'title6'} color={color} />}
                     {subtitle && (
@@ -38,13 +37,9 @@ export function BaseForm({
                     )}
                     {children}
                 </form>
-            </div>
-            {footer && (
-                <div className={'w-full flex flex-col justify-center'}>
-                    <div className={'mt-4 flex flex-inline items-center justify-center'}>{footer}</div>
-                </div>
-            )}
-        </div>
+            </Column>
+            <FormFooter>{footer}</FormFooter>
+        </Column>
     );
 }
 export interface InternalBaseFormProps extends BaseFormProps {

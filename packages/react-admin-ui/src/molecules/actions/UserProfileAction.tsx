@@ -1,10 +1,14 @@
 import UserProfileForm, { UserProfileFormProps } from '../forms/UserProfileForm';
 import useAction from '../../hooks/useAction';
+import FormActionProps from '../forms/FormActionProps';
 
-export function UserProfileAction(props: UserProfileActionProps) {
-    const state = useAction('USER_PROFILE');
+export function UserProfileAction({ onSuccess, ...props }: UserProfileActionProps) {
+    const state = useAction('USER_PROFILE', { onSuccess });
     return <UserProfileForm {...state} {...props} />;
 }
-export type UserProfileActionProps = UserProfileFormProps;
+
+export interface UserProfileActionProps extends UserProfileFormProps, FormActionProps {
+    onSuccess?: Function;
+}
 
 export default UserProfileAction;

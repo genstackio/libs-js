@@ -2,6 +2,8 @@ import { class_name, icon, target, text_size } from '../types';
 import MuiIcon from '@material-ui/core/Icon';
 import textSizeClass from '../utils/textSizeClass';
 import clsx from 'clsx';
+import Clickable from './Clickable';
+import Image from './Image';
 
 export function Icon({ icon, size, onClick, ...props }: IconProps) {
     if (!icon) return null;
@@ -9,7 +11,7 @@ export function Icon({ icon, size, onClick, ...props }: IconProps) {
     switch (typeof icon) {
         case 'string':
             if ('/' === icon.slice(0, 1) || 'http' === icon.slice(0, 4)) {
-                content = <img src={icon} alt={''} {...props} />;
+                content = <Image url={icon} alt={''} {...props} />;
                 break;
             }
             if (size) {
@@ -26,14 +28,12 @@ export function Icon({ icon, size, onClick, ...props }: IconProps) {
             content = icon;
             break;
     }
-    if (onClick) {
-        if ('string' === typeof onClick) {
-            content = <a href={onClick}>{content}</a>;
-        } else {
-            'function' === typeof onClick && (content = <span onClick={onClick as any}>{content}</span>);
-        }
-    }
-    return content;
+
+    return (
+        <Clickable onClick={onClick} inline>
+            {content}
+        </Clickable>
+    );
 }
 
 export interface IconProps {

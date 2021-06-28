@@ -4,6 +4,7 @@ import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
 import textClass from '../utils/textClass';
 import { box_color, menu_button_item } from '../types';
+import boxClass from '../utils/boxClass';
 
 export function MenuButtonWidget({ items, color }: MenuButtonWidgetProps) {
     const handleClick = useCallback(
@@ -15,7 +16,12 @@ export function MenuButtonWidget({ items, color }: MenuButtonWidgetProps) {
     );
 
     return (
-        <ul className={'px-2 py-3 rounded-md max-w-xxs divide-y'}>
+        <ul
+            className={clsx(
+                boxClass({ color: 'light', variant: 'contained' }),
+                'px-2 py-3 rounded-md max-w-xxs divide-y',
+            )}
+        >
             {items.map(({ icon, label, target }, index) => (
                 <li
                     className={clsx(

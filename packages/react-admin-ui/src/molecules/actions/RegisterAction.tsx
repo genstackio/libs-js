@@ -1,10 +1,14 @@
 import RegisterForm, { RegisterFormProps } from '../forms/RegisterForm';
 import useAction from '../../hooks/useAction';
+import FormActionProps from '../forms/FormActionProps';
 
-export function RegisterAction(props: RegisterActionProps) {
-    const state = useAction('REGISTER');
+export function RegisterAction({ onSuccess, ...props }: RegisterActionProps) {
+    const state = useAction('REGISTER', { onSuccess });
     return <RegisterForm {...state} {...props} />;
 }
-export type RegisterActionProps = RegisterFormProps;
+
+export interface RegisterActionProps extends RegisterFormProps, FormActionProps {
+    onSuccess?: Function;
+}
 
 export default RegisterAction;

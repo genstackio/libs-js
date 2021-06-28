@@ -7,7 +7,7 @@ import { withStyles } from '@material-ui/core/styles';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
-import { Icon, Badge, Text } from '../atoms';
+import { Clickable, Icon, Badge, Text } from '../atoms';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
 
 const StyledAccordion = withStyles({
@@ -44,7 +44,13 @@ const StyledAccordionSummary = withStyles({
     expanded: {},
 })(MuiAccordionSummary);
 
-export function Accordion({ className, color = 'default', expandIcon, items = [], variant }: AccordionProps) {
+export function Accordion({
+    className,
+    color = 'primary',
+    expandIcon,
+    items = [],
+    variant = 'contained',
+}: AccordionProps) {
     const [expanded, setExpanded] = useState<number | false>(false);
     const handleChange = useCallback(
         (panel: number) => (event: ChangeEvent, newExpanded: boolean) => {
@@ -89,15 +95,9 @@ export function Accordion({ className, color = 'default', expandIcon, items = []
                         {Array.isArray(content) && (
                             <div className={'flex flex-col space-y-4'}>
                                 {(content as any[]).map(({ label, target }, index) => (
-                                    <a
-                                        key={index}
-                                        className={textClass({ color, variant })}
-                                        {...('function' === typeof target
-                                            ? { href: '', onClick: target as any }
-                                            : { href: target as string })}
-                                    >
+                                    <Clickable key={index} className={textClass({ color, variant })} onClick={target}>
                                         - {label}
-                                    </a>
+                                    </Clickable>
                                 ))}
                             </div>
                         )}

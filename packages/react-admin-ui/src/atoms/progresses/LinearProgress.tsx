@@ -1,4 +1,4 @@
-import { makeStyles, createStyles, withStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, withStyles, Theme } from '@material-ui/core/styles';
 import MuiLinearProgress from '@material-ui/core/LinearProgress';
 
 const BorderLinearProgress = withStyles((theme: Theme) =>
@@ -17,16 +17,9 @@ const BorderLinearProgress = withStyles((theme: Theme) =>
     }),
 )(MuiLinearProgress);
 
-const useStyles = makeStyles({
-    root: {
-        flexGrow: 1,
-    },
-});
-
 export function LinearProgress({ value = 0 }: LinearProgressProps) {
-    const classes = useStyles();
     return (
-        <div className={classes.root}>
+        <div className={'flex-grow'}>
             <BorderLinearProgress variant={'determinate'} value={value} />
         </div>
     );

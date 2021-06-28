@@ -7,7 +7,7 @@ export function CentralTemplate({ color = 'primary', image, message }: CentralTe
             <div className={'text-center max-w-3xl mx-auto'}>
                 {image && (
                     <div className={'flex justify-center'}>
-                        <Image url={image.url} alt={image.alt} />
+                        <Image {...image} />
                     </div>
                 )}
                 <Text text={message} variant={'title5'} color={color} />

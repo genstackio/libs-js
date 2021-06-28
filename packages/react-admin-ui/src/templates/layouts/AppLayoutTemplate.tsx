@@ -1,7 +1,7 @@
 import { ReactNode, useCallback, useState } from 'react';
 import clsx from 'clsx';
 import { Menu } from '../../molecules';
-import { Image, Icon } from '../../atoms';
+import { Clickable, Image, Icon } from '../../atoms';
 import textClass from '../../utils/textClass';
 import { box_color, box_variant, image, menu_item, rich_text, children } from '../../types';
 
@@ -24,14 +24,14 @@ export function AppLayoutTemplate({ logo, menu, children, toolbar, ...props }: A
                 {menu && <Menu items={menu} {...props} />}
             </div>
             <div className={'flex-1'}>
-                <div className={'px-8 py-6 h-xxl'}>
+                <div className={'px-8 py-6 h-xxl flex items-center'}>
                     {!show && (
-                        <div onClick={handleClick}>
+                        <Clickable onClick={handleClick} className={'mr-4'}>
                             <Icon
                                 icon={'menu'}
                                 className={textClass({ color: props.color, variant: 'light', hoverable: true })}
                             />
-                        </div>
+                        </Clickable>
                     )}
                     {toolbar || ''}
                 </div>

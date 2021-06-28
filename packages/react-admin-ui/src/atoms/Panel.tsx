@@ -3,18 +3,16 @@ import boxClass from '../utils/boxClass';
 import { children, class_name } from '../types';
 import { box_color } from '../mappings/box-colors';
 import { box_variant } from '../mappings/box-variants';
+import Row from './Row';
 
 export function Panel({ className, children, color = 'primary', variant = 'contained' }: PanelProps) {
     return (
-        <div
-            className={clsx(
-                boxClass({ color, variant }),
-                'px-4 py-4 leading-normal flex items-center justify-between',
-                className,
-            )}
+        <Row
+            center
+            className={clsx(boxClass({ color, variant }), 'px-4 py-4 leading-normal justify-between', className)}
         >
             {children || ''}
-        </div>
+        </Row>
     );
 }
 

@@ -6,7 +6,7 @@ export function MiniCard({ children, description, image, title }: MiniCardProps)
         <Block padding={'none'}>
             {image && <Image className={'w-full rounded-t-2xl'} {...image} />}
             {children || ''}
-            <Text className="text-center" variant={'body'} text={title} />
+            <Text center variant={'body'} text={title} />
             <Text className={'ml-8'} variant={'title4'} text={description} />
         </Block>
     );

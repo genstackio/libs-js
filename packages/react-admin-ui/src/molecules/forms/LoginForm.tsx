@@ -1,4 +1,12 @@
-import { LocaleChange, UsernameField, PasswordField, RememberPasswordField, Button, Text } from '../../atoms';
+import {
+    Clickable,
+    LocaleChange,
+    UsernameField,
+    PasswordField,
+    RememberPasswordField,
+    Button,
+    Text,
+} from '../../atoms';
 import { useCallback } from 'react';
 import { flag, locales } from '../../types';
 import { BaseFormProps } from './BaseForm';
@@ -27,9 +35,9 @@ export function LoginForm({
     const footer = onRegisterClick && (
         <>
             <Text className={'text-gray-500 mr-2'} text={tf('register_question')} variant={'body'} />
-            <a href={''} onClick={onRegisterClick as any}>
+            <Clickable onClick={onRegisterClick as any}>
                 <Text text={tf('register_label')} color={color} variant={'body'} />
-            </a>
+            </Clickable>
         </>
     );
 
@@ -52,11 +60,9 @@ export function LoginForm({
                                     <RememberPasswordField {...field} />
                                 </div>
                             )}
-                            {onForgotPasswordClick && (
-                                <div onClick={onForgotPasswordClick as any}>
-                                    <Text text={tf('forgot_password_label')} color={color} variant={'body'} />
-                                </div>
-                            )}
+                            <Clickable onClick={onForgotPasswordClick as any} optional>
+                                <Text text={tf('forgot_password_label')} color={color} variant={'body'} />
+                            </Clickable>
                         </div>
                     )}
                     <SubmitButton />

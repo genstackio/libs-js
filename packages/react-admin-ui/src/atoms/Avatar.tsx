@@ -3,6 +3,7 @@ import { image, size } from '../types';
 import getInitials from '../utils/getInitials';
 import statusClass, { status } from '../mappings/statuses';
 import shapeClass, { shape } from '../mappings/shapes';
+import Image from './Image';
 
 const sizes = {
     xs: 'w-8 h-8 text-xs',
@@ -26,7 +27,7 @@ export function Avatar({ image, name, size = 'md', shape = 'circular', status = 
                     {getInitials(name)}
                 </div>
             )}
-            {image && <img src={image.url} alt={image.alt} className={clsx(sizes[size], shapeClass(shape))} />}
+            {image && <Image {...image} className={clsx(sizes[size], shapeClass(shape))} />}
             {status && (
                 <div
                     className={clsx(

@@ -1,4 +1,4 @@
-import { Button, Form, OtpField, Text } from '../../atoms';
+import { Column, Clickable, Button, Form, OtpField, Text } from '../../atoms';
 import { useTranslation } from 'react-i18next';
 import { box_color } from '../../mappings/box-colors';
 
@@ -11,8 +11,8 @@ export function FillInOtpForgotPasswordForm({
     const { t } = useTranslation();
 
     return (
-        <div className={'w-full flex flex-col'}>
-            <div className={'w-full flex flex-col justify-center mb-4'}>
+        <Column>
+            <Column center className={'mb-4'}>
                 <Text text={t('form_forgot_password_fill_in_otp_title')} variant={'title6'} color={color} />
                 <Text
                     className={'text-gray-500 mb-4'}
@@ -28,23 +28,24 @@ export function FillInOtpForgotPasswordForm({
                         </Button>
                     </div>
                 </Form>
-            </div>
+            </Column>
             {onResendVerificationCode && (
                 <div className={'flex space-x-2 mb-4'}>
                     <Text text={t('form_forgot_password_fill_in_otp_not_received')} variant={'body'} color={color} />
-                    <a
+                    <Clickable
                         onClick={onResendVerificationCode as any}
                         className={'text-danger underline cursor-pointer hover:no-underline'}
+                        inline
                     >
                         <Text
                             text={t('form_forgot_password_fill_in_otp_resend_label')}
                             variant={'body'}
                             color={color}
                         />
-                    </a>
+                    </Clickable>
                 </div>
             )}
-        </div>
+        </Column>
     );
 }
 
