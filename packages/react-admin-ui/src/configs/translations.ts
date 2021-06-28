@@ -151,7 +151,7 @@ export default {
             form_forgot_password_create_password_subtitle: 'Merci de choisir un nouveau mot de passe',
             form_forgot_password_create_password_submit_label: 'Enregister',
 
-            locale_change_value: 'Choisissez votre langue',
+            locales_change_value: 'Choisissez votre langue',
         },
     },
     'it-IT': {
@@ -291,7 +291,7 @@ export default {
             form_forgot_password_create_password_subtitle: 'Scegli una nuova password',
             form_forgot_password_create_password_submit_label: 'Registrati',
 
-            locale_change_value: 'Scegli la tua lingua',
+            locales_change_value: 'Scegli la tua lingua',
         },
     },
     'en-GB': {
@@ -431,7 +431,7 @@ export default {
             form_forgot_password_create_password_subtitle: 'Please choose a new password',
             form_forgot_password_create_password_submit_label: 'Save',
 
-            locale_change_value: 'Select your language',
+            locales_change_value: 'Select your language',
         },
     },
 };
