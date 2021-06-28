@@ -4,8 +4,7 @@ import { Divider } from '../../src';
 export default {
     title: 'Atoms/Divider',
     component: Divider,
-    argTypes: a({
-    }),
+    argTypes: a({}),
 };
 const Template = (args) => <Divider {...args} />;
 

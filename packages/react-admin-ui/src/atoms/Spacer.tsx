@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { space_variant } from '../types';
 
-export function Spacer({variant = 'default', size = 1, unitSize = 4}) {
+export function Spacer({ variant = 'default', size = 1, unitSize = 4 }: SpacerProps) {
     const styles = useMemo(() => {
         const styles = {};
         switch (variant) {
@@ -19,15 +19,13 @@ export function Spacer({variant = 'default', size = 1, unitSize = 4}) {
         return styles;
     }, [variant, size, unitSize]);
 
-    return (
-        <div style={styles} />
-    );
+    return <div style={styles} />;
 }
 
 export interface SpacerProps {
-    size?: number,
-    unitSize?: number,
-    variant?: space_variant,
+    size?: number;
+    unitSize?: number;
+    variant?: space_variant;
 }
 
-export default Spacer
+export default Spacer;

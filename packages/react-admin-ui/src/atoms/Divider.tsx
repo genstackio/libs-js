@@ -1,13 +1,11 @@
-import {class_name} from '../types';
-import {box_color} from "../mappings/box-colors";
-import clsx from "clsx";
-import boxClass from "../utils/boxClass";
-import {box_variant} from "../mappings/box-variants";
+import { class_name } from '../types';
+import { box_color } from '../mappings/box-colors';
+import clsx from 'clsx';
+import boxClass from '../utils/boxClass';
+import { box_variant } from '../mappings/box-variants';
 
-export function Divider({className, color, variant='outlined' }: DividerProps) {
-    return (
-        <hr className={clsx(boxClass({ color, variant }), className)} />
-    );
+export function Divider({ className, color, variant = 'outlined' }: DividerProps) {
+    return <hr className={clsx(boxClass({ color, variant }), className)} />;
 }
 
 export interface DividerProps {
