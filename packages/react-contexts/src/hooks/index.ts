@@ -8,6 +8,7 @@ export * from './useLocation';
 export * from './useTailwind';
 export * from './useMutationApi';
 export * from './useImporter';
+export * from './useLocales';
 export * from './useNavigation';
 export * from './useProduct';
 export * from './useQueryApi';
