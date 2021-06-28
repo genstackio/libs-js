@@ -1,6 +1,6 @@
-import { UsernameField, PasswordField, RememberPasswordField, Button, Text } from '../../atoms';
+import { LocaleChange, UsernameField, PasswordField, RememberPasswordField, Button, Text } from '../../atoms';
 import { useCallback } from 'react';
-import { flag } from '../../types';
+import { flag, locales } from '../../types';
 import { BaseFormProps } from './BaseForm';
 import useForm from '../../hooks/useForm';
 
@@ -9,6 +9,7 @@ export function LoginForm({
     onForgotPasswordClick,
     socialLogins = false,
     rememberMe = false,
+    locales = [],
     ...props
 }: LoginFormProps) {
     const { Form, SubmitButton, field, tf, color } = useForm(props, 'login');
@@ -85,6 +86,7 @@ export function LoginForm({
                     </div>
                 </>
             )}
+            {locales && locales.length && <LocaleChange locales={locales} />}
         </Form>
     );
 }
@@ -93,6 +95,7 @@ export interface LoginFormProps extends BaseFormProps {
     onForgotPasswordClick?: Function;
     socialLogins?: flag;
     rememberMe?: flag;
+    locales?: locales[];
 }
 
 export default LoginForm;
