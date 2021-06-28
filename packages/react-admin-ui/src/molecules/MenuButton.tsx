@@ -27,7 +27,7 @@ export function MenuButton({ image, label, description, items = [], color }: Men
             <div className={'flex items-center space-x-4 cursor-pointer'} onClick={handleClick}>
                 {image && <Image {...image} corner={'rounded-xsmall'} />}
                 <div className={'sm:hidden'}>
-                    {label && <Text text={label} variant={'description'} />}
+                    <Text text={label} variant={'description'} />
                     {description && (
                         <div className={'flex items-center'}>
                             <Text text={description} variant={'small'} />
