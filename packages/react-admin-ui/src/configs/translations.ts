@@ -1,17 +1,24 @@
+// always the same no matter language:
+const common = {
+    project_name: 'React Admin',
+
+    locale_fr_fr: 'Français',
+    locale_en_us: 'English (US)',
+    locale_en_gb: 'English (GB)',
+    locale_it_it: 'Italiano',
+    locale_de_de: 'Deutsch',
+    locale_es_es: 'Español',
+    locale_fr_ch: 'Français (CH)',
+    locale_fr_be: 'Français (BE)',
+    locale_fr_ca: 'Français (CA)',
+};
+
 export default {
     'fr-FR': {
         translation: {
-            project_name: 'React Admin UI',
+            ...common,
 
-            locale_fr_fr: 'Français',
-            locale_en_us: 'Anglais (Etats-Unis)',
-            locale_en_gb: 'Anglais (Angleterre)',
-            locale_it_it: 'Italien',
-            locale_de_de: 'Allemand',
-            locale_es_es: 'Espagnol',
-            locale_fr_ch: 'Français (Suisse)',
-            locale_fr_be: 'Français (Belgique)',
-            locale_fr_ca: 'Français (Canada)',
+            error_action_login_bad_credentials: 'Identifiant ou mot de passe incorrect',
 
             footer_contact_us: 'Nous contacter',
             constraints_required: 'Requis',
@@ -149,17 +156,9 @@ export default {
     },
     'it-IT': {
         translation: {
-            project_name: 'React Admin UI',
+            ...common,
 
-            locale_fr_fr: 'Francese',
-            locale_en_us: 'Inglese (US)',
-            locale_en_gb: 'Inglese (GB)',
-            locale_it_it: 'Italiano',
-            locale_de_de: 'Tedesco',
-            locale_es_es: 'Spagnolo',
-            locale_fr_ch: 'Francese (Svizzero)',
-            locale_fr_be: 'Francese (Belgio)',
-            locale_fr_ca: 'Francese (Canada)',
+            error_action_login_bad_credentials: 'Nome utente o password errati',
 
             footer_contact_us: 'Contattaci',
             constraints_required: 'Necessario',
@@ -297,17 +296,9 @@ export default {
     },
     'en-GB': {
         translation: {
-            project_name: 'React Admin UI',
+            ...common,
 
-            locale_fr_fr: 'French',
-            locale_en_us: 'English (US)',
-            locale_en_gb: 'English (GB)',
-            locale_it_it: 'Italian',
-            locale_de_de: 'German',
-            locale_es_es: 'Spanish',
-            locale_fr_ch: 'French (Swiss)',
-            locale_fr_be: 'French (Belgium)',
-            locale_fr_ca: 'French (Canada)',
+            error_action_login_bad_credentials: 'Bad credentials',
 
             footer_contact_us: 'Contact us',
             constraints_required: 'Required',
