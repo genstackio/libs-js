@@ -52,6 +52,9 @@ export function useApp({
             apiOptions: {
                 uri: app.endpoint,
             },
+            locales: app.locales,
+            defaultLocale: app.defaultLocale,
+            fallbackLocale: app.fallbackLocale,
         }),
         [app, routes, translations, queries],
     );
