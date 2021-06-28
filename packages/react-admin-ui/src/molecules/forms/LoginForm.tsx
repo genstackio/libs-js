@@ -27,7 +27,7 @@ export function LoginForm({
     const footer = onRegisterClick && (
         <>
             <Text className={'text-gray-500 mr-2'} text={tf('register_question')} variant={'body'} />
-            <a href={'#'} onClick={onRegisterClick as any}>
+            <a href={''} onClick={onRegisterClick as any}>
                 <Text text={tf('register_label')} color={color} variant={'body'} />
             </a>
         </>

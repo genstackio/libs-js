@@ -29,7 +29,7 @@ export function RegisterForm({ onPrivacyPolicyClick, onLoginClick, socialLogins,
         <div className={'w-full flex flex-col justify-center'}>
             <div className={'mt-4 flex flex-inline items-center justify-center'}>
                 <Text className={'text-gray-500 mr-2'} text={tf('login_question')} variant={'body'} />
-                <a href={'#'} onClick={onLoginClick as any}>
+                <a href={''} onClick={onLoginClick as any}>
                     <Text text={tf('login_label')} color={color} variant={'body'} />
                 </a>
             </div>

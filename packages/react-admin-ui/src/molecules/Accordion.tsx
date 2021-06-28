@@ -93,7 +93,7 @@ export function Accordion({ className, color = 'default', expandIcon, items = []
                                         key={index}
                                         className={textClass({ color, variant })}
                                         {...('function' === typeof target
-                                            ? { href: '#', onClick: target as any }
+                                            ? { href: '', onClick: target as any }
                                             : { href: target as string })}
                                     >
                                         - {label}

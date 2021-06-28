@@ -22,10 +22,10 @@ function ThemeProvider({ value, children }: any) {
 
 export function useApp({
     importer,
-    app,
+    app: { prefix, endpoint, locales, defaultLocale, fallbackLocale },
     routes = [],
     translations = {},
-    theme = {},
+    theme: { mui = {}, tailwind = {} } = {},
     queries = {},
 }: {
     importer: importer_function;
@@ -37,7 +37,7 @@ export function useApp({
 }) {
     return useMemo(
         () => ({
-            prefix: app.prefix,
+            prefix,
             importer,
             translations,
             queries,
@@ -46,17 +46,17 @@ export function useApp({
             themeProvider: ThemeProvider,
             routes: routes,
             theme: {
-                mui: createMuiTheme(theme.mui),
-                tailwind: theme.tailwind,
+                mui: createMuiTheme(mui),
+                tailwind,
             },
             apiOptions: {
-                uri: app.endpoint,
+                uri: endpoint,
             },
-            locales: app.locales,
-            defaultLocale: app.defaultLocale,
-            fallbackLocale: app.fallbackLocale,
+            locales,
+            defaultLocale,
+            fallbackLocale,
         }),
-        [app, routes, translations, queries],
+        [prefix, endpoint, defaultLocale, fallbackLocale, locales, routes, translations, queries],
     );
 }
 

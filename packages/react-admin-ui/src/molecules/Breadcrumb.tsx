@@ -36,7 +36,7 @@ export function Breadcrumb({ items = [], color = 'primary', toRight = false }: B
                 <Link
                     className={clsx(colors[color])}
                     key={index}
-                    {...('function' === typeof target ? { href: '#' } : { href: target as string })}
+                    {...('function' === typeof target ? { href: '' } : { href: target as string })}
                 >
                     {index === 0 && <HomeOutlinedIcon className={clsx(colors[color], 'flex items-center')} />}
                     {index !== 0 && <div>{label}</div>}
