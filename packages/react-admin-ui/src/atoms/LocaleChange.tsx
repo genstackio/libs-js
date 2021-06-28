@@ -9,7 +9,7 @@ export function LocaleChange({ locales = [] }: LocaleChangeProps) {
     const onLocaleChange = useCallback((event) => {
         i18n.changeLanguage(event.target.value);
     }, []);
-    return (!locales || (1 >= locales.length) ) ? null : (
+    return !locales || 1 >= locales.length ? null : (
         <>
             <Text text={t('locales_change_value')} />
             <select onChange={onLocaleChange}>
