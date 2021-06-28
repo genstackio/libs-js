@@ -14,14 +14,14 @@ export function AppLayoutTemplate({ logo, menu, children, toolbar, ...props }: A
         <div className={'flex h-screen'}>
             <div className={clsx('w-drawer', !show && 'hidden')}>
                 <div className={'px-8 py-7 h-xxl shadow-toolbar flex justify-between items-center'}>
-                    <Image className={'bg-auto'} {...logo} />
+                    {logo && <Image className={'bg-auto'} {...logo} />}
                     <Icon
                         icon={'apps_outlined'}
                         className={textClass({ color: props.color, variant: 'light', hoverable: true })}
                         onClick={handleClick}
                     />
                 </div>
-                <Menu items={menu} {...props} />
+                {menu && <Menu items={menu} {...props} />}
             </div>
             <div className={'flex-1'}>
                 <div className={'px-8 py-6 h-xxl'}>
@@ -33,7 +33,7 @@ export function AppLayoutTemplate({ logo, menu, children, toolbar, ...props }: A
                             />
                         </div>
                     )}
-                    {toolbar}
+                    {toolbar || ''}
                 </div>
                 <div className={'h-screen p-4 shadow-inside'}>{children || ''}</div>
             </div>
@@ -44,11 +44,11 @@ export function AppLayoutTemplate({ logo, menu, children, toolbar, ...props }: A
 export interface AppLayoutTemplateProps {
     variant?: box_variant;
     color?: box_color;
-    logo: image;
-    menu: menu_item[];
+    logo?: image;
+    menu?: menu_item[];
     title?: rich_text;
     text?: rich_text;
-    toolbar: ReactNode;
+    toolbar?: ReactNode;
     children?: children;
 }
 
