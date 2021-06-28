@@ -1,5 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import { useMutationApi } from '@genstackio/react-contexts';
+import computeActionErrorMessage from '../utils/computeActionErrorMessage';
 
 export type action_preexecute_callback = (order: any) => Promise<any>;
 export type action_postexecute_callback = (result: any) => Promise<any>;
@@ -9,8 +10,10 @@ export type action_convert_callback = (result: any) => Promise<any>;
 export type action_onsuccess_callback = (result: any) => Promise<void>;
 export type action_processerror_callback = (
     error: any,
-    context: { name: string; values: any; options: any },
+    context: { name: string; t: Function; values: any; options: any },
 ) => Promise<void>;
+export type action_converterror_callback = (error: any, context: { name: string; t: Function; options: any }) => any;
+export type action_formaterror_callback = (error: any) => any;
 
 const preExecute: action_preexecute_callback = async (order) => order;
 const postExecute: action_postexecute_callback = async (result) => result;
@@ -22,10 +25,41 @@ const convert: action_convert_callback = async (result) => result;
 const onSuccess: action_onsuccess_callback = async (result) => undefined;
 // noinspection JSUnusedLocalSymbols
 const processError: action_processerror_callback = async (error, { name, values, options }) => undefined;
+const convertError: action_converterror_callback = (error, ctx) => {
+    if (!error) return error;
+    if (error?.graphQLErrors && error.graphQLErrors.length) {
+        return Object.entries(
+            error.graphQLErrors.reduce((acc, e) => {
+                const message = computeActionErrorMessage(e, ctx);
+                acc[''] = acc[''] || [];
+                acc[''].push({
+                    ...e,
+                    ...(message ? { message } : {}),
+                });
+                return acc;
+            }, {}),
+        ).reduce((acc, [k, v]) => {
+            acc[k] = Array.isArray(v) && v.length === 1 ? v[0] : v;
+            return acc;
+        }, {});
+    }
+    return error;
+};
+const formatError: action_formaterror_callback = (error) => error;
 
 export function useAction(name: string, options: any = {}) {
     const [execute, { loading, error, ...infos }, callbacks = {}] = useMutationApi(name, options);
-    const { preExecuteCb, postExecuteCb, prepareCb, convertCb, notifyCb, processErrorCb, onSuccessCb } = useMemo(
+    const {
+        preExecuteCb,
+        postExecuteCb,
+        prepareCb,
+        convertCb,
+        notifyCb,
+        processErrorCb,
+        onSuccessCb,
+        convertErrorCb,
+        formatErrorCb,
+    } = useMemo(
         () => ({
             preExecuteCb: options.preExecute || callbacks['preExecute'] || preExecute,
             postExecuteCb: options.postExecute || callbacks['postExecute'] || postExecute,
@@ -34,6 +68,8 @@ export function useAction(name: string, options: any = {}) {
             processErrorCb: options.processError || callbacks['processError'] || processError,
             notifyCb: options.notify || callbacks['notify'] || notify,
             onSuccessCb: options.onSuccess || callbacks['onSuccess'] || onSuccess,
+            convertErrorCb: options.convertError || callbacks['convertError'] || convertError,
+            formatErrorCb: options.formatError || callbacks['formatError'] || formatError,
         }),
         [],
     );
@@ -51,13 +87,18 @@ export function useAction(name: string, options: any = {}) {
                 await notifyCb(result, ctx);
                 await onSuccessCb(result, ctx);
             } catch (e) {
-                processErrorCb(e, ctx);
+                processErrorCb(formatErrorCb(convertErrorCb(e)), ctx);
             }
         },
-        [execute, prepareCb, preExecuteCb, postExecuteCb, convertCb, notifyCb, processError],
+        [execute, prepareCb, preExecuteCb, postExecuteCb, convertCb, notifyCb, processErrorCb, convertErrorCb],
     );
 
-    return { onSubmit, errors: error, submitting: Boolean(loading), ...infos };
+    return {
+        onSubmit,
+        errors: error ? formatErrorCb(convertErrorCb(error)) : undefined,
+        submitting: Boolean(loading),
+        ...infos,
+    };
 }
 
 export default useAction;
