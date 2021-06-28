@@ -24,6 +24,7 @@ export * from './Progress';
 export * from './Quote';
 export * from './Ribbon';
 export * from './SectionHeader';
+export * from './Spacer';
 export * from './Spinner';
 export * from './Tag';
 export * from './Text';

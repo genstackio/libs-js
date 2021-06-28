@@ -28,6 +28,7 @@ export type level = 1 | 2 | 3 | 4 | 5 | 6;
 export type pill = { text?: string; color?: box_color; variant?: box_variant };
 export type ribbon_position = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 export type size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type space_variant = 'horizontal' | 'vertical' | 'default';
 export type tag = { text?: string; color?: box_color; variant?: box_variant; icon?: icon };
 export type target = string | Function;
 export type variant = string;
