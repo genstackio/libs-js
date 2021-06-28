@@ -26,7 +26,7 @@ export function MenuButton({ image, label, description, items = [], color }: Men
         <ClickAwayListener onClickAway={handleClickAway}>
             <div className={'flex items-center space-x-4 cursor-pointer'} onClick={handleClick}>
                 {image && <Image {...image} corner={'rounded-xsmall'} />}
-                <div>
+                <div className={'sm:hidden'}>
                     {label && <Text text={label} variant={'description'} />}
                     {description && (
                         <div className={'flex items-center'}>
