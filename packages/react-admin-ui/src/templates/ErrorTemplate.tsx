@@ -1,4 +1,4 @@
-import { box_color, icon, target } from '../types';
+import { box_color, icon, rich_text, target } from '../types';
 import { Button, Icon, Text } from '../atoms';
 
 export function ErrorTemplate({ actions, code, color, icon, message }: ErrorTemplateProps) {
@@ -32,7 +32,7 @@ export interface ErrorTemplateProps {
     color?: box_color;
     code: number;
     icon?: icon;
-    message: string;
+    message: rich_text;
 }
 
 export default ErrorTemplate;

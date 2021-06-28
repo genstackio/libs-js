@@ -19,14 +19,29 @@ export function BaseApp({
     apiOptions = {},
     themes = {},
     theme = {},
+    locales = ['en-US'],
+    defaultLocale = undefined,
+    fallbackLocale = undefined,
     ...props
 }: BaseAppProps) {
+    defaultLocale = defaultLocale || locales[0];
+    fallbackLocale = fallbackLocale || locales[0];
     const LoadingScreen = LoadingComponent || DefaultLoadingScreen;
     const computedTranslations = useMemo(
         () => [...(Array.isArray(translations) ? translations : [translations]), coreTranslations, adminUiTranslations],
         [translations],
     );
-    const { api, baseTheme, cart, client, i18n, navigation, storage, user } = useAppContext({
+    const {
+        api,
+        baseTheme,
+        cart,
+        client,
+        i18n,
+        navigation,
+        storage,
+        user,
+        locales: computedLocales,
+    } = useAppContext({
         storageKeyFactory: (k: string) => `${prefix}_${k}`,
         apiOptions,
         themes,
@@ -34,6 +49,9 @@ export function BaseApp({
         queries,
         callbacks,
         translations: computedTranslations,
+        locales: locales.map((l) => ({ id: l, label: `locale_${(l || 'unknown').replace('-', '_').toLowerCase()}` })),
+        defaultLocale,
+        fallbackLocale,
     });
     return (
         <AppProvider
@@ -48,6 +66,7 @@ export function BaseApp({
             graphql={client}
             navigation={navigation}
             importer={importer}
+            locales={computedLocales}
             {...props}
         >
             <Router>
@@ -76,6 +95,9 @@ export interface BaseAppProps {
     translations?:
         | { [key: string]: { [key: string]: { [key: string]: string } } }
         | { [key: string]: { [key: string]: { [key: string]: string } } }[];
+    locales?: string[];
+    defaultLocale?: string;
+    fallbackLocale?: string;
     [key: string]: any;
 }
 
