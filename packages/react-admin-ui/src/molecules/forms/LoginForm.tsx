@@ -8,7 +8,7 @@ import {
     Text,
 } from '../../atoms';
 import { useCallback } from 'react';
-import { flag, locales } from '../../types';
+import { flag, locale } from '../../types';
 import { BaseFormProps } from './BaseForm';
 import useForm from '../../hooks/useForm';
 
@@ -101,7 +101,7 @@ export interface LoginFormProps extends BaseFormProps {
     onForgotPasswordClick?: Function;
     socialLogins?: flag;
     rememberMe?: flag;
-    locales?: locales[];
+    locales?: locale[];
 }
 
 export default LoginForm;

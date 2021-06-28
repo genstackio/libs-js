@@ -6,6 +6,7 @@ export default {
     component: LocaleChange,
     argTypes: a({
         locales: args.locales,
+        color: args.color,
     }),
 };
 

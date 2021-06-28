@@ -88,5 +88,5 @@ export type clsxm_params = {
         hoverable?: any;
     };
 };
-export type locales = { value: string; language: rich_text };
+export type locale = { value: string; language: rich_text };
 export type menu_button_item = { icon?: icon; label?: rich_text; target?: target };

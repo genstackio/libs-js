@@ -2,7 +2,7 @@ import MenuButton from './MenuButton';
 import LocaleChange from '../atoms/LocaleChange';
 import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
-import { children, locales } from '../types';
+import { children, locale } from '../types';
 
 export function UserToolbar({ user, onLogout, locales = [], children }: UserToolbarProps) {
     const { t } = useTranslation();
@@ -26,7 +26,7 @@ export interface UserToolbarProps {
     children?: children;
     user?: any;
     onLogout?: Function;
-    locales?: locales[];
+    locales?: locale[];
 }
 
 export default UserToolbar;

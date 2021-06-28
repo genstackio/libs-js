@@ -6,11 +6,11 @@ export default {
     component: LoginForm,
     argTypes: a({
         color: args.color,
-        onSubmit: args._disable,
-        onRegisterClick: args._disable,
-        onForgotPasswordClick: args._disable,
-        defaultValues: args._disable,
-        variant: args._disable,
+        onSubmit: args._disabled,
+        onRegisterClick: args._disabled,
+        onForgotPasswordClick: args._disabled,
+        defaultValues: args._disabled,
+        variant: args._disabled,
         socialLogins: args.flag,
     }),
 };
