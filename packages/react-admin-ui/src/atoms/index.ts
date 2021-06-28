@@ -6,6 +6,7 @@ export * from './BlockContent';
 export * from './BlockHeader';
 export * from './Button';
 export * from './Container';
+export * from './Divider';
 export * from './Dropdown';
 export * from './Icon';
 export * from './Image';
