@@ -5,6 +5,7 @@ export * from './Block';
 export * from './BlockContent';
 export * from './BlockHeader';
 export * from './Button';
+export * from './Buttons';
 export * from './Clickable';
 export * from './Column';
 export * from './Container';

@@ -8,7 +8,8 @@ import {
     LineChart,
     RadarChart,
     FiguresChart,
-    StatsChartHeader, Block,
+    StatsChartHeader,
+    Block,
 } from '../../src';
 import StoreIcon from '@material-ui/icons/Store';
 import FavoriteIcon from '@material-ui/icons/Favorite';

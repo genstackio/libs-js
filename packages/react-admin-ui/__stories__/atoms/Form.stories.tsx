@@ -12,9 +12,9 @@ export default {
 const Template = (args) => <Form {...args} />;
 
 export const basic = s(Template, {
-    children: [
-        (<InstagramField />),
-        (<IpAddressField />),
-        (<FirstNameField />)
-    ]
+    children: (
+        <>
+            <InstagramField />, <IpAddressField />, <FirstNameField />
+        </>
+    ),
 });

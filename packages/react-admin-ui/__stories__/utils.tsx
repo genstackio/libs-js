@@ -6,6 +6,7 @@ import { LocalesProvider } from '@genstackio/react-contexts/lib/contexts/Locales
 import { ApiProvider } from '@genstackio/react-contexts/lib/contexts/ApiContext';
 import translations from '../src/configs/translations';
 import { boxVariants } from '../src/mappings/box-variants';
+import { blockVariants } from '../src/mappings/block-variants';
 import { boxColors } from '../src/mappings/box-colors';
 import { corners } from '../src/mappings/corners';
 import { paddings } from '../src/mappings/paddings';
@@ -113,7 +114,8 @@ export const args = {
     badgeVariant: { control: { type: 'select' }, options: ['pill', 'tag', 'none'] },
     bgColor: { control: { type: 'color' } },
     bgIcon: { table: { disable: true } },
-    blockVariant: { control: { type: 'select' }, options: Object.keys(boxVariants) },
+    blockVariant: { control: { type: 'select' }, options: Object.keys(blockVariants) },
+    boxVariant: { control: { type: 'select' }, options: Object.keys(boxVariants) },
     btnLabel: { control: { type: 'text' } },
     buttonsItems: { control: { type: 'object' } },
     chart: { control: { type: 'object' } },

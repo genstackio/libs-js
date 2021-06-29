@@ -1,9 +1,7 @@
 module.exports = {
     mode: 'jit',
     purge: {
-        content: [
-            './lib/*.html',
-        ],
+        content: ['./lib/*.html'],
         options: {
             safelist: {
                 standard: [/^theme-/],

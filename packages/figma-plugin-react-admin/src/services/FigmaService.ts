@@ -1,4 +1,4 @@
-import {action} from '../types';
+import { action } from '../types';
 
 export class FigmaService {
     protected figma: any;
@@ -7,7 +7,7 @@ export class FigmaService {
         this.figma = figma;
         this.actions = [];
     }
-    public static create(figma, actions: {[key: string]: action}, ui: string) {
+    public static create(figma, actions: { [key: string]: action }, ui: string) {
         const f = new FigmaService(figma);
         f.addActions(actions);
         f.register();
@@ -15,16 +15,17 @@ export class FigmaService {
         return f;
     }
     public register() {
-        const z = this;
+        const a = this.actions;
+        const ctx = { figma: this };
         this.figma.ui.onmessage = function (msg) {
-            const action = z.actions[msg?.type];
+            const action = a[msg?.type];
             if (!action) return;
-            const r = action(msg, {figma: z});
-            if (r instanceof Promise) r.then(x => x);
+            const r = action(msg, ctx);
+            if (r instanceof Promise) r.then((x) => x);
         };
         return this;
     }
-    public addActions(actions: {[key: string]: action}) {
+    public addActions(actions: { [key: string]: action }) {
         Object.entries(actions).forEach(([name, action]) => {
             this.addAction(name, action);
         });

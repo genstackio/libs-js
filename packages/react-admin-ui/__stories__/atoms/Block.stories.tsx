@@ -37,6 +37,18 @@ export const basic = s(Template, {
     firstIcon: 'Adb',
 });
 
+export const withButtons = s(Template, {
+    title: 'this is the title',
+    children: 'this is the content',
+    firstIcon: 'Adb',
+    buttons: [
+        { children: 'hello', color: 'primary', variant: 'contained' },
+        { children: 'hello', color: 'secondary', variant: 'contained' },
+        { children: 'hello', color: 'info', variant: 'contained' },
+        { children: 'hello', color: 'danger', variant: 'contained' },
+    ],
+});
+
 export const withBackgroundImage = s(Template, {
     title: 'this is the title',
     children: 'this is the content',

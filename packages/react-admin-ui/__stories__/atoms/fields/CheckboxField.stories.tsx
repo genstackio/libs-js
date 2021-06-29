@@ -8,12 +8,12 @@ export default {
         disabled: args.disabled,
         name: args.name,
         label: args.label,
-        onChange: args._disable,
-        defaultValue: args._disable,
-        errors: args._disable,
-        register: args._disable,
-        options: args._disable,
-        kind: args._disable,
+        onChange: args._disabled,
+        defaultValue: args._disabled,
+        errors: args._disabled,
+        register: args._disabled,
+        options: args._disabled,
+        kind: args._disabled,
     }),
 };
 

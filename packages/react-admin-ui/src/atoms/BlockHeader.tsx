@@ -5,6 +5,8 @@ import { box_color, box_variant, icon, rich_text, dropdown_item, class_name } fr
 import Icon from './Icon';
 import Text from './Text';
 import paddingClass from '../mappings/paddings';
+import bgClass from '../utils/bgClass';
+import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
 
 export function BlockHeader({
     className,
@@ -17,11 +19,20 @@ export function BlockHeader({
 }: BlockHeaderProps) {
     if (!title) return null;
     return (
-        <div className={clsx(paddingClass('default'), 'border-b-1 flex justify-between items-center', className)}>
-            <Text variant={'title5'} text={title} />
-            {btnLabel && <Button color={color}>{btnLabel}</Button>}
-            {dropdownItems && <Dropdown items={dropdownItems} color={color} variant={variant} />}
-            <Icon icon={icon} />
+        <div
+            className={clsx(
+                bgClass({ color, variant }),
+                paddingClass('default'),
+                'border-b-1 flex justify-between items-center',
+                className,
+            )}
+        >
+            <BoxProvider value={{ color, variant }}>
+                <Text variant={'title5'} text={title} />
+                {btnLabel && <Button color={color}>{btnLabel}</Button>}
+                {dropdownItems && <Dropdown items={dropdownItems} color={color} variant={variant} />}
+                <Icon icon={icon} />
+            </BoxProvider>
         </div>
     );
 }

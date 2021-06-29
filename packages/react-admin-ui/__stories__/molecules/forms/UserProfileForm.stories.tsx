@@ -5,9 +5,9 @@ export default {
     component: UserProfileForm,
     argTypes: a({
         color: args.color,
-        onSubmit: args._disable,
-        defaultValues: args._disable,
-        variant: args._disable,
+        onSubmit: args._disabled,
+        defaultValues: args._disabled,
+        variant: args._disabled,
     }),
 };
 

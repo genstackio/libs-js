@@ -12,5 +12,5 @@ export default {
 const Template = (args) => <FieldError {...args} />;
 
 export const basic = s(Template, {
-    error: 'Field Error'
+    error: 'Field Error',
 });

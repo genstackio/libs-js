@@ -7,10 +7,10 @@ export default {
     component: RegisterAction,
     argTypes: a({
         color: args.color,
-        onLoginClick: args._disable,
-        onForgotPasswordClick: args._disable,
-        defaultValues: args._disable,
-        variant: args._disable,
+        onLoginClick: args._disabled,
+        onForgotPasswordClick: args._disabled,
+        defaultValues: args._disabled,
+        variant: args._disabled,
         socialRegisters: args.flag,
     }),
 };

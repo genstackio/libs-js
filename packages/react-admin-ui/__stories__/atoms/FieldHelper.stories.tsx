@@ -12,5 +12,5 @@ export default {
 const Template = (args) => <FieldHelper {...args} />;
 
 export const basic = s(Template, {
-    helper: 'Field Helper'
+    helper: 'Field Helper',
 });

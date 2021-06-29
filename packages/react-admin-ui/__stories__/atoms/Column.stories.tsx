@@ -6,7 +6,7 @@ export default {
     component: Column,
     argTypes: a({
         children: args.text,
-        center: args.selection
+        center: args.selection,
     }),
 };
 const Template = (args) => <Column {...args} />;

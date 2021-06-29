@@ -1,10 +1,10 @@
 import './styles.css';
-import {StrictMode} from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import Plugin from './Plugin';
 
 function dispatch(pluginMessage) {
-    parent.postMessage({pluginMessage}, '*');
+    parent.postMessage({ pluginMessage }, '*');
 }
 
 window.onload = () => {
@@ -12,6 +12,6 @@ window.onload = () => {
         <StrictMode>
             <Plugin dispatch={dispatch} />
         </StrictMode>,
-        document.getElementById('root')
+        document.getElementById('root'),
     );
-}
+};

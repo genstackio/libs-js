@@ -1,21 +1,24 @@
-import {useCallback, useState} from 'react';
-import clsx from "clsx";
+import { useCallback, useState } from 'react';
+import clsx from 'clsx';
 import Text from './Text';
-import bgClass from "../utils/bgClass";
-import {box_color, locale} from '../types';
-import Popper from "@material-ui/core/Popper";
+import bgClass from '../utils/bgClass';
+import { box_color, locale } from '../types';
+import Popper from '@material-ui/core/Popper';
 import { useTranslation } from 'react-i18next';
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Icon from "./Icon";
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import Icon from './Icon';
 
 export function LocaleChange({ locales = [], color = 'primary' }: LocaleChangeProps) {
     const { i18n, t } = useTranslation() as any;
     const [opened, setOpened] = useState(false);
-    const onLocaleChange = useCallback((value) => e => {
-        e.stopPropagation();
-        i18n.changeLanguage(value);
-        setOpened(false);
-    }, [setOpened, i18n]);
+    const onLocaleChange = useCallback(
+        (value) => (e) => {
+            e.stopPropagation();
+            i18n.changeLanguage(value);
+            setOpened(false);
+        },
+        [setOpened, i18n],
+    );
     const [anchorEl, setAnchorEl] = useState(null);
     const handleClick = useCallback(
         (event) => {

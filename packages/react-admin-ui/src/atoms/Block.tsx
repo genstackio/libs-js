@@ -1,8 +1,9 @@
 import clsx from 'clsx';
 import boxClass from '../utils/boxClass';
-import { box_color, box_variant, padding, image, class_name, children, corner, target } from '../types';
+import { box_color, block_variant, padding, image, class_name, children, corner, target } from '../types';
 import Container from './Container';
 import BlockHeader, { BlockHeaderProps } from './BlockHeader';
+import BlockFooter, { BlockFooterProps } from './BlockFooter';
 import BlockContent, { BlockContentProps } from './BlockContent';
 import elevationClass, { elevation } from '../mappings/elevations';
 import { useMemo } from 'react';
@@ -23,8 +24,10 @@ export function Block({
     title,
     variant = 'filled',
     onClick,
+    buttons = [],
 }: BlockProps) {
-    const box = useMemo(() => ({ color, variant }), [color, variant]);
+    const v = 'header-contained' === variant ? 'filled' : variant;
+    const box = useMemo(() => ({ color, variant: v }), [color, variant]);
     return (
         <BoxProvider value={box}>
             <Container
@@ -32,9 +35,9 @@ export function Block({
                 bgImage={image}
                 className={clsx(
                     className,
-                    'relative flex flex-col',
+                    'overflow-hidden relative flex flex-col',
                     elevationClass(elevation),
-                    boxClass({ color, variant }),
+                    boxClass({ color, variant: v }),
                 )}
                 onClick={onClick}
             >
@@ -43,27 +46,36 @@ export function Block({
                     btnLabel={btnLabel}
                     dropdownItems={dropdownItems}
                     color={color}
-                    variant={variant}
+                    variant={'header-contained' === variant ? 'contained' : variant}
                     icon={icon}
                 />
                 <BlockContent padding={padding} className={contentClassName}>
                     {children || ''}
                 </BlockContent>
+                <BlockFooter
+                    buttons={buttons}
+                    color={color}
+                    variant={'header-contained' === variant ? 'filled' : variant}
+                />
             </Container>
         </BoxProvider>
     );
 }
 
-export interface BaseBlockProps extends BlockHeaderProps, BlockContentProps {
+export interface BaseBlockProps
+    extends Omit<BlockHeaderProps, 'variant'>,
+        Omit<BlockFooterProps, 'variant'>,
+        BlockContentProps {
     children?: children;
     className?: class_name;
     contentClassName?: class_name;
     color?: box_color;
     padding?: padding;
-    variant?: box_variant;
+    variant?: block_variant;
     elevation?: elevation;
     corner?: corner;
     onClick?: target;
+    buttons?: any[];
 }
 
 export interface BlockProps extends BaseBlockProps {

@@ -8,7 +8,7 @@ module.exports = {
             },
         },
     },
-    darkMode: false, // or 'media' or 'class'
+    darkMode: 'class', // or 'media' or 'class'
     theme: {
         screens: {
             xl: '1921px',

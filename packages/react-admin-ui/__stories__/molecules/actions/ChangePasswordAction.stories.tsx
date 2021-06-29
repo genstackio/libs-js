@@ -6,8 +6,8 @@ export default {
     component: ChangePasswordAction,
     argTypes: a({
         color: args.color,
-        defaultValues: args._disable,
-        variant: args._disable,
+        defaultValues: args._disabled,
+        variant: args._disabled,
         socialChangePasswords: args.flag,
     }),
 };

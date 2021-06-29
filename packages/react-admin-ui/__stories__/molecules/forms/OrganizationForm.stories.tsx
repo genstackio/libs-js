@@ -6,8 +6,8 @@ export default {
     component: OrganizationForm,
     argTypes: a({
         color: args.color,
-        defaultValues: args._disable,
-        onSubmit: args._disable,
+        defaultValues: args._disabled,
+        onSubmit: args._disabled,
     }),
 };
 

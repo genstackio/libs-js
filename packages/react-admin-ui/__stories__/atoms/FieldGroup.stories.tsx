@@ -12,5 +12,5 @@ export default {
 const Template = (args) => <FieldGroup {...args} />;
 
 export const basic = s(Template, {
-    children: 'Field Group'
+    children: 'Field Group',
 });

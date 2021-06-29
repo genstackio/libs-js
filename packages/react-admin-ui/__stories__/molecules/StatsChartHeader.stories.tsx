@@ -16,5 +16,5 @@ const Template = (args) => <StatsChartHeader {...args} />;
 export const basic = s(Template, {
     subtitle: 'Je suis un sous-titre',
     value: 'Lorem Ipsum',
-    stats: 42
+    stats: 42,
 });

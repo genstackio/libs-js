@@ -1,7 +1,7 @@
-import FigmaService from "../services/FigmaService";
+import FigmaService from '../services/FigmaService';
 
-export function close(_, {figma}: {figma: FigmaService}) {
+export function close(_, { figma }: { figma: FigmaService }) {
     figma.close();
 }
 
-export default close
+export default close;

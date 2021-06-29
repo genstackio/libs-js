@@ -7,10 +7,10 @@ export default {
     component: UserProfileAction,
     argTypes: a({
         color: args.color,
-        onRegisterClick: args._disable,
-        onForgotPasswordClick: args._disable,
-        defaultValues: args._disable,
-        variant: args._disable,
+        onRegisterClick: args._disabled,
+        onForgotPasswordClick: args._disabled,
+        defaultValues: args._disabled,
+        variant: args._disabled,
     }),
 };
 
