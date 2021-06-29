@@ -29,6 +29,7 @@ export * from './Pagination';
 export * from './Pricing';
 export * from './Rating';
 export * from './Table';
+export * from './TabPanel';
 export * from './TextBlock';
 export * from './Timeline';
 export * from './charts/UsageChart';

@@ -26,6 +26,7 @@ export * from './Panel';
 export * from './PeriodBlock';
 export * from './Pill';
 export * from './Progress';
+export * from './progresses';
 export * from './Quote';
 export * from './Ribbon';
 export * from './Row';
