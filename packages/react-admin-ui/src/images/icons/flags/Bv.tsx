@@ -1,0 +1,24 @@
+import * as React from 'react';
+
+function SvgBv(props: React.SVGProps<SVGSVGElement>) {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" {...props}>
+            <defs>
+                <clipPath id="bv_svg__a">
+                    <path fillOpacity={0.67} d="M0 0h640v480H0z" />
+                </clipPath>
+            </defs>
+            <g fillRule="evenodd" strokeWidth="1pt" clipPath="url(#bv_svg__a)">
+                <path fill="#fff" d="M-28 0h699.74v512H-28z" />
+                <path
+                    fill="#d72828"
+                    d="M-52.992-77.837h218.72v276.26h-218.72zM289.42-.572h380.91v199H289.42zM-27.545 320.01h190.33v190.33h-190.33zM292 322.12h378.34v188.21H292z"
+                />
+                <path fill="#003897" d="M196.65-25.447h64.425v535.78H196.65z" />
+                <path fill="#003897" d="M-27.545 224.84h697.88v63.444h-697.88z" />
+            </g>
+        </svg>
+    );
+}
+
+export default SvgBv;
