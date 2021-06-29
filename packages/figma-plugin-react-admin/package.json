@@ -1,6 +1,6 @@
 {
     "name": "@genstackio/figma-plugin-react-admin",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "React Admin Figma Plugin by Genstackio",
     "license": "MIT",
     "main": "lib/code.js",
