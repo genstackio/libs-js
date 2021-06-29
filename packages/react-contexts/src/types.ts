@@ -114,6 +114,12 @@ export type page_context_value = {
     lang: string;
 };
 
+export type fullscreen_context_value = {
+    active: boolean;
+    enter: () => Promise<void>;
+    exit: () => Promise<void>;
+};
+
 export type theme = { [key: string]: any };
 export type themes = { default: theme; [key: string]: theme };
 
@@ -129,6 +135,7 @@ export type app_context_params = {
     fallbackLocale?: string;
     getImage?: image_getter;
     apiOptions?: any;
+    fullscreen?: fullscreen_context_value;
 };
 
 export type importer_function = (name: string, key: string) => LazyExoticComponent<ComponentType<any>> | undefined;

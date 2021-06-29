@@ -22,6 +22,7 @@ export * from './FieldSet';
 export * from './Form';
 export * from './FormHeader';
 export * from './FormFooter';
+export * from './FullscreenToolbarItem';
 export * from './LocaleChange';
 export * from './Panel';
 export * from './PeriodBlock';

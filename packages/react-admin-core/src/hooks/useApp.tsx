@@ -5,6 +5,8 @@ import { MuiThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { TailwindProvider } from '@genstackio/react-contexts/lib/contexts/TailwindContext';
 import { importer_function } from '@genstackio/react-contexts';
+import { FullscreenProvider as BaseFullscreenProvider } from '@genstackio/react-contexts/lib/contexts/FullscreenContext';
+import { FullScreen } from 'react-full-screen';
 
 function GraphqlProvider({ value, children }: any) {
     value && (children = <ApolloProvider client={value}>{children}</ApolloProvider>);
@@ -12,6 +14,15 @@ function GraphqlProvider({ value, children }: any) {
 }
 function TranslationProvider({ value, children }: any) {
     value && (children = <I18nextProvider i18n={value}>{children}</I18nextProvider>);
+    return children;
+}
+function FullscreenProvider({ value, children }: any) {
+    value &&
+        (children = (
+            <FullScreen handle={value}>
+                <BaseFullscreenProvider value={value}>{children}</BaseFullscreenProvider>
+            </FullScreen>
+        ));
     return children;
 }
 function ThemeProvider({ value, children }: any) {
@@ -44,6 +55,7 @@ export function useApp({
             graphqlProvider: GraphqlProvider,
             translationProvider: TranslationProvider,
             themeProvider: ThemeProvider,
+            fullscreenProvider: FullscreenProvider,
             routes: routes,
             theme: {
                 mui: createMuiTheme(mui),
