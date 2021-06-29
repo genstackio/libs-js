@@ -94,6 +94,7 @@ export default {
             field_username_placeholder: 'marie@monemail.com',
             field_zipcode_placeholder: '75001',
             field_birthdate_placeholder: '01/01/1970',
+            search_bar_placeholder: 'Rechercher',
 
             field_date_format: 'dd/MM/yyyy',
 
@@ -239,6 +240,7 @@ export default {
             field_username_placeholder: 'maria@myemail.it',
             field_zipcode_placeholder: '1032',
             field_birthdate_placeholder: '01/01/1970',
+            search_bar_placeholder: 'Ricerca',
 
             field_date_format: 'dd/MM/yyyy',
 
@@ -379,6 +381,7 @@ export default {
             field_username_placeholder: 'mary@myemail.com',
             field_zipcode_placeholder: '1020',
             field_birthdate_placeholder: '01/01/1970',
+            search_bar_placeholder: 'Search',
 
             field_date_format: 'MM/dd/yy',
 

@@ -126,4 +126,30 @@
         animation-name: tada;
     }
     /* Css for Thumbnail :: end */
+
+    /* Css for SearchBar :: start */
+    .x-searchbar-root {
+        display: flex;
+        padding: 12px 24px;
+        width: 100%;
+        height: 48px;
+        background: #FFFFFF;
+        border: 2px solid #E3E1DB;
+        box-sizing: border-box;
+        border-radius: 32px;
+        align-items: center;
+    }
+    .x-searchbar-icon {
+        color: #A79F8E;
+        display: flex;
+        align-items: center;
+        padding-right: 8px;
+    }
+    .x-searchbar-close {
+        color: #A79F8E;
+        display: flex;
+        cursor: pointer;
+    }
+    /* Css for SearchBar :: end */
+
 }
