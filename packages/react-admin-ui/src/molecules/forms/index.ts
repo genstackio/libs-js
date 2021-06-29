@@ -1,3 +1,4 @@
+export * from './BaseForm';
 export * from './ChangePasswordForm';
 export * from './CreatePasswordForgotPasswordForm';
 export * from './FillInOtpForgotPasswordForm';

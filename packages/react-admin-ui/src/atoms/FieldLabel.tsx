@@ -21,7 +21,7 @@ export interface FieldLabelProps {
     name: string;
     label?: string;
     options?: any;
-    error?: any;
+    error?: boolean;
 }
 
 export default FieldLabel;

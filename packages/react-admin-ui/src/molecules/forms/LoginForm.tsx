@@ -92,7 +92,7 @@ export function LoginForm({
                     </div>
                 </>
             )}
-            {locales && locales.length && <LocaleChange locales={locales} />}
+            <LocaleChange locales={locales} />
         </Form>
     );
 }
