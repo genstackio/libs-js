@@ -28,7 +28,7 @@ export function HeadingBlock({
                 <div className={'absolute top-4 left-4'}>
                     <Corner
                         color={props.color}
-                        variant={props.variant}
+                        variant={'header-contained' === props.variant ? 'filled' : props.variant}
                         text={textCornerTopLeft}
                         iconCorner={iconCornerTopLeft}
                     />
@@ -38,7 +38,7 @@ export function HeadingBlock({
                 <div className={'absolute top-4 right-4'}>
                     <Corner
                         color={props.color}
-                        variant={props.variant}
+                        variant={'header-contained' === props.variant ? 'filled' : props.variant}
                         text={textCornerTopRight}
                         iconCorner={iconCornerTopRight}
                     />
@@ -53,7 +53,8 @@ export function HeadingBlock({
                     </div>
                 </div>
                 <Text className={'m-4'} text={text} variant={'body'} />
-                <Button variant={props.variant} color={props.color}>
+                <Button variant={'header-contained' === props.variant ? 'filled' : props.variant}
+                        color={props.color}>
                     {btnLabel}
                 </Button>
             </div>
@@ -61,7 +62,7 @@ export function HeadingBlock({
                 <div className={'absolute bottom-4 left-4'}>
                     <Corner
                         color={props.color}
-                        variant={props.variant}
+                        variant={'header-contained' === props.variant ? 'filled' : props.variant}
                         text={textCornerBottomLeft}
                         iconCorner={iconCornerBottomLeft}
                     />
@@ -71,7 +72,7 @@ export function HeadingBlock({
                 <div className={'absolute bottom-4 right-4'}>
                     <Corner
                         color={props.color}
-                        variant={props.variant}
+                        variant={'header-contained' === props.variant ? 'filled' : props.variant}
                         text={textCornerBottomRight}
                         iconCorner={iconCornerBottomRight}
                     />
