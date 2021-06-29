@@ -68,6 +68,8 @@ package-storybook:
 	@cd packages/$(p) && yarn --silent story
 package-test: package-build
 	@cd packages/$(p) && yarn --silent test --coverage --detectOpenHandles
+package-watch:
+	@cd packages/$(p) && yarn watch
 
 pr:
 	@hub pull-request -b $(b)
@@ -84,6 +86,9 @@ test-local:
 test-only:
 	@yarn --silent test --runInBand --coverage --detectOpenHandles
 
+watch-figma-plugin-react-admin:
+	@make package-watch p=figma-plugin-react-admin
+
 .PHONY: all \
 		build \
 		changed \
@@ -95,8 +100,9 @@ test-only:
 		invalidate-cache \
 		migrate \
 		new \
-		package-build package-build-storybook package-clear-test package-generate-svg-components package-install package-storybook package-test \
+		package-build package-build-storybook package-clear-test package-generate-svg-components package-install package-storybook package-test package-watch \
 		pr \
 		publish \
 		start-react-admin-ui \
-		test test-local test-only
+		test test-local test-only \
+		watch-figma-plugin-react-admin

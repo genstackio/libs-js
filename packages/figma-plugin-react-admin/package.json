@@ -1,0 +1,83 @@
+{
+    "name": "@genstackio/figma-plugin-react-admin",
+    "version": "0.0.0",
+    "description": "React Admin Figma Plugin by Genstackio",
+    "license": "MIT",
+    "main": "lib/code.js",
+    "types": "lib/code.d.ts",
+    "directories": {
+        "lib": "lib",
+        "test": "__tests__"
+    },
+    "files": [
+        "lib",
+        "postcss.config.js",
+        "tailwind.config.js"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "build": "webpack --mode=production --stats=errors-only",
+        "build-detailed": "webpack --mode=production",
+        "watch": "webpack --mode=development --watch",
+        "test": "../../node_modules/.bin/jest -c ../../jest.config.js --rootDir=`pwd`"
+    },
+    "dependencies": {
+        "@material-ui/data-grid": "^4.0.0-alpha.30",
+        "@material-ui/icons": "^4.11.2",
+        "@material-ui/lab": "^4.0.0-alpha.58",
+        "i18next": "^20.3.2",
+        "react-hook-form": "^7.9.0",
+        "react-i18next": "^11.11.0",
+        "@material-ui/core": "^4.11.3",
+        "@ohoareau/apollo-client-jwt": "^0.1.5",
+        "@types/react-router-dom": "^5.1.7"
+    },
+    "peerDependencies": {
+        "autoprefixer": "^10.2.6",
+        "postcss": "^8.3.5",
+        "postcss-import": "^14.0.2",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-router-dom": "^5.2.0",
+        "tailwindcss": "^2.2.4"
+    },
+    "devDependencies": {
+        "css-loader": "^5.2.6",
+        "html-webpack-inline-source-plugin": "^1.0.0-beta.2",
+        "html-webpack-plugin": "^5.3.2",
+        "style-loader": "^3.0.0",
+        "ts-loader": "^9.2.3",
+        "typescript": "^4.3.4",
+        "url-loader": "^4.1.1",
+        "webpack": "^5.41.0",
+        "webpack-cli": "^4.7.2",
+        "@figma/plugin-typings": "^1.25.0",
+        "@babel/core": "^7.14.6",
+        "@babel/preset-env": "^7.14.7",
+        "@babel/preset-react": "^7.14.5",
+        "@babel/preset-typescript": "^7.14.5",
+        "@ohoareau/svg2comp": "^0.1.2",
+        "@types/react": "^17.0.11",
+        "@types/react-dom": "^17.0.8",
+        "@types/react-router-dom": "^5.1.7",
+        "apexcharts": "^3.27.1",
+        "autoprefixer": "^10.2.6",
+        "babel-loader": "^8.2.2",
+        "babel-plugin-react-require": "^3.1.3",
+        "graphql": "^15.5.1",
+        "postcss": "^8.3.5",
+        "postcss-import": "^14.0.2",
+        "react": "^17.0.2",
+        "react-apexcharts": "^1.3.9",
+        "react-color": "^2.19.3",
+        "react-dom": "^17.0.2",
+        "react-dropzone-uploader": "^2.11.0",
+        "react-player": "^2.9.0",
+        "react-router-dom": "^5.2.0",
+        "source-map-loader": "^3.0.0",
+        "swiper": "^6.7.1",
+        "tailwindcss": "^2.2.4"
+    }
+}

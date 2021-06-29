@@ -1,0 +1,22 @@
+{
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "rootDir": "./src",
+        "outDir": "./lib",
+        "composite": true,
+        "lib": ["dom"],
+        "typeRoots": [
+          "../../node_modules/@types",
+          "./node_modules/@types",
+          "../../node_modules/@figma",
+          "./node_modules/@figma"
+        ]
+    },
+    "include": ["./src"],
+    "references": [
+        {"path": "../react-admin-core"},
+        {"path": "../react-admin-ui"},
+        {"path": "../react-contexts"}
+    ]
+}

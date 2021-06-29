@@ -1,0 +1,7 @@
+{
+  "name": "GenStackIO - React Admin",
+  "id": "991608741133269436",
+  "api": "1.0.0",
+  "main": "lib/code.js",
+  "ui": "lib/ui.html"
+}
