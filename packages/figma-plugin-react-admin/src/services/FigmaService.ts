@@ -1,11 +1,14 @@
 import { action } from '../types';
 
 export class FigmaService {
-    protected figma: any;
+    protected figma: PluginAPI;
     protected actions: action[];
-    constructor(figma) {
+    constructor(figma: PluginAPI) {
         this.figma = figma;
         this.actions = [];
+    }
+    public getApi() {
+        return this.figma;
     }
     public static create(figma, actions: { [key: string]: action }, ui: string) {
         const f = new FigmaService(figma);
