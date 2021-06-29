@@ -7,11 +7,15 @@ export function Plugin({dispatch}: PluginProps) {
     const onClick3 = useCallback(() => {
         dispatch({type: 'text', value: "Hello from Typescript!!"});
     }, [dispatch]);
+    const onClick4 = useCallback(() => {
+        dispatch({type: 'blockButton'});
+    }, [dispatch]);
     return (
         <>
             <div className={'bg-red-500'} >HELLO WORLD</div>
             <div onClick={onClick2}>Close</div>
             <div onClick={onClick3}>Add Text</div>
+            <div onClick={onClick4}>Add Card with button</div>
         </>
     );
 }
