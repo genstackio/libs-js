@@ -15,6 +15,7 @@ export function AppProvider({
     themeProvider: ThemeProvider,
     translationProvider: TranslationProvider,
     graphqlProvider: GraphqlProvider,
+    fullScreenProvider: FullscreenProvider,
     locales,
     images,
     error,
@@ -29,8 +30,12 @@ export function AppProvider({
     navigation,
     children,
     importer,
+    fullscreen,
 }: AppProviderProps) {
     let content = children || '';
+    fullscreen &&
+        FullscreenProvider &&
+        (content = <FullscreenProvider value={fullscreen}>{content}</FullscreenProvider>);
     importer && (content = <ImporterProvider value={importer}>{content}</ImporterProvider>);
     navigation && (content = <NavigationProvider value={navigation}>{content}</NavigationProvider>);
     user && (content = <UserProvider value={user}>{content}</UserProvider>);
@@ -53,6 +58,7 @@ export interface AppProviderProps {
     themeProvider?: any;
     translationProvider?: any;
     graphqlProvider?: any;
+    fullScreenProvider?: any;
     locales?: locales_context_value;
     images?: images_context_value;
     error: any;
@@ -66,6 +72,7 @@ export interface AppProviderProps {
     user: any;
     navigation: any;
     importer?: importer_context_params;
+    fullscreen?: any;
     children?: ReactNode;
 }
 

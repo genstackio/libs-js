@@ -21,6 +21,8 @@ import { useMemo } from 'react';
 import { action } from '@storybook/addon-actions';
 import * as mocks from './mocks';
 import { textSizes } from '../src/mappings/text-sizes';
+import { FullScreen, useFullScreenHandle } from 'react-full-screen';
+import { FullscreenProvider } from '@genstackio/react-contexts/lib/contexts/FullscreenContext';
 
 const translationNames = Object.keys(translations);
 translationNames.sort();
@@ -53,14 +55,20 @@ function Provider(args) {
             }),
         [],
     );
+    const handle = useFullScreenHandle();
+
     return (
-        <ApiProvider value={apiProviderValue}>
-            <LocalesProvider value={locales}>
-                <StylesProvider injectFirst>
-                    <I18nextProvider i18n={i18n}>{args.children}</I18nextProvider>
-                </StylesProvider>
-            </LocalesProvider>
-        </ApiProvider>
+        <FullScreen handle={handle}>
+            <FullscreenProvider value={handle}>
+                <ApiProvider value={apiProviderValue}>
+                    <LocalesProvider value={locales}>
+                        <StylesProvider injectFirst>
+                            <I18nextProvider i18n={i18n}>{args.children}</I18nextProvider>
+                        </StylesProvider>
+                    </LocalesProvider>
+                </ApiProvider>
+            </FullscreenProvider>
+        </FullScreen>
     );
 }
 

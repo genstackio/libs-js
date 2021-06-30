@@ -32,6 +32,7 @@ export function useAppContext({
     defaultLocale = 'en-US',
     fallbackLocale = 'en-US',
     getImage,
+    fullscreen,
 }: app_context_params) {
     const { themeName = 'default' } = {};
     const storage = useMemo<storage | undefined>(() => {
@@ -227,6 +228,7 @@ export function useAppContext({
         locales: localesProviderValue,
         images: imagesProviderValue,
         themes,
+        fullscreen,
     };
 }
 

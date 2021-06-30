@@ -3,6 +3,7 @@ export * from './createDefaultBoxContextValue';
 export * from './createDefaultCartContextValue';
 export * from './createDefaultLinkContextValue';
 export * from './createDefaultLocationContextValue';
+export * from './createDefaultFullscreenContextValue';
 export * from './createDefaultNavigationContextValue';
 export * from './createDefaultPageContextValue';
 export * from './createDefaultPaymentContextValue';
