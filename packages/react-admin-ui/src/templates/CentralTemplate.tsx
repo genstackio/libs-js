@@ -1,9 +1,10 @@
 import { Image, Text } from '../atoms';
-import { box_color, image } from '../types';
+import { box_color, class_name, image } from '../types';
+import clsx from 'clsx';
 
-export function CentralTemplate({ color = 'primary', image, message }: CentralTemplateProps) {
+export function CentralTemplate({ className, color = 'primary', image, message }: CentralTemplateProps) {
     return (
-        <div className={'h-screen flex items-center'}>
+        <div className={clsx('h-screen flex items-center', className)}>
             <div className={'text-center max-w-3xl mx-auto'}>
                 {image && (
                     <div className={'flex justify-center'}>
@@ -17,6 +18,7 @@ export function CentralTemplate({ color = 'primary', image, message }: CentralTe
 }
 
 export interface CentralTemplateProps {
+    className?: class_name;
     color?: box_color;
     image?: image;
     message: string;

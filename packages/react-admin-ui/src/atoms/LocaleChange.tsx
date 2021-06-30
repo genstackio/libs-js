@@ -2,13 +2,13 @@ import { useCallback, useState } from 'react';
 import clsx from 'clsx';
 import Text from './Text';
 import bgClass from '../utils/bgClass';
-import { box_color, locale } from '../types';
+import { box_color, class_name, locale } from '../types';
 import Popper from '@material-ui/core/Popper';
 import { useTranslation } from 'react-i18next';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Icon from './Icon';
 
-export function LocaleChange({ locales = [], color = 'primary' }: LocaleChangeProps) {
+export function LocaleChange({ className, locales = [], color = 'primary' }: LocaleChangeProps) {
     const { i18n, t } = useTranslation() as any;
     const [opened, setOpened] = useState(false);
     const onLocaleChange = useCallback(
@@ -34,7 +34,7 @@ export function LocaleChange({ locales = [], color = 'primary' }: LocaleChangePr
 
     return !locales || 1 >= locales.length ? null : (
         <ClickAwayListener onClickAway={handleClickAway}>
-            <div className={'cursor-pointer'} onClick={handleClick}>
+            <div className={clsx('cursor-pointer', className)} onClick={handleClick}>
                 <Text text={t('locales_change_value')} />
                 <Popper open={opened} anchorEl={anchorEl} placement={'bottom-start'} transition>
                     <div className={'max-w-xxs divide-y bg-white'}>
@@ -59,6 +59,7 @@ export function LocaleChange({ locales = [], color = 'primary' }: LocaleChangePr
 }
 
 export interface LocaleChangeProps {
+    className?: class_name;
     locales?: locale[];
     color?: box_color;
 }

@@ -4,12 +4,12 @@ import cornerClass, { corner } from '../mappings/corners';
 
 export function Image({ alt, className, url, corner = 'square' }: ImageProps) {
     if (!url) return null;
-    return <img src={url} alt={alt} className={clsx(className, cornerClass(corner))} />;
+    return <img src={url} alt={alt} className={clsx(cornerClass(corner), className)} />;
 }
 
 export interface ImageProps {
-    alt: string;
     className?: class_name;
+    alt: string;
     url: string;
     corner?: corner;
 }

@@ -4,10 +4,11 @@ import Text from '../atoms/Text';
 import Image from '../atoms/Image';
 import Popper from '@material-ui/core/Popper';
 import MenuButtonWidget from './MenuButtonWidget';
-import { box_color, image, menu_button_item, rich_text } from '../types';
+import { box_color, class_name, image, menu_button_item, rich_text } from '../types';
 import Clickable from '../atoms/Clickable';
+import clsx from 'clsx';
 
-export function MenuButton({ image, label, description, items = [], color }: MenuButtonProps) {
+export function MenuButton({ className, image, label, description, items = [], color }: MenuButtonProps) {
     const [opened, setOpened] = useState(false);
     const [anchorEl, setAnchorEl] = useState(null);
     const handleClick = useCallback(
@@ -24,9 +25,9 @@ export function MenuButton({ image, label, description, items = [], color }: Men
 
     return (
         <Clickable
-            className={'flex items-center space-x-4 cursor-pointer'}
             onClick={handleClick}
             onClickAway={handleClickAway}
+            className={clsx('flex items-center space-x-4 cursor-pointer', className)}
         >
             {image && <Image {...image} corner={'rounded-xsmall'} />}
             <div className={'sm:hidden'}>
@@ -46,6 +47,7 @@ export function MenuButton({ image, label, description, items = [], color }: Men
 }
 
 export interface MenuButtonProps {
+    className?: class_name;
     image?: image;
     label?: rich_text;
     description?: rich_text;

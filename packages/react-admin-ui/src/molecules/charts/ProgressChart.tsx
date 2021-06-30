@@ -4,7 +4,8 @@ import { Icon } from '../../atoms/Icon';
 import formatAmount from '../../utils/formatAmount';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
-import { box_color, box_variant } from '../../types';
+import { box_color, box_variant, class_name } from '../../types';
+import clsx from 'clsx';
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 
@@ -54,6 +55,7 @@ const defaultOptions: ApexOptions = {
 };
 
 export function ProgressChart({
+    className,
     series,
     progress,
     title,
@@ -71,7 +73,7 @@ export function ProgressChart({
     }, [] as { data: number[] }[]);
 
     return (
-        <div>
+        <div className={clsx(className)}>
             <div className={'p-10 flex justify-between items-center max-h-80'}>
                 <div>
                     <Text text={title} variant={'title6'} />
@@ -90,6 +92,7 @@ export function ProgressChart({
 }
 
 export interface ProgressChartProps {
+    className?: class_name;
     series: number[][];
     progress?: number;
     title?: string;

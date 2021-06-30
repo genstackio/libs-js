@@ -1,13 +1,15 @@
 import { box_color } from '../../mappings/box-colors';
-import { flag, rich_text } from '../../types';
+import { class_name, flag, rich_text } from '../../types';
 import { ReactNode } from 'react';
 import AlertPanel from '../AlertPanel';
 import Text from '../../atoms/Text';
 import Column from '../../atoms/Column';
 import FormHeader from '../../atoms/FormHeader';
 import { FormFooter } from '../../atoms';
+import clsx from 'clsx';
 
 export function BaseForm({
+    className,
     title,
     subtitle,
     color,
@@ -22,7 +24,7 @@ export function BaseForm({
     const { handleSubmit } = rhf;
     const error = errors && (errors[''] || errors['*'] || errors['_']);
     return (
-        <Column>
+        <Column className={clsx(className)}>
             <FormHeader>{header}</FormHeader>
             <Column center>
                 <form onSubmit={handleSubmit(onSubmit as any)} className={'w-full'} aria-disabled={submitting}>
@@ -47,6 +49,7 @@ export interface InternalBaseFormProps extends BaseFormProps {
 }
 
 export interface BaseFormProps {
+    className?: class_name;
     onSubmit?: Function;
     defaultValues?: any;
     color?: box_color;

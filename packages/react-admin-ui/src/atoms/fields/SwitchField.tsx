@@ -1,10 +1,11 @@
 import FieldLabel from '../FieldLabel';
 import FieldError from '../FieldError';
 import FieldHelper from '../FieldHelper';
-import { flag, register } from '../../types';
+import { class_name, flag, register } from '../../types';
 import { useField } from '../../hooks/useField';
 import MuiSwitch from '@material-ui/core/Switch';
 import { makeStyles } from '@material-ui/core/styles';
+import clsx from 'clsx';
 
 const useStyles = makeStyles({
     root: {
@@ -52,7 +53,7 @@ const useStyles = makeStyles({
     disabled: {},
 });
 
-export function SwitchField({ onChange, ...props }: SwitchFieldProps) {
+export function SwitchField({ className, onChange, ...props }: SwitchFieldProps) {
     const classes = useStyles(props);
     const { name, required, label, error, helper, disabled, register, options, defaultValue, extra } = useField(props);
     return (
@@ -75,6 +76,7 @@ export function SwitchField({ onChange, ...props }: SwitchFieldProps) {
                 required={required}
                 {...register()}
                 {...extra}
+                className={clsx(className)}
             />
             <FieldLabel name={name} label={label} options={options} />
             <FieldError error={error} />
@@ -84,6 +86,7 @@ export function SwitchField({ onChange, ...props }: SwitchFieldProps) {
 }
 
 export interface SwitchFieldProps {
+    className?: class_name;
     required?: flag;
     disabled?: flag;
     errors?: { [key: string]: any };

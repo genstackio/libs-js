@@ -15,7 +15,9 @@ export function Block({
     btnLabel,
     children,
     className,
+    headerClassName,
     contentClassName,
+    footerClassName,
     color = 'default',
     dropdownItems,
     icon,
@@ -34,10 +36,10 @@ export function Block({
                 corner={corner}
                 bgImage={image}
                 className={clsx(
-                    className,
                     'overflow-hidden relative flex flex-col',
                     elevationClass(elevation),
                     boxClass({ color, variant: v }),
+                    className,
                 )}
                 onClick={onClick}
             >
@@ -48,14 +50,16 @@ export function Block({
                     color={color}
                     variant={'header-contained' === variant ? 'contained' : variant}
                     icon={icon}
+                    className={clsx(headerClassName)}
                 />
-                <BlockContent padding={padding} className={contentClassName}>
+                <BlockContent padding={padding} className={clsx(contentClassName)}>
                     {children || ''}
                 </BlockContent>
                 <BlockFooter
                     buttons={buttons}
                     color={color}
                     variant={'header-contained' === variant ? 'filled' : variant}
+                    className={clsx(footerClassName)}
                 />
             </Container>
         </BoxProvider>
@@ -68,7 +72,9 @@ export interface BaseBlockProps
         BlockContentProps {
     children?: children;
     className?: class_name;
+    headerClassName?: class_name;
     contentClassName?: class_name;
+    footerClassName?: class_name;
     color?: box_color;
     padding?: padding;
     variant?: block_variant;

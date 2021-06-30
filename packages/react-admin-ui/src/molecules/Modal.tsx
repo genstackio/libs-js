@@ -1,11 +1,12 @@
 import { MouseEventHandler } from 'react';
 import { Button } from '../atoms';
 import MuiModal from '@material-ui/core/Modal';
-import { action_item, children, flag, rich_text } from '../types';
+import { action_item, children, class_name, flag, rich_text } from '../types';
+import clsx from 'clsx';
 
-export function Modal({ buttonsItems = [], children, onClose, opened = false, title }: ModalProps) {
+export function Modal({ className, buttonsItems = [], children, onClose, opened = false, title }: ModalProps) {
     return (
-        <MuiModal className={'flex justify-center items-center'} open={opened}>
+        <MuiModal open={opened} className={clsx('flex justify-center items-center', className)}>
             <div className={'bg-white border border-gray-300 rounded-md w-8/12 sm:w-11/12 xs:w-full'}>
                 <div className={'flex flex-row-reverse justify-between items-center m-4'}>
                     <Button color={'dark'} onClick={onClose}>
@@ -33,6 +34,7 @@ export function Modal({ buttonsItems = [], children, onClose, opened = false, ti
 }
 
 export interface ModalProps {
+    className?: class_name;
     buttonsItems?: action_item[];
     children?: children;
     opened?: flag;

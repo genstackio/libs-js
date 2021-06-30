@@ -1,9 +1,10 @@
-import { children, image, rich_text } from '../../types';
+import { children, class_name, image, rich_text } from '../../types';
 import { Block, Image, Text } from '../../atoms';
+import clsx from 'clsx';
 
-export function MiniCard({ children, description, image, title }: MiniCardProps) {
+export function MiniCard({ className, children, description, image, title }: MiniCardProps) {
     return (
-        <Block padding={'none'}>
+        <Block padding={'none'} className={clsx(className)}>
             {image && <Image className={'w-full rounded-t-2xl'} {...image} />}
             {children || ''}
             <Text center variant={'body'} text={title} />
@@ -13,6 +14,7 @@ export function MiniCard({ children, description, image, title }: MiniCardProps)
 }
 
 export interface MiniCardProps {
+    className?: class_name;
     children?: children;
     description?: rich_text;
     image?: image;

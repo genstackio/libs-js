@@ -1,14 +1,23 @@
 import { useCallback, useState } from 'react';
 import Rating from '../../atoms/Rating';
 import { Badge, Icon, Image, Text } from '../../atoms';
-import { badge, children, flag, image, rich_text } from '../../types';
+import { badge, children, class_name, flag, image, rich_text } from '../../types';
+import clsx from 'clsx';
 
-export function SmallItemCard({ badges, children, closable = false, image, rating, title }: SmallItemCardProps) {
+export function SmallItemCard({
+    className,
+    badges,
+    children,
+    closable = false,
+    image,
+    rating,
+    title,
+}: SmallItemCardProps) {
     const [show, setShow] = useState(true);
     const handleClick = useCallback(() => setShow(false), [setShow]);
     if (!show) return null;
     return (
-        <div className={'relative flex border-1 border-gray-300 py-4 rounded-lg max-w-2xl'}>
+        <div className={clsx('relative flex border-1 border-gray-300 py-4 rounded-lg max-w-2xl', className)}>
             {closable && (
                 <Icon icon={'close'} onClick={handleClick} className={'absolute top-2 right-2 cursor-pointer'} />
             )}
@@ -32,6 +41,7 @@ export function SmallItemCard({ badges, children, closable = false, image, ratin
 }
 
 export interface SmallItemCardProps {
+    className?: class_name;
     badges?: badge[];
     children?: children;
     closable?: flag;

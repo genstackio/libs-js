@@ -2,8 +2,15 @@ import { Button, Text, PhoneField } from '../../atoms';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { box_color } from '../../mappings/box-colors';
+import { class_name } from '../../types';
+import clsx from 'clsx';
 
-export function SendOtpForgotPasswordForm({ onSubmit, color, defaultValues = {} }: SendOtpForgotPasswordFormProps) {
+export function SendOtpForgotPasswordForm({
+    className,
+    onSubmit,
+    color,
+    defaultValues = {},
+}: SendOtpForgotPasswordFormProps) {
     const { t } = useTranslation();
     const {
         register,
@@ -13,7 +20,7 @@ export function SendOtpForgotPasswordForm({ onSubmit, color, defaultValues = {} 
     const field = { register, errors, defaultValues };
 
     return (
-        <div className={'w-full flex flex-col'}>
+        <div className={clsx('w-full flex flex-col', className)}>
             <div className="w-full flex justify-center">
                 <form onSubmit={handleSubmit(onSubmit as any)} className={'w-full'}>
                     <Text text={t('form_forgot_password_send_otp_title')} variant={'title6'} color={color} />
@@ -36,6 +43,7 @@ export function SendOtpForgotPasswordForm({ onSubmit, color, defaultValues = {} 
 }
 
 export interface SendOtpForgotPasswordFormProps {
+    className?: class_name;
     color?: box_color;
     defaultValues?: any;
     onSubmit?: Function;

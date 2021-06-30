@@ -1,7 +1,8 @@
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
-import { box_color } from '../../types';
+import { box_color, class_name } from '../../types';
+import clsx from 'clsx';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 
@@ -39,7 +40,7 @@ const defaultOptions: ApexOptions = {
     },
 };
 
-export function ArcChart({ color = 'primary', value }: ArcChartProps) {
+export function ArcChart({ className, color = 'primary', value }: ArcChartProps) {
     const options = {
         ...defaultOptions,
         colors: [tailwindColors[color]],
@@ -47,10 +48,11 @@ export function ArcChart({ color = 'primary', value }: ArcChartProps) {
     };
     options.plotOptions.radialBar!.dataLabels!.value!.color = tailwindColors[color];
 
-    return <Chart type={'radialBar'} options={options} series={[[value]]} />;
+    return <Chart type={'radialBar'} options={options} series={[[value]]} className={clsx(className)} />;
 }
 
 export interface ArcChartProps {
+    className?: class_name;
     color?: box_color;
     value: number;
 }

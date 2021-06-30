@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { image, size } from '../types';
+import { class_name, image, size } from '../types';
 import getInitials from '../utils/getInitials';
 import statusClass, { status } from '../mappings/statuses';
 import shapeClass, { shape } from '../mappings/shapes';
@@ -13,26 +13,38 @@ const sizes = {
     xl: 'w-24 h-24 text-5xl',
 };
 
-export function Avatar({ image, name, size = 'md', shape = 'circular', status = undefined }: AvatarProps) {
+export function Avatar({
+    className,
+    initialsClassName,
+    imageClassName,
+    statusClassName,
+    image,
+    name,
+    size = 'md',
+    shape = 'circular',
+    status = undefined,
+}: AvatarProps) {
     return (
-        <div className={clsx('inline-block', status && 'relative')}>
+        <div className={clsx('inline-block', status && 'relative', className)}>
             {!image && (
                 <div
                     className={clsx(
                         sizes[size],
                         shapeClass(shape),
                         'text-white bg-gray-400 flex items-center justify-center',
+                        initialsClassName,
                     )}
                 >
                     {getInitials(name)}
                 </div>
             )}
-            {image && <Image {...image} className={clsx(sizes[size], shapeClass(shape))} />}
+            {image && <Image {...image} className={clsx(sizes[size], shapeClass(shape), imageClassName)} />}
             {status && (
                 <div
                     className={clsx(
                         statusClass(status),
                         'absolute bottom-0 right-0 w-1/4 h-1/4 rounded-full border-1 border-white',
+                        statusClassName,
                     )}
                 />
             )}
@@ -41,6 +53,10 @@ export function Avatar({ image, name, size = 'md', shape = 'circular', status = 
 }
 
 export interface AvatarProps {
+    className?: class_name;
+    initialsClassName?: class_name;
+    imageClassName?: class_name;
+    statusClassName?: class_name;
     name: string;
     image?: image;
     size?: size;

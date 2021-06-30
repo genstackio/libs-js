@@ -1,7 +1,8 @@
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
-import { box_color, box_variant, flag } from '../../types';
+import { box_color, box_variant, class_name, flag } from '../../types';
+import clsx from 'clsx';
 
 const tailwindTextColors = tailwindConfig.theme.extend.textColors;
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
@@ -56,6 +57,7 @@ const defaultOptions: ApexOptions = {
 };
 
 export function RadarChart({
+    className,
     color = 'primary',
     isMenu = true,
     labels = [],
@@ -80,10 +82,11 @@ export function RadarChart({
             options.xaxis.labels!.style!.colors = buffer;
         }
     }
-    return <Chart type={'radar'} options={options} series={series} />;
+    return <Chart type={'radar'} options={options} series={series} className={clsx(className)} />;
 }
 
 export interface RadarChartProps {
+    className?: class_name;
     color?: box_color;
     isMenu?: flag;
     labels?: string[];

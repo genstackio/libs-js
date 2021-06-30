@@ -1,9 +1,10 @@
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
-import { box_color, rich_text } from '../../types';
+import { box_color, class_name, rich_text } from '../../types';
 import tailwindConfig from '../../../tailwind.config';
 import Text from '../../atoms/Text';
 import { lighten } from '@material-ui/core/styles';
+import clsx from 'clsx';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 
@@ -63,7 +64,7 @@ const defaultOptions: ApexOptions = {
     },
 };
 
-export function RateChart({ color = 'primary', overline, subtitle, title, value }: RateChartProps) {
+export function RateChart({ className, color = 'primary', overline, subtitle, title, value }: RateChartProps) {
     const options = {
         ...defaultOptions,
         colors: [tailwindColors[color]],
@@ -74,7 +75,7 @@ export function RateChart({ color = 'primary', overline, subtitle, title, value 
     options.plotOptions.radialBar!.hollow!.background = lighten(tailwindColors[color], 0.9);
     options.fill!.gradient!.gradientToColors = [lighten(tailwindColors[color], 0.5)];
     return (
-        <div>
+        <div className={clsx(className)}>
             <Chart type={'radialBar'} options={options} series={[[value]]} height={'450px'} />
             <div className={'text-center mt-2'}>
                 <Text text={subtitle} color={color} variant={'title6'} />
@@ -85,6 +86,7 @@ export function RateChart({ color = 'primary', overline, subtitle, title, value 
 }
 
 export interface RateChartProps {
+    className?: class_name;
     color?: box_color;
     overline: rich_text;
     subtitle: rich_text;

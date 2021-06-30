@@ -1,8 +1,9 @@
 import { DataGrid, GridCellParams, GridColDef, GridValueFormatterParams } from '@material-ui/data-grid';
 import { makeStyles } from '@material-ui/core/styles';
 import tailwindConfig from '../../tailwind.config';
-import { box_color, flag, table_column, table_row } from '../types';
+import { box_color, class_name, flag, table_column, table_row } from '../types';
 import { Badge } from '../atoms';
+import clsx from 'clsx';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 const tailwindTextColors = tailwindConfig.theme.extend.textColors;
@@ -38,7 +39,7 @@ const useStyles = makeStyles({
     }),
 });
 
-export function Table(props: TableProps) {
+export function Table({ className, ...props }: TableProps) {
     const { columns, items, selection = false, rowsPerPage } = props;
     const classes = useStyles(props);
     const formattedCols: GridColDef[] = columns.reduce(
@@ -77,11 +78,13 @@ export function Table(props: TableProps) {
             disableColumnMenu
             disableSelectionOnClick
             autoHeight
+            className={clsx(className)}
         />
     );
 }
 
 export interface TableProps {
+    className?: class_name;
     color?: box_color;
     columns: table_column[];
     items: table_row[];

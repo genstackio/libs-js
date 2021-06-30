@@ -1,6 +1,7 @@
 import clsx from 'clsx';
+import { class_name } from '../types';
 
-export function FieldLabel({ name, label, error, options }: FieldLabelProps) {
+export function FieldLabel({ className, name, label, error, options }: FieldLabelProps) {
     if (!label) return null;
     return (
         <label
@@ -9,6 +10,7 @@ export function FieldLabel({ name, label, error, options }: FieldLabelProps) {
                 'mb-1 text-xs sm:text-sm tracking-wide text-gray-600 capitalize',
                 options.required && 'font-bold',
                 error && 'text-red-500',
+                className,
             )}
         >
             {label}
@@ -18,6 +20,7 @@ export function FieldLabel({ name, label, error, options }: FieldLabelProps) {
 }
 
 export interface FieldLabelProps {
+    className?: class_name;
     name: string;
     label?: string;
     options?: any;

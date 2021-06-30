@@ -45,7 +45,7 @@ export function CheckboxField({ className, onChange, ...props }: CheckboxFieldPr
         extra,
     } = useField(props, { kind: 'checkbox' });
     return (
-        <FieldSet className={className} name={name} label={label} options={options} error={error} helper={helper}>
+        <FieldSet name={name} label={label} options={options} error={error} helper={helper} className={clsx(className)}>
             <Row center>
                 <Checkbox
                     checkedIcon={<CheckBoxOutlinedIcon />}

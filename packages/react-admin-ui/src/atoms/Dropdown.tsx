@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import buttonClass from '../utils/buttonClass';
 import textClass from '../utils/textClass';
 import Select from '@material-ui/core/Select';
-import { box_color, box_variant, dropdown_item } from '../types';
+import { box_color, box_variant, class_name, dropdown_item } from '../types';
 import MenuItem from '@material-ui/core/MenuItem';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     },
 });
 
-export function Dropdown({ color, items = [], variant }: DropdownProps) {
+export function Dropdown({ className, color, items = [], variant }: DropdownProps) {
     const classes = useStyles();
     const [value, setValue] = useState<string | number | undefined>(items[0]?.name);
     const [open, setOpen] = useState(false);
@@ -33,7 +33,7 @@ export function Dropdown({ color, items = [], variant }: DropdownProps) {
     }, [setOpen]);
 
     return (
-        <div>
+        <div className={clsx(className)}>
             <Select
                 open={open}
                 onClose={handleClose}
@@ -62,6 +62,7 @@ export function Dropdown({ color, items = [], variant }: DropdownProps) {
 }
 
 export interface DropdownProps {
+    className?: class_name;
     color?: box_color;
     items?: dropdown_item[];
     variant?: box_variant;

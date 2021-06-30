@@ -5,7 +5,13 @@ import paddingClass from '../mappings/paddings';
 import bgClass from '../utils/bgClass';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
 
-export function BlockFooter({ className, buttons = [], color = 'primary', variant = 'filled' }: BlockFooterProps) {
+export function BlockFooter({
+    className,
+    buttonsClassName,
+    buttons = [],
+    color = 'primary',
+    variant = 'filled',
+}: BlockFooterProps) {
     if (!buttons || !buttons.length) return null;
     return (
         <div
@@ -17,7 +23,7 @@ export function BlockFooter({ className, buttons = [], color = 'primary', varian
             )}
         >
             <BoxProvider value={{ color, variant }}>
-                <Buttons buttons={buttons} />
+                <Buttons buttons={buttons} className={clsx(buttonsClassName)} />
             </BoxProvider>
         </div>
     );
@@ -25,6 +31,7 @@ export function BlockFooter({ className, buttons = [], color = 'primary', varian
 
 export interface BlockFooterProps {
     className?: class_name;
+    buttonsClassName?: class_name;
     buttons?: any[];
     color?: box_color;
     variant?: box_variant;

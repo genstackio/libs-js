@@ -1,14 +1,15 @@
-import { box_color, rich_text } from '../types';
+import { box_color, class_name, rich_text } from '../types';
 import { Block } from './Block';
 import { Text } from './Text';
+import clsx from 'clsx';
 
-export function SectionHeader({ color = 'primary', title, subtitle }: SectionHeaderProps) {
+export function SectionHeader({ className, color = 'primary', title, subtitle }: SectionHeaderProps) {
     return title || subtitle ? (
         <Block
             padding={'small'}
             elevation={0}
             color={color}
-            className={'x-m-small bg-opacity-5'}
+            className={clsx('x-m-small bg-opacity-5', className)}
             variant={'contained'}
             corner={'rounded-small'}
         >
@@ -19,6 +20,7 @@ export function SectionHeader({ color = 'primary', title, subtitle }: SectionHea
 }
 
 export interface SectionHeaderProps {
+    className?: class_name;
     color?: box_color;
     title?: rich_text;
     subtitle?: rich_text;

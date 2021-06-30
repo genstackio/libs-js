@@ -1,9 +1,10 @@
 import { Image } from '../atoms';
-import { gallery_image } from '../types';
+import { class_name, gallery_image } from '../types';
+import clsx from 'clsx';
 
-export function Gallery({ items = [] }: GalleryProps) {
+export function Gallery({ className, items = [] }: GalleryProps) {
     return (
-        <div className={'grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-3'}>
+        <div className={clsx('grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-3', className)}>
             {items.map((item, index) => (
                 <div className={'border-double border-4 rounded-md'} key={index}>
                     <Image className={'w-full'} {...item} />
@@ -14,6 +15,7 @@ export function Gallery({ items = [] }: GalleryProps) {
 }
 
 export interface GalleryProps {
+    className?: class_name;
     items?: gallery_image[];
 }
 

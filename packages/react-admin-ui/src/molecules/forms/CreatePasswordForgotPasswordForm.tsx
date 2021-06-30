@@ -1,9 +1,11 @@
 import { RememberPasswordField, Button, Form, Text, PasswordField, PasswordConfirmationField } from '../../atoms';
 import { useTranslation } from 'react-i18next';
 import { box_color } from '../../mappings/box-colors';
-import { flag } from '../../types';
+import { class_name, flag } from '../../types';
+import clsx from 'clsx';
 
 export function CreatePasswordForgotPasswordForm({
+    className,
     onSubmit,
     confirm = false,
     rememberMe = false,
@@ -13,7 +15,7 @@ export function CreatePasswordForgotPasswordForm({
     const { t } = useTranslation();
 
     return (
-        <div className={'w-full flex flex-col'}>
+        <div className={clsx('w-full flex flex-col', className)}>
             <Form onSubmit={onSubmit} defaultValues={defaultValues}>
                 <Text text={t('form_forgot_password_create_password_title')} variant={'title6'} color={color} />
                 <Text
@@ -36,6 +38,7 @@ export function CreatePasswordForgotPasswordForm({
 }
 
 export interface CreatePasswordForgotPasswordFormProps {
+    className?: class_name;
     color?: box_color;
     defaultValues?: any;
     onSubmit?: Function;

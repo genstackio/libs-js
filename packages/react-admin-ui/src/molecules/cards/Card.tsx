@@ -1,9 +1,20 @@
 import { Clickable, Image, Block, Tag, Text, Rating } from '../../atoms';
-import { box_color, box_variant, image, rich_text, target } from '../../types';
+import { box_color, box_variant, class_name, image, rich_text, target } from '../../types';
 import { useCallback, useState } from 'react';
 import clsx from 'clsx';
 
-export function Card({ image, title, description, content, value, link, color, variant, onClick }: CardProps) {
+export function Card({
+    className,
+    image,
+    title,
+    description,
+    content,
+    value,
+    link,
+    color,
+    variant,
+    onClick,
+}: CardProps) {
     const [isShown, setIsShown] = useState(false);
     const handleOpen = useCallback(() => {
         setIsShown(true);
@@ -12,7 +23,7 @@ export function Card({ image, title, description, content, value, link, color, v
         setIsShown(false);
     }, [setIsShown]);
     return (
-        <Block padding={'none'} color={color} variant={variant}>
+        <Block padding={'none'} color={color} variant={variant} className={clsx(className)}>
             <div className={'w-full hover:opacity-60'} onMouseEnter={handleOpen} onMouseLeave={handleClose}>
                 <Image className={'rounded-t-2xl'} {...image} />
                 <div className={clsx('w-full absolute top-0', !isShown && 'hidden')}>
@@ -41,6 +52,7 @@ export function Card({ image, title, description, content, value, link, color, v
 }
 
 export interface CardProps {
+    className?: class_name;
     onClick?: target;
     color?: box_color;
     variant?: box_variant;

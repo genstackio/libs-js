@@ -1,5 +1,5 @@
 import Pill from './Pill';
-import { box_color, badge_variant, box_variant, rich_text } from '../types';
+import { box_color, badge_variant, box_variant, rich_text, class_name } from '../types';
 import Tag from './Tag';
 
 const types = {
@@ -16,6 +16,7 @@ export function Badge({ type, ...props }: BadgeProps) {
 }
 
 export interface BadgeProps {
+    className?: class_name;
     color?: box_color;
     text?: rich_text;
     type?: badge_variant;
