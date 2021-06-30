@@ -1,10 +1,9 @@
 import FigmaService from "../services/FigmaService";
 
 export async function blockButton({value}: any, {figma}: {figma: FigmaService}) {
-    await figma.getApi().loadFontAsync({family:"Roboto", style:"Regular"})
-    const block = figma.getApi().createStar();
+    await figma.getApi().importComponentByKeyAsync('Block');
+    const block = figma.getApi().createComponent();
     console.log(block);
-
     figma.getApi().currentPage.appendChild(block);
 }
 
