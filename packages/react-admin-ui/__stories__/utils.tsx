@@ -12,6 +12,8 @@ import { corners } from '../src/mappings/corners';
 import { paddings } from '../src/mappings/paddings';
 import { alignments } from '../src/mappings/alignments';
 import { progressVariants } from '../src/mappings/progress-variants';
+import { ratingVariants } from '../src/mappings/rating-variants';
+import { labelPlacements } from '../src/mappings/label-placements';
 import { shapes } from '../src/mappings/shapes';
 import { spinnerVariants, spinnerSizes, spinnerColors } from '../src/mappings/spinners';
 import { statuses } from '../src/mappings/statuses';
@@ -139,7 +141,7 @@ export const args = {
     datas: { control: { type: 'object' } },
     date: { control: { type: 'number' } },
     default: { control: { type: 'text' } },
-    defaultValue: { control: { type: 'number' } },
+    defaultValue: { control: { type: 'any' } },
     dropdownItems: { control: { type: 'object' } },
     error: { control: { type: 'boolean' } },
     errorText: { control: { type: 'text' } },
@@ -149,6 +151,7 @@ export const args = {
     form: { control: { type: 'object' } },
     icon: { table: { disable: true } },
     corner: { control: { type: 'select' }, options: Object.keys(corners) },
+    labelPlacement: { control: { type: 'select' }, options: Object.keys(labelPlacements) },
     iconCorner: {
         control: { type: 'select' },
         options: ['settings', 'query_builder', 'notifications_none_icon', 'none'],
@@ -163,6 +166,8 @@ export const args = {
     locale: { control: { type: 'select' }, options: translationNames },
     menuItems: { control: { type: 'object' } },
     menu: { control: { type: 'object' } },
+    min: { control: { type: 'number' } },
+    max: { control: { type: 'number' } },
     padding: { control: { type: 'radio' }, options: Object.keys(paddings) },
     paginationVariant: { control: { type: 'select' }, options: ['text', 'outlined'] },
     pill: { control: { type: 'object' } },
@@ -170,6 +175,7 @@ export const args = {
     price: { control: { type: 'text' } },
     progress: { control: { type: 'number' } },
     progressVariant: { control: { type: 'select' }, options: Object.keys(progressVariants) },
+    ratingVariant: { control: { type: 'select' }, options: Object.keys(ratingVariants) },
     ribbon: { control: { type: 'select' }, options: ['top-left', 'top-right', 'bottom-left', 'bottom-right'] },
     rowsPerPage: { control: { type: 'number' } },
     selection: { control: { type: 'boolean' } },

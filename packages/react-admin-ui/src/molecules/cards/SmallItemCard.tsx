@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import Rating from '../Rating';
+import Rating from '../../atoms/Rating';
 import { Badge, Icon, Image, Text } from '../../atoms';
 import { badge, children, flag, image, rich_text } from '../../types';
 
@@ -16,7 +16,7 @@ export function SmallItemCard({ badges, children, closable = false, image, ratin
             <div className={'flex-1 flex flex-col justify-between'}>
                 <div className={'space-y-2'}>
                     <Text text={title} variant={'title6'} />
-                    <Rating value={rating} readOnly />
+                    <Rating value={rating} />
                     <div>{children || ''}</div>
                 </div>
                 {badges && (

@@ -91,3 +91,4 @@ export type clsxm_params = {
 };
 export type locale = { value: string; language: rich_text };
 export type menu_button_item = { icon?: icon; label?: rich_text; target?: target };
+export type rating_value = { value: string | number; label?: string };

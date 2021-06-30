@@ -1,6 +1,5 @@
 import { box_color, image, target } from '../../types';
-import { Block, Image, Text } from '../../atoms';
-import { Rating } from '../../molecules';
+import { Block, Image, Text, Rating } from '../../atoms';
 
 export function ProductCardBlock({
     color = 'primary',

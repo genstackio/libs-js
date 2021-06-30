@@ -18,6 +18,12 @@ export default {
         translation: {
             ...common,
 
+            mood_very_bad: 'Très mauvais',
+            mood_bad: 'Mauvais',
+            mood_normal: 'Normal',
+            mood_good: 'Bon',
+            mood_very_good: 'Très bon',
+
             error_action_login_bad_credentials: 'Identifiant ou mot de passe incorrect',
 
             footer_contact_us: 'Nous contacter',
@@ -159,6 +165,12 @@ export default {
         translation: {
             ...common,
 
+            mood_very_bad: 'Molto Brutto',
+            mood_bad: 'Cattivo',
+            mood_normal: 'Normale',
+            mood_good: 'Bene',
+            mood_very_good: 'Molto Buona',
+
             error_action_login_bad_credentials: 'Nome utente o password errati',
 
             footer_contact_us: 'Contattaci',
@@ -299,6 +311,12 @@ export default {
     'en-GB': {
         translation: {
             ...common,
+
+            mood_very_bad: 'Very Bad',
+            mood_bad: 'Bad',
+            mood_normal: 'Normal',
+            mood_good: 'Good',
+            mood_very_good: 'Very Good',
 
             error_action_login_bad_credentials: 'Bad credentials',
 
