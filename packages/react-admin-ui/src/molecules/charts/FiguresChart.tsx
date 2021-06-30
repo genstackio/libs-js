@@ -1,7 +1,8 @@
 import Chart from 'react-apexcharts';
 import { Text } from '../../atoms/Text';
 import { ApexOptions } from 'apexcharts';
-import { box_color } from '../../types';
+import { box_color, class_name } from '../../types';
+import clsx from 'clsx';
 
 const defaultOptions = {
     chart: {
@@ -51,11 +52,11 @@ const defaultOptions = {
     },
 };
 
-export function FiguresChart({ items }: FiguresChartProps) {
+export function FiguresChart({ className, items }: FiguresChartProps) {
     return (
         <>
             {items && (
-                <div className={'grid grid-cols-4 xs:grid-cols-1 divide-x xs:divide-x-0'}>
+                <div className={clsx('grid grid-cols-4 xs:grid-cols-1 divide-x xs:divide-x-0', className)}>
                     {items.map(({ options, series, value, name, color }, index) => (
                         <div className={'p-6 flex-1 flex items-center space-x-2'} key={index}>
                             <Chart
@@ -78,6 +79,7 @@ export function FiguresChart({ items }: FiguresChartProps) {
 }
 
 export interface FiguresChartProps {
+    className?: class_name;
     items?: {
         color: box_color;
         name?: string;

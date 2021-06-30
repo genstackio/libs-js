@@ -1,11 +1,11 @@
 import clsx from 'clsx';
 import { Block, Button, Text } from '../atoms';
 import boxClass from '../utils/boxClass';
-import { pricing_item } from '../types';
+import { class_name, pricing_item } from '../types';
 
-export function Pricing({ items = [] }: PricingProps) {
+export function Pricing({ className, items = [] }: PricingProps) {
     return (
-        <div className={'flex inline'}>
+        <div className={clsx('flex inline', className)}>
             {items.map((item, index) => (
                 <Block
                     key={index}
@@ -43,6 +43,7 @@ export function Pricing({ items = [] }: PricingProps) {
 }
 
 export interface PricingProps {
+    className?: class_name;
     items: pricing_item[];
 }
 

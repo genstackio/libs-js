@@ -1,9 +1,10 @@
 import { Tag, Pill } from '../atoms';
-import { pill, tag } from '../types';
+import { class_name, pill, tag } from '../types';
+import clsx from 'clsx';
 
-export function Figure({ pill, price, tag, title }: FigureProps) {
+export function Figure({ className, pill, price, tag, title }: FigureProps) {
     return (
-        <div className={'flex'}>
+        <div className={clsx('flex', className)}>
             <div>
                 {title && <div className={'text-2xl mr-8 inline-block'}>{title}</div>}
                 {tag && (
@@ -23,6 +24,7 @@ export function Figure({ pill, price, tag, title }: FigureProps) {
 }
 
 export interface FigureProps {
+    className?: class_name;
     pill?: pill;
     price?: string;
     tag?: tag;

@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { box_color, breadcrumb_item, flag } from '../types';
+import { box_color, breadcrumb_item, class_name, flag } from '../types';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
@@ -25,13 +25,17 @@ const useStyles = makeStyles({
     },
 });
 
-export function Breadcrumb({ items = [], color = 'primary', toRight = false }: BreadcrumbProps) {
+export function Breadcrumb({ className, items = [], color = 'primary', toRight = false }: BreadcrumbProps) {
     const classes = useStyles();
     const breadcrumbItems = items.slice(0, items.length - 1);
     const lastItem = items.slice(items.length - 1)[0];
 
     return (
-        <Breadcrumbs aria-label={'breadcrumb'} classes={toRight ? { ol: classes.root } : undefined}>
+        <Breadcrumbs
+            aria-label={'breadcrumb'}
+            classes={toRight ? { ol: classes.root } : undefined}
+            className={clsx(className)}
+        >
             {breadcrumbItems.map(({ label, target }, index) => (
                 <Link
                     className={clsx(colors[color])}
@@ -48,6 +52,7 @@ export function Breadcrumb({ items = [], color = 'primary', toRight = false }: B
 }
 
 export interface BreadcrumbProps {
+    className?: class_name;
     color?: box_color;
     items: breadcrumb_item[];
     toRight?: flag;

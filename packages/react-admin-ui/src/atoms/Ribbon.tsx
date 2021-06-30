@@ -1,10 +1,10 @@
-import { children, flag, ribbon_position, rich_text } from '../types';
+import { children, class_name, flag, ribbon_position, rich_text } from '../types';
 import clsx from 'clsx';
 import boxClass from '../utils/boxClass';
 import Icon from './Icon';
 import { box_color } from '../mappings/box-colors';
 
-export function Ribbon({ children, color, horizontal, position = 'top-left', text, vertical }: RibbonProps) {
+export function Ribbon({ className, children, color, horizontal, position = 'top-left', text, vertical }: RibbonProps) {
     let triangle_position,
         horizontal_rectangle_position,
         triangle_rotate,
@@ -84,6 +84,7 @@ export function Ribbon({ children, color, horizontal, position = 'top-left', tex
                             boxClass({ color, variant: 'contained' }),
                             horizontal_rectangle_position,
                             'py-2 w-28 h-10 text-center shadow-md font-sans uppercase ',
+                            className,
                         )}
                     >
                         {text}
@@ -104,6 +105,7 @@ export function Ribbon({ children, color, horizontal, position = 'top-left', tex
                             className={clsx(
                                 boxClass({ color, variant: 'contained' }),
                                 'w-32 transform rotate-90 text-center text-white py-1',
+                                className,
                             )}
                         >
                             <Icon icon={'settings'} />
@@ -119,6 +121,7 @@ export function Ribbon({ children, color, horizontal, position = 'top-left', tex
 
 export interface RibbonProps {
     children?: children;
+    className?: class_name;
     color?: box_color;
     horizontal?: flag;
     position?: ribbon_position;

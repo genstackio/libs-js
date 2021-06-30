@@ -9,6 +9,7 @@ export function Button({
     children,
     loading = false,
     className,
+    spinnerClassName,
     color = 'primary',
     disabled,
     icon,
@@ -28,15 +29,15 @@ export function Button({
         <button
             disabled={disabled}
             className={clsx(
-                className,
                 buttonClass({ size, color, variant, disabled }),
                 'py-2 px-4 rounded inline-flex items-center',
                 disabled && 'opacity-50 cursor-not-allowed',
                 'justify-center',
+                className,
             )}
             onClick={handleClick}
         >
-            {loading && <Spinner variant={'circle'} size={'md'} color={'light'} />}
+            {loading && <Spinner variant={'circle'} size={'md'} color={'light'} className={clsx(spinnerClassName)} />}
             {!loading && (
                 <>
                     <Icon icon={icon} />
@@ -50,6 +51,7 @@ export function Button({
 export interface ButtonProps {
     children?: children;
     className?: class_name;
+    spinnerClassName?: class_name;
     color?: box_color;
     disabled?: flag;
     loading?: flag;

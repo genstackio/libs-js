@@ -6,7 +6,7 @@ import FieldSet from '../FieldSet';
 export function TextareaField({ className, ...props }: TextareaFieldProps) {
     const { name, required, label, error, helper, disabled, register, placeholder, options, extra } = useField(props);
     return (
-        <FieldSet className={className} name={name} label={label} options={options} error={error} helper={helper}>
+        <FieldSet name={name} label={label} options={options} error={error} helper={helper} className={clsx(className)}>
             <textarea
                 className={clsx(
                     'text-sm sm:text-base w-full border rounded placeholder-gray-400 ' +

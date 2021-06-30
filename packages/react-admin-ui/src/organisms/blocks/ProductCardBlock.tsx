@@ -1,7 +1,9 @@
-import { box_color, image, target } from '../../types';
+import { box_color, class_name, image, target } from '../../types';
 import { Block, Image, Text, Rating } from '../../atoms';
+import clsx from 'clsx';
 
 export function ProductCardBlock({
+    className,
     color = 'primary',
     description,
     image,
@@ -12,7 +14,7 @@ export function ProductCardBlock({
     title,
 }: ProductCardBlockProps) {
     return (
-        <Block onClick={onClick}>
+        <Block onClick={onClick} className={clsx(className)}>
             {image && <Image {...image} />}
             {rating && (
                 <div className={'mt-4'}>
@@ -34,6 +36,7 @@ export function ProductCardBlock({
 }
 
 export interface ProductCardBlockProps {
+    className?: class_name;
     color?: box_color;
     description?: string;
     image: image;

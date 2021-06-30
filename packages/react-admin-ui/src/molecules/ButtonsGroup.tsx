@@ -1,9 +1,10 @@
 import { Button } from '../atoms/Button';
-import { action_item } from '../types';
+import { action_item, class_name } from '../types';
+import clsx from 'clsx';
 
-export function ButtonsGroup({ actions = [] }: ButtonsGroupProps) {
+export function ButtonsGroup({ className, actions = [] }: ButtonsGroupProps) {
     return (
-        <div className={'x-buttons'}>
+        <div className={clsx('x-buttons', className)}>
             {actions.map(({ color, variant, target, label, icon }, i) => (
                 <div key={i} className={'xs:mt-2 xs:w-full'}>
                     <Button color={color} variant={variant} onClick={target} icon={icon}>
@@ -16,6 +17,7 @@ export function ButtonsGroup({ actions = [] }: ButtonsGroupProps) {
 }
 
 export interface ButtonsGroupProps {
+    className?: class_name;
     actions: action_item[];
 }
 

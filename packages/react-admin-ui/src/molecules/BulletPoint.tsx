@@ -1,9 +1,10 @@
 import { Icon, Text } from '../atoms';
-import { box_color, box_variant, icon, rich_text } from '../types';
+import { box_color, box_variant, class_name, icon, rich_text } from '../types';
+import clsx from 'clsx';
 
-export function BulletPoint({ icon, text, title, color }: BulletPointProps) {
+export function BulletPoint({ className, icon, text, title, color }: BulletPointProps) {
     return (
-        <div className={'flex items-center'}>
+        <div className={clsx('flex items-center', className)}>
             <Icon icon={icon} />
             <div className={'flex-column ml-4'}>
                 <Text text={title} variant={'title5'} color={color} />
@@ -14,6 +15,7 @@ export function BulletPoint({ icon, text, title, color }: BulletPointProps) {
 }
 
 export interface BulletPointProps {
+    className?: class_name;
     color?: box_color;
     icon?: icon;
     text?: rich_text;

@@ -1,9 +1,11 @@
 import Button from '../../atoms/Button';
-import { box_color, icon } from '../../types';
+import { box_color, class_name, icon } from '../../types';
 import { Icon } from '../../atoms/Icon';
 import AreaLineChart from './AreaLineChart';
+import clsx from 'clsx';
 
 export function SummaryChart({
+    className,
     chartItems = [],
     btnLabel,
     datas,
@@ -13,7 +15,7 @@ export function SummaryChart({
     ...props
 }: SummaryChartProps) {
     return (
-        <div className={'w-full grid grid-cols-4'}>
+        <div className={clsx('w-full grid grid-cols-4', className)}>
             <div
                 className={'md:col-span-4 border-r-1 md:border-r-0 md:border-b-1 p-6 xs:p-2 flex flex-col md:space-y-4'}
             >
@@ -76,6 +78,7 @@ export function SummaryChart({
 }
 
 export interface SummaryChartProps {
+    className?: class_name;
     datas: {
         categories?: string[];
         colors?: string[];

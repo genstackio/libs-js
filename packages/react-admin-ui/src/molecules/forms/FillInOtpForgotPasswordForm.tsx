@@ -1,8 +1,11 @@
 import { Column, Clickable, Button, Form, OtpField, Text } from '../../atoms';
 import { useTranslation } from 'react-i18next';
 import { box_color } from '../../mappings/box-colors';
+import { class_name } from '../../types';
+import clsx from 'clsx';
 
 export function FillInOtpForgotPasswordForm({
+    className,
     onSubmit,
     onResendVerificationCode,
     color,
@@ -11,7 +14,7 @@ export function FillInOtpForgotPasswordForm({
     const { t } = useTranslation();
 
     return (
-        <Column>
+        <Column className={clsx(className)}>
             <Column center className={'mb-4'}>
                 <Text text={t('form_forgot_password_fill_in_otp_title')} variant={'title6'} color={color} />
                 <Text
@@ -50,6 +53,7 @@ export function FillInOtpForgotPasswordForm({
 }
 
 export interface FillInOtpForgotPasswordFormProps {
+    className?: class_name;
     color?: box_color;
     defaultValues?: any;
     onSubmit?: Function;

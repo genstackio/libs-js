@@ -2,7 +2,8 @@ import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import Button from '../../atoms/Button';
 import { useCallback, useState } from 'react';
-import { box_color } from '../../types';
+import { box_color, class_name } from '../../types';
+import clsx from 'clsx';
 
 const defaultOptions: ApexOptions = {
     chart: {
@@ -60,7 +61,7 @@ const defaultOptions: ApexOptions = {
     },
 };
 
-export function AreaLineChart({ datas, color, ...props }: AreaLineChartProps) {
+export function AreaLineChart({ className, datas, color }: AreaLineChartProps) {
     const options = { ...defaultOptions, xaxis: { ...(defaultOptions.xaxis || {}) } };
     const [series, setSeries] = useState(datas[0]);
     const handleClick = useCallback((data) => () => setSeries(data), [setSeries]);
@@ -68,7 +69,7 @@ export function AreaLineChart({ datas, color, ...props }: AreaLineChartProps) {
     options.colors = series.colors;
 
     return (
-        <div className={'relative h-3/4 min-h-250 md:h-auto p-6 xs:p-2'}>
+        <div className={clsx('relative h-3/4 min-h-250 md:h-auto p-6 xs:p-2', className)}>
             <div className={'absolute xs:static top-2 left-2 flex'}>
                 {datas.map((data, index) => (
                     <Button
@@ -88,6 +89,7 @@ export function AreaLineChart({ datas, color, ...props }: AreaLineChartProps) {
 }
 
 export interface AreaLineChartProps {
+    className?: class_name;
     datas: {
         categories?: string[];
         colors?: string[];

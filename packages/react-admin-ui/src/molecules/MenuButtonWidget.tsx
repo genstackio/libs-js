@@ -3,10 +3,10 @@ import clsx from 'clsx';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
 import textClass from '../utils/textClass';
-import { box_color, menu_button_item } from '../types';
+import { box_color, class_name, menu_button_item } from '../types';
 import boxClass from '../utils/boxClass';
 
-export function MenuButtonWidget({ items, color }: MenuButtonWidgetProps) {
+export function MenuButtonWidget({ className, items, color }: MenuButtonWidgetProps) {
     const handleClick = useCallback(
         (target) => () => {
             'function' === typeof target && target();
@@ -20,6 +20,7 @@ export function MenuButtonWidget({ items, color }: MenuButtonWidgetProps) {
             className={clsx(
                 boxClass({ color: 'light', variant: 'contained' }),
                 'px-2 py-3 rounded-md max-w-xxs divide-y',
+                className,
             )}
         >
             {items.map(({ icon, label, target }, index) => (
@@ -40,6 +41,7 @@ export function MenuButtonWidget({ items, color }: MenuButtonWidgetProps) {
 }
 
 export interface MenuButtonWidgetProps {
+    className?: class_name;
     items: menu_button_item[];
     color?: box_color;
 }

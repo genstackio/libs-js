@@ -23,7 +23,7 @@ export function TextField(props: TextFieldProps) {
     } = useField(props);
 
     return (
-        <FieldSet className={className} name={name} label={label} options={options} error={error} helper={helper}>
+        <FieldSet name={name} label={label} options={options} error={error} helper={helper} className={clsx(className)}>
             <div
                 className={clsx(
                     'text-sm sm:text-base w-full border rounded flex',

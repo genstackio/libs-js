@@ -1,5 +1,7 @@
 import { createStyles, withStyles, Theme } from '@material-ui/core/styles';
 import MuiLinearProgress from '@material-ui/core/LinearProgress';
+import { class_name } from '../../types';
+import clsx from 'clsx';
 
 const BorderLinearProgress = withStyles((theme: Theme) =>
     createStyles({
@@ -17,15 +19,16 @@ const BorderLinearProgress = withStyles((theme: Theme) =>
     }),
 )(MuiLinearProgress);
 
-export function LinearProgress({ value = 0 }: LinearProgressProps) {
+export function LinearProgress({ className, value = 0 }: LinearProgressProps) {
     return (
-        <div className={'flex-grow'}>
+        <div className={clsx('flex-grow', className)}>
             <BorderLinearProgress variant={'determinate'} value={value} />
         </div>
     );
 }
 
 export interface LinearProgressProps {
+    className?: class_name;
     value?: number;
 }
 

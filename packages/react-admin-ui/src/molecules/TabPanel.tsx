@@ -1,6 +1,7 @@
-import { children } from '../types';
+import { children, class_name } from '../types';
+import clsx from 'clsx';
 
-export function TabPanel({ children, value, index, ...props }: TabPanelProps) {
+export function TabPanel({ className, children, value, index, ...props }: TabPanelProps) {
     return (
         <div
             role={'tabpanel'}
@@ -8,6 +9,7 @@ export function TabPanel({ children, value, index, ...props }: TabPanelProps) {
             id={`simple-tabpanel-${index}`}
             aria-labelledby={`simple-tab-${index}`}
             {...props}
+            className={clsx(className)}
         >
             {value === index && <div className={'p-3 text-sm'}>{children}</div>}
         </div>
@@ -15,6 +17,7 @@ export function TabPanel({ children, value, index, ...props }: TabPanelProps) {
 }
 
 export interface TabPanelProps {
+    className?: class_name;
     children?: children;
     index: number;
     value: number;

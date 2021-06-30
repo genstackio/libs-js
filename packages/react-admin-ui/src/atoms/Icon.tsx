@@ -54,9 +54,9 @@ export function Icon({ icon, size, onClick, color, ...props }: IconProps) {
 }
 
 export interface IconProps {
+    className?: class_name;
     icon?: icon;
     size?: text_size;
-    className?: class_name;
     onClick?: target;
     color?: text_color;
 }

@@ -11,8 +11,10 @@ export function Clickable({
     optional = false,
     inline = false,
     onClickAway,
+    visible = true,
 }: ClickableProps) {
     const extraProps = useMemo(() => ({ className, style }), [className, style]);
+    if (!visible) return null;
     let content;
     if (!onClick) {
         if (optional) return null;
@@ -63,6 +65,7 @@ export interface ClickableProps {
     optional?: flag;
     style?: any;
     onClickAway?: (event: React.MouseEvent<Document>) => void;
+    visible?: flag;
 }
 
 export default Clickable;

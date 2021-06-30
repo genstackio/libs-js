@@ -1,7 +1,8 @@
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
-import { box_color, box_variant, chart_series } from '../../types';
+import { box_color, box_variant, chart_series, class_name } from '../../types';
+import clsx from 'clsx';
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 
@@ -43,7 +44,7 @@ const defaultOptions: ApexOptions = {
     },
 };
 
-export function AreaChart({ color = 'primary', series, variant = 'filled' }: AreaChartProps) {
+export function AreaChart({ className, color = 'primary', series, variant = 'filled' }: AreaChartProps) {
     const col = `${variant}_${color}`;
     const options = { ...defaultOptions, colors: tailwindChartColors[col] };
 
@@ -52,10 +53,11 @@ export function AreaChart({ color = 'primary', series, variant = 'filled' }: Are
         return acc;
     }, [] as { data: number[] }[]);
 
-    return <Chart type={'area'} options={options} series={newData} height={'250px'} />;
+    return <Chart type={'area'} options={options} series={newData} height={'250px'} className={clsx(className)} />;
 }
 
 export interface AreaChartProps {
+    className?: class_name;
     series: chart_series;
     color?: box_color;
     variant?: box_variant;

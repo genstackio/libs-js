@@ -1,8 +1,9 @@
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
-import { box_color, box_variant, chart_series, rich_text } from '../../types';
+import { box_color, box_variant, chart_series, class_name, rich_text } from '../../types';
 import Text from '../../atoms/Text';
+import clsx from 'clsx';
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 const defaultOptions: ApexOptions = {
@@ -21,7 +22,7 @@ const defaultOptions: ApexOptions = {
     },
 };
 
-export function LineChart({ color = 'primary', labels, series, title, variant = 'filled' }: LineChartProps) {
+export function LineChart({ className, color = 'primary', labels, series, title, variant = 'filled' }: LineChartProps) {
     const col = `${variant}_${color}`;
     const options = { ...defaultOptions, labels: labels, colors: tailwindChartColors[col] };
     const datas: any = [];
@@ -29,7 +30,7 @@ export function LineChart({ color = 'primary', labels, series, title, variant = 
         datas.push({ data });
     });
     return (
-        <div>
+        <div className={clsx(className)}>
             <Text text={title} variant={'subtitle'} />
             <Chart options={options} series={datas} type={'line'} />
         </div>
@@ -37,6 +38,7 @@ export function LineChart({ color = 'primary', labels, series, title, variant = 
 }
 
 export interface LineChartProps {
+    className?: class_name;
     color?: box_color;
     labels?: string[];
     series: chart_series;
