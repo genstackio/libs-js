@@ -4,6 +4,7 @@ import textSizeClass from '../utils/textSizeClass';
 import clsx from 'clsx';
 import Clickable from './Clickable';
 import Image from './Image';
+import Loadable from '@loadable/component';
 
 const colorMap: { [key: string]: undefined | 'primary' | 'secondary' | 'inherit' | 'action' | 'error' } = {
     primary: 'primary',
@@ -25,6 +26,16 @@ export function Icon({ icon, size, onClick, color, ...props }: IconProps) {
             if ('/' === icon.slice(0, 1) || 'http' === icon.slice(0, 4)) {
                 content = <Image url={icon} alt={''} {...props} />;
                 break;
+            }
+            if ('@' === icon.slice(0, 1)) {
+                const name = icon
+                    .slice(1)
+                    .split(/-/g)
+                    .map((x) => `${x.slice(0, 1).toUpperCase()}${x.slice(1)}`)
+                    .join('');
+                /* eslint react/display-name: 0 */
+                const TheIcon = Loadable(() => import(`../images/icons/${name}`).catch(() => () => <div />));
+                return <TheIcon {...props} />;
             }
             const iconColor = mapColor(color);
             if (size) {

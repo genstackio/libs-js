@@ -42,7 +42,8 @@
         "react-i18next": "^11.11.0",
         "react-player": "^2.9.0",
         "react-select": "^4.3.1",
-        "swiper": "^6.7.1"
+        "swiper": "^6.7.1",
+        "@loadable/component": "^5.15.0"
     },
     "peerDependencies": {
         "@genstackio/react-contexts": "^0.1.5",
