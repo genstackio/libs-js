@@ -9,7 +9,7 @@ export function DarkModeToolbarItem({ className }: DarkModeToolbarItemProps) {
         <Icon
             icon={darkMode ? 'emoji_objects_outlined' : 'brightness_3_outlined'}
             onClick={toggle}
-            className={clsx('cursor-pointer', className)}
+            className={clsx('flex cursor-pointer', className)}
         />
     );
 }

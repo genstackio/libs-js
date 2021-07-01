@@ -1,23 +1,25 @@
+import clsx from 'clsx';
 import Icon from '../Icon';
 import SearchBar from '../SearchBar';
-import { class_name } from '../../types';
-import { useToggle } from '../../hooks/useToggle';
+import { class_name, flag } from '../../types';
 
-export function SearchToolbarItem({ className }: SearchToolbarItemProps) {
-    const [active, toggle] = useToggle();
+export function SearchToolbarItem({ className, onChange, onToggle, active = false }: SearchToolbarItemProps) {
     return (
-        <div className={className}>
+        <>
             {!active ? (
-                <Icon icon={'search'} onClick={toggle} className={'cursor-pointer'} />
+                <Icon icon={'search'} onClick={onToggle} className={clsx('flex cursor-pointer', className)} />
             ) : (
-                <SearchBar defaultFocus onClear={toggle} />
+                <SearchBar defaultFocus onClear={onToggle} onChange={onChange} className={className} />
             )}
-        </div>
+        </>
     );
 }
 
 export interface SearchToolbarItemProps {
     className?: class_name;
+    onChange?: Function;
+    onToggle?: Function;
+    active?: flag;
 }
 
 export default SearchToolbarItem;

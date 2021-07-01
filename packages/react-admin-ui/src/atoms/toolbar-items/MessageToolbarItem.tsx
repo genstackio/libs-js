@@ -7,7 +7,14 @@ export function MessageToolbarItem({ className }: MessageToolbarItemProps) {
     const [active, toggle] = useToggle();
     const color = active ? 'primary' : 'inherit';
 
-    return <Icon icon={'message_icon'} color={color} onClick={toggle} className={clsx('cursor-pointer', className)} />;
+    return (
+        <Icon
+            icon={'chat_bubble_outline'}
+            color={color}
+            onClick={toggle}
+            className={clsx('flex cursor-pointer', className)}
+        />
+    );
 }
 
 export interface MessageToolbarItemProps {
