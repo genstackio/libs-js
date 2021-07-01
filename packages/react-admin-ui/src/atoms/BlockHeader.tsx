@@ -15,6 +15,7 @@ export function BlockHeader({
     dropdownItems,
     icon,
     title,
+    subtitle,
     variant = 'filled',
 }: BlockHeaderProps) {
     if (!title) return null;
@@ -28,7 +29,10 @@ export function BlockHeader({
             )}
         >
             <BoxProvider value={{ color, variant }}>
-                <Text variant={'title5'} text={title} />
+                <div className={'w-full'}>
+                    <Text variant={'title5'} text={title} />
+                    <Text variant={'overline'} text={subtitle} />
+                </div>
                 {btnLabel && <Button color={color}>{btnLabel}</Button>}
                 {dropdownItems && <Dropdown items={dropdownItems} color={color} variant={variant} />}
                 <Icon icon={icon} />
@@ -44,6 +48,7 @@ export interface BlockHeaderProps {
     dropdownItems?: dropdown_item[];
     icon?: icon;
     title?: rich_text;
+    subtitle?: rich_text;
     variant?: box_variant;
 }
 

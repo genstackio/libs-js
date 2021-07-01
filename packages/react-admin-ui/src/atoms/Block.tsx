@@ -24,6 +24,7 @@ export function Block({
     image,
     padding,
     title,
+    subtitle,
     variant = 'filled',
     onClick,
     buttons = [],
@@ -45,6 +46,7 @@ export function Block({
             >
                 <BlockHeader
                     title={title}
+                    subtitle={subtitle}
                     btnLabel={btnLabel}
                     dropdownItems={dropdownItems}
                     color={color}

@@ -37,6 +37,13 @@ export const basic = s(Template, {
     firstIcon: 'Adb',
 });
 
+export const withSubtitle = s(Template, {
+    title: 'this is the title',
+    subtitle: 'this is the subtitle',
+    children: 'this is the content',
+    firstIcon: 'Adb',
+});
+
 export const withButtons = s(Template, {
     title: 'this is the title',
     children: 'this is the content',
