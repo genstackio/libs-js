@@ -26,6 +26,7 @@ export * from './FormFooter';
 export * from './FullscreenToolbarItem';
 export * from './LanguageToolbarItem';
 export * from './LocaleChange';
+export * from './MessageToolbarItem';
 export * from './NotificationToolbarItem';
 export * from './Panel';
 export * from './PeriodBlock';
