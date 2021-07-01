@@ -1,8 +1,8 @@
-import { s, a, args } from '../utils';
-import { SearchToolbarItem } from '../../src';
+import { s, a, args } from '../../utils';
+import { SearchToolbarItem } from '../../../src';
 
 export default {
-    title: 'Atoms/SearchToolbarItem',
+    title: 'Atoms/toolbar-items/SearchToolbarItem',
     component: SearchToolbarItem,
     argTypes: a({
         className: args._disabled,

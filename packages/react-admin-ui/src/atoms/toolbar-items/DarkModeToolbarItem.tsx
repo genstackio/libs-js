@@ -1,7 +1,7 @@
 import clsx from 'clsx';
-import { Icon } from './';
-import { class_name } from '../types';
-import { useToggle } from '../hooks/useToggle';
+import Icon from '../Icon';
+import { class_name } from '../../types';
+import { useToggle } from '../../hooks/useToggle';
 
 export function DarkModeToolbarItem({ className }: DarkModeToolbarItemProps) {
     const [darkMode, toggle] = useToggle();

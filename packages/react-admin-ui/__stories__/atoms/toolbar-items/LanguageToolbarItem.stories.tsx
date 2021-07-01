@@ -1,8 +1,8 @@
-import { s, a, args } from '../utils';
-import { LanguageToolbarItem } from '../../src';
+import { s, a, args } from '../../utils';
+import { LanguageToolbarItem } from '../../../src';
 
 export default {
-    title: 'Atoms/LanguageToolbarItem',
+    title: 'Atoms/toolbar-items/LanguageToolbarItem',
     component: LanguageToolbarItem,
     argTypes: a({
         className: args._disabled,

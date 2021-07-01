@@ -1,8 +1,8 @@
-import { s, a } from '../utils';
-import { FullscreenToolbarItem } from '../../src';
+import { s, a } from '../../utils';
+import { FullscreenToolbarItem } from '../../../src';
 
 export default {
-    title: 'Atoms/FullscreenToolbarItem',
+    title: 'Atoms/toolbar-items/FullscreenToolbarItem',
     component: FullscreenToolbarItem,
     argTypes: a({}),
 };

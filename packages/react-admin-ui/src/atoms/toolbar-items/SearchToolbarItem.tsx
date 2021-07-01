@@ -1,6 +1,7 @@
-import { Icon, SearchBar } from './';
-import { class_name } from '../types';
-import { useToggle } from '../hooks/useToggle';
+import Icon from '../Icon';
+import SearchBar from '../SearchBar';
+import { class_name } from '../../types';
+import { useToggle } from '../../hooks/useToggle';
 
 export function SearchToolbarItem({ className }: SearchToolbarItemProps) {
     const [active, toggle] = useToggle();

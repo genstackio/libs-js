@@ -1,6 +1,6 @@
-import { Icon } from './';
-import { class_name } from '../types';
-import { useToggle } from '../hooks/useToggle';
+import Icon from '../Icon';
+import { class_name } from '../../types';
+import { useToggle } from '../../hooks/useToggle';
 import clsx from 'clsx';
 
 export function NotificationToolbarItem({ className }: NotificationToolbarItemProps) {

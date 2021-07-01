@@ -1,8 +1,8 @@
-import { s, a, args } from '../utils';
-import { NotificationToolbarItem } from '../../src';
+import { s, a } from '../../utils';
+import { NotificationToolbarItem } from '../../../src';
 
 export default {
-    title: 'Atoms/NotificationToolbarItem',
+    title: 'Atoms/toolbar-items/NotificationToolbarItem',
     component: NotificationToolbarItem,
     argTypes: a({}),
 };

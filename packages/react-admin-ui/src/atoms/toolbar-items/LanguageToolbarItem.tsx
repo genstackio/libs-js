@@ -1,4 +1,4 @@
-import { LocaleChange, LocaleChangeProps } from './';
+import LocaleChange, { LocaleChangeProps } from '../LocaleChange';
 import { useLocales } from '@genstackio/react-contexts';
 
 export function LanguageToolbarItem(props: LanguageToolbarItemProps) {

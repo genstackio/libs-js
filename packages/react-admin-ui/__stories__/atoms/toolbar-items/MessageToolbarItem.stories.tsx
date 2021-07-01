@@ -1,8 +1,8 @@
-import { s, a, args } from '../utils';
-import { MessageToolbarItem } from '../../src';
+import { s, a } from '../../utils';
+import { MessageToolbarItem } from '../../../src';
 
 export default {
-    title: 'Atoms/MessageToolbarItem',
+    title: 'Atoms/toolbar-items/MessageToolbarItem',
     component: MessageToolbarItem,
     argTypes: a({}),
 };
