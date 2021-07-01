@@ -8,7 +8,7 @@ export function FullscreenToolbarItem({ className }: FullscreenToolbarItemProps)
     const color = active ? 'primary' : 'inherit';
     return (
         <div className={clsx('rounded-2xl', className)}>
-            <Icon icon={'fullscreen_icon'} color={color} onClick={toggle} className={clsx('cursor-pointer')} />
+            <Icon icon={'fullscreen_icon'} color={color} onClick={toggle} className={clsx('flex cursor-pointer')} />
         </div>
     );
 }
