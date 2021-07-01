@@ -35,6 +35,7 @@ export * from './Rating';
 export * from './Ribbon';
 export * from './Row';
 export * from './SearchBar';
+export * from './SearchToolbarItem';
 export * from './SectionHeader';
 export * from './Spacer';
 export * from './Spinner';

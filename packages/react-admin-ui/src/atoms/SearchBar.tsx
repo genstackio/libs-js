@@ -1,11 +1,12 @@
 import { useCallback, useState } from 'react';
-import { InputBase } from '@material-ui/core';
-import { Icon } from './';
-import { useTranslation } from 'react-i18next';
-import { class_name } from '../types';
 import clsx from 'clsx';
+import { Icon } from './';
+import { class_name, flag } from '../types';
+import { InputBase } from '@material-ui/core';
+import { useTranslation } from 'react-i18next';
 
 export function SearchBar({ className, defaultFocus = false, onClear }: SearchBarProps) {
+    const { t } = useTranslation();
     const [query, setQuery] = useState('');
     const handleChange = useCallback((e) => setQuery(e.target.value), [setQuery]);
     const handleClear = useCallback(() => {
@@ -13,29 +14,30 @@ export function SearchBar({ className, defaultFocus = false, onClear }: SearchBa
         onClear && onClear();
     }, [setQuery]);
     const handleKeyUp = useCallback((e) => e.keyCode === 27 && handleClear(), [handleClear]);
-    const { t } = useTranslation();
     return (
-        <div className={clsx('flex x-searchbar-root w-1/2 md:w-full sm:w-full', className)}>
-            <div className={'x-searchbar-icon'}>
-                <Icon icon={'search'} />
-            </div>
+        <div
+            className={clsx(
+                'w-full px-4 py-6 flex justify-between items-center space-x-4 bg-white text-gray-400 box-border',
+                className,
+            )}
+        >
+            <Icon icon={'search'} />
             <InputBase
                 placeholder={t('search_bar_placeholder')}
                 className={'flex-1'}
                 value={query}
                 onChange={handleChange}
-                inputProps={{ className: 'opacity-70' }}
                 autoFocus={!!defaultFocus}
                 onKeyUp={handleKeyUp}
             />
-            {!!query && <Icon icon={'close'} onClick={handleClear} className={'x-searchbar-close'} />}
+            <Icon icon={'close'} onClick={handleClear} className={'flex cursor-pointer'} />
         </div>
     );
 }
 
 export interface SearchBarProps {
     className?: class_name;
-    defaultFocus?: boolean;
+    defaultFocus?: flag;
     onClear?: Function;
 }
 
