@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { Icon } from './';
 import { class_name } from '../types';
 import { useToggle } from '../hooks/useToggle';
@@ -8,7 +9,7 @@ export function DarkModeToolbarItem({ className }: DarkModeToolbarItemProps) {
         <Icon
             icon={darkMode ? 'emoji_objects_outlined' : 'brightness_3_outlined'}
             onClick={toggle}
-            className={className}
+            className={clsx('cursor-pointer', className)}
         />
     );
 }
