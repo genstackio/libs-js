@@ -8,6 +8,7 @@ export * from './Button';
 export * from './Buttons';
 export * from './Clickable';
 export * from './Column';
+export * from './DarkModeToolbarItem';
 export * from './Container';
 export * from './Divider';
 export * from './Dropdown';
