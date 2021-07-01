@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import Clickable from './Clickable';
 import Image from './Image';
 import Loadable from '@loadable/component';
+import { Badge } from '@material-ui/core';
 
 const colorMap: { [key: string]: undefined | 'primary' | 'secondary' | 'inherit' | 'action' | 'error' } = {
     primary: 'primary',
@@ -18,7 +19,7 @@ function mapColor(c) {
     return colorMap[c || 'default'] || colorMap['default'];
 }
 
-export function Icon({ icon, size, onClick, color, ...props }: IconProps) {
+export function Icon({ count = 0, icon, size, onClick, color, ...props }: IconProps) {
     if (!icon) return null;
     let content;
     switch (typeof icon) {
@@ -35,37 +36,52 @@ export function Icon({ icon, size, onClick, color, ...props }: IconProps) {
                     .join('');
                 /* eslint react/display-name: 0 */
                 const TheIcon = Loadable(() => import(`../images/icons/${name}`).catch(() => () => <div />));
-                return <TheIcon {...props} />;
-            }
-            const iconColor = mapColor(color);
-            if (size) {
+                content = <TheIcon {...props} />;
+            } else {
+                const iconColor = mapColor(color);
+                if (size) {
+                    content = (
+                        <MuiIcon
+                            color={iconColor}
+                            {...props}
+                            className={clsx(textSizeClass({ size }), props.className)}
+                        >
+                            {icon}
+                        </MuiIcon>
+                    );
+                    break;
+                }
                 content = (
-                    <MuiIcon color={iconColor} {...props} className={clsx(textSizeClass({ size }), props.className)}>
+                    <MuiIcon color={iconColor} {...props}>
                         {icon}
                     </MuiIcon>
                 );
-                break;
             }
-            content = (
-                <MuiIcon color={iconColor} {...props}>
-                    {icon}
-                </MuiIcon>
-            );
             break;
         default:
             content = icon;
             break;
     }
 
-    return (
+    content = (
         <Clickable onClick={onClick} inline>
             {content}
         </Clickable>
     );
+
+    count &&
+        (content = (
+            <Badge badgeContent={count} color={'primary'} max={99}>
+                {content}
+            </Badge>
+        ));
+
+    return content;
 }
 
 export interface IconProps {
     className?: class_name;
+    count?: number;
     icon?: icon;
     size?: text_size;
     onClick?: target;

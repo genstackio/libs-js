@@ -9,7 +9,19 @@ import { NavigationProvider } from './contexts/NavigationContext';
 import { LocalesProvider } from './contexts/LocalesContext';
 import { ImagesProvider } from './contexts/ImagesContext';
 import { ImporterProvider } from './contexts/ImporterContext';
-import { images_context_value, importer_context_params, locales_context_value } from './types';
+import { DarkModeProvider } from './contexts/DarkModeContext';
+import { NotificationsProvider } from './contexts/NotificationsContext';
+import { MessagesProvider } from './contexts/MessagesContext';
+import { FavoritesProvider } from './contexts/FavoritesContext';
+import {
+    dark_mode_context_value,
+    favorites_context_value,
+    images_context_value,
+    importer_context_params,
+    locales_context_value,
+    messages_context_value,
+    notifications_context_value,
+} from './types';
 
 export function AppProvider({
     themeProvider: ThemeProvider,
@@ -31,8 +43,16 @@ export function AppProvider({
     children,
     importer,
     fullscreen,
+    favorites,
+    notifications,
+    messages,
+    darkMode,
 }: AppProviderProps) {
     let content = children || '';
+    favorites && (content = <FavoritesProvider value={favorites}>{content}</FavoritesProvider>);
+    notifications && (content = <NotificationsProvider value={notifications}>{content}</NotificationsProvider>);
+    messages && (content = <MessagesProvider value={messages}>{content}</MessagesProvider>);
+    darkMode && (content = <DarkModeProvider value={darkMode}>{content}</DarkModeProvider>);
     fullscreen &&
         FullscreenProvider &&
         (content = <FullscreenProvider value={fullscreen}>{content}</FullscreenProvider>);
@@ -73,6 +93,10 @@ export interface AppProviderProps {
     navigation: any;
     importer?: importer_context_params;
     fullscreen?: any;
+    messages?: messages_context_value;
+    notifications?: notifications_context_value;
+    favorites?: favorites_context_value;
+    darkMode?: dark_mode_context_value;
     children?: ReactNode;
 }
 

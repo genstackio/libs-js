@@ -98,6 +98,40 @@ export type locales_context_value = {
     locales: locale[];
 };
 
+export type message_level = 'success' | 'info' | 'error' | 'warning' | 'debug' | 'question';
+
+export type message = {
+    message: string;
+    level?: message_level;
+};
+
+export type messages_context_value = {
+    messages: message[];
+};
+
+export type notification = {
+    message: string;
+};
+
+export type notifications_context_value = {
+    notifications: notification[];
+};
+
+export type favorite = {
+    target: any;
+};
+
+export type favorites_context_value = {
+    favorites: favorite[];
+};
+
+export type dark_mode_mode = 'default' | 'dark' | 'light';
+
+export type dark_mode_context_value = {
+    darkMode: dark_mode_mode;
+    setDarkMode: (mode: dark_mode_mode) => void;
+};
+
 export type image = {
     url: string;
     alt: string;

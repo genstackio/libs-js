@@ -33,7 +33,7 @@ function ThemeProvider({ value, children }: any) {
 
 export function useApp({
     importer,
-    app: { prefix, endpoint, locales, defaultLocale, fallbackLocale },
+    app: { prefix, endpoint, locales, defaultLocale, fallbackLocale, features = {} },
     routes = [],
     translations = {},
     theme: { mui = {}, tailwind = {} } = {},
@@ -67,6 +67,10 @@ export function useApp({
             locales,
             defaultLocale,
             fallbackLocale,
+            darkMode: features.darkMode ? { mode: 'default' } : undefined,
+            messages: features.messages ? { messages: [] } : undefined,
+            notifications: features.notifications ? { notifications: [] } : undefined,
+            favorites: features.favorites ? { favorites: [] } : undefined,
         }),
         [prefix, endpoint, defaultLocale, fallbackLocale, locales, routes, translations, queries],
     );
