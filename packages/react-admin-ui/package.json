@@ -13,7 +13,8 @@
         "lib",
         "postcss.config.js",
         "tailwind.config.js",
-        "assets/css/styles.css"
+        "assets/css/styles.css",
+        "assets/css/themes"
     ],
     "publishConfig": {
         "access": "public"
