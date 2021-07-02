@@ -1,6 +1,5 @@
 import { args, s, a } from '../utils';
-import { Summaries, Block} from '../../src';
-
+import { Summaries, Block } from '../../src';
 
 export default {
     title: 'Molecules/Summaries',
@@ -39,24 +38,29 @@ export const basic = s(Template, {
     ],
 });
 
-
-export const inPrimaryBlock = s(({color, ...args}) => <Block color={color} variant={'contained'}><Template {...args}/> </Block>,
+export const inPrimaryBlock = s(
+    ({ color, ...args }) => (
+        <Block color={color} variant={'contained'}>
+            <Template {...args} />{' '}
+        </Block>
+    ),
     {
-    items: [
-        {
-            value: '1001M',
-            unit: 'Year',
-            percentage: 54,
-        },
-        {
-            value: '1005M',
-            unit: 'Month',
-            percentage: 0,
-        },
-        {
-            value: '100M',
-            unit: 'Today',
-            percentage: 24,
-        },
-    ],
-});
+        items: [
+            {
+                value: '1001M',
+                unit: 'Year',
+                percentage: 54,
+            },
+            {
+                value: '1005M',
+                unit: 'Month',
+                percentage: 0,
+            },
+            {
+                value: '100M',
+                unit: 'Today',
+                percentage: 24,
+            },
+        ],
+    },
+);
