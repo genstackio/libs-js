@@ -1,6 +1,6 @@
 {
   "name": "@genstackio/react-storybook",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "React Storybook for Genstackio",
   "license": "MIT",
   "main": "lib/index.js",
