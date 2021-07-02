@@ -14,7 +14,7 @@ export function Alert({
     variant = 'contained',
     ...props
 }: AlertProps) {
-    const [show, handleClick] = useToggle();
+    const [show, handleClick] = useToggle(true);
     if (!show) return null;
     return (
         <Panel color={color} variant={variant} {...props}>

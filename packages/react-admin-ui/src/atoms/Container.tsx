@@ -18,7 +18,7 @@ export function Container({
     };
     return (
         <Clickable
-            className={clsx('w-full', cornerClass(corner), fullscreen && 'absolute inset-0', className)}
+            className={clsx(cornerClass(corner), fullscreen && 'w-full absolute inset-0', className)}
             style={style}
             onClick={onClick as any}
         >
