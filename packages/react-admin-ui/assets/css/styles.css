@@ -11,24 +11,23 @@
 
 /* themes */
 @import 'themes/default.css';
-@import 'themes/light/color1.css';
-@import 'themes/light/color2.css';
-@import 'themes/light/color3.css';
-@import 'themes/light/color4.css';
-@import 'themes/light/color5.css';
-@import 'themes/light/color6.css';
-@import 'themes/dark/color1.css';
-@import 'themes/dark/color2.css';
-@import 'themes/dark/color3.css';
-@import 'themes/dark/color4.css';
-@import 'themes/dark/color5.css';
-@import 'themes/dark/color6.css';
+@import 'themes/color1.css';
+@import 'themes/color2.css';
+@import 'themes/color3.css';
+@import 'themes/color4.css';
+@import 'themes/color5.css';
+@import 'themes/color6.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
+
+    #root {
+        background-color: var(--root-background-color);
+        color: var(--root-color);
+    }
 
     .x-field-min-h {
         min-height: 64px;

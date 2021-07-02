@@ -1,17 +1,11 @@
 const themes = [
     { name: 'default', class: '', color: 'gray' },
-    { name: 'light / color1', class: 'theme-light-color1', color: 'blue' },
-    { name: 'light / color2', class: 'theme-light-color2', color: 'green' },
-    { name: 'light / color3', class: 'theme-light-color3', color: 'yellow' },
-    { name: 'light / color4', class: 'theme-light-color4', color: 'orange' },
-    { name: 'light / color5', class: 'theme-light-color5', color: 'red' },
-    { name: 'light / color6', class: 'theme-light-color6', color: 'brown' },
-    { name: 'dark / color1', class: 'theme-dark-color1', color: 'black' },
-    { name: 'dark / color2', class: 'theme-dark-color2', color: 'white' },
-    { name: 'dark / color3', class: 'theme-dark-color3', color: 'pink' },
-    { name: 'dark / color4', class: 'theme-dark-color4', color: 'gray' },
-    { name: 'dark / color5', class: 'theme-dark-color5', color: 'violet' },
-    { name: 'dark / color6', class: 'theme-dark-color6', color: 'purple' },
+    { name: 'color1', class: 'theme-color1', color: '#7366FF' },
+    { name: 'color2', class: 'theme-color2', color: '#4832cd' },
+    { name: 'color3', class: 'theme-color3', color: '#d95cd2' },
+    { name: 'color4', class: 'theme-color4', color: '#4c2fb9' },
+    { name: 'color5', class: 'theme-color5', color: '#794cf6' },
+    { name: 'color6', class: 'theme-color6', color: '#3949a6' },
 ];
 
 export default themes;

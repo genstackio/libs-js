@@ -4,13 +4,13 @@
 
 @layer base {
 
-    :root {
+    .theme-color5 {
 
         --root-background-color: white;
         --root-color: black;
 
-        --primary-color: #7366FF;
-        --secondary-color: #F73164;
+        --primary-color: #794cf6;
+        --secondary-color: #78219d;
         --success-color: #51BB25;
         --info-color: #A927F9;
         --warning-color: #F8D62C;
@@ -18,17 +18,17 @@
         --light-color: #F4F4F4;
         --dark-color: #2C323E;
 
-        --hover-color: #fcb600;
+        --hover-color: #8cbcff;
 
-        --filled_primary_text_color: #7366FF;
+        --filled_primary_text_color: #794cf6;
         --contained_primary_text_color: #FFF;
-        --outlined_primary_text_color: #7366FF;
+        --outlined_primary_text_color: #794cf6;
         --filled_primary2_text_color: #000;
         --contained_primary2_text_color: #FFF;
         --outlined_primary2_text_color: #000;
-        --filled_secondary_text_color: #F73164;
+        --filled_secondary_text_color: #78219d;
         --contained_secondary_text_color: #FFF;
-        --outlined_secondary_text_color: #F73164;
+        --outlined_secondary_text_color: #78219d;
         --filled_secondary2_text_color: #000;
         --contained_secondary2_text_color: #000;
         --outlined_secondary2_text_color: #000;
@@ -48,22 +48,22 @@
         --light_selected_row_table_color: #A9B7FC;
         --dark_selected_row_table_color: #A9B7FC;
 
-        --filled_primary_chart_color1: #F73164;
+        --filled_primary_chart_color1: #78219d;
         --filled_primary_chart_color2: #29B6F6;
         --filled_primary_chart_color3: #FC740D;
-        --contained_primary_chart_color1: #F73164;
+        --contained_primary_chart_color1: #78219d;
         --contained_primary_chart_color2: #29B6F6;
         --contained_primary_chart_color3: #FC740D;
-        --outlined_primary_chart_color1: #F73164;
+        --outlined_primary_chart_color1: #78219d;
         --outlined_primary_chart_color2: #29B6F6;
         --outlined_primary_chart_color3: #FC740D;
-        --filled_secondary_chart_color1: #7366FF;
+        --filled_secondary_chart_color1: #794cf6;
         --filled_secondary_chart_color2: #FC740D;
         --filled_secondary_chart_color3: #29B6F6;
-        --contained_secondary_chart_color1: #7366FF;
+        --contained_secondary_chart_color1: #794cf6;
         --contained_secondary_chart_color2: #FC740D;
         --contained_secondary_chart_color3: #29B6F6;
-        --outlined_secondary_chart_color1: #7366FF;
+        --outlined_secondary_chart_color1: #794cf6;
         --outlined_secondary_chart_color2: #FC740D;
         --outlined_secondary_chart_color3: #29B6F6;
 
@@ -81,13 +81,13 @@
         --outlined_secondary_chart_bg_color2: #ECEFF1;
     }
 
-    .dark :root, :root.root, :root .dark {
+    .dark .theme-color5, .dark.theme-color5, .theme-color5 .dark {
 
         --root-background-color: black;
         --root-color: white;
 
-        --primary-color: #4364e9;
-        --secondary-color: #1fa1e3;
+        --primary-color: #794cf6;
+        --secondary-color: #78219d;
         --success-color: #51BB25;
         --info-color: #A927F9;
         --warning-color: #F8D62C;
@@ -95,17 +95,17 @@
         --light-color: #2d2e3e;
         --dark-color: #2d3340;
 
-        --hover-color: #fcb600;
+        --hover-color: #8cbcff;
 
-        --filled_primary_text_color: #4364e9;
+        --filled_primary_text_color: #794cf6;
         --contained_primary_text_color: #FFF;
-        --outlined_primary_text_color: #4364e9;
+        --outlined_primary_text_color: #794cf6;
         --filled_primary2_text_color: #000;
         --contained_primary2_text_color: #FFF;
         --outlined_primary2_text_color: #000;
-        --filled_secondary_text_color: #1fa1e3;
+        --filled_secondary_text_color: #78219d;
         --contained_secondary_text_color: #FFF;
-        --outlined_secondary_text_color: #1fa1e3;
+        --outlined_secondary_text_color: #78219d;
         --filled_secondary2_text_color: #000;
         --contained_secondary2_text_color: #000;
         --outlined_secondary2_text_color: #000;
@@ -125,24 +125,24 @@
         --light_selected_row_table_color: #A9B7FC;
         --dark_selected_row_table_color: #A9B7FC;
 
-        --filled_primary_chart_color1: #1fa1e3;
-        --filled_primary_chart_color2: #F73164;
+        --filled_primary_chart_color1: #78219d;
+        --filled_primary_chart_color2: #29B6F6;
         --filled_primary_chart_color3: #FC740D;
-        --contained_primary_chart_color1: #1fa1e3;
-        --contained_primary_chart_color2: #F73164;
+        --contained_primary_chart_color1: #78219d;
+        --contained_primary_chart_color2: #29B6F6;
         --contained_primary_chart_color3: #FC740D;
-        --outlined_primary_chart_color1: #1fa1e3;
-        --outlined_primary_chart_color2: #F73164;
+        --outlined_primary_chart_color1: #78219d;
+        --outlined_primary_chart_color2: #29B6F6;
         --outlined_primary_chart_color3: #FC740D;
-        --filled_secondary_chart_color1: #4364e9;
+        --filled_secondary_chart_color1: #794cf6;
         --filled_secondary_chart_color2: #FC740D;
-        --filled_secondary_chart_color3: #F73164;
-        --contained_secondary_chart_color1: #4364e9;
+        --filled_secondary_chart_color3: #29B6F6;
+        --contained_secondary_chart_color1: #794cf6;
         --contained_secondary_chart_color2: #FC740D;
-        --contained_secondary_chart_color3: #F73164;
-        --outlined_secondary_chart_color1: #4364e9;
+        --contained_secondary_chart_color3: #29B6F6;
+        --outlined_secondary_chart_color1: #794cf6;
         --outlined_secondary_chart_color2: #FC740D;
-        --outlined_secondary_chart_color3: #F73164;
+        --outlined_secondary_chart_color3: #29B6F6;
 
         --filled_primary_chart_bg_color1: #FCF8FE;
         --filled_primary_chart_bg_color2: #F7EEFF;

@@ -4,7 +4,7 @@
 
 @layer base {
 
-    :root {
+    .theme-color1 {
 
         --root-background-color: white;
         --root-color: black;
@@ -81,7 +81,7 @@
         --outlined_secondary_chart_bg_color2: #ECEFF1;
     }
 
-    .dark :root, :root.root, :root .dark {
+    .dark .theme-color1, .dark.theme-color1, .theme-color1 .dark {
 
         --root-background-color: black;
         --root-color: white;
