@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    :root {
+
+        --primary-color: #7366FF;
+        --secondary-color: #F73164;
+        --success-color: #51BB25;
+        --info-color: #A927F9;
+        --warning-color: #F8D62C;
+        --danger-color: #DC3544;
+        --light-color: #F4F4F4;
+        --dark-color: #2C323E;
+
+        --hover-color: #fcb600;
+
+    }
+
+}

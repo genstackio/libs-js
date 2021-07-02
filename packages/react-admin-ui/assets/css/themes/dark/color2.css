@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    .theme-dark-color2 {
+
+        --primary-color: #7366ff;
+        --secondary-color: #F73164;
+        --success-color: #51BB25;
+        --info-color: #A927F9;
+        --warning-color: #F8D62B;
+        --danger-color: #DC3545;
+        --light-color: #F4F4F4;
+        --dark-color: #2C323F;
+
+        --hover-color: #8cbcff;
+
+    }
+
+}

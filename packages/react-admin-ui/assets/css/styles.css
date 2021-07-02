@@ -9,16 +9,26 @@
 /*noinspection CssUnknownTarget*/
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 
+/* themes */
+@import 'themes/default.css';
+@import 'themes/light/color1.css';
+@import 'themes/light/color2.css';
+@import 'themes/light/color3.css';
+@import 'themes/light/color4.css';
+@import 'themes/light/color5.css';
+@import 'themes/light/color6.css';
+@import 'themes/dark/color1.css';
+@import 'themes/dark/color2.css';
+@import 'themes/dark/color3.css';
+@import 'themes/dark/color4.css';
+@import 'themes/dark/color5.css';
+@import 'themes/dark/color6.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
-
-    :root {
-        --primary-color: #059669;
-        --hover-color:#fcb600;
-    }
 
     .x-field-min-h {
         min-height: 64px;
@@ -57,7 +67,6 @@
         border-bottom-color: transparent !important;
     }
 
-    /* Css for Thumbnail :: start */
     .animated {
         -webkit-animation-duration: 1.5s;
         animation-duration: 1.5s;
@@ -125,5 +134,4 @@
         -webkit-animation-name: tada;
         animation-name: tada;
     }
-    /* Css for Thumbnail :: end */
 }

@@ -25,6 +25,7 @@ import * as mocks from './mocks';
 import { textSizes } from '../src/mappings/text-sizes';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import { FullscreenProvider } from '@genstackio/react-contexts/lib/contexts/FullscreenContext';
+import themes from '../src/configs/themes';
 
 const translationNames = Object.keys(translations);
 translationNames.sort();
@@ -109,6 +110,7 @@ export function s(Component, args, opts: any = {}) {
                 locale: true,
                 mocks: true,
             },
+            themes,
         },
     );
 }

@@ -5,7 +5,7 @@ export function st(Component, args, opts: any = {}) {
     story.story = story.story || {};
     story.story.parameters = story.story.parameters || {};
     story.story.parameters.themes = {
-        list: [
+        list: opts.themes || [
             { name: 'orange', class: 'theme-orange', color: 'orange' },
             { name: 'blue', class: 'theme-blue', color: 'blue' },
             { name: 'green', class: 'theme-green', color: 'green' },

@@ -4,7 +4,7 @@ module.exports = {
         content: ['./src/**/*.tsx', './src/**/*.ts'],
         options: {
             safelist: {
-                standard: [/^theme-/],
+                standard: [/theme-/],
             },
         },
     },
@@ -46,14 +46,14 @@ module.exports = {
                 drawer: '280px',
             },
             colors: {
-                primary: '#7366FF',
-                secondary: '#F73164',
-                success: '#51BB25',
-                info: '#A927F9',
-                warning: '#F8D62C',
-                danger: '#DC3544',
-                light: '#F4F4F4',
-                dark: '#2C323E',
+                primary: 'var(--primary-color)',
+                secondary: 'var(--secondary-color)',
+                success: 'var(--success-color)',
+                info: 'var(--info-color)',
+                warning: 'var(--warning-color)',
+                danger: 'var(--danger-color)',
+                light: 'var(--light-color)',
+                dark: 'var(--dark-color)',
             },
             textColors: {
                 filled_primary: '#7366FF',

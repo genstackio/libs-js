@@ -28,6 +28,10 @@ function FullscreenProvider({ value, children }: any) {
 function ThemeProvider({ value, children }: any) {
     value && value.mui && (children = <MuiThemeProvider theme={value.mui}>{children}</MuiThemeProvider>);
     value && value.tailwind && (children = <TailwindProvider value={value.tailwind}>{children}</TailwindProvider>);
+    value &&
+        value.theme &&
+        value.theme !== 'default' &&
+        (children = <div className={`theme-${value.theme}`}>{children}</div>);
     return children;
 }
 
@@ -36,7 +40,7 @@ export function useApp({
     app: { prefix, endpoint, locales, defaultLocale, fallbackLocale, features = {} },
     routes = [],
     translations = {},
-    theme: { mui = {}, tailwind = {} } = {},
+    theme: { mui = {}, tailwind = {}, theme = undefined } = {},
     queries = {},
 }: {
     importer: importer_function;
