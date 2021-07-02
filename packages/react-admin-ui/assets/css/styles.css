@@ -18,15 +18,11 @@
 @import 'themes/color5.css';
 @import 'themes/color6.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer components {
 
     #root {
-        background-color: var(--root-background-color);
-        color: var(--root-color);
+        background-color: var(--color-root-background);
+        color: var(--color-root);
     }
 
     .x-field-min-h {

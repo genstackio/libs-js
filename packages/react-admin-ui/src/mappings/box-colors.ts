@@ -10,6 +10,7 @@ export const boxColors = {
     light: 'bg-light',
     dark: 'bg-dark',
     none: 'bg-white',
+    clear: 'bg-clear',
     default: '',
 };
 
@@ -23,6 +24,7 @@ export type box_color =
     | 'light'
     | 'dark'
     | 'none'
+    | 'clear'
     | 'default';
 
 export const defaultBoxColor = 'default';

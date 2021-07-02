@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { Menu } from '../../molecules';
 import { Clickable, Image, Icon } from '../../atoms';
 import textClass from '../../utils/textClass';
-import { box_color, box_variant, image, menu_item, rich_text, children } from '../../types';
+import { box_color, box_variant, image, menu_item, children } from '../../types';
 
 export function AppLayoutTemplate({ logo, menu, children, toolbar, ...props }: AppLayoutTemplateProps) {
     const [show, setShow] = useState(true);
@@ -46,8 +46,6 @@ export interface AppLayoutTemplateProps {
     color?: box_color;
     logo?: image;
     menu?: menu_item[];
-    title?: rich_text;
-    text?: rich_text;
     toolbar?: ReactNode;
     children?: children;
 }

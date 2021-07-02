@@ -1,29 +1,37 @@
-import clsx from 'clsx';
-import Accordion from './Accordion';
+import MenuFold from '../atoms/MenuFold';
+import MenuItem from '../atoms/MenuItem';
 import SectionHeader from '../atoms/SectionHeader';
-import { menu_item, box_color, rich_text, accordion_variant, class_name } from '../types';
+import { class_name, menu_item, box_color, box_variant } from '../types';
+import clsx from "clsx";
+import boxColorClass from "../mappings/box-colors";
 
-export function Menu({ className, items = [], title, text, color = 'primary', variant = 'light' }: MenuProps) {
-    const hasSection = !!(title || text);
+export function Menu({ className, items = [], color = 'primary', variant = 'contained' }: MenuProps) {
     return (
-        <div>
-            <SectionHeader title={title} subtitle={text} color={color} />
-            <Accordion
-                className={clsx('x-m-small', hasSection && 'mt-0', className)}
-                items={items}
-                color={color}
-                variant={variant}
-                expandIcon={'navigate_next'}
-            />
+        <div className={clsx(boxColorClass('clear'), className)}>
+            {items.map(({ type, ...item }, index) => (
+                <>
+                    {'section' === type && (
+                        <SectionHeader
+                            title={item.label}
+                            subtitle={item.description}
+                            color={color}
+                            variant={variant}
+                            key={index}
+                        />
+                    )}
+                    {'menu' === type && <MenuFold key={index} color={color} variant={'light'} {...item} />}
+                    {'item' === type && <MenuItem key={index} color={color} variant={'light'} {...item} />}
+                </>
+            ))}
         </div>
     );
 }
 
 export interface MenuProps {
     className?: class_name;
-    color?: box_color;
     items: menu_item[];
-    title?: rich_text;
-    text?: rich_text;
-    variant?: accordion_variant;
+    color?: box_color;
+    variant?: box_variant;
 }
+
+export default Menu;

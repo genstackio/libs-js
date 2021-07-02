@@ -1,0 +1,26 @@
+/* the content of this file has been generated, do not edit manually */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --tw-bg-opacity: 1;
+    --tw-text-opacity: 1;
+}
+
+@layer components {
+
+    <%= cssSelector %> {
+<% Object.entries(cssVariables).forEach(([k, v]) => { %>
+        --<%= k -%>: <%= v.value -%>;<%= v.comment ? `/* ${v.comment} */` : '' -%><% }); %>
+
+    }
+
+    <%= cssDarkSelector %> {
+<% Object.entries(cssDarkVariables).forEach(([k, v]) => { %>
+        --<%= k -%>: <%= v.value -%>;<%= v.comment ? `/* ${v.comment} */` : '' -%><% }); %>
+
+    }
+
+}

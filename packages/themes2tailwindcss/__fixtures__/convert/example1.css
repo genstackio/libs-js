@@ -1,0 +1,25 @@
+/* the content of this file has been generated, do not edit manually */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --tw-bg-opacity: 1;
+    --tw-text-opacity: 1;
+}
+
+@layer components {
+
+    .theme-thm1 {
+
+        --color-primary: 255, 255, 255;/* #ffffff */
+
+    }
+
+    .dark.theme-thm1, .dark .theme-thm1, .theme-thm1 .dark {
+
+
+    }
+
+}

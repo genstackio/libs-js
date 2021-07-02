@@ -208,6 +208,7 @@ export const args = {
     series: { control: { type: 'object' } },
     shape: { control: { type: 'select' }, options: Object.keys(shapes) },
     size: { control: { type: 'select' }, options: ['xs', 'sm', 'md', 'lg', 'xl'] },
+    target: { control: { type: 'text' } },
     textSize: { control: { type: 'select' }, options: Object.keys(textSizes) },
     spinnerVariant: { control: { type: 'select' }, options: Object.keys(spinnerVariants) },
     spinnerSize: { control: { type: 'select' }, options: Object.keys(spinnerSizes) },

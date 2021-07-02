@@ -20,8 +20,9 @@
         "access": "public"
     },
     "scripts": {
+        "generate-themes": "themes2tailwindcss ./assets/themes ./assets/css/themes",
         "generate-svg-components": "svg2comp ./assets/svg ./src/images && svg2comp ./assets/svg/icons ./src/images/icons && svg2comp ./assets/svg/icons/flags ./src/images/icons/flags",
-        "generate": "yarn --silent generate-svg-components",
+        "generate": "yarn --silent generate-svg-components && yarn --silent generate-themes",
         "build": "yarn --silent generate && tsc",
         "test": "../../node_modules/.bin/jest -c ../../jest.config.js --rootDir=`pwd`",
         "story": "yarn --silent generate && start-storybook -c ../../.storybook -p 6006",
