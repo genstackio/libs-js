@@ -2,6 +2,7 @@ export * from './ArcChart';
 export * from './AreaChart';
 export * from './AreaLineChart';
 export * from './BarChart';
+export * from './BackgroundCircularChart';
 export * from './CircleChart';
 export * from './FiguresChart';
 export * from './LineChart';
