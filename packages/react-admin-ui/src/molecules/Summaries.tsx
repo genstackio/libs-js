@@ -16,7 +16,7 @@ export function Summaries({ className, items }: SummariesProps) {
                                 { percentage < 0 && (<Icon icon={'keyboard_arrow_down'}/>)}
                             </div>
                             <Text text={unit} color={'dark'} variant={'description'} />
-                            <Text text={`${value}` + ' M'} color={'dark'} variant={'title6'} />
+                            <Text text={value} color={'dark'} variant={'title6'} />
                         </div>
                     ))}
                 </div>
@@ -30,7 +30,7 @@ export interface SummariesProps {
     items?: {
         color: box_color;
         unit?: string;
-        value?: number;
+        value?: string;
         percentage: number;
         icon?: icon;
     }[];
