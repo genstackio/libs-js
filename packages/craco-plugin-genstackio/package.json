@@ -1,6 +1,6 @@
 {
     "name": "@genstackio/craco-plugin-genstackio",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "CRACO plugin by Genstackio",
     "license": "MIT",
     "main": "lib/index.js",
