@@ -27,6 +27,7 @@ export * from './MenuButtonWidget';
 export * from './Modal';
 export * from './Pagination';
 export * from './Pricing';
+export * from './Summaries';
 export * from './Table';
 export * from './TabPanel';
 export * from './TextBlock';
