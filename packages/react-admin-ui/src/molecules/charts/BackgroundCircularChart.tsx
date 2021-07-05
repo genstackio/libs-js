@@ -22,7 +22,7 @@ const defaultOptions: ApexOptions = {
         radialBar: {
             hollow: {
                 margin: 0,
-                size: "70%"
+                size: '70%',
             },
             inverseOrder: true,
             startAngle: 0,
@@ -46,14 +46,14 @@ const defaultOptions: ApexOptions = {
         type: 'image',
         image: {
             width: 350,
-        }
+        },
     },
     stroke: {
-        lineCap: "round"
+        lineCap: 'round',
     },
 };
 
-export function BackgroundCircularChart({ className, color = 'dark', value , image }: BackgroundCircularChartProps) {
+export function BackgroundCircularChart({ className, color = 'dark', value, image }: BackgroundCircularChartProps) {
     const options = {
         ...defaultOptions,
         colors: [tailwindColors[color]],

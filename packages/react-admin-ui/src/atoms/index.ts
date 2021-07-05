@@ -8,6 +8,7 @@ export * from './Button';
 export * from './Buttons';
 export * from './Clickable';
 export * from './Column';
+export * from './Comment';
 export * from './Container';
 export * from './Divider';
 export * from './Dropdown';
