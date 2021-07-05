@@ -1,0 +1,32 @@
+{
+    "name": "@genstackio/craco-plugin-genstackio",
+    "version": "0.0.0",
+    "description": "CRACO plugin by Genstackio",
+    "license": "MIT",
+    "main": "lib/code.js",
+    "types": "lib/code.d.ts",
+    "directories": {
+        "lib": "lib",
+        "test": "__tests__"
+    },
+    "files": [
+        "lib"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "build": "tsc",
+        "test": "../../node_modules/.bin/jest -c ../../jest.config.js --rootDir=`pwd`"
+    },
+    "dependencies": {
+        "null-loader": "^4.0.1"
+    },
+    "peerDependencies": {
+        "@craco/craco": "^6.2.0"
+    },
+    "devDependencies": {
+        "typescript": "^4.3.4",
+        "@craco/craco": "^6.2.0"
+    }
+}
