@@ -46,11 +46,7 @@ export function Icon({ count = 0, icon, size, onClick, color, ...props }: IconPr
                 }
                 if (size) {
                     content = (
-                        <MuiIcon
-                            color={iconColor}
-                            {...props}
-                            className={clsx(textSizeClass({ size }), className)}
-                        >
+                        <MuiIcon color={iconColor} {...props} className={clsx(textSizeClass({ size }), className)}>
                             {icon}
                         </MuiIcon>
                     );

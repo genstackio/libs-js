@@ -1,4 +1,4 @@
-const {addBeforeLoader, loaderByName} = require('@craco/craco');
+import { addBeforeLoader, loaderByName } from '@craco/craco';
 
 export function configureGenstackioTypingsIgnore({ webpackConfig }) {
     const l = {
@@ -11,4 +11,4 @@ export function configureGenstackioTypingsIgnore({ webpackConfig }) {
     return webpackConfig;
 }
 
-export default configureGenstackioTypingsIgnore
+export default configureGenstackioTypingsIgnore;
