@@ -22,17 +22,17 @@ const Template = (args) => <Summaries {...args} />;
 export const basic = s(Template, {
     items: [
         {
-            value: 1001,
+            value: '1001M',
             unit: 'Year',
             percentage: 54,
         },
         {
-            value: 1005,
+            value: '1005M',
             unit: 'Month',
             percentage: 0,
         },
         {
-            value: 100,
+            value: '100M',
             unit: 'Today',
             percentage: 24,
         },
@@ -44,17 +44,17 @@ export const inPrimaryBlock = s(({color, ...args}) => <Block color={color} varia
     {
     items: [
         {
-            value: 1001,
+            value: '1001M',
             unit: 'Year',
             percentage: 54,
         },
         {
-            value: 1005,
+            value: '1005M',
             unit: 'Month',
             percentage: 0,
         },
         {
-            value: 100,
+            value: '100M',
             unit: 'Today',
             percentage: 24,
         },
