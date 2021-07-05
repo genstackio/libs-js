@@ -12,7 +12,7 @@ export function MessageToolbarItem({ className }: MessageToolbarItemProps) {
     return (
         <Icon
             count={messages.length}
-            icon={'chat_bubble_outline'}
+            icon={'@message'}
             color={color}
             onClick={toggle}
             className={clsx('flex cursor-pointer', className)}

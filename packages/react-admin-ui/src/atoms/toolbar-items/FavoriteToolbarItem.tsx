@@ -3,7 +3,7 @@ import Icon from '../Icon';
 import { class_name } from '../../types';
 
 export function FavoriteToolbarItem({ className }: FavoriteToolbarItemProps) {
-    return <Icon icon={'star_border'} className={clsx('flex cursor-pointer', className)} />;
+    return <Icon icon={'@favorite'} className={clsx('flex cursor-pointer', className)} />;
 }
 
 export interface FavoriteToolbarItemProps {

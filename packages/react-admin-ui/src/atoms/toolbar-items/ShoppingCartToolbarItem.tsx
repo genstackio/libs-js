@@ -3,7 +3,7 @@ import Icon from '../Icon';
 import { class_name } from '../../types';
 
 export function ShoppingCartToolbarItem({ className }: ShoppingCartToolbarItemProps) {
-    return <Icon icon={'shopping_cart'} className={clsx('flex cursor-pointer', className)} />;
+    return <Icon icon={'@shoppingCart'} className={clsx('flex cursor-pointer', className)} />;
 }
 
 export interface ShoppingCartToolbarItemProps {

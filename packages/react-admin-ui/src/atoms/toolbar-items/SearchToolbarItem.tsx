@@ -7,7 +7,7 @@ export function SearchToolbarItem({ className, onChange, onToggle, active = fals
     return (
         <>
             {!active ? (
-                <Icon icon={'search'} onClick={onToggle} className={clsx('flex cursor-pointer', className)} />
+                <Icon icon={'@search'} onClick={onToggle} className={clsx('flex cursor-pointer', className)} />
             ) : (
                 <SearchBar defaultFocus onClear={onToggle} onChange={onChange} className={className} />
             )}
