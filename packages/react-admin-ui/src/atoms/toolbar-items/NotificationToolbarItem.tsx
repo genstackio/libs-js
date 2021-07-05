@@ -9,7 +9,7 @@ export function NotificationToolbarItem({ className }: NotificationToolbarItemPr
 
     return (
         <Icon
-            icon={'notifications_none'}
+            icon={'@notification'}
             color={color}
             onClick={toggle}
             className={clsx('flex cursor-pointer', className)}
