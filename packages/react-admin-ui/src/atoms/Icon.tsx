@@ -21,6 +21,7 @@ function mapColor(c) {
 
 export function Icon({ count = 0, icon, size, onClick, color, ...props }: IconProps) {
     if (!icon) return null;
+    let className = props.className;
     let content;
     switch (typeof icon) {
         case 'string':
@@ -39,12 +40,16 @@ export function Icon({ count = 0, icon, size, onClick, color, ...props }: IconPr
                 content = <TheIcon {...props} />;
             } else {
                 const iconColor = mapColor(color);
+                if ('fa-' === icon.slice(0, 3)) {
+                    className = clsx('fa', icon, className);
+                    icon = null;
+                }
                 if (size) {
                     content = (
                         <MuiIcon
                             color={iconColor}
                             {...props}
-                            className={clsx(textSizeClass({ size }), props.className)}
+                            className={clsx(textSizeClass({ size }), className)}
                         >
                             {icon}
                         </MuiIcon>
