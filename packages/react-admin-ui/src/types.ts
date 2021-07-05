@@ -43,6 +43,7 @@ export type item = { badge?: badge; content?: rich_text | string[]; icon?: icon;
 export type menu_item = item;
 export type spinner_variant = 'dots' | 'dotted-circle' | 'full-circle' | 'half-circle' | 'separate-circle' | 'squares';
 export type accordion_item = item;
+export type infos_item = { label?: rich_text; value?: rich_text };
 export type list_item = { badge?: badge; color?: box_color; text?: rich_text };
 export type faq_item = accordion_item;
 export type chart_serie = number[];
