@@ -1,9 +1,13 @@
 import {configureGenstackioTypingsIgnore} from "./features";
 
-const plugin = {
+export const plugin = {
     overrideWebpackConfig: function (opts) {
         return configureGenstackioTypingsIgnore(opts)
     }
 };
 
-export default plugin
+const factory = function (options: any =  {}) {
+    return {plugin, options};
+}
+
+export default factory
