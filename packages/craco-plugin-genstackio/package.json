@@ -1,6 +1,6 @@
 {
     "name": "@genstackio/craco-plugin-genstackio",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "CRACO plugin by Genstackio",
     "license": "MIT",
     "main": "lib/code.js",
@@ -26,7 +26,7 @@
         "@craco/craco": "^6.2.0"
     },
     "devDependencies": {
-        "typescript": "^4.3.4",
-        "@craco/craco": "^6.2.0"
+        "@craco/craco": "^6.2.0",
+        "typescript": "^4.3.4"
     }
 }
