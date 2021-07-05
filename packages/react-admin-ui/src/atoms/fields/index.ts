@@ -35,4 +35,5 @@ export * from './TwitterField';
 export * from './UrlField';
 export * from './UsernameField';
 export * from './SwitchField';
+export * from './WeekField';
 export * from './ZipCodeField';
