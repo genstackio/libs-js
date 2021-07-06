@@ -19,13 +19,16 @@ import { spinnerVariants, spinnerSizes, spinnerColors } from '../src/mappings/sp
 import { statuses } from '../src/mappings/statuses';
 import { textVariants } from '../src/mappings/text-variants';
 import { argtypes, st } from '@genstackio/react-storybook';
-import { useMemo } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import * as mocks from './mocks';
 import { textSizes } from '../src/mappings/text-sizes';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import { FullscreenProvider } from '@genstackio/react-contexts/lib/contexts/FullscreenContext';
 import themes from '../src/configs/themes';
+import { IconsProvider } from '../../react-contexts/lib/IconsProvider';
+import icons from './configs/icons';
+import { DarkModeProvider } from '@genstackio/react-contexts/lib/contexts/DarkModeContext';
 
 const translationNames = Object.keys(translations);
 translationNames.sort();
@@ -59,14 +62,35 @@ function Provider(args) {
         [],
     );
     const handle = useFullScreenHandle();
-
+    const iconsProviderValue = icons;
+    const [darkMode, setDarkMode] = useState<any>('default');
+    const handleSetDarkMode = useCallback(
+        (value) => {
+            switch (value) {
+                case 'dark':
+                    document.getElementById('root')?.classList.add('dark');
+                    break;
+                default:
+                case 'default':
+                    document.getElementById('root')?.classList.remove('dark');
+                    break;
+            }
+            setDarkMode(value);
+        },
+        [setDarkMode],
+    );
+    const darkModeValue = { darkMode, setDarkMode: handleSetDarkMode };
     return (
         <FullScreen handle={handle}>
             <FullscreenProvider value={handle}>
                 <ApiProvider value={apiProviderValue}>
                     <LocalesProvider value={locales}>
                         <StylesProvider injectFirst>
-                            <I18nextProvider i18n={i18n}>{args.children}</I18nextProvider>
+                            <I18nextProvider i18n={i18n}>
+                                <IconsProvider value={iconsProviderValue}>
+                                    <DarkModeProvider value={darkModeValue}>{args.children}</DarkModeProvider>
+                                </IconsProvider>
+                            </I18nextProvider>
                         </StylesProvider>
                     </LocalesProvider>
                 </ApiProvider>

@@ -27,7 +27,7 @@ export function SearchBar({ className, defaultFocus = false, onClear, onChange }
                 className,
             )}
         >
-            <Icon icon={'search'} />
+            <Icon icon={'fa-search'} size={'lg'} />
             <InputBase
                 placeholder={t('search_bar_placeholder')}
                 className={'flex-1'}
