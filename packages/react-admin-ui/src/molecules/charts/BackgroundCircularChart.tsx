@@ -1,8 +1,9 @@
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
-import { box_color, class_name, image } from '../../types';
+import { box_color, class_name, image, summary_item } from '../../types';
 import clsx from 'clsx';
+import Summaries from "../Summaries";
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 
@@ -53,7 +54,7 @@ const defaultOptions: ApexOptions = {
     },
 };
 
-export function BackgroundCircularChart({ className, color = 'dark', value, image }: BackgroundCircularChartProps) {
+export function BackgroundCircularChart({ className, color = 'dark', value, image, summaries}: BackgroundCircularChartProps) {
     const options = {
         ...defaultOptions,
         colors: [tailwindColors[color]],
@@ -63,7 +64,10 @@ export function BackgroundCircularChart({ className, color = 'dark', value, imag
     options.plotOptions.radialBar!.dataLabels!.value!.color = tailwindColors[color];
     options.fill!.image!.src = image.url;
 
-    return <Chart type={'radialBar'} options={options} series={[[value]]} className={clsx(className)} />;
+    return <>
+        <Chart type={'radialBar'} options={options} series={[[value]]} className={clsx(className)} />
+        {summaries && <Summaries items={summaries}/>}
+        </>;
 }
 
 export interface BackgroundCircularChartProps {
@@ -71,6 +75,7 @@ export interface BackgroundCircularChartProps {
     color?: box_color;
     value: number;
     image: image;
+    summaries?: summary_item[];
 }
 
 export default BackgroundCircularChart;
