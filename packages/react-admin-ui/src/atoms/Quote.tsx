@@ -1,6 +1,6 @@
+import clsx from 'clsx';
 import { class_name, rich_text } from '../types';
 import alignmentClass, { alignment } from '../mappings/alignments';
-import clsx from 'clsx';
 
 const textPositions = {
     left: 'border-l-4 p-4 blockquote',

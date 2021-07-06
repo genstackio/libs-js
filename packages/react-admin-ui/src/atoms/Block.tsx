@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import clsx from 'clsx';
 import boxClass from '../utils/boxClass';
 import { box_color, block_variant, padding, image, class_name, children, corner, target } from '../types';
@@ -6,7 +7,6 @@ import BlockHeader, { BlockHeaderProps } from './BlockHeader';
 import BlockFooter, { BlockFooterProps } from './BlockFooter';
 import BlockContent, { BlockContentProps } from './BlockContent';
 import elevationClass, { elevation } from '../mappings/elevations';
-import { useMemo } from 'react';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
 
 export function Block({

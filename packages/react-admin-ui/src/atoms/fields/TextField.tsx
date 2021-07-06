@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { class_name, flag, icon, register, rich_text } from '../../types';
-import { useField } from '../../hooks/useField';
+import useField from '../../hooks/useField';
 import FieldSet from '../FieldSet';
 
 export function TextField(props: TextFieldProps) {

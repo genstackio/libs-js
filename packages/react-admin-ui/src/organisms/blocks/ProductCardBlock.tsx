@@ -1,6 +1,9 @@
-import { box_color, class_name, image, target } from '../../types';
-import { Block, Image, Text, Rating } from '../../atoms';
 import clsx from 'clsx';
+import { box_color, class_name, image, target } from '../../types';
+import Block from '../../atoms/Block';
+import Image from '../../atoms/Image';
+import Text from '../../atoms/Text';
+import Rating from '../../atoms/Rating';
 
 export function ProductCardBlock({
     className,

@@ -7,7 +7,10 @@ import { withStyles } from '@material-ui/core/styles';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
-import { Clickable, Icon, Badge, Text } from '../atoms';
+import Clickable from '../atoms/Clickable';
+import Icon from '../atoms/Icon';
+import Badge from '../atoms/Badge';
+import Text from '../atoms/Text';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
 
 const StyledAccordion = withStyles({

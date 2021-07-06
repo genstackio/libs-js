@@ -1,6 +1,6 @@
-import { Image } from '../atoms';
-import { class_name, gallery_image } from '../types';
 import clsx from 'clsx';
+import Image from '../atoms/Image';
+import { class_name, gallery_image } from '../types';
 
 export function Gallery({ className, items = [] }: GalleryProps) {
     return (

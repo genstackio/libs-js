@@ -1,4 +1,6 @@
-import { Badge, BaseBlockProps, Block, Progress } from '../../atoms';
+import Badge from '../../atoms/Badge';
+import Block, { BaseBlockProps } from '../../atoms/Block';
+import Progress from '../../atoms/Progress';
 import formatAmount from '../../utils/formatAmount';
 
 export function GoalBlock({ badgeLabel, unit, values, ...props }: GoalBlockProps) {

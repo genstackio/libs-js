@@ -1,5 +1,5 @@
-import { class_name } from '../types';
 import clsx from 'clsx';
+import { class_name } from '../types';
 
 export function FieldError({ className, error }: FieldErrorProps) {
     if (!error) return null;

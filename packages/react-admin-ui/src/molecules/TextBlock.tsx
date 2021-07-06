@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import textClass from '../utils/textClass';
-import { BaseBlockProps, Block, Icon, Text } from '../atoms';
+import Block, { BaseBlockProps } from '../atoms/Block';
+import Icon from '../atoms/Icon';
+import Text from '../atoms/Text';
 import { icon, rich_text } from '../types';
 
 export function TextBlock({ icon, text, title, ...props }: TextBlockProps) {

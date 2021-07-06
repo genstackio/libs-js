@@ -1,8 +1,13 @@
-import { Column, Clickable, Button, Form, OtpField, Text } from '../../atoms';
+import clsx from 'clsx';
+import Column from '../../atoms/Column';
+import Clickable from '../../atoms/Clickable';
+import Button from '../../atoms/Button';
+import Form from '../../atoms/Form';
+import OtpField from '../../atoms/fields/OtpField';
+import Text from '../../atoms/Text';
 import { useTranslation } from 'react-i18next';
 import { box_color } from '../../mappings/box-colors';
 import { class_name } from '../../types';
-import clsx from 'clsx';
 
 export function FillInOtpForgotPasswordForm({
     className,

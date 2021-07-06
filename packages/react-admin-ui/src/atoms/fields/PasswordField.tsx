@@ -1,5 +1,5 @@
-import TextField, { TextFieldProps } from './TextField';
 import { useMemo } from 'react';
+import TextField, { TextFieldProps } from './TextField';
 import { useTranslation } from 'react-i18next';
 
 export function PasswordField({ options = {}, ...props }: PasswordFieldProps) {

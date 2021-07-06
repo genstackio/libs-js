@@ -2,7 +2,8 @@ import clsx from 'clsx';
 import { rich_text, text_component, class_name, flag } from '../types';
 import textColorClass, { text_color } from '../mappings/text-colors';
 import textVariantClass, { text_variant } from '../mappings/text-variants';
-import { box_context_value, useBox } from '@genstackio/react-contexts';
+import { box_context_value } from '@genstackio/react-contexts/lib/types';
+import useBox from '@genstackio/react-contexts/lib/hooks/useBox';
 
 const mappings = {
     // contained

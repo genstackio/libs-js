@@ -1,6 +1,6 @@
-import { Progress } from '../../atoms';
-import { class_name, rich_text } from '../../types';
 import clsx from 'clsx';
+import Progress from '../../atoms/Progress';
+import { class_name, rich_text } from '../../types';
 
 export function UsageChart({ className, max, unit, value }: UsageChartProps) {
     return (

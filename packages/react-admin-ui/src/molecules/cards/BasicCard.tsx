@@ -1,5 +1,7 @@
 import { image, rich_text, target } from '../../types';
-import { BaseBlockProps, Block, Image, Text } from '../../atoms';
+import Block, { BaseBlockProps } from '../../atoms/Block';
+import Image from '../../atoms/Image';
+import Text from '../../atoms/Text';
 
 export function BasicCard({ description, image, title, ...props }: BasicCardProps) {
     return (

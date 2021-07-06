@@ -1,7 +1,8 @@
 import { useCallback, useState } from 'react';
 import clsx from 'clsx';
-import { BaseBlockProps, Block, Icon } from '../../atoms';
-import { Kpi } from '../../molecules';
+import Block, { BaseBlockProps } from '../../atoms/Block';
+import Icon from '../../atoms/Icon';
+import Kpi from '../../molecules/Kpi';
 import { icon } from '../../types';
 
 export function KpiBlock({ icon, name, quantity, bgIcon, ...props }: KpiBlockProps) {

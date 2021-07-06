@@ -1,7 +1,7 @@
+import clsx from 'clsx';
 import { Children } from 'react';
 import { useForm } from 'react-hook-form';
 import { class_name, children } from '../types';
-import clsx from 'clsx';
 
 export function Form({ className, defaultValues, children, onSubmit }: FormProps) {
     const {

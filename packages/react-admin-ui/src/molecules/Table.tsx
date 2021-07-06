@@ -1,9 +1,9 @@
+import clsx from 'clsx';
 import { DataGrid, GridCellParams, GridColDef, GridValueFormatterParams } from '@material-ui/data-grid';
 import { makeStyles } from '@material-ui/core/styles';
 import tailwindConfig from '../../tailwind.config';
 import { box_color, class_name, flag, table_column, table_row } from '../types';
-import { Badge } from '../atoms';
-import clsx from 'clsx';
+import Badge from '../atoms/Badge';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 const tailwindTextColors = tailwindConfig.theme.extend.textColors;

@@ -1,7 +1,7 @@
-import Accordion from './Accordion';
-import { SectionHeader } from '../atoms';
-import { menu_item, box_color, rich_text, accordion_variant, class_name } from '../types';
 import clsx from 'clsx';
+import Accordion from './Accordion';
+import SectionHeader from '../atoms/SectionHeader';
+import { menu_item, box_color, rich_text, accordion_variant, class_name } from '../types';
 
 export function Menu({ className, items = [], title, text, color = 'primary', variant = 'light' }: MenuProps) {
     const hasSection = !!(title || text);

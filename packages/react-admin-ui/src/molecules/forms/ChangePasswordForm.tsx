@@ -1,4 +1,4 @@
-import { useForm } from '../../hooks/useForm';
+import useForm from '../../hooks/useForm';
 import { BaseFormProps } from './BaseForm';
 import CurrentPasswordField from '../../atoms/fields/CurrentPasswordField';
 import NewPasswordField from '../../atoms/fields/NewPasswordField';

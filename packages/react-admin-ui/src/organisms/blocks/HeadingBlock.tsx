@@ -1,5 +1,9 @@
-import { Avatar, BaseBlockProps, Block, Button, Pill, Text } from '../../atoms';
-import { Corner } from '../../molecules';
+import Avatar from '../../atoms/Avatar';
+import Block, { BaseBlockProps } from '../../atoms/Block';
+import Button from '../../atoms/Button';
+import Pill from '../../atoms/Pill';
+import Text from '../../atoms/Text';
+import Corner from '../../molecules/Corner';
 import { flag, image, icon_variant } from '../../types';
 
 export function HeadingBlock({

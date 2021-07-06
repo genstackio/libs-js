@@ -1,7 +1,7 @@
+import clsx from 'clsx';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { progress_variant } from '../mappings/progress-variants';
-import clsx from 'clsx';
 import { class_name } from '../types';
 
 const variants = {

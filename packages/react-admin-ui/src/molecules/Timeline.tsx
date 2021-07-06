@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import MuiTimeline from '@material-ui/lab/Timeline';
 import TimelineItem from '@material-ui/lab/TimelineItem';
 import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
@@ -5,7 +6,6 @@ import TimelineConnector from '@material-ui/lab/TimelineConnector';
 import TimelineContent from '@material-ui/lab/TimelineContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
 import { class_name, timeline_item } from '../types';
-import clsx from 'clsx';
 
 export function Timeline({ className, items }: TimelineProps) {
     return (

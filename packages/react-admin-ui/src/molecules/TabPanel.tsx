@@ -1,5 +1,5 @@
-import { children, class_name } from '../types';
 import clsx from 'clsx';
+import { children, class_name } from '../types';
 
 export function TabPanel({ className, children, value, index, ...props }: TabPanelProps) {
     return (

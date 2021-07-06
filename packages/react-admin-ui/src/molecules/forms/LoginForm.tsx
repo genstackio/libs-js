@@ -1,12 +1,10 @@
-import {
-    Clickable,
-    LocaleChange,
-    UsernameField,
-    PasswordField,
-    RememberPasswordField,
-    Button,
-    Text,
-} from '../../atoms';
+import Clickable from '../../atoms/Clickable';
+import LocaleChange from '../../atoms/LocaleChange';
+import UsernameField from '../../atoms/fields/UsernameField';
+import PasswordField from '../../atoms/fields/PasswordField';
+import RememberPasswordField from '../../atoms/fields/RememberPasswordField';
+import Button from '../../atoms/Button';
+import Text from '../../atoms/Text';
 import { useCallback } from 'react';
 import { class_name, flag, locale } from '../../types';
 import { BaseFormProps } from './BaseForm';

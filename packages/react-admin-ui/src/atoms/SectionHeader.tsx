@@ -1,7 +1,7 @@
-import { box_color, class_name, rich_text } from '../types';
-import { Block } from './Block';
-import { Text } from './Text';
 import clsx from 'clsx';
+import { box_color, class_name, rich_text } from '../types';
+import Block from './Block';
+import Text from './Text';
 
 export function SectionHeader({ className, color = 'primary', title, subtitle }: SectionHeaderProps) {
     return title || subtitle ? (

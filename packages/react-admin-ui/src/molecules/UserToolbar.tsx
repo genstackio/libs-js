@@ -3,16 +3,14 @@ import clsx from 'clsx';
 import MenuButton from './MenuButton';
 import { useTranslation } from 'react-i18next';
 import { children, class_name } from '../types';
-import {
-    DarkModeToolbarItem,
-    FavoriteToolbarItem,
-    FullscreenToolbarItem,
-    LanguageToolbarItem,
-    MessageToolbarItem,
-    NotificationToolbarItem,
-    SearchToolbarItem,
-    ShoppingCartToolbarItem,
-} from '../atoms/toolbar-items';
+import DarkModeToolbarItem from '../atoms/toolbar-items/DarkModeToolbarItem';
+import FavoriteToolbarItem from '../atoms/toolbar-items/FavoriteToolbarItem';
+import FullscreenToolbarItem from '../atoms/toolbar-items/FullscreenToolbarItem';
+import LanguageToolbarItem from '../atoms/toolbar-items/LanguageToolbarItem';
+import MessageToolbarItem from '../atoms/toolbar-items/MessageToolbarItem';
+import NotificationToolbarItem from '../atoms/toolbar-items/NotificationToolbarItem';
+import SearchToolbarItem from '../atoms/toolbar-items/SearchToolbarItem';
+import ShoppingCartToolbarItem from '../atoms/toolbar-items/ShoppingCartToolbarItem';
 import { useToggle } from '../hooks/useToggle';
 
 export function UserToolbar({ className, user, onSearch, onLogout, children }: UserToolbarProps) {

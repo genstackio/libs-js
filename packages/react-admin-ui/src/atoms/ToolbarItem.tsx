@@ -1,8 +1,8 @@
+import { useCallback } from 'react';
 import clsx from 'clsx';
 import Icon from './Icon';
 import { class_name, text_size } from '../types';
-import { useToggle } from '../hooks';
-import { useCallback } from 'react';
+import useToggle from '../hooks/useToggle';
 
 export function ToolbarItem({ className, icon, activeIcon, active, onToggle, size = 'lg', count }: ToolbarItemProps) {
     const [localActive, toggle] = useToggle(active);

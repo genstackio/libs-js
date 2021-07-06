@@ -1,9 +1,9 @@
+import { ChangeEvent, useCallback, useState } from 'react';
+import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import MuiPagination from '@material-ui/lab/Pagination';
-import { ChangeEvent, useCallback, useState } from 'react';
 import { box_color, basic_size, flag, class_name } from '../types';
 import tailwindConfig from '../../tailwind.config';
-import clsx from 'clsx';
 
 const ellipsisPaddings = {
     lg: 8,

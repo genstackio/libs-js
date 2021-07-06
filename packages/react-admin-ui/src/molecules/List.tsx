@@ -1,5 +1,5 @@
-import Badge from '../atoms/Badge';
 import clsx from 'clsx';
+import Badge from '../atoms/Badge';
 import { badge, box_color, class_name, list_item } from '../types';
 import boxClass from '../utils/boxClass';
 

@@ -1,6 +1,7 @@
-import { Text, Icon } from '../atoms';
-import { box_color, class_name, icon } from '../types';
 import clsx from 'clsx';
+import Text from '../atoms/Text';
+import Icon from '../atoms/Icon';
+import { box_color, class_name, icon } from '../types';
 
 export function Summaries({ className, items }: SummariesProps) {
     return (

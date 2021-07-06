@@ -1,8 +1,8 @@
+import clsx from 'clsx';
 import Button from '../../atoms/Button';
 import { box_color, class_name, icon } from '../../types';
-import { Icon } from '../../atoms/Icon';
+import Icon from '../../atoms/Icon';
 import AreaLineChart from './AreaLineChart';
-import clsx from 'clsx';
 
 export function SummaryChart({
     className,

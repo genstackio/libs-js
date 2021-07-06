@@ -1,5 +1,6 @@
 import { text_color, class_name, infos_item } from '../types';
-import { Block, Text } from '../atoms';
+import Block from '../atoms/Block';
+import Text from '../atoms/Text';
 
 export function Infos({ color = 'primary', items = [], ...props }: InfosProps) {
     return (

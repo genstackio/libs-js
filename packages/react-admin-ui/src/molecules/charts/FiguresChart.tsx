@@ -1,8 +1,8 @@
+import clsx from 'clsx';
 import Chart from 'react-apexcharts';
-import { Text } from '../../atoms/Text';
+import Text from '../../atoms/Text';
 import { ApexOptions } from 'apexcharts';
 import { box_color, class_name } from '../../types';
-import clsx from 'clsx';
 
 const defaultOptions = {
     chart: {

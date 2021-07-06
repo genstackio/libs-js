@@ -1,5 +1,5 @@
-import { children, class_name, flag, ribbon_position, rich_text } from '../types';
 import clsx from 'clsx';
+import { children, class_name, flag, ribbon_position, rich_text } from '../types';
 import boxClass from '../utils/boxClass';
 import Icon from './Icon';
 import { box_color } from '../mappings/box-colors';

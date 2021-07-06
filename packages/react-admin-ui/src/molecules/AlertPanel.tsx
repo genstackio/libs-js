@@ -1,4 +1,4 @@
-import { Alert, AlertProps } from '../atoms';
+import Alert, { AlertProps } from '../atoms/Alert';
 import { rich_text } from '../types';
 
 export function AlertPanel({ children, title, ...props }: AlertPanelProps) {

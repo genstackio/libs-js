@@ -1,11 +1,11 @@
+import clsx from 'clsx';
 import Chart from 'react-apexcharts';
-import { Text } from '../../atoms/Text';
-import { Icon } from '../../atoms/Icon';
+import Text from '../../atoms/Text';
+import Icon from '../../atoms/Icon';
 import formatAmount from '../../utils/formatAmount';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
 import { box_color, box_variant, class_name } from '../../types';
-import clsx from 'clsx';
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 

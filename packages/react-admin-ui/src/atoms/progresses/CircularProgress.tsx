@@ -1,6 +1,6 @@
+import clsx from 'clsx';
 import MuiCircularProgress from '@material-ui/core/CircularProgress';
 import { class_name } from '../../types';
-import clsx from 'clsx';
 
 export function CircularProgress({ className, value = 0 }: CircularProgressProps) {
     return (

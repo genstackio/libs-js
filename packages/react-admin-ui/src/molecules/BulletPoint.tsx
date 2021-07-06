@@ -1,6 +1,7 @@
-import { Icon, Text } from '../atoms';
-import { box_color, box_variant, class_name, icon, rich_text } from '../types';
 import clsx from 'clsx';
+import Icon from '../atoms/Icon';
+import Text from '../atoms/Text';
+import { box_color, box_variant, class_name, icon, rich_text } from '../types';
 
 export function BulletPoint({ className, icon, text, title, color }: BulletPointProps) {
     return (

@@ -1,6 +1,7 @@
-import { Image, Text } from '../atoms';
-import { box_color, class_name, image } from '../types';
 import clsx from 'clsx';
+import Image from '../atoms/Image';
+import Text from '../atoms/Text';
+import { box_color, class_name, image } from '../types';
 
 export function CentralTemplate({ className, color = 'primary', image, message }: CentralTemplateProps) {
     return (

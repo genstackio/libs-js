@@ -1,20 +1,18 @@
 import { useCallback, useMemo } from 'react';
-import { useMutationApi } from '@genstackio/react-contexts';
+import useMutationApi from '@genstackio/react-contexts/lib/hooks/useMutationApi';
 import computeActionErrorMessage from '../utils/computeActionErrorMessage';
 import { useTranslation } from 'react-i18next';
-
-export type action_preexecute_callback = (order: any) => Promise<any>;
-export type action_postexecute_callback = (result: any) => Promise<any>;
-export type action_prepare_callback = (data: any) => Promise<any>;
-export type action_notify_callback = (result: any) => Promise<void>;
-export type action_convert_callback = (result: any) => Promise<any>;
-export type action_onsuccess_callback = (result: any) => Promise<void>;
-export type action_processerror_callback = (
-    error: any,
-    context: { name: string; t: Function; values: any; options: any },
-) => Promise<void>;
-export type action_converterror_callback = (error: any, context: { name: string; t: Function; options: any }) => any;
-export type action_formaterror_callback = (error: any) => any;
+import {
+    action_convert_callback,
+    action_converterror_callback,
+    action_formaterror_callback,
+    action_notify_callback,
+    action_onsuccess_callback,
+    action_postexecute_callback,
+    action_preexecute_callback,
+    action_prepare_callback,
+    action_processerror_callback,
+} from '../types';
 
 const preExecute: action_preexecute_callback = async (order) => order;
 const postExecute: action_postexecute_callback = async (result) => result;

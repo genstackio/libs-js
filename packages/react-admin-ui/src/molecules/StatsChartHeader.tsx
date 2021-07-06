@@ -1,7 +1,7 @@
-import { Text } from '../atoms/Text';
-import { Icon } from '../atoms/Icon';
-import { class_name, rich_text } from '../types';
 import clsx from 'clsx';
+import Text from '../atoms/Text';
+import Icon from '../atoms/Icon';
+import { class_name, rich_text } from '../types';
 
 export function StatsChartHeader({ className, subtitle, stats, value }: StatsChartHeaderProps) {
     return (

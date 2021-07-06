@@ -1,6 +1,6 @@
+import clsx from 'clsx';
 import Avatar from '../atoms/Avatar';
 import { avatar_item, class_name } from '../types';
-import clsx from 'clsx';
 
 export function Avatars({ className, items = [] }: AvatarsProps) {
     return (

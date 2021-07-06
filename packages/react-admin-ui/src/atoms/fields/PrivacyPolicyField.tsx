@@ -1,5 +1,5 @@
 import CheckboxField, { CheckboxFieldProps } from './CheckboxField';
-import { Text } from '../Text';
+import Text from '../Text';
 import { text_color } from '../../mappings/text-colors';
 import { useTranslation } from 'react-i18next';
 import Clickable from '../Clickable';

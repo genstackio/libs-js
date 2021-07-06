@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import clsx from 'clsx';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
 import Image from '../atoms/Image';
@@ -6,7 +7,6 @@ import Popper from '@material-ui/core/Popper';
 import MenuButtonWidget from './MenuButtonWidget';
 import { box_color, class_name, image, menu_button_item, rich_text } from '../types';
 import Clickable from '../atoms/Clickable';
-import clsx from 'clsx';
 
 export function MenuButton({ className, image, label, description, items = [], color }: MenuButtonProps) {
     const [opened, setOpened] = useState(false);

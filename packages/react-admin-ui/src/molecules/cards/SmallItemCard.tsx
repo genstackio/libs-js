@@ -1,8 +1,11 @@
 import { useCallback, useState } from 'react';
-import Rating from '../../atoms/Rating';
-import { Badge, Icon, Image, Text } from '../../atoms';
-import { badge, children, class_name, flag, image, rich_text } from '../../types';
 import clsx from 'clsx';
+import Rating from '../../atoms/Rating';
+import Badge from '../../atoms/Badge';
+import Icon from '../../atoms/Icon';
+import Image from '../../atoms/Image';
+import Text from '../../atoms/Text';
+import { badge, children, class_name, flag, image, rich_text } from '../../types';
 
 export function SmallItemCard({
     className,

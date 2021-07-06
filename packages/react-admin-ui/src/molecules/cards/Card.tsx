@@ -1,7 +1,12 @@
-import { Clickable, Image, Block, Tag, Text, Rating } from '../../atoms';
-import { box_color, box_variant, class_name, image, rich_text, target } from '../../types';
 import { useCallback, useState } from 'react';
 import clsx from 'clsx';
+import Clickable from '../../atoms/Clickable';
+import Image from '../../atoms/Image';
+import Block from '../../atoms/Block';
+import Tag from '../../atoms/Tag';
+import Text from '../../atoms/Text';
+import Rating from '../../atoms/Rating';
+import { box_color, box_variant, class_name, image, rich_text, target } from '../../types';
 
 export function Card({
     className,

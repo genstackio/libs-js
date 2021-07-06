@@ -94,3 +94,16 @@ export type clsxm_params = {
 export type locale = { value: string; language: rich_text };
 export type menu_button_item = { icon?: icon; label?: rich_text; target?: target };
 export type rating_value = { value: string | number; label?: string };
+
+export type action_preexecute_callback = (order: any) => Promise<any>;
+export type action_postexecute_callback = (result: any) => Promise<any>;
+export type action_prepare_callback = (data: any) => Promise<any>;
+export type action_notify_callback = (result: any) => Promise<void>;
+export type action_convert_callback = (result: any) => Promise<any>;
+export type action_onsuccess_callback = (result: any) => Promise<void>;
+export type action_processerror_callback = (
+    error: any,
+    context: { name: string; t: Function; values: any; options: any },
+) => Promise<void>;
+export type action_converterror_callback = (error: any, context: { name: string; t: Function; options: any }) => any;
+export type action_formaterror_callback = (error: any) => any;

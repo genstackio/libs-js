@@ -1,11 +1,11 @@
+import clsx from 'clsx';
 import FieldLabel from '../FieldLabel';
 import FieldError from '../FieldError';
 import FieldHelper from '../FieldHelper';
 import { class_name, flag, register } from '../../types';
-import { useField } from '../../hooks/useField';
+import useField from '../../hooks/useField';
 import MuiSwitch from '@material-ui/core/Switch';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 
 const useStyles = makeStyles({
     root: {

@@ -1,6 +1,8 @@
-import { children, class_name, image, rich_text } from '../../types';
-import { Block, Image, Text } from '../../atoms';
 import clsx from 'clsx';
+import { children, class_name, image, rich_text } from '../../types';
+import Block from '../../atoms/Block';
+import Image from '../../atoms/Image';
+import Text from '../../atoms/Text';
 
 export function MiniCard({ className, children, description, image, title }: MiniCardProps) {
     return (

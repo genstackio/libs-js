@@ -1,5 +1,5 @@
-import { children, class_name } from '../types';
 import clsx from 'clsx';
+import { children, class_name } from '../types';
 
 export function FormFooter({ className, children }: FormFooterProps) {
     if (!children) return null;

@@ -1,7 +1,7 @@
-import { class_name, rich_text } from '../types';
-import { Text } from './Text';
-import { text_color } from '../mappings/text-colors';
 import clsx from 'clsx';
+import { class_name, rich_text } from '../types';
+import Text from './Text';
+import { text_color } from '../mappings/text-colors';
 
 export function PeriodBlock({ className, color, text, value }: PeriodBlockProps) {
     return (

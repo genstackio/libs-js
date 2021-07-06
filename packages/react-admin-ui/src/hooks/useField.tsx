@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
+import clsx from 'clsx';
 import { icon, register, rich_text } from '../types';
 import { useTranslation } from 'react-i18next';
-import { Icon } from '../atoms';
-import clsx from 'clsx';
+import Icon from '../atoms/Icon';
 
 // noinspection JSUnusedLocalSymbols
 export function useField(

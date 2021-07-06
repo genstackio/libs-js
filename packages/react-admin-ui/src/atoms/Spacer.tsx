@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
-import { class_name, space_variant } from '../types';
 import clsx from 'clsx';
+import { class_name, space_variant } from '../types';
 
 export function Spacer({ className, variant = 'default', size = 1, unitSize = 4 }: SpacerProps) {
     const styles = useMemo(() => {

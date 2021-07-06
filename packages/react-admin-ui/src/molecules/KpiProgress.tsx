@@ -1,4 +1,6 @@
-import { BaseBlockProps, Block, Progress, Text } from '../atoms';
+import Block, { BaseBlockProps } from '../atoms/Block';
+import Progress from '../atoms/Progress';
+import Text from '../atoms/Text';
 import { rich_text } from '../types';
 
 export function KpiProgress({ goal, text, unit, value, ...props }: KpiProgressProps) {

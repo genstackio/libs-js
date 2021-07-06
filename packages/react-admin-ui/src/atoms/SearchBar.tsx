@@ -1,8 +1,8 @@
 import { useCallback, useState } from 'react';
 import clsx from 'clsx';
-import { Icon } from './';
+import Icon from './Icon';
 import { class_name, flag } from '../types';
-import { InputBase } from '@material-ui/core';
+import InputBase from '@material-ui/core/InputBase';
 import { useTranslation } from 'react-i18next';
 
 export function SearchBar({ className, defaultFocus = false, onClear, onChange }: SearchBarProps) {

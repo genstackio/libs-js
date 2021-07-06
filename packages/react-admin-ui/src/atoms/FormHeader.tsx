@@ -1,5 +1,5 @@
-import { children, class_name } from '../types';
 import clsx from 'clsx';
+import { children, class_name } from '../types';
 
 export function FormHeader({ className, children }: FormHeaderProps) {
     if (!children) return null;

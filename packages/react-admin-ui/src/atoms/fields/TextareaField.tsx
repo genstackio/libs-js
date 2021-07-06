@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { class_name, flag, register } from '../../types';
-import { useField } from '../../hooks/useField';
+import useField from '../../hooks/useField';
 import FieldSet from '../FieldSet';
 
 export function TextareaField({ className, ...props }: TextareaFieldProps) {

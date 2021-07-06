@@ -1,15 +1,13 @@
-import {
-    FirstNameField,
-    LastNameField,
-    UsernameField,
-    PasswordField,
-    PrivacyPolicyField,
-    Text,
-    Button,
-} from '../../atoms';
-import { useForm } from '../../hooks/useForm';
-import { flag } from '../../types';
 import { useCallback } from 'react';
+import FirstNameField from '../../atoms/fields/FirstNameField';
+import LastNameField from '../../atoms/fields/LastNameField';
+import UsernameField from '../../atoms/fields/UsernameField';
+import PasswordField from '../../atoms/fields/PasswordField';
+import PrivacyPolicyField from '../../atoms/fields/PrivacyPolicyField';
+import Text from '../../atoms/Text';
+import Button from '../../atoms/Button';
+import useForm from '../../hooks/useForm';
+import { flag } from '../../types';
 import { BaseFormProps } from './BaseForm';
 import Clickable from '../../atoms/Clickable';
 

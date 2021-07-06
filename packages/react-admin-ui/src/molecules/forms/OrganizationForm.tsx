@@ -1,15 +1,13 @@
-import { useForm } from '../../hooks/useForm';
-import {
-    FieldGroup,
-    LastNameField,
-    CityField,
-    AddressField,
-    AdditionalAddressField,
-    ZipCodeField,
-    PhoneField,
-    EmailField,
-    UrlField,
-} from '../../atoms';
+import useForm from '../../hooks/useForm';
+import FieldGroup from '../../atoms/FieldGroup';
+import LastNameField from '../../atoms/fields/LastNameField';
+import CityField from '../../atoms/fields/CityField';
+import AddressField from '../../atoms/fields/AddressField';
+import AdditionalAddressField from '../../atoms/fields/AdditionalAddressField';
+import ZipCodeField from '../../atoms/fields/ZipCodeField';
+import PhoneField from '../../atoms/fields/PhoneField';
+import EmailField from '../../atoms/fields/EmailField';
+import UrlField from '../../atoms/fields/UrlField';
 import { BaseFormProps } from './BaseForm';
 
 export function OrganizationForm(props: OrganizationFormProps) {

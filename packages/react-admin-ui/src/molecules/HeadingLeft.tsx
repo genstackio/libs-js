@@ -1,6 +1,6 @@
-import { class_name, rich_text } from '../types';
-import { Text } from '../atoms/Text';
 import clsx from 'clsx';
+import { class_name, rich_text } from '../types';
+import Text from '../atoms/Text';
 
 export function HeadingLeft({ className, title, description }: HeadingLeftProps) {
     return (

@@ -1,7 +1,7 @@
+import clsx from 'clsx';
 import { createStyles, withStyles, Theme } from '@material-ui/core/styles';
 import MuiLinearProgress from '@material-ui/core/LinearProgress';
 import { class_name } from '../../types';
-import clsx from 'clsx';
 
 const BorderLinearProgress = withStyles((theme: Theme) =>
     createStyles({

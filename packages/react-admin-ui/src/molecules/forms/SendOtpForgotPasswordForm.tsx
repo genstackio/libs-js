@@ -1,9 +1,11 @@
-import { Button, Text, PhoneField } from '../../atoms';
+import clsx from 'clsx';
+import Button from '../../atoms/Button';
+import Text from '../../atoms/Text';
+import PhoneField from '../../atoms/fields/PhoneField';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { box_color } from '../../mappings/box-colors';
 import { class_name } from '../../types';
-import clsx from 'clsx';
 
 export function SendOtpForgotPasswordForm({
     className,

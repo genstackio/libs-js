@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { image } from '../types';
-import { Image } from '../atoms';
-import { Container } from '../atoms';
+import Image from '../atoms/Image';
+import Container from '../atoms/Container';
 
 export function Login2Template({ image, logo, bgColor, form }: Login2TemplateProps) {
     return (

@@ -1,5 +1,5 @@
-import TextField, { TextFieldProps } from './TextField';
 import { useMemo } from 'react';
+import TextField, { TextFieldProps } from './TextField';
 
 export function NumberField({ options = {}, ...props }: NumberFieldProps) {
     options = useMemo(

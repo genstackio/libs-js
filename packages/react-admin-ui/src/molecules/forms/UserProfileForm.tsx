@@ -1,13 +1,11 @@
-import {
-    EmailField,
-    FirstNameField,
-    LastNameField,
-    PhoneField,
-    AddressField,
-    BirthDateField,
-    GenderField,
-} from '../../atoms/fields';
-import { useForm } from '../../hooks/useForm';
+import EmailField from '../../atoms/fields/EmailField';
+import FirstNameField from '../../atoms/fields/FirstNameField';
+import LastNameField from '../../atoms/fields/LastNameField';
+import PhoneField from '../../atoms/fields/PhoneField';
+import AddressField from '../../atoms/fields/AddressField';
+import BirthDateField from '../../atoms/fields/BirthDateField';
+import GenderField from '../../atoms/fields/GenderField';
+import useForm from '../../hooks/useForm';
 import { BaseFormProps } from './BaseForm';
 
 export function UserProfileForm(props: UserProfileFormProps) {

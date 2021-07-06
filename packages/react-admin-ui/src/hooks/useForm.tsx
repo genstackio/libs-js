@@ -1,10 +1,10 @@
+import { useCallback, useMemo } from 'react';
+import clsx from 'clsx';
 import { useForm as useRhfForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { box_color } from '../mappings/box-colors';
-import { useCallback, useMemo } from 'react';
 import BaseForm from '../molecules/forms/BaseForm';
-import { Button } from '../atoms/Button';
-import clsx from 'clsx';
+import Button from '../atoms/Button';
 import { class_name } from '../types';
 
 export function useForm(

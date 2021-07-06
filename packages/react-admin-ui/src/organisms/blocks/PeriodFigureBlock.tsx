@@ -1,4 +1,6 @@
-import { BaseBlockProps, Block, Icon, PeriodBlock } from '../../atoms';
+import Block, { BaseBlockProps } from '../../atoms/Block';
+import Icon from '../../atoms/Icon';
+import PeriodBlock from '../../atoms/PeriodBlock';
 import { icon } from '../../types';
 
 export function PeriodFigureBlock({ icon, items = [], ...props }: PeriodFigureBlockProps) {

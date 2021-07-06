@@ -1,6 +1,6 @@
+import { useMemo } from 'react';
 import clsx from 'clsx';
 import spinnerClass, { spinner_variant, spinner_size, spinner_color } from '../mappings/spinners';
-import { useMemo } from 'react';
 import { class_name } from '../types';
 
 export function Spinner({ className, variant = 'half-circle', size = 'md', color = 'primary' }: SpinnerProps) {

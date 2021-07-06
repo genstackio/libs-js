@@ -1,6 +1,6 @@
+import clsx from 'clsx';
 import Tag from '../atoms/Tag';
 import { box_color, box_variant, class_name, corner_item, icon_variant, rich_text } from '../types';
-import clsx from 'clsx';
 
 export function Corner({ className, color, iconCorner, items = [], text, variant, ...props }: CornerProps) {
     return (

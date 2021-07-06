@@ -1,7 +1,6 @@
+import { useMemo, MouseEvent } from 'react';
 import { children, class_name, flag, target } from '../types';
-import { useMemo } from 'react';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import * as React from 'react';
 
 export function Clickable({
     className,
@@ -64,7 +63,7 @@ export interface ClickableProps {
     inline?: flag;
     optional?: flag;
     style?: any;
-    onClickAway?: (event: React.MouseEvent<Document>) => void;
+    onClickAway?: (event: MouseEvent<Document>) => void;
     visible?: flag;
 }
 

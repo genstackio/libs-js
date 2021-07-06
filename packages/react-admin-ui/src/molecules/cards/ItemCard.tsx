@@ -1,4 +1,7 @@
-import { Block, Tag, Icon, Text } from '../../atoms';
+import Block from '../../atoms/Block';
+import Tag from '../../atoms/Tag';
+import Icon from '../../atoms/Icon';
+import Text from '../../atoms/Text';
 import { box_color, box_variant, icon, rich_text, text_size } from '../../types';
 
 export function ItemCard({

@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import { box_color } from '../../types';
-import { Icon, Block, Text, BaseBlockProps } from '../../atoms';
+import Icon from '../../atoms/Icon';
+import Block, { BaseBlockProps } from '../../atoms/Block';
+import Text from '../../atoms/Text';
 import textClass from '../../utils/textClass';
 import boxClass from '../../utils/boxClass';
 

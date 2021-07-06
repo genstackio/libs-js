@@ -10,7 +10,7 @@ export function Tag({ className, color, icon, size, text, variant }: TagProps) {
         <div
             className={clsx(
                 boxClass({ color, variant, size }),
-                'inline-flex pr-4 pl-4 rounded-lg text-white font-bold uppercase pt-1 py-1 space-x-1',
+                'inline-flex px-4 rounded-lg text-white font-bold uppercase py-1 space-x-1',
                 className,
             )}
         >

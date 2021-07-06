@@ -1,10 +1,10 @@
+import clsx from 'clsx';
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import { box_color, class_name, rich_text } from '../../types';
 import tailwindConfig from '../../../tailwind.config';
 import Text from '../../atoms/Text';
 import { lighten } from '@material-ui/core/styles';
-import clsx from 'clsx';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 

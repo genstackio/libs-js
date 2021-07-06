@@ -1,4 +1,6 @@
-import { Icon, Text, Button } from '../atoms';
+import Icon from '../atoms/Icon';
+import Text from '../atoms/Text';
+import Button from '../atoms/Button';
 import { box_color, box_variant, target } from '../types';
 
 export function MaintenanceTemplate({

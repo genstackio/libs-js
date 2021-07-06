@@ -1,6 +1,7 @@
-import { Icon, Text } from '../atoms';
-import { box_color, class_name, icon } from '../types';
 import clsx from 'clsx';
+import Icon from '../atoms/Icon';
+import Text from '../atoms/Text';
+import { box_color, class_name, icon } from '../types';
 import boxClass from '../utils/boxClass';
 
 export function Kpi({ className, icon, name, quantity, color }: KpiProps) {

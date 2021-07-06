@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import Dropzone from 'react-dropzone-uploader/dist/react-dropzone-uploader';
-import { Block } from '../atoms';
+import Block from '../atoms/Block';
 import { box_color, box_variant, class_name, rich_text } from '../types';
 
 const defaultDropzoneStyle = {

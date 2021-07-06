@@ -1,8 +1,8 @@
 import { MouseEventHandler } from 'react';
-import { Button } from '../atoms';
+import clsx from 'clsx';
+import Button from '../atoms/Button';
 import MuiModal from '@material-ui/core/Modal';
 import { action_item, children, class_name, flag, rich_text } from '../types';
-import clsx from 'clsx';
 
 export function Modal({ className, buttonsItems = [], children, onClose, opened = false, title }: ModalProps) {
     return (

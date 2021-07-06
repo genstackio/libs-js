@@ -1,5 +1,7 @@
 import { box_color, icon, rich_text, target } from '../types';
-import { Button, Icon, Text } from '../atoms';
+import Button from '../atoms/Button';
+import Icon from '../atoms/Icon';
+import Text from '../atoms/Text';
 
 export function ErrorTemplate({ actions, code, color, icon, message }: ErrorTemplateProps) {
     return (

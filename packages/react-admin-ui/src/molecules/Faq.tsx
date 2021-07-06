@@ -1,6 +1,6 @@
-import { Accordion } from './';
-import { box_color, box_variant, class_name, faq_item } from '../types';
 import clsx from 'clsx';
+import Accordion from './Accordion';
+import { box_color, box_variant, class_name, faq_item } from '../types';
 
 export function Faq({ className, color, expandIcon, items = [], variant }: FaqProps) {
     return (

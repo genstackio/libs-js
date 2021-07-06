@@ -1,5 +1,5 @@
-import clsxmp from '../utils/clsxmp';
 import clsx from 'clsx';
+import clsxmp from '../utils/clsxmp';
 
 export const spinners = {
     // xs

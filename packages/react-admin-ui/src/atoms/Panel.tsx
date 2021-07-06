@@ -7,10 +7,7 @@ import Row from './Row';
 
 export function Panel({ className, children, color = 'primary', variant = 'contained' }: PanelProps) {
     return (
-        <Row
-            center
-            className={clsx(boxClass({ color, variant }), 'px-4 py-4 leading-normal justify-between', className)}
-        >
+        <Row center className={clsx(boxClass({ color, variant }), 'p-4 leading-normal justify-between', className)}>
             {children || ''}
         </Row>
     );

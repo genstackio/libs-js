@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
 import { class_name, flag, register } from '../../types';
-import { useField } from '../../hooks';
+import useField from '../../hooks/useField';
 import FieldSet from '../FieldSet';
 import Row from '../Row';
 

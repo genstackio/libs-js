@@ -3,7 +3,7 @@ import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import AppBar from '@material-ui/core/AppBar';
 import bgClass from '../../utils/bgClass';
-import { BaseBlockProps, Block } from '../../atoms';
+import Block, { BaseBlockProps } from '../../atoms/Block';
 import TabPanel from '../../molecules/TabPanel';
 import { tab_item } from '../../types';
 

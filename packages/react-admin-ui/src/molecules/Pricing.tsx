@@ -1,5 +1,7 @@
 import clsx from 'clsx';
-import { Block, Button, Text } from '../atoms';
+import Block from '../atoms/Block';
+import Button from '../atoms/Button';
+import Text from '../atoms/Text';
 import boxClass from '../utils/boxClass';
 import { class_name, pricing_item } from '../types';
 

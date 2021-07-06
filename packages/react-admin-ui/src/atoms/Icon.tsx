@@ -1,40 +1,14 @@
+import clsx from 'clsx';
 import { class_name, icon, target, text_color, text_size } from '../types';
 import MuiIcon from '@material-ui/core/Icon';
 import textSizeClass from '../utils/textSizeClass';
-import clsx from 'clsx';
 import Clickable from './Clickable';
 import Image from './Image';
 import Loadable from '@loadable/component';
-import { Badge } from '@material-ui/core';
+import Badge from '@material-ui/core/Badge';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-const faSizeMapping: { [key: string]: 'xs' | 'sm' | 'lg' | '2x' | '3x' | '5x' | '7x' | '10x' } = {
-    xs: 'xs',
-    sm: 'sm',
-    md: 'lg',
-    base: 'lg',
-    lg: 'lg',
-    xl: '2x',
-    '2xl': '2x',
-    '3xl': '3x',
-    '4xl': '3x',
-    '5xl': '5x',
-    '6xl': '5x',
-    '7xl': '7x',
-    '8xl': '7x',
-    '9xl': '10x',
-};
-const colorMap: { [key: string]: undefined | 'primary' | 'secondary' | 'inherit' | 'action' | 'error' } = {
-    primary: 'primary',
-    secondary: 'secondary',
-    danger: 'error',
-    default: undefined,
-    inherit: 'inherit',
-};
-
-function mapColor(c) {
-    return colorMap[c || 'default'] || colorMap['default'];
-}
+import { mapFaSize } from '../mappings/fa-sizes';
+import { mapIconColor } from '../mappings/icon-colors';
 
 export function Icon({ count = 0, icon, size, onClick, color, ...props }: IconProps) {
     if (!icon) return null;
@@ -56,16 +30,12 @@ export function Icon({ count = 0, icon, size, onClick, color, ...props }: IconPr
                 const TheIcon = Loadable(() => import(`../images/icons/${name}`).catch(() => () => <div />));
                 content = <TheIcon {...props} />;
             } else {
-                const iconColor = mapColor(color);
+                const iconColor = mapIconColor(color);
                 if ('fa-' === icon.slice(0, 3)) {
                     let xx = icon.slice(3).split(/--/g) as any;
                     xx.length === 1 && (xx = xx[0]);
                     content = (
-                        <FontAwesomeIcon
-                            icon={xx}
-                            className={className}
-                            {...(size ? { size: faSizeMapping[size || 'base'] || faSizeMapping['base'] } : {})}
-                        />
+                        <FontAwesomeIcon icon={xx} className={className} {...(size ? { size: mapFaSize(size) } : {})} />
                     );
                     break;
                 }

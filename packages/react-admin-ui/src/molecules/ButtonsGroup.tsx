@@ -1,6 +1,6 @@
-import { Button } from '../atoms/Button';
-import { action_item, class_name } from '../types';
 import clsx from 'clsx';
+import Button from '../atoms/Button';
+import { action_item, class_name } from '../types';
 
 export function ButtonsGroup({ className, actions = [] }: ButtonsGroupProps) {
     return (

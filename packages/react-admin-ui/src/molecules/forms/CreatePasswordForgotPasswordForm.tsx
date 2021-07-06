@@ -1,8 +1,13 @@
-import { RememberPasswordField, Button, Form, Text, PasswordField, PasswordConfirmationField } from '../../atoms';
+import clsx from 'clsx';
+import RememberPasswordField from '../../atoms/fields/RememberPasswordField';
+import Button from '../../atoms/Button';
+import Form from '../../atoms/Form';
+import Text from '../../atoms/Text';
+import PasswordField from '../../atoms/fields/PasswordField';
+import PasswordConfirmationField from '../../atoms/fields/PasswordConfirmationField';
 import { useTranslation } from 'react-i18next';
 import { box_color } from '../../mappings/box-colors';
 import { class_name, flag } from '../../types';
-import clsx from 'clsx';
 
 export function CreatePasswordForgotPasswordForm({
     className,

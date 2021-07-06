@@ -1,6 +1,7 @@
-import { Tag, Pill } from '../atoms';
-import { class_name, pill, tag } from '../types';
 import clsx from 'clsx';
+import Tag from '../atoms/Tag';
+import Pill from '../atoms/Pill';
+import { class_name, pill, tag } from '../types';
 
 export function Figure({ className, pill, price, tag, title }: FigureProps) {
     return (

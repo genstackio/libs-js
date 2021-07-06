@@ -1,6 +1,6 @@
-import { class_name } from '../types';
-import Button from './Button';
 import clsx from 'clsx';
+import Button from './Button';
+import { class_name } from '../types';
 
 export function Buttons({ className, buttons = [] }: ButtonsProps) {
     return (

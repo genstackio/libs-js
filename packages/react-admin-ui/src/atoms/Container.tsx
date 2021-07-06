@@ -1,5 +1,5 @@
-import { children, class_name, flag, image, target } from '../types';
 import clsx from 'clsx';
+import { children, class_name, flag, image, target } from '../types';
 import cornerClass, { corner } from '../mappings/corners';
 import Clickable from './Clickable';
 

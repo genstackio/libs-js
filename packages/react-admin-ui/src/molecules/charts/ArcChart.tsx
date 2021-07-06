@@ -1,8 +1,8 @@
+import clsx from 'clsx';
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
 import { box_color, class_name } from '../../types';
-import clsx from 'clsx';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 

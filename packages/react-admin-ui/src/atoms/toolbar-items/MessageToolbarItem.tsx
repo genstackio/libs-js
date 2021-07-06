@@ -1,5 +1,5 @@
 import ToolbarItem, { BaseToolbarItemProps } from '../ToolbarItem';
-import { useMessages } from '@genstackio/react-contexts';
+import useMessages from '@genstackio/react-contexts/lib/hooks/useMessages';
 
 export function MessageToolbarItem(props: MessageToolbarItemProps) {
     const { messages } = useMessages();

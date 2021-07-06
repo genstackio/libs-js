@@ -1,12 +1,12 @@
+import { ReactNode } from 'react';
+import clsx from 'clsx';
 import { box_color } from '../../mappings/box-colors';
 import { class_name, flag, rich_text } from '../../types';
-import { ReactNode } from 'react';
 import AlertPanel from '../AlertPanel';
 import Text from '../../atoms/Text';
 import Column from '../../atoms/Column';
 import FormHeader from '../../atoms/FormHeader';
-import { FormFooter } from '../../atoms';
-import clsx from 'clsx';
+import FormFooter from '../../atoms/FormFooter';
 
 export function BaseForm({
     className,

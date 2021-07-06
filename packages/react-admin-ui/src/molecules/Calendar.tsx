@@ -1,5 +1,5 @@
-import { class_name } from '../types';
 import clsx from 'clsx';
+import { class_name } from '../types';
 
 export function Calendar({ className }: CalendarProps) {
     return <div className={clsx(className)}>CALENDAR</div>;

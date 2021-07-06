@@ -1,4 +1,5 @@
-import { BaseBlockProps, Block, Button } from '../../atoms';
+import Block, { BaseBlockProps } from '../../atoms/Block';
+import Button from '../../atoms/Button';
 import { news_item } from '../../types';
 
 export function NewsBlock({ items = [], btnLabel, ...props }: NewsBlockProps) {
