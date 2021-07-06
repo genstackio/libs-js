@@ -6,7 +6,24 @@ import Clickable from './Clickable';
 import Image from './Image';
 import Loadable from '@loadable/component';
 import { Badge } from '@material-ui/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+const faSizeMapping: { [key: string]: 'xs' | 'sm' | 'lg' | '2x' | '3x' | '5x' | '7x' | '10x' } = {
+    xs: 'xs',
+    sm: 'sm',
+    md: 'lg',
+    base: 'lg',
+    lg: 'lg',
+    xl: '2x',
+    '2xl': '2x',
+    '3xl': '3x',
+    '4xl': '3x',
+    '5xl': '5x',
+    '6xl': '5x',
+    '7xl': '7x',
+    '8xl': '7x',
+    '9xl': '10x',
+};
 const colorMap: { [key: string]: undefined | 'primary' | 'secondary' | 'inherit' | 'action' | 'error' } = {
     primary: 'primary',
     secondary: 'secondary',
@@ -21,7 +38,7 @@ function mapColor(c) {
 
 export function Icon({ count = 0, icon, size, onClick, color, ...props }: IconProps) {
     if (!icon) return null;
-    let className = props.className;
+    const className = props.className;
     let content;
     switch (typeof icon) {
         case 'string':
@@ -41,8 +58,16 @@ export function Icon({ count = 0, icon, size, onClick, color, ...props }: IconPr
             } else {
                 const iconColor = mapColor(color);
                 if ('fa-' === icon.slice(0, 3)) {
-                    className = clsx('fa', icon, className);
-                    icon = null;
+                    let xx = icon.slice(3).split(/--/g) as any;
+                    xx.length === 1 && (xx = xx[0]);
+                    content = (
+                        <FontAwesomeIcon
+                            icon={xx}
+                            className={className}
+                            {...(size ? { size: faSizeMapping[size || 'base'] || faSizeMapping['base'] } : {})}
+                        />
+                    );
+                    break;
                 }
                 if (size) {
                     content = (

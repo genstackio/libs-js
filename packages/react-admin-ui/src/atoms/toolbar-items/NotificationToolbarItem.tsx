@@ -1,24 +1,9 @@
-import Icon from '../Icon';
-import { class_name } from '../../types';
-import { useToggle } from '../../hooks/useToggle';
-import clsx from 'clsx';
+import ToolbarItem, { BaseToolbarItemProps } from '../ToolbarItem';
 
-export function NotificationToolbarItem({ className }: NotificationToolbarItemProps) {
-    const [active, toggle] = useToggle();
-    const color = active ? 'danger' : 'inherit';
-
-    return (
-        <Icon
-            icon={'@notification'}
-            color={color}
-            onClick={toggle}
-            className={clsx('flex cursor-pointer', className)}
-        />
-    );
+export function NotificationToolbarItem(props: NotificationToolbarItemProps) {
+    return <ToolbarItem {...props} icon={'fa-far--bell'} activeIcon={'fa-bell'} />;
 }
 
-export interface NotificationToolbarItemProps {
-    className?: class_name;
-}
+export type NotificationToolbarItemProps = BaseToolbarItemProps;
 
 export default NotificationToolbarItem;

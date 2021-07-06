@@ -100,6 +100,10 @@ export type locales_context_value = {
 
 export type message_level = 'success' | 'info' | 'error' | 'warning' | 'debug' | 'question';
 
+export type icons_context_value = {
+    fa?: any[];
+};
+
 export type message = {
     message: string;
     level?: message_level;

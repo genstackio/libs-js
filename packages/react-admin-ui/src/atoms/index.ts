@@ -41,4 +41,5 @@ export * from './Tag';
 export * from './Text';
 export * from './texts';
 export * from './Thumbnail';
+export * from './ToolbarItem';
 export * from './toolbar-items';

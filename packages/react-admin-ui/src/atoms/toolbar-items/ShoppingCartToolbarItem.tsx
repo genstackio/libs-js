@@ -1,13 +1,9 @@
-import clsx from 'clsx';
-import Icon from '../Icon';
-import { class_name } from '../../types';
+import ToolbarItem, { BaseToolbarItemProps } from '../ToolbarItem';
 
-export function ShoppingCartToolbarItem({ className }: ShoppingCartToolbarItemProps) {
-    return <Icon icon={'@shoppingCart'} className={clsx('flex cursor-pointer', className)} />;
+export function ShoppingCartToolbarItem(props: ShoppingCartToolbarItemProps) {
+    return <ToolbarItem {...props} icon={'fa-shopping-cart'} activeIcon={'fa-cart-arrow-down'} />;
 }
 
-export interface ShoppingCartToolbarItemProps {
-    className?: class_name;
-}
+export type ShoppingCartToolbarItemProps = BaseToolbarItemProps;
 
 export default ShoppingCartToolbarItem;

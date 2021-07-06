@@ -1,13 +1,9 @@
-import clsx from 'clsx';
-import Icon from '../Icon';
-import { class_name } from '../../types';
+import ToolbarItem, { BaseToolbarItemProps } from '../ToolbarItem';
 
-export function FavoriteToolbarItem({ className }: FavoriteToolbarItemProps) {
-    return <Icon icon={'@favorite'} className={clsx('flex cursor-pointer', className)} />;
+export function FavoriteToolbarItem(props: FavoriteToolbarItemProps) {
+    return <ToolbarItem {...props} icon={'fa-far--star'} activeIcon={'fa-star'} />;
 }
 
-export interface FavoriteToolbarItemProps {
-    className?: class_name;
-}
+export type FavoriteToolbarItemProps = BaseToolbarItemProps;
 
 export default FavoriteToolbarItem;

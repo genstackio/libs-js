@@ -16,6 +16,7 @@ import { FavoritesProvider } from './contexts/FavoritesContext';
 import {
     dark_mode_context_value,
     favorites_context_value,
+    icons_context_value,
     images_context_value,
     importer_context_params,
     locales_context_value,
@@ -28,6 +29,7 @@ export function AppProvider({
     translationProvider: TranslationProvider,
     graphqlProvider: GraphqlProvider,
     fullScreenProvider: FullscreenProvider,
+    iconsProvider: IconsProvider,
     locales,
     images,
     error,
@@ -47,8 +49,10 @@ export function AppProvider({
     notifications,
     messages,
     darkMode,
+    icons,
 }: AppProviderProps) {
     let content = children || '';
+    icons && IconsProvider && (content = <IconsProvider value={icons}>{content}</IconsProvider>);
     favorites && (content = <FavoritesProvider value={favorites}>{content}</FavoritesProvider>);
     notifications && (content = <NotificationsProvider value={notifications}>{content}</NotificationsProvider>);
     messages && (content = <MessagesProvider value={messages}>{content}</MessagesProvider>);
@@ -79,6 +83,7 @@ export interface AppProviderProps {
     translationProvider?: any;
     graphqlProvider?: any;
     fullScreenProvider?: any;
+    iconsProvider?: any;
     locales?: locales_context_value;
     images?: images_context_value;
     error: any;
@@ -93,6 +98,7 @@ export interface AppProviderProps {
     navigation: any;
     importer?: importer_context_params;
     fullscreen?: any;
+    icons?: icons_context_value;
     messages?: messages_context_value;
     notifications?: notifications_context_value;
     favorites?: favorites_context_value;

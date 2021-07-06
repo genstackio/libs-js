@@ -7,6 +7,7 @@ import { TailwindProvider } from '@genstackio/react-contexts/lib/contexts/Tailwi
 import { importer_function } from '@genstackio/react-contexts';
 import { FullscreenProvider as BaseFullscreenProvider } from '@genstackio/react-contexts/lib/contexts/FullscreenContext';
 import { FullScreen } from 'react-full-screen';
+import IconsProvider from '@genstackio/react-contexts/lib/IconsProvider';
 
 function GraphqlProvider({ value, children }: any) {
     value && (children = <ApolloProvider client={value}>{children}</ApolloProvider>);
@@ -25,6 +26,7 @@ function FullscreenProvider({ value, children }: any) {
         ));
     return children;
 }
+
 function ThemeProvider({ value, children }: any) {
     value && value.mui && (children = <MuiThemeProvider theme={value.mui}>{children}</MuiThemeProvider>);
     value && value.tailwind && (children = <TailwindProvider value={value.tailwind}>{children}</TailwindProvider>);
@@ -42,6 +44,7 @@ export function useApp({
     translations = {},
     theme: { mui = {}, tailwind = {}, theme = undefined } = {},
     queries = {},
+    icons = {},
 }: {
     importer: importer_function;
     app: any;
@@ -49,6 +52,7 @@ export function useApp({
     routes?: any[];
     translations?: any;
     queries?: any;
+    icons?: { fa?: any[] };
 }) {
     return useMemo(
         () => ({
@@ -60,6 +64,7 @@ export function useApp({
             translationProvider: TranslationProvider,
             themeProvider: ThemeProvider,
             fullscreenProvider: FullscreenProvider,
+            iconsProvider: IconsProvider,
             routes: routes,
             theme: {
                 mui: createMuiTheme(mui),
@@ -75,8 +80,9 @@ export function useApp({
             messages: features.messages ? { messages: [] } : undefined,
             notifications: features.notifications ? { notifications: [] } : undefined,
             favorites: features.favorites ? { favorites: [] } : undefined,
+            icons,
         }),
-        [prefix, endpoint, defaultLocale, fallbackLocale, locales, routes, translations, queries],
+        [prefix, endpoint, defaultLocale, fallbackLocale, locales, routes, translations, queries, icons],
     );
 }
 
