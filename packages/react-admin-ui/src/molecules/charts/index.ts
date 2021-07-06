@@ -11,4 +11,5 @@ export * from './RadarChart';
 export * from './RadialBarChart';
 export * from './RateChart';
 export * from './SummaryChart';
+export * from './TreeMapChart';
 export * from './UsageChart';
