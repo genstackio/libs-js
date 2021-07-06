@@ -33,5 +33,5 @@ export const basic = s(Template, {
             unit: 'Today',
             percentage: 24,
         },
-    ]
+    ],
 });
