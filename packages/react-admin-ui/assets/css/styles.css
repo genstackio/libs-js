@@ -17,12 +17,15 @@
 @import 'themes/color4.css';
 @import 'themes/color5.css';
 @import 'themes/color6.css';
+@import 'themes/sunny.css';
+@import 'themes/marine.css';
+@import 'themes/cloudy.css';
 
 @layer components {
 
     #root {
-        background-color: var(--color-root-background);
-        color: var(--color-root);
+        background-color: var(--color-background);
+        color: var(--color-text);
     }
 
     .x-field-min-h {

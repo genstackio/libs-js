@@ -29,7 +29,6 @@ export const basic = s(Template, {
         { id: 'wxcvbn456', a: 8, b: true, c: 'text', d: 'test' },
         { id: 456, a: 100, b: false, c: 'word', d: 'invisible' },
     ],
-    color: 'primary',
     selection: true,
 });
 

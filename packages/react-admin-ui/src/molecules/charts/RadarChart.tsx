@@ -78,7 +78,7 @@ export function RadarChart({
     const buffer: string[] = [];
     if (series && series[0] && series[0].data) {
         for (let n = 0; n < series[0].data.length; n++) {
-            buffer.push(tailwindTextColors[`${col}2`]);
+            buffer.push(tailwindTextColors[`${col}`]);
             options.xaxis.labels!.style!.colors = buffer;
         }
     }

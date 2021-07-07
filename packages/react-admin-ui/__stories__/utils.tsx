@@ -25,7 +25,7 @@ import * as mocks from './mocks';
 import { textSizes } from '../src/mappings/text-sizes';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import { FullscreenProvider } from '@genstackio/react-contexts/lib/contexts/FullscreenContext';
-import themes from '../src/configs/themes';
+import themes from './configs/themes';
 import { IconsProvider } from '../../react-contexts/lib/IconsProvider';
 import icons from './configs/icons';
 import { DarkModeProvider } from '@genstackio/react-contexts/lib/contexts/DarkModeContext';

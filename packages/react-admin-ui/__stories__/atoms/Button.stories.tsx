@@ -69,19 +69,19 @@ export const showcase = s(
             </div>
             <p>CONTAINED</p>
             <div className={'flex items-center space-x-4'}>
-                <Template color={'primary'} variant={'contained'} size={'xs'}>
+                <Template color={'primary'} variant={'contained'}>
                     {'primary'}
                 </Template>
-                <Template color={'secondary'} variant={'contained'} size={'sm'}>
+                <Template color={'secondary'} variant={'contained'}>
                     {'secondary'}
                 </Template>
-                <Template color={'success'} variant={'contained'} size={'md'}>
+                <Template color={'success'} variant={'contained'}>
                     {'success'}
                 </Template>
-                <Template color={'info'} variant={'contained'} size={'lg'}>
+                <Template color={'info'} variant={'contained'}>
                     {'info'}
                 </Template>
-                <Template color={'warning'} variant={'contained'} size={'xl'}>
+                <Template color={'warning'} variant={'contained'}>
                     {'warning'}
                 </Template>
                 <Template color={'danger'} variant={'contained'}>

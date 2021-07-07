@@ -12,7 +12,7 @@ const variants = {
 
 export function Progress({ className, value = 0, variant = 'linear' }: ProgressProps) {
     const Component = variants[variant || 'default'] || variants.default;
-    return <Component value={value} className={clsx(className)} />;
+    return <Component variant={'determinate'} value={value} className={clsx(className)} />;
 }
 
 export interface ProgressProps {

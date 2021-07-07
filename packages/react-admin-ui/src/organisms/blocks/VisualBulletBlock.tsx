@@ -1,19 +1,16 @@
 import clsx from 'clsx';
-import { box_color } from '../../types';
 import Icon from '../../atoms/Icon';
 import Block, { BaseBlockProps } from '../../atoms/Block';
 import Text from '../../atoms/Text';
-import textClass from '../../utils/textClass';
-import boxClass from '../../utils/boxClass';
 
-export function VisualBulletBlock({ icon_color, items, text_color, ...props }: VisualBulletBlockProps) {
+export function VisualBulletBlock({ items, ...props }: VisualBulletBlockProps) {
     return (
         <Block {...props}>
             {items.map((item, index) => (
                 <div key={index} className={'flex items-center'}>
-                    <Icon className={clsx('mb-5', textClass({ color: icon_color }))} size={'4xl'} icon={item.icon} />
-                    <div className={clsx('flex-column ml-4', boxClass({ color: text_color, variant: props.variant }))}>
-                        <Text color={props.color} text={item.title} variant={'title6'} />
+                    <Icon className={clsx('mb-5')} size={'4xl'} icon={item.icon} />
+                    <div className={clsx('flex-column ml-4')}>
+                        <Text text={item.title} variant={'title6'} />
                         <p>{item.subtitle || ''}</p>
                     </div>
                 </div>
@@ -23,13 +20,11 @@ export function VisualBulletBlock({ icon_color, items, text_color, ...props }: V
 }
 
 export interface VisualBulletBlockProps extends BaseBlockProps {
-    icon_color?: box_color;
     items: {
         icon: string;
         subtitle: string;
         title: string;
     }[];
-    text_color?: box_color;
 }
 
 export default VisualBulletBlock;

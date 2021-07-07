@@ -1,6 +1,6 @@
 module.exports = {
-    color_primary: '#794CF6',
-    color_secondary: '#78219D',
+    color_primary: '#CCE8FF',
+    color_secondary: '#4FBBEE',
     color_success: '#51BB25',
     color_info: '#A927F9',
     color_warning: '#F8D62C',
@@ -9,8 +9,8 @@ module.exports = {
     color_light: '#F4F4F4',
     color_clear: '#FFFFFF',
     // dark
-    dark_color_primary: '#794CF6',
-    dark_color_secondary: '#78219D',
+    dark_color_primary: '#3949A6',
+    dark_color_secondary: '#4FBBEE',
     dark_color_success: '#51BB25',
     dark_color_info: '#A927F9',
     dark_color_warning: '#F8D62C',

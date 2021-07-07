@@ -9,7 +9,7 @@ export const styles = {
         'filled-info': 'bg-clear',
         'filled-warning': 'bg-clear',
         'filled-danger': 'bg-clear',
-        'filled-light': 'bg-dark',
+        'filled-light': 'bg-clear',
         'filled-dark': 'bg-clear',
         'filled-none': 'bg-clear',
         'outlined-primary': 'bg-transparent',

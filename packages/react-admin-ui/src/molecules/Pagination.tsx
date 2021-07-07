@@ -41,7 +41,7 @@ const activeTextColors = {
     info: tailwindTextColors.contained_primary,
     warning: tailwindTextColors.contained_primary,
     danger: tailwindTextColors.contained_primary,
-    light: tailwindTextColors.contained_secondary2,
+    light: tailwindTextColors.contained_primary,
     dark: tailwindTextColors.contained_primary,
 };
 

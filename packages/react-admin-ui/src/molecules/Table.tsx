@@ -1,23 +1,26 @@
 import clsx from 'clsx';
 import { DataGrid, GridCellParams, GridColDef, GridValueFormatterParams } from '@material-ui/data-grid';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import tailwindConfig from '../../tailwind.config';
 import { box_color, class_name, flag, table_column, table_row } from '../types';
 import Badge from '../atoms/Badge';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 const tailwindTextColors = tailwindConfig.theme.extend.textColors;
-const selectedRowsColors = tailwindConfig.theme.extend.selectedRowTableColors;
 
 const useStyles = makeStyles({
     root: (props: TableProps) => ({
-        '& .MuiDataGrid-columnHeaderWrapper, .MuiDataGrid-row, .MuiDataGrid-footer, .MuiTablePagination-toolbar': {
-            color: tailwindTextColors[`contained_${props.color}` || ''] || tailwindTextColors['contained_light'],
-            backgroundColor: tailwindColors[props.color || ''] || tailwindColors['light'],
+        '& .MuiDataGrid-columnHeaderWrapper, .MuiDataGrid-footer, .MuiTablePagination-toolbar': {
+            color: tailwindTextColors[`contained_${props.color}` || ''] || tailwindTextColors['fill_primary'],
+            backgroundColor: tailwindColors[props.color || ''] || tailwindColors['clear'],
+        },
+        '& .MuiDataGrid-row': {
+            color: tailwindTextColors['fill_primary'],
+            backgroundColor: tailwindColors['clear'],
         },
         '& .MuiDataGrid-row:hover': {
-            color: tailwindTextColors[`contained_${props.color}` || ''] || tailwindTextColors['contained_light'],
-            backgroundColor: tailwindColors[props.color || ''] || tailwindColors['light'],
+            color: tailwindTextColors[`contained_${props.color}` || ''] || tailwindTextColors['contained_primary'],
+            backgroundColor: tailwindColors[`${props.color}_hover`] || tailwindColors[props.color] || tailwindColors['primary'],
             opacity: 0.6,
         },
         '& .MuiDataGrid-columnHeaderTitle': {
@@ -34,7 +37,8 @@ const useStyles = makeStyles({
             opacity: (props: TableProps) => (props.striped ? 0.8 : undefined),
         },
         '& .MuiDataGrid-row.Mui-selected, .MuiDataGrid-row.Mui-selected:hover': {
-            backgroundColor: selectedRowsColors[props.color || ''] || tailwindColors['light'],
+            color: tailwindTextColors[`contained_${props.color}` || ''] || tailwindTextColors['contained_primary'],
+            backgroundColor: tailwindColors[`${props.color}_selected`] || tailwindColors[props.color] || tailwindColors['primary'],
         },
     }),
 });
