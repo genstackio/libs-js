@@ -1,9 +1,10 @@
 import clsx from 'clsx';
-import { DataGrid, GridCellParams, GridColDef, GridValueFormatterParams } from '@material-ui/data-grid';
+import {DataGrid, DataGridProps, GridCellParams, GridColDef, GridValueFormatterParams} from '@material-ui/data-grid';
 import { makeStyles } from '@material-ui/core/styles';
 import tailwindConfig from '../../tailwind.config';
 import { box_color, class_name, flag, table_column, table_row } from '../types';
 import Badge from '../atoms/Badge';
+import {useCallback, useState} from "react";
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 const tailwindTextColors = tailwindConfig.theme.extend.textColors;
@@ -45,9 +46,15 @@ const useStyles = makeStyles({
     }),
 });
 
-export function Table({ className, ...props }: TableProps) {
-    const { columns, items, selection = false, rowsPerPage } = props;
-    const classes = useStyles(props);
+export function Table({ className, total, onPageChange, color, striped, loading = false, columns, items, selection = false, defaultRowsPerPage = 50, ...props }: TableProps) {
+    const classes = useStyles({color, striped} as any);
+    const [rowsPerPage, setRowsPerPage] = useState(defaultRowsPerPage);
+    const handlePageSizeChange = useCallback(e => {
+        setRowsPerPage(e.pageSize);
+    }, [setRowsPerPage]);
+    const handlePageChange = useCallback(e => {
+        onPageChange && onPageChange(e);
+    }, [onPageChange])
     const formattedCols: GridColDef[] = columns.reduce(
         (acc, col) => [
             ...acc,
@@ -69,27 +76,34 @@ export function Table({ className, ...props }: TableProps) {
                                   color={'light'}
                               />
                           )
-                        : undefined,
+                        : (col.render ? ((params: GridCellParams) => col!.render(params.getValue(params.id, col.id))) : undefined),
             },
         ],
         [] as GridColDef[],
     );
     return (
         <DataGrid
+            loading={loading}
             rows={items}
             columns={formattedCols}
             classes={classes}
-            pageSize={rowsPerPage}
             checkboxSelection={selection}
             disableColumnMenu
             disableSelectionOnClick
             autoHeight
             className={clsx(className)}
+            rowsPerPageOptions={[5, 10, 20, 50, 100, 200]}
+            pageSize={rowsPerPage}
+            rowCount={total}
+            onPageSizeChange={handlePageSizeChange}
+            onPageChange={handlePageChange}
+            paginationMode={'server'}
+            {...props}
         />
     );
 }
 
-export interface TableProps {
+export interface TableProps extends Omit<DataGridProps, 'columns' | 'onPageChange' | 'rows'> {
     className?: class_name;
     color?: box_color;
     columns: table_column[];
@@ -97,6 +111,10 @@ export interface TableProps {
     rowsPerPage?: number;
     selection?: flag;
     striped?: flag;
+    total?: number;
+    defaultRowsPerPage?: number;
+    onPageChange?: Function;
+    loading?: flag;
 }
 
 export default Table;
