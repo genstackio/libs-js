@@ -15,7 +15,7 @@ export function MenuItem({ className, label, icon, target, active = false, badge
             )}
             corner={'rounded-small'}
             onClick={target}
-            contentClassName={clsx('flex justify-between items-center space-x-4', )}
+            contentClassName={clsx('flex justify-between items-center space-x-4')}
         >
             <div className={'flex items-center space-x-4'}>
                 {icon && <Icon icon={icon} />}

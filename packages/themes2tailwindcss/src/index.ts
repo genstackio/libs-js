@@ -61,7 +61,7 @@ export function buildCssSelectors(config: any) {
 }
 
 function convertToRaw(v) {
-    return {value: String(v)};
+    return { value: String(v) };
 }
 function convertToRgbList(v) {
     const { r, g, b } = colord(v).toRgb();
@@ -90,14 +90,24 @@ export function convertVariable(k, v, acc) {
     v = Array.isArray(v) ? v : ['auto', v];
     let vv: any = undefined;
     switch (v[0]) {
-        case 'raw': vv = convertToRaw(v[1]); break;
-        case 'rgba': vv = convertToRgba(v[1]); break;
-        case 'rgblist': vv = convertToRgbList(v[1]); break;
-        case 'rgb': vv = convertToRgb(v[1]); break;
-        case 'hexa': vv = convertToHexa(v[1]); break;
+        case 'raw':
+            vv = convertToRaw(v[1]);
+            break;
+        case 'rgba':
+            vv = convertToRgba(v[1]);
+            break;
+        case 'rgblist':
+            vv = convertToRgbList(v[1]);
+            break;
+        case 'rgb':
+            vv = convertToRgb(v[1]);
+            break;
+        case 'hexa':
+            vv = convertToHexa(v[1]);
+            break;
         default:
         case 'auto':
-            if (('string' === typeof v[1]) && /^#[0-9a-f]{3,6}$/i.test(v[1])) {
+            if ('string' === typeof v[1] && /^#[0-9a-f]{3,6}$/i.test(v[1])) {
                 vv = convertToRgbList(v[1]);
             } else {
                 vv = convertToRaw(v[1]);

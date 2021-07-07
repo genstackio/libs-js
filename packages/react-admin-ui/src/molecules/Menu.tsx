@@ -2,8 +2,8 @@ import MenuFold from '../atoms/MenuFold';
 import MenuItem from '../atoms/MenuItem';
 import SectionHeader from '../atoms/SectionHeader';
 import { class_name, menu_item, box_color, box_variant } from '../types';
-import clsx from "clsx";
-import boxColorClass from "../mappings/box-colors";
+import clsx from 'clsx';
+import boxColorClass from '../mappings/box-colors';
 
 export function Menu({ className, items = [], color = 'primary', variant = 'contained' }: MenuProps) {
     return (
