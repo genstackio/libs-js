@@ -1,6 +1,6 @@
 {
   "name": "@genstackio/themes2tailwindcss",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -21,8 +21,8 @@
     "test": "../../node_modules/.bin/jest -c ../../jest.config.js --rootDir=`pwd`"
   },
   "dependencies": {
-    "ejs": "^3.1.6",
-      "colord": "^2.1.0"
+    "colord": "^2.1.0",
+    "ejs": "^3.1.6"
   },
   "bin": {
     "themes2tailwindcss": "./bin/themes2tailwindcss"
