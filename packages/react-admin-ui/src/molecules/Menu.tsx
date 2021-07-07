@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import MenuFold from '../atoms/MenuFold';
 import MenuItem from '../atoms/MenuItem';
 import SectionHeader from '../atoms/SectionHeader';
@@ -9,7 +10,7 @@ export function Menu({ className, items = [], color = 'primary', variant = 'cont
     return (
         <div className={clsx(boxColorClass('clear'), className)}>
             {items.map(({ type, ...item }, index) => (
-                <>
+                <Fragment key={index}>
                     {'section' === type && (
                         <SectionHeader
                             title={item.label}
@@ -21,7 +22,7 @@ export function Menu({ className, items = [], color = 'primary', variant = 'cont
                     )}
                     {'menu' === type && <MenuFold key={index} color={color} variant={'light'} {...item} />}
                     {'item' === type && <MenuItem key={index} color={color} variant={'light'} {...item} />}
-                </>
+                </Fragment>
             ))}
         </div>
     );

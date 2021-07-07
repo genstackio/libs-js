@@ -33,7 +33,7 @@ export function AppLayoutTemplate({ logo, menu, children, toolbar, ...props }: A
                             />
                         </Clickable>
                     )}
-                    {toolbar || ''}
+                    <div className={'flex-1 flex'}>{toolbar || ''}</div>
                 </div>
                 <div className={'h-screen p-4 shadow-inside'}>{children || ''}</div>
             </div>
