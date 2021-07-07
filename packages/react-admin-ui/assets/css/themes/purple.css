@@ -1,0 +1,42 @@
+/* the content of this file has been generated, do not edit manually */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --tw-bg-opacity: 1;
+    --tw-text-opacity: 1;
+}
+
+@layer components {
+    /* purgecss start ignore */
+    .theme-purple {
+
+        --color-clear: 255, 255, 255;/* #FFFFFF */
+        --color-danger: 143, 29, 108;/* #8F1D6C */
+        --color-dark: 75, 27, 110;/* #4B1B6E */
+        --color-info: 111, 112, 107;/* #6F706B */
+        --color-light: 255, 237, 205;/* #FFEDCD */
+        --color-primary: 101, 36, 142;/* #65248E */
+        --color-secondary: 252, 192, 82;/* #FCC052 */
+        --color-success: 126, 143, 36;/* #7E8F24 */
+        --color-warning: 219, 33, 162;/* #DB21A2 */
+
+    }
+
+    .dark.theme-purple, .dark .theme-purple, .theme-purple .dark {
+
+        --color-clear: 38, 41, 50;/* #262932 */
+        --color-danger: 143, 29, 108;/* #8F1D6C */
+        --color-dark: 75, 27, 110;/* #4B1B6E */
+        --color-info: 111, 112, 107;/* #6F706B */
+        --color-light: 255, 237, 205;/* #FFEDCD */
+        --color-primary: 101, 36, 142;/* #65248E */
+        --color-secondary: 252, 192, 82;/* #FCC052 */
+        --color-success: 126, 143, 36;/* #7E8F24 */
+        --color-warning: 219, 33, 162;/* #DB21A2 */
+
+    }
+    /* purgecss end ignore */
+}

@@ -1,0 +1,42 @@
+/* the content of this file has been generated, do not edit manually */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --tw-bg-opacity: 1;
+    --tw-text-opacity: 1;
+}
+
+@layer components {
+    /* purgecss start ignore */
+    .theme-flashy {
+
+        --color-clear: 255, 255, 255;/* #FFFFFF */
+        --color-danger: 207, 66, 171;/* #CF42AB */
+        --color-dark: 46, 41, 78;/* #2E294E */
+        --color-info: 130, 2, 99;/* #820263 */
+        --color-light: 234, 222, 218;/* #EADEDA */
+        --color-primary: 217, 3, 104;/* #D90368 */
+        --color-secondary: 255, 212, 0;/* #FFD400 */
+        --color-success: 13, 217, 132;/* #0DD984 */
+        --color-warning: 255, 107, 218;/* #FF6BDA */
+
+    }
+
+    .dark.theme-flashy, .dark .theme-flashy, .theme-flashy .dark {
+
+        --color-clear: 38, 41, 50;/* #262932 */
+        --color-danger: 207, 66, 171;/* #CF42AB */
+        --color-dark: 46, 41, 78;/* #2E294E */
+        --color-info: 130, 2, 99;/* #820263 */
+        --color-light: 234, 222, 218;/* #EADEDA */
+        --color-primary: 217, 3, 104;/* #D90368 */
+        --color-secondary: 255, 212, 0;/* #FFD400 */
+        --color-success: 13, 217, 132;/* #0DD984 */
+        --color-warning: 255, 107, 218;/* #FF6BDA */
+
+    }
+    /* purgecss end ignore */
+}
