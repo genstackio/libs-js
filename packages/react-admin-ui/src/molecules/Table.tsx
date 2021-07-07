@@ -1,10 +1,10 @@
 import clsx from 'clsx';
-import {DataGrid, DataGridProps, GridCellParams, GridColDef, GridValueFormatterParams} from '@material-ui/data-grid';
+import { DataGrid, DataGridProps, GridCellParams, GridColDef, GridValueFormatterParams } from '@material-ui/data-grid';
 import { makeStyles } from '@material-ui/core/styles';
 import tailwindConfig from '../../tailwind.config';
 import { box_color, class_name, flag, table_column, table_row } from '../types';
 import Badge from '../atoms/Badge';
-import {useCallback, useState} from "react";
+import { useCallback, useState } from 'react';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 const tailwindTextColors = tailwindConfig.theme.extend.textColors;
@@ -46,15 +46,33 @@ const useStyles = makeStyles({
     }),
 });
 
-export function Table({ className, total, onPageChange, color, striped, loading = false, columns, items, selection = false, defaultRowsPerPage = 50, ...props }: TableProps) {
-    const classes = useStyles({color, striped} as any);
+export function Table({
+    className,
+    total,
+    onPageChange,
+    color,
+    striped,
+    loading = false,
+    columns,
+    items,
+    selection = false,
+    defaultRowsPerPage = 50,
+    ...props
+}: TableProps) {
+    const classes = useStyles({ color, striped } as any);
     const [rowsPerPage, setRowsPerPage] = useState(defaultRowsPerPage);
-    const handlePageSizeChange = useCallback(e => {
-        setRowsPerPage(e.pageSize);
-    }, [setRowsPerPage]);
-    const handlePageChange = useCallback(e => {
-        onPageChange && onPageChange(e);
-    }, [onPageChange])
+    const handlePageSizeChange = useCallback(
+        (e) => {
+            setRowsPerPage(e.pageSize);
+        },
+        [setRowsPerPage],
+    );
+    const handlePageChange = useCallback(
+        (e) => {
+            onPageChange && onPageChange(e);
+        },
+        [onPageChange],
+    );
     const formattedCols: GridColDef[] = columns.reduce(
         (acc, col) => [
             ...acc,
@@ -76,7 +94,9 @@ export function Table({ className, total, onPageChange, color, striped, loading 
                                   color={'light'}
                               />
                           )
-                        : (col.render ? ((params: GridCellParams) => col!.render(params.getValue(params.id, col.id))) : undefined),
+                        : col.render
+                        ? (params: GridCellParams) => col.render!(params.getValue(params.id, col.id))
+                        : undefined,
             },
         ],
         [] as GridColDef[],
