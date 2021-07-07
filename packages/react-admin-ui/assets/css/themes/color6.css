@@ -1,161 +1,159 @@
+/* the content of this file has been generated, do not edit manually */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+:root {
+    --tw-bg-opacity: 1;
+    --tw-text-opacity: 1;
+}
+
+@layer components {
 
     .theme-color6 {
 
-        --root-background-color: white;
-        --root-color: black;
+        --color-chart-bg-primary-contained-1: 252, 248, 254;/* #fcf8fe */
+        --color-chart-bg-primary-contained-2: 247, 238, 255;/* #f7eeff */
+        --color-chart-bg-primary-filled-1: 252, 248, 254;/* #fcf8fe */
+        --color-chart-bg-primary-filled-2: 247, 238, 255;/* #f7eeff */
+        --color-chart-bg-primary-outlined-1: 252, 248, 254;/* #fcf8fe */
+        --color-chart-bg-primary-outlined-2: 247, 238, 255;/* #f7eeff */
+        --color-chart-bg-secondary-contained-1: 250, 250, 250;/* #fafafa */
+        --color-chart-bg-secondary-contained-2: 236, 239, 241;/* #eceff1 */
+        --color-chart-bg-secondary-filled-1: 250, 250, 250;/* #fafafa */
+        --color-chart-bg-secondary-filled-2: 236, 239, 241;/* #eceff1 */
+        --color-chart-bg-secondary-outlined-1: 250, 250, 250;/* #fafafa */
+        --color-chart-bg-secondary-outlined-2: 236, 239, 241;/* #eceff1 */
+        --color-chart-primary-contained-1: 79, 187, 238;/* #4fbbee */
+        --color-chart-primary-contained-2: 41, 182, 246;/* #29b6f6 */
+        --color-chart-primary-contained-3: 252, 116, 13;/* #fc740d */
+        --color-chart-primary-filled-1: 79, 187, 238;/* #4fbbee */
+        --color-chart-primary-filled-2: 41, 182, 246;/* #29b6f6 */
+        --color-chart-primary-filled-3: 252, 116, 13;/* #fc740d */
+        --color-chart-primary-outlined-1: 79, 187, 238;/* #4fbbee */
+        --color-chart-primary-outlined-2: 41, 182, 246;/* #29b6f6 */
+        --color-chart-primary-outlined-3: 252, 116, 13;/* #fc740d */
+        --color-chart-secondary-contained-1: 57, 73, 166;/* #3949a6 */
+        --color-chart-secondary-contained-2: 252, 116, 13;/* #fc740d */
+        --color-chart-secondary-contained-3: 41, 182, 246;/* #29b6f6 */
+        --color-chart-secondary-filled-1: 57, 73, 166;/* #3949a6 */
+        --color-chart-secondary-filled-2: 252, 116, 13;/* #fc740d */
+        --color-chart-secondary-filled-3: 41, 182, 246;/* #29b6f6 */
+        --color-chart-secondary-outlined-1: 57, 73, 166;/* #3949a6 */
+        --color-chart-secondary-outlined-2: 252, 116, 13;/* #fc740d */
+        --color-chart-secondary-outlined-3: 41, 182, 246;/* #29b6f6 */
+        --color-clear: 255, 255, 255;/* #ffffff */
+        --color-danger: 220, 53, 68;/* #dc3544 */
+        --color-dark: 44, 50, 62;/* #2c323e */
+        --color-hover: 140, 188, 255;/* #8cbcff */
+        --color-info: 169, 39, 249;/* #a927f9 */
+        --color-light: 244, 244, 244;/* #f4f4f4 */
+        --color-primary: 57, 73, 166;/* #3949a6 */
+        --color-root: rgba(43,43,43,1);
+        --color-root-background: rgba(248,248,248,1);
+        --color-secondary: 79, 187, 238;/* #4fbbee */
+        --color-success: 81, 187, 37;/* #51bb25 */
+        --color-table-row-selected-danger: 169, 183, 252;/* #a9b7fc */
+        --color-table-row-selected-dark: 169, 183, 252;/* #a9b7fc */
+        --color-table-row-selected-info: 169, 183, 252;/* #a9b7fc */
+        --color-table-row-selected-light: 169, 183, 252;/* #a9b7fc */
+        --color-table-row-selected-primary: 169, 183, 252;/* #a9b7fc */
+        --color-table-row-selected-secondary: 169, 183, 252;/* #a9b7fc */
+        --color-table-row-selected-success: 169, 183, 252;/* #a9b7fc */
+        --color-table-row-selected-warning: 169, 183, 252;/* #a9b7fc */
+        --color-text-danger-contained: 255, 255, 255;/* #ffffff */
+        --color-text-dark-contained: 255, 255, 255;/* #ffffff */
+        --color-text-info-contained: 255, 255, 255;/* #ffffff */
+        --color-text-light-contained: 0, 0, 0;/* #000000 */
+        --color-text-primary-contained: 255, 255, 255;/* #ffffff */
+        --color-text-primary-filled: 57, 73, 166;/* #3949a6 */
+        --color-text-primary-outlined: 57, 73, 166;/* #3949a6 */
+        --color-text-primary2-contained: 255, 255, 255;/* #ffffff */
+        --color-text-primary2-filled: 0, 0, 0;/* #000000 */
+        --color-text-primary2-outlined: 0, 0, 0;/* #000000 */
+        --color-text-secondary-contained: 255, 255, 255;/* #ffffff */
+        --color-text-secondary-filled: 79, 187, 238;/* #4fbbee */
+        --color-text-secondary-outlined: 79, 187, 238;/* #4fbbee */
+        --color-text-secondary2-contained: 0, 0, 0;/* #000000 */
+        --color-text-secondary2-filled: 0, 0, 0;/* #000000 */
+        --color-text-secondary2-outlined: 0, 0, 0;/* #000000 */
+        --color-text-success-contained: 255, 255, 255;/* #ffffff */
+        --color-text-warning-contained: 0, 0, 0;/* #000000 */
+        --color-warning: 248, 214, 44;/* #f8d62c */
 
-        --primary-color: #3949a6;
-        --secondary-color: #4fbbee;
-        --success-color: #51BB25;
-        --info-color: #A927F9;
-        --warning-color: #F8D62C;
-        --danger-color: #DC3544;
-        --light-color: #F4F4F4;
-        --dark-color: #2C323E;
-
-        --hover-color: #8cbcff;
-
-        --filled_primary_text_color: #3949a6;
-        --contained_primary_text_color: #FFF;
-        --outlined_primary_text_color: #3949a6;
-        --filled_primary2_text_color: #000;
-        --contained_primary2_text_color: #FFF;
-        --outlined_primary2_text_color: #000;
-        --filled_secondary_text_color: #4fbbee;
-        --contained_secondary_text_color: #FFF;
-        --outlined_secondary_text_color: #4fbbee;
-        --filled_secondary2_text_color: #000;
-        --contained_secondary2_text_color: #000;
-        --outlined_secondary2_text_color: #000;
-        --contained_success_text_color: #FFF;
-        --contained_info_text_color: #FFF;
-        --contained_warning_text_color: #000;
-        --contained_danger_text_color: #FFF;
-        --contained_light_text_color: #000;
-        --contained_dark_text_color: #FFF;
-
-        --primary_selected_row_table_color: #A9B7FC;
-        --secondary_selected_row_table_color: #A9B7FC;
-        --success_selected_row_table_color: #A9B7FC;
-        --info_selected_row_table_color: #A9B7FC;
-        --warning_selected_row_table_color: #A9B7FC;
-        --danger_selected_row_table_color: #A9B7FC;
-        --light_selected_row_table_color: #A9B7FC;
-        --dark_selected_row_table_color: #A9B7FC;
-
-        --filled_primary_chart_color1: #4fbbee;
-        --filled_primary_chart_color2: #F73164;
-        --filled_primary_chart_color3: #FC740D;
-        --contained_primary_chart_color1: #4fbbee;
-        --contained_primary_chart_color2: #F73164;
-        --contained_primary_chart_color3: #FC740D;
-        --outlined_primary_chart_color1: #4fbbee;
-        --outlined_primary_chart_color2: #F73164;
-        --outlined_primary_chart_color3: #FC740D;
-        --filled_secondary_chart_color1: #3949a6;
-        --filled_secondary_chart_color2: #FC740D;
-        --filled_secondary_chart_color3: #F73164;
-        --contained_secondary_chart_color1: #3949a6;
-        --contained_secondary_chart_color2: #FC740D;
-        --contained_secondary_chart_color3: #F73164;
-        --outlined_secondary_chart_color1: #3949a6;
-        --outlined_secondary_chart_color2: #FC740D;
-        --outlined_secondary_chart_color3: #F73164;
-
-        --filled_primary_chart_bg_color1: #FCF8FE;
-        --filled_primary_chart_bg_color2: #F7EEFF;
-        --contained_primary_chart_bg_color1: #FCF8FE;
-        --contained_primary_chart_bg_color2: #F7EEFF;
-        --outlined_primary_chart_bg_color1:  #FCF8FE;
-        --outlined_primary_chart_bg_color2: #F7EEFF;
-        --filled_secondary_chart_bg_color1: #FAFAFA;
-        --filled_secondary_chart_bg_color2: #ECEFF1;
-        --contained_secondary_chart_bg_color1: #FAFAFA;
-        --contained_secondary_chart_bg_color2: #ECEFF1;
-        --outlined_secondary_chart_bg_color1: #FAFAFA;
-        --outlined_secondary_chart_bg_color2: #ECEFF1;
     }
 
-    .dark .theme-color6, .dark.theme-color6, .theme-color6 .dark {
+    .dark.theme-color6, .dark .theme-color6, .theme-color6 .dark {
 
-        --root-background-color: black;
-        --root-color: white;
-
-        --primary-color: #3949a6;
-        --secondary-color: #4fbbee;
-        --success-color: #51BB25;
-        --info-color: #A927F9;
-        --warning-color: #F8D62C;
-        --danger-color: #DC3544;
-        --light-color: #2d2e3e;
-        --dark-color: #2d3340;
-
-        --hover-color: #8cbcff;
-
-        --filled_primary_text_color: #3949a6;
-        --contained_primary_text_color: #FFF;
-        --outlined_primary_text_color: #3949a6;
-        --filled_primary2_text_color: #000;
-        --contained_primary2_text_color: #FFF;
-        --outlined_primary2_text_color: #000;
-        --filled_secondary_text_color: #4fbbee;
-        --contained_secondary_text_color: #FFF;
-        --outlined_secondary_text_color: #4fbbee;
-        --filled_secondary2_text_color: #000;
-        --contained_secondary2_text_color: #000;
-        --outlined_secondary2_text_color: #000;
-        --contained_success_text_color: #FFF;
-        --contained_info_text_color: #FFF;
-        --contained_warning_text_color: #000;
-        --contained_danger_text_color: #FFF;
-        --contained_light_text_color: #000;
-        --contained_dark_text_color: #FFF;
-
-        --primary_selected_row_table_color: #A9B7FC;
-        --secondary_selected_row_table_color: #A9B7FC;
-        --success_selected_row_table_color: #A9B7FC;
-        --info_selected_row_table_color: #A9B7FC;
-        --warning_selected_row_table_color: #A9B7FC;
-        --danger_selected_row_table_color: #A9B7FC;
-        --light_selected_row_table_color: #A9B7FC;
-        --dark_selected_row_table_color: #A9B7FC;
-
-        --filled_primary_chart_color1: #4fbbee;
-        --filled_primary_chart_color2:#F73164;
-        --filled_primary_chart_color3: #FC740D;
-        --contained_primary_chart_color1: #4fbbee;
-        --contained_primary_chart_color2:#F73164;
-        --contained_primary_chart_color3: #FC740D;
-        --outlined_primary_chart_color1: #4fbbee;
-        --outlined_primary_chart_color2:#F73164;
-        --outlined_primary_chart_color3: #FC740D;
-        --filled_secondary_chart_color1: #3949a6;
-        --filled_secondary_chart_color2: #FC740D;
-        --filled_secondary_chart_color3:#F73164;
-        --contained_secondary_chart_color1: #3949a6;
-        --contained_secondary_chart_color2: #FC740D;
-        --contained_secondary_chart_color3:#F73164;
-        --outlined_secondary_chart_color1: #3949a6;
-        --outlined_secondary_chart_color2: #FC740D;
-        --outlined_secondary_chart_color3:#F73164;
-
-        --filled_primary_chart_bg_color1: #FCF8FE;
-        --filled_primary_chart_bg_color2: #F7EEFF;
-        --contained_primary_chart_bg_color1: #FCF8FE;
-        --contained_primary_chart_bg_color2: #F7EEFF;
-        --outlined_primary_chart_bg_color1:  #FCF8FE;
-        --outlined_primary_chart_bg_color2: #F7EEFF;
-        --filled_secondary_chart_bg_color1: #FAFAFA;
-        --filled_secondary_chart_bg_color2: #ECEFF1;
-        --contained_secondary_chart_bg_color1: #FAFAFA;
-        --contained_secondary_chart_bg_color2: #ECEFF1;
-        --outlined_secondary_chart_bg_color1: #FAFAFA;
-        --outlined_secondary_chart_bg_color2: #ECEFF1;
+        --color-chart-bg-primary-contained-1: 252, 248, 254;/* #fcf8fe */
+        --color-chart-bg-primary-contained-2: 247, 238, 255;/* #f7eeff */
+        --color-chart-bg-primary-filled-1: 252, 248, 254;/* #fcf8fe */
+        --color-chart-bg-primary-filled-2: 247, 238, 255;/* #f7eeff */
+        --color-chart-bg-primary-outlined-1: 252, 248, 254;/* #fcf8fe */
+        --color-chart-bg-primary-outlined-2: 247, 238, 255;/* #f7eeff */
+        --color-chart-bg-secondary-contained-1: 250, 250, 250;/* #fafafa */
+        --color-chart-bg-secondary-contained-2: 236, 239, 241;/* #eceff1 */
+        --color-chart-bg-secondary-filled-1: 250, 250, 250;/* #fafafa */
+        --color-chart-bg-secondary-filled-2: 236, 239, 241;/* #eceff1 */
+        --color-chart-bg-secondary-outlined-1: 250, 250, 250;/* #fafafa */
+        --color-chart-bg-secondary-outlined-2: 236, 239, 241;/* #eceff1 */
+        --color-chart-primary-contained-1: 79, 187, 238;/* #4fbbee */
+        --color-chart-primary-contained-2: 79, 187, 238;/* #4fbbee */
+        --color-chart-primary-contained-3: 252, 116, 13;/* #fc740d */
+        --color-chart-primary-filled-1: 79, 187, 238;/* #4fbbee */
+        --color-chart-primary-filled-2: 79, 187, 238;/* #4fbbee */
+        --color-chart-primary-filled-3: 252, 116, 13;/* #fc740d */
+        --color-chart-primary-outlined-1: 79, 187, 238;/* #4fbbee */
+        --color-chart-primary-outlined-2: 79, 187, 238;/* #4fbbee */
+        --color-chart-primary-outlined-3: 252, 116, 13;/* #fc740d */
+        --color-chart-secondary-contained-1: 57, 73, 166;/* #3949a6 */
+        --color-chart-secondary-contained-2: 252, 116, 13;/* #fc740d */
+        --color-chart-secondary-contained-3: 79, 187, 238;/* #4fbbee */
+        --color-chart-secondary-filled-1: 57, 73, 166;/* #3949a6 */
+        --color-chart-secondary-filled-2: 252, 116, 13;/* #fc740d */
+        --color-chart-secondary-filled-3: 79, 187, 238;/* #4fbbee */
+        --color-chart-secondary-outlined-1: 57, 73, 166;/* #3949a6 */
+        --color-chart-secondary-outlined-2: 252, 116, 13;/* #fc740d */
+        --color-chart-secondary-outlined-3: 79, 187, 238;/* #4fbbee */
+        --color-clear: 38, 41, 50;/* #262932 */
+        --color-danger: 220, 53, 68;/* #dc3544 */
+        --color-dark: 45, 51, 64;/* #2d3340 */
+        --color-hover: 140, 188, 255;/* #8cbcff */
+        --color-info: 169, 39, 249;/* #a927f9 */
+        --color-light: 45, 46, 62;/* #2d2e3e */
+        --color-primary: 57, 73, 166;/* #3949a6 */
+        --color-root: rgba(255,255,255,0.6);
+        --color-root-background: rgba(29,30,38,1);
+        --color-secondary: 79, 187, 238;/* #4fbbee */
+        --color-success: 81, 187, 37;/* #51bb25 */
+        --color-table-row-selected-danger: 169, 183, 252;/* #a9b7fc */
+        --color-table-row-selected-dark: 169, 183, 252;/* #a9b7fc */
+        --color-table-row-selected-info: 169, 183, 252;/* #a9b7fc */
+        --color-table-row-selected-light: 169, 183, 252;/* #a9b7fc */
+        --color-table-row-selected-primary: 169, 183, 252;/* #a9b7fc */
+        --color-table-row-selected-secondary: 169, 183, 252;/* #a9b7fc */
+        --color-table-row-selected-success: 169, 183, 252;/* #a9b7fc */
+        --color-table-row-selected-warning: 169, 183, 252;/* #a9b7fc */
+        --color-text-danger-contained: 255, 255, 255;/* #ffffff */
+        --color-text-dark-contained: 255, 255, 255;/* #ffffff */
+        --color-text-info-contained: 255, 255, 255;/* #ffffff */
+        --color-text-light-contained: 0, 0, 0;/* #000000 */
+        --color-text-primary-contained: 255, 255, 255;/* #ffffff */
+        --color-text-primary-filled: 57, 73, 166;/* #3949a6 */
+        --color-text-primary-outlined: 57, 73, 166;/* #3949a6 */
+        --color-text-primary2-contained: 255, 255, 255;/* #ffffff */
+        --color-text-primary2-filled: 0, 0, 0;/* #000000 */
+        --color-text-primary2-outlined: 0, 0, 0;/* #000000 */
+        --color-text-secondary-contained: 255, 255, 255;/* #ffffff */
+        --color-text-secondary-filled: 79, 187, 238;/* #4fbbee */
+        --color-text-secondary-outlined: 79, 187, 238;/* #4fbbee */
+        --color-text-secondary2-contained: 0, 0, 0;/* #000000 */
+        --color-text-secondary2-filled: 0, 0, 0;/* #000000 */
+        --color-text-secondary2-outlined: 0, 0, 0;/* #000000 */
+        --color-text-success-contained: 255, 255, 255;/* #ffffff */
+        --color-text-warning-contained: 0, 0, 0;/* #000000 */
+        --color-warning: 248, 214, 44;/* #f8d62c */
 
     }
 

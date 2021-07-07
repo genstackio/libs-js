@@ -3,11 +3,12 @@ import { SectionHeader } from '../../src';
 
 export default {
     title: 'Atoms/SectionHeader',
-    component: Image,
+    component: SectionHeader,
     argTypes: a({
         title: args.title,
         subtitle: args.subtitle,
         color: args.color,
+        variant: args.boxVariant,
     }),
 };
 

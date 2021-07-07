@@ -2,7 +2,7 @@ import { ChangeEvent, useState, useCallback } from 'react';
 import clsx from 'clsx';
 import textClass from '../utils/textClass';
 import buttonClass from '../utils/buttonClass';
-import { accordion_item, accordion_variant, class_name, text_color } from '../types';
+import { accordion_item, menu_variant, class_name, text_color } from '../types';
 import { withStyles } from '@material-ui/core/styles';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
@@ -116,7 +116,7 @@ export interface AccordionProps {
     color?: text_color;
     expandIcon?: string;
     items: accordion_item[];
-    variant?: accordion_variant;
+    variant?: menu_variant;
 }
 
 export default Accordion;

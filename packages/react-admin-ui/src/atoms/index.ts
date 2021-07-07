@@ -24,6 +24,8 @@ export * from './Form';
 export * from './FormHeader';
 export * from './FormFooter';
 export * from './LocaleChange';
+export * from './MenuFold';
+export * from './MenuItem';
 export * from './Panel';
 export * from './PeriodBlock';
 export * from './Pill';
