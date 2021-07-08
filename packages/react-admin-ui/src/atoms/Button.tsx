@@ -1,9 +1,10 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import clsx from 'clsx';
 import Icon from './Icon';
 import buttonClass from '../utils/buttonClass';
 import { box_color, box_variant, children, class_name, flag, icon, target, size } from '../types';
 import { Spinner } from './Spinner';
+import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
 
 export function Button({
     children,
@@ -25,6 +26,7 @@ export function Button({
         [onClick],
     );
     disabled = disabled || loading;
+    const boxProviderValue = useMemo(() => ({ color, variant }), [color, variant]);
     return (
         <button
             disabled={disabled}
@@ -37,13 +39,17 @@ export function Button({
             )}
             onClick={handleClick}
         >
-            {loading && <Spinner variant={'circle'} size={'md'} color={'light'} className={clsx(spinnerClassName)} />}
-            {!loading && (
-                <>
-                    <Icon icon={icon} />
-                    {children || ''}
-                </>
-            )}
+            <BoxProvider value={boxProviderValue}>
+                {loading && (
+                    <Spinner variant={'circle'} size={'md'} color={'light'} className={clsx(spinnerClassName)} />
+                )}
+                {!loading && (
+                    <>
+                        <Icon icon={icon} />
+                        {children || ''}
+                    </>
+                )}
+            </BoxProvider>
         </button>
     );
 }

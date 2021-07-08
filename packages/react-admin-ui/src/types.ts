@@ -39,14 +39,28 @@ export type class_name = string;
 export type children = ReactNode;
 export type rich_text = ReactNode;
 export type dropdown_item = { name?: string };
+export type choice_button_item = { label?: string; active?: flag; target?: target };
 export type item = { badge?: badge; content?: rich_text | string[]; icon?: icon; title?: rich_text };
+export type placement =
+    | 'bottom-end'
+    | 'bottom-start'
+    | 'bottom'
+    | 'left-end'
+    | 'left-start'
+    | 'left'
+    | 'right-end'
+    | 'right-start'
+    | 'right'
+    | 'top-end'
+    | 'top-start'
+    | 'top';
 export type menu_item = {
     type?: 'section' | 'item' | 'menu';
     label: rich_text;
     description?: rich_text;
     target: target;
     icon?: string;
-    active?: boolean;
+    active?: flag;
     badges?: badge[];
     items?: menu_item[];
 };
