@@ -16,6 +16,7 @@ export default {
         options: args._disabled,
         value: args._disabled,
         kind: args._disabled,
+        variant: args.fieldVariant,
     }),
 };
 
