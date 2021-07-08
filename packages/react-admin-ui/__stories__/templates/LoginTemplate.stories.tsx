@@ -1,5 +1,5 @@
 import { args, s, a } from '../utils';
-import { LoginTemplate } from '../../src';
+import { LoginTemplate, LoginForm } from '../../src';
 
 export default {
     title: 'Templates/LoginTemplate',
@@ -22,5 +22,5 @@ export const basic = s(Template, {
         url: 'https://via.placeholder.com/120x40?text=Logo',
         alt: 'Logo',
     },
-    form: <div>Login Form</div>,
+    form: <LoginForm />,
 });
