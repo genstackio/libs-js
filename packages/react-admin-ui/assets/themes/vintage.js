@@ -1,0 +1,21 @@
+module.exports = {
+    color_primary: '#FFCB69',
+    color_secondary: '#D08C60',
+    color_success: '#D9AE94',
+    color_info: '#BAA587',
+    color_warning: '#E8AC65',
+    color_danger: '#B58463',
+    color_dark: '#797D62',
+    color_light: '#F1DCA7',
+    color_clear: '#FFFFFF',
+    // dark
+    dark_color_primary: '#FFCB69',
+    dark_color_secondary: '#D08C60',
+    dark_color_success: '#D9AE94',
+    dark_color_info: '#BAA587',
+    dark_color_warning: '#E8AC65',
+    dark_color_danger: '#B58463',
+    dark_color_dark: '#797D62',
+    dark_color_light: '#F1DCA7',
+    dark_color_clear: '#262932',
+};

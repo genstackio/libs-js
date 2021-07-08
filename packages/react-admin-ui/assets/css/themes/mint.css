@@ -1,0 +1,42 @@
+/* the content of this file has been generated, do not edit manually */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --tw-bg-opacity: 1;
+    --tw-text-opacity: 1;
+}
+
+@layer components {
+    /* purgecss start ignore */
+    .theme-mint {
+
+        --color-clear: 255, 255, 255;/* #FFFFFF */
+        --color-danger: 166, 67, 55;/* #A64337 */
+        --color-dark: 28, 26, 26;/* #1C1A1A */
+        --color-info: 200, 200, 200;/* #C8C8C8 */
+        --color-light: 243, 243, 243;/* #F3F3F3 */
+        --color-primary: 55, 167, 111;/* #37A76F */
+        --color-secondary: 39, 40, 122;/* #27287A */
+        --color-success: 223, 238, 222;/* #DFEEDE */
+        --color-warning: 199, 166, 24;/* #C7A618 */
+
+    }
+
+    .dark.theme-mint, .dark .theme-mint, .theme-mint .dark {
+
+        --color-clear: 38, 41, 50;/* #262932 */
+        --color-danger: 166, 67, 55;/* #A64337 */
+        --color-dark: 28, 26, 26;/* #1C1A1A */
+        --color-info: 200, 200, 200;/* #C8C8C8 */
+        --color-light: 243, 243, 243;/* #F3F3F3 */
+        --color-primary: 55, 167, 111;/* #37A76F */
+        --color-secondary: 39, 40, 122;/* #27287A */
+        --color-success: 223, 238, 222;/* #DFEEDE */
+        --color-warning: 199, 166, 24;/* #C7A618 */
+
+    }
+    /* purgecss end ignore */
+}

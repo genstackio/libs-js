@@ -14,28 +14,28 @@
     .theme-marine {
 
         --color-clear: 255, 255, 255;/* #FFFFFF */
-        --color-danger: 220, 53, 68;/* #DC3544 */
-        --color-dark: 44, 50, 62;/* #2C323E */
-        --color-info: 169, 39, 249;/* #A927F9 */
-        --color-light: 244, 244, 244;/* #F4F4F4 */
-        --color-primary: 62, 166, 246;/* #3EA6F6 */
-        --color-secondary: 79, 187, 238;/* #4FBBEE */
-        --color-success: 81, 187, 37;/* #51BB25 */
-        --color-warning: 248, 214, 44;/* #F8D62C */
+        --color-danger: 127, 108, 171;/* #7F6CAB */
+        --color-dark: 32, 42, 84;/* #202A54 */
+        --color-info: 80, 106, 212;/* #506AD4 */
+        --color-light: 247, 244, 205;/* #F7F4CD */
+        --color-primary: 163, 205, 217;/* #A3CDD9 */
+        --color-secondary: 242, 204, 57;/* #F2CC39 */
+        --color-success: 129, 147, 222;/* #8193DE */
+        --color-warning: 218, 205, 247;/* #DACDF7 */
 
     }
 
     .dark.theme-marine, .dark .theme-marine, .theme-marine .dark {
 
         --color-clear: 38, 41, 50;/* #262932 */
-        --color-danger: 220, 53, 68;/* #DC3544 */
-        --color-dark: 45, 51, 64;/* #2D3340 */
-        --color-info: 169, 39, 249;/* #A927F9 */
-        --color-light: 45, 46, 62;/* #2D2E3E */
-        --color-primary: 57, 73, 166;/* #3949A6 */
-        --color-secondary: 79, 187, 238;/* #4FBBEE */
-        --color-success: 81, 187, 37;/* #51BB25 */
-        --color-warning: 248, 214, 44;/* #F8D62C */
+        --color-danger: 127, 108, 171;/* #7F6CAB */
+        --color-dark: 32, 42, 84;/* #202A54 */
+        --color-info: 80, 106, 212;/* #506AD4 */
+        --color-light: 247, 244, 205;/* #F7F4CD */
+        --color-primary: 163, 205, 217;/* #A3CDD9 */
+        --color-secondary: 242, 204, 57;/* #F2CC39 */
+        --color-success: 129, 147, 222;/* #8193DE */
+        --color-warning: 218, 205, 247;/* #DACDF7 */
 
     }
     /* purgecss end ignore */

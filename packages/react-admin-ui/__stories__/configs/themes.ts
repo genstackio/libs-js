@@ -7,7 +7,12 @@ import color6 from '../../assets/themes/color6';
 import sunny from '../../assets/themes/sunny';
 import marine from '../../assets/themes/marine';
 import cloudy from '../../assets/themes/cloudy';
+import mint from '../../assets/themes/mint';
+import purple from '../../assets/themes/purple';
 import def from '../../assets/themes/default';
+import vintage from '../../assets/themes/vintage';
+import flashy from '../../assets/themes/flashy';
+import playful from '../../assets/themes/playful';
 
 const themes = [
     { name: 'default', class: '', color: def.color_primary },
@@ -20,6 +25,11 @@ const themes = [
     { name: 'sunny', class: 'theme-sunny', color: sunny.color_primary },
     { name: 'marine', class: 'theme-marine', color: marine.color_primary },
     { name: 'cloudy', class: 'theme-cloudy', color: cloudy.color_primary },
+    { name: 'mint', class: 'theme-mint', color: mint.color_primary },
+    { name: 'purple', class: 'theme-purple', color: purple.color_primary },
+    { name: 'vintage', class: 'theme-vintage', color: vintage.color_primary },
+    { name: 'flashy', class: 'theme-flashy', color: flashy.color_primary },
+    { name: 'playful', class: 'theme-playful', color: playful.color_primary },
 ];
 
 export default themes;

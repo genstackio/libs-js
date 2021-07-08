@@ -1,0 +1,42 @@
+/* the content of this file has been generated, do not edit manually */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --tw-bg-opacity: 1;
+    --tw-text-opacity: 1;
+}
+
+@layer components {
+    /* purgecss start ignore */
+    .theme-vintage {
+
+        --color-clear: 255, 255, 255;/* #FFFFFF */
+        --color-danger: 181, 132, 99;/* #B58463 */
+        --color-dark: 121, 125, 98;/* #797D62 */
+        --color-info: 186, 165, 135;/* #BAA587 */
+        --color-light: 241, 220, 167;/* #F1DCA7 */
+        --color-primary: 255, 203, 105;/* #FFCB69 */
+        --color-secondary: 208, 140, 96;/* #D08C60 */
+        --color-success: 217, 174, 148;/* #D9AE94 */
+        --color-warning: 232, 172, 101;/* #E8AC65 */
+
+    }
+
+    .dark.theme-vintage, .dark .theme-vintage, .theme-vintage .dark {
+
+        --color-clear: 38, 41, 50;/* #262932 */
+        --color-danger: 181, 132, 99;/* #B58463 */
+        --color-dark: 121, 125, 98;/* #797D62 */
+        --color-info: 186, 165, 135;/* #BAA587 */
+        --color-light: 241, 220, 167;/* #F1DCA7 */
+        --color-primary: 255, 203, 105;/* #FFCB69 */
+        --color-secondary: 208, 140, 96;/* #D08C60 */
+        --color-success: 217, 174, 148;/* #D9AE94 */
+        --color-warning: 232, 172, 101;/* #E8AC65 */
+
+    }
+    /* purgecss end ignore */
+}

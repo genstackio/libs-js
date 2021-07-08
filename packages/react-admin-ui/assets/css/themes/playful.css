@@ -1,0 +1,42 @@
+/* the content of this file has been generated, do not edit manually */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --tw-bg-opacity: 1;
+    --tw-text-opacity: 1;
+}
+
+@layer components {
+    /* purgecss start ignore */
+    .theme-playful {
+
+        --color-clear: 255, 255, 255;/* #FFFFFF */
+        --color-danger: 216, 17, 89;/* #D81159 */
+        --color-dark: 46, 41, 78;/* #2E294E */
+        --color-info: 140, 6, 55;/* #8C0637 */
+        --color-light: 234, 222, 218;/* #EADEDA */
+        --color-primary: 143, 45, 86;/* #8F2D56 */
+        --color-secondary: 115, 210, 222;/* #73D2DE */
+        --color-success: 33, 131, 128;/* #218380 */
+        --color-warning: 251, 177, 60;/* #FBB13C */
+
+    }
+
+    .dark.theme-playful, .dark .theme-playful, .theme-playful .dark {
+
+        --color-clear: 38, 41, 50;/* #262932 */
+        --color-danger: 216, 17, 89;/* #D81159 */
+        --color-dark: 46, 41, 78;/* #2E294E */
+        --color-info: 140, 6, 55;/* #8C0637 */
+        --color-light: 234, 222, 218;/* #EADEDA */
+        --color-primary: 143, 45, 86;/* #8F2D56 */
+        --color-secondary: 115, 210, 222;/* #73D2DE */
+        --color-success: 33, 131, 128;/* #218380 */
+        --color-warning: 251, 177, 60;/* #FBB13C */
+
+    }
+    /* purgecss end ignore */
+}

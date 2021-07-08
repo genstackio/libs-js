@@ -14,28 +14,28 @@
     .theme-sunny {
 
         --color-clear: 255, 255, 255;/* #FFFFFF */
-        --color-danger: 220, 53, 68;/* #DC3544 */
-        --color-dark: 44, 50, 62;/* #2C323E */
-        --color-info: 169, 39, 249;/* #A927F9 */
-        --color-light: 244, 244, 244;/* #F4F4F4 */
-        --color-primary: 255, 123, 9;/* #FF7B09 */
-        --color-secondary: 79, 187, 238;/* #4FBBEE */
-        --color-success: 81, 187, 37;/* #51BB25 */
-        --color-warning: 248, 214, 44;/* #F8D62C */
+        --color-danger: 255, 33, 81;/* #FF2151 */
+        --color-dark: 0, 40, 179;/* #0028B3 */
+        --color-info: 255, 170, 117;/* #FFAA75 */
+        --color-light: 252, 233, 200;/* #FCE9C8 */
+        --color-primary: 255, 123, 41;/* #FF7B29 */
+        --color-secondary: 139, 119, 181;/* #8B77B5 */
+        --color-success: 0, 174, 179;/* #00AEB3 */
+        --color-warning: 255, 198, 41;/* #FFC629 */
 
     }
 
     .dark.theme-sunny, .dark .theme-sunny, .theme-sunny .dark {
 
         --color-clear: 38, 41, 50;/* #262932 */
-        --color-danger: 220, 53, 68;/* #DC3544 */
-        --color-dark: 45, 51, 64;/* #2D3340 */
-        --color-info: 169, 39, 249;/* #A927F9 */
-        --color-light: 45, 46, 62;/* #2D2E3E */
-        --color-primary: 57, 73, 166;/* #3949A6 */
-        --color-secondary: 79, 187, 238;/* #4FBBEE */
-        --color-success: 81, 187, 37;/* #51BB25 */
-        --color-warning: 248, 214, 44;/* #F8D62C */
+        --color-danger: 255, 33, 81;/* #FF2151 */
+        --color-dark: 0, 40, 179;/* #0028B3 */
+        --color-info: 255, 170, 117;/* #FFAA75 */
+        --color-light: 252, 233, 200;/* #FCE9C8 */
+        --color-primary: 255, 123, 41;/* #FF7B29 */
+        --color-secondary: 139, 119, 181;/* #8B77B5 */
+        --color-success: 0, 174, 179;/* #00AEB3 */
+        --color-warning: 255, 198, 41;/* #FFC629 */
 
     }
     /* purgecss end ignore */

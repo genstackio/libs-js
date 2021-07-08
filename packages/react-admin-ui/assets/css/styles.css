@@ -20,6 +20,11 @@
 @import 'themes/sunny.css';
 @import 'themes/marine.css';
 @import 'themes/cloudy.css';
+@import 'themes/mint.css';
+@import 'themes/purple.css';
+@import 'themes/vintage.css';
+@import 'themes/flashy.css';
+@import 'themes/playful.css';
 
 @layer components {
 
