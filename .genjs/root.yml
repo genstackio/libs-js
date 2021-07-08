@@ -11,6 +11,7 @@ vars:
     targets:
       migrate: "true"
       start-react-admin-ui: make package-storybook p=react-admin-ui
+      start-react-admin-core: make package-storybook p=react-admin-core
       format: yarn lint
       package-watch: cd packages/$(p) && yarn watch
       watch-figma-plugin-react-admin: make package-watch p=figma-plugin-react-admin

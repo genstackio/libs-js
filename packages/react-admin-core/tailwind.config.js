@@ -1,7 +1,7 @@
 module.exports = {
     mode: 'jit',
     purge: {
-        content: ['./src/**/*.tsx', './src/**/*.ts'],
+        content: ['./src/**/*.tsx', './src/**/*.ts', '../react-admin-ui/lib/**/*.js'],
         options: {
             safelist: {
                 standard: [/^theme-/],

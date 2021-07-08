@@ -77,6 +77,8 @@ pr:
 publish:
 	@yarn --silent lerna publish
 
+start-react-admin-core:
+	@make package-storybook p=react-admin-core
 start-react-admin-ui:
 	@make package-storybook p=react-admin-ui
 
@@ -103,6 +105,6 @@ watch-figma-plugin-react-admin:
 		package-build package-build-storybook package-clear-test package-generate-svg-components package-install package-storybook package-test package-watch \
 		pr \
 		publish \
-		start-react-admin-ui \
+		start-react-admin-core start-react-admin-ui \
 		test test-local test-only \
 		watch-figma-plugin-react-admin
