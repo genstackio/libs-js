@@ -7,6 +7,7 @@ import { ApiProvider } from '@genstackio/react-contexts/lib/contexts/ApiContext'
 import translations from '../src/configs/translations';
 import { boxVariants } from '../src/mappings/box-variants';
 import { blockVariants } from '../src/mappings/block-variants';
+import { fieldVariants } from '../src/mappings/field-variants';
 import { boxColors } from '../src/mappings/box-colors';
 import { corners } from '../src/mappings/corners';
 import { paddings } from '../src/mappings/paddings';
@@ -172,6 +173,7 @@ export const args = {
     error: { control: { type: 'boolean' } },
     errorText: { control: { type: 'text' } },
     fieldType: { control: { type: 'select' }, options: ['text', 'email', 'password'] },
+    fieldVariant: { control: { type: 'select' }, options: Object.keys(fieldVariants) },
     fieldValue: { control: { type: 'text' } },
     rows: { control: { type: 'number' } },
     form: { control: { type: 'object' } },

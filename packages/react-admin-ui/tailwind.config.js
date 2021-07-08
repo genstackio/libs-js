@@ -150,6 +150,7 @@ module.exports = {
                 'upper-block': '0 0 40px rgb(8 21 66 / 20%)',
                 toolbar: '5px 5px 10px rgb(8 21 66 / 5%)',
                 inside: 'inset 10px 10px 15px rgb(8 21 66 / 5%)',
+                field: '0 3px 5px 1px rgb(115 102 255 / 10%)',
             },
             animation: {
                 bounce200: 'bounce 1s infinite 200ms',

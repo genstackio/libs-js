@@ -30,6 +30,7 @@ export function useField(
         /* eslint @typescript-eslint/no-empty-function: 0 */
         register = (name: string, options: any) => {},
         field,
+        variant,
         ...extra
     }: field_def_params,
     defaults: { name?: string; kind?: string } = {},
@@ -76,6 +77,7 @@ export function useField(
         defaultValue,
         kind,
         register: enrichedRegister,
+        variant,
         extra,
         type,
         prepend:
