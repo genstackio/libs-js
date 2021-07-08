@@ -17,7 +17,7 @@ export function EmailField({ options = {}, ...props }: EmailFieldProps) {
         [options],
     );
 
-    return <TextField kind={'email'} {...props} options={options} />;
+    return <TextField kind={'email'} type={'email'} {...props} options={options} />;
 }
 
 export type EmailFieldProps = TextFieldProps;

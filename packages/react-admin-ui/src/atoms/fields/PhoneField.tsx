@@ -17,7 +17,7 @@ export function PhoneField({ options = {}, ...props }: PhoneFieldProps) {
         [options],
     );
 
-    return <TextField kind={'phone'} {...props} options={options} />;
+    return <TextField kind={'phone'} type={'tel'} {...props} options={options} />;
 }
 
 export type PhoneFieldProps = TextFieldProps;
