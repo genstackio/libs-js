@@ -6,11 +6,61 @@ export const fieldVariants = {
     raise: 'rounded shadow-field',
 };
 
+export const fieldPrependedVariants = {
+    flat: '',
+    edge: 'rounded-l-3xl',
+    raise: '',
+};
+
+export const fieldAppendedVariants = {
+    flat: '',
+    edge: 'rounded-r-3xl',
+    raise: '',
+};
+
+export const fieldInputVariants = {
+    edge_: 'rounded-3xl',
+    edge_p: 'rounded-r-3xl',
+    edge_a: 'rounded-l-3xl',
+    raise_: 'rounded',
+    raise_p: 'rounded-r',
+    raise_a: 'rounded-l',
+};
+
 export type field_variant = 'flat' | 'edge' | 'raise';
 
 export const defaultFieldVariant = 'flat';
 
-export const fieldVariantClass = (v: field_variant | undefined, e: any = {}) =>
-    clsxmp(`${v}`, `${defaultFieldVariant}`, fieldVariants, e);
+export const fieldVariantClass = (
+    {
+        variant,
+        prepend = false,
+        append = false,
+        type = 'container',
+    }: {
+        variant?: field_variant;
+        prepend?: boolean;
+        append?: boolean;
+        type?: 'container' | 'input' | 'prepended' | 'appended';
+    },
+    e: any = {},
+) => {
+    switch (type || '') {
+        case 'prepended':
+            return clsxmp(`${variant}`, `${defaultFieldVariant}`, fieldPrependedVariants, e);
+        case 'input':
+            return clsxmp(
+                `${variant}_${prepend ? 'p' : ''}${append ? 'a' : ''}`,
+                `${defaultFieldVariant}_pa`,
+                fieldInputVariants,
+                e,
+            );
+        case 'appended':
+            return clsxmp(`${variant}`, `${defaultFieldVariant}`, fieldAppendedVariants, e);
+        default:
+        case 'container':
+            return clsxmp(`${variant}`, `${defaultFieldVariant}`, fieldVariants, e);
+    }
+};
 
 export default fieldVariantClass;

@@ -3,6 +3,7 @@ import FieldSet from '../FieldSet';
 import useField from '../../hooks/useField';
 import { class_name, flag, icon, register, rich_text } from '../../types';
 import { fieldVariantClass, field_variant } from '../../mappings/field-variants';
+import { useMemo } from 'react';
 
 export function TextField(props: TextFieldProps) {
     const {
@@ -23,19 +24,20 @@ export function TextField(props: TextFieldProps) {
         extra,
         variant,
     } = useField(props);
+    const ctx = useMemo(() => ({ variant, prepend: !!prepend, append: !!append }), [variant, prepend, append]);
     return (
         <FieldSet name={name} label={label} options={options} error={error} helper={helper} className={clsx(className)}>
             <div
                 className={clsx(
                     'text-sm sm:text-base w-full border flex',
-                    fieldVariantClass(variant),
+                    fieldVariantClass({ ...ctx, type: 'container' }),
                     error && 'border border-red-500 ring-red-300',
                 )}
             >
                 {prepend && (
                     <div
                         className={clsx(
-                            'edge' === variant && 'rounded-l-3xl',
+                            fieldVariantClass({ ...ctx, type: 'prepended' }),
                             'z-10 bg-gray-200 border-r-2 p-2 flex flex-col',
                         )}
                     >
@@ -46,12 +48,7 @@ export function TextField(props: TextFieldProps) {
                     className={clsx(
                         'z-20 text-sm sm:text-base w-full placeholder-gray-400 focus:bg-yellow-50 ' +
                             'focus:border-indigo-400 focus:outline-none py-2 pr-2 pl-2 focus:ring-4',
-                        !prepend && !append && 'raise' === variant && 'rounded',
-                        !prepend && append && 'raise' === variant && 'rounded-l',
-                        prepend && !append && 'raise' === variant && 'rounded-r',
-                        !prepend && !append && 'edge' === variant && 'rounded-3xl',
-                        !prepend && append && 'edge' === variant && 'rounded-l-3xl',
-                        prepend && !append && 'edge' === variant && 'rounded-r-3xl',
+                        fieldVariantClass({ ...ctx, type: 'input' }),
                         error && 'border border-red-500 focus:border-red-500 ring-red-300',
                     )}
                     placeholder={placeholder}
@@ -67,7 +64,7 @@ export function TextField(props: TextFieldProps) {
                 {append && (
                     <div
                         className={clsx(
-                            'edge' === variant && 'rounded-r-3xl',
+                            fieldVariantClass({ ...ctx, type: 'appended' }),
                             'z-10 bg-gray-200 border-l-2 p-2 flex flex-col',
                         )}
                     >
