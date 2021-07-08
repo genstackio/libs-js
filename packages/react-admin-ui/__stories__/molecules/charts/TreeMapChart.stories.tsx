@@ -35,12 +35,12 @@ export const basic = s(Template, {
             value: 5,
         },
         {
-            label: "Stress, inquietude",
+            label: 'Stress, inquietude',
             value: 1,
         },
         {
-            label: "État de santé",
-            value: 7
+            label: 'État de santé',
+            value: 7,
         },
     ],
 });
