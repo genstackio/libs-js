@@ -1,5 +1,5 @@
 import { args, s, a } from '../../utils';
-import { AppLayoutTemplate } from '../../../src';
+import { AppLayoutTemplate, UserToolbar } from '../../../src';
 
 export default {
     title: 'Templates/Layout/AppLayoutTemplate',
@@ -79,4 +79,5 @@ export const basic = s(Template, {
             ],
         },
     ],
+    toolbar: <UserToolbar user={{ firstName: 'Alphonse', lastName: 'Daudet', email: 'me@email.com' }} />,
 });

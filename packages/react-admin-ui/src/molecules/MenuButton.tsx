@@ -29,7 +29,7 @@ export function MenuButton({ className, image, label, description, items = [], c
             onClickAway={handleClickAway}
             className={clsx('flex items-center space-x-4 cursor-pointer', className)}
         >
-            {image && <Image {...image} corner={'rounded-xsmall'} />}
+            {image && <Image {...image} corner={'rounded-xsmall'} className={'w-10 h-10'} />}
             <div className={'sm:hidden'}>
                 <Text text={label} variant={'description'} />
                 {description && (

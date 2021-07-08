@@ -27,7 +27,7 @@ export function UserToolbar({ className, user, onSearch, onLogout, children }: U
     const toolbarIconClassName = clsx(baseIconClassName, search && 'hidden');
 
     return (
-        <div className={clsx('flex items-center', className)}>
+        <div className={clsx('w-full flex items-center', className)}>
             <div className={clsx('flex-1', search && 'hidden')}>{children || ''}</div>
             <LanguageToolbarItem className={toolbarIconClassName} />
             <SearchToolbarItem
