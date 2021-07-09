@@ -13,6 +13,7 @@ export * from './cards';
 export * from './Corner';
 export * from './Faq';
 export * from './Expandable';
+export * from './FeaturedQuote';
 export * from './Figure';
 export * from './FileUploader';
 export * from './forms';
