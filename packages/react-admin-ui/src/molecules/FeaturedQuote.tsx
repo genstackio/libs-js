@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import { class_name, image, rich_text, text_color } from '../types';
 import { Avatar, Text } from '../atoms';
 
-
 export function FeaturedQuote({ className, text, title, subtitle, image, color = 'primary' }: FeaturedQuoteProps) {
     return (
         <div className={clsx('flex flex-col items-center', className)}>

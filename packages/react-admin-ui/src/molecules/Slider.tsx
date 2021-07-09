@@ -2,7 +2,7 @@ import MuiSlider from '@material-ui/core/Slider';
 import { box_color } from '../mappings/box-colors';
 import clsx from 'clsx';
 import boxClass from '../utils/boxClass';
-import {ChangeEvent} from "react";
+import { ChangeEvent } from 'react';
 
 export function Slider({ min, max, value, defaultValue, onChange, color }: SliderProps) {
     return (
@@ -33,7 +33,7 @@ export interface SliderProps {
     value?: number;
     defaultValue?: number;
     color?: box_color;
-    onChange?: (event: ChangeEvent<{}>, value: number | number[]) => void;
+    onChange?: (event: ChangeEvent<any>, value: number | number[]) => void;
 }
 
 export default Slider;
