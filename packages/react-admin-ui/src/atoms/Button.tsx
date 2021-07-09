@@ -2,9 +2,10 @@ import { useCallback, useMemo } from 'react';
 import clsx from 'clsx';
 import Icon from './Icon';
 import buttonClass from '../utils/buttonClass';
-import { box_color, box_variant, children, class_name, flag, icon, target, size } from '../types';
+import { box_color, box_variant, children, class_name, flag, icon, target, size, corner } from '../types';
 import { Spinner } from './Spinner';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
+import cornerClass from '../mappings/corners';
 
 export function Button({
     children,
@@ -17,6 +18,7 @@ export function Button({
     size = 'md',
     onClick,
     variant = 'filled',
+    corner = 'rounded-xxsmall',
 }: ButtonProps) {
     const handleClick = useCallback(
         (event) => {
@@ -32,7 +34,8 @@ export function Button({
             disabled={disabled}
             className={clsx(
                 buttonClass({ size, color, variant, disabled }),
-                'py-2 px-4 rounded inline-flex items-center',
+                cornerClass(corner),
+                'py-2 px-4 inline-flex items-center',
                 disabled && 'opacity-50 cursor-not-allowed',
                 'justify-center',
                 className,
@@ -65,6 +68,7 @@ export interface ButtonProps {
     size?: size;
     onClick?: target;
     variant?: box_variant;
+    corner?: corner;
 }
 
 export default Button;

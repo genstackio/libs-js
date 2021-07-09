@@ -40,3 +40,4 @@ export * from './Timeline';
 export * from './charts/UsageChart';
 export * from './StatsChartHeader';
 export * from './UserToolbar';
+export * from './VideoPlayer';

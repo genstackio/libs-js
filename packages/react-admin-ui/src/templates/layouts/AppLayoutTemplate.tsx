@@ -13,7 +13,7 @@ export function AppLayoutTemplate({ logo, menu, children, toolbar, ...props }: A
     return (
         <div className={'flex h-screen'}>
             <div className={clsx('w-drawer bg-clear', !show && 'hidden')}>
-                <div className={'px-8 py-7 h-xxl shadow-toolbar flex justify-between items-center'}>
+                <div className={'px-8 py-6 h-xxl shadow-toolbar flex justify-between items-center'}>
                     {logo && <Image className={'bg-auto'} {...logo} />}
                     <Icon
                         icon={'apps_outlined'}

@@ -10,6 +10,8 @@ export const corners = {
     'rounded-xsmall': 'rounded-lg',
     'top-rounded-xsmall': 'rounded-t-lg',
     'left-rounded-xsmall': 'rounded-l-lg',
+    circle: 'rounded-full',
+    'rounded-xxsmall': 'rounded',
     square: '',
 };
 
@@ -18,12 +20,14 @@ export type corner =
     | 'top-rounded'
     | 'left-rounded'
     | 'rounded-small'
+    | 'rounded-xxsmall'
     | 'top-rounded-small'
     | 'left-rounded-small'
     | 'rounded-xsmall'
     | 'top-rounded-xsmall'
     | 'left-rounded-xsmall'
-    | 'square';
+    | 'square'
+    | 'circle';
 
 export const defaultCorner = 'square';
 

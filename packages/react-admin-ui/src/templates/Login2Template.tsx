@@ -16,11 +16,11 @@ export function Login2Template({ image, logo, bgColor, form }: Login2TemplatePro
                 bgColor={bgColor}
                 className={'w-5/12 py-8 px-3 flex-2 flex-col justify-center items-center md:hidden sm:hidden'}
             >
-                {logo && <Image {...logo} />}
+                {logo && <Image expand={false} {...logo} />}
                 <div className={'mt-4 p-10 w-full max-w-md bg-white rounded-lg shadow-block'}>{form || ''}</div>
             </Container>
             <div className={'z-50 hidden flex sm:block md:block mx-auto'}>
-                {logo && <Image {...logo} />}
+                {logo && <Image expand={false} {...logo} />}
                 <div className={'mt-4 p-10 xs:p-5 md:p-5 w-full bg-white rounded-lg shadow-block'}>{form || ''}</div>
             </div>
         </div>
