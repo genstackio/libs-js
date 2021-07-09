@@ -1,48 +1,32 @@
-import { useCallback, useState } from 'react';
 import clsx from 'clsx';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
 import Image from '../atoms/Image';
-import Popper from '@material-ui/core/Popper';
 import MenuButtonWidget from './MenuButtonWidget';
 import { box_color, class_name, image, menu_button_item, rich_text } from '../types';
-import Clickable from '../atoms/Clickable';
+import Expandable from './Expandable';
 
 export function MenuButton({ className, image, label, description, items = [], color }: MenuButtonProps) {
-    const [opened, setOpened] = useState(false);
-    const [anchorEl, setAnchorEl] = useState(null);
-    const handleClick = useCallback(
-        (event) => {
-            setOpened(!opened);
-            setAnchorEl(anchorEl ? null : event.currentTarget);
-        },
-        [setOpened, setAnchorEl],
-    );
-    const handleClickAway = useCallback(() => {
-        setOpened(false);
-        setAnchorEl(null);
-    }, [setOpened, setAnchorEl]);
-
     return (
-        <Clickable
-            onClick={handleClick}
-            onClickAway={handleClickAway}
-            className={clsx('flex items-center space-x-4 cursor-pointer', className)}
+        <Expandable
+            className={clsx('space-x-4', className)}
+            expandedChildren={<MenuButtonWidget items={items} color={color} />}
         >
-            {image && <Image {...image} corner={'rounded-xsmall'} className={'w-10 h-10'} />}
-            <div className={'sm:hidden'}>
-                <Text text={label} variant={'description'} />
-                {description && (
-                    <div className={'flex items-center'}>
-                        <Text text={description} variant={'small'} />
-                        <Icon icon={'expand_more'} />
+            {(opened) => (
+                <>
+                    {image && <Image {...image} corner={'rounded-xsmall'} className={'w-10 h-10'} />}
+                    <div className={'sm:hidden'}>
+                        <Text text={label} variant={'description'} />
+                        {description && (
+                            <div className={'flex items-center'}>
+                                <Text text={description} variant={'small'} />
+                                <Icon icon={opened ? 'expand_less' : 'expand_more'} />
+                            </div>
+                        )}
                     </div>
-                )}
-            </div>
-            <Popper open={opened} anchorEl={anchorEl} placement={'bottom-start'} transition>
-                <MenuButtonWidget items={items} color={color} />
-            </Popper>
-        </Clickable>
+                </>
+            )}
+        </Expandable>
     );
 }
 
