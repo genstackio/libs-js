@@ -163,7 +163,13 @@ export default {
             form_forgot_password_create_password_subtitle: 'Merci de choisir un nouveau mot de passe',
             form_forgot_password_create_password_submit_label: 'Enregister',
 
+            form_generic_submit_label: 'Envoyer',
+
             locales_change_value: 'Choisissez votre langue',
+
+            previous_btn_label: 'Précédent',
+            next_btn_label: 'Suivant',
+            finish_btn_label: 'Terminer',
         },
         tablePagination: {
             labelRowsPerPage: 'Eléments par page :',
@@ -388,7 +394,13 @@ export default {
             form_forgot_password_create_password_subtitle: 'Scegli una nuova password',
             form_forgot_password_create_password_submit_label: 'Registrati',
 
+            form_generic_submit_label: 'Mandare',
+
             locales_change_value: 'Scegli la tua lingua',
+
+            previous_btn_label: 'Precedente',
+            next_btn_label: 'Suivant',
+            finish_btn_label: 'Finire',
         },
     },
     'en-GB': {
@@ -539,7 +551,13 @@ export default {
             form_forgot_password_create_password_subtitle: 'Please choose a new password',
             form_forgot_password_create_password_submit_label: 'Save',
 
+            form_generic_submit_label: 'Submit',
+
             locales_change_value: 'Select your language',
+
+            previous_btn_label: 'Previous',
+            next_btn_label: 'Next',
+            finish_btn_label: 'Finish',
         },
         tablePagination: {
             labelRowsPerPage: 'Rows per page:',

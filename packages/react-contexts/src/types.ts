@@ -178,3 +178,13 @@ export type app_context_params = {
 
 export type importer_function = (name: string, key: string) => LazyExoticComponent<ComponentType<any>> | undefined;
 export type importer_context_params = undefined | importer_function;
+
+export type workflow_step = {
+    id: string;
+    label: any;
+    description: any;
+    bgImage?: image;
+    image?: image;
+    isDisabled?: Function;
+    component: ComponentType<{ onChange: Function; onSubmit: Function; defaultValues?: { [key: string]: any } }>;
+};

@@ -6,9 +6,9 @@ import { WithClassName } from '../withs';
 export function ButtonsGroup({ className, actions = [] }: ButtonsGroupProps) {
     return (
         <div className={clsx('x-buttons', className)}>
-            {actions.map(({ color, variant, target, label, icon }, i) => (
+            {actions.map(({ label, target, ...props }, i) => (
                 <div key={i} className={'xs:mt-2 xs:w-full'}>
-                    <Button color={color} variant={variant} onClick={target} icon={icon}>
+                    <Button onClick={target} className={'xs:w-full'} {...props}>
                         {label}
                     </Button>
                 </div>

@@ -27,7 +27,6 @@ export function TreeMapChart({ className, color, values = [] }: TreeMapChartProp
         ...defaultOptions,
         colors: !color ? Object.values(tailwindChartColors) : [tailwindChartColors[`${color}`]],
     };
-    console.log(options);
     const data: { x: string; y: number }[] = values.reduce((acc, data) => {
         acc.push({ x: data.label!, y: Math.min(Math.max(0, data.value), 10) });
         return acc;

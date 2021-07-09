@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ComponentType, ReactNode } from 'react';
 import { shape } from './mappings/shapes';
 import { status } from './mappings/statuses';
 import { box_color } from './mappings/box-colors';
@@ -78,7 +78,14 @@ export type select_item = { value?: string; label?: rich_text };
 export type news_item = { title?: rich_text; content?: rich_text };
 export type tab_item = { title?: rich_text; content?: rich_text; disabled?: flag };
 export type corner_item = { color?: box_color; icon?: icon; text?: rich_text; variant?: box_variant };
-export type action_item = { color?: box_color; icon?: icon; label?: rich_text; target?: target; variant?: box_variant };
+export type action_item = {
+    color?: box_color;
+    icon?: icon;
+    label?: rich_text;
+    target?: target;
+    variant?: box_variant;
+    disabled?: flag;
+};
 export type table_column = { id: string; format?: any; label?: string; width?: number; render?: Function };
 export type table_row = any;
 export type timeline_item = { color: box_color; description: rich_text; title: rich_text };
@@ -130,5 +137,42 @@ export type action_processerror_callback = (
 ) => Promise<void>;
 export type action_converterror_callback = (error: any, context: { name: string; t: Function; options: any }) => any;
 export type action_formaterror_callback = (error: any) => any;
+export type workflow_step = {
+    id: string;
+    label: rich_text;
+    description: rich_text;
+    bgImage?: image;
+    image?: image;
+    isDisabled?: Function;
+    component: ComponentType;
+};
+export type workflow_config = {
+    currentStep: workflow_step;
+    steps: workflow_step[];
+    getPreviousStepId: () => string;
+    getNextStepId: () => string;
+    isLast: () => boolean;
+    isFirst: () => boolean;
+};
+
+export type wizard_step_props = {
+    onNext?: Function;
+    onPrevious?: Function;
+    onCancel?: Function;
+    onComplete?: Function;
+    onSave?: Function;
+    onSubmit?: Function;
+    defaultValues?: { [key: string]: any };
+};
+
+export type wizard_step = {
+    id: string;
+    label: rich_text;
+    description: rich_text;
+    bgImage?: image;
+    image?: image;
+    isDisabled?: Function;
+    component: ComponentType<wizard_step_props>;
+};
 
 export type share_icon_item = { type: share_icon_type; target?: target };
