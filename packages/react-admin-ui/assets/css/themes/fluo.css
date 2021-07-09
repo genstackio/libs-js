@@ -1,0 +1,42 @@
+/* the content of this file has been generated, do not edit manually */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --tw-bg-opacity: 1;
+    --tw-text-opacity: 1;
+}
+
+@layer components {
+    /* purgecss start ignore */
+    .theme-fluo {
+
+        --color-clear: 255, 255, 255;/* #FFFFFF */
+        --color-danger: 114, 9, 183;/* #7209B7 */
+        --color-dark: 58, 12, 163;/* #3A0CA3 */
+        --color-info: 67, 97, 238;/* #4361EE */
+        --color-light: 76, 201, 240;/* #4CC9F0 */
+        --color-primary: 247, 37, 133;/* #F72585 */
+        --color-secondary: 86, 11, 173;/* #560BAD */
+        --color-success: 72, 149, 239;/* #4895EF */
+        --color-warning: 181, 23, 158;/* #B5179E */
+
+    }
+
+    .dark.theme-fluo, .dark .theme-fluo, .theme-fluo .dark {
+
+        --color-clear: 38, 41, 50;/* #262932 */
+        --color-danger: 114, 9, 183;/* #7209B7 */
+        --color-dark: 58, 12, 163;/* #3A0CA3 */
+        --color-info: 67, 97, 238;/* #4361EE */
+        --color-light: 76, 201, 240;/* #4CC9F0 */
+        --color-primary: 247, 37, 133;/* #F72585 */
+        --color-secondary: 86, 11, 173;/* #560BAD */
+        --color-success: 72, 149, 239;/* #4895EF */
+        --color-warning: 181, 23, 158;/* #B5179E */
+
+    }
+    /* purgecss end ignore */
+}

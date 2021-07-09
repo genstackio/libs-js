@@ -1,0 +1,42 @@
+/* the content of this file has been generated, do not edit manually */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --tw-bg-opacity: 1;
+    --tw-text-opacity: 1;
+}
+
+@layer components {
+    /* purgecss start ignore */
+    .theme-orange {
+
+        --color-clear: 255, 255, 255;/* #FFFFFF */
+        --color-danger: 249, 65, 68;/* #F94144 */
+        --color-dark: 46, 41, 78;/* #2E294E */
+        --color-info: 87, 117, 144;/* #577590 */
+        --color-light: 234, 222, 218;/* #EADEDA */
+        --color-primary: 243, 114, 44;/* #F3722C */
+        --color-secondary: 67, 170, 139;/* #43AA8B */
+        --color-success: 144, 190, 109;/* #90BE6D */
+        --color-warning: 249, 199, 79;/* #F9C74F */
+
+    }
+
+    .dark.theme-orange, .dark .theme-orange, .theme-orange .dark {
+
+        --color-clear: 38, 41, 50;/* #262932 */
+        --color-danger: 249, 65, 68;/* #F94144 */
+        --color-dark: 46, 41, 78;/* #2E294E */
+        --color-info: 87, 117, 144;/* #577590 */
+        --color-light: 234, 222, 218;/* #EADEDA */
+        --color-primary: 243, 114, 44;/* #F3722C */
+        --color-secondary: 67, 170, 139;/* #43AA8B */
+        --color-success: 144, 190, 109;/* #90BE6D */
+        --color-warning: 249, 199, 79;/* #F9C74F */
+
+    }
+    /* purgecss end ignore */
+}

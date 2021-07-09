@@ -13,6 +13,8 @@ import def from '../../assets/themes/default';
 import vintage from '../../assets/themes/vintage';
 import flashy from '../../assets/themes/flashy';
 import playful from '../../assets/themes/playful';
+import orange from '../../assets/themes/orange';
+import fluo from '../../assets/themes/fluo';
 
 const themes = [
     { name: 'default', class: '', color: def.color_primary },
@@ -30,6 +32,8 @@ const themes = [
     { name: 'vintage', class: 'theme-vintage', color: vintage.color_primary },
     { name: 'flashy', class: 'theme-flashy', color: flashy.color_primary },
     { name: 'playful', class: 'theme-playful', color: playful.color_primary },
+    { name: 'orange', class: 'theme-orange', color: orange.color_primary },
+    { name: 'fluo', class: 'theme-fluo', color: fluo.color_primary },
 ];
 
 export default themes;
