@@ -7,7 +7,11 @@ export function clsxm(
     keys: string[] = ['variant', 'color'],
 ) {
     const key = buildStyleKey(attributes, keys);
-    return clsx(common[key], disablable && !disabled && nonDisabled[key], hoverable && hoverableStyles[key]);
+    return clsx(
+        common[key],
+        disablable && !disabled && nonDisabled[key],
+        hoverable && !disabled && hoverableStyles[key],
+    );
 }
 
 export default clsxm;

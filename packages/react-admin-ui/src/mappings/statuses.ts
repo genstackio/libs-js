@@ -1,10 +1,10 @@
 import clsxmp from '../utils/clsxmp';
 
 export const statuses = {
-    online: 'bg-green-400',
-    offline: 'bg-gray-300',
-    busy: 'bg-red-500',
-    unknown: '',
+    online: 'bg-success',
+    offline: 'bg-disabled',
+    busy: 'bg-danger',
+    unknown: 'bg-warning',
 };
 
 export type status = 'online' | 'offline' | 'busy' | 'unknown';

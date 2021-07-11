@@ -1,5 +1,8 @@
+import { Fragment } from 'react';
 import { args, s, a } from '../utils';
 import { Button } from '../../src';
+import { boxColors } from '../../src/mappings/box-colors';
+import { boxVariants } from '../../lib/mappings/box-variants';
 
 export default {
     title: 'Atoms/Button',
@@ -26,74 +29,18 @@ export const basic = s(Template, {
 export const showcase = s(
     (args) => (
         <div className={'space-y-2'}>
-            <p>FILLED</p>
-            <div className={'flex items-center space-x-4'}>
-                <Template color={'primary'}>{'primary'}</Template>
-                <Template color={'secondary'}>{'secondary'}</Template>
-                <Template color={'success'}>{'success'}</Template>
-                <Template color={'info'}>{'info'}</Template>
-                <Template color={'warning'}>{'warning'}</Template>
-                <Template color={'danger'}>{'danger'}</Template>
-                <Template color={'light'}>{'light'}</Template>
-                <Template color={'dark'}>{'dark'}</Template>
-            </div>
-            <p>OUTLINED</p>
-            <div className={'flex items-center space-x-4'}>
-                <Template color={'primary'} variant={'outlined'}>
-                    {'primary'}
-                </Template>
-                <Template color={'primary'} variant={'outlined'}>
-                    {'primary'}
-                </Template>
-                <Template color={'secondary'} variant={'outlined'}>
-                    {'secondary'}
-                </Template>
-                <Template color={'success'} variant={'outlined'}>
-                    {'success'}
-                </Template>
-                <Template color={'info'} variant={'outlined'}>
-                    {'info'}
-                </Template>
-                <Template color={'warning'} variant={'outlined'}>
-                    {'warning'}
-                </Template>
-                <Template color={'danger'} variant={'outlined'}>
-                    {'danger'}
-                </Template>
-                <Template color={'light'} variant={'outlined'}>
-                    {'light'}
-                </Template>
-                <Template color={'dark'} variant={'outlined'}>
-                    {'dark'}
-                </Template>
-            </div>
-            <p>CONTAINED</p>
-            <div className={'flex items-center space-x-4'}>
-                <Template color={'primary'} variant={'contained'}>
-                    {'primary'}
-                </Template>
-                <Template color={'secondary'} variant={'contained'}>
-                    {'secondary'}
-                </Template>
-                <Template color={'success'} variant={'contained'}>
-                    {'success'}
-                </Template>
-                <Template color={'info'} variant={'contained'}>
-                    {'info'}
-                </Template>
-                <Template color={'warning'} variant={'contained'}>
-                    {'warning'}
-                </Template>
-                <Template color={'danger'} variant={'contained'}>
-                    {'danger'}
-                </Template>
-                <Template color={'light'} variant={'contained'}>
-                    {'light'}
-                </Template>
-                <Template color={'dark'} variant={'contained'}>
-                    {'dark'}
-                </Template>
-            </div>
+            {Object.keys(boxVariants).map((variant, i) => (
+                <Fragment key={i}>
+                    <p>{variant.toUpperCase()}</p>
+                    <div className={'flex items-center space-x-4'}>
+                        {Object.keys(boxColors).map((color, j) => (
+                            <Template key={`${i}-${j}`} color={color} variant={variant}>
+                                {color}
+                            </Template>
+                        ))}
+                    </div>
+                </Fragment>
+            ))}
             <p>DISABLED</p>
             <div className={'flex items-center space-x-4'}>
                 <Template color={'primary'} disabled>

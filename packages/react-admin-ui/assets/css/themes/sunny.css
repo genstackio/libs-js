@@ -16,6 +16,7 @@
         --color-clear: 255, 255, 255;/* #FFFFFF */
         --color-danger: 255, 33, 81;/* #FF2151 */
         --color-dark: 0, 40, 179;/* #0028B3 */
+        --color-disabled: 206, 204, 195;/* #CECCC3 */
         --color-info: 255, 170, 117;/* #FFAA75 */
         --color-light: 252, 233, 200;/* #FCE9C8 */
         --color-primary: 255, 123, 41;/* #FF7B29 */
@@ -30,6 +31,7 @@
         --color-clear: 38, 41, 50;/* #262932 */
         --color-danger: 255, 33, 81;/* #FF2151 */
         --color-dark: 0, 40, 179;/* #0028B3 */
+        --color-disabled: 206, 204, 195;/* #CECCC3 */
         --color-info: 255, 170, 117;/* #FFAA75 */
         --color-light: 252, 233, 200;/* #FCE9C8 */
         --color-primary: 255, 123, 41;/* #FF7B29 */

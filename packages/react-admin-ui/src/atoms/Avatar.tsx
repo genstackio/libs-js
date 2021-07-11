@@ -31,7 +31,7 @@ export function Avatar({
                     className={clsx(
                         sizes[size],
                         shapeClass(shape),
-                        'text-white bg-gray-400 flex items-center justify-center',
+                        'text-white bg-disabled flex items-center justify-center',
                         initialsClassName,
                     )}
                 >

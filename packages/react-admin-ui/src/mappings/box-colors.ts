@@ -7,6 +7,7 @@ export const boxColors = {
     info: 'bg-info',
     warning: 'bg-warning',
     danger: 'bg-danger',
+    disabled: 'bg-disabled',
     light: 'bg-light',
     dark: 'bg-dark',
     none: 'bg-white',
@@ -21,6 +22,7 @@ export type box_color =
     | 'info'
     | 'warning'
     | 'danger'
+    | 'disabled'
     | 'light'
     | 'dark'
     | 'none'

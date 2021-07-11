@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { class_name } from '../types';
 
-export function FieldLabel({ className, name, label, error, options }: FieldLabelProps) {
+export function FieldLabel({ className, name, label, error, options = {} }: FieldLabelProps) {
     if (!label) return null;
     return (
         <label
@@ -14,7 +14,7 @@ export function FieldLabel({ className, name, label, error, options }: FieldLabe
             )}
         >
             {label}
-            {options.required && '*'}
+            {!!options?.required && '*'}
         </label>
     );
 }

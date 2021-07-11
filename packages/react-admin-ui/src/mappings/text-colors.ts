@@ -9,6 +9,7 @@ export const textColors = {
     warning: 'text-warning',
     danger: 'text-danger',
     dark: 'text-dark',
+    disabled: 'text-disabled',
     light: 'text-light',
     none: '',
     default: '',

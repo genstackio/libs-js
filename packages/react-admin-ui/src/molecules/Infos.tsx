@@ -8,7 +8,7 @@ export function Infos({ color = 'primary', items = [], ...props }: InfosProps) {
             <Text text="General" variant={'title6'} />
             {items.map(({ label, value }, index) => (
                 <div key={index} className="flex justify-between mt-4 ">
-                    <Text text={label} className={'text-gray-300'} />
+                    <Text text={label} className={'text-disabled'} />
                     <Text text={value} color={color} />
                 </div>
             ))}

@@ -35,7 +35,7 @@ export function Button({
             className={clsx(
                 buttonClass({ size, color, variant, disabled }),
                 cornerClass(corner),
-                'py-2 px-4 inline-flex items-center',
+                'py-2 px-4 inline-flex items-center box-border',
                 disabled && 'opacity-50 cursor-not-allowed',
                 'justify-center',
                 className,

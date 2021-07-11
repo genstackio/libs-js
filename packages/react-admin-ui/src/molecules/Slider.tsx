@@ -12,7 +12,7 @@ export function Slider({ min, max, value, defaultValue, onChange, color }: Slide
             min={min}
             max={max}
             defaultValue={defaultValue}
-            className={clsx(boxClass({ color }), 'mt-12')}
+            className={clsx(boxClass({ color, variant: 'filled' }), 'bg-transparent mt-12')}
             classes={
                 {
                     thumb: 'h-6 w-6 border-2 border-current -mt-2 -ml-3',

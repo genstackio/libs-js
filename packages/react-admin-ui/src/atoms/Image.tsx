@@ -25,7 +25,7 @@ export function Image({
             {tablet && tablet.url && <source media="(max-width: 960px)" srcSet={tablet.url} />}
             <source media="(min-width: 961px)" srcSet={url || defaultImage} />
             <img
-                className={clsx(expand && 'w-full h-full', cornerClass(corner), className)}
+                className={clsx(expand && 'w-full h-full object-contain', cornerClass(corner), className)}
                 alt={alt}
                 style={style}
                 src={url || defaultImage}

@@ -4,6 +4,7 @@ import Button from '../atoms/Button';
 import Text from '../atoms/Text';
 import boxClass from '../utils/boxClass';
 import { class_name, pricing_item } from '../types';
+import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
 
 export function Pricing({ className, items = [] }: PricingProps) {
     return (
@@ -23,9 +24,11 @@ export function Pricing({ className, items = [] }: PricingProps) {
                             'flex rounded-full h-32 w-32 items-center justify-center',
                         )}
                     >
-                        <Text text={item.currency} variant={'description'} />
-                        <Text text={`${item.price}`} variant={'title1'} />
-                        <Text text={item.period} variant={'subtitle'} />
+                        <BoxProvider value={{ color: item.color, variant: item.variant }}>
+                            <Text text={item.currency} variant={'description'} />
+                            <Text text={`${item.price}`} variant={'title1'} />
+                            <Text text={item.period} variant={'subtitle'} />
+                        </BoxProvider>
                     </div>
                     <div className={'flex flex-col justify-center space-y-3'}>
                         {item.features &&

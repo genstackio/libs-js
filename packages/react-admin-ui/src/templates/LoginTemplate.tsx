@@ -11,7 +11,7 @@ export function LoginTemplate({ image, logo, form }: LoginTemplateProps) {
                 'bg-cover h-screen py-10 px-3 xs:px-0 flex flex-col justify-center xs:justify-start items-center'
             }
         >
-            {logo && <Image {...logo} className={'mx-auto'} />}
+            {logo && <Image expand={false} {...logo} className={'mx-auto'} />}
             <div
                 className={
                     'mt-4 p-10 xs:p-5 w-full max-w-md xs:max-w-full bg-white rounded-lg xs:rounded-none shadow-block'

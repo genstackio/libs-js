@@ -8,6 +8,7 @@ module.exports = {
     color_warning: '#F8D62C', // warning color (text or background)
     color_danger: '#DC3544', // danger color (text or background)
     color_dark: '#2C323E', // darkest color (text or background)
+    color_disabled: '#CECCC3',
     color_light: '#F4F4F4', // light color (text or background)
     color_clear: '#FFFFFF', // lightest color (text or background)
     color_chart_primary_standard_1: ['raw', '#F73164'], // chart line color 1 (when container is filled or outlined)
@@ -40,6 +41,7 @@ module.exports = {
     dark_color_warning: '#F8D62C',
     dark_color_danger: '#DC3544',
     dark_color_dark: '#2D3340',
+    dark_color_disabled: '#CECCC3',
     dark_color_light: '#2D2E3E',
     dark_color_clear: '#262932',
     dark_color_chart_primary_standard_1: ['raw', '#1FA1E3'],

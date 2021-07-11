@@ -6,6 +6,7 @@ module.exports = {
     color_warning: '#C7A618',
     color_danger: '#A64337',
     color_dark: '#1C1A1A',
+    color_disabled: '#CECCC3',
     color_light: '#F3F3F3',
     color_clear: '#FFFFFF',
     // dark
@@ -16,6 +17,7 @@ module.exports = {
     dark_color_warning: '#C7A618',
     dark_color_danger: '#A64337',
     dark_color_dark: '#1C1A1A',
+    dark_color_disabled: '#CECCC3',
     dark_color_light: '#F3F3F3',
     dark_color_clear: '#262932',
 };
