@@ -9,7 +9,7 @@ export function Pill({ className, color, text, variant }: PillProps) {
         <div
             className={clsx(
                 boxClass({ color, variant }),
-                'text-xs inline-flex font-bold uppercase pl-2 pr-2 py-1 rounded-full text-white',
+                'text-xs inline-flex font-bold uppercase pl-2 pr-2 py-1 rounded-full text-clear',
                 className,
             )}
         >

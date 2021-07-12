@@ -31,7 +31,7 @@ export function Avatar({
                     className={clsx(
                         sizes[size],
                         shapeClass(shape),
-                        'text-white bg-disabled flex items-center justify-center',
+                        'text-clear bg-disabled flex items-center justify-center',
                         initialsClassName,
                     )}
                 >
@@ -43,7 +43,7 @@ export function Avatar({
                 <div
                     className={clsx(
                         statusClass(status),
-                        'absolute bottom-0 right-0 w-1/4 h-1/4 rounded-full border-1 border-white',
+                        'absolute bottom-0 right-0 w-1/4 h-1/4 rounded-full border-1 border-clear',
                         statusClassName,
                     )}
                 />

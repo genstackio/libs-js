@@ -19,7 +19,7 @@ export function Timeline({ className, items }: TimelineProps) {
                         </TimelineSeparator>
                         <TimelineContent className={'-mt-4'}>
                             <p className={'text-md text-bold'}>{item.title}</p>
-                            <p className={'text-sm text-gray-400'}>{item.description}</p>
+                            <p className={'text-sm text-disabled'}>{item.description}</p>
                         </TimelineContent>
                     </TimelineItem>
                 </div>

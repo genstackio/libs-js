@@ -7,7 +7,7 @@ export function ItemSummary({ className, date, author, likes, comments }: ItemSu
     return (
         <div
             className={clsx(
-                'flex flex-wrap justify-start text-gray-400 space-x-8 xs:space-x-2 items-center',
+                'flex flex-wrap justify-start text-disabled space-x-8 xs:space-x-2 items-center',
                 className,
             )}
         >

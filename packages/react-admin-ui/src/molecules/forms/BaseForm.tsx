@@ -29,9 +29,7 @@ export function BaseForm({
             <Column center>
                 <form onSubmit={handleSubmit(onSubmit as any)} className={'w-full'} aria-disabled={submitting}>
                     {title && <Text text={title} variant={'title6'} color={color} />}
-                    {subtitle && (
-                        <Text className={'text-gray-500 mb-4'} text={subtitle} variant={'body'} color={color} />
-                    )}
+                    {subtitle && <Text className={'mb-4'} text={subtitle} variant={'body'} color={color} />}
                     {error && (
                         <AlertPanel color={'danger'} className={'mb-4'}>
                             {error.message}

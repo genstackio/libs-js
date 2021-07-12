@@ -20,7 +20,7 @@ export function SmallItemCard({
     const handleClick = useCallback(() => setShow(false), [setShow]);
     if (!show) return null;
     return (
-        <div className={clsx('relative flex border-1 border-gray-300 py-4 rounded-lg max-w-2xl', className)}>
+        <div className={clsx('relative flex border-1 border-disabled py-4 rounded-lg max-w-2xl', className)}>
             {closable && (
                 <Icon icon={'close'} onClick={handleClick} className={'absolute top-2 right-2 cursor-pointer'} />
             )}

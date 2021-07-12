@@ -8,9 +8,9 @@ const textPositions = {
     right: 'border-r-4 p-4 blockquote',
 };
 const titlePositions = {
-    left: 'p-4 blockquote text-gray-400',
+    left: 'p-4 blockquote text-disabled',
     center: 'text-dark',
-    right: 'p-4 blockquote text-gray-400',
+    right: 'p-4 blockquote text-disabled',
 };
 
 export function Quote({ className, position = 'left', text, title }: QuoteProps) {

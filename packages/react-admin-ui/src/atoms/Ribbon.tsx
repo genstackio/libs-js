@@ -104,7 +104,7 @@ export function Ribbon({ className, children, color, horizontal, position = 'top
                         <div
                             className={clsx(
                                 boxClass({ color, variant: 'contained' }),
-                                'w-32 transform rotate-90 text-center text-white py-1',
+                                'w-32 transform rotate-90 text-center text-clear py-1',
                                 className,
                             )}
                         >

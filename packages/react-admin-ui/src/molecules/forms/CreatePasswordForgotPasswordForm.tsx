@@ -24,7 +24,7 @@ export function CreatePasswordForgotPasswordForm({
             <Form onSubmit={onSubmit} defaultValues={defaultValues}>
                 <Text text={t('form_forgot_password_create_password_title')} variant={'title6'} color={color} />
                 <Text
-                    className={'text-gray-500 mb-4'}
+                    className={'text-disabled mb-4'}
                     text={t('form_forgot_password_create_password_subtitle')}
                     variant={'body'}
                     color={color}

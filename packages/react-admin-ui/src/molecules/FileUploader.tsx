@@ -61,8 +61,8 @@ export function FileUploader({
             <Block {...props}>
                 <div
                     className={
-                        'flex flex-col px-4 py-6 bg-clear text-blue tracking-wide uppercase ' +
-                        'border border-blue cursor-pointer hover:bg-primary hover:text-white'
+                        'flex flex-col px-4 py-6 bg-clear text-info tracking-wide uppercase ' +
+                        'border border-info cursor-pointer hover:bg-primary hover:text-clear'
                     }
                 >
                     <Dropzone

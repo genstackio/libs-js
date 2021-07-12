@@ -14,7 +14,7 @@ export function Figure({ className, pill, price, tag, title }: FigureProps) {
                         <Tag text={tag.text} color={tag.color} />
                     </div>
                 )}
-                <Text className={'text-black font-black text-4xl mt-4'} text={`${price}`} />
+                <Text className={'text-dark font-black text-4xl mt-4'} text={`${price}`} />
             </div>
             {pill && (
                 <div className={'absolute right-4'}>

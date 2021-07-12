@@ -19,7 +19,7 @@ export function TabbedBlock({ items = [], ...props }: TabbedBlockProps) {
                     value={value}
                     onChange={handleChange as any}
                     aria-label={'simple tabs example'}
-                    className={'bg-transparent border-b-1 border-gray-200'}
+                    className={'bg-transparent border-b-1 border-disabled'}
                     TabIndicatorProps={{ className: bgClass({ color: props.color, variant: 'outlined' }) }}
                 >
                     {items.map(({ title, disabled }, index) => (

@@ -31,7 +31,7 @@ export function TextField(props: TextFieldProps) {
                 className={clsx(
                     'text-sm sm:text-base w-full border flex',
                     fieldVariantClass({ ...ctx, type: 'container' }),
-                    error && 'border border-red-500 ring-red-300',
+                    error && 'border border-danger ring-red-300',
                 )}
             >
                 {prepend && (
@@ -46,10 +46,10 @@ export function TextField(props: TextFieldProps) {
                 )}
                 <input
                     className={clsx(
-                        'z-20 text-sm sm:text-base w-full placeholder-gray-400 focus:bg-clear ' +
+                        'z-20 text-sm sm:text-base w-full placeholder-disabled focus:bg-clear ' +
                             'focus:border-indigo-400 focus:outline-none py-2 pr-2 pl-2 focus:ring-4',
                         fieldVariantClass({ ...ctx, type: 'input' }),
-                        error && 'border border-red-500 focus:border-red-500 ring-red-300',
+                        error && 'border border-danger focus:border-danger ring-red-300',
                     )}
                     placeholder={placeholder}
                     disabled={disabled}

@@ -21,7 +21,7 @@ export function SearchBar({ className, defaultFocus = false, onClear, onChange }
     }, [setQuery]);
     const handleKeyUp = useCallback((e) => e.keyCode === 27 && handleClear(), [handleClear]);
     return (
-        <div className={clsx('w-full flex justify-between items-center space-x-4 text-gray-400 box-border', className)}>
+        <div className={clsx('w-full flex justify-between items-center space-x-4 text-disabled box-border', className)}>
             <Icon icon={'fa-search'} size={'lg'} />
             <InputBase
                 placeholder={t('search_bar_placeholder')}

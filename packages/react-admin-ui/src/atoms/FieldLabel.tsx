@@ -7,9 +7,9 @@ export function FieldLabel({ className, name, label, error, options = {} }: Fiel
         <label
             htmlFor={name}
             className={clsx(
-                'mb-1 text-xs sm:text-sm tracking-wide text-gray-600 capitalize',
+                'mb-1 text-xs sm:text-sm tracking-wide text-dark capitalize',
                 options.required && 'font-bold',
-                error && 'text-red-500',
+                error && 'text-danger',
                 className,
             )}
         >

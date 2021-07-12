@@ -59,7 +59,7 @@ export function CheckboxField({ className, onChange, ...props }: CheckboxFieldPr
                     {...register()}
                     {...extra}
                 />
-                <Text text={label} className={clsx(disabled && 'text-gray-500')} />
+                <Text text={label} className={clsx(disabled && 'text-disabled')} />
             </Row>
         </FieldSet>
     );

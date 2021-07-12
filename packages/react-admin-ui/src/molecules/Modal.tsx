@@ -7,7 +7,7 @@ import { action_item, children, class_name, flag, rich_text } from '../types';
 export function Modal({ className, buttonsItems = [], children, onClose, opened = false, title }: ModalProps) {
     return (
         <MuiModal open={opened} className={clsx('flex justify-center items-center', className)}>
-            <div className={'bg-clear border border-gray-300 rounded-md w-8/12 sm:w-11/12 xs:w-full'}>
+            <div className={'bg-clear border border-disabled rounded-md w-8/12 sm:w-11/12 xs:w-full'}>
                 <div className={'flex flex-row-reverse justify-between items-center m-4'}>
                     <Button color={'dark'} onClick={onClose}>
                         X
