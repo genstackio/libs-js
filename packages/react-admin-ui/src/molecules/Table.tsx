@@ -95,7 +95,7 @@ export function Table({
                               />
                           )
                         : col.render
-                        ? (params: GridCellParams) => col.render!(params.getValue(params.id, col.id))
+                        ? (params: GridCellParams) => col.render!(params.getValue(params.id, col.id), params)
                         : undefined,
             },
         ],
