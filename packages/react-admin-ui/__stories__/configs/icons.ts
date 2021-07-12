@@ -11,6 +11,11 @@ import { faBell as faBellSolid } from '@fortawesome/free-solid-svg-icons/faBell'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons/faShoppingCart';
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons/faCartArrowDown';
 import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
+import { faFacebookF } from '@fortawesome/free-brands-svg-icons/faFacebookF';
+import { faGooglePlusG } from '@fortawesome/free-brands-svg-icons/faGooglePlusG';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
+import { faRss } from '@fortawesome/free-solid-svg-icons/faRss';
 
 const icons = {
     fa: [
@@ -27,6 +32,11 @@ const icons = {
         faShoppingCart,
         faCartArrowDown,
         faSearch,
+        faFacebookF,
+        faGooglePlusG,
+        faTwitter,
+        faInstagram,
+        faRss,
     ],
 };
 
