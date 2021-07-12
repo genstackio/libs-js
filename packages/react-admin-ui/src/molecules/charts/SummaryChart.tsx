@@ -3,6 +3,7 @@ import Button from '../../atoms/Button';
 import { box_color, class_name, icon } from '../../types';
 import Icon from '../../atoms/Icon';
 import AreaLineChart from './AreaLineChart';
+import { boxColorClass } from '../../mappings/box-colors';
 
 export function SummaryChart({
     className,
@@ -57,10 +58,10 @@ export function SummaryChart({
                         {chartItems.map(({ icon, color, name, value }, index) => (
                             <div className={'flex items-center space-x-2'} key={index}>
                                 <div
-                                    className={
-                                        'w-10 h-10 rounded-full flex justify-center items-center hover:animate-pulse bg-' +
-                                        `${color}`
-                                    }
+                                    className={clsx(
+                                        'w-10 h-10 rounded-full flex justify-center items-center hover:animate-pulse',
+                                        boxColorClass(props.color),
+                                    )}
                                 >
                                     <Icon icon={icon} />
                                 </div>

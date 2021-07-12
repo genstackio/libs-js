@@ -10,7 +10,7 @@ export const boxColors = {
     disabled: 'bg-disabled',
     light: 'bg-light',
     dark: 'bg-dark',
-    none: 'bg-white',
+    none: 'bg-clear',
     clear: 'bg-clear',
     default: '',
 };

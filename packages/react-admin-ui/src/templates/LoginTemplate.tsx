@@ -14,7 +14,7 @@ export function LoginTemplate({ image, logo, form }: LoginTemplateProps) {
             {logo && <Image expand={false} {...logo} className={'mx-auto'} />}
             <div
                 className={
-                    'mt-4 p-10 xs:p-5 w-full max-w-md xs:max-w-full bg-white rounded-lg xs:rounded-none shadow-block'
+                    'mt-4 p-10 xs:p-5 w-full max-w-md xs:max-w-full bg-clear rounded-lg xs:rounded-none shadow-block'
                 }
             >
                 {form || ''}

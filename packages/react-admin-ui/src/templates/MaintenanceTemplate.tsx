@@ -15,7 +15,7 @@ export function MaintenanceTemplate({
         <div className={'h-screen flex items-center'}>
             <div className={'text-center max-w-3xl mx-auto'}>
                 <div className={'flex justify-center'}>
-                    <Icon className={'text-gray-500'} icon={logo} size={'9xl'} />
+                    <Icon className={'text-disabled'} icon={logo} size={'9xl'} />
                 </div>
                 <div className={'flex justify-center mb-4'}>
                     <Text text={title} variant={'title0'} color={color} />

@@ -9,7 +9,7 @@ const textPositions = {
 };
 const titlePositions = {
     left: 'p-4 blockquote text-gray-400',
-    center: 'text-gray-400',
+    center: 'text-dark',
     right: 'p-4 blockquote text-gray-400',
 };
 

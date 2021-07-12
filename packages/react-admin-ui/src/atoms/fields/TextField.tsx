@@ -38,7 +38,7 @@ export function TextField(props: TextFieldProps) {
                     <div
                         className={clsx(
                             fieldVariantClass({ ...ctx, type: 'prepended' }),
-                            'z-10 bg-gray-200 border-r-2 p-2 flex flex-col',
+                            'z-10 bg-disabled border-r-2 p-2 flex flex-col',
                         )}
                     >
                         {prepend}
@@ -46,7 +46,7 @@ export function TextField(props: TextFieldProps) {
                 )}
                 <input
                     className={clsx(
-                        'z-20 text-sm sm:text-base w-full placeholder-gray-400 focus:bg-yellow-50 ' +
+                        'z-20 text-sm sm:text-base w-full placeholder-gray-400 focus:bg-clear ' +
                             'focus:border-indigo-400 focus:outline-none py-2 pr-2 pl-2 focus:ring-4',
                         fieldVariantClass({ ...ctx, type: 'input' }),
                         error && 'border border-red-500 focus:border-red-500 ring-red-300',
@@ -65,7 +65,7 @@ export function TextField(props: TextFieldProps) {
                     <div
                         className={clsx(
                             fieldVariantClass({ ...ctx, type: 'appended' }),
-                            'z-10 bg-gray-200 border-l-2 p-2 flex flex-col',
+                            'z-10 bg-disabled border-l-2 p-2 flex flex-col',
                         )}
                     >
                         {append}

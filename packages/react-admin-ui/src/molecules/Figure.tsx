@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Tag from '../atoms/Tag';
 import Pill from '../atoms/Pill';
+import Text from '../atoms/Text';
 import { class_name, pill, tag } from '../types';
 
 export function Figure({ className, pill, price, tag, title }: FigureProps) {
@@ -13,7 +14,7 @@ export function Figure({ className, pill, price, tag, title }: FigureProps) {
                         <Tag text={tag.text} color={tag.color} />
                     </div>
                 )}
-                <div className={'text-black font-black text-4xl mt-4'}>{price}</div>
+                <Text className={'text-black font-black text-4xl mt-4'} text={`${price}`} />
             </div>
             {pill && (
                 <div className={'absolute right-4'}>

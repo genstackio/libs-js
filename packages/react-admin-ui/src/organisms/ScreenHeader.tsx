@@ -5,7 +5,7 @@ import Breadcrumb from '../molecules/Breadcrumb';
 export function ScreenHeader({ className, color = 'primary', items = [] }: ScreenHeaderProps) {
     const title = items.slice(items.length - 1)[0].label;
     return (
-        <div className={clsx('flex justify-between items-center bg-[#F8F8F8]', className)}>
+        <div className={clsx('flex justify-between items-center bg-light', className)}>
             <div className={'text-2xl font-semibold'}>{title}</div>
             <Breadcrumb items={items} color={color} toRight />
         </div>

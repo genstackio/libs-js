@@ -27,7 +27,7 @@ export function SendOtpForgotPasswordForm({
                 <form onSubmit={handleSubmit(onSubmit as any)} className={'w-full'}>
                     <Text text={t('form_forgot_password_send_otp_title')} variant={'title6'} color={color} />
                     <Text
-                        className={'text-gray-500 mb-4'}
+                        className={'text-dark mb-4'}
                         text={t('form_forgot_password_send_otp_subtitle')}
                         variant={'body'}
                         color={color}

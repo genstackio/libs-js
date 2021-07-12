@@ -37,7 +37,7 @@ export function LocaleChange({ className, locales = [], color = 'primary' }: Loc
             <div className={clsx('cursor-pointer', className)} onClick={handleClick}>
                 <Text text={t('locales_change_value')} />
                 <Popper open={opened} anchorEl={anchorEl} placement={'bottom-start'} transition>
-                    <div className={'max-w-xxs divide-y bg-white'}>
+                    <div className={'max-w-xxs divide-y bg-clear'}>
                         {locales.map(({ value, language }, index) => (
                             <div
                                 className={clsx(

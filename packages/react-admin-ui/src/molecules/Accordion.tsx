@@ -93,7 +93,7 @@ export function Accordion({
                             </div>
                         </BoxProvider>
                     </StyledAccordionSummary>
-                    <MuiAccordionDetails className={'py-3 px-4 bg-white'}>
+                    <MuiAccordionDetails className={'py-3 px-4 bg-clear'}>
                         {typeof content === 'string' && <div className={'text-sm tracking-wider'}>{content}</div>}
                         {Array.isArray(content) && (
                             <div className={'flex flex-col space-y-4'}>
