@@ -83,7 +83,20 @@ export function useApp({
             favorites: features.favorites ? { favorites: [] } : undefined,
             icons,
         }),
-        [mui, theme, tailwind, prefix, endpoint, defaultLocale, fallbackLocale, locales, routes, translations, queries, icons],
+        [
+            mui,
+            theme,
+            tailwind,
+            prefix,
+            endpoint,
+            defaultLocale,
+            fallbackLocale,
+            locales,
+            routes,
+            translations,
+            queries,
+            icons,
+        ],
     );
 }
 

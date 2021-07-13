@@ -59,3 +59,55 @@ export const basic = s(Template, {
         },
     ],
 });
+
+export const withHeader = s(Template, {
+    items: [
+        {
+            url: 'https://picsum.photos/200/200',
+            alt: 'alt',
+        },
+        {
+            url: 'https://picsum.photos/200/200',
+            alt: 'alt',
+        },
+        {
+            url: 'https://picsum.photos/200/200',
+            alt: 'alt',
+        },
+        {
+            url: 'https://picsum.photos/200/200',
+            alt: 'alt',
+        },
+        {
+            url: 'https://picsum.photos/200/200',
+            alt: 'alt',
+        },
+        {
+            url: 'https://picsum.photos/200/200',
+            alt: 'alt',
+        },
+        {
+            url: 'https://picsum.photos/200/200',
+            alt: 'alt',
+        },
+        {
+            url: 'https://picsum.photos/200/200',
+            alt: 'alt',
+        },
+        {
+            url: 'https://picsum.photos/200/200',
+            alt: 'alt',
+        },
+        {
+            url: 'https://picsum.photos/200/200',
+            alt: 'alt',
+        },
+        {
+            url: 'https://picsum.photos/200/200',
+            alt: 'alt',
+        },
+    ],
+    icon: 'phone',
+    title: 'This is a title',
+    btnLabel: 'Follow Us',
+});
