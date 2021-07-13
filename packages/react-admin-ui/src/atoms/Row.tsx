@@ -1,13 +1,12 @@
 import clsx from 'clsx';
-import { class_name, children, flag } from '../types';
+import { flag } from '../types';
+import { WithChildren, WithClassName } from '../withs';
 
 export function Row({ className, children, center = false }: RowProps) {
     return <div className={clsx('flex', center && 'items-center', className)}>{children || ''}</div>;
 }
 
-export interface RowProps {
-    className?: class_name;
-    children?: children;
+export interface RowProps extends WithClassName, WithChildren {
     center?: flag;
 }
 

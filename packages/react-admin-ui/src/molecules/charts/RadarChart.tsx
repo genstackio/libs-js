@@ -2,7 +2,8 @@ import clsx from 'clsx';
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
-import { box_color, box_variant, class_name, flag } from '../../types';
+import { flag } from '../../types';
+import { WithBox, WithClassName } from '../../withs';
 
 const tailwindTextColors = tailwindConfig.theme.extend.textColors;
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
@@ -85,16 +86,13 @@ export function RadarChart({
     return <Chart type={'radar'} options={options} series={series} className={clsx(className)} />;
 }
 
-export interface RadarChartProps {
-    className?: class_name;
-    color?: box_color;
+export interface RadarChartProps extends WithClassName, WithBox {
     isMenu?: flag;
     labels?: string[];
     series?: {
         data?: number[];
         name?: string;
     }[];
-    variant?: box_variant;
 }
 
 export default RadarChart;

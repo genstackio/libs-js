@@ -1,7 +1,8 @@
 import { useCallback } from 'react';
 import Dropzone from 'react-dropzone-uploader/dist/react-dropzone-uploader';
 import Block from '../atoms/Block';
-import { box_color, box_variant, class_name, rich_text } from '../types';
+import { rich_text } from '../types';
+import { WithBox, WithClassName, WithTitle } from '../withs';
 
 const defaultDropzoneStyle = {
     dropzone: {
@@ -81,10 +82,8 @@ export function FileUploader({
     );
 }
 
-export interface FileUploaderProps {
-    className?: class_name;
+export interface FileUploaderProps extends WithClassName, WithBox, WithTitle {
     accept?: string;
-    color?: box_color;
     dropzoneStyle?: any | null;
     nonEmptyPlaceholder?: string;
     onFileAbort?: Function;
@@ -93,9 +92,7 @@ export interface FileUploaderProps {
     onSubmit?: Function;
     placeholder?: string;
     submitLabel?: rich_text;
-    title?: rich_text;
     url?: string;
-    variant?: box_variant;
 }
 
 export default FileUploader;

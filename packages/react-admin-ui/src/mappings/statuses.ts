@@ -7,6 +7,8 @@ export const statuses = {
     unknown: 'bg-warning',
 };
 
+export const statusValues = Object.keys(statuses);
+
 export type status = 'online' | 'offline' | 'busy' | 'unknown';
 
 export const defaultStatus = 'unknown';

@@ -3,12 +3,12 @@ import useAction from '../../hooks/useAction';
 import FormActionProps from '../forms/FormActionProps';
 
 export function RegisterAction({ onSuccess, ...props }: RegisterActionProps) {
-    const state = useAction('REGISTER', { onSuccess });
-    return <RegisterForm {...state} {...props} />;
+    return <RegisterForm {...useAction('REGISTER', { onSuccess })} {...props} />;
 }
 
 export interface RegisterActionProps extends RegisterFormProps, FormActionProps {
     onSuccess?: Function;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default RegisterAction;

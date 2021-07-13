@@ -36,4 +36,5 @@ export function OrganizationForm(props: OrganizationFormProps) {
 
 export type OrganizationFormProps = BaseFormProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default OrganizationForm;

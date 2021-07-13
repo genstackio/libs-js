@@ -3,11 +3,11 @@ import useAction from '../../hooks/useAction';
 import { FormActionProps } from '../forms';
 
 export function LoginAction({ onSuccess, ...props }: LoginActionProps) {
-    const state = useAction('LOGIN', { onSuccess });
-    return <LoginForm {...state} {...props} />;
+    return <LoginForm {...useAction('LOGIN', { onSuccess })} {...props} />;
 }
 export interface LoginActionProps extends LoginFormProps, FormActionProps {
     onSuccess?: Function;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default LoginAction;

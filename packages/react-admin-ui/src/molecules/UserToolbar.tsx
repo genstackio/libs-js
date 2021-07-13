@@ -2,7 +2,6 @@ import { useMemo } from 'react';
 import clsx from 'clsx';
 import MenuButton from './MenuButton';
 import { useTranslation } from 'react-i18next';
-import { children, class_name } from '../types';
 import DarkModeToolbarItem from '../atoms/toolbar-items/DarkModeToolbarItem';
 import FavoriteToolbarItem from '../atoms/toolbar-items/FavoriteToolbarItem';
 import FullscreenToolbarItem from '../atoms/toolbar-items/FullscreenToolbarItem';
@@ -12,6 +11,7 @@ import NotificationToolbarItem from '../atoms/toolbar-items/NotificationToolbarI
 import SearchToolbarItem from '../atoms/toolbar-items/SearchToolbarItem';
 import ShoppingCartToolbarItem from '../atoms/toolbar-items/ShoppingCartToolbarItem';
 import { useToggle } from '../hooks/useToggle';
+import { WithChildren, WithClassName } from '../withs';
 
 export function UserToolbar({ className, user, onSearch, onLogout, children }: UserToolbarProps) {
     const { t } = useTranslation();
@@ -53,9 +53,7 @@ export function UserToolbar({ className, user, onSearch, onLogout, children }: U
     );
 }
 
-export interface UserToolbarProps {
-    className?: class_name;
-    children?: children;
+export interface UserToolbarProps extends WithClassName, WithChildren {
     user?: any;
     onLogout?: Function;
     onSearch?: Function;

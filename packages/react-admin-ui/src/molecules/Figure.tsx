@@ -2,7 +2,8 @@ import clsx from 'clsx';
 import Tag from '../atoms/Tag';
 import Pill from '../atoms/Pill';
 import Text from '../atoms/Text';
-import { class_name, pill, tag } from '../types';
+import { pill, tag } from '../types';
+import { WithClassName } from '../withs';
 
 export function Figure({ className, pill, price, tag, title }: FigureProps) {
     return (
@@ -25,8 +26,7 @@ export function Figure({ className, pill, price, tag, title }: FigureProps) {
     );
 }
 
-export interface FigureProps {
-    className?: class_name;
+export interface FigureProps extends WithClassName {
     pill?: pill;
     price?: string;
     tag?: tag;

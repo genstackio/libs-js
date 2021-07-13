@@ -12,8 +12,8 @@ import {
     StarsRating,
     UnitsRating,
 } from './ratings';
-import { rich_text } from '../types';
 import { rating_variant } from '../mappings/rating-variants';
+import { WithText } from '../withs';
 
 const variants = {
     basic: BasicRating,
@@ -34,8 +34,7 @@ export function Rating({ variant = 'stars', ...props }: RatingProps) {
     return <Component {...props} />;
 }
 
-export interface RatingProps extends BaseBaseRatingProps {
-    text?: rich_text;
+export interface RatingProps extends BaseBaseRatingProps, WithText {
     variant?: rating_variant;
 }
 

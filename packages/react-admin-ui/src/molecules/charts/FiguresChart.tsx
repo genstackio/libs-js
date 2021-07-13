@@ -2,7 +2,8 @@ import clsx from 'clsx';
 import Chart from 'react-apexcharts';
 import Text from '../../atoms/Text';
 import { ApexOptions } from 'apexcharts';
-import { box_color, class_name } from '../../types';
+import { box_color } from '../../types';
+import { WithClassName } from '../../withs';
 
 const defaultOptions = {
     chart: {
@@ -78,8 +79,7 @@ export function FiguresChart({ className, items }: FiguresChartProps) {
     );
 }
 
-export interface FiguresChartProps {
-    className?: class_name;
+export interface FiguresChartProps extends WithClassName {
     items?: {
         color: box_color;
         name?: string;

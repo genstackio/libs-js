@@ -1,7 +1,8 @@
 import { useMemo } from 'react';
-import { class_name, flag } from '../types';
+import { flag } from '../types';
 import clsx from 'clsx';
-import cornerClass, { corner } from '../mappings/corners';
+import cornerClass from '../mappings/corners';
+import { WithClassName, WithCorner } from '../withs';
 
 const defaultImage = 'https://via.placeholder.com/350x250?text=%20';
 
@@ -35,8 +36,7 @@ export function Image({
     );
 }
 
-export interface ImgProps {
-    className?: class_name;
+export interface ImgProps extends WithClassName, WithCorner {
     expand?: flag;
     url?: string;
     alt?: string;
@@ -46,7 +46,6 @@ export interface ImgProps {
     objectPosition?: any;
     rounded?: boolean;
     loading?: 'lazy';
-    corner?: corner;
 }
 
 export default Image;

@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { class_name } from '../types';
+import { WithClassName, WithHelper } from '../withs';
 
 export function FieldHelper({ className, helper }: FieldHelperProps) {
     if (!helper) return null;
@@ -12,9 +12,6 @@ export function FieldHelper({ className, helper }: FieldHelperProps) {
     );
 }
 
-export interface FieldHelperProps {
-    className?: class_name;
-    helper?: string;
-}
+export interface FieldHelperProps extends WithClassName, WithHelper {}
 
 export default FieldHelper;

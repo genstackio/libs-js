@@ -6,17 +6,23 @@ export const fieldVariants = {
     raise: 'rounded shadow-field',
 };
 
+export const fieldVariantValues = Object.keys(fieldVariants);
+
 export const fieldPrependedVariants = {
     flat: '',
     edge: 'rounded-l-3xl',
     raise: '',
 };
 
+export const fieldPrependedVariantValues = Object.keys(fieldPrependedVariants);
+
 export const fieldAppendedVariants = {
     flat: '',
     edge: 'rounded-r-3xl',
     raise: '',
 };
+
+export const fieldAppendedVariantValues = Object.keys(fieldAppendedVariants);
 
 export const fieldInputVariants = {
     edge_: 'rounded-3xl',
@@ -26,6 +32,8 @@ export const fieldInputVariants = {
     raise_p: 'rounded-r',
     raise_a: 'rounded-l',
 };
+
+export const fieldInputVariantValues = Object.keys(fieldInputVariants);
 
 export type field_variant = 'flat' | 'edge' | 'raise';
 

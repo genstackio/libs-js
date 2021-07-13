@@ -5,7 +5,8 @@ import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
 import TimelineConnector from '@material-ui/lab/TimelineConnector';
 import TimelineContent from '@material-ui/lab/TimelineContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
-import { class_name, timeline_item } from '../types';
+import { timeline_item } from '../types';
+import { WithClassName } from '../withs';
 
 export function Timeline({ className, items }: TimelineProps) {
     return (
@@ -28,9 +29,9 @@ export function Timeline({ className, items }: TimelineProps) {
     );
 }
 
-export interface TimelineProps {
-    className?: class_name;
+export interface TimelineProps extends WithClassName {
     items: timeline_item[];
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default Timeline;

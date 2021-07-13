@@ -1,7 +1,7 @@
-import { image, rich_text, target } from '../../types';
 import Block, { BaseBlockProps } from '../../atoms/Block';
 import Image from '../../atoms/Image';
 import Text from '../../atoms/Text';
+import { WithDescription, WithImage, WithOnClick } from '../../withs';
 
 export function BasicCard({ description, image, title, ...props }: BasicCardProps) {
     return (
@@ -13,10 +13,7 @@ export function BasicCard({ description, image, title, ...props }: BasicCardProp
     );
 }
 
-export interface BasicCardProps extends BaseBlockProps {
-    description?: rich_text;
-    image?: image;
-    onClick?: target;
-}
+export interface BasicCardProps extends BaseBlockProps, WithDescription, WithImage, WithOnClick {}
 
+// noinspection JSUnusedGlobalSymbols
 export default BasicCard;

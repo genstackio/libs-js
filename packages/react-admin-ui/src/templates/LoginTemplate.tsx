@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
-import { image } from '../types';
 import Image from '../atoms/Image';
 import Container from '../atoms/Container';
+import { WithImage, WithLogo } from '../withs';
 
 export function LoginTemplate({ image, logo, form }: LoginTemplateProps) {
     return (
@@ -23,9 +23,7 @@ export function LoginTemplate({ image, logo, form }: LoginTemplateProps) {
     );
 }
 
-export interface LoginTemplateProps {
-    image?: image;
-    logo?: image;
+export interface LoginTemplateProps extends WithImage, WithLogo {
     form?: ReactNode;
 }
 

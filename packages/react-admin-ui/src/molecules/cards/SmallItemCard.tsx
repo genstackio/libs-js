@@ -5,7 +5,8 @@ import Badge from '../../atoms/Badge';
 import Icon from '../../atoms/Icon';
 import Image from '../../atoms/Image';
 import Text from '../../atoms/Text';
-import { badge, children, class_name, flag, image, rich_text } from '../../types';
+import { badge } from '../../types';
+import { WithChildren, WithClassName, WithImage, WithTitle, WithClosable } from '../../withs';
 
 export function SmallItemCard({
     className,
@@ -43,14 +44,10 @@ export function SmallItemCard({
     );
 }
 
-export interface SmallItemCardProps {
-    className?: class_name;
+export interface SmallItemCardProps extends WithClassName, WithChildren, WithImage, WithTitle, WithClosable {
     badges?: badge[];
-    children?: children;
-    closable?: flag;
-    image?: image;
     rating?: number;
-    title?: rich_text;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default SmallItemCard;

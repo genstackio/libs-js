@@ -1,12 +1,13 @@
 import clsx from 'clsx';
 import Button from './Button';
 import Dropdown from './Dropdown';
-import { box_color, box_variant, icon, rich_text, dropdown_item, class_name } from '../types';
+import { rich_text, dropdown_item } from '../types';
 import Icon from './Icon';
 import Text from './Text';
 import paddingClass from '../mappings/paddings';
 import bgClass from '../utils/bgClass';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
+import { WithBox, WithClassName, WithTitle, WithSubtitle, WithIcon } from '../withs';
 
 export function BlockHeader({
     className,
@@ -41,15 +42,9 @@ export function BlockHeader({
     );
 }
 
-export interface BlockHeaderProps {
-    className?: class_name;
+export interface BlockHeaderProps extends WithClassName, WithBox, WithTitle, WithSubtitle, WithIcon {
     btnLabel?: rich_text;
-    color?: box_color;
     dropdownItems?: dropdown_item[];
-    icon?: icon;
-    title?: rich_text;
-    subtitle?: rich_text;
-    variant?: box_variant;
 }
 
 export default BlockHeader;

@@ -24,7 +24,6 @@ export type badge_variant = 'tag' | 'pill' | 'none';
 export type basic_size = 'sm' | 'md' | 'lg';
 export type menu_variant = box_variant | 'light';
 export type icon_variant = 'settings' | 'query_builder' | 'notifications_none_icon' | 'none';
-export type progress_variant = 'linear' | 'circular';
 export type image = { url: string; alt: string };
 export type gallery_image = image;
 export type level = 1 | 2 | 3 | 4 | 5 | 6;
@@ -66,7 +65,6 @@ export type menu_item = {
     badges?: badge[];
     items?: menu_item[];
 };
-export type spinner_variant = 'dots' | 'dotted-circle' | 'full-circle' | 'half-circle' | 'separate-circle' | 'squares';
 export type accordion_item = item;
 export type infos_item = { label?: rich_text; value?: rich_text };
 export type list_item = { badge?: badge; color?: box_color; text?: rich_text };

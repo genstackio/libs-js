@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Progress from '../../atoms/Progress';
-import { class_name, rich_text } from '../../types';
+import { rich_text } from '../../types';
+import { WithClassName } from '../../withs';
 
 export function UsageChart({ className, max, unit, value }: UsageChartProps) {
     return (
@@ -17,8 +18,7 @@ export function UsageChart({ className, max, unit, value }: UsageChartProps) {
     );
 }
 
-export interface UsageChartProps {
-    className?: class_name;
+export interface UsageChartProps extends WithClassName {
     max: number;
     unit?: rich_text;
     value: number;

@@ -2,10 +2,11 @@ import clsx from 'clsx';
 import { DataGrid, DataGridProps, GridCellParams, GridColDef, GridValueFormatterParams } from '@material-ui/data-grid';
 import { makeStyles } from '@material-ui/core/styles';
 import tailwindConfig from '../../tailwind.config';
-import { box_color, class_name, flag, table_column, table_row } from '../types';
+import { flag, table_column, table_row } from '../types';
 import Badge from '../atoms/Badge';
 import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { WithBoxColor, WithClassName } from '../withs';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 const tailwindTextColors = tailwindConfig.theme.extend.textColors;
@@ -165,9 +166,10 @@ export function Table({
     );
 }
 
-export interface TableProps extends Omit<DataGridProps, 'columns' | 'onPageChange' | 'rows'> {
-    className?: class_name;
-    color?: box_color;
+export interface TableProps
+    extends Omit<DataGridProps, 'columns' | 'onPageChange' | 'rows'>,
+        WithClassName,
+        WithBoxColor {
     columns: table_column[];
     items: table_row[];
     rowsPerPage?: number;

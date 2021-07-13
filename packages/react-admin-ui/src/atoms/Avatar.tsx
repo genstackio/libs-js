@@ -1,17 +1,11 @@
 import clsx from 'clsx';
-import { class_name, image, size } from '../types';
+import { class_name } from '../types';
 import getInitials from '../utils/getInitials';
 import statusClass, { status } from '../mappings/statuses';
-import shapeClass, { shape } from '../mappings/shapes';
+import shapeClass from '../mappings/shapes';
 import Image from './Image';
-
-const sizes = {
-    xs: 'w-8 h-8 text-xs',
-    sm: 'w-12 h-12 text-base',
-    md: 'w-16 h-16 text-3xl',
-    lg: 'w-20 h-20 text-4xl',
-    xl: 'w-24 h-24 text-5xl',
-};
+import avatarSizeClass, { avatar_size } from '../mappings/avatar-sizes';
+import { WithClassName, WithName, WithImage, WithShape } from '../withs';
 
 export function Avatar({
     className,
@@ -20,7 +14,7 @@ export function Avatar({
     statusClassName,
     image,
     name,
-    size = 'md',
+    size,
     shape = 'circular',
     status = undefined,
 }: AvatarProps) {
@@ -29,7 +23,7 @@ export function Avatar({
             {!image && (
                 <div
                     className={clsx(
-                        sizes[size],
+                        avatarSizeClass(size),
                         shapeClass(shape),
                         'text-clear bg-disabled flex items-center justify-center',
                         initialsClassName,
@@ -38,7 +32,7 @@ export function Avatar({
                     {getInitials(name)}
                 </div>
             )}
-            {image && <Image {...image} className={clsx(sizes[size], shapeClass(shape), imageClassName)} />}
+            {image && <Image {...image} className={clsx(avatarSizeClass(size), shapeClass(shape), imageClassName)} />}
             {status && (
                 <div
                     className={clsx(
@@ -52,15 +46,11 @@ export function Avatar({
     );
 }
 
-export interface AvatarProps {
-    className?: class_name;
+export interface AvatarProps extends WithClassName, WithName, WithImage, WithShape {
     initialsClassName?: class_name;
     imageClassName?: class_name;
     statusClassName?: class_name;
-    name: string;
-    image?: image;
-    size?: size;
-    shape?: shape;
+    size?: avatar_size;
     status?: status;
 }
 

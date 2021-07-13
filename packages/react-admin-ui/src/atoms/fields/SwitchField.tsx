@@ -2,10 +2,11 @@ import clsx from 'clsx';
 import FieldLabel from '../FieldLabel';
 import FieldError from '../FieldError';
 import FieldHelper from '../FieldHelper';
-import { class_name, flag, register } from '../../types';
+import { flag, register } from '../../types';
 import useField from '../../hooks/useField';
 import MuiSwitch from '@material-ui/core/Switch';
 import { makeStyles } from '@material-ui/core/styles';
+import { WithClassName } from '../../withs';
 
 const useStyles = makeStyles({
     root: {
@@ -85,8 +86,7 @@ export function SwitchField({ className, onChange, ...props }: SwitchFieldProps)
     );
 }
 
-export interface SwitchFieldProps {
-    className?: class_name;
+export interface SwitchFieldProps extends WithClassName {
     required?: flag;
     disabled?: flag;
     errors?: { [key: string]: any };

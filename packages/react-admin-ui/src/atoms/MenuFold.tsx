@@ -1,19 +1,17 @@
-import { useCallback, useState } from 'react';
 import clsx from 'clsx';
 import Clickable from '../atoms/Clickable';
 import Badge from '../atoms/Badge';
 import Block from '../atoms/Block';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
-import { class_name, box_color, menu_variant, badge, icon, flag, menu_item, rich_text } from '../types';
+import { menu_variant, badge, menu_item } from '../types';
 import textClass from '../utils/textClass';
 import boxClass from '../utils/boxClass';
+import { useToggle } from '../hooks';
+import { WithBoxColor, WithClassName, WithIcon, WithLabel, WithActive } from '../withs';
 
 export function MenuFold({ className, label, icon, active, badges, items = [], color, variant }: MenuFoldProps) {
-    const [open, setOpen] = useState<boolean>(active || false);
-    const handleClick = useCallback(() => {
-        setOpen(!open);
-    }, [setOpen, open]);
+    const [open, toggle] = useToggle(active || false);
     return (
         <>
             <Block
@@ -26,7 +24,7 @@ export function MenuFold({ className, label, icon, active, badges, items = [], c
                     className,
                 )}
                 corner={'rounded-small'}
-                onClick={handleClick}
+                onClick={toggle}
                 contentClassName={'flex justify-between'}
             >
                 <div className={'flex items-center space-x-4'}>
@@ -56,14 +54,9 @@ export function MenuFold({ className, label, icon, active, badges, items = [], c
     );
 }
 
-export interface MenuFoldProps {
-    className?: class_name;
-    label: rich_text;
-    icon?: icon;
-    active?: flag;
+export interface MenuFoldProps extends WithClassName, WithIcon, WithBoxColor, WithLabel, WithActive {
     badges?: badge[];
     items?: menu_item[];
-    color?: box_color;
     variant?: menu_variant;
 }
 

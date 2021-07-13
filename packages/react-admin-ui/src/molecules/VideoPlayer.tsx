@@ -3,9 +3,10 @@ import Image from '../atoms/Image';
 import Button from '../atoms/Button';
 import Icon from '../atoms/Icon';
 import ReactPlayer from 'react-player';
-import { box_color, image, corner, class_name, icon } from '../types';
+import { corner } from '../types';
 import { useToggle } from '../hooks/useToggle';
 import cornerClass from '../mappings/corners';
+import { WithBoxColor, WithClassName, WithIcon, WithImage } from '../withs';
 
 export function VideoPlayer({ url, icon = 'play_arrow', image, corner, color, className }: VideoPlayerProps) {
     const [video, toggle] = useToggle();
@@ -44,13 +45,9 @@ export function VideoPlayer({ url, icon = 'play_arrow', image, corner, color, cl
     );
 }
 
-export interface VideoPlayerProps {
-    icon?: icon;
-    className?: class_name;
+export interface VideoPlayerProps extends WithClassName, WithIcon, WithImage, WithBoxColor {
     url: string;
-    color?: box_color;
     corner?: corner;
-    image: image;
     theme?: string;
 }
 

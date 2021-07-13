@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 export function BasicLayoutTemplatePage({}: BasicLayoutTemplatePageProps) {
     return <div>BASIC LAYOUT TEMPLATE</div>;
 }

@@ -1,12 +1,20 @@
 import { ReactNode } from 'react';
 import clsx from 'clsx';
-import { box_color } from '../../mappings/box-colors';
-import { class_name, flag, rich_text } from '../../types';
+import { flag } from '../../types';
 import AlertPanel from '../AlertPanel';
 import Text from '../../atoms/Text';
 import Column from '../../atoms/Column';
 import FormHeader from '../../atoms/FormHeader';
 import FormFooter from '../../atoms/FormFooter';
+import {
+    WithBoxColor,
+    WithChildren,
+    WithClassName,
+    WithDefaultValues,
+    WithOnSubmit,
+    WithSubtitle,
+    WithTitle,
+} from '../../withs';
 
 export function BaseForm({
     className,
@@ -46,18 +54,18 @@ export interface InternalBaseFormProps extends BaseFormProps {
     rhf: { handleSubmit: Function };
 }
 
-export interface BaseFormProps {
-    className?: class_name;
-    onSubmit?: Function;
-    defaultValues?: any;
-    color?: box_color;
+export interface BaseFormProps
+    extends WithClassName,
+        WithOnSubmit,
+        WithDefaultValues,
+        WithChildren,
+        WithTitle,
+        WithSubtitle,
+        WithBoxColor {
     submitting?: flag;
     header?: ReactNode;
     footer?: ReactNode;
-    children?: ReactNode;
     errors?: any;
-    title?: rich_text;
-    subtitle?: rich_text;
 }
 
 export default BaseForm;

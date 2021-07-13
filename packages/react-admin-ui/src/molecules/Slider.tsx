@@ -1,8 +1,8 @@
-import MuiSlider from '@material-ui/core/Slider';
-import { box_color } from '../mappings/box-colors';
 import clsx from 'clsx';
+import MuiSlider from '@material-ui/core/Slider';
 import boxClass from '../utils/boxClass';
 import { ChangeEvent } from 'react';
+import { WithBoxColor } from '../withs';
 
 export function Slider({ min, max, value, defaultValue, onChange, color }: SliderProps) {
     return (
@@ -27,12 +27,11 @@ export function Slider({ min, max, value, defaultValue, onChange, color }: Slide
     );
 }
 
-export interface SliderProps {
+export interface SliderProps extends WithBoxColor {
     min?: number;
     max?: number;
     value?: number;
     defaultValue?: number;
-    color?: box_color;
     onChange?: (event: ChangeEvent<any>, value: number | number[]) => void;
 }
 

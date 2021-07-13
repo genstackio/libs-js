@@ -7,6 +7,8 @@ export const boxVariants = {
     none: '',
 };
 
+export const boxVariantValues = Object.keys(boxVariants);
+
 export type box_variant = 'filled' | 'outlined' | 'contained' | 'none';
 
 export const defaultBoxVariant = 'filled';

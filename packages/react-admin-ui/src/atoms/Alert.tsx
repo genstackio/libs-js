@@ -5,19 +5,11 @@ import Clickable from './Clickable';
 import { useToggle } from '../hooks/useToggle';
 import clsx from 'clsx';
 
-export function Alert({
-    children,
-    contentClassName,
-    closableClassName,
-    closable = false,
-    color = 'primary',
-    variant = 'contained',
-    ...props
-}: AlertProps) {
+export function Alert({ children, contentClassName, closableClassName, closable = false, ...props }: AlertProps) {
     const [show, handleClick] = useToggle(true);
     if (!show) return null;
     return (
-        <Panel color={color} variant={variant} {...props}>
+        <Panel {...props}>
             <div className={clsx('w-full', contentClassName)}>{children || ''}</div>
             <Clickable visible={closable} className={clsx('cursor-pointer', closableClassName)} onClick={handleClick}>
                 <CloseIcon />

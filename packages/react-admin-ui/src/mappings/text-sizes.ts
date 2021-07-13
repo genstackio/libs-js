@@ -17,6 +17,8 @@ export const textSizes = {
     '9xl': 'text-9xl',
 };
 
+export const textSizeValues = Object.keys(textSizes);
+
 export type text_size =
     | 'xs'
     | 'sm'

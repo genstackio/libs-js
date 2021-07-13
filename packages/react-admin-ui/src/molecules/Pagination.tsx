@@ -2,8 +2,9 @@ import { ChangeEvent, useCallback, useState } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import MuiPagination from '@material-ui/lab/Pagination';
-import { box_color, basic_size, flag, class_name } from '../types';
+import { basic_size, flag } from '../types';
 import tailwindConfig from '../../tailwind.config';
+import { WithBoxColor, WithClassName } from '../withs';
 
 const ellipsisPaddings = {
     lg: 8,
@@ -117,14 +118,13 @@ export function Pagination({ className, ...props }: PaginationProps) {
     );
 }
 
-export interface PaginationProps {
-    className?: class_name;
+export interface PaginationProps extends WithClassName, WithBoxColor {
     boundaryCount?: number;
-    color?: box_color;
     disabledPass?: flag;
     disabledSkip?: flag;
     size?: basic_size;
     total?: number;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default Pagination;

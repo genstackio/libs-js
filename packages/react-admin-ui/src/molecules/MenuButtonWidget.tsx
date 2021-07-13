@@ -3,8 +3,9 @@ import clsx from 'clsx';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
 import textClass from '../utils/textClass';
-import { box_color, class_name, menu_button_item } from '../types';
+import { menu_button_item } from '../types';
 import boxClass from '../utils/boxClass';
+import { WithBoxColor, WithClassName } from '../withs';
 
 export function MenuButtonWidget({ className, items, color }: MenuButtonWidgetProps) {
     const handleClick = useCallback(
@@ -40,10 +41,8 @@ export function MenuButtonWidget({ className, items, color }: MenuButtonWidgetPr
     );
 }
 
-export interface MenuButtonWidgetProps {
-    className?: class_name;
+export interface MenuButtonWidgetProps extends WithClassName, WithBoxColor {
     items: menu_button_item[];
-    color?: box_color;
 }
 
 export default MenuButtonWidget;

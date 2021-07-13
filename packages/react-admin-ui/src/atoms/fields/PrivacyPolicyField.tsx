@@ -1,8 +1,8 @@
 import CheckboxField, { CheckboxFieldProps } from './CheckboxField';
 import Text from '../Text';
-import { text_color } from '../../mappings/text-colors';
 import { useTranslation } from 'react-i18next';
 import Clickable from '../Clickable';
+import { WithTextColor } from '../../withs';
 
 export function PrivacyPolicyField({ onClick, color, ...props }: PrivacyPolicyFieldProps) {
     const { t } = useTranslation();
@@ -16,9 +16,8 @@ export function PrivacyPolicyField({ onClick, color, ...props }: PrivacyPolicyFi
     );
 }
 
-export interface PrivacyPolicyFieldProps extends CheckboxFieldProps {
+export interface PrivacyPolicyFieldProps extends CheckboxFieldProps, WithTextColor {
     onClick?: Function;
-    color?: text_color;
 }
 
 export default PrivacyPolicyField;

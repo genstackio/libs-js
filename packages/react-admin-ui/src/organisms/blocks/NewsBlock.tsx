@@ -29,4 +29,5 @@ export interface NewsBlockProps extends BaseBlockProps {
     btnLabel?: string;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default NewsBlock;

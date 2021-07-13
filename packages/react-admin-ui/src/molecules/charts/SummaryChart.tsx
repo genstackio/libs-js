@@ -1,9 +1,10 @@
 import clsx from 'clsx';
 import Button from '../../atoms/Button';
-import { box_color, class_name, icon } from '../../types';
+import { icon } from '../../types';
 import Icon from '../../atoms/Icon';
 import AreaLineChart from './AreaLineChart';
 import { boxColorClass } from '../../mappings/box-colors';
+import { WithBoxColor, WithClassName } from '../../withs';
 
 export function SummaryChart({
     className,
@@ -78,8 +79,7 @@ export function SummaryChart({
     );
 }
 
-export interface SummaryChartProps {
-    className?: class_name;
+export interface SummaryChartProps extends WithClassName, WithBoxColor {
     datas: {
         categories?: string[];
         colors?: string[];
@@ -89,7 +89,6 @@ export interface SummaryChartProps {
             data?: number[];
         }[];
     }[];
-    color?: box_color;
     btnLabel?: string;
     chartItems?: {
         color?: string;
@@ -105,4 +104,5 @@ export interface SummaryChartProps {
     title?: string;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default SummaryChart;

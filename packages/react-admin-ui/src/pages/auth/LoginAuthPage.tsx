@@ -5,4 +5,5 @@ export function LoginAuthPage({}: LoginAuthPageProps) {
 /* eslint @typescript-eslint/no-empty-interface: 0 */
 export interface LoginAuthPageProps {}
 
+// noinspection JSUnusedGlobalSymbols
 export default LoginAuthPage;

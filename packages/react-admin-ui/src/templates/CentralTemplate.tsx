@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import Image from '../atoms/Image';
 import Text from '../atoms/Text';
-import { box_color, class_name, image } from '../types';
+import { WithBoxColor, WithClassName, WithImage } from '../withs';
 
 export function CentralTemplate({ className, color = 'primary', image, message }: CentralTemplateProps) {
     return (
@@ -18,11 +18,9 @@ export function CentralTemplate({ className, color = 'primary', image, message }
     );
 }
 
-export interface CentralTemplateProps {
-    className?: class_name;
-    color?: box_color;
-    image?: image;
+export interface CentralTemplateProps extends WithClassName, WithBoxColor, WithImage {
     message: string;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default CentralTemplate;

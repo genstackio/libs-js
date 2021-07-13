@@ -16,6 +16,8 @@ export const textColors = {
     inherit: 'text-current',
 };
 
+export const textColorValues = Object.keys(textColors);
+
 export type text_color = box_color | 'inherit';
 
 export const defaultTextColor = 'inherit';

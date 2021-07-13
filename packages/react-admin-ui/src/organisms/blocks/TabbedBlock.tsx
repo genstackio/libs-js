@@ -47,4 +47,5 @@ export interface TabbedBlockProps extends BaseBlockProps {
     items?: tab_item[];
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default TabbedBlock;

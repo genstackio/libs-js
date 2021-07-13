@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { children, class_name } from '../types';
+import { WithChildren, WithClassName } from '../withs';
 
 export function FormHeader({ className, children }: FormHeaderProps) {
     if (!children) return null;
@@ -10,9 +10,6 @@ export function FormHeader({ className, children }: FormHeaderProps) {
     );
 }
 
-export interface FormHeaderProps {
-    className?: class_name;
-    children?: children;
-}
+export interface FormHeaderProps extends WithClassName, WithChildren {}
 
 export default FormHeader;

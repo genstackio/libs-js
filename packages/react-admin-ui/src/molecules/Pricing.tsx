@@ -3,8 +3,9 @@ import Block from '../atoms/Block';
 import Button from '../atoms/Button';
 import Text from '../atoms/Text';
 import boxClass from '../utils/boxClass';
-import { class_name, pricing_item } from '../types';
+import { pricing_item } from '../types';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
+import { WithClassName } from '../withs';
 
 export function Pricing({ className, items = [] }: PricingProps) {
     return (
@@ -47,8 +48,7 @@ export function Pricing({ className, items = [] }: PricingProps) {
     );
 }
 
-export interface PricingProps {
-    className?: class_name;
+export interface PricingProps extends WithClassName {
     items: pricing_item[];
 }
 

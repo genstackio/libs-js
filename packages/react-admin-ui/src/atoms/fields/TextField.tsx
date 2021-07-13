@@ -1,9 +1,10 @@
 import clsx from 'clsx';
 import FieldSet from '../FieldSet';
 import useField from '../../hooks/useField';
-import { class_name, flag, icon, register, rich_text } from '../../types';
+import { flag, icon, register, rich_text } from '../../types';
 import { fieldVariantClass, field_variant } from '../../mappings/field-variants';
 import { useMemo } from 'react';
+import { WithClassName } from '../../withs';
 
 export function TextField(props: TextFieldProps) {
     const {
@@ -76,8 +77,7 @@ export function TextField(props: TextFieldProps) {
     );
 }
 
-export interface TextFieldProps {
-    className?: class_name;
+export interface TextFieldProps extends WithClassName {
     required?: flag;
     type?: string;
     disabled?: flag;

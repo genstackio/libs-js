@@ -5,7 +5,8 @@ import Clickable from '../../atoms/Clickable';
 import Image from '../../atoms/Image';
 import Icon from '../../atoms/Icon';
 import textClass from '../../utils/textClass';
-import { box_color, box_variant, image, menu_item, children } from '../../types';
+import { menu_item } from '../../types';
+import { WithBox, WithChildren, WithLogo } from '../../withs';
 
 export function AppLayoutTemplate({ logo, menu, children, toolbar, ...props }: AppLayoutTemplateProps) {
     const [show, setShow] = useState(true);
@@ -43,13 +44,9 @@ export function AppLayoutTemplate({ logo, menu, children, toolbar, ...props }: A
     );
 }
 
-export interface AppLayoutTemplateProps {
-    variant?: box_variant;
-    color?: box_color;
-    logo?: image;
+export interface AppLayoutTemplateProps extends WithBox, WithChildren, WithLogo {
     menu?: menu_item[];
     toolbar?: ReactNode;
-    children?: children;
 }
 
 export default AppLayoutTemplate;

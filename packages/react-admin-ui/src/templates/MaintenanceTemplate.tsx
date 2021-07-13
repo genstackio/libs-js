@@ -1,7 +1,8 @@
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
 import Button from '../atoms/Button';
-import { box_color, box_variant, target } from '../types';
+import { target } from '../types';
+import { WithBox, WithDescription, WithTitle } from '../withs';
 
 export function MaintenanceTemplate({
     logo,
@@ -33,16 +34,12 @@ export function MaintenanceTemplate({
     );
 }
 
-export interface MaintenanceTemplateProps {
+export interface MaintenanceTemplateProps extends WithBox, WithTitle, WithDescription {
     logo?: string;
-    title?: string;
-    description?: string;
     actions: {
         label?: string;
         target?: target;
     }[];
-    color?: box_color;
-    variant?: box_variant;
 }
 
 export default MaintenanceTemplate;

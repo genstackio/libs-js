@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import Text from '../atoms/Text';
 import Icon from '../atoms/Icon';
-import { class_name, rich_text } from '../types';
+import { rich_text } from '../types';
+import { WithClassName } from '../withs';
 
 export function ItemSummary({ className, date, author, likes, comments }: ItemSummaryProps) {
     return (
@@ -31,12 +32,12 @@ export function ItemSummary({ className, date, author, likes, comments }: ItemSu
     );
 }
 
-export interface ItemSummaryProps {
-    className?: class_name;
+export interface ItemSummaryProps extends WithClassName {
     date: number;
     author?: rich_text;
     likes?: number;
     comments?: number;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default ItemSummary;

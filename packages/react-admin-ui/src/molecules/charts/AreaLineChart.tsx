@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import Button from '../../atoms/Button';
-import { box_color, class_name } from '../../types';
+import { WithBoxColor, WithClassName } from '../../withs';
 
 const defaultOptions: ApexOptions = {
     chart: {
@@ -88,8 +88,7 @@ export function AreaLineChart({ className, datas, color }: AreaLineChartProps) {
     );
 }
 
-export interface AreaLineChartProps {
-    className?: class_name;
+export interface AreaLineChartProps extends WithClassName, WithBoxColor {
     datas: {
         categories?: string[];
         colors?: string[];
@@ -99,7 +98,6 @@ export interface AreaLineChartProps {
             data?: number[];
         }[];
     }[];
-    color?: box_color;
 }
 
 export default AreaLineChart;

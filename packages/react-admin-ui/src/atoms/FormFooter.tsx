@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { children, class_name } from '../types';
+import { WithChildren, WithClassName } from '../withs';
 
 export function FormFooter({ className, children }: FormFooterProps) {
     if (!children) return null;
@@ -10,9 +10,6 @@ export function FormFooter({ className, children }: FormFooterProps) {
     );
 }
 
-export interface FormFooterProps {
-    className?: class_name;
-    children?: children;
-}
+export interface FormFooterProps extends WithClassName, WithChildren {}
 
 export default FormFooter;

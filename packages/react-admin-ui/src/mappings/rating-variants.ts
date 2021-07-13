@@ -14,6 +14,8 @@ export const ratingVariants = {
     mood: '',
 };
 
+export const ratingVariantValues = Object.keys(ratingVariants);
+
 export type rating_variant =
     | 'units'
     | 'plates'

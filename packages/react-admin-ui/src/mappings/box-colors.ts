@@ -15,6 +15,8 @@ export const boxColors = {
     default: '',
 };
 
+export const boxColorValues = Object.keys(boxColors);
+
 export type box_color =
     | 'primary'
     | 'secondary'

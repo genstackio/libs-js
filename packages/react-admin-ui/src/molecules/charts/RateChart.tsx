@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
-import { box_color, class_name, rich_text } from '../../types';
 import tailwindConfig from '../../../tailwind.config';
 import Text from '../../atoms/Text';
 import { lighten } from '@material-ui/core/styles';
+import { WithBoxColor, WithClassName, WithSubtitle, WithOverline } from '../../withs';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 
@@ -85,13 +85,10 @@ export function RateChart({ className, color = 'primary', overline, subtitle, ti
     );
 }
 
-export interface RateChartProps {
-    className?: class_name;
-    color?: box_color;
-    overline: rich_text;
-    subtitle: rich_text;
+export interface RateChartProps extends WithClassName, WithBoxColor, WithSubtitle, WithOverline {
     title: string;
     value: number;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default RateChart;

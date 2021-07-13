@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Avatar from '../atoms/Avatar';
-import { avatar_item, class_name } from '../types';
+import { avatar_item } from '../types';
+import { WithClassName } from '../withs';
 
 export function Avatars({ className, items = [] }: AvatarsProps) {
     return (
@@ -12,8 +13,7 @@ export function Avatars({ className, items = [] }: AvatarsProps) {
     );
 }
 
-export interface AvatarsProps {
-    className?: class_name;
+export interface AvatarsProps extends WithClassName {
     items?: avatar_item[];
 }
 

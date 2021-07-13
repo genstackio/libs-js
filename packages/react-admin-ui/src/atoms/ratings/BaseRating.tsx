@@ -3,8 +3,9 @@ import clsx from 'clsx';
 import Text from '../Text';
 import useRating from '../../hooks/useRating';
 import MuiRating from '@material-ui/lab/Rating';
-import { box_color, class_name, rating_value } from '../../types';
+import { class_name, rating_value } from '../../types';
 import { defaultLabelPlacement, label_placement } from '../../mappings/label-placements';
+import { WithBoxColor, WithClassName } from '../../withs';
 
 const labelPlacements = {
     left: 'flex-row-reverse space-x-2',
@@ -59,10 +60,8 @@ export function BaseRating(props: BaseRatingProps) {
     );
 }
 
-export interface BaseBaseRatingProps {
-    className?: class_name;
+export interface BaseBaseRatingProps extends WithClassName, WithBoxColor {
     name?: string;
-    color?: box_color;
     min?: number;
     max?: number;
     values?: rating_value[];

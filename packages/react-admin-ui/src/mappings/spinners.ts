@@ -44,6 +44,8 @@ export const spinners = {
     'xl-circle': 'h-20 w-20 border-4 border-secondary x-border-l-transparent',
 };
 
+export const spinnerValues = Object.keys(spinners);
+
 export const colorSpinners = {
     // primary
     'primary-dots': 'bg-primary',
@@ -111,6 +113,8 @@ export const colorSpinners = {
     'dark-circle': 'border-dark x-border-l-transparent',
 };
 
+export const colorSpinnerValues = Object.keys(colorSpinners);
+
 export const spinnerVariants = {
     dots: true,
     'dotted-circle': true,
@@ -120,6 +124,8 @@ export const spinnerVariants = {
     squares: true,
     circle: true,
 };
+
+export const spinnerVariantValues = Object.keys(spinnerVariants);
 
 export const spinnerColors = {
     primary: true,
@@ -132,6 +138,8 @@ export const spinnerColors = {
     dark: true,
 };
 
+export const spinnerColorValues = Object.keys(spinnerColors);
+
 export const spinnerSizes = {
     xs: true,
     sm: true,
@@ -139,6 +147,8 @@ export const spinnerSizes = {
     lg: true,
     xl: true,
 };
+
+export const spinnerSizeValues = Object.keys(spinnerSizes);
 
 export type spinner_variant =
     | 'dots'

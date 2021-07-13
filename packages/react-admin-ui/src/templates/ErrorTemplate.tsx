@@ -1,7 +1,8 @@
-import { box_color, icon, rich_text, target } from '../types';
+import { target } from '../types';
 import Button from '../atoms/Button';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
+import { WithBoxColor, WithIcon, WithMessage } from '../withs';
 
 export function ErrorTemplate({ actions, code, color, icon, message }: ErrorTemplateProps) {
     return (
@@ -26,15 +27,12 @@ export function ErrorTemplate({ actions, code, color, icon, message }: ErrorTemp
     );
 }
 
-export interface ErrorTemplateProps {
+export interface ErrorTemplateProps extends WithBoxColor, WithMessage, WithIcon {
     actions?: {
         label?: string;
         target?: target;
     }[];
-    color?: box_color;
     code: number;
-    icon?: icon;
-    message: rich_text;
 }
 
 export default ErrorTemplate;

@@ -37,4 +37,5 @@ export function LabelledSquaresRating(props: LabelledSquaresRatingProps) {
 
 export type LabelledSquaresRatingProps = BaseBaseRatingProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default LabelledSquaresRating;

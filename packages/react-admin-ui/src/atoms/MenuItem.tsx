@@ -3,8 +3,9 @@ import Badge from '../atoms/Badge';
 import Block from '../atoms/Block';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
-import { class_name, box_color, menu_variant, icon, flag, target, rich_text, badge } from '../types';
+import { menu_variant, badge } from '../types';
 import boxClass from '../utils/boxClass';
+import { WithActive, WithBoxColor, WithClassName, WithIcon, WithLabel, WithTarget } from '../withs';
 
 export function MenuItem({ className, label, icon, target, active = false, badges, color, variant }: MenuItemProps) {
     return (
@@ -31,14 +32,8 @@ export function MenuItem({ className, label, icon, target, active = false, badge
     );
 }
 
-export interface MenuItemProps {
-    className?: class_name;
-    label: rich_text;
-    icon?: icon;
-    target: target;
-    active?: flag;
+export interface MenuItemProps extends WithClassName, WithLabel, WithIcon, WithBoxColor, WithActive, WithTarget {
     badges?: badge[];
-    color?: box_color;
     variant?: menu_variant;
 }
 

@@ -1,9 +1,10 @@
 import { useCallback, useState } from 'react';
 import clsx from 'clsx';
 import Icon from './Icon';
-import { class_name, flag } from '../types';
+import { flag } from '../types';
 import InputBase from '@material-ui/core/InputBase';
 import { useTranslation } from 'react-i18next';
+import { WithClassName, WithOnChange, WithOnClear } from '../withs';
 
 export function SearchBar({ className, defaultFocus = false, onClear, onChange }: SearchBarProps) {
     const { t } = useTranslation();
@@ -36,11 +37,8 @@ export function SearchBar({ className, defaultFocus = false, onClear, onChange }
     );
 }
 
-export interface SearchBarProps {
-    className?: class_name;
+export interface SearchBarProps extends WithClassName, WithOnChange, WithOnClear {
     defaultFocus?: flag;
-    onClear?: Function;
-    onChange?: Function;
 }
 
 export default SearchBar;

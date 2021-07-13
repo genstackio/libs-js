@@ -31,4 +31,5 @@ export interface GoalBlockProps extends BaseBlockProps {
     };
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default GoalBlock;

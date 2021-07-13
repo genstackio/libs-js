@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { class_name, rich_text } from '../types';
-import alignmentClass, { alignment } from '../mappings/alignments';
+import alignmentClass from '../mappings/alignments';
+import { WithClassName, WithText, WithTitle, WithPosition } from '../withs';
 
 const textPositions = {
     left: 'border-l-4 p-4 blockquote',
@@ -22,11 +22,7 @@ export function Quote({ className, position = 'left', text, title }: QuoteProps)
     );
 }
 
-export interface QuoteProps {
-    className?: class_name;
-    position?: alignment;
-    text?: rich_text;
-    title?: rich_text;
-}
+export interface QuoteProps extends WithClassName, WithText, WithTitle, WithPosition {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Quote;

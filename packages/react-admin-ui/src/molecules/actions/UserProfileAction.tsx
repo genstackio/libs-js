@@ -3,12 +3,12 @@ import useAction from '../../hooks/useAction';
 import FormActionProps from '../forms/FormActionProps';
 
 export function UserProfileAction({ onSuccess, ...props }: UserProfileActionProps) {
-    const state = useAction('USER_PROFILE', { onSuccess });
-    return <UserProfileForm {...state} {...props} />;
+    return <UserProfileForm {...useAction('USER_PROFILE', { onSuccess })} {...props} />;
 }
 
 export interface UserProfileActionProps extends UserProfileFormProps, FormActionProps {
     onSuccess?: Function;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default UserProfileAction;

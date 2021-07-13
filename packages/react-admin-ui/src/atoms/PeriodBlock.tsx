@@ -1,7 +1,7 @@
 import clsx from 'clsx';
-import { class_name, rich_text } from '../types';
+import { rich_text } from '../types';
 import Text from './Text';
-import { text_color } from '../mappings/text-colors';
+import { WithClassName, WithText, WithTextColor } from '../withs';
 
 export function PeriodBlock({ className, color, text, value }: PeriodBlockProps) {
     return (
@@ -12,10 +12,7 @@ export function PeriodBlock({ className, color, text, value }: PeriodBlockProps)
     );
 }
 
-export interface PeriodBlockProps {
-    className?: class_name;
-    color?: text_color;
-    text?: rich_text;
+export interface PeriodBlockProps extends WithClassName, WithTextColor, WithText {
     value?: rich_text;
 }
 export default PeriodBlock;

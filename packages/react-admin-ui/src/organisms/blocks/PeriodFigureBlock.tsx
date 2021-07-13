@@ -1,7 +1,7 @@
 import Block, { BaseBlockProps } from '../../atoms/Block';
 import Icon from '../../atoms/Icon';
 import PeriodBlock from '../../atoms/PeriodBlock';
-import { icon } from '../../types';
+import { WithIcon } from '../../withs';
 
 export function PeriodFigureBlock({ icon, items = [], ...props }: PeriodFigureBlockProps) {
     return (
@@ -18,9 +18,9 @@ export function PeriodFigureBlock({ icon, items = [], ...props }: PeriodFigureBl
     );
 }
 
-export interface PeriodFigureBlockProps extends BaseBlockProps {
-    icon?: icon;
+export interface PeriodFigureBlockProps extends BaseBlockProps, WithIcon {
     items?: any[];
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default PeriodFigureBlock;

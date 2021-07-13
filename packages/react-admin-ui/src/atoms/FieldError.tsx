@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { class_name } from '../types';
+import { WithClassName, WithError } from '../withs';
 
 export function FieldError({ className, error }: FieldErrorProps) {
     if (!error) return null;
@@ -10,9 +10,6 @@ export function FieldError({ className, error }: FieldErrorProps) {
     );
 }
 
-export interface FieldErrorProps {
-    className?: class_name;
-    error?: string;
-}
+export interface FieldErrorProps extends WithClassName, WithError {}
 
 export default FieldError;

@@ -4,7 +4,7 @@ import RatingUI from '@material-ui/lab/Rating';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { class_name, rich_text } from '../../types';
+import { WithClassName, WithText } from '../../withs';
 
 const StyledRating = withStyles({
     iconFilled: {
@@ -36,11 +36,9 @@ export function BasicRating({ className, defaultValue, onChange, text, value }: 
     );
 }
 
-export interface BasicRatingProps {
-    className?: class_name;
+export interface BasicRatingProps extends WithClassName, WithText {
     defaultValue?: number | string;
     onChange?: Function;
-    text?: rich_text;
     value?: number | string;
 }
 

@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
-import { image } from '../types';
 import Image from '../atoms/Image';
 import Container from '../atoms/Container';
+import { WithImage, WithLogo } from '../withs';
 
 export function Login2Template({ image, logo, bgColor, form }: Login2TemplateProps) {
     return (
@@ -27,11 +27,10 @@ export function Login2Template({ image, logo, bgColor, form }: Login2TemplatePro
     );
 }
 
-export interface Login2TemplateProps {
-    image?: image;
-    logo?: image;
+export interface Login2TemplateProps extends WithImage, WithLogo {
     bgColor?: string;
     form?: ReactNode;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default Login2Template;

@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import { children, class_name, flag, ribbon_position, rich_text } from '../types';
+import { flag, ribbon_position } from '../types';
 import boxClass from '../utils/boxClass';
 import Icon from './Icon';
-import { box_color } from '../mappings/box-colors';
+import { WithBoxColor, WithChildren, WithClassName, WithText } from '../withs';
 
 export function Ribbon({ className, children, color, horizontal, position = 'top-left', text, vertical }: RibbonProps) {
     let triangle_position,
@@ -119,14 +119,11 @@ export function Ribbon({ className, children, color, horizontal, position = 'top
     );
 }
 
-export interface RibbonProps {
-    children?: children;
-    className?: class_name;
-    color?: box_color;
+export interface RibbonProps extends WithClassName, WithChildren, WithText, WithBoxColor {
     horizontal?: flag;
     position?: ribbon_position;
-    text?: rich_text;
     vertical?: flag;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default Ribbon;

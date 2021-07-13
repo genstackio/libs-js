@@ -2,7 +2,8 @@ import { MouseEventHandler } from 'react';
 import clsx from 'clsx';
 import Button from '../atoms/Button';
 import MuiModal from '@material-ui/core/Modal';
-import { action_item, children, class_name, flag, rich_text } from '../types';
+import { action_item, flag } from '../types';
+import { WithChildren, WithClassName, WithTitle } from '../withs';
 
 export function Modal({ className, buttonsItems = [], children, onClose, opened = false, title }: ModalProps) {
     return (
@@ -33,13 +34,11 @@ export function Modal({ className, buttonsItems = [], children, onClose, opened 
     );
 }
 
-export interface ModalProps {
-    className?: class_name;
+export interface ModalProps extends WithClassName, WithChildren, WithTitle {
     buttonsItems?: action_item[];
-    children?: children;
     opened?: flag;
     onClose?: MouseEventHandler;
-    title?: rich_text;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default Modal;

@@ -6,6 +6,8 @@ export const iconColors: { [key: string]: icon_color } = {
     inherit: 'inherit',
 };
 
+export const iconColorValues = Object.values(iconColors);
+
 export const mapIconColor = (c) => iconColors[c || defaultIconColor] || iconColors[defaultIconColor];
 
 export type icon_color = undefined | 'primary' | 'secondary' | 'inherit' | 'action' | 'error';

@@ -1,9 +1,10 @@
 import clsx from 'clsx';
 import Buttons from './Buttons';
-import { box_color, box_variant, class_name } from '../types';
+import { class_name } from '../types';
 import paddingClass from '../mappings/paddings';
 import bgClass from '../utils/bgClass';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
+import { WithBox, WithClassName } from '../withs';
 
 export function BlockFooter({
     className,
@@ -29,12 +30,9 @@ export function BlockFooter({
     );
 }
 
-export interface BlockFooterProps {
-    className?: class_name;
+export interface BlockFooterProps extends WithClassName, WithBox {
     buttonsClassName?: class_name;
     buttons?: any[];
-    color?: box_color;
-    variant?: box_variant;
 }
 
 export default BlockFooter;

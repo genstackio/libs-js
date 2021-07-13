@@ -6,6 +6,8 @@ export const shapes = {
     square: '',
 };
 
+export const shapeValues = Object.values(shapes);
+
 export type shape = 'circular' | 'rounded' | 'square';
 
 export const defaultShape = 'square';

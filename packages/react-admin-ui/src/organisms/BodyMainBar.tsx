@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
 import clsx from 'clsx';
 import Button from '../atoms/Button';
-import { action_item, class_name } from '../types';
+import { action_item } from '../types';
+import { WithChildren, WithClassName } from '../withs';
 
 export function BodyMainBar({ className, actions = [], children }: BodyMainBarProps) {
     return (
@@ -20,10 +20,9 @@ export function BodyMainBar({ className, actions = [], children }: BodyMainBarPr
     );
 }
 
-export interface BodyMainBarProps {
-    className?: class_name;
+export interface BodyMainBarProps extends WithClassName, WithChildren {
     actions: action_item[];
-    children: ReactNode;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default BodyMainBar;

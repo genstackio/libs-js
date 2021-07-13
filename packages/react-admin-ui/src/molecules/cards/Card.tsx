@@ -6,7 +6,7 @@ import Block from '../../atoms/Block';
 import Tag from '../../atoms/Tag';
 import Text from '../../atoms/Text';
 import Rating from '../../atoms/Rating';
-import { box_color, box_variant, class_name, image, rich_text, target } from '../../types';
+import { WithBox, WithClassName, WithDescription, WithImage, WithTitle, WithContent, WithOnClick } from '../../withs';
 
 export function Card({
     className,
@@ -56,17 +56,17 @@ export function Card({
     );
 }
 
-export interface CardProps {
-    className?: class_name;
-    onClick?: target;
-    color?: box_color;
-    variant?: box_variant;
+export interface CardProps
+    extends WithClassName,
+        WithBox,
+        WithImage,
+        WithTitle,
+        WithDescription,
+        WithContent,
+        WithOnClick {
     link?: string;
     value?: number;
-    image: image;
-    title?: rich_text;
-    description?: rich_text;
-    content?: rich_text;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default Card;

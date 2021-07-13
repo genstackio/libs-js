@@ -1,8 +1,9 @@
 import { useCallback, useState } from 'react';
 import clsx from 'clsx';
 import Popper from '@material-ui/core/Popper';
-import { class_name, placement, children, flag } from '../types';
+import { placement, children, flag } from '../types';
 import Clickable from '../atoms/Clickable';
+import { WithClassName } from '../withs';
 
 export function Expandable({ className, children, expandedChildren, placement = 'bottom-start' }: ExpandableProps) {
     const [opened, setOpened] = useState(false);
@@ -35,8 +36,7 @@ export function Expandable({ className, children, expandedChildren, placement = 
     );
 }
 
-export interface ExpandableProps {
-    className?: class_name;
+export interface ExpandableProps extends WithClassName {
     children?: children | ((opened: flag) => children);
     expandedChildren?: children | ((opened: flag) => children);
     placement?: placement;

@@ -1,9 +1,10 @@
 import clsx from 'clsx';
-import { box_color, class_name, image, target } from '../../types';
+import { target } from '../../types';
 import Block from '../../atoms/Block';
 import Image from '../../atoms/Image';
 import Text from '../../atoms/Text';
 import Rating from '../../atoms/Rating';
+import { WithBoxColor, WithClassName, WithImage } from '../../withs';
 
 export function ProductCardBlock({
     className,
@@ -38,11 +39,8 @@ export function ProductCardBlock({
     );
 }
 
-export interface ProductCardBlockProps {
-    className?: class_name;
-    color?: box_color;
+export interface ProductCardBlockProps extends WithClassName, WithBoxColor, WithImage {
     description?: string;
-    image: image;
     initialPrice?: string;
     onClick?: target;
     price?: string;
@@ -50,4 +48,5 @@ export interface ProductCardBlockProps {
     title?: string;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default ProductCardBlock;

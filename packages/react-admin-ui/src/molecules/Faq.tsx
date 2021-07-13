@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Accordion from './Accordion';
-import { box_color, box_variant, class_name, faq_item } from '../types';
+import { faq_item } from '../types';
+import { WithBox, WithClassName } from '../withs';
 
 export function Faq({ className, color, expandIcon, items = [], variant }: FaqProps) {
     return (
@@ -8,10 +9,7 @@ export function Faq({ className, color, expandIcon, items = [], variant }: FaqPr
     );
 }
 
-export interface FaqProps {
-    className?: class_name;
-    color?: box_color;
+export interface FaqProps extends WithClassName, WithBox {
     expandIcon: string;
     items: faq_item[];
-    variant?: box_variant;
 }

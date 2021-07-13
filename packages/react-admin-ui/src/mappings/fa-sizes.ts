@@ -1,7 +1,3 @@
-export type fa_size = 'xs' | 'sm' | 'lg' | '2x' | '3x' | '5x' | '7x' | '10x';
-
-export const mapFaSize = (s) => faSizes[s || defaultFaSize] || faSizes[defaultFaSize];
-
 export const faSizes: { [key: string]: fa_size } = {
     xs: 'xs',
     sm: 'sm',
@@ -18,5 +14,11 @@ export const faSizes: { [key: string]: fa_size } = {
     '8xl': '7x',
     '9xl': '10x',
 };
+
+export const faSizeValues = Object.values(faSizes);
+
+export type fa_size = 'xs' | 'sm' | 'lg' | '2x' | '3x' | '5x' | '7x' | '10x';
+
+export const mapFaSize = (s) => faSizes[s || defaultFaSize] || faSizes[defaultFaSize];
 
 export const defaultFaSize = 'base';

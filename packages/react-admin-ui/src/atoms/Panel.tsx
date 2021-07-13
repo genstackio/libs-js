@@ -1,9 +1,7 @@
 import clsx from 'clsx';
 import boxClass from '../utils/boxClass';
-import { children, class_name } from '../types';
-import { box_color } from '../mappings/box-colors';
-import { box_variant } from '../mappings/box-variants';
 import Row from './Row';
+import { WithClassName, WithChildren, WithBox } from '../withs';
 
 export function Panel({ className, children, color = 'primary', variant = 'contained' }: PanelProps) {
     return (
@@ -13,11 +11,6 @@ export function Panel({ className, children, color = 'primary', variant = 'conta
     );
 }
 
-export interface PanelProps {
-    className?: class_name;
-    children?: children;
-    color?: box_color;
-    variant?: box_variant;
-}
+export interface PanelProps extends WithClassName, WithChildren, WithBox {}
 
 export default Panel;

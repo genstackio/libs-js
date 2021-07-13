@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import range from '../utils/range';
 
+// noinspection JSUnusedLocalSymbols
 export function useRating(props, { reverse = false }: { reverse?: boolean } = {}) {
     const { min, max, labelPlacement, onChange, onHover, value, defaultValue } = props;
     let { values = [] } = props;

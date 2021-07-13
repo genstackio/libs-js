@@ -27,4 +27,5 @@ export interface VisualBulletBlockProps extends BaseBlockProps {
     }[];
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default VisualBulletBlock;

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { class_name, rich_text } from '../types';
 import Text from '../atoms/Text';
+import { WithClassName, WithTitle, WithDescription } from '../withs';
 
 export function HeadingLeft({ className, title, description }: HeadingLeftProps) {
     return (
@@ -11,10 +11,6 @@ export function HeadingLeft({ className, title, description }: HeadingLeftProps)
     );
 }
 
-export interface HeadingLeftProps {
-    className?: class_name;
-    title?: rich_text;
-    description?: rich_text;
-}
+export interface HeadingLeftProps extends WithClassName, WithTitle, WithDescription {}
 
 export default HeadingLeft;

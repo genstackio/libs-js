@@ -2,6 +2,7 @@ import Block, { BaseBlockProps } from '../atoms/Block';
 import Progress from '../atoms/Progress';
 import Text from '../atoms/Text';
 import { rich_text } from '../types';
+import { WithText } from '../withs';
 
 export function KpiProgress({ goal, text, unit, value, ...props }: KpiProgressProps) {
     return (
@@ -20,11 +21,11 @@ export function KpiProgress({ goal, text, unit, value, ...props }: KpiProgressPr
     );
 }
 
-export interface KpiProgressProps extends BaseBlockProps {
+export interface KpiProgressProps extends BaseBlockProps, WithText {
     goal: number;
-    text?: rich_text;
     unit?: rich_text;
     value: number;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default KpiProgress;

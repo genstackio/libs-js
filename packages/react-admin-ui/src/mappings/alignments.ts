@@ -7,6 +7,8 @@ export const alignments = {
     none: '',
 };
 
+export const alignmentValues = Object.keys(alignments);
+
 export type alignment = 'left' | 'center' | 'right' | 'none';
 
 export const defaultAlignment = 'none';

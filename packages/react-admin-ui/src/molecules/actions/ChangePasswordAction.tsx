@@ -3,12 +3,12 @@ import useAction from '../../hooks/useAction';
 import FormActionProps from '../forms/FormActionProps';
 
 export function ChangePasswordAction({ onSuccess, ...props }: ChangePasswordActionProps) {
-    const state = useAction('CHANGE_PASSWORD', { onSuccess });
-    return <ChangePasswordForm {...state} {...props} />;
+    return <ChangePasswordForm {...useAction('CHANGE_PASSWORD', { onSuccess })} {...props} />;
 }
 
 export interface ChangePasswordActionProps extends ChangePasswordFormProps, FormActionProps {
     onSuccess?: Function;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default ChangePasswordAction;

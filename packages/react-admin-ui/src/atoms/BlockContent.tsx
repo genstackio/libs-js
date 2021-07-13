@@ -1,15 +1,11 @@
 import clsx from 'clsx';
-import { children, class_name } from '../types';
-import paddingClass, { padding } from '../mappings/paddings';
+import paddingClass from '../mappings/paddings';
+import { WithChildren, WithClassName, WithPadding } from '../withs';
 
 export function BlockContent({ padding = 'default', className, children }: BlockContentProps) {
     return <div className={clsx(paddingClass(padding), 'text-md', className)}>{children || ''}</div>;
 }
 
-export interface BlockContentProps {
-    padding?: padding;
-    className?: class_name;
-    children?: children;
-}
+export interface BlockContentProps extends WithClassName, WithChildren, WithPadding {}
 
 export default BlockContent;

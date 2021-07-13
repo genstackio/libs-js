@@ -105,4 +105,5 @@ export interface HeadingBlockProps extends BaseBlockProps {
     topRight?: flag;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default HeadingBlock;

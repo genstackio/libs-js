@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import SendOtpForgotPasswordForm from './SendOtpForgotPasswordForm';
 import FillInOtpForgotPasswordForm from './FillInOtpForgotPasswordForm';
 import CreatePasswordForgotPasswordForm from './CreatePasswordForgotPasswordForm';
+import { WithDefaultValues, WithOnSubmit } from '../../withs';
 
 export function ForgotPasswordForm({
     onSubmit,
@@ -44,11 +45,10 @@ export function ForgotPasswordForm({
     }
 }
 
-export interface ForgotPasswordFormProps {
-    defaultValues?: any;
-    onSubmit?: Function;
+export interface ForgotPasswordFormProps extends WithDefaultValues, WithOnSubmit {
     onSendVerificationCode?: Function;
     onLoginClick?: Function;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default ForgotPasswordForm;

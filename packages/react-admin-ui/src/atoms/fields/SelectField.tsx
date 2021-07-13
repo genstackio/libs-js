@@ -2,7 +2,8 @@ import clsx from 'clsx';
 import FieldSet from '../FieldSet';
 import useField from '../../hooks/useField';
 import Select from 'react-select';
-import { class_name, flag, select_item, register } from '../../types';
+import { flag, select_item, register } from '../../types';
+import { WithClassName } from '../../withs';
 
 export function SelectField({ className, values = [], ...props }: SelectFieldProps) {
     const { name, label, error, helper, disabled, register, placeholder, options, defaultValue, extra } =
@@ -22,8 +23,7 @@ export function SelectField({ className, values = [], ...props }: SelectFieldPro
     );
 }
 
-export interface SelectFieldProps {
-    className?: class_name;
+export interface SelectFieldProps extends WithClassName {
     values?: select_item[];
     required?: flag;
     disabled?: flag;

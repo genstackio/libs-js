@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import Button from './Button';
-import { class_name } from '../types';
+import { WithClassName } from '../withs';
 
 export function Buttons({ className, buttons = [] }: ButtonsProps) {
     return (
@@ -12,8 +12,7 @@ export function Buttons({ className, buttons = [] }: ButtonsProps) {
     );
 }
 
-export interface ButtonsProps {
-    className?: class_name;
+export interface ButtonsProps extends WithClassName {
     buttons?: any[];
 }
 

@@ -1,8 +1,9 @@
 import { useCallback } from 'react';
 import clsx from 'clsx';
 import Icon from './Icon';
-import { class_name, text_size } from '../types';
+import { text_size } from '../types';
 import useToggle from '../hooks/useToggle';
+import { WithActive, WithClassName, WithIcon } from '../withs';
 
 export function ToolbarItem({ className, icon, activeIcon, active, onToggle, size = 'lg', count }: ToolbarItemProps) {
     const [localActive, toggle] = useToggle(active);
@@ -24,14 +25,11 @@ export function ToolbarItem({ className, icon, activeIcon, active, onToggle, siz
     );
 }
 
-export interface BaseToolbarItemProps {
-    className?: class_name;
-    active?: boolean;
+export interface BaseToolbarItemProps extends WithClassName, WithActive {
     onToggle?: Function;
 }
 
-export interface ToolbarItemProps extends BaseToolbarItemProps {
-    icon: string;
+export interface ToolbarItemProps extends BaseToolbarItemProps, WithIcon {
     activeIcon?: string;
     size?: text_size;
     count?: number;

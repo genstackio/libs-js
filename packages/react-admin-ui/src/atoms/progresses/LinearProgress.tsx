@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { createStyles, withStyles, Theme } from '@material-ui/core/styles';
 import MuiLinearProgress from '@material-ui/core/LinearProgress';
-import { class_name } from '../../types';
+import { WithClassName } from '../../withs';
 
 const BorderLinearProgress = withStyles((theme: Theme) =>
     createStyles({
@@ -27,8 +27,7 @@ export function LinearProgress({ className, value = 0 }: LinearProgressProps) {
     );
 }
 
-export interface LinearProgressProps {
-    className?: class_name;
+export interface LinearProgressProps extends WithClassName {
     value?: number;
 }
 

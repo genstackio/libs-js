@@ -1,5 +1,5 @@
 import Alert, { AlertProps } from '../atoms/Alert';
-import { rich_text } from '../types';
+import { WithTitle } from '../withs';
 
 export function AlertPanel({ children, title, ...props }: AlertPanelProps) {
     return (
@@ -15,8 +15,6 @@ export function AlertPanel({ children, title, ...props }: AlertPanelProps) {
     );
 }
 
-export interface AlertPanelProps extends AlertProps {
-    title?: rich_text;
-}
+export interface AlertPanelProps extends AlertProps, WithTitle {}
 
 export default AlertPanel;

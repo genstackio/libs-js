@@ -2,8 +2,9 @@ import clsx from 'clsx';
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
-import { box_color, class_name, image, summary_item } from '../../types';
+import { summary_item } from '../../types';
 import Summaries from '../Summaries';
+import { WithBoxColor, WithClassName, WithImage } from '../../withs';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 
@@ -68,7 +69,7 @@ export function BackgroundCircularChart({
         fill: { ...(defaultOptions.fill || {}) },
     };
     options.plotOptions.radialBar!.dataLabels!.value!.color = tailwindColors[color];
-    options.fill!.image!.src = image.url;
+    image?.url && (options.fill!.image!.src = image.url);
 
     return (
         <>
@@ -78,11 +79,8 @@ export function BackgroundCircularChart({
     );
 }
 
-export interface BackgroundCircularChartProps {
-    className?: class_name;
-    color?: box_color;
+export interface BackgroundCircularChartProps extends WithClassName, WithBoxColor, WithImage {
     value: number;
-    image: image;
     summaries?: summary_item[];
 }
 

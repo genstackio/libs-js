@@ -7,6 +7,8 @@ export const paddings = {
     xsmall: 'p-4',
 };
 
+export const paddingValues = Object.keys(paddings);
+
 export type padding = 'none' | 'default' | 'small' | 'xsmall';
 
 export const defaultPadding = 'none';

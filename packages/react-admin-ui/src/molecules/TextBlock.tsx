@@ -3,7 +3,7 @@ import textClass from '../utils/textClass';
 import Block, { BaseBlockProps } from '../atoms/Block';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
-import { icon, rich_text } from '../types';
+import { WithIcon, WithText, WithTitle } from '../withs';
 
 export function TextBlock({ icon, text, title, ...props }: TextBlockProps) {
     return (
@@ -28,10 +28,6 @@ export function TextBlock({ icon, text, title, ...props }: TextBlockProps) {
     );
 }
 
-export interface TextBlockProps extends BaseBlockProps {
-    icon?: icon;
-    text?: rich_text;
-    title?: rich_text;
-}
+export interface TextBlockProps extends BaseBlockProps, WithText, WithTitle, WithIcon {}
 
 export default TextBlock;

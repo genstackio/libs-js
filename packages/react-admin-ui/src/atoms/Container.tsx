@@ -1,7 +1,8 @@
 import clsx from 'clsx';
-import { children, class_name, flag, image, target } from '../types';
-import cornerClass, { corner } from '../mappings/corners';
+import { flag, image, target } from '../types';
+import cornerClass from '../mappings/corners';
 import Clickable from './Clickable';
+import { WithChildren, WithClassName, WithCorner } from '../withs';
 
 export function Container({
     bgImage,
@@ -27,12 +28,9 @@ export function Container({
     );
 }
 
-export interface ContainerProps {
-    corner?: corner;
+export interface ContainerProps extends WithClassName, WithChildren, WithCorner {
     bgImage?: image;
     bgColor?: string;
-    className?: class_name;
-    children?: children;
     onClick?: target;
     fullscreen?: flag;
 }

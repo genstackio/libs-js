@@ -2,7 +2,8 @@ import clsx from 'clsx';
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
-import { box_color, box_variant, chart_serie, class_name } from '../../types';
+import { chart_serie } from '../../types';
+import { WithBox, WithClassName } from '../../withs';
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 
@@ -53,18 +54,15 @@ export function RadialBarChart({
         plotOptions: { ...(defaultOptions.plotOptions || {}) },
         labels: labels,
     };
-    options.plotOptions.radialBar!.dataLabels!.total!.label = title;
+    options!.plotOptions!.radialBar!.dataLabels!.total!.label = title;
 
     return <Chart type={'radialBar'} options={options} series={series} className={clsx(className)} />;
 }
 
-export interface RadialBarChartProps {
-    className?: class_name;
-    color?: box_color;
+export interface RadialBarChartProps extends WithClassName, WithBox {
     labels?: string[];
     series: chart_serie;
     title?: string;
-    variant?: box_variant;
 }
 
 export default RadialBarChart;

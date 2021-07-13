@@ -6,6 +6,8 @@ export const elevations = {
     '2': 'shadow-upper-block',
 };
 
+export const elevationValues = Object.keys(elevations);
+
 export type elevation = 0 | 1 | 2;
 
 export const defaultElevation = 1;

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
-import { box_color, box_variant, class_name, icon, rich_text } from '../types';
+import { WithBox, WithClassName, WithIcon, WithText, WithTitle } from '../withs';
 
 export function BulletPoint({ className, icon, text, title, color }: BulletPointProps) {
     return (
@@ -15,13 +15,6 @@ export function BulletPoint({ className, icon, text, title, color }: BulletPoint
     );
 }
 
-export interface BulletPointProps {
-    className?: class_name;
-    color?: box_color;
-    icon?: icon;
-    text?: rich_text;
-    title?: rich_text;
-    variant?: box_variant;
-}
+export interface BulletPointProps extends WithClassName, WithBox, WithIcon, WithText, WithTitle {}
 
 export default BulletPoint;

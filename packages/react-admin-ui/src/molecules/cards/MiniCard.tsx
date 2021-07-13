@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import { children, class_name, image, rich_text } from '../../types';
 import Block from '../../atoms/Block';
 import Image from '../../atoms/Image';
 import Text from '../../atoms/Text';
+import { WithChildren, WithClassName, WithDescription, WithImage, WithTitle } from '../../withs';
 
 export function MiniCard({ className, children, description, image, title }: MiniCardProps) {
     return (
@@ -15,12 +15,6 @@ export function MiniCard({ className, children, description, image, title }: Min
     );
 }
 
-export interface MiniCardProps {
-    className?: class_name;
-    children?: children;
-    description?: rich_text;
-    image?: image;
-    title?: rich_text;
-}
+export interface MiniCardProps extends WithClassName, WithChildren, WithDescription, WithImage, WithTitle {}
 
 export default MiniCard;

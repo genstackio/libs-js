@@ -1,13 +1,10 @@
 import clsx from 'clsx';
-import { class_name } from '../types';
+import { WithClassName } from '../withs';
 
 export function Calendar({ className }: CalendarProps) {
     return <div className={clsx(className)}>CALENDAR</div>;
 }
 
-/* eslint @typescript-eslint/no-empty-interface: 0 */
-export interface CalendarProps {
-    className?: class_name;
-}
+export type CalendarProps = WithClassName;
 
 export default Calendar;

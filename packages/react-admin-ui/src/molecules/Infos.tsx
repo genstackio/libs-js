@@ -1,6 +1,7 @@
-import { text_color, class_name, infos_item } from '../types';
+import { infos_item } from '../types';
 import Block from '../atoms/Block';
 import Text from '../atoms/Text';
+import { WithClassName, WithTextColor } from '../withs';
 
 export function Infos({ color = 'primary', items = [], ...props }: InfosProps) {
     return (
@@ -16,9 +17,7 @@ export function Infos({ color = 'primary', items = [], ...props }: InfosProps) {
     );
 }
 
-export interface InfosProps {
-    className?: class_name;
-    color?: text_color;
+export interface InfosProps extends WithClassName, WithTextColor {
     items?: infos_item[];
 }
 

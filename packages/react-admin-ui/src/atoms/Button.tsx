@@ -2,10 +2,20 @@ import { useCallback, useMemo } from 'react';
 import clsx from 'clsx';
 import Icon from './Icon';
 import buttonClass from '../utils/buttonClass';
-import { box_color, box_variant, children, class_name, flag, icon, target, size, corner } from '../types';
+import { class_name, target } from '../types';
 import { Spinner } from './Spinner';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
 import cornerClass from '../mappings/corners';
+import {
+    WithBox,
+    WithChildren,
+    WithClassName,
+    WithCorner,
+    WithIcon,
+    WithSize,
+    WithLoading,
+    WithDisabled,
+} from '../withs';
 
 export function Button({
     children,
@@ -57,18 +67,17 @@ export function Button({
     );
 }
 
-export interface ButtonProps {
-    children?: children;
-    className?: class_name;
+export interface ButtonProps
+    extends WithClassName,
+        WithBox,
+        WithChildren,
+        WithIcon,
+        WithSize,
+        WithCorner,
+        WithDisabled,
+        WithLoading {
     spinnerClassName?: class_name;
-    color?: box_color;
-    disabled?: flag;
-    loading?: flag;
-    icon?: icon;
-    size?: size;
     onClick?: target;
-    variant?: box_variant;
-    corner?: corner;
 }
 
 export default Button;

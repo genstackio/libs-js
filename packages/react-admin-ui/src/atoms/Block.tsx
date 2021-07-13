@@ -1,13 +1,14 @@
 import { useMemo } from 'react';
 import clsx from 'clsx';
 import boxClass from '../utils/boxClass';
-import { box_color, block_variant, padding, image, class_name, children, corner, target } from '../types';
+import { block_variant, class_name, target } from '../types';
 import Container from './Container';
 import BlockHeader, { BlockHeaderProps } from './BlockHeader';
 import BlockFooter, { BlockFooterProps } from './BlockFooter';
 import BlockContent, { BlockContentProps } from './BlockContent';
-import elevationClass, { elevation } from '../mappings/elevations';
+import elevationClass from '../mappings/elevations';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
+import { WithBoxColor, WithChildren, WithClassName, WithImage, WithPadding, WithElevation, WithCorner } from '../withs';
 
 export function Block({
     elevation = 1,
@@ -71,23 +72,21 @@ export function Block({
 export interface BaseBlockProps
     extends Omit<BlockHeaderProps, 'variant'>,
         Omit<BlockFooterProps, 'variant'>,
-        BlockContentProps {
-    children?: children;
-    className?: class_name;
+        BlockContentProps,
+        WithClassName,
+        WithChildren,
+        WithBoxColor,
+        WithPadding,
+        WithElevation,
+        WithCorner {
     headerClassName?: class_name;
     contentClassName?: class_name;
     footerClassName?: class_name;
-    color?: box_color;
-    padding?: padding;
     variant?: block_variant;
-    elevation?: elevation;
-    corner?: corner;
     onClick?: target;
     buttons?: any[];
 }
 
-export interface BlockProps extends BaseBlockProps {
-    image?: image;
-}
+export interface BlockProps extends BaseBlockProps, WithImage {}
 
 export default Block;

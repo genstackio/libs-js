@@ -1,7 +1,8 @@
 import clsx from 'clsx';
-import { class_name, flag, register } from '../../types';
+import { flag, register } from '../../types';
 import useField from '../../hooks/useField';
 import FieldSet from '../FieldSet';
+import { WithClassName } from '../../withs';
 
 export function TextareaField({ className, ...props }: TextareaFieldProps) {
     const { name, required, label, error, helper, disabled, register, placeholder, options, extra } = useField(props);
@@ -24,8 +25,7 @@ export function TextareaField({ className, ...props }: TextareaFieldProps) {
     );
 }
 
-export interface TextareaFieldProps {
-    className?: class_name;
+export interface TextareaFieldProps extends WithClassName {
     required?: flag;
     disabled?: flag;
     errors?: { [key: string]: any };

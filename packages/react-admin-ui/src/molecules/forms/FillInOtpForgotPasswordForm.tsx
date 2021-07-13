@@ -6,8 +6,7 @@ import Form from '../../atoms/Form';
 import OtpField from '../../atoms/fields/OtpField';
 import Text from '../../atoms/Text';
 import { useTranslation } from 'react-i18next';
-import { box_color } from '../../mappings/box-colors';
-import { class_name } from '../../types';
+import { WithBoxColor, WithClassName, WithDefaultValues, WithOnSubmit } from '../../withs';
 
 export function FillInOtpForgotPasswordForm({
     className,
@@ -57,11 +56,8 @@ export function FillInOtpForgotPasswordForm({
     );
 }
 
-export interface FillInOtpForgotPasswordFormProps {
-    className?: class_name;
-    color?: box_color;
-    defaultValues?: any;
-    onSubmit?: Function;
+export interface FillInOtpForgotPasswordFormProps extends WithClassName, WithBoxColor, WithDefaultValues, WithOnSubmit {
     onResendVerificationCode?: Function;
 }
+
 export default FillInOtpForgotPasswordForm;

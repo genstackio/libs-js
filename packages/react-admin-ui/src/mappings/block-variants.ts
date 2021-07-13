@@ -8,6 +8,8 @@ export const blockVariants = {
     'header-contained': '',
 };
 
+export const blockVariantValues = Object.keys(blockVariants);
+
 export type block_variant = 'filled' | 'outlined' | 'contained' | 'none' | 'header-contained';
 
 export const defaultBlockVariant = 'filled';

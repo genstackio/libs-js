@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import Text from './Text';
-import { class_name, rich_text } from '../types';
+import { WithClassName, WithSubtitle, WithTitle, WithMessage } from '../withs';
 
 export function Comment({ title, subtitle, message, className }: CommentProps) {
     return (
@@ -16,11 +16,6 @@ export function Comment({ title, subtitle, message, className }: CommentProps) {
     );
 }
 
-export interface CommentProps {
-    className?: class_name;
-    title?: rich_text;
-    subtitle?: rich_text;
-    message?: rich_text;
-}
+export interface CommentProps extends WithClassName, WithTitle, WithSubtitle, WithMessage {}
 
 export default Comment;

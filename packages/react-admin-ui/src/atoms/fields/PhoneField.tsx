@@ -8,7 +8,7 @@ export function PhoneField({ options = {}, ...props }: PhoneFieldProps) {
         () => ({
             ...options,
             pattern: {
-                value: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/,
+                value: /^[+]*[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/,
                 message: t('constraints_phone'),
             },
             minLength: { value: 3, message: t('constraints_not_enough_digit', { min: 3 }) },

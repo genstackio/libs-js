@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { children, class_name } from '../types';
+import { WithChildren, WithClassName } from '../withs';
 
 export function TabPanel({ className, children, value, index, ...props }: TabPanelProps) {
     return (
@@ -16,9 +16,7 @@ export function TabPanel({ className, children, value, index, ...props }: TabPan
     );
 }
 
-export interface TabPanelProps {
-    className?: class_name;
-    children?: children;
+export interface TabPanelProps extends WithClassName, WithChildren {
     index: number;
     value: number;
 }

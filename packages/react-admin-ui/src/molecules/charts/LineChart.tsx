@@ -2,8 +2,9 @@ import clsx from 'clsx';
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
-import { box_color, box_variant, chart_series, class_name, rich_text } from '../../types';
+import { chart_series } from '../../types';
 import Text from '../../atoms/Text';
+import { WithBox, WithClassName, WithTitle } from '../../withs';
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 const defaultOptions: ApexOptions = {
@@ -37,13 +38,9 @@ export function LineChart({ className, color = 'primary', labels, series, title,
     );
 }
 
-export interface LineChartProps {
-    className?: class_name;
-    color?: box_color;
+export interface LineChartProps extends WithClassName, WithBox, WithTitle {
     labels?: string[];
     series: chart_series;
-    title?: rich_text;
-    variant?: box_variant;
 }
 
 export default LineChart;

@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import Badge from '../atoms/Badge';
-import { badge, box_color, class_name, list_item } from '../types';
+import { badge, list_item } from '../types';
 import boxClass from '../utils/boxClass';
+import { WithBoxColor, WithClassName } from '../withs';
 
 export function List({ className, badge: globalBadge, color: globalColor, items = [] }: ListProps) {
     return (
@@ -28,10 +29,8 @@ export function List({ className, badge: globalBadge, color: globalColor, items 
     );
 }
 
-export interface ListProps {
-    className?: class_name;
+export interface ListProps extends WithClassName, WithBoxColor {
     badge?: badge;
-    color?: box_color;
     items?: list_item[];
 }
 

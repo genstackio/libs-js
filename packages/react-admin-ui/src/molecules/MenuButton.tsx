@@ -3,8 +3,9 @@ import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
 import Image from '../atoms/Image';
 import MenuButtonWidget from './MenuButtonWidget';
-import { box_color, class_name, image, menu_button_item, rich_text } from '../types';
+import { menu_button_item } from '../types';
 import Expandable from './Expandable';
+import { WithBoxColor, WithClassName, WithDescription, WithImage, WithLabel } from '../withs';
 
 export function MenuButton({ className, image, label, description, items = [], color }: MenuButtonProps) {
     return (
@@ -30,13 +31,8 @@ export function MenuButton({ className, image, label, description, items = [], c
     );
 }
 
-export interface MenuButtonProps {
-    className?: class_name;
-    image?: image;
-    label?: rich_text;
-    description?: rich_text;
+export interface MenuButtonProps extends WithClassName, WithImage, WithLabel, WithDescription, WithBoxColor {
     items?: menu_button_item[];
-    color?: box_color;
 }
 
 export default MenuButton;

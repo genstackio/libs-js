@@ -22,6 +22,8 @@ export const textVariants = {
     underline: 'text-base underline font-underline',
 };
 
+export const textVariantValues = Object.keys(textVariants);
+
 export type text_variant =
     | 'xsmall'
     | 'small'

@@ -6,6 +6,8 @@ export const progressVariants = {
     default: '',
 };
 
+export const progressVariantValues = Object.keys(progressVariants);
+
 export type progress_variant = 'circular' | 'linear' | 'default';
 
 export const defaultProgressVariant = 'default';

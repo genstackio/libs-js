@@ -15,6 +15,8 @@ export const corners = {
     square: '',
 };
 
+export const cornerValues = Object.keys(corners);
+
 export type corner =
     | 'rounded'
     | 'top-rounded'

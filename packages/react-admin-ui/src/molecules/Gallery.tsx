@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Image from '../atoms/Image';
-import { class_name, gallery_image } from '../types';
+import { gallery_image } from '../types';
+import { WithClassName } from '../withs';
 
 export function Gallery({ className, items = [] }: GalleryProps) {
     return (
@@ -14,9 +15,9 @@ export function Gallery({ className, items = [] }: GalleryProps) {
     );
 }
 
-export interface GalleryProps {
-    className?: class_name;
+export interface GalleryProps extends WithClassName {
     items?: gallery_image[];
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default Gallery;

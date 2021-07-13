@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { class_name, icon, target, text_color, text_size } from '../types';
+import { target } from '../types';
 import MuiIcon from '@material-ui/core/Icon';
 import textSizeClass from '../utils/textSizeClass';
 import Clickable from './Clickable';
@@ -9,6 +9,7 @@ import Badge from '@material-ui/core/Badge';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { mapFaSize } from '../mappings/fa-sizes';
 import { mapIconColor } from '../mappings/icon-colors';
+import { WithClassName, WithIcon, WithTextColor, WithTextSize, WithWidth, WithHeight } from '../withs';
 
 export function Icon({ count = 0, icon, size, onClick, color, ...props }: IconProps) {
     if (!icon) return null;
@@ -76,15 +77,9 @@ export function Icon({ count = 0, icon, size, onClick, color, ...props }: IconPr
     return content;
 }
 
-export interface IconProps {
-    className?: class_name;
+export interface IconProps extends WithClassName, WithIcon, WithTextColor, WithTextSize, WithWidth, WithHeight {
     count?: number;
-    icon?: icon;
-    size?: text_size;
     onClick?: target;
-    color?: text_color;
-    width?: number;
-    height?: number;
 }
 
 export default Icon;

@@ -6,4 +6,5 @@ export function TwitterField(props: TwitterFieldProps) {
 
 export type TwitterFieldProps = UrlFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default TwitterField;

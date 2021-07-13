@@ -1,14 +1,15 @@
 import clsx from 'clsx';
-import { box_color, box_variant, choice_button_item, class_name, children } from '../types';
+import { choice_button_item, children } from '../types';
 import Clickable from '../atoms/Clickable';
 import Text from '../atoms/Text';
 import Button from '../atoms/Button';
 import Icon from '../atoms/Icon';
 import boxClass from '../utils/boxClass';
 import Expandable from './Expandable';
+import { WithBox, WithChildren, WithClassName } from '../withs';
 
-export function ChoiceButton({ className, color, items = [], variant, children, expandedChildren }: ChoiceButtonProps) {
-    const expandedSubChildren = (opened) => (
+export function ChoiceButton({ className, color, items = [], children, expandedChildren }: ChoiceButtonProps) {
+    const expandedSubChildren = () => (
         <div className={'w-full shadow-lg'}>
             {items.map(({ label, active, target }, index) => (
                 <Clickable
@@ -38,13 +39,10 @@ export function ChoiceButton({ className, color, items = [], variant, children, 
     );
 }
 
-export interface ChoiceButtonProps {
-    className?: class_name;
-    color?: box_color;
+export interface ChoiceButtonProps extends WithClassName, WithBox, WithChildren {
     items: choice_button_item[];
-    variant?: box_variant;
-    children?: children;
     expandedChildren?: children;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default ChoiceButton;

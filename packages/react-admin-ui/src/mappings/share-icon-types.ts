@@ -11,6 +11,8 @@ export const shareIconTypes = {
     rss: 'fa-fas--rss',
 };
 
+export const shareIconTypeValues = Object.keys(shareIconTypes);
+
 export type share_icon_type = 'default' | 'facebook' | 'googleplus' | 'twitter' | 'instagram' | 'rss';
 
 export const defaultShareIconType = 'default';

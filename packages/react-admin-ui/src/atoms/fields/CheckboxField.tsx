@@ -3,10 +3,11 @@ import Text from '../Text';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
-import { class_name, flag, register } from '../../types';
+import { flag, register } from '../../types';
 import useField from '../../hooks/useField';
 import FieldSet from '../FieldSet';
 import Row from '../Row';
+import { WithClassName } from '../../withs';
 
 const useStyles = makeStyles({
     root: {
@@ -65,8 +66,7 @@ export function CheckboxField({ className, onChange, ...props }: CheckboxFieldPr
     );
 }
 
-export interface CheckboxFieldProps {
-    className?: class_name;
+export interface CheckboxFieldProps extends WithClassName {
     defaultValue?: flag;
     label?: string;
     name?: string;

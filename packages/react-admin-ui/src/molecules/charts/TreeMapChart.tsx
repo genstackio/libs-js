@@ -1,8 +1,8 @@
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
-import { box_color, box_variant, class_name } from '../../types';
 import clsx from 'clsx';
 import tailwindConfig from '../../../tailwind.config';
+import { WithBox, WithClassName } from '../../withs';
 
 const tailwindChartColors = tailwindConfig.theme.extend.colors;
 const defaultOptions: ApexOptions = {
@@ -46,12 +46,9 @@ export function TreeMapChart({ className, color, values = [] }: TreeMapChartProp
     );
 }
 
-export interface TreeMapChartProps {
-    className?: class_name;
-    color?: box_color;
+export interface TreeMapChartProps extends WithClassName, WithBox {
     values?: {
         label: string;
         value: number;
     }[];
-    variant?: box_variant;
 }
