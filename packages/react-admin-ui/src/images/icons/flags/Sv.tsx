@@ -2,7 +2,14 @@ import * as React from 'react';
 
 function SvgSv(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <path fill="#0f47af" d="M0 0h640v480H0z" />
             <path fill="#fff" d="M0 160h640v160H0z" />
             <g transform="matrix(.8 0 0 .8 -92.698 0)">

@@ -2,7 +2,14 @@ import * as React from 'react';
 
 function SvgPe(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <path fill="#d91023" d="M0 0h640v480H0z" />
             <path fill="#fff" d="M213.333 0h213.333v480H213.333z" />
             <g transform="translate(245.333 154.089) scale(.17778)" stroke="#d4af37" strokeWidth={2} fill="#00a854">

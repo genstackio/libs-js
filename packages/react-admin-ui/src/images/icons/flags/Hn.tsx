@@ -2,7 +2,14 @@ import * as React from 'react';
 
 function SvgHn(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <path d="M0 0h640v480H0z" fill="#0073cf" />
             <path d="M0 160h640v160H0z" fill="#fff" />
             <g id="hn_svg__c" transform="translate(320 240) scale(26.66665)" fill="#0073cf">

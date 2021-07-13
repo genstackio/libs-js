@@ -2,7 +2,14 @@ import * as React from 'react';
 
 function SvgCc(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <defs>
                 <path
                     d="M0-360l69.42 215.845 212.04-80.3L155.987-35.604l194.986 115.71-225.88 19.65 31.104 224.592L0 160l-156.198 164.35 31.105-224.592-225.88-19.65 194.985-115.71-125.47-188.854 212.037 80.3z"

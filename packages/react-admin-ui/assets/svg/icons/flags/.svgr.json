@@ -1,0 +1,9 @@
+{
+    "dimensions": false,
+    "svgProps": {
+        "viewBox": "0 0 640 480",
+        "width": "{props.width || 640}",
+        "height": "{props.height || 480}"
+    }
+}
+

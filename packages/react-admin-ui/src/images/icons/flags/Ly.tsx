@@ -2,7 +2,13 @@ import * as React from 'react';
 
 function SvgLy(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <defs>
                 <clipPath id="ly_svg__a">
                     <path d="M166.67-20h666.67v500H166.67z" />

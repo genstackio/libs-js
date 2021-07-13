@@ -2,7 +2,14 @@ import * as React from 'react';
 
 function SvgTf(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <defs>
                 <path d="M0-21l12.344 37.99-32.316-23.48h39.944l-32.316 23.48z" fill="#fff" id="tf_svg__a" />
             </defs>

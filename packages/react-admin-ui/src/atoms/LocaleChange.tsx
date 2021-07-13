@@ -1,15 +1,15 @@
 import { useCallback, useState } from 'react';
 import clsx from 'clsx';
 import Text from './Text';
+import FlagIcon from './FlagIcon';
 import bgClass from '../utils/bgClass';
-import { box_color, class_name, locale } from '../types';
 import Popper from '@material-ui/core/Popper';
 import { useTranslation } from 'react-i18next';
+import { box_color, class_name, locale } from '../types';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Icon from './Icon';
 
 export function LocaleChange({ className, locales = [], color = 'primary' }: LocaleChangeProps) {
-    const { i18n, t } = useTranslation() as any;
+    const { i18n } = useTranslation() as any;
     const [opened, setOpened] = useState(false);
     const onLocaleChange = useCallback(
         (value) => (e) => {
@@ -34,10 +34,11 @@ export function LocaleChange({ className, locales = [], color = 'primary' }: Loc
 
     return !locales || 1 >= locales.length ? null : (
         <ClickAwayListener onClickAway={handleClickAway}>
-            <div className={clsx('cursor-pointer', className)} onClick={handleClick}>
-                <Text text={t('locales_change_value')} />
+            <div className={clsx('cursor-pointer flex items-center space-x-2', className)} onClick={handleClick}>
+                <FlagIcon locale={i18n.language} />
+                <Text text={i18n.language.slice(0, 2).toUpperCase()} variant={'subsection'} />
                 <Popper open={opened} anchorEl={anchorEl} placement={'bottom-start'} transition>
-                    <div className={'max-w-xxs divide-y bg-clear'}>
+                    <div className={'max-w-xxs divide-y bg-clear mt-4'}>
                         {locales.map(({ value, language }, index) => (
                             <div
                                 className={clsx(
@@ -47,8 +48,8 @@ export function LocaleChange({ className, locales = [], color = 'primary' }: Loc
                                 key={index}
                                 onClick={onLocaleChange(value) as any}
                             >
-                                <Icon icon={'flag'} />
-                                {language && <Text text={language} variant={'description'} />}
+                                <FlagIcon locale={value} />
+                                {language && <Text text={language} variant={'subsection'} />}
                             </div>
                         ))}
                     </div>

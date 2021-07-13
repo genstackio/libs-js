@@ -2,7 +2,13 @@ import * as React from 'react';
 
 function SvgSh(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <path d="M640.013 480.02V.03H.003v479.99h640.01z" fill="#006" />
             <path
                 d="M-.006 73.341h76.034L-.006 26.768V.03h43.503L149.86 64.75V.03h59.892v64.72L316.11.03h43.88v26.738L283.58 73.34h76.41v73.37h-76.41l76.41 46.573v26.746h-43.88l-106.36-64.73v64.73h-59.892V155.3L43.497 220.03H-.006v-26.746l76.034-46.574H-.006V73.341z"

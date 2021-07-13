@@ -2,7 +2,14 @@ import * as React from 'react';
 
 function SvgMm(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <defs>
                 <path id="mm_svg__a" transform="scale(8.844)" fill="#fff" d="M0-.5l.162.5h-.324z" />
                 <g id="mm_svg__b">

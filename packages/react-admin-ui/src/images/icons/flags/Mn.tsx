@@ -2,7 +2,13 @@ import * as React from 'react';
 
 function SvgMn(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <path fill="#c4272f" d="M-.05 0h640.1v480H-.05z" />
             <path fill="#015197" d="M213.317 0h213.367v480H213.317z" />
             <circle cx={107} cy={189.056} r={35} fill="#f9cf02" />

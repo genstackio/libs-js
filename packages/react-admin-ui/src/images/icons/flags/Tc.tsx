@@ -2,7 +2,13 @@ import * as React from 'react';
 
 function SvgTc(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <path d="M640 480V0H0v480h640z" fill="#006" />
             <path fillRule="evenodd" fill="#006" d="M0 0h373.68v232.168H0z" />
             <g strokeWidth="1pt">

@@ -2,7 +2,13 @@ import * as React from 'react';
 
 function SvgEr(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <g fillRule="evenodd">
                 <path fill="#be0027" d="M-.002 0h640.008v480H-.002z" />
                 <path d="M-.002 480l640.008-.3-.032-239.7L-.002 480z" fill="#b4d7f4" />

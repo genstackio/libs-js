@@ -2,7 +2,13 @@ import * as React from 'react';
 
 function SvgFj(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <path d="M0 0v480h640V.079H402.442V0H0z" fill="#68bfe5" />
             <g strokeMiterlimit={4.8}>
                 <path
