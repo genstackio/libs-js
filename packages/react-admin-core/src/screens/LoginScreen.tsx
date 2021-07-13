@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
-import { LoginTemplate, LoginAction, LoginTemplateProps } from '@genstackio/react-admin-ui';
+import LoginTemplate, { LoginTemplateProps } from '@genstackio/react-admin-ui/lib/templates/LoginTemplate';
+import LoginAction from '@genstackio/react-admin-ui/lib/molecules/actions/LoginAction';
 import { useLocales, useUserTokens } from '@genstackio/react-contexts';
 
 export function LoginScreen(props: LoginScreenProps) {

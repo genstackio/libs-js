@@ -1,5 +1,8 @@
 import clsx from 'clsx';
-import { Badge, Block, Icon, Text } from '../atoms';
+import Badge from '../atoms/Badge';
+import Block from '../atoms/Block';
+import Icon from '../atoms/Icon';
+import Text from '../atoms/Text';
 import { class_name, box_color, menu_variant, icon, flag, target, rich_text, badge } from '../types';
 import boxClass from '../utils/boxClass';
 

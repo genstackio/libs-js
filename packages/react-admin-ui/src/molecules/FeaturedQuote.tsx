@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { class_name, image, rich_text, text_color } from '../types';
-import { Avatar, Text } from '../atoms';
+import Avatar from '../atoms/Avatar';
+import Text from '../atoms/Text';
 
 export function FeaturedQuote({ className, text, title, subtitle, image, color = 'primary' }: FeaturedQuoteProps) {
     return (

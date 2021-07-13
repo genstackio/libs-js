@@ -1,6 +1,10 @@
 import { useCallback, useState } from 'react';
 import clsx from 'clsx';
-import { Clickable, Badge, Block, Icon, Text } from '../atoms';
+import Clickable from '../atoms/Clickable';
+import Badge from '../atoms/Badge';
+import Block from '../atoms/Block';
+import Icon from '../atoms/Icon';
+import Text from '../atoms/Text';
 import { class_name, box_color, menu_variant, badge, icon, flag, menu_item, rich_text } from '../types';
 import textClass from '../utils/textClass';
 import boxClass from '../utils/boxClass';

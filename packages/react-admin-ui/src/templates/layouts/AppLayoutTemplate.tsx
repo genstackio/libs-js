@@ -1,7 +1,9 @@
 import { ReactNode, useCallback, useState } from 'react';
 import clsx from 'clsx';
-import { Menu } from '../../molecules';
-import { Clickable, Image, Icon } from '../../atoms';
+import Menu from '../../molecules/Menu';
+import Clickable from '../../atoms/Clickable';
+import Image from '../../atoms/Image';
+import Icon from '../../atoms/Icon';
 import textClass from '../../utils/textClass';
 import { box_color, box_variant, image, menu_item, children } from '../../types';
 

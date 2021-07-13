@@ -1,4 +1,4 @@
-import { ErrorTemplate, ErrorTemplateProps } from '@genstackio/react-admin-ui';
+import ErrorTemplate, { ErrorTemplateProps } from '@genstackio/react-admin-ui/lib/templates/ErrorTemplate';
 import { useTranslation } from 'react-i18next';
 import { rich_text } from '@genstackio/react-admin-ui/lib/types';
 

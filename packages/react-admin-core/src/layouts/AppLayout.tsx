@@ -1,4 +1,6 @@
-import { AppLayoutTemplate, AppLayoutTemplateProps } from '@genstackio/react-admin-ui';
+import AppLayoutTemplate, {
+    AppLayoutTemplateProps,
+} from '@genstackio/react-admin-ui/lib/templates/layouts/AppLayoutTemplate';
 import { useUser } from '@genstackio/react-contexts';
 import AppToolbar from '../AppToolbar';
 
