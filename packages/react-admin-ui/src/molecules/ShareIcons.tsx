@@ -14,9 +14,8 @@ const mappings = {
     rss: 'fa-fas--rss',
 };
 
-function get_icone_type(item_type) {
-    if (mappings[item_type]) return mappings[item_type];
-    return mappings['default'];
+function getIconType(type: string) {
+    return mappings[item_type || ''] || mappings['default'];
 }
 
 export function ShareIcons({ items = [], color = 'primary', variant = 'none', className }: ShareIconsProps) {
@@ -30,7 +29,7 @@ export function ShareIcons({ items = [], color = 'primary', variant = 'none', cl
                         'flex rounded-full h-16 w-16 items-center justify-center',
                     )}
                 >
-                    <Icon icon={get_icone_type(item.type)} size={'xl'} color={color} onClick={item.target} />
+                    <Icon icon={getIconType(item.type)} size={'xl'} color={color} onClick={item.target} />
                 </div>
             ))}
         </div>
