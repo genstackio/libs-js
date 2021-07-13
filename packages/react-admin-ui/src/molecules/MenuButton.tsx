@@ -15,10 +15,10 @@ export function MenuButton({ className, image, label, description, items = [], c
             {(opened) => (
                 <>
                     {image && <Image {...image} corner={'rounded-xsmall'} className={'w-10 h-10'} />}
-                    <div className={'sm:hidden'}>
-                        <Text text={label} variant={'description'} />
+                    <div className={'sm:hidden w-auto'}>
+                        <Text text={label} variant={'description'} className={'w-auto whitespace-nowrap'} />
                         {description && (
-                            <div className={'flex items-center'}>
+                            <div className={'flex items-center w-auto'}>
                                 <Text text={description} variant={'small'} />
                                 <Icon icon={opened ? 'expand_less' : 'expand_more'} />
                             </div>

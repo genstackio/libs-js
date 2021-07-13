@@ -4,6 +4,7 @@ import { status } from './mappings/statuses';
 import { box_color } from './mappings/box-colors';
 import { box_variant } from './mappings/box-variants';
 import { text_size } from './mappings/text-sizes';
+import { share_icon_type } from './mappings/share-icon-types';
 
 export { corner } from './mappings/corners';
 export { alignment } from './mappings/alignments';
@@ -16,6 +17,7 @@ export { box_color } from './mappings/box-colors';
 export { box_variant } from './mappings/box-variants';
 export { block_variant } from './mappings/block-variants';
 export { text_size } from './mappings/text-sizes';
+export { share_icon_type } from './mappings/share-icon-types';
 
 export type badge = { variant?: box_variant; color?: box_color; text?: string; type?: badge_variant; label?: string };
 export type badge_variant = 'tag' | 'pill' | 'none';
@@ -131,4 +133,4 @@ export type action_processerror_callback = (
 export type action_converterror_callback = (error: any, context: { name: string; t: Function; options: any }) => any;
 export type action_formaterror_callback = (error: any) => any;
 
-export type share_icons_item = { type: string; target?: target };
+export type share_icon_item = { type: share_icon_type; target?: target };

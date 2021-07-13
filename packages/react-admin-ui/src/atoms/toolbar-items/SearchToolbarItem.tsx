@@ -6,7 +6,7 @@ export function SearchToolbarItem({ className, onChange, onToggle, active = fals
     return (
         <>
             {!active ? (
-                <ToolbarItem {...props} icon={'fa-search'} onToggle={onToggle} />
+                <ToolbarItem {...props} icon={'fa-search'} onToggle={onToggle} className={className} />
             ) : (
                 <SearchBar defaultFocus onClear={onToggle} onChange={onChange} className={className} />
             )}

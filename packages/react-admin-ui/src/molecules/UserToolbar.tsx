@@ -23,7 +23,7 @@ export function UserToolbar({ className, user, onSearch, onLogout, children }: U
     const userThumbnail = useMemo(() => ({ url: 'https://picsum.photos/40/40', alt: userName }), [user, userName]);
 
     const [search, toggleSearch] = useToggle();
-    const baseIconClassName = 'my-1.5 mx-2.5 xs:mx-1';
+    const baseIconClassName = 'my-1.5 mx-3 xs:mx-1';
     const toolbarIconClassName = clsx(baseIconClassName, search && 'hidden');
 
     return (
