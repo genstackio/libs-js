@@ -5,11 +5,17 @@ vars:
   storybooks: true
   svg_components: true
   generator_package: true
+  ignores:
+      - generated/
   makefile:
     deployable_storybooks: true
     generate_target: true
+    globals:
+        c: {defaultValue: demo}
+        t: {defaultValue: $(c)}
     targets:
       migrate: "true"
+      pdf-generator: cd ./packages/pdf-generator && mkdir -p generated && ./bin/pdf-generator __fixtures__/$(c).json generated/$(t).pdf
       start-react-admin-ui: make package-storybook p=react-admin-ui
       start-react-admin-core: make package-storybook p=react-admin-core
       format: yarn lint

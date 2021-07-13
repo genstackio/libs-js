@@ -5,6 +5,8 @@ AWS_PROFILE ?= $(prefix)-$(env)
 bucket ?= $(env)-$(bucket_prefix)-storybook
 cloudfront ?= $(AWS_CLOUDFRONT_DISTRIBUTION_ID_STORYBOOK)
 b ?= master
+c ?= demo
+t ?= $(c)
 
 export CI
 export FORCE_COLOR
@@ -71,6 +73,9 @@ package-test: package-build
 package-watch:
 	@cd packages/$(p) && yarn watch
 
+pdf-generator:
+	@cd ./packages/pdf-generator && mkdir -p generated && ./bin/pdf-generator __fixtures__/$(c).json generated/$(t).pdf
+
 pr:
 	@hub pull-request -b $(b)
 
@@ -103,6 +108,7 @@ watch-figma-plugin-react-admin:
 		migrate \
 		new \
 		package-build package-build-storybook package-clear-test package-generate-svg-components package-install package-storybook package-test package-watch \
+		pdf-generator \
 		pr \
 		publish \
 		start-react-admin-core start-react-admin-ui \
