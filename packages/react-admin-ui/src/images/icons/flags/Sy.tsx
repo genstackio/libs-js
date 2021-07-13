@@ -2,7 +2,13 @@ import * as React from 'react';
 
 function SvgSy(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <rect y={160} width={640} height={160} ry={0} rx={0} fill="#fff" fillRule="evenodd" />
             <rect y={320} width={640} height={160} ry={0} rx={0} fillRule="evenodd" />
             <path d="M0 0h640v160H0z" fill="red" fillRule="evenodd" />

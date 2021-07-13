@@ -2,7 +2,13 @@ import * as React from 'react';
 
 function SvgWs(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <g fillRule="evenodd" strokeWidth="1pt">
                 <path fill="red" d="M0 0h640v480H0z" />
                 <path fill="#00006b" d="M0 0h314.407v157.21H0z" />

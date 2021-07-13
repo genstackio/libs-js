@@ -2,7 +2,13 @@ import * as React from 'react';
 
 function SvgNf(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <g fillRule="evenodd">
                 <path fill="#fff" d="M194.79 0h250.45v480H194.79z" />
                 <path fill="#198200" d="M0 0h194.79v480H0zm445.23 0H640v480H445.23z" />

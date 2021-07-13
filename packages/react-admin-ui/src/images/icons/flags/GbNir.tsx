@@ -2,7 +2,14 @@ import * as React from 'react';
 
 function SvgGbNir(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <rect height={480} width={640} rx={0} ry={0} fill="#fff" fillRule="evenodd" />
             <rect id="gb-nir_svg__a" y={192} ry={0} rx={0} height={96} width={640} fill="#c00" fillRule="evenodd" />
             <use xlinkHref="#gb-nir_svg__a" height={300} width={600} transform="matrix(0 .75 -1 0 560 0)" />

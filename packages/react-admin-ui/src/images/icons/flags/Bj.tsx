@@ -2,7 +2,13 @@ import * as React from 'react';
 
 function SvgBj(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <defs>
                 <clipPath id="bj_svg__a">
                     <path fill="gray" d="M67.64-154h666v666h-666z" />

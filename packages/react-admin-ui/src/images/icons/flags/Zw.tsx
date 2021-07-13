@@ -2,7 +2,14 @@ import * as React from 'react';
 
 function SvgZw(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <defs>
                 <clipPath id="zw_svg__a">
                     <rect fillRule="evenodd" ry={0} height={420.1} width={545.96} y={0.113} x={1.928} fill="#00f" />

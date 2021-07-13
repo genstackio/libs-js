@@ -2,7 +2,13 @@ import * as React from 'react';
 
 function SvgNr(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <defs>
                 <clipPath id="nr_svg__a">
                     <path fillOpacity={0.67} d="M-54.667 0h682.67v512h-682.67z" />

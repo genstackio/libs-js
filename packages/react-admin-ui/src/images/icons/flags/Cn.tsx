@@ -2,7 +2,14 @@ import * as React from 'react';
 
 function SvgCn(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <defs>
                 <path id="cn_svg__a" fill="#ffde00" d="M-.588.81L0-1 .588.81-.952-.31H.952z" />
             </defs>

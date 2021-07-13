@@ -2,7 +2,13 @@ import * as React from 'react';
 
 function SvgBt(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <path fill="#ffd520" d="M.1 0h640.1v480H.1z" />
             <path d="M.1 480h640.1V0z" fill="#ff4e12" />
             <g stroke="#000" strokeWidth={0.521}>

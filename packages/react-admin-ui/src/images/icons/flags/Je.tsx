@@ -5,7 +5,9 @@ function SvgJe(props: React.SVGProps<SVGSVGElement>) {
         <svg
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
-            viewBox="0 0 30 18"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
             {...props}
         >
             <defs>

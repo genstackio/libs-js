@@ -21,11 +21,12 @@ export function Icon({ count = 0, icon, size, onClick, color, ...props }: IconPr
                 break;
             }
             if ('@' === icon.slice(0, 1)) {
-                const name = icon
-                    .slice(1)
+                const tokens = icon.slice(1).split(/\//g);
+                let name = (tokens.pop() || '')
                     .split(/-/g)
                     .map((x) => `${x.slice(0, 1).toUpperCase()}${x.slice(1)}`)
                     .join('');
+                name = `${tokens.length ? `${tokens.join('/')}/` : ''}${name}`;
                 /* eslint react/display-name: 0 */
                 const TheIcon = Loadable(() => import(`../images/icons/${name}`).catch(() => () => <div />));
                 content = <TheIcon {...props} />;
@@ -82,6 +83,8 @@ export interface IconProps {
     size?: text_size;
     onClick?: target;
     color?: text_color;
+    width?: number;
+    height?: number;
 }
 
 export default Icon;

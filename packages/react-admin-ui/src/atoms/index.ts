@@ -20,6 +20,7 @@ export * from './FieldGroup';
 export * from './FieldHelper';
 export * from './FieldLabel';
 export * from './FieldSet';
+export * from './FlagIcon';
 export * from './Form';
 export * from './FormHeader';
 export * from './FormFooter';

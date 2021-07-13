@@ -2,7 +2,14 @@ import * as React from 'react';
 
 function SvgMy(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <path d="M0-.05h640v480.1H0z" fill="#cc0001" />
             <path d="M0 445.757h640v34.293H0z" fill="#fff" id="my_svg__a" />
             <use xlinkHref="#my_svg__a" transform="translate(0 -68.586)" width="100%" height="100%" />

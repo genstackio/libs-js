@@ -2,7 +2,13 @@ import * as React from 'react';
 
 function SvgZa(props: React.SVGProps<SVGSVGElement>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 480"
+            width={props.width || 640}
+            height={props.height || 480}
+            {...props}
+        >
             <defs>
                 <clipPath id="za_svg__a">
                     <path fillOpacity={0.67} d="M-71.873-.012h682.68v512.01h-682.68z" />
