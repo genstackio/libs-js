@@ -32,6 +32,7 @@ export * from './MenuButtonWidget';
 export * from './Modal';
 export * from './Pagination';
 export * from './Pricing';
+export * from './ShareIcons';
 export * from './Slider';
 export * from './Summaries';
 export * from './Table';

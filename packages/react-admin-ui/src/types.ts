@@ -130,3 +130,5 @@ export type action_processerror_callback = (
 ) => Promise<void>;
 export type action_converterror_callback = (error: any, context: { name: string; t: Function; options: any }) => any;
 export type action_formaterror_callback = (error: any) => any;
+
+export type share_icons_item = { type: string; target?: target };
