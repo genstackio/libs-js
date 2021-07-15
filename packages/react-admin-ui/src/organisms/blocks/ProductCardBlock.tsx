@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { target } from '../../types';
 import Block from '../../atoms/Block';
 import Image from '../../atoms/Image';
@@ -18,7 +17,7 @@ export function ProductCardBlock({
     title,
 }: ProductCardBlockProps) {
     return (
-        <Block onClick={onClick} className={clsx(className)}>
+        <Block onClick={onClick} className={className}>
             {image && <Image {...image} />}
             {rating && (
                 <div className={'mt-4'}>

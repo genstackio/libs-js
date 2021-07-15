@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import Block from '../../atoms/Block';
 import Image from '../../atoms/Image';
 import Text from '../../atoms/Text';
@@ -6,7 +5,7 @@ import { WithChildren, WithClassName, WithDescription, WithImage, WithTitle } fr
 
 export function MiniCard({ className, children, description, image, title }: MiniCardProps) {
     return (
-        <Block padding={'none'} className={clsx(className)}>
+        <Block padding={'none'} className={className}>
             {image && <Image className={'w-full rounded-t-2xl'} {...image} />}
             {children || ''}
             <Text center variant={'body'} text={title} />

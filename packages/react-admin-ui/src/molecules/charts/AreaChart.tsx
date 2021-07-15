@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
@@ -54,7 +53,7 @@ export function AreaChart({ className, color = 'primary', series, variant = 'fil
         return acc;
     }, [] as { data: number[] }[]);
 
-    return <Chart type={'area'} options={options} series={newData} height={'250px'} className={clsx(className)} />;
+    return <Chart type={'area'} options={options} series={newData} height={'250px'} className={className} />;
 }
 
 export interface AreaChartProps extends WithClassName, WithBox {

@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
@@ -24,7 +23,7 @@ const defaultOptions: ApexOptions = {
 export function CircleChart({ className, color = 'primary', series, variant = 'filled' }: CircleChartProps) {
     const options = { ...defaultOptions, colors: tailwindChartColors[`${variant}_${color}`] };
 
-    return <Chart type={'radialBar'} options={options} series={series} className={clsx(className)} />;
+    return <Chart type={'radialBar'} options={options} series={series} className={className} />;
 }
 
 export interface CircleChartProps extends WithClassName, WithBox {

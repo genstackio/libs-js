@@ -64,7 +64,7 @@ export function Accordion({
     );
     const box = { color, variant };
     return (
-        <div className={clsx(className)}>
+        <div className={className}>
             {items.map(({ icon, title, badge, content }, index) => (
                 <StyledAccordion
                     elevation={0}

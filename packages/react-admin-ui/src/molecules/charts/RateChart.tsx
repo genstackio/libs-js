@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
@@ -75,7 +74,7 @@ export function RateChart({ className, color = 'primary', overline, subtitle, ti
     options.plotOptions.radialBar!.hollow!.background = lighten(tailwindColors[color], 0.9);
     options.fill!.gradient!.gradientToColors = [lighten(tailwindColors[color], 0.5)];
     return (
-        <div className={clsx(className)}>
+        <div className={className}>
             <Chart type={'radialBar'} options={options} series={[[value]]} height={'450px'} />
             <div className={'text-center mt-2'}>
                 <Text text={subtitle} color={color} variant={'title6'} />

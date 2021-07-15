@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import FieldSet from '../FieldSet';
 import useField from '../../hooks/useField';
 import Select from 'react-select';
@@ -9,7 +8,7 @@ export function SelectField({ className, values = [], ...props }: SelectFieldPro
     const { name, label, error, helper, disabled, register, placeholder, options, defaultValue, extra } =
         useField(props);
     return (
-        <FieldSet name={name} label={label} options={options} error={error} helper={helper} className={clsx(className)}>
+        <FieldSet name={name} label={label} options={options} error={error} helper={helper} className={className}>
             <Select
                 options={values}
                 isDisabled={disabled}

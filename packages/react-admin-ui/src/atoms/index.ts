@@ -1,5 +1,7 @@
 export * from './Alert';
 export * from './Avatar';
+export * from './AvatarImage';
+export * from './AvatarInitials';
 export * from './Badge';
 export * from './Block';
 export * from './BlockContent';
@@ -11,6 +13,7 @@ export * from './Column';
 export * from './Comment';
 export * from './Container';
 export * from './Divider';
+export * from './Div';
 export * from './Dropdown';
 export * from './Icon';
 export * from './Image';

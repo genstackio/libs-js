@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
@@ -73,7 +72,7 @@ export function BackgroundCircularChart({
 
     return (
         <>
-            <Chart type={'radialBar'} options={options} series={[[value]]} className={clsx(className)} />
+            <Chart type={'radialBar'} options={options} series={[[value]]} className={className} />
             {summaries && <Summaries items={summaries} />}
         </>
     );

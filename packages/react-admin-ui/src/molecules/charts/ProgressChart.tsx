@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import Chart from 'react-apexcharts';
 import Text from '../../atoms/Text';
 import Icon from '../../atoms/Icon';
@@ -73,7 +72,7 @@ export function ProgressChart({
     }, [] as { data: number[] }[]);
 
     return (
-        <div className={clsx(className)}>
+        <div className={className}>
             <div className={'p-10 flex justify-between items-center max-h-80'}>
                 <div>
                     <Text text={title} variant={'title6'} />

@@ -1,27 +1,22 @@
 import CloseIcon from '@material-ui/icons/Close';
-import Panel, { PanelProps } from './Panel';
-import { class_name, flag } from '../types';
+import Div from './Div';
 import Clickable from './Clickable';
+import Panel, { PanelProps } from './Panel';
 import { useToggle } from '../hooks/useToggle';
-import clsx from 'clsx';
+import { WithClosable } from '../withs';
 
-export function Alert({ children, contentClassName, closableClassName, closable = false, ...props }: AlertProps) {
+export function Alert({ children, closable = false, ...props }: AlertProps) {
     const [show, handleClick] = useToggle(true);
-    if (!show) return null;
-    return (
+    return show ? (
         <Panel {...props}>
-            <div className={clsx('w-full', contentClassName)}>{children || ''}</div>
-            <Clickable visible={closable} className={clsx('cursor-pointer', closableClassName)} onClick={handleClick}>
+            <Div full>{children}</Div>
+            <Clickable visible={closable} onClick={handleClick}>
                 <CloseIcon />
             </Clickable>
         </Panel>
-    );
+    ) : null;
 }
 
-export interface AlertProps extends PanelProps {
-    closable?: flag;
-    contentClassName?: class_name;
-    closableClassName?: class_name;
-}
+export interface AlertProps extends PanelProps, WithClosable {}
 
 export default Alert;

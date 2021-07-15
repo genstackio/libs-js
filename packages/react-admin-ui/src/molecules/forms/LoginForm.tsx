@@ -9,7 +9,6 @@ import { useCallback } from 'react';
 import { class_name, flag, locale } from '../../types';
 import { BaseFormProps } from './BaseForm';
 import useForm from '../../hooks/useForm';
-import clsx from 'clsx';
 
 export function LoginForm({
     className,
@@ -42,7 +41,7 @@ export function LoginForm({
     );
 
     return (
-        <Form footer={footer} className={clsx(className)}>
+        <Form footer={footer} className={className}>
             <UsernameField {...field} required autoFocus />
             <div className={'mb-6'}>
                 <div className={'block text-sm mb-2'}>

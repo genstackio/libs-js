@@ -7,7 +7,7 @@ import { WithClassName } from '../../withs';
 export function TextareaField({ className, ...props }: TextareaFieldProps) {
     const { name, required, label, error, helper, disabled, register, placeholder, options, extra } = useField(props);
     return (
-        <FieldSet name={name} label={label} options={options} error={error} helper={helper} className={clsx(className)}>
+        <FieldSet name={name} label={label} options={options} error={error} helper={helper} className={className}>
             <textarea
                 className={clsx(
                     'text-sm sm:text-base w-full border rounded placeholder-disabled ' +

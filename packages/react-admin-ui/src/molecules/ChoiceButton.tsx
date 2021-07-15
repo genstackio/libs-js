@@ -24,12 +24,12 @@ export function ChoiceButton({ className, color, items = [], children, expandedC
     );
 
     return (
-        <Expandable className={clsx('', className)} expandedChildren={expandedSubChildren}>
+        <Expandable className={className} expandedChildren={expandedSubChildren}>
             {(opened) => (
                 <Button
                     color={color}
                     variant={'contained'}
-                    className={clsx('py-2 px-4 space-x-2 rounded inline-flex items center')}
+                    className={'py-2 px-4 space-x-2 rounded inline-flex items center'}
                 >
                     <span>{(opened ? expandedChildren || children : children) || ''}</span>
                     <Icon icon={opened ? 'expand_less' : 'expand_more'} />

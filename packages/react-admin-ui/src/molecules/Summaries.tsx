@@ -12,11 +12,7 @@ export function Summaries({ className, items }: SummariesProps) {
                     {items.slice(0, 3).map(({ value, unit, color, percentage, icon }, index) => (
                         <div className={'text-center'} key={index}>
                             <div className={'flex justify-center'}>
-                                <Text
-                                    text={`${percentage}` + ' %'}
-                                    variant={'description'}
-                                    className={clsx('text-center')}
-                                />
+                                <Text text={`${percentage}` + ' %'} variant={'description'} className={'text-center'} />
                                 {percentage > 0 && <Icon icon={'keyboard_arrow_up'} />}
                                 {percentage < 0 && <Icon icon={'keyboard_arrow_down'} />}
                             </div>

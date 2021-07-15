@@ -4,7 +4,7 @@ import Dropdown from './Dropdown';
 import { rich_text, dropdown_item } from '../types';
 import Icon from './Icon';
 import Text from './Text';
-import paddingClass from '../mappings/paddings';
+import Div from './Div';
 import bgClass from '../utils/bgClass';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
 import { WithBox, WithClassName, WithTitle, WithSubtitle, WithIcon } from '../withs';
@@ -21,13 +21,9 @@ export function BlockHeader({
 }: BlockHeaderProps) {
     if (!title) return null;
     return (
-        <div
-            className={clsx(
-                bgClass({ color, variant }),
-                paddingClass('default'),
-                'border-b-1 flex justify-between items-center',
-                className,
-            )}
+        <Div
+            padding={'default'}
+            className={clsx(bgClass({ color, variant }), 'border-b-1 flex justify-between items-center', className)}
         >
             <BoxProvider value={{ color, variant }}>
                 <div className={'w-full'}>
@@ -38,7 +34,7 @@ export function BlockHeader({
                 {dropdownItems && <Dropdown items={dropdownItems} color={color} variant={variant} />}
                 <Icon icon={icon} />
             </BoxProvider>
-        </div>
+        </Div>
     );
 }
 

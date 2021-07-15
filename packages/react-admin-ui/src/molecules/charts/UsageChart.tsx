@@ -1,11 +1,10 @@
-import clsx from 'clsx';
 import Progress from '../../atoms/Progress';
 import { rich_text } from '../../types';
 import { WithClassName } from '../../withs';
 
 export function UsageChart({ className, max, unit, value }: UsageChartProps) {
     return (
-        <div className={clsx(className)}>
+        <div className={className}>
             <Progress value={(value / max) * 100} />
             <div className={'flex justify-between items-center'}>
                 <div className={'mt-2'}>

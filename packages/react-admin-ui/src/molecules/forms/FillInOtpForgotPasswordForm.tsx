@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import Column from '../../atoms/Column';
 import Clickable from '../../atoms/Clickable';
 import Button from '../../atoms/Button';
@@ -18,7 +17,7 @@ export function FillInOtpForgotPasswordForm({
     const { t } = useTranslation();
 
     return (
-        <Column className={clsx(className)}>
+        <Column className={className}>
             <Column center className={'mb-4'}>
                 <Text text={t('form_forgot_password_fill_in_otp_title')} variant={'title6'} color={color} />
                 <Text

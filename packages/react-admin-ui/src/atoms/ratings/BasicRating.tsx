@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { withStyles } from '@material-ui/core/styles';
 import RatingUI from '@material-ui/lab/Rating';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
@@ -21,7 +20,7 @@ const StyledRating = withStyles({
 export function BasicRating({ className, defaultValue, onChange, text, value }: BasicRatingProps) {
     const readOnly = value ? true : undefined;
     return (
-        <Box component={'fieldset'} borderColor={'transparent'} className={clsx(className)}>
+        <Box component={'fieldset'} borderColor={'transparent'} className={className}>
             {text && <Typography component={'legend'}>{text}</Typography>}
             <StyledRating
                 name={readOnly ? 'basic-rating' : undefined}

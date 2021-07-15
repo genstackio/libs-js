@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { WithChildren, WithClassName } from '../withs';
 
 export function TabPanel({ className, children, value, index, ...props }: TabPanelProps) {
@@ -9,7 +8,7 @@ export function TabPanel({ className, children, value, index, ...props }: TabPan
             id={`simple-tabpanel-${index}`}
             aria-labelledby={`simple-tab-${index}`}
             {...props}
-            className={clsx(className)}
+            className={className}
         >
             {value === index && <div className={'p-3 text-sm'}>{children}</div>}
         </div>

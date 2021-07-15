@@ -1,13 +1,15 @@
 import clsx from 'clsx';
-import { flag } from '../types';
-import { WithChildren, WithClassName } from '../withs';
+import Div from './Div';
+import { WithChildren, WithClassName, WithCenter } from '../withs';
 
 export function Column({ className, children, center = false }: ColumnProps) {
-    return <div className={clsx('w-full flex flex-col', center && 'justify-center', className)}>{children || ''}</div>;
+    return (
+        <Div full className={clsx('flex flex-col', center && 'justify-center', className)}>
+            {children}
+        </Div>
+    );
 }
 
-export interface ColumnProps extends WithClassName, WithChildren {
-    center?: flag;
-}
+export interface ColumnProps extends WithClassName, WithChildren, WithCenter {}
 
 export default Column;

@@ -27,7 +27,7 @@ export function TextField(props: TextFieldProps) {
     } = useField(props);
     const ctx = useMemo(() => ({ variant, prepend: !!prepend, append: !!append }), [variant, prepend, append]);
     return (
-        <FieldSet name={name} label={label} options={options} error={error} helper={helper} className={clsx(className)}>
+        <FieldSet name={name} label={label} options={options} error={error} helper={helper} className={className}>
             <div
                 className={clsx(
                     'text-sm sm:text-base w-full border flex',

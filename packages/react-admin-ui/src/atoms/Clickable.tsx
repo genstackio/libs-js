@@ -2,6 +2,7 @@ import { useMemo, MouseEvent } from 'react';
 import { flag, target } from '../types';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import { WithChildren, WithClassName } from '../withs';
+import clsx from 'clsx';
 
 export function Clickable({
     className,
@@ -13,7 +14,10 @@ export function Clickable({
     onClickAway,
     visible = true,
 }: ClickableProps) {
-    const extraProps = useMemo(() => ({ className, style }), [className, style]);
+    const extraProps = useMemo(
+        () => ({ className: clsx(className, !!onClick && 'cursor-pointer'), style }),
+        [className, style, onClick],
+    );
     if (!visible) return null;
     let content;
     if (!onClick) {

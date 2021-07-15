@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { progress_variant } from '../mappings/progress-variants';
@@ -12,7 +11,7 @@ const variants = {
 
 export function Progress({ className, value = 0, variant = 'linear' }: ProgressProps) {
     const Component = variants[variant || 'default'] || variants.default;
-    return <Component variant={'determinate'} value={value} className={clsx(className)} />;
+    return <Component variant={'determinate'} value={value} className={className} />;
 }
 
 export interface ProgressProps extends WithClassName {

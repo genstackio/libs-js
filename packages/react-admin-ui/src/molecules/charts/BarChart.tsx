@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
@@ -79,7 +78,7 @@ export function BarChart({ className, color = 'primary', labels, series, variant
         return acc;
     }, [] as { data: number[] }[]);
 
-    return <Chart type="bar" options={options} series={newData} height={'250px'} className={clsx(className)} />;
+    return <Chart type="bar" options={options} series={newData} height={'250px'} className={className} />;
 }
 
 export interface BarChartProps extends WithClassName, WithBox {

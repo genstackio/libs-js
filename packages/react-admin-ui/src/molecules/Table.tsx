@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { DataGrid, DataGridProps, GridCellParams, GridColDef, GridValueFormatterParams } from '@material-ui/data-grid';
 import { makeStyles } from '@material-ui/core/styles';
 import tailwindConfig from '../../tailwind.config';
@@ -153,7 +152,7 @@ export function Table({
             disableColumnMenu
             disableSelectionOnClick
             autoHeight
-            className={clsx(className)}
+            className={className}
             rowsPerPageOptions={[5, 10, 20, 50, 100, 200]}
             pageSize={rowsPerPage}
             rowCount={total}

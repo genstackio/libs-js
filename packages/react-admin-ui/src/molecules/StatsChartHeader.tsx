@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import Text from '../atoms/Text';
 import Icon from '../atoms/Icon';
 import { rich_text } from '../types';
@@ -6,7 +5,7 @@ import { WithClassName, WithSubtitle } from '../withs';
 
 export function StatsChartHeader({ className, subtitle, stats, value }: StatsChartHeaderProps) {
     return (
-        <div className={clsx(className)}>
+        <div className={className}>
             {subtitle && (
                 <div className={'flex justify-between items-center mb2'}>
                     <div className={'flex items-center space-x-2'}>

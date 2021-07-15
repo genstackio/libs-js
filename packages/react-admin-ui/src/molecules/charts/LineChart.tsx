@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
@@ -31,7 +30,7 @@ export function LineChart({ className, color = 'primary', labels, series, title,
         datas.push({ data });
     });
     return (
-        <div className={clsx(className)}>
+        <div className={className}>
             <Text text={title} variant={'subtitle'} />
             <Chart options={options} series={datas} type={'line'} />
         </div>

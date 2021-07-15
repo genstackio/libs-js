@@ -35,7 +35,7 @@ export function Breadcrumb({ className, items = [], color = 'primary', toRight =
         <Breadcrumbs
             aria-label={'breadcrumb'}
             classes={toRight ? { ol: classes.root } : undefined}
-            className={clsx(className)}
+            className={className}
         >
             {breadcrumbItems.map(({ label, target }, index) => (
                 <Link

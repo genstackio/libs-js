@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { locale } from '../types';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import { WithBoxColor, WithClassName } from '../withs';
+import shortenLocale from '../utils/shortenLocale';
 
 export function LocaleChange({ className, locales = [], color = 'primary' }: LocaleChangeProps) {
     const { i18n } = useTranslation() as any;
@@ -37,7 +38,7 @@ export function LocaleChange({ className, locales = [], color = 'primary' }: Loc
         <ClickAwayListener onClickAway={handleClickAway}>
             <div className={clsx('cursor-pointer flex items-center space-x-2', className)} onClick={handleClick}>
                 <FlagIcon locale={i18n.language} />
-                <Text text={i18n.language.slice(0, 2).toUpperCase()} variant={'subsection'} />
+                <Text text={shortenLocale(i18n.language)} variant={'subsection'} />
                 <Popper open={opened} anchorEl={anchorEl} placement={'bottom-start'} transition>
                     <div className={'max-w-xxs divide-y bg-clear mt-4'}>
                         {locales.map(({ value, language }, index) => (

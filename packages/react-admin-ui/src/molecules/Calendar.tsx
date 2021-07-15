@@ -1,8 +1,7 @@
-import clsx from 'clsx';
 import { WithClassName } from '../withs';
 
 export function Calendar({ className }: CalendarProps) {
-    return <div className={clsx(className)}>CALENDAR</div>;
+    return <div className={className}>CALENDAR</div>;
 }
 
 export type CalendarProps = WithClassName;

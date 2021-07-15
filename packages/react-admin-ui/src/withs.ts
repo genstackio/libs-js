@@ -17,7 +17,11 @@ import { padding } from './mappings/paddings';
 import { alignment } from './mappings/alignments';
 import { elevation } from './mappings/elevations';
 import { corner } from './mappings/corners';
+import { status } from './mappings/statuses';
 
+export interface WithCenter {
+    center?: flag;
+}
 export interface WithClassName {
     className?: class_name;
 }
@@ -135,4 +139,7 @@ export interface WithClosable {
 }
 export interface WithOverline {
     overline?: rich_text;
+}
+export interface WithBuddyStatus {
+    status?: status;
 }

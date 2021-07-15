@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import FieldLabel from '../FieldLabel';
 import FieldError from '../FieldError';
 import FieldHelper from '../FieldHelper';
@@ -77,7 +76,7 @@ export function SwitchField({ className, onChange, ...props }: SwitchFieldProps)
                 required={required}
                 {...register()}
                 {...extra}
-                className={clsx(className)}
+                className={className}
             />
             <FieldLabel name={name} label={label} options={options} />
             <FieldError error={error} />

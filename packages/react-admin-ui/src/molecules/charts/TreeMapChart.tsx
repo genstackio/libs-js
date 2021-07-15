@@ -1,6 +1,5 @@
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
-import clsx from 'clsx';
 import tailwindConfig from '../../../tailwind.config';
 import { WithBox, WithClassName } from '../../withs';
 
@@ -34,16 +33,7 @@ export function TreeMapChart({ className, color, values = [] }: TreeMapChartProp
         return acc;
     }, [] as { x: string; y: number }[]);
     const newData = [{ data: data }];
-    return (
-        <Chart
-            type={'treemap'}
-            options={options}
-            series={newData}
-            height="350"
-            width="800"
-            className={clsx(className)}
-        />
-    );
+    return <Chart type={'treemap'} options={options} series={newData} height="350" width="800" className={className} />;
 }
 
 export interface TreeMapChartProps extends WithClassName, WithBox {

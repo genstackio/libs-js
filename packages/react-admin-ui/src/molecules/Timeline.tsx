@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import MuiTimeline from '@material-ui/lab/Timeline';
 import TimelineItem from '@material-ui/lab/TimelineItem';
 import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
@@ -10,7 +9,7 @@ import { WithClassName } from '../withs';
 
 export function Timeline({ className, items }: TimelineProps) {
     return (
-        <MuiTimeline align={'left'} className={clsx(className)}>
+        <MuiTimeline align={'left'} className={className}>
             {items.map((item, index) => (
                 <div key={index}>
                     <TimelineItem>

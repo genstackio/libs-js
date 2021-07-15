@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import alignmentClass from '../mappings/alignments';
 import { WithClassName, WithText, WithTitle, WithPosition } from '../withs';
 
@@ -15,7 +14,7 @@ const titlePositions = {
 
 export function Quote({ className, position = 'left', text, title }: QuoteProps) {
     return (
-        <blockquote className={clsx(className)}>
+        <blockquote className={className}>
             {text && <p className={alignmentClass(position, textPositions)}>{text}</p>}
             {title && <p className={alignmentClass(position, titlePositions)}>- {title}</p>}
         </blockquote>

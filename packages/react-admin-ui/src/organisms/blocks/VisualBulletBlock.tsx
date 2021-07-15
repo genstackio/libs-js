@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import Icon from '../../atoms/Icon';
 import Block, { BaseBlockProps } from '../../atoms/Block';
 import Text from '../../atoms/Text';
@@ -8,8 +7,8 @@ export function VisualBulletBlock({ items, ...props }: VisualBulletBlockProps) {
         <Block {...props}>
             {items.map((item, index) => (
                 <div key={index} className={'flex items-center'}>
-                    <Icon className={clsx('mb-5')} size={'4xl'} icon={item.icon} />
-                    <div className={clsx('flex-column ml-4')}>
+                    <Icon className={'mb-5'} size={'4xl'} icon={item.icon} />
+                    <div className={'flex-column ml-4'}>
                         <Text text={item.title} variant={'title6'} />
                         <p>{item.subtitle || ''}</p>
                     </div>

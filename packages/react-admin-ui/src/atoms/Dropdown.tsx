@@ -34,7 +34,7 @@ export function Dropdown({ className, color, items = [], variant }: DropdownProp
     }, [setOpen]);
 
     return (
-        <div className={clsx(className)}>
+        <div className={className}>
             <Select
                 open={open}
                 onClose={handleClose}

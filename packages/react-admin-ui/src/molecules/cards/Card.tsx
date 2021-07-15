@@ -28,7 +28,7 @@ export function Card({
         setIsShown(false);
     }, [setIsShown]);
     return (
-        <Block padding={'none'} color={color} variant={variant} className={clsx(className)}>
+        <Block padding={'none'} color={color} variant={variant} className={className}>
             <div className={'w-full hover:opacity-60'} onMouseEnter={handleOpen} onMouseLeave={handleClose}>
                 <Image className={'rounded-t-2xl'} {...image} />
                 <div className={clsx('w-full absolute top-0', !isShown && 'hidden')}>

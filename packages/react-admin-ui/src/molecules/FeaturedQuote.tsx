@@ -6,10 +6,10 @@ import { WithClassName, WithImage, WithSubtitle, WithText, WithTextColor } from 
 export function FeaturedQuote({ className, text, title, subtitle, image, color = 'primary' }: FeaturedQuoteProps) {
     return (
         <div className={clsx('flex flex-col items-center', className)}>
-            <Text text={text} variant={'xsmall'} center={true} className={clsx('p-4 pt-7 flex-auto')} />
+            <Text text={text} variant={'xsmall'} center className={'p-4 pt-7 flex-auto'} />
             <Avatar name={title} image={image} size={'lg'} className={'pt-5'} />
-            <Text text={title} variant={'section'} color={color} className={clsx('pt-3')} />
-            <Text text={subtitle} variant={'description'} className={clsx('pt-3 pb-5')} />
+            <Text text={title} variant={'section'} color={color} className={'pt-3'} />
+            <Text text={subtitle} variant={'description'} className={'pt-3 pb-5'} />
         </div>
     );
 }

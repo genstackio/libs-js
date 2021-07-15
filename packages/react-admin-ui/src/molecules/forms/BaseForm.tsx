@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import clsx from 'clsx';
 import { flag } from '../../types';
 import AlertPanel from '../AlertPanel';
 import Text from '../../atoms/Text';
@@ -32,7 +31,7 @@ export function BaseForm({
     const { handleSubmit } = rhf;
     const error = errors && (errors[''] || errors['*'] || errors['_']);
     return (
-        <Column className={clsx(className)}>
+        <Column className={className}>
             <FormHeader>{header}</FormHeader>
             <Column center>
                 <form onSubmit={handleSubmit(onSubmit as any)} className={'w-full'} aria-disabled={submitting}>

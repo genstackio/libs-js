@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import clsx from 'clsx';
 import { space_variant } from '../types';
 import { WithClassName } from '../withs';
 
@@ -21,7 +20,7 @@ export function Spacer({ className, variant = 'default', size = 1, unitSize = 4 
         return styles;
     }, [variant, size, unitSize]);
 
-    return <div style={styles} className={clsx(className)} />;
+    return <div style={styles} className={className} />;
 }
 
 export interface SpacerProps extends WithClassName {
