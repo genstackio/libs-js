@@ -1,6 +1,6 @@
 {
   "name": "@genstackio/pdf-generator",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -21,7 +21,7 @@
     "test": "../../node_modules/.bin/jest -c ../../jest.config.js --rootDir=`pwd`"
   },
   "dependencies": {
-      "@react-pdf/renderer": "^2.0.16"
+    "@react-pdf/renderer": "^2.0.16"
   },
   "bin": {
     "pdf-generator": "./bin/pdf-generator"
