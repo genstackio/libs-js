@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     },
 });
 
-export function DemoPage({ title }: DemoPageProps) {
+export function DefaultPage({ title }: DefaultPageProps) {
     return (
         <Page size={'A4'} style={styles.page}>
             <View style={styles.header} fixed>
@@ -127,9 +127,9 @@ export function DemoPage({ title }: DemoPageProps) {
     );
 }
 
-export interface DemoPageProps {
+export interface DefaultPageProps {
     title: string;
 }
 
 // noinspection JSUnusedGlobalSymbols
-export default DemoPage;
+export default DefaultPage;

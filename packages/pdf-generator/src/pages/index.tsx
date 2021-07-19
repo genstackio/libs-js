@@ -1,1 +1,2 @@
-export * from './DemoPage';
+export * from './DefaultPage';
+export * from './TicketsPage';
