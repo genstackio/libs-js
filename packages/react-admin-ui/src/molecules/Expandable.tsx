@@ -13,7 +13,7 @@ export function Expandable({ className, children, expandedChildren, placement = 
             setOpened(!opened);
             setAnchorEl(anchorEl ? null : event.currentTarget);
         },
-        [setOpened, setAnchorEl],
+        [opened, anchorEl, setOpened, setAnchorEl],
     );
     const handleClickAway = useCallback(() => {
         setOpened(false);
