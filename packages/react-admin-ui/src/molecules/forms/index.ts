@@ -1,5 +1,6 @@
 export * from './BaseForm';
 export * from './ChangePasswordForm';
+export * from './crud';
 export * from './CreatePasswordForgotPasswordForm';
 export * from './FillInOtpForgotPasswordForm';
 export * from './ForgotPasswordForm';
