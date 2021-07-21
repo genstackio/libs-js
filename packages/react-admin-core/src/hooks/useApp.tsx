@@ -69,6 +69,7 @@ export function useApp({
             theme: {
                 mui: createMuiTheme(mui),
                 tailwind,
+                theme: theme || undefined,
             },
             apiOptions: {
                 uri: endpoint,
@@ -82,8 +83,9 @@ export function useApp({
             favorites: features.favorites ? { favorites: [] } : undefined,
             icons,
         }),
-        [prefix, endpoint, defaultLocale, fallbackLocale, locales, routes, translations, queries, icons],
+        [mui, theme, tailwind, prefix, endpoint, defaultLocale, fallbackLocale, locales, routes, translations, queries, icons],
     );
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default useApp;
