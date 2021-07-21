@@ -47,6 +47,10 @@
         padding: 15px 17px;
     }
 
+    .x-pl-drawer {
+        padding-left: 280px;
+    }
+
     .x-m-small {
         margin: 15px 20px 13px 20px;
     }
