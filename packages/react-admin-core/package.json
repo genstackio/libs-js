@@ -1,6 +1,6 @@
 {
     "name": "@genstackio/react-admin-core",
-    "version": "0.3.13",
+    "version": "0.3.14",
     "description": "React Admin Core for Genstackio",
     "license": "MIT",
     "main": "lib/index.js",
