@@ -43,6 +43,8 @@ module.exports = {
         extend: {
             width: {
                 drawer: '280px',
+                '3/10': '30%',
+                '7/10': '70%',
             },
             colors: {
                 primary: 'rgba(var(--color-primary), var(--tw-bg-opacity, 1))',

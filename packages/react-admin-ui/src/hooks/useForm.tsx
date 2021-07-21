@@ -34,7 +34,13 @@ export function useForm(
         [form],
     );
 
-    const tf = useCallback((k: string, ...args) => t(`form_${name}_${k}`, ...args), [t, name]);
+    const tf = useCallback(
+        (k: string | string[], ...args) => {
+            const xx = Array.isArray(k) ? k : [k];
+            return t([`form_${name}_${xx[0]}`, ...xx.slice(1)], ...args);
+        },
+        [t, name],
+    );
 
     const SubmitButton = useCallback(
         ({ className = undefined }: { className?: class_name }) => {
@@ -46,7 +52,7 @@ export function useForm(
                         variant={'contained'}
                         color={color as box_color}
                     >
-                        {tf('submit_label')}
+                        {tf(['submit_label', 'form_generic_submit_label'])}
                     </Button>
                 </div>
             );
@@ -55,8 +61,8 @@ export function useForm(
     );
 
     if (name) {
-        form['title'] = t(`form_${name}_title`);
-        form['subtitle'] = t(`form_${name}_subtitle`);
+        form['title'] = t([`form_${name}_title`, '']) || undefined;
+        form['subtitle'] = t([`form_${name}_subtitle`, '']) || undefined;
     }
 
     return { form, field, t, tf, color: color as box_color, Form, SubmitButton };

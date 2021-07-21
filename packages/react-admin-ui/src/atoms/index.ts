@@ -49,3 +49,6 @@ export * from './texts';
 export * from './Thumbnail';
 export * from './ToolbarItem';
 export * from './toolbar-items';
+export * from './WizardContent';
+export * from './WizardMenu';
+export * from './WizardStep';
