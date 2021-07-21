@@ -163,6 +163,22 @@ export default {
             form_forgot_password_create_password_subtitle: 'Merci de choisir un nouveau mot de passe',
             form_forgot_password_create_password_submit_label: 'Enregister',
 
+            form_create_user_title: 'Créer un utilisateur',
+            form_create_user_subtitle: 'Remplissez le formulaire ci-dessous pour créer un utilisateur',
+            form_create_user_submit_label: 'Créer',
+
+            form_create_organization_title: 'Créer une organisation',
+            form_create_organization_subtitle: 'Remplissez le formulaire ci-dessous pour créer une organisation',
+            form_create_organization_submit_label: 'Créer',
+
+            form_create_platform_title: 'Créer une plateforme',
+            form_create_platform_subtitle: 'Remplissez le formulaire ci-dessous pour créer une plateforme',
+            form_create_platform_submit_label: 'Créer',
+
+            form_create_token_title: "Créer un jeton d'accès",
+            form_create_token_subtitle: "Remplissez le formulaire ci-dessous pour créer un jeton d'accès",
+            form_create_token_submit_label: 'Créer',
+
             form_generic_submit_label: 'Envoyer',
 
             locales_change_value: 'Choisissez votre langue',
@@ -394,6 +410,22 @@ export default {
             form_forgot_password_create_password_subtitle: 'Scegli una nuova password',
             form_forgot_password_create_password_submit_label: 'Registrati',
 
+            form_create_user_title: 'Crea un utente',
+            form_create_user_subtitle: 'Si prega di compilare il modulo per creare un nuovo utente',
+            form_create_user_submit_label: 'Creare',
+
+            form_create_organization_title: "Crea un'organizzazione",
+            form_create_organization_subtitle: 'Si prega di compilare il modulo per creare una nuova organizzazione',
+            form_create_organization_submit_label: 'Creare',
+
+            form_create_platform_title: 'Crea una piattaforma',
+            form_create_platform_subtitle: 'Si prega di compilare il modulo per creare una nuova piattaforma',
+            form_create_platform_submit_label: 'Creare',
+
+            form_create_token_title: 'Crea un token',
+            form_create_token_subtitle: 'Si prega di compilare il modulo per creare un nuovo token',
+            form_create_token_submit_label: 'Creare',
+
             form_generic_submit_label: 'Mandare',
 
             locales_change_value: 'Scegli la tua lingua',
@@ -550,6 +582,22 @@ export default {
             form_forgot_password_create_password_title: 'New password',
             form_forgot_password_create_password_subtitle: 'Please choose a new password',
             form_forgot_password_create_password_submit_label: 'Save',
+
+            form_create_user_title: 'Create a user',
+            form_create_user_subtitle: 'Please fill-in the form to create a new user',
+            form_create_user_submit_label: 'Create',
+
+            form_create_organization_title: 'Create an organization',
+            form_create_organization_subtitle: 'Please fill-in the form to create a new organization',
+            form_create_organization_submit_label: 'Create',
+
+            form_create_platform_title: 'Create a platform',
+            form_create_platform_subtitle: 'Please fill-in the form to create a new platform',
+            form_create_platform_submit_label: 'Create',
+
+            form_create_token_title: 'Create a token',
+            form_create_token_subtitle: 'Please fill-in the form to create a new token',
+            form_create_token_submit_label: 'Create',
 
             form_generic_submit_label: 'Submit',
 
