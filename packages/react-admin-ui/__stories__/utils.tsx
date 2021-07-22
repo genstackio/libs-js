@@ -168,6 +168,7 @@ export const args = {
     datas: { control: { type: 'object' } },
     date: { control: { type: 'number' } },
     default: { control: { type: 'text' } },
+    definition: { control: { type: 'object' } },
     defaultValue: { control: { type: 'any' } },
     dropdownItems: { control: { type: 'object' } },
     error: { control: { type: 'boolean' } },
