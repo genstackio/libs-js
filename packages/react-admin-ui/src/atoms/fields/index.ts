@@ -3,6 +3,7 @@ export * from './AddressField';
 export * from './BirthDateField';
 export * from './CheckboxField';
 export * from './CityField';
+export * from './CodeField';
 export * from './ColorField';
 export * from './CurrentPasswordField';
 export * from './DateField';
