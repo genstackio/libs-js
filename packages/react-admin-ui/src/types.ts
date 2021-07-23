@@ -176,3 +176,11 @@ export type wizard_step = {
 };
 
 export type share_icon_item = { type: share_icon_type; target?: target };
+
+export type form_item = {
+    type: 'field' | 'row' | 'buttonSubmit';
+    field?: string;
+    required?: boolean;
+    autofocus?: boolean;
+    items?: form_item;
+};
