@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
 });
 
 export function TicketsPage({
+    quantity,
     width,
     height,
     gutter,
@@ -25,10 +26,12 @@ export function TicketsPage({
         }
     }
 
+    const layoutTicket = items.slice(0, quantity);
+
     return (
         <>
             <Page size={'A4'} orientation={'landscape'} style={styles.page}>
-                {items.map(({ x, y }, index) => (
+                {layoutTicket.map(({ x, y }, index) => (
                     <Ticket
                         key={index}
                         x={leftStart + x * (width + gutter)}
@@ -40,22 +43,13 @@ export function TicketsPage({
                     />
                 ))}
             </Page>
-            <Page size={'A4'} orientation={'landscape'} style={styles.page}>
-                <Ticket
-                    x={leftStart}
-                    y={topStart}
-                    w={width * 2}
-                    h={height}
-                    color={ticketColor}
-                    cutLineColor={cutLineColor}
-                />
-            </Page>
         </>
     );
 }
 
 export interface TicketsPageProps {
     title: string;
+    quantity: number;
     width: number;
     height: number;
     gutter: number;
