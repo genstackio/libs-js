@@ -1,6 +1,7 @@
 import useForm from '../../../hooks/useForm';
 import NameField from '../../../atoms/fields/NameField';
 import { BaseFormProps } from '../BaseForm';
+import CodeField from '../../../atoms/fields/CodeField';
 
 export function CreateOrganizationForm(props: CreateOrganizationFormProps) {
     const { Form, SubmitButton, field } = useForm(props, 'create_organization');
@@ -8,6 +9,7 @@ export function CreateOrganizationForm(props: CreateOrganizationFormProps) {
     return (
         <Form>
             <NameField {...field} required autoFocus />
+            <CodeField {...field} />
             <SubmitButton />
         </Form>
     );
