@@ -185,6 +185,16 @@ export type form_item = {
     items?: form_item;
 };
 
+export type confirmable_options = {
+    confirm?: flag;
+    confirmTitle?: rich_text;
+    confirmText?: rich_text;
+    confirmDanger?: flag;
+    confirmKind?: string;
+    onConfirm?: Function;
+    onCancel?: Function;
+};
+
 export type content_item_mosaic_item = {
     className?: class_name;
     image?: image;

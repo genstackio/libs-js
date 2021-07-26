@@ -26,6 +26,22 @@ export const basic = s(Template, {
     variant: 'contained',
 });
 
+export const withConfirmation = s(Template, {
+    children: 'label',
+    color: 'primary',
+    variant: 'contained',
+    confirm: true,
+});
+
+export const withDeleteConfirmation = s(Template, {
+    children: 'label',
+    color: 'primary',
+    variant: 'contained',
+    confirm: true,
+    confirmKind: 'delete',
+    confirmDanger: true,
+});
+
 export const showcase = s(
     (args) => (
         <div className={'space-y-2'}>

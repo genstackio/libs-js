@@ -74,6 +74,13 @@ export interface WithIcon {
 export interface WithSize {
     size?: size;
 }
+export interface WithConfirm {
+    confirm?: boolean;
+    confirmTitle?: rich_text;
+    confirmText?: rich_text;
+    confirmKind?: string;
+    confirmDanger?: flag;
+}
 export interface WithDisabled {
     disabled?: flag;
 }
