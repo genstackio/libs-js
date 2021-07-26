@@ -31,6 +31,7 @@ export * from './MenuButton';
 export * from './MenuButtonWidget';
 export * from './Modal';
 export * from './Pagination';
+export * from './Paragraph';
 export * from './Pricing';
 export * from './ShareIcons';
 export * from './Slider';
