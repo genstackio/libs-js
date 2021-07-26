@@ -184,3 +184,11 @@ export type form_item = {
     autofocus?: boolean;
     items?: form_item;
 };
+
+export type content_item_mosaic_item = {
+    className?: class_name;
+    image?: image;
+    text?: rich_text;
+    title?: rich_text;
+    target?: target;
+};
