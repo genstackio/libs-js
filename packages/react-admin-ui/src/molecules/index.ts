@@ -13,6 +13,7 @@ export * from './cards';
 export * from './ContentItem';
 export * from './ContentItemsMosaic';
 export * from './Corner';
+export * from './ConfirmModal';
 export * from './Faq';
 export * from './Expandable';
 export * from './FeaturedQuote';

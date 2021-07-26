@@ -18,6 +18,16 @@ export default {
         translation: {
             ...common,
 
+            button_delete_label: 'Supprimer',
+            button_cancel_label: 'Annuler',
+            button_confirm_label: 'Confirmer',
+
+            modal_confirm_delete_title: 'Confirmation de la suppression',
+            modal_confirm_delete_text: 'Souhaitez-vous vraiment supprimer cet élément ?',
+
+            modal_confirm_generic_title: 'Confirmation',
+            modal_confirm_generic_text: 'Souhaitez-vous vraiment réaliser cette action ?',
+
             mood_very_bad: 'Très mauvais',
             mood_bad: 'Mauvais',
             mood_normal: 'Normal',
@@ -268,6 +278,16 @@ export default {
         translation: {
             ...common,
 
+            button_delete_label: 'Rimuovere',
+            button_cancel_label: 'Per cancellare',
+            button_confirm_label: 'Per confermare',
+
+            modal_confirm_delete_title: 'Conferma della cancellazione',
+            modal_confirm_delete_text: 'Sei sicuro di voler eliminare questo articolo?',
+
+            modal_confirm_generic_title: 'Conferma',
+            modal_confirm_generic_text: 'Sei sicuro di voler intraprendere questa azione?',
+
             mood_very_bad: 'Molto Brutto',
             mood_bad: 'Cattivo',
             mood_normal: 'Normale',
@@ -442,6 +462,16 @@ export default {
     'en-GB': {
         translation: {
             ...common,
+
+            button_delete_label: 'Delete',
+            button_cancel_label: 'Cancel',
+            button_confirm_label: 'Confirm',
+
+            modal_confirm_delete_title: 'Delete confirmation',
+            modal_confirm_delete_text: 'Do you really want to delete this item?',
+
+            modal_confirm_generic_title: 'Confirmation',
+            modal_confirm_generic_text: 'Do you really want to do this action?',
 
             mood_very_bad: 'Very Bad',
             mood_bad: 'Bad',

@@ -2,7 +2,7 @@ import { useCallback, useMemo } from 'react';
 import clsx from 'clsx';
 import Icon from './Icon';
 import buttonClass from '../utils/buttonClass';
-import { class_name, target } from '../types';
+import { class_name, flag, target } from '../types';
 import { Spinner } from './Spinner';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
 import cornerClass from '../mappings/corners';
@@ -15,7 +15,9 @@ import {
     WithSize,
     WithLoading,
     WithDisabled,
+    WithConfirm,
 } from '../withs';
+import { useConfirmable } from '../hooks';
 
 export function Button({
     children,
@@ -29,6 +31,12 @@ export function Button({
     onClick,
     variant = 'filled',
     corner = 'rounded-xxsmall',
+    confirm = false,
+    confirmTitle,
+    confirmText,
+    confirmKind,
+    confirmDanger,
+    autoFocus = false,
 }: ButtonProps) {
     const handleClick = useCallback(
         (event) => {
@@ -37,9 +45,18 @@ export function Button({
         },
         [onClick],
     );
+    const [handleButtonClick, Confirmable] = useConfirmable({
+        onConfirm: handleClick,
+        confirm,
+        confirmKind,
+        confirmDanger,
+        confirmTitle,
+        confirmText,
+    });
     disabled = disabled || loading;
     const boxProviderValue = useMemo(() => ({ color, variant }), [color, variant]);
-    return (
+
+    const content = (
         <button
             disabled={disabled}
             className={clsx(
@@ -50,7 +67,8 @@ export function Button({
                 'justify-center',
                 className,
             )}
-            onClick={handleClick}
+            onClick={handleButtonClick as any}
+            autoFocus={autoFocus}
         >
             <BoxProvider value={boxProviderValue}>
                 {loading && (
@@ -65,6 +83,8 @@ export function Button({
             </BoxProvider>
         </button>
     );
+
+    return <Confirmable>{content}</Confirmable>;
 }
 
 export interface ButtonProps
@@ -75,9 +95,11 @@ export interface ButtonProps
         WithSize,
         WithCorner,
         WithDisabled,
-        WithLoading {
+        WithLoading,
+        WithConfirm {
     spinnerClassName?: class_name;
     onClick?: target;
+    autoFocus?: flag;
 }
 
 export default Button;
