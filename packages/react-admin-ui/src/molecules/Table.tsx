@@ -29,8 +29,8 @@ const useTableTranslation = () => {
         delete r.toolbarFiltersTooltipActivePlural;
         r.toolbarFiltersTooltipActive = (a) => (a > 1 ? tN.replace('{{count}}', a) : t1.replace('{{count}}', a));
         const r2 = { ...i18n.getResourceBundle(i18n.language, 'tablePagination') };
-        const uN = r2.labelDisplayedRows;
-        const uX = r2.labelDisplayedRowsUnknown;
+        const uN = r2.labelDisplayedRows || '';
+        const uX = r2.labelDisplayedRowsUnknown || '';
         delete r2.labelDisplayedRowsUnknown;
         r2.labelDisplayedRows = ({ count, from, to }) =>
             count !== -1
