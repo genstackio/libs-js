@@ -9,3 +9,10 @@ export type route = {
 };
 
 export type user_context_value = { user: undefined | { id: string; email: string }; setUser: Function };
+
+export type menu_ctx = {
+    t: Function;
+    user: any;
+    history: any;
+};
+
