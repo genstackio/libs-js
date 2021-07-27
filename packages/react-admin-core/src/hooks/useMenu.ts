@@ -12,3 +12,5 @@ export function useMenu(name: string, factory: (name: string, ctx: menu_ctx) => 
 
     return useMemo(() => factory(name, {t, user, history}), [factory, name, t, user]);
 }
+
+export default useMenu;
