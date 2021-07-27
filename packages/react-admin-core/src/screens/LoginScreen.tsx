@@ -4,7 +4,7 @@ import LoginAction from '@genstackio/react-admin-ui/lib/molecules/actions/LoginA
 import { useLocales, useUserTokens } from '@genstackio/react-contexts';
 import { target } from '@genstackio/react-admin-ui/lib/types';
 
-export function LoginScreen({ onForgotPasswordClick, forgotPassword, ...props }: LoginScreenProps) {
+export function LoginScreen({ onForgotPasswordClick, ...props }: LoginScreenProps) {
     const { setCurrentUserTokens } = useUserTokens();
     const { locales } = useLocales();
     const onSuccess = useCallback(
@@ -25,8 +25,7 @@ export function LoginScreen({ onForgotPasswordClick, forgotPassword, ...props }:
 }
 
 export interface LoginScreenProps extends LoginTemplateProps {
-    onForgotPasswordClick?: Function;
-    forgotPassword?: target;
+    onForgotPasswordClick?: target;
 }
 
 export default LoginScreen;
