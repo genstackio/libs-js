@@ -12,11 +12,12 @@ import SearchToolbarItem from '../atoms/toolbar-items/SearchToolbarItem';
 import ShoppingCartToolbarItem from '../atoms/toolbar-items/ShoppingCartToolbarItem';
 import { useToggle } from '../hooks/useToggle';
 import { WithChildren, WithClassName } from '../withs';
+import {menu_button_item} from "../types";
 
-export function UserToolbar({ className, user, onSearch, onLogout, children }: UserToolbarProps) {
+export function UserToolbar({ className, user, onSearch, onLogout, userMenu = [], children }: UserToolbarProps) {
     const { t } = useTranslation();
 
-    const items = useMemo(() => [{ target: onLogout, label: t('button_logout_label') }], [onLogout]);
+    const items = useMemo(() => [...userMenu, { target: onLogout, label: t('button_logout_label') }], [onLogout]);
 
     const userName = useMemo(() => `${user!.firstName} ${user!.lastName}`, [user]);
     const userEmail = useMemo(() => user!.email, [user]);
@@ -57,6 +58,7 @@ export interface UserToolbarProps extends WithClassName, WithChildren {
     user?: any;
     onLogout?: Function;
     onSearch?: Function;
+    userMenu?: menu_button_item[];
 }
 
 export default UserToolbar;
