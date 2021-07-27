@@ -198,6 +198,8 @@ export default {
             previous_btn_label: 'Précédent',
             next_btn_label: 'Suivant',
             finish_btn_label: 'Terminer',
+
+            button_login_label: 'Se connecter',
         },
         tablePagination: {
             labelRowsPerPage: 'Eléments par page :',
@@ -457,6 +459,8 @@ export default {
             previous_btn_label: 'Precedente',
             next_btn_label: 'Suivant',
             finish_btn_label: 'Finire',
+
+            button_login_label: 'Accesso',
         },
     },
     'en-GB': {
@@ -642,6 +646,8 @@ export default {
             previous_btn_label: 'Previous',
             next_btn_label: 'Next',
             finish_btn_label: 'Finish',
+
+            button_login_label: 'Log in',
         },
         tablePagination: {
             labelRowsPerPage: 'Rows per page:',
