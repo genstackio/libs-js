@@ -15,6 +15,23 @@ export const basic = s(Template, {
 
 export const withAll = s(Template, {
     user: { firstName: 'Alphonse', lastName: 'Daudet', email: 'me@email.com' },
+    userMenu: [
+        {
+            icon: 'person',
+            label: 'Account',
+            target: 'https://www.google.com/',
+        },
+        {
+            icon: 'settings',
+            label: 'Settings',
+            target: 'https://www.google.com/',
+        },
+        {
+            icon: 'exit_to_app',
+            label: 'Logout',
+            target: () => alert('Logout'),
+        },
+    ],
     children: (
         <div className={'flex space-x-4'}>
             <Button color={'primary'} variant={'outlined'} className={'sm:hidden'}>
