@@ -9,7 +9,7 @@ export default {
         text: args.text,
         color: args.color,
         btnLabel: args.btnLabel,
-        target: args.target,
+        btnTarget: args.target,
         image: { control: { type: 'object' } },
         imageLeft: { control: { type: 'boolean' } },
     }),
