@@ -2,9 +2,9 @@ import { useCallback } from 'react';
 import LoginTemplate, { LoginTemplateProps } from '@genstackio/react-admin-ui/lib/templates/LoginTemplate';
 import LoginAction from '@genstackio/react-admin-ui/lib/molecules/actions/LoginAction';
 import { useLocales, useUserTokens } from '@genstackio/react-contexts';
-import {target} from "@genstackio/react-admin-ui/lib/types";
+import { target } from '@genstackio/react-admin-ui/lib/types';
 
-export function LoginScreen({onForgotPasswordClick, forgotPassword, ...props}: LoginScreenProps) {
+export function LoginScreen({ onForgotPasswordClick, forgotPassword, ...props }: LoginScreenProps) {
     const { setCurrentUserTokens } = useUserTokens();
     const { locales } = useLocales();
     const onSuccess = useCallback(
@@ -14,7 +14,11 @@ export function LoginScreen({onForgotPasswordClick, forgotPassword, ...props}: L
         [setCurrentUserTokens],
     );
     const form = (
-        <LoginAction onSuccess={onSuccess} locales={locales.map((x) => ({ value: x.id, language: x.label }))} onForgotPasswordClick={onForgotPasswordClick} />
+        <LoginAction
+            onSuccess={onSuccess}
+            locales={locales.map((x) => ({ value: x.id, language: x.label }))}
+            onForgotPasswordClick={onForgotPasswordClick}
+        />
     );
 
     return <LoginTemplate {...props} form={form} />;

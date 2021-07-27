@@ -12,7 +12,7 @@ import SearchToolbarItem from '../atoms/toolbar-items/SearchToolbarItem';
 import ShoppingCartToolbarItem from '../atoms/toolbar-items/ShoppingCartToolbarItem';
 import { useToggle } from '../hooks/useToggle';
 import { WithChildren, WithClassName } from '../withs';
-import {menu_button_item} from "../types";
+import { menu_button_item } from '../types';
 
 export function UserToolbar({ className, user, onSearch, onLogout, userMenu = [], children }: UserToolbarProps) {
     const { t } = useTranslation();

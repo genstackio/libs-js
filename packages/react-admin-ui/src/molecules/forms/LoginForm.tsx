@@ -6,7 +6,7 @@ import RememberPasswordField from '../../atoms/fields/RememberPasswordField';
 import Button from '../../atoms/Button';
 import Text from '../../atoms/Text';
 import { useCallback } from 'react';
-import {class_name, flag, locale, target} from '../../types';
+import { class_name, flag, locale, target } from '../../types';
 import { BaseFormProps } from './BaseForm';
 import useForm from '../../hooks/useForm';
 
