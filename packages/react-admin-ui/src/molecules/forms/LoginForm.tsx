@@ -6,7 +6,7 @@ import RememberPasswordField from '../../atoms/fields/RememberPasswordField';
 import Button from '../../atoms/Button';
 import Text from '../../atoms/Text';
 import { useCallback } from 'react';
-import { class_name, flag, locale } from '../../types';
+import {class_name, flag, locale, target} from '../../types';
 import { BaseFormProps } from './BaseForm';
 import useForm from '../../hooks/useForm';
 
@@ -85,7 +85,7 @@ export function LoginForm({
 export interface LoginFormProps extends BaseFormProps {
     className?: class_name;
     onRegisterClick?: Function;
-    onForgotPasswordClick?: Function;
+    onForgotPasswordClick?: target;
     socialLogins?: flag;
     rememberMe?: flag;
     locales?: locale[];
