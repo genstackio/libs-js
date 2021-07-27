@@ -3,13 +3,10 @@ import Button from '../atoms/Button';
 import Row from '../atoms/Row';
 import { WithBoxColor, WithLogo } from '../withs';
 import { Image } from '../atoms';
+import { target } from '../types';
 import { useTranslation } from 'react-i18next';
 
-const onLoginClick = () => {
-    return '/login';
-};
-
-export function MenuAppBar({ logo, menuItems = [], color }: MenuAppBarProps) {
+export function MenuAppBar({ logo, menuItems = [], color, onLoginClick }: MenuAppBarProps) {
     const { t } = useTranslation();
     return (
         <Row className={clsx('h-44', 'justify-between')}>
@@ -24,9 +21,11 @@ export function MenuAppBar({ logo, menuItems = [], color }: MenuAppBarProps) {
                         ))}
                     </div>
                 </nav>
-                <Button onClick={onLoginClick} variant={'contained'} className={'xs:hidden'} color={color}>
-                    {t('button_login_label')}
-                </Button>
+                {!!onLoginClick && (
+                    <Button onClick={onLoginClick} variant={'contained'} className={'xs:hidden'} color={color}>
+                        {t('button_login_label')}
+                    </Button>
+                )}
             </div>
         </Row>
     );
@@ -34,6 +33,7 @@ export function MenuAppBar({ logo, menuItems = [], color }: MenuAppBarProps) {
 
 export interface MenuAppBarProps extends WithLogo, WithBoxColor {
     menuItems?: any[];
+    onLoginClick?: target;
 }
 
 export default MenuAppBar;
