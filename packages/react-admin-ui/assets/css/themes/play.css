@@ -1,0 +1,45 @@
+/* the content of this file has been generated, do not edit manually */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --tw-bg-opacity: 1;
+    --tw-text-opacity: 1;
+}
+
+@layer components {
+    /* purgecss start ignore */
+    .theme-play {
+
+        --color-clear: 255, 255, 255;/* #FFFFFF */
+        --color-danger: 255, 193, 178;/* #FFC1B2 */
+        --color-dark: 151, 151, 151;/* #979797 */
+        --color-disabled: 242, 242, 242;/* #F2F2F2 */
+        --color-info: 80, 106, 212;/* #506AD4 */
+        --color-light: 193, 193, 193;/* #C1C1C1 */
+        --color-primary: 18, 80, 159;/* #12509F */
+        --color-secondary: 255, 160, 38;/* #FFA026 */
+        --color-success: 132, 224, 50;/* #84E032 */
+        --color-text: 0, 0, 0;/* #000000 */
+        --color-warning: 255, 236, 212;/* #FFECD4 */
+
+    }
+
+    .dark.theme-play, .dark .theme-play, .theme-play .dark {
+
+        --color-clear: 38, 41, 50;/* #262932 */
+        --color-danger: 127, 108, 171;/* #7F6CAB */
+        --color-dark: 32, 42, 84;/* #202A54 */
+        --color-disabled: 206, 204, 195;/* #CECCC3 */
+        --color-info: 80, 106, 212;/* #506AD4 */
+        --color-light: 247, 244, 205;/* #F7F4CD */
+        --color-primary: 163, 205, 217;/* #A3CDD9 */
+        --color-secondary: 242, 204, 57;/* #F2CC39 */
+        --color-success: 129, 147, 222;/* #8193DE */
+        --color-warning: 218, 205, 247;/* #DACDF7 */
+
+    }
+    /* purgecss end ignore */
+}

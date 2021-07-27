@@ -16,11 +16,9 @@ export type menu_ctx = {
     history: any;
 };
 
-
 export type breadcrumbs_ctx = {
     t: Function;
     user: any;
     history: any;
     id?: string;
 };
-
