@@ -76,7 +76,7 @@ export function Button({
                 )}
                 {!loading && (
                     <>
-                        <Icon icon={icon} />
+                        <Icon icon={icon} className={children ? 'mr-2' : undefined} />
                         {children || ''}
                     </>
                 )}

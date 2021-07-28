@@ -17,9 +17,12 @@ export function useMenu(name: string, factory: (name: string, ctx: menu_ctx) => 
                 'string' === typeof item['label'] && (item['label'] = t(item['label']));
                 item['active'] = location.pathname === item['target'];
             }
+            if ('string' === typeof item['target']) {
+                item['target'] = () => history.push(item['target']);
+            }
             return item;
         },
-        [t, location],
+        [t, location, history],
     );
 
     return useMemo(() => factory(name, { t, user, history }).map(itemMapper), [factory, name, t, user]);
