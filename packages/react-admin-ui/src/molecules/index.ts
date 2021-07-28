@@ -2,6 +2,7 @@ export * from './actions';
 export * from './Accordion';
 export * from './AlertPanel';
 export * from './Avatars';
+export * from './BoxHeader';
 export * from './Breadcrumb';
 export * from './BulletPoint';
 export * from './ButtonsGroup';
