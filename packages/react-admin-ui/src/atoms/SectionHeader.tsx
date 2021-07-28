@@ -16,7 +16,7 @@ export function SectionHeader({
             padding={'small'}
             elevation={0}
             color={color}
-            className={clsx('m-4 bg-opacity-5', className)}
+            className={clsx('m-4 bg-opacity-10', className)}
             variant={variant}
             corner={'rounded-small'}
         >

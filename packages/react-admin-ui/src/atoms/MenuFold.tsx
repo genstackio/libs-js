@@ -18,7 +18,7 @@ export function MenuFold({ className, label, icon, active, badges, items = [], c
                 padding={'small'}
                 elevation={0}
                 className={clsx(
-                    'mx-4 cursor-pointer',
+                    'mx-4 cursor-pointer transition duration-500',
                     open && 'mb-2.5 bg-opacity-5',
                     boxClass({ color: color, variant: open ? 'contained' : variant, hoverable: true }),
                     className,

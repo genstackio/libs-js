@@ -26,6 +26,9 @@ export interface WithCenter {
 export interface WithClassName {
     className?: class_name;
 }
+export interface WithHoverable {
+    hoverable?: flag;
+}
 export interface WithBoxColor {
     color?: box_color;
 }

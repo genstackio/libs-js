@@ -21,7 +21,9 @@ export function AppLayoutTemplate({ logo, menu, children, toolbar, ...props }: A
                     show ? 'translate-x-0' : '-translate-x-full',
                 )}
             >
-                <div className={'px-4 py-6 h-xxl shadow-toolbar flex items-center'}>{logo && <Image {...logo} />}</div>
+                <div className={'px-2 py-2 h-xxl shadow-toolbar flex items-center'}>
+                    {logo && <Image className={'flex-1'} {...logo} />}
+                </div>
                 {menu && <Menu items={menu} {...props} />}
             </div>
             <div className={clsx('flex-1 transition-all duration-300 ', show ? 'x-pl-drawer' : 'pl-0')}>

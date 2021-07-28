@@ -8,7 +8,17 @@ import BlockFooter, { BlockFooterProps } from './BlockFooter';
 import BlockContent, { BlockContentProps } from './BlockContent';
 import elevationClass from '../mappings/elevations';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
-import { WithBoxColor, WithChildren, WithClassName, WithImage, WithPadding, WithElevation, WithCorner } from '../withs';
+import {
+    WithBoxColor,
+    WithChildren,
+    WithClassName,
+    WithImage,
+    WithPadding,
+    WithElevation,
+    WithCorner,
+    WithActive,
+    WithHoverable,
+} from '../withs';
 
 export function Block({
     elevation = 1,
@@ -29,8 +39,10 @@ export function Block({
     variant = 'filled',
     onClick,
     buttons = [],
+    hoverable = false,
+    active = false,
 }: BlockProps) {
-    const v = 'header-contained' === variant ? 'filled' : variant;
+    const v = active ? 'contained' : 'header-contained' === variant ? 'filled' : variant;
     const box = useMemo(() => ({ color, variant: v }), [color, variant]);
     return (
         <BoxProvider value={box}>
@@ -40,7 +52,7 @@ export function Block({
                 className={clsx(
                     'overflow-hidden relative flex flex-col',
                     elevationClass(elevation),
-                    boxClass({ color, variant: v }),
+                    boxClass({ color, variant: v, hoverable }),
                     className,
                 )}
                 onClick={onClick}
@@ -78,7 +90,9 @@ export interface BaseBlockProps
         WithBoxColor,
         WithPadding,
         WithElevation,
-        WithCorner {
+        WithCorner,
+        WithActive,
+        WithHoverable {
     headerClassName?: class_name;
     contentClassName?: class_name;
     footerClassName?: class_name;

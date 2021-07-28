@@ -56,7 +56,7 @@ export const basic = s(Template, {
         {
             type: 'item',
             label: 'Calendar',
-            icon: 'calendar_today',
+            icon: 'fa-star',
             target: 'https://www.google.com/webhp?hl=fr&sa=X&ved=0ahUKEwj8oNu2_uvwAhUiBmMBHeFQB30QPAgI',
             active: false,
         },
