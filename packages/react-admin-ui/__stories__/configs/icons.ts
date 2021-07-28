@@ -16,6 +16,7 @@ import { faGooglePlusG } from '@fortawesome/free-brands-svg-icons/faGooglePlusG'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
 import { faRss } from '@fortawesome/free-solid-svg-icons/faRss';
+import { faPlusSquare } from '@fortawesome/free-regular-svg-icons/faPlusSquare';
 
 const icons = {
     fa: [
@@ -37,6 +38,7 @@ const icons = {
         faTwitter,
         faInstagram,
         faRss,
+        faPlusSquare,
     ],
 };
 
