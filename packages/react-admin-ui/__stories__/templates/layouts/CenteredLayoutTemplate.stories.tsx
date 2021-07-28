@@ -1,4 +1,4 @@
-import {s, a, args} from '../../utils';
+import { s, a, args } from '../../utils';
 import { CenteredLayoutTemplate } from '../../../src';
 
 export default {
