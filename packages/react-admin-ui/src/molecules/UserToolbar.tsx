@@ -36,7 +36,10 @@ export function UserToolbar({
 
     const userName = useMemo(() => `${user!.firstName} ${user!.lastName}`, [user]);
     const userEmail = useMemo(() => user!.email, [user]);
-    const userThumbnail = useMemo(() => ({ url: 'https://picsum.photos/40/40', alt: userName }), [user, userName]);
+    const userThumbnail = useMemo(
+        () => (user!.picture ? { url: user!.picture, alt: userName } : undefined),
+        [user, userName],
+    );
 
     const [search, toggleSearch] = useToggle();
     const baseIconClassName = 'my-1.5 mx-3 xs:mx-1';
@@ -66,6 +69,7 @@ export function UserToolbar({
                 description={userEmail}
                 image={userThumbnail}
                 className={clsx('ml-2.5 xs:ml-1', search && 'hidden')}
+                avatar
             />
         </div>
     );
