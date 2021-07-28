@@ -38,6 +38,7 @@ export type color = string;
 export type classes = { [key: string]: string };
 export type class_name = string;
 export type children = ReactNode;
+export type dynamic_children = children | ((data?: any) => children);
 export type rich_text = ReactNode;
 export type dropdown_item = { name?: string };
 export type choice_button_item = { label?: string; active?: flag; target?: target };

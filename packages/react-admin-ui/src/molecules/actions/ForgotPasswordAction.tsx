@@ -2,10 +2,10 @@ import ForgotPasswordForm, { ForgotPasswordFormProps } from '../forms/ForgotPass
 import useAction from '../../hooks/useAction';
 import { FormActionProps } from '../forms';
 
-export function ForgotPasswordAction({ onSuccess, ...props }: ForgotPasswordActionProps) {
+export function ForgotPasswordAction({ component: Component = ForgotPasswordForm, queryName = 'CHANGE_PASSWORD', onSuccess, prepare, ...props }: ForgotPasswordActionProps) {
     return (
-        <ForgotPasswordForm
-            {...useAction('CHANGE_PASSWORD', { onSuccess })}
+        <Component
+            {...useAction(queryName, { onSuccess, prepare })}
             onSendVerificationCode={/* todo use FORGOT_PASSWORD */ undefined}
             {...props}
         />
@@ -13,6 +13,7 @@ export function ForgotPasswordAction({ onSuccess, ...props }: ForgotPasswordActi
 }
 export interface ForgotPasswordActionProps extends ForgotPasswordFormProps, FormActionProps {
     onSuccess?: Function;
+    queryName?: string;
 }
 
 // noinspection JSUnusedGlobalSymbols

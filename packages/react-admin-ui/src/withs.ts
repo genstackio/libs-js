@@ -11,7 +11,7 @@ import {
     text_color,
     text_size,
     flag,
-    target,
+    target, dynamic_children,
 } from './types';
 import { padding } from './mappings/paddings';
 import { alignment } from './mappings/alignments';
@@ -34,6 +34,9 @@ export interface WithBoxVariant {
 export interface WithBox extends WithBoxColor, WithBoxVariant {}
 export interface WithChildren {
     children?: children;
+}
+export interface WithDynamicChildren {
+    children?: dynamic_children;
 }
 export interface WithName {
     name: string;

@@ -8,6 +8,7 @@ import FormFooter from '../../atoms/FormFooter';
 import {
     WithBoxColor,
     WithChildren,
+    WithDynamicChildren,
     WithClassName,
     WithDefaultValues,
     WithOnSubmit,
@@ -49,7 +50,7 @@ export function BaseForm({
         </Column>
     );
 }
-export interface InternalBaseFormProps extends BaseFormProps {
+export interface InternalBaseFormProps extends Omit<BaseFormProps, 'children'>, WithChildren {
     rhf: { handleSubmit: Function };
 }
 
@@ -57,7 +58,7 @@ export interface BaseFormProps
     extends WithClassName,
         WithOnSubmit,
         WithDefaultValues,
-        WithChildren,
+        WithDynamicChildren,
         WithTitle,
         WithSubtitle,
         WithBoxColor {

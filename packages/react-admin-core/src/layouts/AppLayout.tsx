@@ -8,6 +8,7 @@ import { menu_button_item } from '@genstackio/react-admin-ui/lib/types';
 export function AppLayout({
     userMenu,
     toolbarProps,
+    ...props
 }: AppLayoutProps) {
     const [user, , logout] = useUser();
 
@@ -24,4 +25,5 @@ export interface AppLayoutProps extends AppLayoutTemplateProps {
     toolbarProps?: AppToolbarProps;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default AppLayout;

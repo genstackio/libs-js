@@ -3,18 +3,20 @@ import useAction from '../../../hooks/useAction';
 import FormActionProps from '../../forms/FormActionProps';
 import useUser from '@genstackio/react-contexts/lib/hooks/useUser';
 
-export function CreateOrganizationAction({ onSuccess, ...props }: CreateOrganizationActionProps) {
+export function CreateOrganizationAction({ component: Component = CreateOrganizationForm, createQueryName = 'CREATE_ORGANIZATION', onSuccess, prepare, ...props }: CreateOrganizationActionProps) {
     const [user] = useUser();
     return (
-        <CreateOrganizationForm
-            {...useAction('CREATE_ORGANIZATION', { onSuccess })}
+        <Component
+            {...useAction(createQueryName, { onSuccess, prepare })}
             defaultValues={{ owner: user?.id }}
             {...props}
         />
     );
 }
 
-export interface CreateOrganizationActionProps extends CreateOrganizationFormProps, FormActionProps {}
+export interface CreateOrganizationActionProps extends CreateOrganizationFormProps, FormActionProps {
+    createQueryName?: string;
+}
 
 // noinspection JSUnusedGlobalSymbols
 export default CreateOrganizationAction;

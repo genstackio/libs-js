@@ -11,6 +11,7 @@ import { BaseFormProps } from './BaseForm';
 import useForm from '../../hooks/useForm';
 
 export function LoginForm({
+    children,
     className,
     onRegisterClick,
     onForgotPasswordClick,
@@ -41,7 +42,7 @@ export function LoginForm({
     );
 
     return (
-        <Form footer={footer} className={className}>
+        <Form customChildren={children} footer={footer} className={className}>
             <UsernameField {...field} required autoFocus />
             <div className={'mb-6'}>
                 <div className={'block text-sm mb-2'}>

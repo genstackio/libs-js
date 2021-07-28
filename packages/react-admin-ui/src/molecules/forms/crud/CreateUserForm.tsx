@@ -6,11 +6,11 @@ import PasswordField from '../../../atoms/fields/PasswordField';
 import TextField from '../../../atoms/fields/TextField';
 import { BaseFormProps } from '../BaseForm';
 
-export function CreateUserForm(props: CreateUserFormProps) {
+export function CreateUserForm({children, ...props}: CreateUserFormProps) {
     const { Form, SubmitButton, field } = useForm(props, 'create_user');
 
     return (
-        <Form>
+        <Form customChildren={children}>
             <EmailField {...field} required autoFocus />
             <LastNameField {...field} required />
             <FirstNameField {...field} required />

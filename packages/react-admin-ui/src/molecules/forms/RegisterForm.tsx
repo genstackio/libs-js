@@ -11,7 +11,7 @@ import { flag } from '../../types';
 import { BaseFormProps } from './BaseForm';
 import Clickable from '../../atoms/Clickable';
 
-export function RegisterForm({ onPrivacyPolicyClick, onLoginClick, socialLogins, ...props }: RegisterFormProps) {
+export function RegisterForm({ children, onPrivacyPolicyClick, onLoginClick, socialLogins, ...props }: RegisterFormProps) {
     const { Form, SubmitButton, field, tf, color } = useForm(props, 'register');
 
     const onFacebookClick = useCallback((event) => {
@@ -36,7 +36,7 @@ export function RegisterForm({ onPrivacyPolicyClick, onLoginClick, socialLogins,
     );
 
     return (
-        <Form footer={footer}>
+        <Form customChildren={children} footer={footer}>
             <div
                 className={
                     'py-2 leading-tight focus:outline-none focus:shadow-outline flex inline xs:flex-col space-x-3 xs:space-x-0'

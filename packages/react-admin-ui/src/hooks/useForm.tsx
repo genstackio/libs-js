@@ -27,13 +27,6 @@ export function useForm(
         [rhf, props, field, color],
     );
 
-    const Form = useCallback(
-        (props) => {
-            return <BaseForm {...form} {...props} />;
-        },
-        [form],
-    );
-
     const tf = useCallback(
         (k: string | string[], ...args) => {
             const xx = Array.isArray(k) ? k : [k];
@@ -60,12 +53,24 @@ export function useForm(
         [color, tf],
     );
 
+    const vars = useMemo(() => ({ form, field, t, tf, color: color as box_color, SubmitButton }), [form, field, t, tf, color, SubmitButton]);
+
+    const Form = useCallback(
+        ({customChildren = undefined, ...props}) => {
+            const computedChildren = customChildren ? (
+                'function' === typeof customChildren ? customChildren(vars) : customChildren) : props.children
+            ;
+            return <BaseForm {...form} {...props} children={computedChildren} />;
+        },
+        [form],
+    );
+
     if (name) {
         form['title'] = t([`form_${name}_title`, '']) || undefined;
         form['subtitle'] = t([`form_${name}_subtitle`, '']) || undefined;
     }
 
-    return { form, field, t, tf, color: color as box_color, Form, SubmitButton };
+    return {...vars, Form};
 }
 
 export default useForm;
