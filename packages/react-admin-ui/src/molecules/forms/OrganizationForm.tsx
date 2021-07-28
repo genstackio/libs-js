@@ -10,7 +10,7 @@ import EmailField from '../../atoms/fields/EmailField';
 import UrlField from '../../atoms/fields/UrlField';
 import { BaseFormProps } from './BaseForm';
 
-export function OrganizationForm({children, ...props}: OrganizationFormProps) {
+export function OrganizationForm({ children, ...props }: OrganizationFormProps) {
     const { Form, SubmitButton, field } = useForm(props, 'organization');
 
     return (

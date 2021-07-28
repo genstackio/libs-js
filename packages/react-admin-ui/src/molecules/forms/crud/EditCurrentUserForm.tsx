@@ -4,7 +4,7 @@ import LastNameField from '../../../atoms/fields/LastNameField';
 import FirstNameField from '../../../atoms/fields/FirstNameField';
 import { BaseFormProps } from '../../../molecules/forms/BaseForm';
 
-export function EditCurrentUserForm({children, ...props}: EditCurrentUserFormProps) {
+export function EditCurrentUserForm({ children, ...props }: EditCurrentUserFormProps) {
     const { Form, SubmitButton, field } = useForm(props, 'edit_current_user');
 
     return (

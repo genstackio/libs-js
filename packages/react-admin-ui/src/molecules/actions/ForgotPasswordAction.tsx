@@ -2,7 +2,13 @@ import ForgotPasswordForm, { ForgotPasswordFormProps } from '../forms/ForgotPass
 import useAction from '../../hooks/useAction';
 import { FormActionProps } from '../forms';
 
-export function ForgotPasswordAction({ component: Component = ForgotPasswordForm, queryName = 'CHANGE_PASSWORD', onSuccess, prepare, ...props }: ForgotPasswordActionProps) {
+export function ForgotPasswordAction({
+    component: Component = ForgotPasswordForm,
+    queryName = 'CHANGE_PASSWORD',
+    onSuccess,
+    prepare,
+    ...props
+}: ForgotPasswordActionProps) {
     return (
         <Component
             {...useAction(queryName, { onSuccess, prepare })}

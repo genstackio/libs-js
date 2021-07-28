@@ -11,7 +11,13 @@ import { flag } from '../../types';
 import { BaseFormProps } from './BaseForm';
 import Clickable from '../../atoms/Clickable';
 
-export function RegisterForm({ children, onPrivacyPolicyClick, onLoginClick, socialLogins, ...props }: RegisterFormProps) {
+export function RegisterForm({
+    children,
+    onPrivacyPolicyClick,
+    onLoginClick,
+    socialLogins,
+    ...props
+}: RegisterFormProps) {
     const { Form, SubmitButton, field, tf, color } = useForm(props, 'register');
 
     const onFacebookClick = useCallback((event) => {

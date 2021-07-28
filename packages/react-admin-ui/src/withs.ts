@@ -11,7 +11,8 @@ import {
     text_color,
     text_size,
     flag,
-    target, dynamic_children,
+    target,
+    dynamic_children,
 } from './types';
 import { padding } from './mappings/paddings';
 import { alignment } from './mappings/alignments';

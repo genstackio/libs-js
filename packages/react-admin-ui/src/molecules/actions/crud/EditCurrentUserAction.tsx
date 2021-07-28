@@ -2,18 +2,30 @@ import EditCurrentUserForm, { EditCurrentUserFormProps } from '../../forms/crud/
 import FormActionProps from '../../forms/FormActionProps';
 import Spinner from '../../../atoms/Spinner';
 import useUpdateAction from '../../../hooks/useUpdateAction';
-import {ComponentType, useCallback} from 'react';
+import { ComponentType, useCallback } from 'react';
 
-export function EditCurrentUserAction({ component: Component = EditCurrentUserForm, spinnerComponent, getQueryName = 'GET_USER', updateQueryName = 'UPDATE_USER', id, onSuccess, prepare, ...props }: EditCurrentUserActionProps) {
+export function EditCurrentUserAction({
+    component: Component = EditCurrentUserForm,
+    spinnerComponent,
+    getQueryName = 'GET_USER',
+    updateQueryName = 'UPDATE_USER',
+    id,
+    onSuccess,
+    prepare,
+    ...props
+}: EditCurrentUserActionProps) {
     prepare = useCallback(
-        (data: any) => prepare ? prepare(data) : ((data: any) => ({
-            id,
-            data: {
-                firstName: data.firstName,
-                lastName: data.lastName,
-                email: data.email,
-            },
-        }))(data),
+        (data: any) =>
+            prepare
+                ? prepare(data)
+                : ((data: any) => ({
+                      id,
+                      data: {
+                          firstName: data.firstName,
+                          lastName: data.lastName,
+                          email: data.email,
+                      },
+                  }))(data),
         [prepare, id],
     );
 

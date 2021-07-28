@@ -8,7 +8,7 @@ import GenderField from '../../atoms/fields/GenderField';
 import useForm from '../../hooks/useForm';
 import { BaseFormProps } from './BaseForm';
 
-export function UserProfileForm({children, ...props}: UserProfileFormProps) {
+export function UserProfileForm({ children, ...props }: UserProfileFormProps) {
     const { Form, SubmitButton, field } = useForm(props, 'user_profile');
 
     return (

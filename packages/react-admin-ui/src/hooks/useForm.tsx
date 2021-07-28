@@ -53,13 +53,19 @@ export function useForm(
         [color, tf],
     );
 
-    const vars = useMemo(() => ({ form, field, t, tf, color: color as box_color, SubmitButton }), [form, field, t, tf, color, SubmitButton]);
+    const vars = useMemo(
+        () => ({ form, field, t, tf, color: color as box_color, SubmitButton }),
+        [form, field, t, tf, color, SubmitButton],
+    );
 
     const Form = useCallback(
-        ({customChildren = undefined, ...props}) => {
-            const computedChildren = customChildren ? (
-                'function' === typeof customChildren ? customChildren(vars) : customChildren) : props.children
-            ;
+        ({ customChildren = undefined, ...props }) => {
+            const computedChildren = customChildren
+                ? 'function' === typeof customChildren
+                    ? customChildren(vars)
+                    : customChildren
+                : props.children;
+            /* eslint react/no-children-prop: 0 */
             return <BaseForm {...form} {...props} children={computedChildren} />;
         },
         [form],
@@ -70,7 +76,7 @@ export function useForm(
         form['subtitle'] = t([`form_${name}_subtitle`, '']) || undefined;
     }
 
-    return {...vars, Form};
+    return { ...vars, Form };
 }
 
 export default useForm;

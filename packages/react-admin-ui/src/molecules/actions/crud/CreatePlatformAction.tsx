@@ -2,7 +2,13 @@ import CreatePlatformForm, { CreatePlatformFormProps } from '../../forms/crud/Cr
 import useAction from '../../../hooks/useAction';
 import FormActionProps from '../../forms/FormActionProps';
 
-export function CreatePlatformAction({ component: Component = CreatePlatformForm, createQueryName = 'CREATE_PLATFORM', onSuccess, prepare, ...props }: CreatePlatformActionProps) {
+export function CreatePlatformAction({
+    component: Component = CreatePlatformForm,
+    createQueryName = 'CREATE_PLATFORM',
+    onSuccess,
+    prepare,
+    ...props
+}: CreatePlatformActionProps) {
     return <Component {...useAction(createQueryName, { onSuccess, prepare })} defaultValues={{}} {...props} />;
 }
 

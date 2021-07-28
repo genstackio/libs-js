@@ -3,7 +3,7 @@ import NameField from '../../../atoms/fields/NameField';
 import { BaseFormProps } from '../BaseForm';
 import CodeField from '../../../atoms/fields/CodeField';
 
-export function CreateOrganizationForm({children, ...props}: CreateOrganizationFormProps) {
+export function CreateOrganizationForm({ children, ...props }: CreateOrganizationFormProps) {
     const { Form, SubmitButton, field } = useForm(props, 'create_organization');
 
     return (

@@ -2,7 +2,13 @@ import UserProfileForm, { UserProfileFormProps } from '../forms/UserProfileForm'
 import useAction from '../../hooks/useAction';
 import FormActionProps from '../forms/FormActionProps';
 
-export function UserProfileAction({ component: Component = UserProfileForm, queryName = 'USER_PROFILE', onSuccess, prepare, ...props }: UserProfileActionProps) {
+export function UserProfileAction({
+    component: Component = UserProfileForm,
+    queryName = 'USER_PROFILE',
+    onSuccess,
+    prepare,
+    ...props
+}: UserProfileActionProps) {
     return <Component {...useAction(queryName, { onSuccess, prepare })} {...props} />;
 }
 

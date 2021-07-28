@@ -5,7 +5,7 @@ import FirstNameField from '../../../atoms/fields/FirstNameField';
 import TextField from '../../../atoms/fields/TextField';
 import { BaseFormProps } from '../BaseForm';
 
-export function EditUserForm({children, ...props}: EditUserFormProps) {
+export function EditUserForm({ children, ...props }: EditUserFormProps) {
     const { Form, SubmitButton, field } = useForm(props, 'edit_user');
 
     return (

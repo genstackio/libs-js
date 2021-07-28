@@ -2,7 +2,13 @@ import CreateTokenForm, { CreateTokenFormProps } from '../../forms/crud/CreateTo
 import useAction from '../../../hooks/useAction';
 import FormActionProps from '../../forms/FormActionProps';
 
-export function CreateTokenAction({ component: Component = CreateTokenForm, createQueryName = 'CREATE_TOKEN', onSuccess, prepare, ...props }: CreateTokenActionProps) {
+export function CreateTokenAction({
+    component: Component = CreateTokenForm,
+    createQueryName = 'CREATE_TOKEN',
+    onSuccess,
+    prepare,
+    ...props
+}: CreateTokenActionProps) {
     return <Component {...useAction(createQueryName, { onSuccess, prepare })} defaultValues={{}} {...props} />;
 }
 
