@@ -60,7 +60,7 @@ export type menu_item = {
     type?: 'section' | 'item' | 'menu';
     label: rich_text;
     description?: rich_text;
-    target: target;
+    target?: target;
     icon?: string;
     active?: flag;
     badges?: badge[];

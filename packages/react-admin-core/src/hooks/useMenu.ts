@@ -25,7 +25,7 @@ export function useMenu(name: string, factory: (name: string, ctx: menu_ctx) => 
         [t, location, history],
     );
 
-    return useMemo(() => factory(name, { t, user, history }).map(itemMapper), [factory, name, t, user]);
+    return useMemo(() => factory(name, { t, user, history }).map(itemMapper), [itemMapper, factory, name, t, user]);
 }
 
 export default useMenu;
