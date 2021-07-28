@@ -13,12 +13,13 @@ export function useMenu(name: string, factory: (name: string, ctx: menu_ctx) => 
 
     const itemMapper = useCallback(
         (item) => {
+            ('string' === typeof item['label']) && (item['label'] = t(item['label']));
             if ('item' === item['type']) {
-                'string' === typeof item['label'] && (item['label'] = t(item['label']));
                 item['active'] = location.pathname === item['target'];
             }
             if ('string' === typeof item['target']) {
-                item['target'] = () => history.push(item['target']);
+                const target = item['target'];
+                item['target'] = () => history.push(target);
             }
             return item;
         },
