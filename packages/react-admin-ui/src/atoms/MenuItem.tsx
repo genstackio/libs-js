@@ -22,8 +22,8 @@ export function MenuItem({ className, label, icon, target, active = false, badge
         >
             <div className={'flex items-center space-x-4'}>
                 {icon && (
-                    <div className={'w-xs'}>
-                        <Icon size={'xl'} icon={icon} />
+                    <div className={'w-6 flex'}>
+                        <Icon className={'flex-1'} icon={icon} />
                     </div>
                 )}
                 <Text text={label} variant={'description'} />

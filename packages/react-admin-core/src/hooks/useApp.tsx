@@ -33,7 +33,11 @@ function ThemeProvider({ value, children }: any) {
     value &&
         value.theme &&
         value.theme !== 'default' &&
-        (children = <div className={`theme-${value.theme}`}>{children}</div>);
+        (children = (
+            <div className={'theme-' === value.theme.slice(0, 6) ? value.theme : `theme-${value.theme}`}>
+                {children}
+            </div>
+        ));
     return children;
 }
 
