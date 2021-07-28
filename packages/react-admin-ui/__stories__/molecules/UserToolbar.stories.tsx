@@ -43,3 +43,23 @@ export const withAll = s(Template, {
         </div>
     ),
 });
+
+export const withSomeButtons = s(Template, {
+    user: { firstName: 'Alphonse', lastName: 'Daudet', email: 'me@email.com' },
+    fullScreenEnabled: true,
+    shoppingCartEnabled: true,
+    notificationsEnabled: true,
+    languageEnabled: true,
+});
+
+export const withAllButtons = s(Template, {
+    user: { firstName: 'Alphonse', lastName: 'Daudet', email: 'me@email.com' },
+    fullScreenEnabled: true,
+    shoppingCartEnabled: true,
+    notificationsEnabled: true,
+    darkModeEnabled: true,
+    messagesEnabled: true,
+    searchBarEnabled: true,
+    languageEnabled: true,
+    favoritesEnabled: true,
+});
