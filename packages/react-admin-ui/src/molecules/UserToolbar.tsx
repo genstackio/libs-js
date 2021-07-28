@@ -12,9 +12,24 @@ import SearchToolbarItem from '../atoms/toolbar-items/SearchToolbarItem';
 import ShoppingCartToolbarItem from '../atoms/toolbar-items/ShoppingCartToolbarItem';
 import { useToggle } from '../hooks/useToggle';
 import { WithChildren, WithClassName } from '../withs';
-import { menu_button_item } from '../types';
+import { menu_button_item, flag } from '../types';
 
-export function UserToolbar({ className, user, onSearch, onLogout, userMenu = [], children }: UserToolbarProps) {
+export function UserToolbar({
+    className,
+    user,
+    onSearch,
+    onLogout,
+    userMenu = [],
+    fullScreenEnabled = false,
+    messagesEnabled = false,
+    shoppingCartEnabled = false,
+    darkModeEnabled = false,
+    favoritesEnabled = false,
+    notificationsEnabled = false,
+    searchBarEnabled = false,
+    languageEnabled = false,
+    children,
+}: UserToolbarProps) {
     const { t } = useTranslation();
 
     const items = useMemo(() => [...userMenu, { target: onLogout, label: t('button_logout_label') }], [onLogout]);
@@ -30,19 +45,21 @@ export function UserToolbar({ className, user, onSearch, onLogout, userMenu = []
     return (
         <div className={clsx('w-full flex items-center', className)}>
             <div className={clsx('flex-1', search && 'hidden')}>{children || ''}</div>
-            <LanguageToolbarItem className={toolbarIconClassName} />
-            <SearchToolbarItem
-                active={search}
-                onToggle={toggleSearch}
-                onChange={onSearch}
-                className={baseIconClassName}
-            />
-            <NotificationToolbarItem className={toolbarIconClassName} />
-            <FavoriteToolbarItem className={toolbarIconClassName} />
-            <DarkModeToolbarItem className={toolbarIconClassName} />
-            <ShoppingCartToolbarItem className={toolbarIconClassName} />
-            <MessageToolbarItem className={toolbarIconClassName} />
-            <FullscreenToolbarItem className={toolbarIconClassName} />
+            {languageEnabled && <LanguageToolbarItem className={toolbarIconClassName} />}
+            {searchBarEnabled && (
+                <SearchToolbarItem
+                    active={search}
+                    onToggle={toggleSearch}
+                    onChange={onSearch}
+                    className={baseIconClassName}
+                />
+            )}
+            {notificationsEnabled && <NotificationToolbarItem className={toolbarIconClassName} />}
+            {favoritesEnabled && <FavoriteToolbarItem className={toolbarIconClassName} />}
+            {darkModeEnabled && <DarkModeToolbarItem className={toolbarIconClassName} />}
+            {shoppingCartEnabled && <ShoppingCartToolbarItem className={toolbarIconClassName} />}
+            {messagesEnabled && <MessageToolbarItem className={toolbarIconClassName} />}
+            {fullScreenEnabled && <FullscreenToolbarItem className={toolbarIconClassName} />}
             <MenuButton
                 items={items}
                 label={userName}
@@ -59,6 +76,14 @@ export interface UserToolbarProps extends WithClassName, WithChildren {
     onLogout?: Function;
     onSearch?: Function;
     userMenu?: menu_button_item[];
+    fullScreenEnabled?: flag;
+    messagesEnabled?: flag;
+    shoppingCartEnabled?: flag;
+    darkModeEnabled?: flag;
+    favoritesEnabled?: flag;
+    notificationsEnabled?: flag;
+    searchBarEnabled?: flag;
+    languageEnabled?: flag;
 }
 
 export default UserToolbar;
