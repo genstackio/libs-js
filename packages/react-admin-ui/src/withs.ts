@@ -35,6 +35,9 @@ export interface WithBoxColor {
 export interface WithBoxVariant {
     variant?: box_variant;
 }
+export interface WithVertical {
+    vertical?: flag;
+}
 export interface WithBox extends WithBoxColor, WithBoxVariant {}
 export interface WithChildren {
     children?: children;

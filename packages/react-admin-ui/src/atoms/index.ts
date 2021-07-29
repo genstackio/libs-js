@@ -28,6 +28,7 @@ export * from './Form';
 export * from './FormHeader';
 export * from './FormFooter';
 export * from './LocaleChange';
+export * from './Items';
 export * from './MenuFold';
 export * from './MenuItem';
 export * from './Panel';

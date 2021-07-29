@@ -13,16 +13,10 @@ export function Menu({ className, items = [], color = 'primary', variant = 'cont
             {items.map(({ type, ...item }, index) => (
                 <Fragment key={index}>
                     {'section' === type && (
-                        <SectionHeader
-                            title={item.label}
-                            subtitle={item.description}
-                            color={color}
-                            variant={variant}
-                            key={index}
-                        />
+                        <SectionHeader title={item.label} subtitle={item.description} color={color} variant={variant} />
                     )}
-                    {'menu' === type && <MenuFold key={index} color={color} variant={'light'} {...item} />}
-                    {'item' === type && <MenuItem key={index} color={color} variant={'light'} {...item} />}
+                    {'menu' === type && <MenuFold color={color} variant={'light'} {...item} />}
+                    {'item' === type && <MenuItem color={color} variant={'light'} {...item} />}
                 </Fragment>
             ))}
         </div>

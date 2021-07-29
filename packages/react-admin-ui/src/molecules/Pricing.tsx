@@ -16,9 +16,7 @@ export function Pricing({ className, items = [] }: PricingProps) {
                     image={item.image}
                     contentClassName={'space-y-3 flex justify-center items-center flex-col pr-4 pl-4'}
                 >
-                    <div key={index} className={'uppercase'}>
-                        {item && <Text text={item.name} variant={'title4'} />}
-                    </div>
+                    <div className={'uppercase'}>{item && <Text text={item.name} variant={'title4'} />}</div>
                     <div
                         className={clsx(
                             boxClass({ color: item.color, variant: item.variant }),
