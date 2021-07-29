@@ -75,7 +75,14 @@ export type chart_series = chart_serie[];
 export type avatar_item = { image?: image; name: string; shape?: shape; size?: size; status?: status };
 export type summary_item = { color: box_color; unit?: string; value?: string; percentage: number; icon?: icon };
 export type breadcrumb_item = { label?: rich_text; target?: target };
-export type list_column = { id: string; label?: rich_text; render?: Function; format?: Function };
+export type list_column = {
+    id: string;
+    label?: rich_text;
+    render?: Function;
+    format?: Function;
+    width?: number;
+    [key: string]: any;
+};
 export type list_action = string | any;
 export type list_global_action = string | any;
 export type list = { columns?: list_column[]; actions?: list_action[]; globalActions?: list_global_action[] };
