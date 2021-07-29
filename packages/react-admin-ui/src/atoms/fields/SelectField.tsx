@@ -3,10 +3,21 @@ import useField from '../../hooks/useField';
 import Select from 'react-select';
 import { flag, select_item, register } from '../../types';
 import { WithClassName } from '../../withs';
+import { useCallback } from 'react';
 
-export function SelectField({ className, values = [], ...props }: SelectFieldProps) {
+export function SelectField({ className, values = [], onChange, ...props }: SelectFieldProps) {
     const { name, label, error, helper, disabled, register, placeholder, options, defaultValue, extra } =
         useField(props);
+    const xxx = register() || {};
+    const originalOnChange = xxx.onChange;
+    xxx.onChange = useCallback(
+        (a) => {
+            const z = { target: { value: a.value } };
+            originalOnChange && originalOnChange(z);
+            onChange && onChange(z);
+        },
+        [originalOnChange, onChange],
+    );
     return (
         <FieldSet name={name} label={label} options={options} error={error} helper={helper} className={className}>
             <Select
@@ -14,7 +25,7 @@ export function SelectField({ className, values = [], ...props }: SelectFieldPro
                 isDisabled={disabled}
                 name={name}
                 defaultValue={defaultValue}
-                {...register()}
+                {...xxx}
                 placeholder={placeholder}
                 {...extra}
             />
