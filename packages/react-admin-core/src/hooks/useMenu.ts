@@ -13,7 +13,7 @@ export function useMenu(name: string, factory: (name: string, ctx: menu_ctx) => 
 
     const itemMapper = useCallback(
         (item) => {
-            ('string' === typeof item['label']) && (item['label'] = t(item['label']));
+            'string' === typeof item['label'] && (item['label'] = t(item['label']));
             if ('item' === item['type']) {
                 item['active'] = location.pathname === item['target'];
             }

@@ -22,3 +22,9 @@ export type breadcrumbs_ctx = {
     history: any;
     id?: string;
 };
+
+export type list_ctx = {
+    t: Function;
+    user: any;
+    history: any;
+};
