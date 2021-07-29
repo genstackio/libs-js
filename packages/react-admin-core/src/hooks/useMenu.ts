@@ -5,7 +5,12 @@ import { menu_item } from '@genstackio/react-admin-ui/lib/types';
 import { useHistory, useLocation } from 'react-router-dom';
 import { menu_ctx } from '../types';
 
-export function useMenu(name: string, factory: (name: string, ctx: menu_ctx) => menu_item[]) {
+export function useMenu(
+    name: string,
+    factory: (name: string, ctx: menu_ctx) => menu_item[],
+    {}: any = {},
+    forcedMenu?: menu_item[],
+) {
     const [user] = useUser();
     const history = useHistory();
     const location = useLocation();
@@ -26,7 +31,10 @@ export function useMenu(name: string, factory: (name: string, ctx: menu_ctx) => 
         [t, location, history],
     );
 
-    return useMemo(() => factory(name, { t, user, history }).map(itemMapper), [itemMapper, factory, name, t, user]);
+    return useMemo(
+        () => forcedMenu || factory(name, { t, user, history }).map(itemMapper),
+        [itemMapper, factory, name, t, user, forcedMenu],
+    );
 }
 
 export default useMenu;

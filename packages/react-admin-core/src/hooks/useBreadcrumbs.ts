@@ -9,12 +9,16 @@ export function useBreadcrumbs(
     name: string,
     factory: (name: string, ctx: breadcrumbs_ctx) => breadcrumb_item[],
     { id }: { id?: string } = {},
+    forcedBreadcrumbs?: breadcrumb_item[],
 ) {
     const [user] = useUser();
     const history = useHistory();
     const { t } = useTranslation();
 
-    return useMemo(() => factory(name, { t, user, history, id }), [factory, name, t, user, id]);
+    return useMemo(
+        () => forcedBreadcrumbs || factory(name, { t, user, history, id }),
+        [factory, name, t, user, id, forcedBreadcrumbs],
+    );
 }
 
 export default useBreadcrumbs;
