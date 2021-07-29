@@ -1,5 +1,6 @@
 import { args, s, a } from '../../utils';
 import { SelectField } from '../../../src';
+import { useForm } from 'react-hook-form';
 
 export default {
     title: 'Atoms/fields/SelectField',
@@ -20,9 +21,28 @@ export default {
     }),
 };
 
-const Template = (args) => <SelectField {...args} />;
+const Template = (args) => {
+    const { control } = useForm();
+    return <SelectField {...args} control={control} />;
+};
 
 export const basic = s(Template, {
+    values: [
+        { value: 1, label: 'First value' },
+        {
+            value: 2,
+            label: (
+                <p>
+                    Second <b>value</b>
+                </p>
+            ),
+        },
+        { value: 3, label: 'Third value' },
+    ],
+});
+
+export const withDefaultValue = s(Template, {
+    defaultValue: 3,
     values: [
         { value: 1, label: 'First value' },
         {

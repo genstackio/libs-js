@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import clsx from 'clsx';
-import { icon, register, rich_text } from '../types';
+import { icon, register, control, rich_text } from '../types';
 import { useTranslation } from 'react-i18next';
 import Icon from '../atoms/Icon';
 
@@ -29,6 +29,7 @@ export function useField(
         label,
         /* eslint @typescript-eslint/no-empty-function: 0 */
         register = (name: string, options: any) => {},
+        control,
         field,
         variant,
         ...extra
@@ -65,6 +66,7 @@ export function useField(
         undefined;
 
     return {
+        control,
         className,
         name,
         label,
@@ -122,6 +124,7 @@ export interface field_def_params {
     label?: string;
     placeholder?: string;
     register?: register;
+    control?: control;
     field?: boolean;
     [key: string]: any;
 }

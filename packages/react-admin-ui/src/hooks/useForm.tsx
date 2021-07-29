@@ -15,11 +15,12 @@ export function useForm(
     const { t } = useTranslation();
     const {
         register,
+        control,
         formState: { errors: rhfErrors },
     } = rhf;
     const field = useMemo(
-        () => ({ register, errors: { ...rhfErrors, ...errors }, defaultValues, disabled: submitting }),
-        [register, rhfErrors, errors, defaultValues, submitting],
+        () => ({ register, control, errors: { ...rhfErrors, ...errors }, defaultValues, disabled: submitting }),
+        [register, control, rhfErrors, errors, defaultValues, submitting],
     );
 
     const form = useMemo(

@@ -1,4 +1,4 @@
 export function DefaultLoadingScreen() {
-    return <div>Loading...</div>;
+    return <div />;
 }
 export default DefaultLoadingScreen;

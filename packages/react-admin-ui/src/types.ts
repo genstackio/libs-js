@@ -105,6 +105,7 @@ export type screen_header_item = { label?: rich_text; target?: target };
 export type text_component = 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
 export type icon = ReactNode;
 export type register = ((name: string, options?: any) => any) | any;
+export type control = Function | any;
 export type flag = boolean;
 export type pricing_item = {
     color?: box_color;
