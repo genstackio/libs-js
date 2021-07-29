@@ -7,6 +7,7 @@ import BlockHeader, { BlockHeaderProps } from './BlockHeader';
 import BlockFooter, { BlockFooterProps } from './BlockFooter';
 import BlockContent, { BlockContentProps } from './BlockContent';
 import elevationClass from '../mappings/elevations';
+import hoverAnimationClass from '../mappings/hover-animations';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
 import {
     WithBoxColor,
@@ -18,6 +19,7 @@ import {
     WithCorner,
     WithActive,
     WithHoverable,
+    WithHoverAnimation,
 } from '../withs';
 
 export function Block({
@@ -40,6 +42,7 @@ export function Block({
     onClick,
     buttons = [],
     hoverable = false,
+    hoverAnimation,
     active = false,
 }: BlockProps) {
     const v = active ? 'contained' : 'header-contained' === variant ? 'filled' : variant;
@@ -52,6 +55,7 @@ export function Block({
                 className={clsx(
                     'overflow-hidden relative flex flex-col',
                     elevationClass(elevation),
+                    hoverAnimationClass(hoverAnimation),
                     boxClass({ color, variant: v, hoverable }),
                     className,
                 )}
@@ -92,7 +96,8 @@ export interface BaseBlockProps
         WithElevation,
         WithCorner,
         WithActive,
-        WithHoverable {
+        WithHoverable,
+        WithHoverAnimation {
     headerClassName?: class_name;
     contentClassName?: class_name;
     footerClassName?: class_name;
