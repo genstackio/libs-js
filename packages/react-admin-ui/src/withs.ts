@@ -19,6 +19,7 @@ import { alignment } from './mappings/alignments';
 import { elevation } from './mappings/elevations';
 import { corner } from './mappings/corners';
 import { status } from './mappings/statuses';
+import { hover_animation } from './mappings/hover-animations';
 
 export interface WithCenter {
     center?: flag;
@@ -159,4 +160,7 @@ export interface WithOverline {
 }
 export interface WithBuddyStatus {
     status?: status;
+}
+export interface WithHoverAnimation {
+    hoverAnimation?: hover_animation;
 }
