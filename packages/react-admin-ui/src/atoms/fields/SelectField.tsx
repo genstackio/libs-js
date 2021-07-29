@@ -17,7 +17,6 @@ export function SelectField({ className, values = [], onChange: parentOnChange, 
         },
         [parentOnChange],
     );
-
     return (
         <FieldSet name={name} label={label} options={options} error={error} helper={helper} className={className}>
             <Controller
