@@ -10,6 +10,7 @@ export function SelectField({ className, values = [], onChange, ...props }: Sele
         useField(props);
     const xxx = register() || {};
     const originalOnChange = xxx.onChange;
+
     xxx.onChange = useCallback(
         (a) => {
             const z = { target: { value: a.value } };
