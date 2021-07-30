@@ -205,7 +205,11 @@ export function useAppContext({
     }, [i18nFactory, locale, translations]);
 
     const localesProviderValue: locales_context_value = useMemo(
-        () => ({ locales: locales || [], default: defaultLocale, fallback: fallbackLocale }),
+        () => ({
+            locales: (locales || []).map((x) => ({ ...x, label: i18n.t(x.label) })),
+            default: defaultLocale,
+            fallback: fallbackLocale,
+        }),
         [locales, defaultLocale, fallbackLocale],
     );
     // noinspection JSUnusedLocalSymbols

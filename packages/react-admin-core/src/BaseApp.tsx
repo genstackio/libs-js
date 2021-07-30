@@ -7,7 +7,6 @@ import { route } from './types';
 import { AppProvider, importer_context_params, useAppContext } from '@genstackio/react-contexts';
 import coreTranslations from './configs/translations';
 import adminUiTranslations from '@genstackio/react-admin-ui/lib/configs/translations';
-import { useTranslation } from 'react-i18next';
 
 export function BaseApp({
     prefix = 'app',
@@ -32,7 +31,6 @@ export function BaseApp({
         () => [...(Array.isArray(translations) ? translations : [translations]), coreTranslations, adminUiTranslations],
         [translations],
     );
-    const { t } = useTranslation();
     const {
         api,
         baseTheme,
@@ -53,7 +51,7 @@ export function BaseApp({
         translations: computedTranslations,
         locales: locales.map((l) => ({
             id: l,
-            label: t(`locale_${(l || 'unknown').replace('-', '_').toLowerCase()}`),
+            label: `locale_${(l || 'unknown').replace('-', '_').toLowerCase()}`,
         })),
         defaultLocale,
         fallbackLocale,
