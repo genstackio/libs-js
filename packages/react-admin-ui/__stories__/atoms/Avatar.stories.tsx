@@ -10,6 +10,8 @@ export default {
         size: args.size,
         shape: args.shape,
         status: args.status,
+        title: args.title,
+        subtitle: args.subtitle,
     }),
 };
 
@@ -17,6 +19,16 @@ const Template = (args) => <Avatar {...args} />;
 
 export const basic = s(Template, {
     name: 'John Doe',
+    image: {
+        url: 'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        alt: 'profile picture',
+    },
+});
+
+export const withTitle = s(Template, {
+    name: 'John Doe',
+    title: 'Marko JENCO',
+    subtitle: 'Markjecno@gmail.com',
     image: {
         url: 'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
         alt: 'profile picture',
