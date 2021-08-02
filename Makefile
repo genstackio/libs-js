@@ -82,6 +82,9 @@ pr:
 publish:
 	@yarn --silent lerna publish
 
+qrcode-generator:
+	@cd ./packages/qrcode-generator && mkdir -p generated && ./bin/qrcode-generator __fixtures__/$(c).json > generated/$(t).svg
+
 start-react-admin-core:
 	@make package-storybook p=react-admin-core
 start-react-admin-ui:
@@ -111,6 +114,7 @@ watch-figma-plugin-react-admin:
 		pdf-generator \
 		pr \
 		publish \
+		qrcode-generator \
 		start-react-admin-core start-react-admin-ui \
 		test test-local test-only \
 		watch-figma-plugin-react-admin

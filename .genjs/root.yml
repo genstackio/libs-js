@@ -16,6 +16,7 @@ vars:
     targets:
       migrate: "true"
       pdf-generator: cd ./packages/pdf-generator && mkdir -p generated && ./bin/pdf-generator __fixtures__/$(c).json generated/$(t).pdf
+      qrcode-generator: cd ./packages/qrcode-generator && mkdir -p generated && ./bin/qrcode-generator __fixtures__/$(c).json > generated/$(t).svg
       start-react-admin-ui: make package-storybook p=react-admin-ui
       start-react-admin-core: make package-storybook p=react-admin-core
       format: yarn lint
