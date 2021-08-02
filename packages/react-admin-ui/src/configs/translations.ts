@@ -160,6 +160,13 @@ export default {
             form_register_login_question: 'Déjà un compte ?',
             form_register_login_label: 'Je me connecte',
 
+            form_unlock_title: 'Déverrouillez votre mot de passe',
+            form_unlock_subtitle: 'Saisissez votre mot de passe',
+            form_unlock_password_label: 'Se souvenir',
+            form_unlock_submit_label: 'Je crée mon compte',
+
+            form_unlock_password_send_otp_submit_label: 'Déverrouillez',
+
             form_forgot_password_send_otp_title: 'Mot de passe oublié',
             form_forgot_password_send_otp_subtitle: 'Merci de saisir votre numéro de mobile',
             form_forgot_password_send_otp_submit_label: 'Envoyer le code',
