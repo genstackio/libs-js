@@ -27,6 +27,7 @@ export * from './FlagIcon';
 export * from './Form';
 export * from './FormHeader';
 export * from './FormFooter';
+export * from './Frame';
 export * from './LocaleChange';
 export * from './Items';
 export * from './MenuFold';
