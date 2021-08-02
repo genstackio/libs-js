@@ -7,12 +7,17 @@ import Icon from '../../atoms/Icon';
 import textClass from '../../utils/textClass';
 import { menu_item } from '../../types';
 import { WithBox, WithChildren, WithLogo } from '../../withs';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 
 export function AppLayoutTemplate({ logo, menu, children, toolbar, ...props }: AppLayoutTemplateProps) {
-    const [show, setShow] = useState(true);
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const [show, setShow] = useState(!isMobile);
     const handleClick = useCallback(() => {
         setShow(!show);
     }, [setShow, show]);
+    console.log(show);
     return (
         <div className={'flex h-screen'}>
             <div
