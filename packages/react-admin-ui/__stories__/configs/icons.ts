@@ -17,6 +17,7 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
 import { faRss } from '@fortawesome/free-solid-svg-icons/faRss';
 import { faPlusSquare } from '@fortawesome/free-regular-svg-icons/faPlusSquare';
+import { faEnvelopeOpenText } from '@fortawesome/free-solid-svg-icons/faEnvelopeOpenText';
 
 const icons = {
     fa: [
@@ -39,6 +40,7 @@ const icons = {
         faInstagram,
         faRss,
         faPlusSquare,
+        faEnvelopeOpenText,
     ],
 };
 
