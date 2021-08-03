@@ -1,30 +1,16 @@
 import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import clsx from 'clsx';
-import Button from '../atoms/Button';
-import EmailField from '../atoms/fields/EmailField';
 import Image from '../atoms/Image';
 import Row from '../atoms/Row';
 import Text from '../atoms/Text';
 import { rich_text } from '../types';
 import { WithBoxColor, WithImage, WithText, WithTitle } from '../withs';
-import { useTranslation } from 'react-i18next';
 import Divider from '../atoms/Divider';
 import Block from '../atoms/Block';
+import { NewsletterAction } from '../molecules/actions/NewsletterAction';
 
-export function Newsletter({ title, text, btnLabel, imageLeft = false, image, color = 'primary' }: NewsletterProps) {
-    const { t } = useTranslation();
-    const { handleSubmit, register } = useForm();
-    const [success, setSuccess] = useState(false);
-
-    const onSubmit = useCallback(
-        (data) => {
-            //TODO: implement Api call
-            setSuccess(true);
-        },
-        [setSuccess],
-    );
-
+export function Newsletter({ title, text, imageLeft = false, image, color = 'primary', onAfterSubscribe }: NewsletterProps) {
     return (
         <Row
             className={clsx(
@@ -42,24 +28,7 @@ export function Newsletter({ title, text, btnLabel, imageLeft = false, image, co
                     </div>
                 )}
                 {text && <Text className={'py-3 text-center'} text={text} variant={'text'} />}
-                {success && (
-                    <Text
-                        variant={'text'}
-                        className={'py-3 text-center'}
-                        text={t('newsletter_success_msg')}
-                        color={'success'}
-                    />
-                )}
-                <div>
-                    {btnLabel && (
-                        <form className={'flex xs:flex-col items-center mt-3'} onSubmit={handleSubmit(onSubmit)}>
-                            <EmailField required register={register} variant={'outlined'} className={'min-w-full'} />
-                            <Button color={color} variant={'contained'} className={'w-auto xs:w-full mt-4'}>
-                                {btnLabel}
-                            </Button>
-                        </form>
-                    )}
-                </div>
+                <NewsletterAction onSuccess={onAfterSubscribe} />
             </Block>
             <div className={'flex-1'}>{image && <Image {...image} objectFit={'contain'} />}</div>
         </Row>
@@ -67,8 +36,9 @@ export function Newsletter({ title, text, btnLabel, imageLeft = false, image, co
 }
 
 export interface NewsletterProps extends WithImage, WithText, WithTitle, WithBoxColor {
-    imageLeft?: boolean;
+    imageLeft?: flag;
     btnLabel?: rich_text;
+    onAfterSubscribe?: Function;
 }
 
 export default Newsletter;
