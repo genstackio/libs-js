@@ -4,7 +4,7 @@ import FormActionProps from '../forms/FormActionProps';
 
 export function NewsletterAction({
     component: Component = NewsletterForm,
-    queryName = 'ADD_TO_NEWSLETTER',
+    queryName = 'SUBSCRIBE_NEWSLETTER',
     onSuccess,
     prepare,
     ...props
