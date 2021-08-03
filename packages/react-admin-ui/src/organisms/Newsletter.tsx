@@ -10,7 +10,7 @@ import Divider from '../atoms/Divider';
 import Block from '../atoms/Block';
 import { NewsletterAction } from '../molecules/actions/NewsletterAction';
 
-export function Newsletter({ title, text, imageLeft = false, image, color = 'primary' }: NewsletterProps) {
+export function Newsletter({ title, text, imageLeft = false, image, color = 'primary', onAfterSubscribe }: NewsletterProps) {
     return (
         <Row
             className={clsx(
@@ -28,7 +28,7 @@ export function Newsletter({ title, text, imageLeft = false, image, color = 'pri
                     </div>
                 )}
                 {text && <Text className={'py-3 text-center'} text={text} variant={'text'} />}
-                <NewsletterAction></NewsletterAction>
+                <NewsletterAction onSuccess={onAfterSubscribe} />
             </Block>
             <div className={'flex-1'}>{image && <Image {...image} objectFit={'contain'} />}</div>
         </Row>
@@ -37,6 +37,7 @@ export function Newsletter({ title, text, imageLeft = false, image, color = 'pri
 
 export interface NewsletterProps extends WithImage, WithText, WithTitle, WithBoxColor {
     imageLeft?: boolean;
+    onAfterSubscribe?: Function;
 }
 
 export default Newsletter;
