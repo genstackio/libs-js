@@ -23,7 +23,7 @@ export function Push({
             <Row className={clsx('xs:flex-col', imageLeft && 'flex-row-reverse xs:flex-col-reverse')}>
                 <div className={'flex-1 sm:flex-auto sm:p-5'}>
                     <Text className={'mb-2'} variant={'title3'} text={title} />
-                    <Text className={''} variant={'subtitle'} text={subtitle} />
+                    <Text variant={'subtitle'} text={subtitle} />
                     <Text className={'leading-loose py-3'} variant={'body'} text={text} />
                     {btnLabel && (
                         <Button className={'mt-4'} size={'lg'} corner={'circle'} onClick={btnTarget}>
