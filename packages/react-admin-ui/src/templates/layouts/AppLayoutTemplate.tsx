@@ -7,9 +7,13 @@ import Icon from '../../atoms/Icon';
 import textClass from '../../utils/textClass';
 import { menu_item } from '../../types';
 import { WithBox, WithChildren, WithLogo } from '../../withs';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 
 export function AppLayoutTemplate({ logo, menu, children, toolbar, ...props }: AppLayoutTemplateProps) {
-    const [show, setShow] = useState(true);
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const [show, setShow] = useState(!isMobile);
     const handleClick = useCallback(() => {
         setShow(!show);
     }, [setShow, show]);
@@ -31,7 +35,11 @@ export function AppLayoutTemplate({ logo, menu, children, toolbar, ...props }: A
                     <Clickable onClick={handleClick} className={'mr-4'}>
                         <Icon
                             icon={'menu'}
-                            className={textClass({ color: props.color, variant: 'light', hoverable: true })}
+                            className={clsx(
+                                textClass({ color: props.color, variant: 'light', hoverable: true }),
+                                'transition duration-300 rounded-full h-7 w-7 flex items-center justify-center',
+                                'hover:bg-purple-100',
+                            )}
                         />
                     </Clickable>
                     {toolbar || ''}
