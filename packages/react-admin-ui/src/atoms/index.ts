@@ -43,6 +43,7 @@ export * from './Ribbon';
 export * from './Row';
 export * from './SearchBar';
 export * from './SectionHeader';
+export * from './Slide';
 export * from './Spacer';
 export * from './Spinner';
 export * from './Tag';
