@@ -35,7 +35,11 @@ export function AppLayoutTemplate({ logo, menu, children, toolbar, ...props }: A
                     <Clickable onClick={handleClick} className={'mr-4'}>
                         <Icon
                             icon={'menu'}
-                            className={textClass({ color: props.color, variant: 'light', hoverable: true })}
+                            className={clsx(
+                                textClass({ color: props.color, variant: 'light', hoverable: true }),
+                                'transition duration-300 rounded-full h-7 w-7 flex items-center justify-center',
+                                'hover:bg-purple-100',
+                            )}
                         />
                     </Clickable>
                     {toolbar || ''}
