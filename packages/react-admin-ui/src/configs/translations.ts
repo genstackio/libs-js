@@ -207,6 +207,8 @@ export default {
             finish_btn_label: 'Terminer',
 
             button_login_label: 'Se connecter',
+
+            newsletter_success_msg: 'Merci!',
         },
         tablePagination: {
             labelRowsPerPage: 'Eléments par page :',
@@ -468,6 +470,8 @@ export default {
             finish_btn_label: 'Finire',
 
             button_login_label: 'Accesso',
+
+            newsletter_success_msg: 'Grazie!',
         },
     },
     'en-GB': {
@@ -654,7 +658,9 @@ export default {
             next_btn_label: 'Next',
             finish_btn_label: 'Finish',
 
-            button_login_label: 'Log in',
+            button_login_label: 'Login',
+
+            newsletter_success_msg: 'Thanks!',
         },
         tablePagination: {
             labelRowsPerPage: 'Rows per page:',
