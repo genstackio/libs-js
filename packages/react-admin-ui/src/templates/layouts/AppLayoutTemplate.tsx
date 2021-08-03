@@ -12,12 +12,11 @@ import { useTheme } from '@material-ui/core/styles';
 
 export function AppLayoutTemplate({ logo, menu, children, toolbar, ...props }: AppLayoutTemplateProps) {
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const [show, setShow] = useState(!isMobile);
     const handleClick = useCallback(() => {
         setShow(!show);
     }, [setShow, show]);
-    console.log(show);
     return (
         <div className={'flex h-screen'}>
             <div
