@@ -1,5 +1,5 @@
-export * from './BodyMainBar';
 export * from './blocks';
+export * from './BodyMainBar';
 export * from './Footer';
 export * from './MainMenu';
 export * from './MainToolbar';
