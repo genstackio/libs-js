@@ -36,7 +36,8 @@ export function Newsletter({ title, text, imageLeft = false, image, color = 'pri
 }
 
 export interface NewsletterProps extends WithImage, WithText, WithTitle, WithBoxColor {
-    imageLeft?: boolean;
+    imageLeft?: flag;
+    btnLabel?: rich_text;
     onAfterSubscribe?: Function;
 }
 

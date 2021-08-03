@@ -6,5 +6,6 @@ export * from './MainToolbar';
 export * from './MenuAppBar';
 export * from './Newsletter';
 export * from './Push';
+export * from './PushSlider';
 export * from './ScreenHeader';
 export * from './Slideshow';
