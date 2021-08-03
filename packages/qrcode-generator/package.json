@@ -1,6 +1,6 @@
 {
   "name": "@genstackio/qrcode-generator",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "GenStackIO QRCode generator",
   "license": "MIT",
   "main": "lib/index.js",
