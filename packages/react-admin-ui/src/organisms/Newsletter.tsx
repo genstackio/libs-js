@@ -1,16 +1,21 @@
-import { useCallback, useState } from 'react';
-import { useForm } from 'react-hook-form';
 import clsx from 'clsx';
 import Image from '../atoms/Image';
 import Row from '../atoms/Row';
 import Text from '../atoms/Text';
-import { rich_text } from '../types';
+import { flag, rich_text } from '../types';
 import { WithBoxColor, WithImage, WithText, WithTitle } from '../withs';
 import Divider from '../atoms/Divider';
 import Block from '../atoms/Block';
 import { NewsletterAction } from '../molecules/actions/NewsletterAction';
 
-export function Newsletter({ title, text, imageLeft = false, image, color = 'primary', onAfterSubscribe }: NewsletterProps) {
+export function Newsletter({
+    title,
+    text,
+    imageLeft = false,
+    image,
+    color = 'primary',
+    onAfterSubscribe,
+}: NewsletterProps) {
     return (
         <Row
             className={clsx(
@@ -41,4 +46,5 @@ export interface NewsletterProps extends WithImage, WithText, WithTitle, WithBox
     onAfterSubscribe?: Function;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default Newsletter;
