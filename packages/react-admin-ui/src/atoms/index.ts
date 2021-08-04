@@ -32,6 +32,7 @@ export * from './LocaleChange';
 export * from './Items';
 export * from './MenuFold';
 export * from './MenuItem';
+export * from './MosaicItem';
 export * from './Panel';
 export * from './PeriodBlock';
 export * from './Pill';
