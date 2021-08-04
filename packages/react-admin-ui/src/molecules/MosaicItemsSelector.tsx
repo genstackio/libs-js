@@ -4,7 +4,7 @@ import Text from '../atoms/Text';
 import MosaicItems from './MosaicItems';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
-import {WithTitle} from "../withs";
+import { WithTitle } from '../withs';
 
 export function MosaicItemsSelector({ title, items, selected = {}, onValidation }: MosaicItemsSelectorProps) {
     const { t } = useTranslation();
@@ -15,13 +15,13 @@ export function MosaicItemsSelector({ title, items, selected = {}, onValidation 
 
     return (
         <div className={'flex flex-col items-center p-10 sm:p-5 xs:p-2'}>
-             <Text
-                    className={clsx('border-b border-solid border-disabled', 'p-3')}
-                    center
-                    text={title}
-                    color={'secondary'}
-                    variant={'text'}
-                />
+            <Text
+                className={clsx('border-b border-solid border-disabled', 'p-3')}
+                center
+                text={title}
+                color={'secondary'}
+                variant={'text'}
+            />
             <div className={'my-3'}>
                 <MosaicItems items={items} selected={selected} onSelectionChange={setSelected} />
             </div>
