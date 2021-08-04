@@ -81,6 +81,7 @@ export interface WithDescription {
 }
 export interface WithIcon {
     icon?: icon;
+    iconSize?: text_size;
 }
 export interface WithSize {
     size?: size;

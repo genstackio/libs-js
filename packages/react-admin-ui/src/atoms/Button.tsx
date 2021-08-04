@@ -27,6 +27,7 @@ export function Button({
     color = 'primary',
     disabled,
     icon,
+    iconSize,
     size = 'md',
     onClick,
     variant = 'filled',
@@ -76,7 +77,7 @@ export function Button({
                 )}
                 {!loading && (
                     <>
-                        <Icon icon={icon} className={children ? 'mr-2' : undefined} />
+                        <Icon icon={icon} size={iconSize} className={children ? 'mr-2' : undefined} />
                         {children || ''}
                     </>
                 )}

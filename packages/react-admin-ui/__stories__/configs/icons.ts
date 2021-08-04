@@ -19,6 +19,8 @@ import { faRss } from '@fortawesome/free-solid-svg-icons/faRss';
 import { faPlusSquare } from '@fortawesome/free-regular-svg-icons/faPlusSquare';
 import { faEnvelopeOpenText } from '@fortawesome/free-solid-svg-icons/faEnvelopeOpenText';
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons/faFacebookSquare';
+import { faPlay } from '@fortawesome/free-solid-svg-icons/faPlay';
+import { faPause } from '@fortawesome/free-solid-svg-icons/faPause';
 
 const icons = {
     fa: [
@@ -43,6 +45,8 @@ const icons = {
         faPlusSquare,
         faEnvelopeOpenText,
         faFacebookSquare,
+        faPlay,
+        faPause,
     ],
 };
 

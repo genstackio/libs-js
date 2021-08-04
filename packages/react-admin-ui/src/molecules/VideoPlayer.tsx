@@ -1,14 +1,22 @@
 import clsx from 'clsx';
 import Image from '../atoms/Image';
 import Button from '../atoms/Button';
-import Icon from '../atoms/Icon';
 import ReactPlayer from 'react-player';
-import { corner, rich_text } from '../types';
+import { corner, icon, rich_text } from '../types';
 import { useToggle } from '../hooks/useToggle';
 import cornerClass from '../mappings/corners';
 import { WithBoxColor, WithClassName, WithIcon, WithImage } from '../withs';
 
-export function VideoPlayer({ url, icon = 'play_arrow', image, btnLabel, corner, color, className }: VideoPlayerProps) {
+export function VideoPlayer({
+    url,
+    icon = 'fa-fas--play',
+    playingIcon = 'fa-fas--pause',
+    image,
+    btnLabel,
+    corner,
+    color,
+    className,
+}: VideoPlayerProps) {
     const [video, toggle] = useToggle();
 
     return (
@@ -20,21 +28,24 @@ export function VideoPlayer({ url, icon = 'play_arrow', image, btnLabel, corner,
                     className,
                 )}
             >
-                <Image {...image} className={'flex-1 '} />
-
-                <>
-                    <Button
-                        corner={'rounded'}
-                        variant={'contained'}
-                        size={'lg'}
-                        color={color}
-                        onClick={toggle}
-                        className={clsx('absolute h-24 w-80 m-10 overflow-hidden', cornerClass(corner), className)}
-                    >
-                        {!btnLabel ? <Icon icon={icon} size={'6xl'} /> : null} {btnLabel}{' '}
-                    </Button>
-                </>
-
+                <Image {...image} className={'flex-1'} />
+                <Button
+                    corner={btnLabel ? 'rounded' : 'circle'}
+                    variant={'contained'}
+                    size={btnLabel ? 'lg' : undefined}
+                    color={color}
+                    onClick={toggle}
+                    icon={video ? playingIcon : icon}
+                    iconSize={btnLabel ? 'lg' : '3xl'}
+                    className={clsx(
+                        'absolute',
+                        btnLabel && 'h-14 left-0 bottom-0 m-10 overflow-hidden',
+                        !btnLabel && 'flex items-center h-24 w-24 m-auto',
+                        className,
+                    )}
+                >
+                    {btnLabel}
+                </Button>
                 {video && (
                     <div className={'absolute top-0 w-full h-full'}>
                         <ReactPlayer
@@ -56,6 +67,7 @@ export interface VideoPlayerProps extends WithClassName, WithIcon, WithImage, Wi
     url: string;
     corner?: corner;
     btnLabel?: rich_text;
+    playingIcon?: icon;
 }
 
 export default VideoPlayer;
