@@ -13,7 +13,7 @@ export * from './Chat';
 export * from './charts';
 export * from './ChoiceButton';
 export * from './cards';
-export * from './ContentItem';
+export * from './ContentItemMosaic';
 export * from './ContentItemsMosaic';
 export * from './Corner';
 export * from './ConfirmModal';
