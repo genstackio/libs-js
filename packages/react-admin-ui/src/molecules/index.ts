@@ -36,6 +36,8 @@ export * from './Menu';
 export * from './MenuButton';
 export * from './MenuButtonWidget';
 export * from './Modal';
+export * from './MosaicItems';
+export * from './MosaicItemsSelector';
 export * from './Pagination';
 export * from './Paragraph';
 export * from './Pricing';

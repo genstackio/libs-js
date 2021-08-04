@@ -208,7 +208,7 @@ export default {
 
             button_login_label: 'Se connecter',
 
-            newsletter_success_msg: 'Merci!',
+            theme_selector_btn_validate: 'Valider',
         },
         tablePagination: {
             labelRowsPerPage: 'Eléments par page :',
@@ -471,7 +471,7 @@ export default {
 
             button_login_label: 'Accesso',
 
-            newsletter_success_msg: 'Grazie!',
+            theme_selector_btn_validate: 'Confermare',
         },
     },
     'en-GB': {
@@ -660,7 +660,7 @@ export default {
 
             button_login_label: 'Login',
 
-            newsletter_success_msg: 'Thanks!',
+            theme_selector_btn_validate: 'Confirm',
         },
         tablePagination: {
             labelRowsPerPage: 'Rows per page:',
