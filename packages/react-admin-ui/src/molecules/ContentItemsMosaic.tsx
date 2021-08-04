@@ -1,7 +1,7 @@
 import Column from '../atoms/Column';
 import { WithTitle, WithClassName, WithBoxColor } from '../withs';
 import { content_item_mosaic_item, text_color } from '../types';
-import ContentItem from './ContentItem';
+import ContentItemMosaic from './ContentItemMosaic';
 import Text from '../atoms/Text';
 import clsx from 'clsx';
 
@@ -11,7 +11,7 @@ export function ContentItemsMosaic({ title, items, color, titleColor = 'dark', c
             <Text variant={'title3'} text={title} color={titleColor} />
             <div className={'my-4 grid grid-cols-2 gap-6 xs:grid-cols-1 xs:gap-2'}>
                 {items.map((item, index) => (
-                    <ContentItem {...item} color={color} key={index} />
+                    <ContentItemMosaic {...item} color={color} key={index} />
                 ))}
             </div>
         </Column>

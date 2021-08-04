@@ -4,7 +4,7 @@ import Text from '../atoms/Text';
 import { WithBoxColor, WithImage, WithText, WithTitle } from '../withs';
 import { target } from '../types';
 
-export function ContentItem({ title, text, image, btnTarget, color = 'dark' }: ContentItemMosaicProps) {
+export function ContentItemMosaic({ title, text, image, btnTarget }: ContentItemMosaicProps) {
     return (
         <Clickable onClick={btnTarget} inline={true}>
             <div className={'flex flex-row items-center justify-between p-8 shadow-container rounded-lg h-full'}>
@@ -24,4 +24,4 @@ export interface ContentItemMosaicProps extends WithTitle, WithText, WithImage, 
     btnTarget?: target;
 }
 
-export default ContentItem;
+export default ContentItemMosaic;
