@@ -1,8 +1,7 @@
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
-import { chart_series } from '../../types';
-import { WithBox, WithClassName } from '../../withs';
+import { WithBox, WithClassName, WithSeries } from '../../withs';
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 
@@ -44,11 +43,11 @@ const defaultOptions: ApexOptions = {
     },
 };
 
-export function AreaChart({ className, color = 'primary', series, variant = 'filled' }: AreaChartProps) {
+export function AreaChart({ className, color = 'primary', series = [], variant = 'filled' }: AreaChartProps) {
     const col = `${variant}_${color}`;
     const options = { ...defaultOptions, colors: tailwindChartColors[col] };
 
-    const newData: { data: number[] }[] = series.reduce((acc, data) => {
+    const newData: { data: number[] }[] = series.reduce((acc: any[], data) => {
         acc.push({ data: data });
         return acc;
     }, [] as { data: number[] }[]);
@@ -56,9 +55,7 @@ export function AreaChart({ className, color = 'primary', series, variant = 'fil
     return <Chart type={'area'} options={options} series={newData} height={'250px'} className={className} />;
 }
 
-export interface AreaChartProps extends WithClassName, WithBox {
-    series: chart_series;
-}
+export interface AreaChartProps extends WithClassName, WithBox, WithSeries {}
 
 // noinspection JSUnusedGlobalSymbols
 export default AreaChart;

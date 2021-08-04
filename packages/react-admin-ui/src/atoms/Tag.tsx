@@ -1,10 +1,9 @@
 import clsx from 'clsx';
 import boxClass from '../utils/boxClass';
-import { text_size } from '../types';
 import Icon from './Icon';
 import Text from './Text';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
-import { WithBox, WithClassName, WithIcon, WithText } from '../withs';
+import { WithBox, WithClassName, WithIcon, WithText, WithTextSize } from '../withs';
 
 export function Tag({ className, color = 'primary', icon, size, text, variant = 'contained' }: TagProps) {
     return (
@@ -23,8 +22,6 @@ export function Tag({ className, color = 'primary', icon, size, text, variant = 
     );
 }
 
-export interface TagProps extends WithClassName, WithBox, WithIcon, WithText {
-    size?: text_size;
-}
+export interface TagProps extends WithClassName, WithBox, WithIcon, WithText, WithTextSize {}
 
 export default Tag;

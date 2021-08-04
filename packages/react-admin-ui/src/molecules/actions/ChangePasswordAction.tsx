@@ -13,7 +13,6 @@ export function ChangePasswordAction({
 }
 
 export interface ChangePasswordActionProps extends ChangePasswordFormProps, FormActionProps {
-    onSuccess?: Function;
     queryName?: string;
 }
 

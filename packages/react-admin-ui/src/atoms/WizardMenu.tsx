@@ -1,7 +1,8 @@
 import clsx from 'clsx';
-import { class_name, wizard_step } from '../types';
+import { wizard_step } from '../types';
 import { Container, Image, WizardStep } from './';
 import { useCallback } from 'react';
+import { WithClassName, WithOnChange } from '../withs';
 
 export function WizardMenu({ className, onChange, steps, currentStep, ...props }: WizardMenuProps) {
     const handleChange = useCallback(
@@ -43,11 +44,9 @@ export function WizardMenu({ className, onChange, steps, currentStep, ...props }
     );
 }
 
-export interface WizardMenuProps {
-    className?: class_name;
+export interface WizardMenuProps extends WithClassName, WithOnChange {
     currentStep: wizard_step;
     steps: wizard_step[];
-    onChange: Function;
 }
 
 // noinspection JSUnusedGlobalSymbols

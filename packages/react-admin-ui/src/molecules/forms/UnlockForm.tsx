@@ -3,11 +3,12 @@ import LocaleChange from '../../atoms/LocaleChange';
 import PasswordField from '../../atoms/fields/PasswordField';
 import RememberPasswordField from '../../atoms/fields/RememberPasswordField';
 import Text from '../../atoms/Text';
-import { class_name, flag, locale, target } from '../../types';
+import { flag, target } from '../../types';
 import { BaseFormProps } from './BaseForm';
 import useForm from '../../hooks/useForm';
 import Button from '../../atoms/Button';
 import { useTranslation } from 'react-i18next';
+import { WithClassName, WithLocales } from '../../withs';
 
 export function UnlockForm({
     children,
@@ -43,12 +44,10 @@ export function UnlockForm({
         </Form>
     );
 }
-export interface UnlockFormProps extends BaseFormProps {
-    className?: class_name;
+export interface UnlockFormProps extends BaseFormProps, WithClassName, WithLocales {
     onRegisterClick?: Function;
     onForgotPasswordClick?: target;
     rememberMe?: flag;
-    locales?: locale[];
 }
 
 // noinspection JSUnusedGlobalSymbols

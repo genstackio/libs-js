@@ -1,4 +1,4 @@
-import { ComponentType } from 'react';
+import { WithAny, WithComponent } from '../withs';
 
 export function Items({ items = [], component: Component, itemProp = undefined, ...props }: ItemsProps) {
     return (
@@ -10,11 +10,9 @@ export function Items({ items = [], component: Component, itemProp = undefined, 
     );
 }
 
-export interface ItemsProps {
+export interface ItemsProps extends WithAny, Required<WithComponent> {
     items?: any[];
     itemProp?: string;
-    component: ComponentType<any>;
-    [key: string]: any;
 }
 
 export default Items;

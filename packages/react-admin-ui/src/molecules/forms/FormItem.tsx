@@ -2,8 +2,9 @@ import EmailField from '../../atoms/fields/EmailField';
 import LastNameField from '../../atoms/fields/LastNameField';
 import FirstNameField from '../../atoms/fields/FirstNameField';
 import PasswordField from '../../atoms/fields/PasswordField';
-import { class_name, form_item } from '../../types';
+import { form_item } from '../../types';
 import FormRow from './FormRow';
+import { WithClassName } from '../../withs';
 
 const types = {
     email: EmailField,
@@ -19,9 +20,8 @@ export function FormItem({ definition, ...props }: FormItemProps) {
     return <Component {...extra} {...props} />;
 }
 
-export interface FormItemProps {
+export interface FormItemProps extends WithClassName {
     definition: form_item;
-    className?: class_name;
 }
 
 export default FormItem;

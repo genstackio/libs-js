@@ -4,7 +4,7 @@ import Icon from '../../atoms/Icon';
 import formatAmount from '../../utils/formatAmount';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
-import { WithBox, WithClassName, WithTitle } from '../../withs';
+import { WithBox, WithClassName, WithSeries, WithTitle } from '../../withs';
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 
@@ -55,7 +55,7 @@ const defaultOptions: ApexOptions = {
 
 export function ProgressChart({
     className,
-    series,
+    series = [],
     progress,
     title,
     unit,
@@ -90,8 +90,7 @@ export function ProgressChart({
     );
 }
 
-export interface ProgressChartProps extends WithClassName, WithTitle, WithBox {
-    series: number[][];
+export interface ProgressChartProps extends WithClassName, WithTitle, WithBox, WithSeries {
     progress?: number;
     unit?: string;
     value?: number;

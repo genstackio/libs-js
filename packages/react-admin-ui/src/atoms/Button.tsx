@@ -2,7 +2,7 @@ import { useCallback, useMemo } from 'react';
 import clsx from 'clsx';
 import Icon from './Icon';
 import buttonClass from '../utils/buttonClass';
-import { class_name, flag, target } from '../types';
+import { class_name } from '../types';
 import { Spinner } from './Spinner';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
 import cornerClass from '../mappings/corners';
@@ -16,6 +16,8 @@ import {
     WithLoading,
     WithDisabled,
     WithConfirm,
+    WithOnClick,
+    WithAutoFocus,
 } from '../withs';
 import { useConfirmable } from '../hooks';
 
@@ -97,10 +99,10 @@ export interface ButtonProps
         WithCorner,
         WithDisabled,
         WithLoading,
+        WithOnClick,
+        WithAutoFocus,
         WithConfirm {
     spinnerClassName?: class_name;
-    onClick?: target;
-    autoFocus?: flag;
 }
 
 export default Button;

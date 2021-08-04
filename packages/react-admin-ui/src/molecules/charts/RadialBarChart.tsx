@@ -1,8 +1,7 @@
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
-import { chart_serie } from '../../types';
-import { WithBox, WithClassName } from '../../withs';
+import { WithBox, WithClassName, WithSeries } from '../../withs';
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 
@@ -58,9 +57,8 @@ export function RadialBarChart({
     return <Chart type={'radialBar'} options={options} series={series} className={className} />;
 }
 
-export interface RadialBarChartProps extends WithClassName, WithBox {
+export interface RadialBarChartProps extends WithClassName, WithBox, WithSeries {
     labels?: string[];
-    series: chart_serie;
     title?: string;
 }
 

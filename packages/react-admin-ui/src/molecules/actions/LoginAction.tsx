@@ -12,7 +12,6 @@ export function LoginAction({
     return <Component {...useAction(queryName, { onSuccess, prepare })} {...props} />;
 }
 export interface LoginActionProps extends LoginFormProps, FormActionProps {
-    onSuccess?: Function;
     queryName?: string;
 }
 

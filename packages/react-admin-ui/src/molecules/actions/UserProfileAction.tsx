@@ -13,7 +13,6 @@ export function UserProfileAction({
 }
 
 export interface UserProfileActionProps extends UserProfileFormProps, FormActionProps {
-    onSuccess?: Function;
     queryName?: string;
 }
 

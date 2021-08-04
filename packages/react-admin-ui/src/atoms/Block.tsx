@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import clsx from 'clsx';
 import boxClass from '../utils/boxClass';
-import { block_variant, class_name, target } from '../types';
+import { block_variant, class_name } from '../types';
 import Container from './Container';
 import BlockHeader, { BlockHeaderProps } from './BlockHeader';
 import BlockFooter, { BlockFooterProps } from './BlockFooter';
@@ -20,6 +20,7 @@ import {
     WithActive,
     WithHoverable,
     WithHoverAnimation,
+    WithOnClick,
 } from '../withs';
 
 export function Block({
@@ -97,12 +98,12 @@ export interface BaseBlockProps
         WithCorner,
         WithActive,
         WithHoverable,
+        WithOnClick,
         WithHoverAnimation {
     headerClassName?: class_name;
     contentClassName?: class_name;
     footerClassName?: class_name;
     variant?: block_variant;
-    onClick?: target;
     buttons?: any[];
 }
 

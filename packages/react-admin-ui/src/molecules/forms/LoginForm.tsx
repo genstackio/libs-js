@@ -6,9 +6,10 @@ import RememberPasswordField from '../../atoms/fields/RememberPasswordField';
 import Button from '../../atoms/Button';
 import Text from '../../atoms/Text';
 import { useCallback } from 'react';
-import { class_name, flag, locale, target } from '../../types';
+import { flag, target } from '../../types';
 import { BaseFormProps } from './BaseForm';
 import useForm from '../../hooks/useForm';
+import { WithClassName, WithLocales } from '../../withs';
 
 export function LoginForm({
     children,
@@ -83,13 +84,11 @@ export function LoginForm({
         </Form>
     );
 }
-export interface LoginFormProps extends BaseFormProps {
-    className?: class_name;
+export interface LoginFormProps extends BaseFormProps, WithClassName, WithLocales {
     onRegisterClick?: Function;
     onForgotPasswordClick?: target;
     socialLogins?: flag;
     rememberMe?: flag;
-    locales?: locale[];
 }
 
 export default LoginForm;

@@ -13,6 +13,9 @@ import {
     flag,
     target,
     dynamic_children,
+    locale,
+    text_component,
+    chart_series,
 } from './types';
 import { padding } from './mappings/paddings';
 import { alignment } from './mappings/alignments';
@@ -20,6 +23,7 @@ import { elevation } from './mappings/elevations';
 import { corner } from './mappings/corners';
 import { status } from './mappings/statuses';
 import { hover_animation } from './mappings/hover-animations';
+import { ComponentType, MouseEvent } from 'react';
 
 export interface WithCenter {
     center?: flag;
@@ -27,11 +31,26 @@ export interface WithCenter {
 export interface WithClassName {
     className?: class_name;
 }
+export interface WithCenter {
+    center?: flag;
+}
+export interface WithButtonLabel {
+    btnLabel?: rich_text;
+}
+export interface WithButtonTarget {
+    btnTarget?: target;
+}
 export interface WithHoverable {
     hoverable?: flag;
 }
 export interface WithBoxColor {
     color?: box_color;
+}
+export interface WithOnSubmit {
+    onSubmit?: Function;
+}
+export interface WithLocales {
+    locales?: locale[];
 }
 export interface WithBoxVariant {
     variant?: box_variant;
@@ -40,6 +59,9 @@ export interface WithVertical {
     vertical?: flag;
 }
 export interface WithBox extends WithBoxColor, WithBoxVariant {}
+export interface WithSeries {
+    series?: chart_series;
+}
 export interface WithChildren {
     children?: children;
 }
@@ -114,11 +136,17 @@ export interface WithLabel {
 export interface WithActive {
     active?: flag;
 }
+export interface WithOnToggle {
+    onToggle?: Function;
+}
 export interface WithTarget {
     target?: target;
 }
 export interface WithTextColor {
     color?: text_color;
+}
+export interface WithTextComponent {
+    component?: text_component;
 }
 export interface WithTextSize {
     size?: text_size;
@@ -133,7 +161,7 @@ export interface WithCorner {
     corner?: corner;
 }
 export interface WithDefaultValues {
-    defaultValues?: any;
+    defaultValues?: { [key: string]: any };
 }
 export interface WithOnSubmit {
     onSubmit?: Function;
@@ -153,6 +181,9 @@ export interface WithOnClear {
 export interface WithOnClick {
     onClick?: target;
 }
+export interface WithOnClickAway {
+    onClickAway?: (event: MouseEvent<Document>) => void;
+}
 export interface WithClosable {
     closable?: flag;
 }
@@ -164,4 +195,16 @@ export interface WithBuddyStatus {
 }
 export interface WithHoverAnimation {
     hoverAnimation?: hover_animation;
+}
+export interface WithAutoFocus {
+    autoFocus?: flag;
+}
+export interface WithCount {
+    count?: number;
+}
+export interface WithAny {
+    [key: string]: any;
+}
+export interface WithComponent {
+    component?: ComponentType<any>;
 }

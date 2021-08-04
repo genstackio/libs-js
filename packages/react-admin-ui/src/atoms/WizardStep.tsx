@@ -1,6 +1,14 @@
 import clsx from 'clsx';
 import { Badge, Clickable, Text } from './';
-import { box_color, class_name, flag, rich_text } from '../types';
+import {
+    WithActive,
+    WithBoxColor,
+    WithClassName,
+    WithDescription,
+    WithDisabled,
+    WithLabel,
+    WithOnClick,
+} from '../withs';
 
 export function WizardStep({
     className,
@@ -37,15 +45,15 @@ export function WizardStep({
     );
 }
 
-export interface WizardStepProps {
-    className?: class_name;
+export interface WizardStepProps
+    extends WithClassName,
+        WithLabel,
+        WithDescription,
+        WithActive,
+        WithDisabled,
+        WithOnClick,
+        WithBoxColor {
     index: number;
-    label: rich_text;
-    description: rich_text;
-    active?: flag;
-    disabled?: flag;
-    onClick: Function;
-    color?: box_color;
 }
 
 // noinspection JSUnusedGlobalSymbols

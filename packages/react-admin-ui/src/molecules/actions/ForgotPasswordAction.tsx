@@ -18,7 +18,6 @@ export function ForgotPasswordAction({
     );
 }
 export interface ForgotPasswordActionProps extends ForgotPasswordFormProps, FormActionProps {
-    onSuccess?: Function;
     queryName?: string;
 }
 

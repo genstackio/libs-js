@@ -13,7 +13,6 @@ export function NewsletterAction({
 }
 
 export interface NewsletterActionProps extends NewsletterFormProps, FormActionProps {
-    onSuccess?: Function;
     queryName?: string;
 }
 

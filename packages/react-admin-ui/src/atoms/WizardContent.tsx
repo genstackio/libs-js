@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Container from './Container';
-import { class_name, wizard_step } from '../types';
+import { wizard_step } from '../types';
+import { WithClassName, WithDefaultValues } from '../withs';
 
 export function WizardContent({
     className,
@@ -19,15 +20,13 @@ export function WizardContent({
     );
 }
 
-export interface WizardContentProps {
-    className?: class_name;
+export interface WizardContentProps extends WithClassName, WithDefaultValues {
     currentStep: wizard_step;
     onNext?: Function;
     onPrevious?: Function;
     onCancel?: Function;
     onComplete?: Function;
     onSave?: Function;
-    defaultValues?: { [key: string]: any };
 }
 
 export default WizardContent;

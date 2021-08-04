@@ -4,8 +4,7 @@ import Text from '../../atoms/Text';
 import PhoneField from '../../atoms/fields/PhoneField';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { box_color } from '../../mappings/box-colors';
-import { class_name } from '../../types';
+import { WithBoxColor, WithClassName, WithDefaultValues, WithOnSubmit } from '../../withs';
 
 export function SendOtpForgotPasswordForm({
     className,
@@ -44,11 +43,7 @@ export function SendOtpForgotPasswordForm({
     );
 }
 
-export interface SendOtpForgotPasswordFormProps {
-    className?: class_name;
-    color?: box_color;
-    defaultValues?: any;
-    onSubmit?: Function;
+export interface SendOtpForgotPasswordFormProps extends WithClassName, WithBoxColor, WithDefaultValues, WithOnSubmit {
     onSendVerificationCode?: Function;
     onLoginClick?: Function;
 }

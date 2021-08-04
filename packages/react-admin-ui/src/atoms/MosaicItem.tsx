@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { WithChildren } from '../withs';
 
 export function MosaicItem({ children, item }: MosaicItemProps) {
     const Comp = typeof item === 'object' && item.component;
@@ -6,9 +7,8 @@ export function MosaicItem({ children, item }: MosaicItemProps) {
     return <Comp className={clsx('w-44 h-20')} />;
 }
 
-export interface MosaicItemProps {
+export interface MosaicItemProps extends WithChildren {
     item?: any;
-    children?: any;
 }
 
 export default MosaicItem;

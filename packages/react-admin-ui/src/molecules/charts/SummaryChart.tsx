@@ -4,7 +4,7 @@ import { icon } from '../../types';
 import Icon from '../../atoms/Icon';
 import AreaLineChart from './AreaLineChart';
 import { boxColorClass } from '../../mappings/box-colors';
-import { WithBoxColor, WithClassName } from '../../withs';
+import { WithBoxColor, WithButtonLabel, WithClassName, WithSubtitle, WithTitle } from '../../withs';
 
 export function SummaryChart({
     className,
@@ -79,7 +79,7 @@ export function SummaryChart({
     );
 }
 
-export interface SummaryChartProps extends WithClassName, WithBoxColor {
+export interface SummaryChartProps extends WithClassName, WithBoxColor, WithButtonLabel, WithTitle, WithSubtitle {
     datas: {
         categories?: string[];
         colors?: string[];
@@ -89,7 +89,6 @@ export interface SummaryChartProps extends WithClassName, WithBoxColor {
             data?: number[];
         }[];
     }[];
-    btnLabel?: string;
     chartItems?: {
         color?: string;
         icon?: icon;
@@ -100,8 +99,6 @@ export interface SummaryChartProps extends WithClassName, WithBoxColor {
         description?: string;
         value?: string;
     }[];
-    subtitle?: string;
-    title?: string;
 }
 
 // noinspection JSUnusedGlobalSymbols

@@ -1,10 +1,9 @@
 import clsx from 'clsx';
-import { text_component, flag } from '../types';
 import textColorClass, { text_color } from '../mappings/text-colors';
 import textVariantClass, { text_variant } from '../mappings/text-variants';
 import { box_context_value } from '@genstackio/react-contexts/lib/types';
 import useBox from '@genstackio/react-contexts/lib/hooks/useBox';
-import { WithClassName, WithText, WithTextColor } from '../withs';
+import { WithCenter, WithClassName, WithText, WithTextColor, WithTextComponent } from '../withs';
 
 const mappings = {
     // contained
@@ -103,10 +102,8 @@ export function Text({
     }
 }
 
-export interface TextProps extends WithClassName, WithText, WithTextColor {
-    component?: text_component;
+export interface TextProps extends WithClassName, WithText, WithTextColor, WithTextComponent, WithCenter {
     variant?: text_variant;
-    center?: flag;
 }
 
 export default Text;

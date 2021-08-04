@@ -13,7 +13,6 @@ export function RegisterAction({
 }
 
 export interface RegisterActionProps extends RegisterFormProps, FormActionProps {
-    onSuccess?: Function;
     queryName?: string;
 }
 
