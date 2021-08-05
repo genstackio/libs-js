@@ -28,6 +28,7 @@ export * from './Heading';
 export * from './HeadingLeft';
 export * from './Infos';
 export * from './ImageCropper';
+export * from './ItemCarrousselSlide';
 export * from './ItemSummary';
 export * from './Kpi';
 export * from './KpiProgress';

@@ -2,6 +2,7 @@ export * from './blocks';
 export * from './AppPush';
 export * from './BodyMainBar';
 export * from './Footer';
+export * from './ItemCarroussel';
 export * from './MainMenu';
 export * from './MainToolbar';
 export * from './MenuAppBar';
