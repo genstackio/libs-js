@@ -13,12 +13,12 @@ const Template = (args) => <Quotes {...args} />;
 
 const item = {
     image: {
-        url: 'https://images.prismic.io/lunii/dce49374-4a9c-40e7-b73f-d693e3acff80_dev-konbini.png?auto=compress,format',
+        url: 'https://picsum.photos/200/200',
     },
     overline: 'Konbini',
     title: '"Proposer un jouet tech pour enfant sans écran et sans ondes, il fallait le faire. "',
     buttonLabel: 'Konbini',
-    buttonTarget: 'https://www.lunii.fr',
+    buttonTarget: 'https://www.google.fr',
 };
 const item2 = {
     overline: 'Le Monde',
@@ -26,32 +26,32 @@ const item2 = {
 };
 const item3 = {
     image: {
-        url: 'https://images.prismic.io/lunii/dce49374-4a9c-40e7-b73f-d693e3acff80_dev-konbini.png?auto=compress,format',
+        url: 'https://picsum.photos/200/200',
     },
     overline: 'Pomme',
     title: '"Pomme pom pom pomomsomomopo mooppmm pompoi moiopompioim oimo imoi moi"',
     buttonLabel: 'Pomme',
-    buttonTarget: 'https://www.lunii.fr',
+    buttonTarget: 'https://www.google.fr',
 };
 
 export const basic = s(Template, {
     title: 'Ils parlent de nous',
     btnLabel: 'Nos revues de presse',
-    btnTarget: 'https://www.lunii.fr',
+    btnTarget: 'https://www.google.fr',
     items: [item],
 });
 
 export const withItems = s(Template, {
     title: 'Ils parlent de nous',
     btnLabel: 'Nos revues de presse',
-    btnTarget: 'https://www.lunii.fr',
+    btnTarget: 'https://www.google.fr',
     items: [item, item2, item3, item, item2, item3],
 });
 
 export const withButtonEndIcon = s(Template, {
     title: 'Ils parlent de nous',
     btnLabel: 'Nos revues de presse',
-    btnTarget: 'https://www.lunii.fr',
+    btnTarget: 'https://www.google.fr',
     btnEndIcon: 'fa-fas--arrow-right',
     items: [item],
 });
@@ -59,7 +59,7 @@ export const withButtonEndIcon = s(Template, {
 export const withButtonIcon = s(Template, {
     title: 'Ils parlent de nous',
     btnLabel: 'Nos revues de presse',
-    btnTarget: 'https://www.lunii.fr',
+    btnTarget: 'https://www.google.fr',
     btnIcon: 'fa-fas--arrow-right',
     items: [item],
 });
@@ -71,7 +71,7 @@ export const withoutButton = s(Template, {
 
 export const withoutTitle = s(Template, {
     btnLabel: 'Nos revues de presse',
-    btnTarget: 'https://www.lunii.fr',
+    btnTarget: 'https://www.google.fr',
     items: [item],
 });
 
