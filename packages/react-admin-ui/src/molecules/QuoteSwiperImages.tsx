@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import clsx from 'clsx';
 
-
 export function QuoteSwiperImages({
     controller,
     onSwiper,

@@ -5,7 +5,6 @@ import { rich_text, flag } from '../types';
 import { Text } from '../atoms/Text';
 import { ButtonProps, Button } from '../atoms/Button';
 
-
 export function QuoteSlide({ title, overline, image, noImage = false, button, ...props }: QuoteSlideProps) {
     return (
         <div className={clsx('flex flex-col items-center text-center')}>
