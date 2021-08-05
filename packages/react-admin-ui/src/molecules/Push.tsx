@@ -1,36 +1,38 @@
 import clsx from 'clsx';
-import Button from '../atoms/Button';
 import Image from '../atoms/Image';
 import Row from '../atoms/Row';
-import { flag } from '../types';
-import { WithButtonLabel, WithButtonTarget, WithImage, WithSubtitle, WithText, WithTitle } from '../withs';
-import { HeadingText, Block } from '../atoms';
+import { WithPush } from '../withs';
+import { Buttons, HeadingText, Block } from '../atoms';
 import { AsBox } from '../as';
+import pushImagePositionClass from '../mappings/push-image-positions';
+import useButtons from '../hooks/useButtons';
 
 export function Push({
     className,
     title,
     subtitle,
-    text,
+    description,
+    center,
     color = 'primary',
     variant = 'filled',
-    btnLabel,
-    btnTarget,
-    imageLeft = false,
+    imagePosition = 'left',
     image,
+    ...props
 }: PushProps) {
+    const [buttonsProps, rest] = useButtons(props);
     return (
-        <Block color={color} variant={variant} className={className}>
-            <Row className={clsx('xs:flex-col', imageLeft && 'flex-row-reverse xs:flex-col-reverse')}>
+        <Block color={color} variant={variant} className={className} {...rest}>
+            <Row className={clsx('xs:flex-col', pushImagePositionClass(imagePosition), 'xs:flex-col-reverse')}>
                 <div className={'flex-1 sm:flex-auto sm:p-5'}>
                     <HeadingText
                         title={title}
                         subtitle={subtitle}
-                        description={text}
+                        description={description}
                         titleClassName={'mb-2'}
                         descriptionClassName={'leading-loose py-3'}
+                        center={center}
                     />
-                    <Button className={'mt-4'} size={'lg'} corner={'circle'} onClick={btnTarget} label={btnLabel} />
+                    <Buttons className={clsx(imagePosition === 'bottom' && 'mb-2')} {...buttonsProps} />
                 </div>
                 {!!image && (
                     <div className={'flex-1 flex-1 mr-4'}>
@@ -42,16 +44,7 @@ export function Push({
     );
 }
 
-export interface PushProps
-    extends AsBox,
-        WithTitle,
-        WithSubtitle,
-        WithText,
-        WithImage,
-        WithButtonLabel,
-        WithButtonTarget {
-    imageLeft?: flag;
-}
+export interface PushProps extends AsBox, WithPush {}
 
 // noinspection JSUnusedGlobalSymbols
 export default Push;

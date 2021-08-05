@@ -2,7 +2,7 @@ import { args, a, s } from '../utils';
 import { Push } from '../../src';
 
 export default {
-    title: 'Organisms/Push',
+    title: 'Molecules/Push',
     component: Push,
     argTypes: a({
         title: args.title,
@@ -24,6 +24,25 @@ export const basic = s(Template, {
     subtitle: 'Subtitle goes here',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut commodo faucibus eros, vitae accumsan neque blandit molestie. Cras turpis urna, blandit consequat dui in, tincidunt dictum lectus.',
     btnLabel: 'Button Label',
+    btnType: 'contained',
+    btnColor: 'primary',
+    btn2Type: 'contained',
+    btn2Label: 'Button 2 Label',
+    btn2Color: 'secondary',
+    image: { url: 'https://via.placeholder.com/687x426?text=Image' },
+});
+
+export const imageBottom = s(Template, {
+    title: 'Title goes here',
+    subtitle: 'Subtitle goes here',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut commodo faucibus eros, vitae accumsan neque blandit molestie. Cras turpis urna, blandit consequat dui in, tincidunt dictum lectus.',
+    btnLabel: 'Button Label',
+    btnType: 'contained',
+    btnColor: 'primary',
+    btn2Type: 'contained',
+    btn2Label: 'Button 2 Label',
+    btn2Color: 'secondary',
+    imagePosition: 'bottom',
     image: { url: 'https://via.placeholder.com/687x426?text=Image' },
 });
 

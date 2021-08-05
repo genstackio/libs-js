@@ -1,9 +1,8 @@
 import clsx from 'clsx';
-import Buttons from './Buttons';
+import ButtonItems from './ButtonItems';
 import { class_name } from '../types';
 import bgClass from '../utils/bgClass';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
-import { WithButtons } from '../withs';
 import Div from './Div';
 import { AsBoxWrapper } from '../as';
 
@@ -23,14 +22,15 @@ export function BlockFooter({
         >
             <BoxProvider value={{ color, variant }}>
                 {children || ''}
-                <Buttons buttons={buttons} className={clsx(buttonsClassName)} />
+                <ButtonItems items={buttons} className={clsx(buttonsClassName)} />
             </BoxProvider>
         </Div>
     );
 }
 
-export interface BlockFooterProps extends AsBoxWrapper, WithButtons {
+export interface BlockFooterProps extends AsBoxWrapper {
     buttonsClassName?: class_name;
+    buttons?: any[];
 }
 
 // noinspection JSUnusedGlobalSymbols
