@@ -1,7 +1,6 @@
-import { ReactNode } from 'react';
 import Image from '../../atoms/Image';
 import Container from '../../atoms/Container';
-import { WithImage, WithLogo } from '../../withs';
+import { WithChildren, WithImage, WithLogo } from '../../withs';
 
 export function CenteredLayoutTemplate({ image, logo, children }: CenteredLayoutTemplateProps) {
     return (
@@ -23,8 +22,6 @@ export function CenteredLayoutTemplate({ image, logo, children }: CenteredLayout
     );
 }
 
-export interface CenteredLayoutTemplateProps extends WithImage, WithLogo {
-    children?: ReactNode;
-}
+export interface CenteredLayoutTemplateProps extends WithImage, WithLogo, WithChildren {}
 
 export default CenteredLayoutTemplate;

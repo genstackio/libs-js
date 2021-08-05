@@ -1,20 +1,19 @@
 import NewsletterForm, { NewsletterFormProps } from '../forms/NewsletterForm';
 import useAction from '../../hooks/useAction';
 import FormActionProps from '../forms/FormActionProps';
+import { WithMutationName } from '../../withs';
 
 export function NewsletterAction({
     component: Component = NewsletterForm,
-    queryName = 'SUBSCRIBE_NEWSLETTER',
+    mutationName = 'SUBSCRIBE_NEWSLETTER',
     onSuccess,
     prepare,
     ...props
 }: NewsletterActionProps) {
-    return <Component {...useAction(queryName, { onSuccess, prepare })} {...props} />;
+    return <Component {...useAction(mutationName, { onSuccess, prepare })} {...props} />;
 }
 
-export interface NewsletterActionProps extends NewsletterFormProps, FormActionProps {
-    queryName?: string;
-}
+export interface NewsletterActionProps extends NewsletterFormProps, FormActionProps, WithMutationName {}
 
 // noinspection JSUnusedGlobalSymbols
 export default NewsletterAction;

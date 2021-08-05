@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { icon, register, control, rich_text } from '../types';
 import { useTranslation } from 'react-i18next';
 import Icon from '../atoms/Icon';
+import { WithAny, WithDefaultValues, WithLabel, WithOptions } from '../withs';
 
 // noinspection JSUnusedLocalSymbols
 export function useField(
@@ -47,7 +48,11 @@ export function useField(
         }),
         [options, required],
     );
-    label = label ? t(label) : t([`field_${name.toLowerCase()}_label`, `field_${kind.toLowerCase()}_label`, '']);
+    label = label
+        ? 'string' === typeof label
+            ? t(label)
+            : label
+        : t([`field_${name.toLowerCase()}_label`, `field_${kind.toLowerCase()}_label`, '']);
     helper = helper ? t(helper) : t([`field_${name.toLowerCase()}_helper`, `field_${kind.toLowerCase()}_helper`, '']);
     placeholder = placeholder
         ? t(placeholder)
@@ -107,7 +112,7 @@ export function useField(
     };
 }
 
-export interface field_def_params {
+export interface field_def_params extends WithLabel, WithAny, WithOptions, WithDefaultValues {
     name?: string;
     type?: string;
     prepend?: rich_text;
@@ -118,15 +123,11 @@ export interface field_def_params {
     disabled?: boolean;
     helper?: string;
     defaultValue?: any;
-    defaultValues?: { [key: string]: any };
     errors?: { [key: string]: any };
-    options?: { [key: string]: any };
-    label?: string;
     placeholder?: string;
     register?: register;
     control?: control;
     field?: boolean;
-    [key: string]: any;
 }
 
 export default useField;

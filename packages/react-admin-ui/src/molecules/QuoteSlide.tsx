@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { Image } from '../atoms/Image';
-import { WithImage, WithTitle } from '../withs';
-import { rich_text, flag } from '../types';
+import { WithImage, WithOverline, WithTitle } from '../withs';
+import { flag } from '../types';
 import { Text } from '../atoms/Text';
 import { ButtonProps, Button } from '../atoms/Button';
 
@@ -18,9 +18,8 @@ export function QuoteSlide({ title, overline, image, noImage = false, button, ..
     );
 }
 
-export interface QuoteSlideProps extends WithImage, WithTitle {
+export interface QuoteSlideProps extends WithImage, WithTitle, WithOverline {
     noImage?: flag;
-    overline?: rich_text;
     button?: ButtonProps;
 }
 

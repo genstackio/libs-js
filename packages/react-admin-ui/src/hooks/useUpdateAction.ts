@@ -3,19 +3,19 @@ import useAction from './useAction';
 
 export function useUpdateAction({
     id,
-    getQueryName,
-    updateQueryName,
+    queryName,
+    mutationName,
     onSuccess,
     prepare,
 }: {
     id: string;
-    getQueryName: string;
-    updateQueryName: string;
+    queryName: string;
+    mutationName: string;
     onSuccess?: Function;
     prepare?: Function;
 }) {
-    const { data, loading } = useQueryApi(getQueryName, { variables: { id } });
-    const props = useAction(updateQueryName, { onSuccess, prepare });
+    const { data, loading } = useQueryApi(queryName, { variables: { id } });
+    const props = useAction(mutationName, { onSuccess, prepare });
 
     return { data, props, loading };
 }

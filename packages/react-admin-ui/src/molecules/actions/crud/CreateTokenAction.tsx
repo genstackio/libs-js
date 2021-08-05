@@ -1,20 +1,19 @@
 import CreateTokenForm, { CreateTokenFormProps } from '../../forms/crud/CreateTokenForm';
 import useAction from '../../../hooks/useAction';
 import FormActionProps from '../../forms/FormActionProps';
+import { WithMutationName } from '../../../withs';
 
 export function CreateTokenAction({
     component: Component = CreateTokenForm,
-    createQueryName = 'CREATE_TOKEN',
+    mutationName = 'CREATE_TOKEN',
     onSuccess,
     prepare,
     ...props
 }: CreateTokenActionProps) {
-    return <Component {...useAction(createQueryName, { onSuccess, prepare })} defaultValues={{}} {...props} />;
+    return <Component {...useAction(mutationName, { onSuccess, prepare })} defaultValues={{}} {...props} />;
 }
 
-export interface CreateTokenActionProps extends CreateTokenFormProps, FormActionProps {
-    createQueryName?: string;
-}
+export interface CreateTokenActionProps extends CreateTokenFormProps, FormActionProps, WithMutationName {}
 
 // noinspection JSUnusedGlobalSymbols
 export default CreateTokenAction;

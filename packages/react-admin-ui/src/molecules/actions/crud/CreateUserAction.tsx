@@ -1,19 +1,18 @@
 import CreateUserForm, { CreateUserFormProps } from '../../forms/crud/CreateUserForm';
 import useAction from '../../../hooks/useAction';
 import FormActionProps from '../../forms/FormActionProps';
+import { WithMutationName } from '../../../withs';
 
 export function CreateUserAction({
     component: Component = CreateUserForm,
-    createQueryName = 'CREATE_USER',
+    mutationName = 'CREATE_USER',
     onSuccess,
     prepare,
     ...props
 }: CreateUserActionProps) {
-    return <Component {...useAction(createQueryName, { onSuccess, prepare })} {...props} />;
+    return <Component {...useAction(mutationName, { onSuccess, prepare })} {...props} />;
 }
 
-export interface CreateUserActionProps extends CreateUserFormProps, FormActionProps {
-    createQueryName?: string;
-}
+export interface CreateUserActionProps extends CreateUserFormProps, FormActionProps, WithMutationName {}
 
 export default CreateUserAction;

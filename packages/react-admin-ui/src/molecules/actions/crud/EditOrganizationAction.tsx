@@ -3,12 +3,13 @@ import EditOrganizationForm, { EditOrganizationFormProps } from '../../forms/cru
 import FormActionProps from '../../forms/FormActionProps';
 import Spinner from '../../../atoms/Spinner';
 import useUpdateAction from '../../../hooks/useUpdateAction';
+import { WithId, WithMutationName, WithQueryName } from '../../../withs';
 
 export function EditOrganizationAction({
     component: Component = EditOrganizationForm,
     spinnerComponent,
-    getQueryName = 'GET_ORGANIZATION',
-    updateQueryName = 'UPDATE_ORGANIZATION',
+    queryName = 'GET_ORGANIZATION',
+    mutationName = 'UPDATE_ORGANIZATION',
     id,
     onSuccess,
     prepare,
@@ -31,8 +32,8 @@ export function EditOrganizationAction({
 
     const { data, props: someProps } = useUpdateAction({
         id,
-        getQueryName,
-        updateQueryName,
+        queryName,
+        mutationName,
         onSuccess,
         prepare,
     });
@@ -48,10 +49,12 @@ export function EditOrganizationAction({
     );
 }
 
-export interface EditOrganizationActionProps extends EditOrganizationFormProps, FormActionProps {
-    id: string;
-    getQueryName?: string;
-    updateQueryName?: string;
+export interface EditOrganizationActionProps
+    extends EditOrganizationFormProps,
+        FormActionProps,
+        Required<WithId>,
+        WithQueryName,
+        WithMutationName {
     spinnerComponent?: ComponentType<any>;
 }
 

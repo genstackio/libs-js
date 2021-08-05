@@ -3,12 +3,13 @@ import EditUserForm, { EditUserFormProps } from '../../forms/crud/EditUserForm';
 import FormActionProps from '../../forms/FormActionProps';
 import Spinner from '../../../atoms/Spinner';
 import useUpdateAction from '../../../hooks/useUpdateAction';
+import { WithId, WithMutationName, WithQueryName } from '../../../withs';
 
 export function EditUserAction({
     component: Component = EditUserForm,
     spinnerComponent,
-    getQueryName = 'GET_USER',
-    updateQueryName = 'UPDATE_USER',
+    queryName = 'GET_USER',
+    mutationName = 'UPDATE_USER',
     id,
     onSuccess,
     prepare,
@@ -31,8 +32,8 @@ export function EditUserAction({
 
     const { data, props: someProps } = useUpdateAction({
         id,
-        getQueryName,
-        updateQueryName,
+        queryName,
+        mutationName,
         onSuccess,
         prepare,
     });
@@ -48,10 +49,12 @@ export function EditUserAction({
     );
 }
 
-export interface EditUserActionProps extends EditUserFormProps, FormActionProps {
-    id: string;
-    getQueryName?: string;
-    updateQueryName?: string;
+export interface EditUserActionProps
+    extends EditUserFormProps,
+        FormActionProps,
+        Required<WithId>,
+        WithQueryName,
+        WithMutationName {
     spinnerComponent?: ComponentType<any>;
 }
 

@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { flag } from '../types';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import { WithChildren, WithClassName, WithOnClick, WithOnClickAway } from '../withs';
+import { WithChildren, WithClassName, WithOnClick, WithOnClickAway, WithStyle } from '../withs';
 import clsx from 'clsx';
 
 export function Clickable({
@@ -61,10 +61,9 @@ export function Clickable({
     return onClickAway ? <ClickAwayListener onClickAway={onClickAway}>{content}</ClickAwayListener> : content;
 }
 
-export interface ClickableProps extends WithClassName, WithChildren, WithOnClick, WithOnClickAway {
+export interface ClickableProps extends WithClassName, WithChildren, WithOnClick, WithOnClickAway, WithStyle {
     inline?: flag;
     optional?: flag;
-    style?: any;
     visible?: flag;
 }
 

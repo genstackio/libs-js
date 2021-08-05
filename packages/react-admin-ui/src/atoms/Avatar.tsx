@@ -32,7 +32,7 @@ export function Avatar({ className, image, name, size, shape = 'circular', statu
 
 export interface AvatarProps
     extends WithClassName,
-        WithName,
+        Required<WithName>,
         WithImage,
         WithShape,
         WithBuddyStatus,

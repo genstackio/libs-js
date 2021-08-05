@@ -1,5 +1,3 @@
-import { ReactNode } from 'react';
-import { flag } from '../../types';
 import AlertPanel from '../AlertPanel';
 import Text from '../../atoms/Text';
 import Column from '../../atoms/Column';
@@ -14,6 +12,9 @@ import {
     WithOnSubmit,
     WithSubtitle,
     WithTitle,
+    WithSubmitting,
+    WithHeader,
+    WithFooter,
 } from '../../withs';
 
 export function BaseForm({
@@ -61,10 +62,10 @@ export interface BaseFormProps
         WithDynamicChildren,
         WithTitle,
         WithSubtitle,
+        WithSubmitting,
+        WithHeader,
+        WithFooter,
         WithBoxColor {
-    submitting?: flag;
-    header?: ReactNode;
-    footer?: ReactNode;
     errors?: any;
 }
 

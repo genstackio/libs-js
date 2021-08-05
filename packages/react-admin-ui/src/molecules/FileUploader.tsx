@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import Dropzone from 'react-dropzone-uploader/dist/react-dropzone-uploader';
 import Block from '../atoms/Block';
 import { rich_text } from '../types';
-import { WithBox, WithClassName, WithTitle } from '../withs';
+import { WithBox, WithClassName, WithOnSubmit, WithTitle } from '../withs';
 
 const defaultDropzoneStyle = {
     dropzone: {
@@ -82,14 +82,13 @@ export function FileUploader({
     );
 }
 
-export interface FileUploaderProps extends WithClassName, WithBox, WithTitle {
+export interface FileUploaderProps extends WithClassName, WithBox, WithTitle, WithOnSubmit {
     accept?: string;
     dropzoneStyle?: any | null;
     nonEmptyPlaceholder?: string;
     onFileAbort?: Function;
     onFileRemove?: Function;
     onFileUpload?: Function;
-    onSubmit?: Function;
     placeholder?: string;
     submitLabel?: rich_text;
     url?: string;

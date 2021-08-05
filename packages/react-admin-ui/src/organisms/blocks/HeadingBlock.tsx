@@ -4,7 +4,8 @@ import Button from '../../atoms/Button';
 import Pill from '../../atoms/Pill';
 import Text from '../../atoms/Text';
 import Corner from '../../molecules/Corner';
-import { flag, image, icon_variant } from '../../types';
+import { flag, icon_variant } from '../../types';
+import { WithButtonLabel, WithImage, WithText, WithTitle } from '../../withs';
 
 export function HeadingBlock({
     btnLabel,
@@ -85,22 +86,18 @@ export function HeadingBlock({
     );
 }
 
-export interface HeadingBlockProps extends BaseBlockProps {
+export interface HeadingBlockProps extends BaseBlockProps, WithButtonLabel, WithText, WithImage, WithTitle {
     bottomLeft?: flag;
     bottomRight?: flag;
-    btnLabel: string;
     iconCornerBottomLeft?: icon_variant;
     iconCornerBottomRight?: icon_variant;
     iconCornerTopLeft?: icon_variant;
     iconCornerTopRight?: icon_variant;
     iconTitle?: string;
-    image: image;
-    text: string;
     textCornerBottomLeft?: string;
     textCornerBottomRight?: string;
     textCornerTopLeft?: string;
     textCornerTopRight?: string;
-    title: string;
     topLeft?: flag;
     topRight?: flag;
 }

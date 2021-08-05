@@ -2,10 +2,11 @@ import CreateOrganizationForm, { CreateOrganizationFormProps } from '../../forms
 import useAction from '../../../hooks/useAction';
 import FormActionProps from '../../forms/FormActionProps';
 import useUser from '@genstackio/react-contexts/lib/hooks/useUser';
+import { WithMutationName } from '../../../withs';
 
 export function CreateOrganizationAction({
     component: Component = CreateOrganizationForm,
-    createQueryName = 'CREATE_ORGANIZATION',
+    mutationName = 'CREATE_ORGANIZATION',
     onSuccess,
     prepare,
     ...props
@@ -13,16 +14,14 @@ export function CreateOrganizationAction({
     const [user] = useUser();
     return (
         <Component
-            {...useAction(createQueryName, { onSuccess, prepare })}
+            {...useAction(mutationName, { onSuccess, prepare })}
             defaultValues={{ owner: user?.id }}
             {...props}
         />
     );
 }
 
-export interface CreateOrganizationActionProps extends CreateOrganizationFormProps, FormActionProps {
-    createQueryName?: string;
-}
+export interface CreateOrganizationActionProps extends CreateOrganizationFormProps, FormActionProps, WithMutationName {}
 
 // noinspection JSUnusedGlobalSymbols
 export default CreateOrganizationAction;

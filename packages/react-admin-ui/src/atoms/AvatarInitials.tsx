@@ -13,7 +13,7 @@ export function AvatarInitials({ size, name, shape, className }: AvatarInitialsP
     );
 }
 
-export interface AvatarInitialsProps extends WithClassName, WithName, WithShape {
+export interface AvatarInitialsProps extends WithClassName, Required<WithName>, WithShape {
     size?: avatar_size;
 }
 

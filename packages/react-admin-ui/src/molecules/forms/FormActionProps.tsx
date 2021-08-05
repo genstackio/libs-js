@@ -1,9 +1,5 @@
-import { ComponentType } from 'react';
+import { WithOnSuccess, WithPrepare, WithComponent } from '../../withs';
 
-export interface FormActionProps {
-    onSuccess?: Function;
-    prepare?: Function;
-    component?: ComponentType<any>;
-}
+export interface FormActionProps extends WithOnSuccess, WithPrepare, WithComponent {}
 
 export default FormActionProps;

@@ -1,6 +1,7 @@
 import Block, { BaseBlockProps } from '../../atoms/Block';
 import Button from '../../atoms/Button';
 import { news_item } from '../../types';
+import { WithButtonLabel } from '../../withs';
 
 export function NewsBlock({ items = [], btnLabel, ...props }: NewsBlockProps) {
     return (
@@ -20,13 +21,11 @@ export function NewsBlock({ items = [], btnLabel, ...props }: NewsBlockProps) {
     );
 }
 
-export interface NewsBlockProps extends BaseBlockProps {
+export interface NewsBlockProps extends BaseBlockProps, WithButtonLabel {
     dropdownItems?: {
         name?: string;
     }[];
     items?: news_item[];
-    title?: string;
-    btnLabel?: string;
 }
 
 // noinspection JSUnusedGlobalSymbols

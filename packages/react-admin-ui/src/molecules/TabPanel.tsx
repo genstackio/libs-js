@@ -1,4 +1,4 @@
-import { WithChildren, WithClassName } from '../withs';
+import { WithChildren, WithClassName, WithIndex } from '../withs';
 
 export function TabPanel({ className, children, value, index, ...props }: TabPanelProps) {
     return (
@@ -15,8 +15,7 @@ export function TabPanel({ className, children, value, index, ...props }: TabPan
     );
 }
 
-export interface TabPanelProps extends WithClassName, WithChildren {
-    index: number;
+export interface TabPanelProps extends WithClassName, WithChildren, Required<WithIndex> {
     value: number;
 }
 

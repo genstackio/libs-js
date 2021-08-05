@@ -1,19 +1,18 @@
 import LoginForm, { LoginFormProps } from '../forms/LoginForm';
 import useAction from '../../hooks/useAction';
 import { FormActionProps } from '../forms';
+import { WithMutationName } from '../../withs';
 
 export function LoginAction({
     component: Component = LoginForm,
-    queryName = 'LOGIN',
+    mutationName = 'LOGIN',
     onSuccess,
     prepare,
     ...props
 }: LoginActionProps) {
-    return <Component {...useAction(queryName, { onSuccess, prepare })} {...props} />;
+    return <Component {...useAction(mutationName, { onSuccess, prepare })} {...props} />;
 }
-export interface LoginActionProps extends LoginFormProps, FormActionProps {
-    queryName?: string;
-}
+export interface LoginActionProps extends LoginFormProps, FormActionProps, WithMutationName {}
 
 // noinspection JSUnusedGlobalSymbols
 export default LoginAction;

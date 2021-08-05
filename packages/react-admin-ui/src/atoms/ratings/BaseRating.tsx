@@ -5,7 +5,7 @@ import useRating from '../../hooks/useRating';
 import MuiRating from '@material-ui/lab/Rating';
 import { class_name, rating_value } from '../../types';
 import { defaultLabelPlacement, label_placement } from '../../mappings/label-placements';
-import { WithBoxColor, WithClassName } from '../../withs';
+import { WithBoxColor, WithClassName, WithKind } from '../../withs';
 
 const labelPlacements = {
     left: 'flex-row-reverse space-x-2',
@@ -71,8 +71,7 @@ export interface BaseBaseRatingProps extends WithClassName, WithBoxColor {
     labelPlacement?: label_placement;
 }
 
-export interface BaseRatingProps extends BaseBaseRatingProps {
-    kind: string;
+export interface BaseRatingProps extends BaseBaseRatingProps, Required<WithKind> {
     styles?: (props: any) => { [key: string]: class_name };
     container?: FunctionComponent;
     icon?: FunctionComponent;

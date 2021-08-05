@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import { WizardMenu } from '../atoms/WizardMenu';
 import { WizardContent } from '../atoms/WizardContent';
-import { box_color, class_name, wizard_step } from '../types';
+import { wizard_step } from '../types';
+import { WithBoxColor, WithClassName, WithDefaultValues, WithOnChange, WithOnComplete } from '../withs';
 
 export function Wizard({ className, ...props }: WizardProps) {
     return (
@@ -12,14 +13,9 @@ export function Wizard({ className, ...props }: WizardProps) {
     );
 }
 
-export interface WizardProps {
-    className?: class_name;
-    onChange: Function;
-    onComplete: Function;
-    defaultValues?: { [key: string]: any };
+export interface WizardProps extends WithClassName, WithOnChange, WithOnComplete, WithDefaultValues, WithBoxColor {
     steps: wizard_step[];
     currentStep: wizard_step;
-    color?: box_color;
 }
 
 export default Wizard;

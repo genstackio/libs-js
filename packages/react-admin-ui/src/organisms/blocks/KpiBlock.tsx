@@ -4,7 +4,7 @@ import Block, { BaseBlockProps } from '../../atoms/Block';
 import Icon from '../../atoms/Icon';
 import Kpi from '../../molecules/Kpi';
 import { icon } from '../../types';
-import { WithIcon, WithQuantity } from '../../withs';
+import { WithIcon, WithName, WithQuantity } from '../../withs';
 
 export function KpiBlock({ icon, name, quantity, bgIcon, ...props }: KpiBlockProps) {
     const [isHover, setIsHover] = useState(false);
@@ -29,9 +29,8 @@ export function KpiBlock({ icon, name, quantity, bgIcon, ...props }: KpiBlockPro
     );
 }
 
-export interface KpiBlockProps extends BaseBlockProps, WithIcon, WithQuantity {
+export interface KpiBlockProps extends BaseBlockProps, WithIcon, WithQuantity, WithName {
     bgIcon?: icon;
-    name?: string;
 }
 
 // noinspection JSUnusedGlobalSymbols

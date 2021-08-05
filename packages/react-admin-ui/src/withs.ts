@@ -16,6 +16,8 @@ import {
     locale,
     text_component,
     chart_series,
+    badge,
+    level,
 } from './types';
 import { padding } from './mappings/paddings';
 import { alignment } from './mappings/alignments';
@@ -23,7 +25,7 @@ import { elevation } from './mappings/elevations';
 import { corner } from './mappings/corners';
 import { status } from './mappings/statuses';
 import { hover_animation } from './mappings/hover-animations';
-import { ComponentType, MouseEvent } from 'react';
+import { ComponentType, MouseEvent, ReactNode } from 'react';
 
 export interface WithCenter {
     center?: flag;
@@ -40,11 +42,23 @@ export interface WithButtonLabel {
 export interface WithButtonTarget {
     btnTarget?: target;
 }
+export interface WithButtonColor {
+    btnColor?: box_color;
+}
+export interface WithButtonIcon {
+    btnIcon?: rich_text;
+}
+export interface WithButtonEndIcon {
+    btnEndIcon?: rich_text;
+}
 export interface WithHoverable {
     hoverable?: flag;
 }
 export interface WithBoxColor {
     color?: box_color;
+}
+export interface WithBadge {
+    badge?: badge;
 }
 export interface WithOnSubmit {
     onSubmit?: Function;
@@ -62,14 +76,26 @@ export interface WithBox extends WithBoxColor, WithBoxVariant {}
 export interface WithSeries {
     series?: chart_series;
 }
+export interface WithLabels {
+    labels?: string[];
+}
 export interface WithChildren {
     children?: children;
+}
+export interface WithHeader {
+    header?: ReactNode;
+}
+export interface WithFooter {
+    footer?: ReactNode;
+}
+export interface WithSubmitting {
+    submitting?: flag;
 }
 export interface WithDynamicChildren {
     children?: dynamic_children;
 }
 export interface WithName {
-    name: string;
+    name?: string;
 }
 export interface WithImage {
     image?: image;
@@ -115,11 +141,23 @@ export interface WithConfirm {
     confirmKind?: string;
     confirmDanger?: flag;
 }
+export interface WithLevel {
+    level?: level;
+}
 export interface WithDisabled {
     disabled?: flag;
 }
 export interface WithError {
     error?: rich_text;
+}
+export interface WithOptions {
+    options?: { [key: string]: any };
+}
+export interface WithOnChange {
+    onChange?: Function;
+}
+export interface WithKind {
+    kind?: string;
 }
 export interface WithLoading {
     loading?: flag;
@@ -141,6 +179,9 @@ export interface WithOnToggle {
 }
 export interface WithTarget {
     target?: target;
+}
+export interface WithBadges {
+    badges?: badge[];
 }
 export interface WithTextColor {
     color?: text_color;
@@ -166,6 +207,24 @@ export interface WithDefaultValues {
 export interface WithOnSubmit {
     onSubmit?: Function;
 }
+export interface WithOnNext {
+    onNext?: Function;
+}
+export interface WithOnPrevious {
+    onPrevious?: Function;
+}
+export interface WithOnCancel {
+    onCancel?: Function;
+}
+export interface WithOnComplete {
+    onComplete?: Function;
+}
+export interface WithOnSave {
+    onSave?: Function;
+}
+export interface WithOnNext {
+    onNext?: Function;
+}
 export interface WithWidth {
     width?: number;
 }
@@ -181,8 +240,14 @@ export interface WithOnClear {
 export interface WithOnClick {
     onClick?: target;
 }
+export interface WithIndex {
+    index?: number;
+}
 export interface WithOnClickAway {
     onClickAway?: (event: MouseEvent<Document>) => void;
+}
+export interface WithStyle {
+    style?: any;
 }
 export interface WithClosable {
     closable?: flag;
@@ -207,4 +272,19 @@ export interface WithAny {
 }
 export interface WithComponent {
     component?: ComponentType<any>;
+}
+export interface WithQueryName {
+    queryName?: string;
+}
+export interface WithMutationName {
+    mutationName?: string;
+}
+export interface WithId {
+    id?: string;
+}
+export interface WithOnSuccess {
+    onSuccess?: Function;
+}
+export interface WithPrepare {
+    prepare?: Function;
 }

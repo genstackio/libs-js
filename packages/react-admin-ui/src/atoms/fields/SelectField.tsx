@@ -2,7 +2,7 @@ import FieldSet from '../FieldSet';
 import useField from '../../hooks/useField';
 import Select from 'react-select';
 import { flag, select_item, register } from '../../types';
-import { WithClassName } from '../../withs';
+import { WithClassName, WithDisabled, WithKind, WithLabel, WithOnChange, WithOptions } from '../../withs';
 import { Controller } from 'react-hook-form';
 import { useCallback } from 'react';
 
@@ -44,20 +44,15 @@ export function SelectField({ className, values = [], onChange: parentOnChange, 
     );
 }
 
-export interface SelectFieldProps extends WithClassName {
+export interface SelectFieldProps extends WithClassName, WithDisabled, WithOnChange, WithOptions, WithKind, WithLabel {
     values?: select_item[];
     required?: flag;
-    disabled?: flag;
     errors?: { [key: string]: any };
     defaults?: { [key: string]: any };
-    label?: string;
     name?: string;
-    onChange?: any;
-    options?: any;
     helper?: string;
     register?: register;
     field?: boolean;
-    kind?: string;
 }
 
 export default SelectField;

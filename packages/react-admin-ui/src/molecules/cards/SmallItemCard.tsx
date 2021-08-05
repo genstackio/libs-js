@@ -5,8 +5,7 @@ import Badge from '../../atoms/Badge';
 import Icon from '../../atoms/Icon';
 import Image from '../../atoms/Image';
 import Text from '../../atoms/Text';
-import { badge } from '../../types';
-import { WithChildren, WithClassName, WithImage, WithTitle, WithClosable } from '../../withs';
+import { WithChildren, WithClassName, WithImage, WithTitle, WithClosable, WithBadges } from '../../withs';
 
 export function SmallItemCard({
     className,
@@ -44,8 +43,13 @@ export function SmallItemCard({
     );
 }
 
-export interface SmallItemCardProps extends WithClassName, WithChildren, WithImage, WithTitle, WithClosable {
-    badges?: badge[];
+export interface SmallItemCardProps
+    extends WithClassName,
+        WithChildren,
+        WithImage,
+        WithTitle,
+        WithClosable,
+        WithBadges {
     rating?: number;
 }
 

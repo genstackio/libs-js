@@ -1,20 +1,19 @@
 import UserProfileForm, { UserProfileFormProps } from '../forms/UserProfileForm';
 import useAction from '../../hooks/useAction';
 import FormActionProps from '../forms/FormActionProps';
+import { WithMutationName } from '../../withs';
 
 export function UserProfileAction({
     component: Component = UserProfileForm,
-    queryName = 'USER_PROFILE',
+    mutationName = 'USER_PROFILE',
     onSuccess,
     prepare,
     ...props
 }: UserProfileActionProps) {
-    return <Component {...useAction(queryName, { onSuccess, prepare })} {...props} />;
+    return <Component {...useAction(mutationName, { onSuccess, prepare })} {...props} />;
 }
 
-export interface UserProfileActionProps extends UserProfileFormProps, FormActionProps {
-    queryName?: string;
-}
+export interface UserProfileActionProps extends UserProfileFormProps, FormActionProps, WithMutationName {}
 
 // noinspection JSUnusedGlobalSymbols
 export default UserProfileAction;

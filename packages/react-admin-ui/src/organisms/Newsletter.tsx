@@ -2,8 +2,8 @@ import clsx from 'clsx';
 import Image from '../atoms/Image';
 import Row from '../atoms/Row';
 import Text from '../atoms/Text';
-import { flag, rich_text } from '../types';
-import { WithBoxColor, WithImage, WithText, WithTitle } from '../withs';
+import { flag } from '../types';
+import { WithBoxColor, WithButtonLabel, WithImage, WithText, WithTitle } from '../withs';
 import Divider from '../atoms/Divider';
 import Block from '../atoms/Block';
 import { NewsletterAction } from '../molecules/actions/NewsletterAction';
@@ -40,9 +40,8 @@ export function Newsletter({
     );
 }
 
-export interface NewsletterProps extends WithImage, WithText, WithTitle, WithBoxColor {
+export interface NewsletterProps extends WithImage, WithText, WithTitle, WithBoxColor, WithButtonLabel {
     imageLeft?: flag;
-    btnLabel?: rich_text;
     onAfterSubscribe?: Function;
 }
 

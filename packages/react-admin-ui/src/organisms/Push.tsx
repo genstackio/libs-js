@@ -3,8 +3,8 @@ import Button from '../atoms/Button';
 import Image from '../atoms/Image';
 import Row from '../atoms/Row';
 import Text from '../atoms/Text';
-import { rich_text, flag } from '../types';
-import { WithBox, WithImage, WithSubtitle, WithText, WithTitle } from '../withs';
+import { flag } from '../types';
+import { WithBox, WithButtonLabel, WithButtonTarget, WithImage, WithSubtitle, WithText, WithTitle } from '../withs';
 import { Block } from '../atoms';
 
 export function Push({
@@ -41,10 +41,15 @@ export function Push({
     );
 }
 
-export interface PushProps extends WithTitle, WithSubtitle, WithText, WithBox, WithImage {
+export interface PushProps
+    extends WithTitle,
+        WithSubtitle,
+        WithText,
+        WithBox,
+        WithImage,
+        WithButtonLabel,
+        WithButtonTarget {
     imageLeft?: flag;
-    btnLabel?: rich_text;
-    btnTarget?: string;
 }
 
 export default Push;

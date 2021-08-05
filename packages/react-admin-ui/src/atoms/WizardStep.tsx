@@ -6,6 +6,7 @@ import {
     WithClassName,
     WithDescription,
     WithDisabled,
+    WithIndex,
     WithLabel,
     WithOnClick,
 } from '../withs';
@@ -52,9 +53,8 @@ export interface WizardStepProps
         WithActive,
         WithDisabled,
         WithOnClick,
-        WithBoxColor {
-    index: number;
-}
+        Required<WithIndex>,
+        WithBoxColor {}
 
 // noinspection JSUnusedGlobalSymbols
 export default WizardStep;

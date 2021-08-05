@@ -1,12 +1,11 @@
 import QuoteSlide from './QuoteSlide';
 import Row from '../atoms/Row';
-import { WithButtonLabel, WithButtonTarget, WithTitle } from '../withs';
+import { WithButtonEndIcon, WithButtonIcon, WithButtonLabel, WithButtonTarget, WithTitle } from '../withs';
 import { QuoteSwiper } from './QuoteSwiper';
 import { Container } from '../atoms/Container';
 import clsx from 'clsx';
 import { Text } from '../atoms/Text';
 import Button from '../atoms/Button';
-import { rich_text } from '../types';
 import { Icon } from '../atoms';
 
 export function Quotes({ title, items = [], btnTarget, btnLabel, btnIcon, btnEndIcon }: QuotesProps) {
@@ -39,10 +38,8 @@ export function Quotes({ title, items = [], btnTarget, btnLabel, btnIcon, btnEnd
     );
 }
 
-export interface QuotesProps extends WithTitle, WithButtonTarget, WithButtonLabel {
+export interface QuotesProps extends WithTitle, WithButtonTarget, WithButtonLabel, WithButtonIcon, WithButtonEndIcon {
     items?: any[];
-    btnIcon?: rich_text;
-    btnEndIcon?: rich_text;
 }
 
 export default Quotes;

@@ -2,7 +2,16 @@ import clsx from 'clsx';
 import { flag, register } from '../../types';
 import useField from '../../hooks/useField';
 import FieldSet from '../FieldSet';
-import { WithClassName } from '../../withs';
+import {
+    WithAutoFocus,
+    WithClassName,
+    WithDefaultValues,
+    WithDisabled,
+    WithKind,
+    WithLabel,
+    WithOnChange,
+    WithOptions,
+} from '../../withs';
 
 export function TextareaField({ className, ...props }: TextareaFieldProps) {
     const { name, required, label, error, helper, disabled, register, placeholder, options, extra } = useField(props);
@@ -25,23 +34,25 @@ export function TextareaField({ className, ...props }: TextareaFieldProps) {
     );
 }
 
-export interface TextareaFieldProps extends WithClassName {
+export interface TextareaFieldProps
+    extends WithClassName,
+        WithDisabled,
+        WithDefaultValues,
+        WithLabel,
+        WithOnChange,
+        WithAutoFocus,
+        WithOptions,
+        WithKind {
     required?: flag;
-    disabled?: flag;
     errors?: { [key: string]: any };
-    defaultValues?: { [key: string]: any };
-    label?: string;
     placeholder?: string;
     name?: string;
-    onChange?: any;
-    autoFocus?: flag;
     value?: any;
-    options?: any;
     helper?: string;
     register?: register;
     field?: boolean;
     rows?: number;
-    kind?: string;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default TextareaField;

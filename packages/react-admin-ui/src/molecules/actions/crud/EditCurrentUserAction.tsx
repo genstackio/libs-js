@@ -3,12 +3,13 @@ import FormActionProps from '../../forms/FormActionProps';
 import Spinner from '../../../atoms/Spinner';
 import useUpdateAction from '../../../hooks/useUpdateAction';
 import { ComponentType, useCallback } from 'react';
+import { WithId, WithMutationName, WithQueryName } from '../../../withs';
 
 export function EditCurrentUserAction({
     component: Component = EditCurrentUserForm,
     spinnerComponent,
-    getQueryName = 'GET_USER',
-    updateQueryName = 'UPDATE_USER',
+    queryName = 'GET_USER',
+    mutationName = 'UPDATE_USER',
     id,
     onSuccess,
     prepare,
@@ -33,8 +34,8 @@ export function EditCurrentUserAction({
 
     const { data, props: someProps } = useUpdateAction({
         id,
-        getQueryName,
-        updateQueryName,
+        queryName,
+        mutationName,
         onSuccess,
         prepare,
     });
@@ -50,10 +51,12 @@ export function EditCurrentUserAction({
     );
 }
 
-export interface EditCurrentUserActionProps extends EditCurrentUserFormProps, FormActionProps {
-    id: string;
-    getQueryName?: string;
-    updateQueryName?: string;
+export interface EditCurrentUserActionProps
+    extends EditCurrentUserFormProps,
+        FormActionProps,
+        Required<WithId>,
+        WithQueryName,
+        WithMutationName {
     spinnerComponent?: ComponentType<any>;
 }
 

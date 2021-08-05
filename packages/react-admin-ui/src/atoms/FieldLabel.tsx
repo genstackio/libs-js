@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { flag } from '../types';
-import { WithClassName, WithName, WithLabel } from '../withs';
+import { WithClassName, WithName, WithLabel, WithOptions } from '../withs';
 
 export function FieldLabel({ className, name, label, error, options = {} }: FieldLabelProps) {
     if (!label) return null;
@@ -20,8 +20,7 @@ export function FieldLabel({ className, name, label, error, options = {} }: Fiel
     );
 }
 
-export interface FieldLabelProps extends WithClassName, WithName, WithLabel {
-    options?: any;
+export interface FieldLabelProps extends WithClassName, Required<WithName>, WithLabel, WithOptions {
     error?: flag;
 }
 

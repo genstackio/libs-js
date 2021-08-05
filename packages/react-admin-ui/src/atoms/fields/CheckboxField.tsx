@@ -7,7 +7,7 @@ import { flag, register } from '../../types';
 import useField from '../../hooks/useField';
 import FieldSet from '../FieldSet';
 import Row from '../Row';
-import { WithClassName } from '../../withs';
+import { WithClassName, WithKind, WithLabel, WithOnChange, WithOptions } from '../../withs';
 
 const useStyles = makeStyles({
     root: {
@@ -66,19 +66,15 @@ export function CheckboxField({ className, onChange, ...props }: CheckboxFieldPr
     );
 }
 
-export interface CheckboxFieldProps extends WithClassName {
+export interface CheckboxFieldProps extends WithClassName, WithLabel, WithOptions, WithOnChange, WithKind {
     defaultValue?: flag;
-    label?: string;
     name?: string;
     disabled?: flag;
     required?: flag;
     errors?: { [key: string]: any };
     helper?: string;
-    options?: any;
-    onChange?: Function;
     register?: register;
     field?: boolean;
-    kind?: string;
 }
 
 export default CheckboxField;

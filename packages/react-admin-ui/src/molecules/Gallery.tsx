@@ -3,8 +3,8 @@ import Image from '../atoms/Image';
 import Text from '../atoms/Text';
 import Button from '../atoms/Button';
 import Icon from '../atoms/Icon';
-import { gallery_image, rich_text, target, text_color, box_color } from '../types';
-import { WithClassName, WithTitle, WithIcon } from '../withs';
+import { gallery_image, text_color } from '../types';
+import { WithClassName, WithTitle, WithIcon, WithButtonLabel, WithButtonTarget, WithButtonColor } from '../withs';
 
 export function Gallery({
     className,
@@ -46,11 +46,14 @@ export function Gallery({
     );
 }
 
-export interface GalleryProps extends WithClassName, WithTitle, WithIcon {
+export interface GalleryProps
+    extends WithClassName,
+        WithTitle,
+        WithIcon,
+        WithButtonLabel,
+        WithButtonTarget,
+        WithButtonColor {
     items?: gallery_image[];
-    btnLabel?: rich_text;
-    btnTarget?: target;
-    btnColor?: box_color;
     iconColor?: text_color;
 }
 
