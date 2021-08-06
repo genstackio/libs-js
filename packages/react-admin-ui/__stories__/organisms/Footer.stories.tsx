@@ -34,6 +34,69 @@ export const basic = s(Template, {
     ],
 });
 
+export const withoutDescription = s(Template, {
+    copyright: '© 2021  Company',
+    contact: {
+        phone: '(+33) 1 01 01 01 01',
+        email: 'contact@company.com',
+        address: 'Addresse',
+        zipCode: 'cp',
+        city: 'city',
+        facebook: 'https://www.facebook.fr',
+    },
+    links: [
+        { label: 'Home', target: '#' },
+        { label: 'Services', target: '#' },
+        { label: 'About Us', target: '#' },
+        { label: 'Team', target: '#' },
+        { label: 'Privacy Terms', target: '' },
+    ],
+});
+
+export const withoutCopyright = s(Template, {
+    description: 'Fusce ut elit aliquet, fermentum leo vel, tempus nunc. Fusce eu rhoncus augue.',
+    contact: {
+        phone: '(+33) 1 01 01 01 01',
+        email: 'contact@company.com',
+        address: 'Addresse',
+        zipCode: 'cp',
+        city: 'city',
+        facebook: 'https://www.facebook.fr',
+    },
+    links: [
+        { label: 'Home', target: '#' },
+        { label: 'Services', target: '#' },
+        { label: 'About Us', target: '#' },
+        { label: 'Team', target: '#' },
+        { label: 'Privacy Terms', target: '' },
+    ],
+});
+
+export const withoutContact = s(Template, {
+    description: 'Fusce ut elit aliquet, fermentum leo vel, tempus nunc. Fusce eu rhoncus augue.',
+    copyright: '© 2021  Company',
+    links: [
+        { label: 'Home', target: '#' },
+        { label: 'Services', target: '#' },
+        { label: 'About Us', target: '#' },
+        { label: 'Team', target: '#' },
+        { label: 'Privacy Terms', target: '' },
+    ],
+});
+
+export const withoutLinks = s(Template, {
+    description: 'Fusce ut elit aliquet, fermentum leo vel, tempus nunc. Fusce eu rhoncus augue.',
+    copyright: '© 2021  Company',
+    contact: {
+        phone: '(+33) 1 01 01 01 01',
+        email: 'contact@company.com',
+        address: 'Addresse',
+        zipCode: 'cp',
+        city: 'city',
+        facebook: 'https://www.facebook.fr',
+    },
+});
+
 export const withLogo = s(Template, {
     description: 'Fusce ut elit aliquet, fermentum leo vel, tempus nunc. Fusce eu rhoncus augue.',
     copyright: '© 2021  Company',

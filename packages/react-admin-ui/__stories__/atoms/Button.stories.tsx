@@ -42,6 +42,13 @@ export const withDeleteConfirmation = s(Template, {
     confirmDanger: true,
 });
 
+export const withIcon = s(Template, {
+    children: 'label',
+    color: 'primary',
+    variant: 'contained',
+    icon: 'fa-fas--arrow-right',
+});
+
 export const showcase = s(
     (args) => (
         <div className={'space-y-2'}>

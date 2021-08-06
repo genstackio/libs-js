@@ -15,5 +15,9 @@ const Template = (args) => <PeriodBlock {...args} />;
 
 export const basic = s(Template, {
     text: 'Daily',
+});
+
+export const withValue = s(Template, {
+    text: 'Daily',
     value: '36%',
 });

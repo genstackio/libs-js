@@ -92,6 +92,56 @@ export const basic = s(
     },
 );
 
+export const withoutSelection = s(
+    (args) => {
+        const [state, setState] = useState<any>({ data: undefined, loading: true, error: undefined, page: 0 });
+        const handleOnPageChange = useCallback(
+            (e) => {
+                setState({ ...state, loading: true });
+                setTimeout(() => {
+                    setState({ loading: false, data: { items: getPage(e.page) } });
+                }, 500);
+            },
+            [state, setState],
+        );
+        const handleColumnOrderChange = useCallback((e) => {
+            alert(JSON.stringify(e, null, 4));
+        }, []);
+        useEffect(() => {
+            setTimeout(() => {
+                setState({ loading: false, data: { items: getPage(0) } });
+            }, 250);
+        }, []);
+        const items = state.data?.items || [];
+        return (
+            <Template
+                {...args}
+                items={state.loading ? [] : items}
+                onPageChange={handleOnPageChange}
+                loading={state.loading}
+                onColumnOrderChange={handleColumnOrderChange}
+            />
+        );
+    },
+    {
+        columns: [
+            { id: 'b', label: 'Checkbox' },
+            { id: 'c', format: 'badge' },
+            { id: 'a', label: 'Colonne A', format: (v) => formatAmount(v, '€') },
+            {
+                id: 'e',
+                label: 'Progression',
+                render: function SomeRenderer(v) {
+                    return v > 0 ? <Progress value={v} /> : null;
+                },
+            },
+        ],
+        selection: false,
+        defaultRowsPerPage: 5,
+        total: 13,
+    },
+);
+
 export const showcase = s(Template, {
     columns: [
         { id: 'id', label: '#', width: 70 },

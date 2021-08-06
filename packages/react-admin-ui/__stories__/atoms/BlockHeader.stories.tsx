@@ -17,3 +17,9 @@ const Template = (args) => <BlockHeader {...args} />;
 export const basic = s(Template, {
     title: 'this is the title',
 });
+
+export const withLogo = s(Template, {
+    title: 'this is the title',
+    icon: 'fa-fas--arrow-right',
+    variant: 'contained',
+});

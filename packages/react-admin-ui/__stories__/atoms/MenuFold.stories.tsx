@@ -22,6 +22,24 @@ export const basic = s(Template, {
     label: 'Dashboards',
     icon: 'home',
     active: false,
+    items: [
+        {
+            label: 'Default',
+            target: () => alert('click'),
+            active: false,
+        },
+        {
+            label: 'Ecommerce',
+            target: 'https://www.google.com/webhp?hl=fr&sa=X&ved=0ahUKEwj8oNu2_uvwAhUiBmMBHeFQB30QPAgI',
+            active: false,
+        },
+    ],
+});
+
+export const withBadge = s(Template, {
+    label: 'Dashboards',
+    icon: 'home',
+    active: false,
     badges: [
         {
             type: 'tag',
@@ -38,6 +56,44 @@ export const basic = s(Template, {
         },
         {
             label: 'Ecommerce',
+            target: 'https://www.google.com/webhp?hl=fr&sa=X&ved=0ahUKEwj8oNu2_uvwAhUiBmMBHeFQB30QPAgI',
+            active: false,
+        },
+    ],
+});
+
+export const withManyItems = s(Template, {
+    label: 'Dashboards',
+    icon: 'home',
+    active: false,
+    items: [
+        {
+            label: 'Default',
+            target: () => alert('click'),
+            active: false,
+        },
+        {
+            label: 'Ecommerce',
+            target: 'https://www.google.com/webhp?hl=fr&sa=X&ved=0ahUKEwj8oNu2_uvwAhUiBmMBHeFQB30QPAgI',
+            active: false,
+        },
+        {
+            label: 'Marketplace',
+            target: () => alert('click'),
+            active: false,
+        },
+        {
+            label: 'Informations',
+            target: 'https://www.google.com/webhp?hl=fr&sa=X&ved=0ahUKEwj8oNu2_uvwAhUiBmMBHeFQB30QPAgI',
+            active: false,
+        },
+        {
+            label: 'Latest News',
+            target: () => alert('click'),
+            active: false,
+        },
+        {
+            label: 'Contact Us',
             target: 'https://www.google.com/webhp?hl=fr&sa=X&ved=0ahUKEwj8oNu2_uvwAhUiBmMBHeFQB30QPAgI',
             active: false,
         },
