@@ -2,7 +2,7 @@ import { useCallback, useMemo } from 'react';
 import clsx from 'clsx';
 import Icon from './Icon';
 import buttonClass from '../utils/buttonClass';
-import { class_name } from '../types';
+import { class_name, icon, text_size } from '../types';
 import { Spinner } from './Spinner';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
 import cornerClass from '../mappings/corners';
@@ -40,6 +40,8 @@ export function Button({
     confirmKind,
     confirmDanger,
     autoFocus = false,
+    endIcon,
+    endIconSize,
 }: ButtonProps) {
     const handleClick = useCallback(
         (event) => {
@@ -81,6 +83,7 @@ export function Button({
                     <>
                         <Icon icon={icon} size={iconSize} className={children ? 'mr-2' : undefined} />
                         {children || ''}
+                        <Icon icon={endIcon} size={endIconSize} className={children ? 'ml-2' : undefined} />
                     </>
                 )}
             </BoxProvider>
@@ -103,6 +106,8 @@ export interface ButtonProps
         WithAutoFocus,
         WithConfirm {
     spinnerClassName?: class_name;
+    endIcon?: icon;
+    endIconSize?: text_size;
 }
 
 export default Button;
