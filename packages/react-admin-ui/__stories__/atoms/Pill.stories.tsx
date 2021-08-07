@@ -15,3 +15,9 @@ const Template = (args) => <Pill {...args} />;
 export const basic = s(Template, {
     text: '8',
 });
+
+export const withLongText = s(Template, {
+    text: 'My name is BIll and I am a Pill',
+    variant: 'contained',
+    color: 'primary',
+});

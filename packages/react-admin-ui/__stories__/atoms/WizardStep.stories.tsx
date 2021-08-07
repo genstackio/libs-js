@@ -23,3 +23,12 @@ export const basic = s(Template, {
     onClick: () => alert('click'),
     color: 'primary',
 });
+
+export const disabled = s(Template, {
+    index: 1,
+    label: 'Personal',
+    description: 'Add personal details',
+    onClick: () => alert('click'),
+    color: 'primary',
+    disabled: true,
+});

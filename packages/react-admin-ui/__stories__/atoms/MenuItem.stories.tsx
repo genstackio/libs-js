@@ -19,7 +19,13 @@ const Template = (args) => <MenuItem {...args} />;
 
 export const basic = s(Template, {
     label: 'Calendar',
-    icon: 'calendar_today',
     target: 'https://www.google.com/webhp?hl=fr&sa=X&ved=0ahUKEwj8oNu2_uvwAhUiBmMBHeFQB30QPAgI',
+    active: false,
+});
+
+export const withIcon = s(Template, {
+    icon: 'calendar_today',
+    label: 'Calendar',
+    target: 'https://www.google.com',
     active: false,
 });

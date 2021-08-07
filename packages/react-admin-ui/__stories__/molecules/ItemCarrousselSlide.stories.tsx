@@ -16,10 +16,22 @@ const Template = (args) => <ItemCarrousselSlide {...args} />;
 export const basic = s(Template, {
     title: 'Mon Produit',
     label: 'Compatible Mac, PC & Linux',
-    buttonLabel: 'Découvrir',
-    buttonTarget: 'https://www.google.com',
-    buttonType: 'tertiary',
     image: {
         url: 'https://via.placeholder.com/687x426?text=Image',
     },
+});
+
+export const withButton = s(Template, {
+    title: 'Mon Produit',
+    label: 'Compatible Mac, PC & Linux',
+    image: {
+        url: 'https://via.placeholder.com/687x426?text=Image',
+    },
+    btnLabel: 'Click Here',
+    btnTarget: 'https://www.google.com',
+});
+
+export const withoutImage = s(Template, {
+    title: 'Mon Produit',
+    label: 'Compatible Mac, PC & Linux',
 });

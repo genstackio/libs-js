@@ -21,3 +21,8 @@ const Template = (args) => (
 export const basic = s(Template, {
     title: 'Well done!',
 });
+
+export const withClosable = s(Template, {
+    title: 'Well done !',
+    closable: true,
+});
