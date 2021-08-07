@@ -16,7 +16,7 @@ const Template = (args) => <QuoteSlide {...args} />;
 
 export const basic = s(Template, {
     image: {
-        url: 'https://images.prismic.io/lunii/dce49374-4a9c-40e7-b73f-d693e3acff80_dev-konbini.png?auto=compress,format',
+        url: 'https://picsum.photos/200/200',
     },
     overline: 'Konbini',
     title: 'Titre',
