@@ -1,13 +1,15 @@
 import { useTranslation } from 'react-i18next';
 import { flag } from '../types';
 import { useMemo } from 'react';
-import { WithChildren, WithKind, WithOnCancel, WithOnConfirm, WithOpened, WithTitle } from '../withs';
+import { WithKind, WithOnCancel, WithOnConfirm, WithOpened, WithTitle } from '../withs';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogActions from '@material-ui/core/DialogActions';
 import Button from '../atoms/Button';
+import clsx from 'clsx';
+import { AsWrapper } from '../as';
 
 export function ConfirmModal({
     kind = 'confirm',
@@ -17,6 +19,7 @@ export function ConfirmModal({
     onCancel,
     opened = false,
     children,
+    className,
 }: ConfirmModalProps) {
     const { t } = useTranslation();
     const buttonsItems = useMemo(
@@ -51,6 +54,7 @@ export function ConfirmModal({
             onClose={onCancel as any}
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
+            className={clsx(className)}
         >
             <DialogTitle>{title || t(`modal_confirm_${'confirm' === kind ? 'generic' : kind}_title`)}</DialogTitle>
             <DialogContent>
@@ -69,7 +73,7 @@ export function ConfirmModal({
     );
 }
 
-export interface ConfirmModalProps extends WithTitle, WithChildren, WithOnCancel, WithOnConfirm, WithKind, WithOpened {
+export interface ConfirmModalProps extends AsWrapper, WithTitle, WithOnCancel, WithOnConfirm, WithKind, WithOpened {
     danger?: flag;
 }
 

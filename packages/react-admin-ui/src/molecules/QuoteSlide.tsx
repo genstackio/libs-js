@@ -5,7 +5,7 @@ import { flag } from '../types';
 import { Text } from '../atoms/Text';
 import { ButtonProps, Button } from '../atoms/Button';
 
-export function QuoteSlide({ title, overline, image, noImage = false, button, ...props }: QuoteSlideProps) {
+export function QuoteSlide({ title, overline, image, noImage = false, button }: QuoteSlideProps) {
     return (
         <div className={clsx('flex flex-col items-center text-center')}>
             {!noImage && (

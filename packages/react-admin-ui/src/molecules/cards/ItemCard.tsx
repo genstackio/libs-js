@@ -3,7 +3,7 @@ import Tag from '../../atoms/Tag';
 import Icon from '../../atoms/Icon';
 import Text from '../../atoms/Text';
 import { box_color, box_variant } from '../../types';
-import { WithDescription, WithIcon, WithSubtitle, WithText, WithTextSize, WithTitle } from '../../withs';
+import { WithDescription, WithIcon, WithSubtitle, WithText, WithSizeOfText, WithTitle } from '../../withs';
 
 export function ItemCard({
     colorDate,
@@ -35,7 +35,7 @@ export function ItemCard({
     );
 }
 
-export interface ItemCardProps extends WithDescription, WithIcon, WithSubtitle, WithText, WithTitle, WithTextSize {
+export interface ItemCardProps extends WithDescription, WithIcon, WithSubtitle, WithText, WithTitle, WithSizeOfText {
     blockColor?: box_color;
     blockVariant?: box_variant;
     colorDate?: box_color;

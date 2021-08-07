@@ -2,7 +2,8 @@ import clsx from 'clsx';
 import FieldHelper from './FieldHelper';
 import FieldLabel from './FieldLabel';
 import FieldError from './FieldError';
-import { WithChildren, WithClassName, WithError, WithHelper, WithLabel, WithName, WithOptions } from '../withs';
+import { WithError, WithHelper, WithLabel, WithName, WithOptions } from '../withs';
+import { AsWrapper } from '../as';
 
 export function FieldSet({ className, name, label, options, children, error, helper }: FieldSetProps) {
     return (
@@ -17,13 +18,6 @@ export function FieldSet({ className, name, label, options, children, error, hel
     );
 }
 
-export interface FieldSetProps
-    extends WithClassName,
-        WithLabel,
-        Required<WithName>,
-        WithHelper,
-        WithChildren,
-        WithError,
-        WithOptions {}
+export interface FieldSetProps extends AsWrapper, WithLabel, Required<WithName>, WithHelper, WithError, WithOptions {}
 
 export default FieldSet;

@@ -1,12 +1,13 @@
 import clsx from 'clsx';
-import { WithChildren, WithItem } from '../withs';
+import { WithItem } from '../withs';
+import { AsWrapper } from '../as';
 
-export function MosaicItem({ children, item }: MosaicItemProps) {
+export function MosaicItem({ children, item, className }: MosaicItemProps) {
     const Comp = typeof item === 'object' && item.component;
-    if (!Comp) return <div className={clsx('w-44 h-20', 'bg-disabled')}>{children || ''}</div>;
-    return <Comp className={clsx('w-44 h-20')} />;
+    if (!Comp) return <div className={clsx('w-44 h-20', 'bg-disabled', className)}>{children || ''}</div>;
+    return <Comp className={clsx('w-44 h-20', className)} />;
 }
 
-export interface MosaicItemProps extends WithChildren, WithItem {}
+export interface MosaicItemProps extends AsWrapper, WithItem {}
 
 export default MosaicItem;

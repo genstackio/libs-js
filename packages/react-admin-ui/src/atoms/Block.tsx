@@ -11,8 +11,6 @@ import hoverAnimationClass from '../mappings/hover-animations';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
 import {
     WithColorOfBox,
-    WithChildren,
-    WithClassName,
     WithImage,
     WithPadding,
     WithElevation,
@@ -24,6 +22,7 @@ import {
     WithVariantOfBlock,
     WithButtons,
 } from '../withs';
+import { AsWrapper } from '../as';
 
 export function Block({
     elevation = 1,
@@ -89,11 +88,10 @@ export function Block({
 }
 
 export interface BaseBlockProps
-    extends Omit<BlockHeaderProps, 'variant'>,
+    extends AsWrapper,
+        Omit<BlockHeaderProps, 'variant'>,
         Omit<BlockFooterProps, 'variant'>,
         BlockContentProps,
-        WithClassName,
-        WithChildren,
         WithColorOfBox,
         WithVariantOfBlock,
         WithPadding,

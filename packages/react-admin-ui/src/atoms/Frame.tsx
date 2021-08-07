@@ -2,7 +2,8 @@ import clsx from 'clsx';
 import boxClass from '../utils/boxClass';
 import Icon from './Icon';
 import { BoxProvider } from '@genstackio/react-contexts/src/contexts/BoxContext';
-import { WithBox, WithChildren, WithClassName, WithSize, WithIcon } from '../withs';
+import { WithBox, WithSize, WithIcon } from '../withs';
+import { AsWrapper } from '../as';
 
 export function Frame({ icon, size, className, children, color = 'clear', variant = 'outlined' }: FrameProps) {
     return (
@@ -27,6 +28,6 @@ export function Frame({ icon, size, className, children, color = 'clear', varian
     );
 }
 
-export interface FrameProps extends WithClassName, WithBox, WithIcon, WithSize, WithChildren {}
+export interface FrameProps extends AsWrapper, WithBox, WithIcon, WithSize {}
 
 export default Frame;

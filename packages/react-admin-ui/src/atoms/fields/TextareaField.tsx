@@ -1,24 +1,8 @@
 import clsx from 'clsx';
 import useField from '../../hooks/useField';
 import FieldSet from '../FieldSet';
-import {
-    WithAutoFocus,
-    WithClassName,
-    WithDefaultValues,
-    WithDisabled,
-    WithErrors,
-    WithField,
-    WithHelper,
-    WithKind,
-    WithLabel,
-    WithName,
-    WithOnChange,
-    WithOptions,
-    WithPlaceholder,
-    WithRegister,
-    WithRequired,
-    WithValue,
-} from '../../withs';
+import { WithValue } from '../../withs';
+import { AsField } from '../../as';
 
 export function TextareaField({ className, ...props }: TextareaFieldProps) {
     const { name, required, label, error, helper, disabled, register, placeholder, options, extra } = useField(props);
@@ -41,23 +25,7 @@ export function TextareaField({ className, ...props }: TextareaFieldProps) {
     );
 }
 
-export interface TextareaFieldProps
-    extends WithClassName,
-        WithDisabled,
-        WithDefaultValues,
-        WithLabel,
-        WithOnChange,
-        WithAutoFocus,
-        WithOptions,
-        WithRequired,
-        WithErrors,
-        WithPlaceholder,
-        WithName,
-        WithValue,
-        WithHelper,
-        WithRegister,
-        WithField,
-        WithKind {
+export interface TextareaFieldProps extends AsField, WithValue {
     rows?: number;
 }
 

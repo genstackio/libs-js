@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import { Children } from 'react';
 import { useForm } from 'react-hook-form';
-import { WithChildren, WithClassName, WithDefaultValues, WithOnSubmit } from '../withs';
+import { WithDefaultValues, WithOnSubmit } from '../withs';
+import { AsWrapper } from '../as';
 
 export function Form({ className, defaultValues, children, onSubmit }: FormProps) {
     const {
@@ -28,5 +29,5 @@ export function Form({ className, defaultValues, children, onSubmit }: FormProps
     );
 }
 
-export interface FormProps extends WithClassName, WithChildren, WithDefaultValues, WithOnSubmit {}
+export interface FormProps extends AsWrapper, WithDefaultValues, WithOnSubmit {}
 export default Form;

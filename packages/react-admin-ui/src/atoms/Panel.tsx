@@ -1,9 +1,10 @@
 import clsx from 'clsx';
 import boxClass from '../utils/boxClass';
 import Row from './Row';
-import { WithClassName, WithChildren, WithBox, WithVertical } from '../withs';
+import { WithBox, WithVertical } from '../withs';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
 import { useMemo } from 'react';
+import { AsWrapper } from '../as';
 
 export function Panel({ className, children, color = 'primary', variant = 'contained', vertical = false }: PanelProps) {
     const box = useMemo(() => ({ color, variant }), [color, variant]);
@@ -16,6 +17,6 @@ export function Panel({ className, children, color = 'primary', variant = 'conta
     );
 }
 
-export interface PanelProps extends WithClassName, WithChildren, WithBox, WithVertical {}
+export interface PanelProps extends AsWrapper, WithBox, WithVertical {}
 
 export default Panel;

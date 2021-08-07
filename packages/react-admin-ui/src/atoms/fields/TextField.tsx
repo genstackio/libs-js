@@ -4,25 +4,8 @@ import useField from '../../hooks/useField';
 import { flag, icon, rich_text } from '../../types';
 import { fieldVariantClass } from '../../mappings/field-variants';
 import { useMemo } from 'react';
-import {
-    WithAutoFocus,
-    WithClassName,
-    WithDefaultValues,
-    WithDisabled,
-    WithErrors,
-    WithField,
-    WithHelper,
-    WithKind,
-    WithLabel,
-    WithName,
-    WithOnChange,
-    WithOptions,
-    WithPlaceholder,
-    WithRegister,
-    WithRequired,
-    WithValue,
-    WithVariantOfField,
-} from '../../withs';
+import { WithValue } from '../../withs';
+import { AsField } from '../../as';
 
 export function TextField(props: TextFieldProps) {
     const {
@@ -95,24 +78,7 @@ export function TextField(props: TextFieldProps) {
     );
 }
 
-export interface TextFieldProps
-    extends WithClassName,
-        WithDisabled,
-        WithDefaultValues,
-        WithLabel,
-        WithOnChange,
-        WithAutoFocus,
-        WithOptions,
-        WithRequired,
-        WithErrors,
-        WithPlaceholder,
-        WithName,
-        WithValue,
-        WithHelper,
-        WithField,
-        WithRegister,
-        WithVariantOfField,
-        WithKind {
+export interface TextFieldProps extends AsField, WithValue {
     type?: string;
     append?: rich_text;
     appendIcon?: icon;

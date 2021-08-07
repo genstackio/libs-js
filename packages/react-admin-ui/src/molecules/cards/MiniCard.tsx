@@ -1,7 +1,8 @@
 import Block from '../../atoms/Block';
 import Image from '../../atoms/Image';
 import Text from '../../atoms/Text';
-import { WithChildren, WithClassName, WithDescription, WithImage, WithTitle } from '../../withs';
+import { WithDescription, WithImage, WithTitle } from '../../withs';
+import { AsWrapper } from '../../as';
 
 export function MiniCard({ className, children, description, image, title }: MiniCardProps) {
     return (
@@ -14,6 +15,6 @@ export function MiniCard({ className, children, description, image, title }: Min
     );
 }
 
-export interface MiniCardProps extends WithClassName, WithChildren, WithDescription, WithImage, WithTitle {}
+export interface MiniCardProps extends AsWrapper, WithDescription, WithImage, WithTitle {}
 
 export default MiniCard;

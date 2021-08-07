@@ -453,13 +453,13 @@ export interface WithTarget {
 export interface WithBadges {
     badges?: badge[];
 }
-export interface WithTextColor {
+export interface WithColorOfText {
     color?: text_color;
 }
-export interface WithTextComponent {
+export interface WithComponentOfText {
     component?: text_component;
 }
-export interface WithTextSize {
+export interface WithSizeOfText {
     size?: text_size;
 }
 export interface WithPosition {

@@ -1,10 +1,10 @@
 import clsx from 'clsx';
-import { WithChildren, WithClassName } from '../withs';
+import { AsWrapper } from '../as';
 
 export function FieldGroup({ className, children }: FieldGroupProps) {
     return <div className={clsx('flex space-x-4 xs:flex-col xs:space-x-0', className)}>{children || ''}</div>;
 }
 
-export interface FieldGroupProps extends WithClassName, WithChildren {}
+export type FieldGroupProps = AsWrapper;
 
 export default FieldGroup;

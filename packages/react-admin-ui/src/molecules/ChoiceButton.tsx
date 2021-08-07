@@ -6,7 +6,8 @@ import Button from '../atoms/Button';
 import Icon from '../atoms/Icon';
 import boxClass from '../utils/boxClass';
 import Expandable from './Expandable';
-import { WithBox, WithChildren, WithClassName, WithItemsOfChoiceButton } from '../withs';
+import { WithBox, WithItemsOfChoiceButton } from '../withs';
+import { AsWrapper } from '../as';
 
 export function ChoiceButton({ className, color, items = [], children, expandedChildren }: ChoiceButtonProps) {
     const expandedSubChildren = () => (
@@ -39,7 +40,7 @@ export function ChoiceButton({ className, color, items = [], children, expandedC
     );
 }
 
-export interface ChoiceButtonProps extends WithClassName, WithBox, WithChildren, WithItemsOfChoiceButton {
+export interface ChoiceButtonProps extends AsWrapper, WithBox, WithItemsOfChoiceButton {
     expandedChildren?: children;
 }
 

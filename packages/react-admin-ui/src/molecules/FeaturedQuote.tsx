@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import Avatar from '../atoms/Avatar';
 import Text from '../atoms/Text';
-import { WithClassName, WithImage, WithSubtitle, WithText, WithTextColor, WithTitle } from '../withs';
+import { WithClassName, WithImage, WithSubtitle, WithText, WithColorOfText, WithTitle } from '../withs';
 
 export function FeaturedQuote({ className, text, title, subtitle, image, color = 'primary' }: FeaturedQuoteProps) {
     return (
@@ -20,7 +20,7 @@ export interface FeaturedQuoteProps
         WithTitle,
         WithSubtitle,
         WithImage,
-        WithTextColor {}
+        WithColorOfText {}
 
 // noinspection JSUnusedGlobalSymbols
 export default FeaturedQuote;

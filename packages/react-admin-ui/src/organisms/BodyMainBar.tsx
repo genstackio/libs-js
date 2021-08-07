@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import Button from '../atoms/Button';
 import { action_item } from '../types';
-import { WithChildren, WithClassName } from '../withs';
+import { AsWrapper } from '../as';
 
 export function BodyMainBar({ className, actions = [], children }: BodyMainBarProps) {
     return (
@@ -20,7 +20,7 @@ export function BodyMainBar({ className, actions = [], children }: BodyMainBarPr
     );
 }
 
-export interface BodyMainBarProps extends WithClassName, WithChildren {
+export interface BodyMainBarProps extends AsWrapper {
     actions: action_item[];
 }
 

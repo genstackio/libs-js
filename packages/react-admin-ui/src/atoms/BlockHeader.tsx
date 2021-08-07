@@ -6,15 +6,8 @@ import Text from './Text';
 import Div from './Div';
 import bgClass from '../utils/bgClass';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
-import {
-    WithBox,
-    WithClassName,
-    WithTitle,
-    WithSubtitle,
-    WithIcon,
-    WithButtonLabel,
-    WithDropdownItems,
-} from '../withs';
+import { WithBox, WithTitle, WithSubtitle, WithIcon, WithButtonLabel, WithDropdownItems } from '../withs';
+import { AsWrapper } from '../as';
 
 export function BlockHeader({
     className,
@@ -25,6 +18,7 @@ export function BlockHeader({
     title,
     subtitle,
     variant = 'filled',
+    children,
 }: BlockHeaderProps) {
     if (!title) return null;
     return (
@@ -40,13 +34,14 @@ export function BlockHeader({
                 {btnLabel && <Button color={color}>{btnLabel}</Button>}
                 <Dropdown items={dropdownItems} color={color} variant={variant} />
                 <Icon icon={icon} />
+                {children || ''}
             </BoxProvider>
         </Div>
     );
 }
 
 export interface BlockHeaderProps
-    extends WithClassName,
+    extends AsWrapper,
         WithDropdownItems,
         WithBox,
         WithTitle,

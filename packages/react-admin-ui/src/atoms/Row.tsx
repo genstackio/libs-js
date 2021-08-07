@@ -1,10 +1,11 @@
 import clsx from 'clsx';
-import { WithCenter, WithChildren, WithClassName } from '../withs';
+import { WithCenter } from '../withs';
+import { AsWrapper } from '../as';
 
 export function Row({ className, children, center = false }: RowProps) {
     return <div className={clsx('flex', center && 'items-center', className)}>{children || ''}</div>;
 }
 
-export interface RowProps extends WithClassName, WithChildren, WithCenter {}
+export interface RowProps extends AsWrapper, WithCenter {}
 
 export default Row;

@@ -3,7 +3,8 @@ import clsx from 'clsx';
 import Button from '../atoms/Button';
 import MuiModal from '@material-ui/core/Modal';
 import { action_item } from '../types';
-import { WithChildren, WithClassName, WithOpened, WithTitle } from '../withs';
+import { WithOpened, WithTitle } from '../withs';
+import { AsWrapper } from '../as';
 
 export function Modal({ className, buttonsItems = [], children, onClose, opened = false, title }: ModalProps) {
     return (
@@ -34,7 +35,7 @@ export function Modal({ className, buttonsItems = [], children, onClose, opened 
     );
 }
 
-export interface ModalProps extends WithClassName, WithChildren, WithTitle, WithOpened {
+export interface ModalProps extends AsWrapper, WithTitle, WithOpened {
     buttonsItems?: action_item[];
     onClose?: MouseEventHandler;
 }

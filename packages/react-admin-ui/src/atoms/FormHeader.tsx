@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { WithChildren, WithClassName } from '../withs';
+import { AsWrapper } from '../as';
 
 export function FormHeader({ className, children }: FormHeaderProps) {
     return children ? (
@@ -9,6 +9,6 @@ export function FormHeader({ className, children }: FormHeaderProps) {
     ) : null;
 }
 
-export interface FormHeaderProps extends WithClassName, WithChildren {}
+export type FormHeaderProps = AsWrapper;
 
 export default FormHeader;

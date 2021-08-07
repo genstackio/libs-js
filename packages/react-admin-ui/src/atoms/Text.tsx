@@ -3,7 +3,7 @@ import textColorClass, { text_color } from '../mappings/text-colors';
 import textVariantClass from '../mappings/text-variants';
 import { box_context_value } from '@genstackio/react-contexts/lib/types';
 import useBox from '@genstackio/react-contexts/lib/hooks/useBox';
-import { WithCenter, WithClassName, WithText, WithTextColor, WithTextComponent, WithVariantOfText } from '../withs';
+import { WithCenter, WithClassName, WithText, WithColorOfText, WithComponentOfText, WithVariantOfText } from '../withs';
 
 const mappings = {
     // contained
@@ -105,8 +105,8 @@ export function Text({
 export interface TextProps
     extends WithClassName,
         WithText,
-        WithTextColor,
-        WithTextComponent,
+        WithColorOfText,
+        WithComponentOfText,
         WithVariantOfText,
         WithCenter {}
 

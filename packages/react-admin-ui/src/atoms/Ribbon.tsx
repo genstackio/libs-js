@@ -2,7 +2,8 @@ import clsx from 'clsx';
 import { flag, ribbon_position } from '../types';
 import boxClass from '../utils/boxClass';
 import Icon from './Icon';
-import { WithColorOfBox, WithChildren, WithClassName, WithText } from '../withs';
+import { WithColorOfBox, WithText } from '../withs';
+import { AsWrapper } from '../as';
 
 export function Ribbon({ className, children, color, horizontal, position = 'top-left', text, vertical }: RibbonProps) {
     let triangle_position,
@@ -119,7 +120,7 @@ export function Ribbon({ className, children, color, horizontal, position = 'top
     );
 }
 
-export interface RibbonProps extends WithClassName, WithChildren, WithText, WithColorOfBox {
+export interface RibbonProps extends AsWrapper, WithText, WithColorOfBox {
     horizontal?: flag;
     position?: ribbon_position;
     vertical?: flag;

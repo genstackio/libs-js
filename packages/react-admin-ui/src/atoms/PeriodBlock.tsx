@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import Text from './Text';
-import { WithClassName, WithText, WithTextColor, WithValueAsRichText } from '../withs';
+import { WithClassName, WithText, WithColorOfText, WithValueAsRichText } from '../withs';
 
 export function PeriodBlock({ className, color, text, value }: PeriodBlockProps) {
     return (
@@ -11,6 +11,6 @@ export function PeriodBlock({ className, color, text, value }: PeriodBlockProps)
     );
 }
 
-export interface PeriodBlockProps extends WithClassName, WithTextColor, WithText, WithValueAsRichText {}
+export interface PeriodBlockProps extends WithClassName, WithColorOfText, WithText, WithValueAsRichText {}
 
 export default PeriodBlock;

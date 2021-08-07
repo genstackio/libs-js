@@ -1,7 +1,8 @@
 import clsx from 'clsx';
-import { WithCenter, WithChildren, WithClassName, WithPadding } from '../withs';
+import { WithCenter, WithPadding } from '../withs';
 import { flag } from '../types';
 import paddingClass from '../mappings/paddings';
+import { AsWrapper } from '../as';
 
 export function Div({
     padding = 'none',
@@ -30,7 +31,7 @@ export function Div({
     );
 }
 
-export interface DivProps extends WithChildren, WithClassName, WithPadding, WithCenter {
+export interface DivProps extends AsWrapper, WithPadding, WithCenter {
     full?: flag;
     inline?: flag;
     relative?: flag;

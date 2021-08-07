@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import Text from '../atoms/Text';
-import { WithClassName, WithText, WithTextColor } from '../withs';
+import { WithClassName, WithText, WithColorOfText } from '../withs';
 
 export function Heading({ className, text, color }: HeadingProps) {
     return (
@@ -12,6 +12,6 @@ export function Heading({ className, text, color }: HeadingProps) {
     );
 }
 
-export interface HeadingProps extends WithClassName, WithText, WithTextColor {}
+export interface HeadingProps extends WithClassName, WithText, WithColorOfText {}
 
 export default Heading;

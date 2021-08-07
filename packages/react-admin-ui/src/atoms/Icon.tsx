@@ -11,8 +11,8 @@ import { mapIconColor } from '../mappings/icon-colors';
 import {
     WithClassName,
     WithIcon,
-    WithTextColor,
-    WithTextSize,
+    WithColorOfText,
+    WithSizeOfText,
     WithWidth,
     WithHeight,
     WithOnClick,
@@ -88,8 +88,8 @@ export function Icon({ count = 0, icon, size, onClick, color, ...props }: IconPr
 export interface IconProps
     extends WithClassName,
         WithIcon,
-        WithTextColor,
-        WithTextSize,
+        WithColorOfText,
+        WithSizeOfText,
         WithWidth,
         WithHeight,
         WithOnClick,

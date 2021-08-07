@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Div from './Div';
-import { WithChildren, WithClassName, WithCenter } from '../withs';
+import { WithCenter } from '../withs';
+import { AsWrapper } from '../as';
 
 export function Column({ className, children, center = false }: ColumnProps) {
     return (
@@ -10,6 +11,6 @@ export function Column({ className, children, center = false }: ColumnProps) {
     );
 }
 
-export interface ColumnProps extends WithClassName, WithChildren, WithCenter {}
+export interface ColumnProps extends AsWrapper, WithCenter {}
 
 export default Column;

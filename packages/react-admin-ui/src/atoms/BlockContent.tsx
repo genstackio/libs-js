@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Div from './Div';
-import { WithChildren, WithClassName, WithPadding } from '../withs';
+import { WithPadding } from '../withs';
+import { AsWrapper } from '../as';
 
 export function BlockContent({ padding = 'default', className, children }: BlockContentProps) {
     return (
@@ -10,6 +11,6 @@ export function BlockContent({ padding = 'default', className, children }: Block
     );
 }
 
-export interface BlockContentProps extends WithClassName, WithChildren, WithPadding {}
+export interface BlockContentProps extends AsWrapper, WithPadding {}
 
 export default BlockContent;
