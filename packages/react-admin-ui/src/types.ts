@@ -157,7 +157,7 @@ export type workflow_step = {
     bgImage?: image;
     image?: image;
     isDisabled?: Function;
-    component: ComponentType;
+    component?: ComponentType;
 };
 export type workflow_config = {
     currentStep: workflow_step;
