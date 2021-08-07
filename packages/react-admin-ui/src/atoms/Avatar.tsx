@@ -10,23 +10,21 @@ import clsx from 'clsx';
 export function Avatar({ className, image, name, size, shape = 'circular', status, title, subtitle }: AvatarProps) {
     const hasTitleOrSubtitle = !!title || !!subtitle;
     return (
-        <>
-            <Div
-                center
-                relative={!!status}
-                className={clsx(className, !hasTitleOrSubtitle && 'inline-block', hasTitleOrSubtitle && 'inline-flex')}
-            >
-                {!image && <AvatarInitials size={size} shape={shape} name={name} />}
-                {image && <AvatarImage size={size} shape={shape} image={image} />}
-                {status && <BuddyStatus status={status} />}
-                {hasTitleOrSubtitle && (
-                    <div className={'pl-4'}>
-                        {!!title && <Text text={title} variant={'title6'} />}
-                        {!!subtitle && <Text text={subtitle} variant={'overline'} />}
-                    </div>
-                )}
-            </Div>
-        </>
+        <Div
+            center
+            relative={!!status}
+            className={clsx(className, !hasTitleOrSubtitle && 'inline-block', hasTitleOrSubtitle && 'inline-flex')}
+        >
+            {!image && <AvatarInitials size={size} shape={shape} name={name} />}
+            {image && <AvatarImage size={size} shape={shape} image={image} />}
+            {status && <BuddyStatus status={status} />}
+            {hasTitleOrSubtitle && (
+                <div className={'pl-4'}>
+                    {!!title && <Text text={title} variant={'title6'} />}
+                    {!!subtitle && <Text text={subtitle} variant={'overline'} />}
+                </div>
+            )}
+        </Div>
     );
 }
 

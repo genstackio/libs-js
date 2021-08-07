@@ -185,7 +185,7 @@ export type wizard_step = {
     bgImage?: image;
     image?: image;
     isDisabled?: Function;
-    component: ComponentType<wizard_step_props>;
+    component?: ComponentType<wizard_step_props>;
 };
 
 export type share_icon_item = { type: share_icon_type; target?: target };

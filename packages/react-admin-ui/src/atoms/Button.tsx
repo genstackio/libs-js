@@ -81,9 +81,9 @@ export function Button({
                 )}
                 {!loading && (
                     <>
-                        <Icon icon={icon} size={iconSize} className={(children && icon) ? 'mr-2' : undefined} />
+                        <Icon icon={icon} size={iconSize} className={children && icon ? 'mr-2' : undefined} />
                         {children || ''}
-                        <Icon icon={endIcon} size={endIconSize} className={(children && endIcon) ? 'ml-2' : undefined} />
+                        <Icon icon={endIcon} size={endIconSize} className={children && endIcon ? 'ml-2' : undefined} />
                     </>
                 )}
             </BoxProvider>

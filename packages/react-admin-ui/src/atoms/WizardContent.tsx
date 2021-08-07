@@ -11,19 +11,14 @@ import {
     WithOnSave,
 } from '../withs';
 
-export function WizardContent({
-    className,
-    currentStep: { component: Component, bgImage },
-    onNext,
-    onComplete,
-    ...props
-}: WizardContentProps) {
+export function WizardContent({ className, currentStep, onNext, onComplete, ...props }: WizardContentProps) {
+    const { component: Component, bgImage } = currentStep || {};
     return (
         <Container
             bgImage={bgImage}
             className={clsx('flex-1 bg-cover flex flex-col justify-center items-center p-4', className)}
         >
-            <Component onSubmit={onNext || onComplete} {...props} />
+            {!!Component && <Component onSubmit={onNext || onComplete} {...props} />}
         </Container>
     );
 }
