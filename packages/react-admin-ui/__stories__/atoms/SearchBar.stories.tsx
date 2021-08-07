@@ -12,3 +12,5 @@ export default {
 const Template = (args) => <SearchBar {...args} />;
 
 export const basic = s(Template, {});
+
+export const withDefaultFocus = s(Template, { defaultFocus: true });

@@ -18,3 +18,9 @@ export const basic = s(Template, {
     title: 'Someone famous in Source Title',
     position: 'left',
 });
+
+export const onRightSide = s(Template, {
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.',
+    title: 'Someone famous in Source Title',
+    position: 'right',
+});

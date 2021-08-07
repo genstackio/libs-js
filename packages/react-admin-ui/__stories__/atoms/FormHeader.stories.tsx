@@ -1,5 +1,5 @@
 import { args, s, a } from '../utils';
-import { FirstNameField, FormHeader, InstagramField, IpAddressField } from '../../src';
+import { AddressField, BirthDateField, FirstNameField, FormHeader, InstagramField, IpAddressField } from '../../src';
 
 export default {
     title: 'Atoms/FormHeader',
@@ -15,6 +15,18 @@ export const basic = s(Template, {
     children: (
         <>
             <InstagramField />, <IpAddressField />, <FirstNameField />
+        </>
+    ),
+});
+
+export const moreFields = s(Template, {
+    children: (
+        <>
+            <InstagramField />
+            <IpAddressField />
+            <FirstNameField />
+            <AddressField />
+            <BirthDateField />
         </>
     ),
 });

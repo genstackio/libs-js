@@ -32,9 +32,14 @@ export const manyItems = s(Template, {
     ],
 });
 
-export const withSelection = s(Template, {
+export const withSelectionAlert = s(Template, {
     items: [{ id: 0 }, { id: 1 }, { id: 2 }],
     onSelectionChange: (item) => {
         alert(`Selected item : ${item.id}`);
     },
+});
+
+export const withSelected = s(Template, {
+    items: [{ id: 0 }, { id: 1 }, { id: 2 }],
+    selected: { id: 2 },
 });

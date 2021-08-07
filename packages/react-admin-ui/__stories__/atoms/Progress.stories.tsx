@@ -15,3 +15,8 @@ const Template = (args) => <Progress {...args} />;
 export const basic = s(Template, {
     value: 33,
 });
+
+export const circular = s(Template, {
+    value: 33,
+    variant: 'circular',
+});
