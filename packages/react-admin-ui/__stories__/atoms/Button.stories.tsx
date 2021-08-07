@@ -42,11 +42,11 @@ export const withDeleteConfirmation = s(Template, {
     confirmDanger: true,
 });
 
-export const withIcon = s(Template, {
+export const withEndIcon = s(Template, {
     children: 'label',
     color: 'primary',
     variant: 'contained',
-    icon: 'fa-fas--arrow-right',
+    endIcon: 'fa-fas--arrow-right',
 });
 
 export const showcase = s(
