@@ -3,11 +3,10 @@ import clsx from 'clsx';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
 import textClass from '../utils/textClass';
-import { menu_button_item } from '../types';
 import boxClass from '../utils/boxClass';
-import { WithColorOfBox, WithClassName } from '../withs';
+import { WithColorOfBox, WithClassName, WithItemsOfMenuButton } from '../withs';
 
-export function MenuButtonWidget({ className, items, color }: MenuButtonWidgetProps) {
+export function MenuButtonWidget({ className, items = [], color }: MenuButtonWidgetProps) {
     const handleClick = useCallback(
         (target) => () => {
             'function' === typeof target && target();
@@ -33,16 +32,14 @@ export function MenuButtonWidget({ className, items, color }: MenuButtonWidgetPr
                     key={index}
                     onClick={handleClick(target)}
                 >
-                    {icon && <Icon icon={icon} />}
-                    {label && <Text text={label} variant={'description'} />}
+                    <Icon icon={icon} />
+                    <Text text={label} variant={'description'} />
                 </li>
             ))}
         </ul>
     );
 }
 
-export interface MenuButtonWidgetProps extends WithClassName, WithColorOfBox {
-    items: menu_button_item[];
-}
+export interface MenuButtonWidgetProps extends WithClassName, WithColorOfBox, WithItemsOfMenuButton {}
 
 export default MenuButtonWidget;

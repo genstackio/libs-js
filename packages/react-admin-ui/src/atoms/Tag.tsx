@@ -15,7 +15,7 @@ export function Tag({ className, color = 'primary', icon, size, text, variant = 
             )}
         >
             <BoxProvider value={{ color, variant }}>
-                {text && <Text text={text} />}
+                <Text text={text} />
                 <Icon size={size} icon={icon} />
             </BoxProvider>
         </div>

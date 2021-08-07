@@ -6,7 +6,16 @@ import Block from '../../atoms/Block';
 import Tag from '../../atoms/Tag';
 import Text from '../../atoms/Text';
 import Rating from '../../atoms/Rating';
-import { WithBox, WithClassName, WithDescription, WithImage, WithTitle, WithContent, WithOnClick } from '../../withs';
+import {
+    WithBox,
+    WithClassName,
+    WithDescription,
+    WithImage,
+    WithTitle,
+    WithContent,
+    WithOnClick,
+    WithValueAsNumber,
+} from '../../withs';
 
 export function Card({
     className,
@@ -63,9 +72,9 @@ export interface CardProps
         WithTitle,
         WithDescription,
         WithContent,
+        WithValueAsNumber,
         WithOnClick {
     link?: string;
-    value?: number;
 }
 
 // noinspection JSUnusedGlobalSymbols

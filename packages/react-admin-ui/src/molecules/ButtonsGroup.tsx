@@ -1,12 +1,11 @@
 import clsx from 'clsx';
 import Button from '../atoms/Button';
-import { action_item } from '../types';
-import { WithClassName } from '../withs';
+import { WithClassName, WithItemsOfAction } from '../withs';
 
-export function ButtonsGroup({ className, actions = [] }: ButtonsGroupProps) {
+export function ButtonsGroup({ className, items = [] }: ButtonsGroupProps) {
     return (
         <div className={clsx('x-buttons', className)}>
-            {actions.map(({ label, target, ...props }, i) => (
+            {items.map(({ label, target, ...props }, i) => (
                 <div key={i} className={'xs:mt-2 xs:w-full'}>
                     <Button onClick={target} className={'xs:w-full'} {...props}>
                         {label}
@@ -17,9 +16,7 @@ export function ButtonsGroup({ className, actions = [] }: ButtonsGroupProps) {
     );
 }
 
-export interface ButtonsGroupProps extends WithClassName {
-    actions: action_item[];
-}
+export interface ButtonsGroupProps extends WithClassName, WithItemsOfAction {}
 
 // noinspection JSUnusedGlobalSymbols
 export default ButtonsGroup;

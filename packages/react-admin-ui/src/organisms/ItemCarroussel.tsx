@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { useMediaQuery } from '@material-ui/core';
 import useTheme from '@material-ui/core/styles/useTheme';
 import Row from '../atoms/Row';
-import { WithTitle } from '../withs';
+import { WithItems, WithTitle } from '../withs';
 import Container from '../atoms/Container';
 import Text from '../atoms/Text';
 
@@ -52,8 +52,6 @@ export function ItemCarroussel({ title, items = [] }: ItemCarrousselProps) {
     );
 }
 
-export interface ItemCarrousselProps extends WithTitle {
-    items?: any[];
-}
+export interface ItemCarrousselProps extends WithTitle, WithItems {}
 
 export default ItemCarroussel;

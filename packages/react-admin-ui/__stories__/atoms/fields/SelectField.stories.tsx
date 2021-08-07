@@ -12,7 +12,7 @@ export default {
         register: args._disabled,
         type: args.fieldType,
         errors: args._disabled,
-        defaults: args._disabled,
+        defaultValues: args._disabled,
         onChange: args._disabled,
         options: args._disabled,
         value: args.fieldValue,

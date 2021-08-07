@@ -1,11 +1,11 @@
 import { DataGrid, DataGridProps, GridCellParams, GridColDef, GridValueFormatterParams } from '@material-ui/data-grid';
 import { makeStyles } from '@material-ui/core/styles';
 import tailwindConfig from '../../tailwind.config';
-import { flag, table_column, table_row } from '../types';
+import { flag } from '../types';
 import Badge from '../atoms/Badge';
 import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { WithColorOfBox, WithClassName } from '../withs';
+import { WithColorOfBox, WithClassName, WithItemsOfTable, WithColumnsOfTable } from '../withs';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 const tailwindTextColors = tailwindConfig.theme.extend.textColors;
@@ -86,8 +86,8 @@ export function Table({
     color,
     striped,
     loading = false,
-    columns,
-    items,
+    columns = [],
+    items = [],
     selection = false,
     defaultRowsPerPage = 50,
     ...props
@@ -168,9 +168,9 @@ export function Table({
 export interface TableProps
     extends Omit<DataGridProps, 'columns' | 'onPageChange' | 'rows'>,
         WithClassName,
+        WithItemsOfTable,
+        WithColumnsOfTable,
         WithColorOfBox {
-    columns: table_column[];
-    items: table_row[];
     rowsPerPage?: number;
     selection?: flag;
     striped?: flag;

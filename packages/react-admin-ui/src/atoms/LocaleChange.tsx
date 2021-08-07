@@ -50,7 +50,7 @@ export function LocaleChange({ className, locales = [], color = 'primary' }: Loc
                                 onClick={onLocaleChange(value) as any}
                             >
                                 <FlagIcon locale={value} />
-                                {language && <Text text={language} variant={'subsection'} />}
+                                <Text text={language} variant={'subsection'} />
                             </div>
                         ))}
                     </div>

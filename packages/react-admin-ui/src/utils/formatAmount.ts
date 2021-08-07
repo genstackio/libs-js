@@ -1,4 +1,5 @@
 export function formatAmount(value, unit) {
+    if ('undefined' === value) return undefined;
     if (unit) {
         switch (unit) {
             case '$':

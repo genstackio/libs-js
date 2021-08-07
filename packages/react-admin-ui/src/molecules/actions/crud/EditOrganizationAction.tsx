@@ -1,9 +1,9 @@
-import { ComponentType, useCallback } from 'react';
+import { useCallback } from 'react';
 import EditOrganizationForm, { EditOrganizationFormProps } from '../../forms/crud/EditOrganizationForm';
 import FormActionProps from '../../forms/FormActionProps';
 import Spinner from '../../../atoms/Spinner';
 import useUpdateAction from '../../../hooks/useUpdateAction';
-import { WithId, WithMutationName, WithQueryName } from '../../../withs';
+import { WithId, WithMutationName, WithQueryName, WithSpinnerComponent } from '../../../withs';
 
 export function EditOrganizationAction({
     component: Component = EditOrganizationForm,
@@ -53,10 +53,9 @@ export interface EditOrganizationActionProps
     extends EditOrganizationFormProps,
         FormActionProps,
         Required<WithId>,
+        WithSpinnerComponent,
         WithQueryName,
-        WithMutationName {
-    spinnerComponent?: ComponentType<any>;
-}
+        WithMutationName {}
 
 // noinspection JSUnusedGlobalSymbols
 export default EditOrganizationAction;

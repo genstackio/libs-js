@@ -2,7 +2,6 @@ import { ChangeEvent, useState, useCallback } from 'react';
 import clsx from 'clsx';
 import textClass from '../utils/textClass';
 import buttonClass from '../utils/buttonClass';
-import { accordion_item, menu_variant } from '../types';
 import { withStyles } from '@material-ui/core/styles';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
@@ -12,7 +11,7 @@ import Icon from '../atoms/Icon';
 import Badge from '../atoms/Badge';
 import Text from '../atoms/Text';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
-import { WithClassName, WithTextColor } from '../withs';
+import { WithClassName, WithExpandIcon, WithItemsOfAccordion, WithTextColor, WithVariantOfMenu } from '../withs';
 
 const StyledAccordion = withStyles({
     root: {
@@ -112,10 +111,11 @@ export function Accordion({
     );
 }
 
-export interface AccordionProps extends WithClassName, WithTextColor {
-    expandIcon?: string;
-    items: accordion_item[];
-    variant?: menu_variant;
-}
+export interface AccordionProps
+    extends WithClassName,
+        WithTextColor,
+        WithItemsOfAccordion,
+        WithVariantOfMenu,
+        WithExpandIcon {}
 
 export default Accordion;

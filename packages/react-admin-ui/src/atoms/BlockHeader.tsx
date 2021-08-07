@@ -38,7 +38,7 @@ export function BlockHeader({
                     <Text variant={'overline'} text={subtitle} />
                 </div>
                 {btnLabel && <Button color={color}>{btnLabel}</Button>}
-                {dropdownItems && <Dropdown items={dropdownItems} color={color} variant={variant} />}
+                <Dropdown items={dropdownItems} color={color} variant={variant} />
                 <Icon icon={icon} />
             </BoxProvider>
         </Div>

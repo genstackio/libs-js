@@ -32,7 +32,7 @@ export function Newsletter({
                         <Divider size={'xs'} variant={'contained'} color={'warning'} className={clsx('w-1/4')} />
                     </div>
                 )}
-                {text && <Text className={'py-3 text-center'} text={text} variant={'text'} />}
+                <Text className={'py-3 text-center'} text={text} variant={'text'} />
                 <NewsletterAction onSuccess={onAfterSubscribe} />
             </Block>
             <div className={'flex-1'}>{image && <Image {...image} objectFit={'contain'} />}</div>

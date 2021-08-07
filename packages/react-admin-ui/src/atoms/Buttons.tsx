@@ -1,15 +1,9 @@
-import clsx from 'clsx';
-import Button from './Button';
 import { WithButtons, WithClassName } from '../withs';
+import Items from './Items';
+import Button from './Button';
 
 export function Buttons({ className, buttons = [] }: ButtonsProps) {
-    return (
-        <div className={className}>
-            {buttons.map(({ className, ...b }, i) => (
-                <Button key={i} className={clsx('mr-2', className)} {...b} />
-            ))}
-        </div>
-    );
+    return <Items items={buttons} component={Button} className={'mr-2'} container containerClassName={className} />;
 }
 
 export interface ButtonsProps extends WithClassName, WithButtons {}

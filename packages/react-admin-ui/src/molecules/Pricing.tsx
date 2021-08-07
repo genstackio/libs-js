@@ -3,9 +3,8 @@ import Block from '../atoms/Block';
 import Button from '../atoms/Button';
 import Text from '../atoms/Text';
 import boxClass from '../utils/boxClass';
-import { pricing_item } from '../types';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
-import { WithClassName } from '../withs';
+import { WithClassName, WithItemsOfPricing } from '../withs';
 
 export function Pricing({ className, items = [] }: PricingProps) {
     return (
@@ -16,7 +15,9 @@ export function Pricing({ className, items = [] }: PricingProps) {
                     image={item.image}
                     contentClassName={'space-y-3 flex justify-center items-center flex-col pr-4 pl-4'}
                 >
-                    <div className={'uppercase'}>{item && <Text text={item.name} variant={'title4'} />}</div>
+                    <div className={'uppercase'}>
+                        <Text text={item?.name} variant={'title4'} />
+                    </div>
                     <div
                         className={clsx(
                             boxClass({ color: item.color, variant: item.variant }),
@@ -46,8 +47,6 @@ export function Pricing({ className, items = [] }: PricingProps) {
     );
 }
 
-export interface PricingProps extends WithClassName {
-    items: pricing_item[];
-}
+export interface PricingProps extends WithClassName, WithItemsOfPricing {}
 
 export default Pricing;

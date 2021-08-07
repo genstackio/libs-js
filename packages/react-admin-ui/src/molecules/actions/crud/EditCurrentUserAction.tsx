@@ -2,8 +2,8 @@ import EditCurrentUserForm, { EditCurrentUserFormProps } from '../../forms/crud/
 import FormActionProps from '../../forms/FormActionProps';
 import Spinner from '../../../atoms/Spinner';
 import useUpdateAction from '../../../hooks/useUpdateAction';
-import { ComponentType, useCallback } from 'react';
-import { WithId, WithMutationName, WithQueryName } from '../../../withs';
+import { useCallback } from 'react';
+import { WithId, WithMutationName, WithQueryName, WithSpinnerComponent } from '../../../withs';
 
 export function EditCurrentUserAction({
     component: Component = EditCurrentUserForm,
@@ -55,9 +55,8 @@ export interface EditCurrentUserActionProps
     extends EditCurrentUserFormProps,
         FormActionProps,
         Required<WithId>,
+        WithSpinnerComponent,
         WithQueryName,
-        WithMutationName {
-    spinnerComponent?: ComponentType<any>;
-}
+        WithMutationName {}
 
 export default EditCurrentUserAction;

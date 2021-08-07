@@ -4,10 +4,9 @@ import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
 import TimelineConnector from '@material-ui/lab/TimelineConnector';
 import TimelineContent from '@material-ui/lab/TimelineContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
-import { timeline_item } from '../types';
-import { WithClassName } from '../withs';
+import { WithClassName, WithItemsOfTimeline } from '../withs';
 
-export function Timeline({ className, items }: TimelineProps) {
+export function Timeline({ className, items = [] }: TimelineProps) {
     return (
         <MuiTimeline align={'left'} className={className}>
             {items.map((item, index) => (
@@ -28,9 +27,7 @@ export function Timeline({ className, items }: TimelineProps) {
     );
 }
 
-export interface TimelineProps extends WithClassName {
-    items: timeline_item[];
-}
+export interface TimelineProps extends WithClassName, WithItemsOfTimeline {}
 
 // noinspection JSUnusedGlobalSymbols
 export default Timeline;

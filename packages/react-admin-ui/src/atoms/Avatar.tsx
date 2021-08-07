@@ -28,8 +28,8 @@ export function Avatar({ className, image, name, size, shape = 'circular', statu
             {status && <BuddyStatus status={status} />}
             {hasTitleOrSubtitle && (
                 <div className={'pl-4'}>
-                    {!!title && <Text text={title} variant={'title6'} />}
-                    {!!subtitle && <Text text={subtitle} variant={'overline'} />}
+                    <Text text={title} variant={'title6'} />
+                    <Text text={subtitle} variant={'overline'} />
                 </div>
             )}
         </Div>

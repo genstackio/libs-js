@@ -5,14 +5,14 @@ export default {
     title: 'Molecules/ButtonsGroup',
     component: ButtonsGroup,
     argTypes: a({
-        actions: args.actions,
+        items: args.actions,
     }),
 };
 
 const Template = (args) => <ButtonsGroup {...args} />;
 
 export const basic = s(Template, {
-    actions: [
+    items: [
         {
             color: 'primary',
             variant: 'contained',

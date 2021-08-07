@@ -1,10 +1,10 @@
 import clsx from 'clsx';
-import { breadcrumb_item, flag } from '../types';
+import { flag } from '../types';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-import { WithColorOfBox, WithClassName } from '../withs';
+import { WithColorOfBox, WithClassName, WithItemsOfBreadcrumb } from '../withs';
 
 const colors = {
     danger: 'text-danger',
@@ -52,8 +52,7 @@ export function Breadcrumb({ className, items = [], color = 'primary', toRight =
     );
 }
 
-export interface BreadcrumbProps extends WithClassName, WithColorOfBox {
-    items: breadcrumb_item[];
+export interface BreadcrumbProps extends WithClassName, WithColorOfBox, WithItemsOfBreadcrumb {
     toRight?: flag;
 }
 

@@ -2,8 +2,8 @@ import { MouseEventHandler } from 'react';
 import clsx from 'clsx';
 import Button from '../atoms/Button';
 import MuiModal from '@material-ui/core/Modal';
-import { action_item, flag } from '../types';
-import { WithChildren, WithClassName, WithTitle } from '../withs';
+import { action_item } from '../types';
+import { WithChildren, WithClassName, WithOpened, WithTitle } from '../withs';
 
 export function Modal({ className, buttonsItems = [], children, onClose, opened = false, title }: ModalProps) {
     return (
@@ -34,9 +34,8 @@ export function Modal({ className, buttonsItems = [], children, onClose, opened 
     );
 }
 
-export interface ModalProps extends WithClassName, WithChildren, WithTitle {
+export interface ModalProps extends WithClassName, WithChildren, WithTitle, WithOpened {
     buttonsItems?: action_item[];
-    opened?: flag;
     onClose?: MouseEventHandler;
 }
 

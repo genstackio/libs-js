@@ -9,6 +9,7 @@ export function Div({
     full = false,
     inline = false,
     relative = false,
+    flex = false,
     children,
     className,
 }: DivProps) {
@@ -20,6 +21,7 @@ export function Div({
                 full && 'w-full',
                 inline && 'inline-block',
                 relative && 'relative',
+                flex && 'flex',
                 className,
             )}
         >
@@ -32,6 +34,7 @@ export interface DivProps extends WithChildren, WithClassName, WithPadding, With
     full?: flag;
     inline?: flag;
     relative?: flag;
+    flex?: flag;
 }
 
 export default Div;

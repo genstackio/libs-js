@@ -2,10 +2,17 @@ import clsx from 'clsx';
 import Image from '../atoms/Image';
 import Button from '../atoms/Button';
 import ReactPlayer from 'react-player';
-import { icon } from '../types';
 import { useToggle } from '../hooks/useToggle';
 import cornerClass from '../mappings/corners';
-import { WithColorOfBox, WithButtonLabel, WithClassName, WithCorner, WithIcon, WithImage } from '../withs';
+import {
+    WithColorOfBox,
+    WithButtonLabel,
+    WithClassName,
+    WithCorner,
+    WithIcon,
+    WithImage,
+    WithPlayingIcon,
+} from '../withs';
 
 export function VideoPlayer({
     url,
@@ -69,9 +76,9 @@ export interface VideoPlayerProps
         WithImage,
         WithColorOfBox,
         WithButtonLabel,
-        WithCorner {
+        WithCorner,
+        WithPlayingIcon {
     url: string;
-    playingIcon?: icon;
 }
 
 export default VideoPlayer;

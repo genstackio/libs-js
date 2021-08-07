@@ -32,6 +32,7 @@ export function Dropdown({ className, color, items = [], variant }: DropdownProp
         setOpen(true);
     }, [setOpen]);
 
+    if (!items || !items.length) return null;
     return (
         <div className={className}>
             <Select

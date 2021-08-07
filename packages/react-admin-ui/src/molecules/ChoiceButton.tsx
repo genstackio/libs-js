@@ -1,12 +1,12 @@
 import clsx from 'clsx';
-import { choice_button_item, children } from '../types';
+import { children } from '../types';
 import Clickable from '../atoms/Clickable';
 import Text from '../atoms/Text';
 import Button from '../atoms/Button';
 import Icon from '../atoms/Icon';
 import boxClass from '../utils/boxClass';
 import Expandable from './Expandable';
-import { WithBox, WithChildren, WithClassName } from '../withs';
+import { WithBox, WithChildren, WithClassName, WithItemsOfChoiceButton } from '../withs';
 
 export function ChoiceButton({ className, color, items = [], children, expandedChildren }: ChoiceButtonProps) {
     const expandedSubChildren = () => (
@@ -39,8 +39,7 @@ export function ChoiceButton({ className, color, items = [], children, expandedC
     );
 }
 
-export interface ChoiceButtonProps extends WithClassName, WithBox, WithChildren {
-    items: choice_button_item[];
+export interface ChoiceButtonProps extends WithClassName, WithBox, WithChildren, WithItemsOfChoiceButton {
     expandedChildren?: children;
 }
 

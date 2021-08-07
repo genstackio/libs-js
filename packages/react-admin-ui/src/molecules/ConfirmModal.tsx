@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { flag } from '../types';
 import { useMemo } from 'react';
-import { WithChildren, WithKind, WithOnCancel, WithTitle } from '../withs';
+import { WithChildren, WithKind, WithOnCancel, WithOnConfirm, WithOpened, WithTitle } from '../withs';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -69,9 +69,7 @@ export function ConfirmModal({
     );
 }
 
-export interface ConfirmModalProps extends WithTitle, WithChildren, WithOnCancel, WithKind {
-    onConfirm?: Function;
-    opened?: flag;
+export interface ConfirmModalProps extends WithTitle, WithChildren, WithOnCancel, WithOnConfirm, WithKind, WithOpened {
     danger?: flag;
 }
 

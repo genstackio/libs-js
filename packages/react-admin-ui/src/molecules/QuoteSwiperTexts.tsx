@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { EffectFade } from 'swiper';
 import 'swiper/swiper-bundle.css';
 import clsx from 'clsx';
+import { WithItems } from '../withs';
 
 SwiperCore.use([EffectFade]);
 
@@ -36,10 +37,9 @@ export function QuoteSwiperTexts({ controller, onSwiper, items = [] }: QuoteSwip
     );
 }
 
-export interface QuoteSwiperTextsProps {
+export interface QuoteSwiperTextsProps extends WithItems {
     controller?: any;
     onSwiper?: Function;
-    items?: any[];
 }
 
 export default QuoteSwiperTexts;

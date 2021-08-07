@@ -1,7 +1,6 @@
 import Text from '../atoms/Text';
 import Icon from '../atoms/Icon';
-import { rich_text } from '../types';
-import { WithClassName, WithSubtitle } from '../withs';
+import { WithClassName, WithSubtitle, WithValueAsRichText } from '../withs';
 
 export function StatsChartHeader({ className, subtitle, stats, value }: StatsChartHeaderProps) {
     return (
@@ -20,9 +19,8 @@ export function StatsChartHeader({ className, subtitle, stats, value }: StatsCha
     );
 }
 
-export interface StatsChartHeaderProps extends WithClassName, WithSubtitle {
+export interface StatsChartHeaderProps extends WithClassName, WithSubtitle, WithValueAsRichText {
     stats?: number;
-    value?: rich_text;
 }
 
 export default StatsChartHeader;

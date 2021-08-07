@@ -3,8 +3,7 @@ import Button from '../atoms/Button';
 import Image from '../atoms/Image';
 import Row from '../atoms/Row';
 import Text from '../atoms/Text';
-import { box_color } from '../types';
-import { WithTitle, WithText, WithImage, WithTextColor, WithBox, WithButtonLabel, WithButtonTarget } from '../withs';
+import { WithTitle, WithText, WithImage, WithBox, WithButtonLabel, WithButtonTarget, WithColorOfBox } from '../withs';
 // @todo: add theme
 
 export function Paragraph({
@@ -43,12 +42,11 @@ export interface ParagraphProps
     extends WithTitle,
         WithText,
         WithImage,
-        WithTextColor,
         WithBox,
+        WithColorOfBox,
         WithButtonLabel,
         WithButtonTarget {
     imageLeft?: boolean;
-    color?: box_color;
 }
 
 // noinspection JSUnusedGlobalSymbols

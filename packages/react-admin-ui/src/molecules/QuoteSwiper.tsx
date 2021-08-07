@@ -5,6 +5,7 @@ import Icon from '../atoms/Icon';
 import SwiperCore, { Controller, Navigation } from 'swiper';
 import 'swiper/swiper-bundle.css';
 import makeStyles from '@material-ui/core/styles/makeStyles';
+import { WithItems } from '../withs';
 
 SwiperCore.use([Navigation, Controller]);
 
@@ -89,8 +90,7 @@ export function QuoteSwiper({ items = [] }: QuoteSwiperProps) {
     );
 }
 
-export interface QuoteSwiperProps {
-    items?: any[];
-}
+export type QuoteSwiperProps = WithItems;
 
+// noinspection JSUnusedGlobalSymbols
 export default QuoteSwiper;

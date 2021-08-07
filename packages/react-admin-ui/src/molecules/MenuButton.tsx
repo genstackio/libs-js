@@ -4,9 +4,9 @@ import Text from '../atoms/Text';
 import Image from '../atoms/Image';
 import Avatar from '../atoms/Avatar';
 import MenuButtonWidget from './MenuButtonWidget';
-import { menu_button_item, flag } from '../types';
+import { flag } from '../types';
 import Expandable from './Expandable';
-import { WithColorOfBox, WithClassName, WithDescription, WithImage, WithLabel } from '../withs';
+import { WithColorOfBox, WithClassName, WithDescription, WithImage, WithLabel, WithItemsOfMenuButton } from '../withs';
 
 export function MenuButton({
     className,
@@ -43,8 +43,13 @@ export function MenuButton({
     );
 }
 
-export interface MenuButtonProps extends WithClassName, WithImage, WithLabel, WithDescription, WithColorOfBox {
-    items?: menu_button_item[];
+export interface MenuButtonProps
+    extends WithClassName,
+        WithImage,
+        WithLabel,
+        WithDescription,
+        WithColorOfBox,
+        WithItemsOfMenuButton {
     avatar?: flag;
 }
 

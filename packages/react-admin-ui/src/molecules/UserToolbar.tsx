@@ -11,7 +11,7 @@ import NotificationToolbarItem from '../atoms/toolbar-items/NotificationToolbarI
 import SearchToolbarItem from '../atoms/toolbar-items/SearchToolbarItem';
 import ShoppingCartToolbarItem from '../atoms/toolbar-items/ShoppingCartToolbarItem';
 import { useToggle } from '../hooks/useToggle';
-import { WithChildren, WithClassName } from '../withs';
+import { WithChildren, WithClassName, WithOnLogout, WithOnSearch, WithUser } from '../withs';
 import { menu_button_item, flag } from '../types';
 
 export function UserToolbar({
@@ -75,10 +75,7 @@ export function UserToolbar({
     );
 }
 
-export interface UserToolbarProps extends WithClassName, WithChildren {
-    user?: any;
-    onLogout?: Function;
-    onSearch?: Function;
+export interface UserToolbarProps extends WithClassName, WithChildren, WithOnLogout, WithOnSearch, WithUser {
     userMenu?: menu_button_item[];
     fullScreenEnabled?: flag;
     messagesEnabled?: flag;

@@ -13,7 +13,7 @@ const Template = (args) => <SendOtpForgotPasswordForm {...args} />;
 
 export const basic = s(Template, {
     onSubmit: (data) => alert(JSON.stringify(data, null, 4)),
-    defaults: {},
+    defaultValues: {},
     onLoginCLick: (data) => alert(JSON.stringify(data, null, 4)),
     onSendVerificationCode: () => alert('coucou'),
 });

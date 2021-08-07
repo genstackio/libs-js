@@ -2,6 +2,7 @@ import QuoteSlide from './QuoteSlide';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import clsx from 'clsx';
+import { WithItems } from '../withs';
 
 export function QuoteSwiperImages({
     controller,
@@ -38,12 +39,11 @@ export function QuoteSwiperImages({
     );
 }
 
-export interface QuoteSwiperImagesProps {
+export interface QuoteSwiperImagesProps extends WithItems {
     controller?: any;
     onSwiper?: Function;
     navLeftController?: any;
     navRightController?: any;
-    items?: any[];
 }
 
 export default QuoteSwiperImages;

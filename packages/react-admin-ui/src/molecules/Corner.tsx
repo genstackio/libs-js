@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import Tag from '../atoms/Tag';
-import { corner_item, icon_variant } from '../types';
-import { WithBox, WithClassName, WithText } from '../withs';
+import { icon_variant } from '../types';
+import { WithBox, WithClassName, WithItemsOfCorner, WithText } from '../withs';
 
 export function Corner({ className, color, iconCorner, items = [], text, variant, ...props }: CornerProps) {
     return (
@@ -16,9 +16,8 @@ export function Corner({ className, color, iconCorner, items = [], text, variant
     );
 }
 
-export interface CornerProps extends WithClassName, WithBox, WithText {
+export interface CornerProps extends WithClassName, WithBox, WithText, WithItemsOfCorner {
     iconCorner?: icon_variant;
-    items?: corner_item[];
 }
 
 export default Corner;

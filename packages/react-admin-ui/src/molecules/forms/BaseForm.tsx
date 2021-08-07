@@ -15,6 +15,7 @@ import {
     WithSubmitting,
     WithHeader,
     WithFooter,
+    WithErrors,
 } from '../../withs';
 
 export function BaseForm({
@@ -37,8 +38,8 @@ export function BaseForm({
             <FormHeader>{header}</FormHeader>
             <Column center>
                 <form onSubmit={handleSubmit(onSubmit as any)} className={'w-full'} aria-disabled={submitting}>
-                    {title && <Text text={title} variant={'title6'} color={color} />}
-                    {subtitle && <Text className={'mb-4'} text={subtitle} variant={'body'} color={color} />}
+                    <Text text={title} variant={'title6'} color={color} />
+                    <Text className={'mb-4'} text={subtitle} variant={'body'} color={color} />
                     {error && (
                         <AlertPanel color={'danger'} className={'mb-4'}>
                             {error.message}
@@ -65,8 +66,7 @@ export interface BaseFormProps
         WithSubmitting,
         WithHeader,
         WithFooter,
-        WithColorOfBox {
-    errors?: any;
-}
+        WithErrors,
+        WithColorOfBox {}
 
 export default BaseForm;

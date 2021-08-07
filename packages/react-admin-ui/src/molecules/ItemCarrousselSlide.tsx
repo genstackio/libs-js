@@ -1,20 +1,22 @@
 import { Clickable } from '../atoms/Clickable';
 import { Image } from '../atoms/Image';
-import { WithButtonLabel, WithButtonTarget, WithImage, WithLabel, WithTarget, WithTitle } from '../withs';
+import {
+    WithButton2Label,
+    WithButton2Target,
+    WithButton2Type,
+    WithButtonLabel,
+    WithButtonTarget,
+    WithButtonType,
+    WithImage,
+    WithLabel,
+    WithTarget,
+    WithTitle,
+} from '../withs';
 import { Block } from '../atoms/Block';
 import { Text } from '../atoms/Text';
 import { Button } from '../atoms/Button';
 
-export function ItemCarrousselSlide({
-    title,
-    label,
-    image,
-    btnLabel,
-    btnTarget,
-    button2Target,
-    buttonType,
-    target,
-}: ItemCarrousselSlideProps) {
+export function ItemCarrousselSlide({ title, label, image, btnLabel, btnTarget, target }: ItemCarrousselSlideProps) {
     return (
         <div className={'flex relative flex-col justify-between w-full pb-2'}>
             <Clickable onClick={target} className={'max-w-full'}>
@@ -49,9 +51,10 @@ export interface ItemCarrousselSlideProps
         WithLabel,
         WithTarget,
         WithButtonLabel,
-        WithButtonTarget {
-    button2Target?: string; // temporary used as target
-    buttonType?: string;
-}
+        WithButtonTarget,
+        WithButtonType,
+        WithButton2Label,
+        WithButton2Target,
+        WithButton2Type {}
 
 export default ItemCarrousselSlide;

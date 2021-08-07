@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { flag, register } from '../../types';
 import useField from '../../hooks/useField';
 import FieldSet from '../FieldSet';
 import {
@@ -7,10 +6,18 @@ import {
     WithClassName,
     WithDefaultValues,
     WithDisabled,
+    WithErrors,
+    WithField,
+    WithHelper,
     WithKind,
     WithLabel,
+    WithName,
     WithOnChange,
     WithOptions,
+    WithPlaceholder,
+    WithRegister,
+    WithRequired,
+    WithValue,
 } from '../../withs';
 
 export function TextareaField({ className, ...props }: TextareaFieldProps) {
@@ -42,15 +49,15 @@ export interface TextareaFieldProps
         WithOnChange,
         WithAutoFocus,
         WithOptions,
+        WithRequired,
+        WithErrors,
+        WithPlaceholder,
+        WithName,
+        WithValue,
+        WithHelper,
+        WithRegister,
+        WithField,
         WithKind {
-    required?: flag;
-    errors?: { [key: string]: any };
-    placeholder?: string;
-    name?: string;
-    value?: any;
-    helper?: string;
-    register?: register;
-    field?: boolean;
     rows?: number;
 }
 

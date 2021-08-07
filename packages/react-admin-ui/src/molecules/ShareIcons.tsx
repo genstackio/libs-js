@@ -1,9 +1,8 @@
 import clsx from 'clsx';
-import { share_icon_item } from '../types';
 import { Icon } from '../atoms/Icon';
 import boxClass from '../utils/boxClass';
 import shareIconTypeClass from '../mappings/share-icon-types';
-import { WithBox, WithClassName } from '../withs';
+import { WithBox, WithClassName, WithItemsOfShareIcons } from '../withs';
 
 export function ShareIcons({ items = [], color, variant, className }: ShareIconsProps) {
     return (
@@ -23,9 +22,7 @@ export function ShareIcons({ items = [], color, variant, className }: ShareIcons
     );
 }
 
-export interface ShareIconsProps extends WithClassName, WithBox {
-    items?: share_icon_item[];
-}
+export interface ShareIconsProps extends WithClassName, WithBox, WithItemsOfShareIcons {}
 
 // noinspection JSUnusedGlobalSymbols
 export default ShareIcons;

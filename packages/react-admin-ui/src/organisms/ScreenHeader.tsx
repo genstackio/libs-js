@@ -1,7 +1,6 @@
 import clsx from 'clsx';
-import { screen_header_item } from '../types';
 import Breadcrumb from '../molecules/Breadcrumb';
-import { WithColorOfBox, WithClassName } from '../withs';
+import { WithColorOfBox, WithClassName, WithItemsOfScreenHeader } from '../withs';
 
 export function ScreenHeader({ className, color = 'primary', items = [] }: ScreenHeaderProps) {
     const title = items.slice(items.length - 1)[0].label;
@@ -13,8 +12,6 @@ export function ScreenHeader({ className, color = 'primary', items = [] }: Scree
     );
 }
 
-export interface ScreenHeaderProps extends WithClassName, WithColorOfBox {
-    items: screen_header_item[];
-}
+export interface ScreenHeaderProps extends WithClassName, WithColorOfBox, WithItemsOfScreenHeader {}
 
 export default ScreenHeader;

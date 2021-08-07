@@ -1,6 +1,6 @@
-import { box_list_item } from '../types';
-import { WithClassName, WithBox } from '../withs';
-import { Items, Panel } from '../atoms';
+import { WithClassName, WithBox, WithItemsOfBoxList } from '../withs';
+import Items from '../atoms/Items';
+import Panel from '../atoms/Panel';
 import BoxListItem from '../atoms/BoxListItem';
 
 export function BoxList({ items = [], variant = 'filled', ...props }: BoxListProps) {
@@ -11,8 +11,6 @@ export function BoxList({ items = [], variant = 'filled', ...props }: BoxListPro
     );
 }
 
-export interface BoxListProps extends WithClassName, WithBox {
-    items?: box_list_item[];
-}
+export interface BoxListProps extends WithClassName, WithBox, WithItemsOfBoxList {}
 
 export default BoxList;

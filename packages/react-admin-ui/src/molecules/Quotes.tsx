@@ -1,12 +1,11 @@
 import QuoteSlide from './QuoteSlide';
 import Row from '../atoms/Row';
-import { WithButtonEndIcon, WithButtonIcon, WithButtonLabel, WithButtonTarget, WithTitle } from '../withs';
+import { WithButtonEndIcon, WithButtonIcon, WithButtonLabel, WithButtonTarget, WithItems, WithTitle } from '../withs';
 import { QuoteSwiper } from './QuoteSwiper';
 import { Container } from '../atoms/Container';
 import clsx from 'clsx';
 import { Text } from '../atoms/Text';
 import Button from '../atoms/Button';
-import { Icon } from '../atoms';
 
 export function Quotes({ title, items = [], btnTarget, btnLabel, btnIcon, btnEndIcon }: QuotesProps) {
     if (items.length === 0) return null;
@@ -18,13 +17,13 @@ export function Quotes({ title, items = [], btnTarget, btnLabel, btnIcon, btnEnd
                     <Button
                         size={'lg'}
                         icon={btnIcon}
+                        endIcon={btnEndIcon}
                         variant={'outlined'}
                         color={'primary'}
                         className={'mb-4'}
                         onClick={btnTarget}
                     >
                         {btnLabel}
-                        {btnEndIcon && <Icon icon={btnEndIcon} className={'ml-4'} />}
                     </Button>
                 )}
                 {items.length === 1 && (
@@ -38,8 +37,12 @@ export function Quotes({ title, items = [], btnTarget, btnLabel, btnIcon, btnEnd
     );
 }
 
-export interface QuotesProps extends WithTitle, WithButtonTarget, WithButtonLabel, WithButtonIcon, WithButtonEndIcon {
-    items?: any[];
-}
+export interface QuotesProps
+    extends WithTitle,
+        WithButtonTarget,
+        WithButtonLabel,
+        WithButtonIcon,
+        WithButtonEndIcon,
+        WithItems {}
 
 export default Quotes;

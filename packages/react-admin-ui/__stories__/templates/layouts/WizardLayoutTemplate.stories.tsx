@@ -6,7 +6,7 @@ export default {
     component: WizardLayoutTemplate,
     argTypes: a({
         steps: args.steps,
-        defaults: args._disabled,
+        defaultValues: args._disabled,
         onSubmit: args._disabled,
         color: args.color,
         className: args._disabled,
@@ -84,5 +84,5 @@ export const basic = s(Template, {
         },
     ],
     onSubmit: (data) => alert(JSON.stringify(data, null, 4)),
-    defaults: {},
+    defaultValues: {},
 });

@@ -3,8 +3,7 @@ import Image from '../atoms/Image';
 import Text from '../atoms/Text';
 import Button from '../atoms/Button';
 import Icon from '../atoms/Icon';
-import { gallery_image, text_color } from '../types';
-import { WithClassName, WithTitle, WithIcon, WithButtonLabel, WithButtonTarget, WithButtonColor } from '../withs';
+import { WithClassName, WithTitle, WithIcon, WithButton, WithItemsOfGallery } from '../withs';
 
 export function Gallery({
     className,
@@ -14,14 +13,13 @@ export function Gallery({
     btnTarget,
     btnColor = 'primary',
     icon,
-    iconColor = 'primary',
 }: GalleryProps) {
     return (
         <div className={clsx(className)}>
             {(title || btnLabel || btnTarget || icon) && (
                 <div className={'flex justify-between pb-2 pt-2'}>
                     <div className={'flex items-center space-x-4'}>
-                        {icon && <Icon icon={icon} color={iconColor} />}
+                        <Icon icon={icon} />
                         <Text variant={'title5'} text={title || ''} />
                     </div>
                     {(btnLabel || btnTarget) && (
@@ -46,16 +44,7 @@ export function Gallery({
     );
 }
 
-export interface GalleryProps
-    extends WithClassName,
-        WithTitle,
-        WithIcon,
-        WithButtonLabel,
-        WithButtonTarget,
-        WithButtonColor {
-    items?: gallery_image[];
-    iconColor?: text_color;
-}
+export interface GalleryProps extends WithClassName, WithTitle, WithIcon, WithButton, WithItemsOfGallery {}
 
 // noinspection JSUnusedGlobalSymbols
 export default Gallery;

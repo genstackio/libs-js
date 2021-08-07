@@ -5,7 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import bgClass from '../../utils/bgClass';
 import Block, { BaseBlockProps } from '../../atoms/Block';
 import TabPanel from '../../molecules/TabPanel';
-import { tab_item } from '../../types';
+import { WithItemsOfTabs } from '../../withs';
 
 export function TabbedBlock({ items = [], ...props }: TabbedBlockProps) {
     const [value, setValue] = useState(0);
@@ -43,9 +43,7 @@ export function TabbedBlock({ items = [], ...props }: TabbedBlockProps) {
     );
 }
 
-export interface TabbedBlockProps extends BaseBlockProps {
-    items?: tab_item[];
-}
+export interface TabbedBlockProps extends BaseBlockProps, WithItemsOfTabs {}
 
 // noinspection JSUnusedGlobalSymbols
 export default TabbedBlock;

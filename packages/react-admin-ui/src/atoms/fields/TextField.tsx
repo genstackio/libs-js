@@ -1,18 +1,27 @@
 import clsx from 'clsx';
 import FieldSet from '../FieldSet';
 import useField from '../../hooks/useField';
-import { flag, icon, register, rich_text } from '../../types';
-import { fieldVariantClass, field_variant } from '../../mappings/field-variants';
+import { flag, icon, rich_text } from '../../types';
+import { fieldVariantClass } from '../../mappings/field-variants';
 import { useMemo } from 'react';
 import {
     WithAutoFocus,
     WithClassName,
     WithDefaultValues,
     WithDisabled,
+    WithErrors,
+    WithField,
+    WithHelper,
     WithKind,
     WithLabel,
+    WithName,
     WithOnChange,
     WithOptions,
+    WithPlaceholder,
+    WithRegister,
+    WithRequired,
+    WithValue,
+    WithVariantOfField,
 } from '../../withs';
 
 export function TextField(props: TextFieldProps) {
@@ -94,16 +103,17 @@ export interface TextFieldProps
         WithOnChange,
         WithAutoFocus,
         WithOptions,
+        WithRequired,
+        WithErrors,
+        WithPlaceholder,
+        WithName,
+        WithValue,
+        WithHelper,
+        WithField,
+        WithRegister,
+        WithVariantOfField,
         WithKind {
-    required?: flag;
     type?: string;
-    errors?: { [key: string]: any };
-    placeholder?: string;
-    name?: string;
-    value?: any;
-    helper?: string;
-    register?: register;
-    field?: boolean;
     append?: rich_text;
     appendIcon?: icon;
     prepend?: rich_text;
@@ -111,7 +121,6 @@ export interface TextFieldProps
     half?: flag;
     threeOf5?: flag;
     twoOf5?: flag;
-    variant?: field_variant;
 }
 
 export default TextField;

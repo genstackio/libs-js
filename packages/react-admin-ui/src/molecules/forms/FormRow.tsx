@@ -1,6 +1,6 @@
 import FormItem from './FormItem';
 import Items from '../../atoms/Items';
-import { form_item } from '../../types';
+import { WithItemsOfFormRow } from '../../withs';
 
 export function FormRow({ items }: FormRowProps) {
     return (
@@ -14,8 +14,6 @@ export function FormRow({ items }: FormRowProps) {
     );
 }
 
-export interface FormRowProps {
-    items: form_item[];
-}
+export type FormRowProps = WithItemsOfFormRow;
 
 export default FormRow;

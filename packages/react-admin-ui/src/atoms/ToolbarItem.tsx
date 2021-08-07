@@ -2,9 +2,19 @@ import { useCallback } from 'react';
 import clsx from 'clsx';
 import Icon from './Icon';
 import useToggle from '../hooks/useToggle';
-import { WithActive, WithClassName, WithCount, WithIcon, WithOnToggle, WithTextSize } from '../withs';
+import { WithActive, WithActiveIcon, WithClassName, WithCount, WithIcon, WithOnToggle, WithTextSize } from '../withs';
 
-export function ToolbarItem({ className, icon, activeIcon, active, onToggle, size = 'lg', count }: ToolbarItemProps) {
+export function ToolbarItem({
+    className,
+    icon,
+    iconSize,
+    activeIcon,
+    activeIconSize,
+    active,
+    onToggle,
+    size = 'lg',
+    count,
+}: ToolbarItemProps) {
     const [localActive, toggle] = useToggle(active);
     const handleToggle = useCallback(
         (...args) => {
@@ -16,8 +26,8 @@ export function ToolbarItem({ className, icon, activeIcon, active, onToggle, siz
     return (
         <Icon
             count={count}
-            icon={localActive ? activeIcon || icon : icon}
-            size={size}
+            icon={localActive ? activeIcon || (iconSize ? iconSize : icon) : iconSize ? iconSize : icon}
+            size={localActive && activeIconSize ? activeIconSize : size}
             className={clsx('flex cursor-pointer', className)}
             onClick={handleToggle}
         />
@@ -26,8 +36,6 @@ export function ToolbarItem({ className, icon, activeIcon, active, onToggle, siz
 
 export interface BaseToolbarItemProps extends WithClassName, WithActive, WithOnToggle {}
 
-export interface ToolbarItemProps extends BaseToolbarItemProps, WithIcon, WithCount, WithTextSize {
-    activeIcon?: string;
-}
+export interface ToolbarItemProps extends BaseToolbarItemProps, WithIcon, WithCount, WithTextSize, WithActiveIcon {}
 
 export default ToolbarItem;

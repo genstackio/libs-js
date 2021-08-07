@@ -4,7 +4,7 @@ import { WithChildren, WithClassName, WithCenter } from '../withs';
 
 export function Column({ className, children, center = false }: ColumnProps) {
     return (
-        <Div full className={clsx('flex flex-col', center && 'justify-center', className)}>
+        <Div full flex center={center} className={clsx('flex-col', className)}>
             {children}
         </Div>
     );

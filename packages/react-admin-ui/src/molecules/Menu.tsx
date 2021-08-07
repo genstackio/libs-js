@@ -2,10 +2,9 @@ import { Fragment } from 'react';
 import MenuFold from '../atoms/MenuFold';
 import MenuItem from '../atoms/MenuItem';
 import SectionHeader from '../atoms/SectionHeader';
-import { menu_item } from '../types';
 import clsx from 'clsx';
 import boxColorClass from '../mappings/box-colors';
-import { WithBox, WithClassName } from '../withs';
+import { WithBox, WithClassName, WithItemsOfMenu } from '../withs';
 
 export function Menu({ className, items = [], color = 'primary', variant = 'contained' }: MenuProps) {
     return (
@@ -23,8 +22,6 @@ export function Menu({ className, items = [], color = 'primary', variant = 'cont
     );
 }
 
-export interface MenuProps extends WithClassName, WithBox {
-    items: menu_item[];
-}
+export interface MenuProps extends WithClassName, WithBox, WithItemsOfMenu {}
 
 export default Menu;

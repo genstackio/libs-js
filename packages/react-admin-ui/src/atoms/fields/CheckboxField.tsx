@@ -3,11 +3,24 @@ import Text from '../Text';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
-import { flag, register } from '../../types';
 import useField from '../../hooks/useField';
 import FieldSet from '../FieldSet';
 import Row from '../Row';
-import { WithClassName, WithKind, WithLabel, WithOnChange, WithOptions } from '../../withs';
+import {
+    WithClassName,
+    WithDefaultValueAsBoolean,
+    WithDisabled,
+    WithErrors,
+    WithField,
+    WithHelper,
+    WithKind,
+    WithLabel,
+    WithName,
+    WithOnChange,
+    WithOptions,
+    WithRegister,
+    WithRequired,
+} from '../../withs';
 
 const useStyles = makeStyles({
     root: {
@@ -66,15 +79,19 @@ export function CheckboxField({ className, onChange, ...props }: CheckboxFieldPr
     );
 }
 
-export interface CheckboxFieldProps extends WithClassName, WithLabel, WithOptions, WithOnChange, WithKind {
-    defaultValue?: flag;
-    name?: string;
-    disabled?: flag;
-    required?: flag;
-    errors?: { [key: string]: any };
-    helper?: string;
-    register?: register;
-    field?: boolean;
-}
+export interface CheckboxFieldProps
+    extends WithClassName,
+        WithName,
+        WithDisabled,
+        WithHelper,
+        WithRegister,
+        WithRequired,
+        WithErrors,
+        WithField,
+        WithLabel,
+        WithOptions,
+        WithOnChange,
+        WithDefaultValueAsBoolean,
+        WithKind {}
 
 export default CheckboxField;

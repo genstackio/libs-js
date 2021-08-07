@@ -4,7 +4,7 @@ import Text from '../atoms/Text';
 import MosaicItems from './MosaicItems';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
-import { WithTitle } from '../withs';
+import { WithItems, WithTitle } from '../withs';
 
 export function MosaicItemsSelector({ title, items, selected = {}, onValidation }: MosaicItemsSelectorProps) {
     const { t } = useTranslation();
@@ -30,8 +30,7 @@ export function MosaicItemsSelector({ title, items, selected = {}, onValidation 
     );
 }
 
-export interface MosaicItemsSelectorProps extends WithTitle {
-    items?: any[];
+export interface MosaicItemsSelectorProps extends WithTitle, WithItems {
     onValidation?: Function;
     selected: any;
 }

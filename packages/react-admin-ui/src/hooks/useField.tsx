@@ -53,9 +53,15 @@ export function useField(
             ? t(label)
             : label
         : t([`field_${name.toLowerCase()}_label`, `field_${kind.toLowerCase()}_label`, '']);
-    helper = helper ? t(helper) : t([`field_${name.toLowerCase()}_helper`, `field_${kind.toLowerCase()}_helper`, '']);
+    helper = helper
+        ? 'string' === typeof helper
+            ? t(helper)
+            : helper
+        : t([`field_${name.toLowerCase()}_helper`, `field_${kind.toLowerCase()}_helper`, '']);
     placeholder = placeholder
-        ? t(placeholder)
+        ? 'string' === typeof placeholder
+            ? t(placeholder)
+            : placeholder
         : t([`field_${name.toLowerCase()}_placeholder`, `field_${kind.toLowerCase()}_placeholder`, '']);
 
     const errorData = errors[name] || errors['all'];
@@ -121,10 +127,10 @@ export interface field_def_params extends WithLabel, WithAny, WithOptions, WithD
     appendIcon?: icon;
     required?: boolean;
     disabled?: boolean;
-    helper?: string;
+    helper?: rich_text;
     defaultValue?: any;
     errors?: { [key: string]: any };
-    placeholder?: string;
+    placeholder?: rich_text;
     register?: register;
     control?: control;
     field?: boolean;

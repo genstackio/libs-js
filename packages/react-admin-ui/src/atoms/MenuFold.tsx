@@ -16,6 +16,7 @@ import {
     WithItemsOfMenu,
     WithVariantOfMenu,
 } from '../withs';
+import Items from './Items';
 
 export function MenuFold({ className, label, icon, active, badges, items = [], color, variant }: MenuFoldProps) {
     const [open, toggle] = useToggle(active || false);
@@ -46,7 +47,7 @@ export function MenuFold({ className, label, icon, active, badges, items = [], c
                     <Text text={label} variant={'description'} />
                 </div>
                 <div className={'flex items-center space-x-2'}>
-                    {badges && badges.map((badge, index) => <Badge key={index} {...badge} />)}
+                    <Items items={badges} component={Badge} />
                     <Icon icon={open ? 'expand_more' : 'navigate_next'} />
                 </div>
             </Block>

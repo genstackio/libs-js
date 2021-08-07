@@ -3,7 +3,7 @@ import Tag from '../atoms/Tag';
 import Pill from '../atoms/Pill';
 import Text from '../atoms/Text';
 import { pill, tag } from '../types';
-import { WithClassName } from '../withs';
+import { WithClassName, WithTitle } from '../withs';
 
 export function Figure({ className, pill, price, tag, title }: FigureProps) {
     return (
@@ -26,11 +26,10 @@ export function Figure({ className, pill, price, tag, title }: FigureProps) {
     );
 }
 
-export interface FigureProps extends WithClassName {
+export interface FigureProps extends WithClassName, WithTitle {
     pill?: pill;
     price?: string;
     tag?: tag;
-    title?: string;
 }
 
 export default Figure;

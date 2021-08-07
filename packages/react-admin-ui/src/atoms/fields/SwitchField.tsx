@@ -1,11 +1,24 @@
 import FieldLabel from '../FieldLabel';
 import FieldError from '../FieldError';
 import FieldHelper from '../FieldHelper';
-import { flag, register } from '../../types';
 import useField from '../../hooks/useField';
 import MuiSwitch from '@material-ui/core/Switch';
 import { makeStyles } from '@material-ui/core/styles';
-import { WithClassName, WithDisabled, WithKind, WithLabel, WithOnChange, WithOptions } from '../../withs';
+import {
+    WithClassName,
+    WithDefaultValues,
+    WithDisabled,
+    WithErrors,
+    WithField,
+    WithHelper,
+    WithKind,
+    WithLabel,
+    WithName,
+    WithOnChange,
+    WithOptions,
+    WithRegister,
+    WithRequired,
+} from '../../withs';
 
 const useStyles = makeStyles({
     root: {
@@ -85,14 +98,19 @@ export function SwitchField({ className, onChange, ...props }: SwitchFieldProps)
     );
 }
 
-export interface SwitchFieldProps extends WithClassName, WithDisabled, WithLabel, WithOnChange, WithOptions, WithKind {
-    required?: flag;
-    errors?: { [key: string]: any };
-    defaults?: { [key: string]: any };
-    name?: string;
-    helper?: string;
-    register?: register;
-    field?: boolean;
-}
+export interface SwitchFieldProps
+    extends WithClassName,
+        WithRequired,
+        WithErrors,
+        WithDefaultValues,
+        WithName,
+        WithHelper,
+        WithField,
+        WithRegister,
+        WithDisabled,
+        WithLabel,
+        WithOnChange,
+        WithOptions,
+        WithKind {}
 
 export default SwitchField;

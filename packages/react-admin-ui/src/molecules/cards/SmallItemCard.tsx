@@ -6,6 +6,7 @@ import Icon from '../../atoms/Icon';
 import Image from '../../atoms/Image';
 import Text from '../../atoms/Text';
 import { WithChildren, WithClassName, WithImage, WithTitle, WithClosable, WithBadges } from '../../withs';
+import { Items } from '../../atoms';
 
 export function SmallItemCard({
     className,
@@ -33,9 +34,7 @@ export function SmallItemCard({
                 </div>
                 {badges && (
                     <div className={'text-right space-x-2 mx-3 xs:space-y-2 xs:mt-2'}>
-                        {badges.map(({ variant, color, type, text }, index) => (
-                            <Badge key={index} variant={variant} color={color} type={type} text={text} />
-                        ))}
+                        <Items items={badges} component={Badge} />
                     </div>
                 )}
             </div>

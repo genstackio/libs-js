@@ -19,8 +19,7 @@ export function Image({
     objectPosition = undefined,
 }: ImgProps) {
     const style = useMemo(() => ({ objectFit, objectPosition }), [objectFit, objectPosition]);
-    if (!url) return null;
-    return (
+    return url ? (
         <picture className={clsx(expand && 'w-full h-full')}>
             {mobile && mobile.url && <source media="(max-width: 600px)" srcSet={mobile.url} />}
             {tablet && tablet.url && <source media="(max-width: 960px)" srcSet={tablet.url} />}
@@ -33,7 +32,7 @@ export function Image({
                 loading={loading}
             />
         </picture>
-    );
+    ) : null;
 }
 
 export interface ImgProps extends WithClassName, WithCorner {

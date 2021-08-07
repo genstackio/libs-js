@@ -3,8 +3,7 @@ import { flag } from '../types';
 import { WithClassName, WithName, WithLabel, WithOptions } from '../withs';
 
 export function FieldLabel({ className, name, label, error, options = {} }: FieldLabelProps) {
-    if (!label) return null;
-    return (
+    return label ? (
         <label
             htmlFor={name}
             className={clsx(
@@ -17,7 +16,7 @@ export function FieldLabel({ className, name, label, error, options = {} }: Fiel
             {label}
             {!!options?.required && '*'}
         </label>
-    );
+    ) : null;
 }
 
 export interface FieldLabelProps extends WithClassName, Required<WithName>, WithLabel, WithOptions {

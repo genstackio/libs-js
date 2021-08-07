@@ -1,8 +1,7 @@
 import clsx from 'clsx';
 import Text from '../atoms/Text';
 import Icon from '../atoms/Icon';
-import { box_color, icon } from '../types';
-import { WithClassName } from '../withs';
+import { WithClassName, WithItemsOfSummaries } from '../withs';
 
 export function Summaries({ className, items }: SummariesProps) {
     return (
@@ -26,14 +25,6 @@ export function Summaries({ className, items }: SummariesProps) {
     );
 }
 
-export interface SummariesProps extends WithClassName {
-    items?: {
-        color: box_color;
-        unit?: string;
-        value?: string;
-        percentage: number;
-        icon?: icon;
-    }[];
-}
+export interface SummariesProps extends WithClassName, WithItemsOfSummaries {}
 
 export default Summaries;

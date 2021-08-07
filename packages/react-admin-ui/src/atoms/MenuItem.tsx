@@ -13,6 +13,7 @@ import {
     WithTarget,
     WithVariantOfMenu,
 } from '../withs';
+import Items from './Items';
 
 export function MenuItem({ className, label, icon, target, active = false, badges, color, variant }: MenuItemProps) {
     return (
@@ -37,7 +38,7 @@ export function MenuItem({ className, label, icon, target, active = false, badge
                 <Text text={label} variant={'description'} />
             </div>
             <div className={'flex items-center space-x-2'}>
-                {badges && badges.map((badge, index) => <Badge key={index} {...badge} />)}
+                <Items items={badges} component={Badge} />
             </div>
         </Block>
     );
