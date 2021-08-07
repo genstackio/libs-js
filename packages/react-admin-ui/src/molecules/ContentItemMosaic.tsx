@@ -1,7 +1,7 @@
 import Image from '../atoms/Image';
 import Clickable from '../atoms/Clickable';
 import Text from '../atoms/Text';
-import { WithBoxColor, WithButtonTarget, WithImage, WithText, WithTitle } from '../withs';
+import { WithColorOfBox, WithButtonTarget, WithImage, WithText, WithTitle } from '../withs';
 
 export function ContentItemMosaic({ title, text, image, btnTarget }: ContentItemMosaicProps) {
     return (
@@ -19,6 +19,6 @@ export function ContentItemMosaic({ title, text, image, btnTarget }: ContentItem
     );
 }
 
-export interface ContentItemMosaicProps extends WithTitle, WithText, WithImage, WithBoxColor, WithButtonTarget {}
+export interface ContentItemMosaicProps extends WithTitle, WithText, WithImage, WithColorOfBox, WithButtonTarget {}
 
 export default ContentItemMosaic;

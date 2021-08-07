@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import MuiSlider from '@material-ui/core/Slider';
 import boxClass from '../utils/boxClass';
 import { ChangeEvent } from 'react';
-import { WithBoxColor } from '../withs';
+import { WithColorOfBox } from '../withs';
 
 export function Slider({ min, max, value, defaultValue, onChange, color }: SliderProps) {
     return (
@@ -27,7 +27,7 @@ export function Slider({ min, max, value, defaultValue, onChange, color }: Slide
     );
 }
 
-export interface SliderProps extends WithBoxColor {
+export interface SliderProps extends WithColorOfBox {
     min?: number;
     max?: number;
     value?: number;

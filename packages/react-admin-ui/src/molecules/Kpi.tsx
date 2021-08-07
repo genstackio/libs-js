@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
 import boxClass from '../utils/boxClass';
-import { WithBoxColor, WithClassName, WithIcon, WithQuantity } from '../withs';
+import { WithColorOfBox, WithClassName, WithIcon, WithQuantity } from '../withs';
 
 export function Kpi({ className, icon, name, quantity, color }: KpiProps) {
     return (
@@ -20,7 +20,7 @@ export function Kpi({ className, icon, name, quantity, color }: KpiProps) {
     );
 }
 
-export interface KpiProps extends WithClassName, WithIcon, WithQuantity, WithBoxColor {
+export interface KpiProps extends WithClassName, WithIcon, WithQuantity, WithColorOfBox {
     name?: string;
 }
 

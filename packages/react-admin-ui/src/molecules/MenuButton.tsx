@@ -6,7 +6,7 @@ import Avatar from '../atoms/Avatar';
 import MenuButtonWidget from './MenuButtonWidget';
 import { menu_button_item, flag } from '../types';
 import Expandable from './Expandable';
-import { WithBoxColor, WithClassName, WithDescription, WithImage, WithLabel } from '../withs';
+import { WithColorOfBox, WithClassName, WithDescription, WithImage, WithLabel } from '../withs';
 
 export function MenuButton({
     className,
@@ -43,7 +43,7 @@ export function MenuButton({
     );
 }
 
-export interface MenuButtonProps extends WithClassName, WithImage, WithLabel, WithDescription, WithBoxColor {
+export interface MenuButtonProps extends WithClassName, WithImage, WithLabel, WithDescription, WithColorOfBox {
     items?: menu_button_item[];
     avatar?: flag;
 }

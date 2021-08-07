@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import clsx from 'clsx';
 import boxClass from '../utils/boxClass';
-import { block_variant, class_name } from '../types';
+import { class_name } from '../types';
 import Container from './Container';
 import BlockHeader, { BlockHeaderProps } from './BlockHeader';
 import BlockFooter, { BlockFooterProps } from './BlockFooter';
@@ -10,7 +10,7 @@ import elevationClass from '../mappings/elevations';
 import hoverAnimationClass from '../mappings/hover-animations';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
 import {
-    WithBoxColor,
+    WithColorOfBox,
     WithChildren,
     WithClassName,
     WithImage,
@@ -21,6 +21,8 @@ import {
     WithHoverable,
     WithHoverAnimation,
     WithOnClick,
+    WithVariantOfBlock,
+    WithButtons,
 } from '../withs';
 
 export function Block({
@@ -92,19 +94,19 @@ export interface BaseBlockProps
         BlockContentProps,
         WithClassName,
         WithChildren,
-        WithBoxColor,
+        WithColorOfBox,
+        WithVariantOfBlock,
         WithPadding,
         WithElevation,
         WithCorner,
         WithActive,
         WithHoverable,
         WithOnClick,
+        WithButtons,
         WithHoverAnimation {
     headerClassName?: class_name;
     contentClassName?: class_name;
     footerClassName?: class_name;
-    variant?: block_variant;
-    buttons?: any[];
 }
 
 export interface BlockProps extends BaseBlockProps, WithImage {}

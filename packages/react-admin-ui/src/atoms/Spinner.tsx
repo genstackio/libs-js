@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import clsx from 'clsx';
-import spinnerClass, { spinner_variant, spinner_size, spinner_color } from '../mappings/spinners';
-import { WithClassName } from '../withs';
+import spinnerClass from '../mappings/spinners';
+import { WithClassName, WithColorOfSpinner, WithSizeOfSpinner, WithVariantOfSpinner } from '../withs';
 
 export function Spinner({ className, variant = 'half-circle', size = 'md', color = 'primary' }: SpinnerProps) {
     const isSpin = 'dots' !== variant && 'squares' !== variant;
@@ -21,11 +21,7 @@ export function Spinner({ className, variant = 'half-circle', size = 'md', color
     );
 }
 
-export interface SpinnerProps extends WithClassName {
-    variant?: spinner_variant;
-    size?: spinner_size;
-    color?: spinner_color;
-}
+export interface SpinnerProps extends WithClassName, WithVariantOfSpinner, WithSizeOfSpinner, WithColorOfSpinner {}
 
 // noinspection JSUnusedGlobalSymbols
 export default Spinner;

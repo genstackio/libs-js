@@ -7,7 +7,7 @@ import PasswordField from '../../atoms/fields/PasswordField';
 import PasswordConfirmationField from '../../atoms/fields/PasswordConfirmationField';
 import { useTranslation } from 'react-i18next';
 import { flag } from '../../types';
-import { WithBoxColor, WithClassName, WithDefaultValues, WithOnSubmit } from '../../withs';
+import { WithColorOfBox, WithClassName, WithDefaultValues, WithOnSubmit } from '../../withs';
 
 export function CreatePasswordForgotPasswordForm({
     className,
@@ -44,7 +44,7 @@ export function CreatePasswordForgotPasswordForm({
 
 export interface CreatePasswordForgotPasswordFormProps
     extends WithClassName,
-        WithBoxColor,
+        WithColorOfBox,
         WithDefaultValues,
         WithOnSubmit {
     confirm?: flag;

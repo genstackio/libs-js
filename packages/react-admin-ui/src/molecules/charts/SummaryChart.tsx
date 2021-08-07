@@ -4,7 +4,7 @@ import { icon } from '../../types';
 import Icon from '../../atoms/Icon';
 import AreaLineChart from './AreaLineChart';
 import { boxColorClass } from '../../mappings/box-colors';
-import { WithBoxColor, WithButtonLabel, WithClassName, WithSubtitle, WithTitle } from '../../withs';
+import { WithColorOfBox, WithButtonLabel, WithClassName, WithSubtitle, WithTitle } from '../../withs';
 
 export function SummaryChart({
     className,
@@ -79,7 +79,7 @@ export function SummaryChart({
     );
 }
 
-export interface SummaryChartProps extends WithClassName, WithBoxColor, WithButtonLabel, WithTitle, WithSubtitle {
+export interface SummaryChartProps extends WithClassName, WithColorOfBox, WithButtonLabel, WithTitle, WithSubtitle {
     datas: {
         categories?: string[];
         colors?: string[];

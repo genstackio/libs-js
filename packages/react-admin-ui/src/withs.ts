@@ -18,6 +18,12 @@ import {
     chart_series,
     badge,
     level,
+    block_variant,
+    dropdown_item,
+    menu_item,
+    menu_variant,
+    space_variant,
+    text_variant,
 } from './types';
 import { padding } from './mappings/paddings';
 import { alignment } from './mappings/alignments';
@@ -26,6 +32,11 @@ import { corner } from './mappings/corners';
 import { status } from './mappings/statuses';
 import { hover_animation } from './mappings/hover-animations';
 import { ComponentType, MouseEvent, ReactNode } from 'react';
+import { avatar_size } from './mappings/avatar-sizes';
+import { progress_variant } from './mappings/progress-variants';
+import { rating_variant } from './mappings/rating-variants';
+import { spinner_color, spinner_size, spinner_variant } from './mappings/spinners';
+import { thumbnail_size } from './mappings/thumbnail-sizes';
 
 export interface WithCenter {
     center?: flag;
@@ -33,8 +44,29 @@ export interface WithCenter {
 export interface WithClassName {
     className?: class_name;
 }
+export interface WithButtons {
+    buttons?: any[];
+}
 export interface WithCenter {
     center?: flag;
+}
+export interface WithVariantOfText {
+    variant?: text_variant;
+}
+export interface WithVariantOfSpinner {
+    variant?: spinner_variant;
+}
+export interface WithSizeOfSpinner {
+    size?: spinner_size;
+}
+export interface WithColorOfSpinner {
+    color?: spinner_color;
+}
+export interface WithVariantOfProgress {
+    variant?: progress_variant;
+}
+export interface WithVariantOfSpace {
+    variant?: space_variant;
 }
 export interface WithButtonLabel {
     btnLabel?: rich_text;
@@ -54,8 +86,14 @@ export interface WithButtonEndIcon {
 export interface WithHoverable {
     hoverable?: flag;
 }
-export interface WithBoxColor {
+export interface WithColorOfBox {
     color?: box_color;
+}
+export interface WithItemsOfMenu {
+    items?: menu_item[];
+}
+export interface WithVariantOfMenu {
+    variant?: menu_variant;
 }
 export interface WithBadge {
     badge?: badge;
@@ -66,15 +104,18 @@ export interface WithOnSubmit {
 export interface WithLocales {
     locales?: locale[];
 }
-export interface WithBoxVariant {
+export interface WithVariantOfBox {
     variant?: box_variant;
 }
 export interface WithVertical {
     vertical?: flag;
 }
-export interface WithBox extends WithBoxColor, WithBoxVariant {}
+export interface WithBox extends WithColorOfBox, WithVariantOfBox {}
 export interface WithSeries {
     series?: chart_series;
+}
+export interface WithItemsOfDropdown {
+    items?: dropdown_item[];
 }
 export interface WithLabels {
     labels?: string[];
@@ -112,6 +153,12 @@ export interface WithText {
 export interface WithPadding {
     padding?: padding;
 }
+export interface WithVariantOfBlock {
+    variant?: block_variant;
+}
+export interface WithVariantOfRating {
+    variant?: rating_variant;
+}
 export interface WithElevation {
     elevation?: elevation;
 }
@@ -120,6 +167,9 @@ export interface WithContent {
 }
 export interface WithTitle {
     title?: rich_text;
+}
+export interface WithSizeOfAvatar {
+    size?: avatar_size;
 }
 export interface WithSubtitle {
     subtitle?: rich_text;
@@ -130,6 +180,10 @@ export interface WithDescription {
 export interface WithIcon {
     icon?: icon;
     iconSize?: text_size;
+}
+export interface WithEndIcon {
+    endIcon?: icon;
+    endIconSize?: text_size;
 }
 export interface WithSize {
     size?: size;
@@ -198,6 +252,9 @@ export interface WithPosition {
 export interface WithLogo {
     logo?: image;
 }
+export interface WithSizeOfThumbnail {
+    size?: thumbnail_size;
+}
 export interface WithCorner {
     corner?: corner;
 }
@@ -255,7 +312,7 @@ export interface WithClosable {
 export interface WithOverline {
     overline?: rich_text;
 }
-export interface WithBuddyStatus {
+export interface WithStatusOfBuddy {
     status?: status;
 }
 export interface WithHoverAnimation {
@@ -269,6 +326,9 @@ export interface WithCount {
 }
 export interface WithAny {
     [key: string]: any;
+}
+export interface WithItems {
+    items?: any[];
 }
 export interface WithComponent {
     component?: ComponentType<any>;
@@ -287,4 +347,7 @@ export interface WithOnSuccess {
 }
 export interface WithPrepare {
     prepare?: Function;
+}
+export interface WithDropdownItems {
+    dropdownItems?: dropdown_item[];
 }

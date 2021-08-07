@@ -3,7 +3,7 @@ import Image from '../atoms/Image';
 import Row from '../atoms/Row';
 import Text from '../atoms/Text';
 import { flag } from '../types';
-import { WithBoxColor, WithButtonLabel, WithImage, WithText, WithTitle } from '../withs';
+import { WithColorOfBox, WithButtonLabel, WithImage, WithText, WithTitle } from '../withs';
 import Divider from '../atoms/Divider';
 import Block from '../atoms/Block';
 import { NewsletterAction } from '../molecules/actions/NewsletterAction';
@@ -40,7 +40,7 @@ export function Newsletter({
     );
 }
 
-export interface NewsletterProps extends WithImage, WithText, WithTitle, WithBoxColor, WithButtonLabel {
+export interface NewsletterProps extends WithImage, WithText, WithTitle, WithColorOfBox, WithButtonLabel {
     imageLeft?: flag;
     onAfterSubscribe?: Function;
 }

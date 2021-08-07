@@ -1,4 +1,4 @@
-import { WithAny, WithComponent } from '../withs';
+import { WithAny, WithComponent, WithItems } from '../withs';
 
 export function Items({ items = [], component: Component, itemProp = undefined, ...props }: ItemsProps) {
     return (
@@ -10,8 +10,7 @@ export function Items({ items = [], component: Component, itemProp = undefined, 
     );
 }
 
-export interface ItemsProps extends WithAny, Required<WithComponent> {
-    items?: any[];
+export interface ItemsProps extends WithAny, Required<WithComponent>, WithItems {
     itemProp?: string;
 }
 

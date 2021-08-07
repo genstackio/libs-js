@@ -1,6 +1,5 @@
 import { QuoteSlide } from '../../src/molecules/QuoteSlide';
 import { args, a, s } from '../utils';
-import { Icon } from '../../src/atoms/Icon';
 
 export default {
     title: 'Molecules/QuoteSlide',

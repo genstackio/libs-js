@@ -1,7 +1,7 @@
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
-import { WithBoxColor, WithClassName } from '../../withs';
+import { WithColorOfBox, WithClassName } from '../../withs';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 
@@ -50,7 +50,7 @@ export function ArcChart({ className, color = 'primary', value }: ArcChartProps)
     return <Chart type={'radialBar'} options={options} series={[[value]]} className={className} />;
 }
 
-export interface ArcChartProps extends WithClassName, WithBoxColor {
+export interface ArcChartProps extends WithClassName, WithColorOfBox {
     value: number;
 }
 

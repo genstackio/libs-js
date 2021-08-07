@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import Row from '../atoms/Row';
 import Image from '../atoms/Image';
-import { WithBoxColor, WithLogo } from '../withs';
+import { WithColorOfBox, WithLogo } from '../withs';
 
 export function SmallFooter({ logo, color }: SmallFooterProps) {
     return (
@@ -13,6 +13,6 @@ export function SmallFooter({ logo, color }: SmallFooterProps) {
     );
 }
 
-export interface SmallFooterProps extends WithLogo, WithBoxColor {}
+export interface SmallFooterProps extends WithLogo, WithColorOfBox {}
 
 export default SmallFooter;

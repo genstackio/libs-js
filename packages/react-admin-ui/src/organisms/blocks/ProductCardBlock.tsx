@@ -2,7 +2,7 @@ import Block from '../../atoms/Block';
 import Image from '../../atoms/Image';
 import Text from '../../atoms/Text';
 import Rating from '../../atoms/Rating';
-import { WithBoxColor, WithClassName, WithDescription, WithImage, WithOnClick, WithTitle } from '../../withs';
+import { WithColorOfBox, WithClassName, WithDescription, WithImage, WithOnClick, WithTitle } from '../../withs';
 
 export function ProductCardBlock({
     className,
@@ -39,7 +39,7 @@ export function ProductCardBlock({
 
 export interface ProductCardBlockProps
     extends WithClassName,
-        WithBoxColor,
+        WithColorOfBox,
         WithImage,
         WithTitle,
         WithOnClick,

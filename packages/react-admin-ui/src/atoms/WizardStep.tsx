@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { Badge, Clickable, Text } from './';
 import {
     WithActive,
-    WithBoxColor,
+    WithColorOfBox,
     WithClassName,
     WithDescription,
     WithDisabled,
@@ -54,7 +54,7 @@ export interface WizardStepProps
         WithDisabled,
         WithOnClick,
         Required<WithIndex>,
-        WithBoxColor {}
+        WithColorOfBox {}
 
 // noinspection JSUnusedGlobalSymbols
 export default WizardStep;

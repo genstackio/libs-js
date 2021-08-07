@@ -2,7 +2,7 @@ import { target } from '../types';
 import Button from '../atoms/Button';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
-import { WithBoxColor, WithIcon, WithMessage } from '../withs';
+import { WithColorOfBox, WithIcon, WithMessage } from '../withs';
 
 export function ErrorTemplate({ actions, code, color, icon, message }: ErrorTemplateProps) {
     return (
@@ -27,7 +27,7 @@ export function ErrorTemplate({ actions, code, color, icon, message }: ErrorTemp
     );
 }
 
-export interface ErrorTemplateProps extends WithBoxColor, WithMessage, WithIcon {
+export interface ErrorTemplateProps extends WithColorOfBox, WithMessage, WithIcon {
     actions?: {
         label?: string;
         target?: target;

@@ -4,10 +4,18 @@ import Badge from '../atoms/Badge';
 import Block from '../atoms/Block';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
-import { menu_variant, menu_item } from '../types';
 import textClass from '../utils/textClass';
 import { useToggle } from '../hooks';
-import { WithBoxColor, WithClassName, WithIcon, WithLabel, WithActive, WithBadges } from '../withs';
+import {
+    WithColorOfBox,
+    WithClassName,
+    WithIcon,
+    WithLabel,
+    WithActive,
+    WithBadges,
+    WithItemsOfMenu,
+    WithVariantOfMenu,
+} from '../withs';
 
 export function MenuFold({ className, label, icon, active, badges, items = [], color, variant }: MenuFoldProps) {
     const [open, toggle] = useToggle(active || false);
@@ -60,9 +68,14 @@ export function MenuFold({ className, label, icon, active, badges, items = [], c
     );
 }
 
-export interface MenuFoldProps extends WithClassName, WithIcon, WithBoxColor, WithLabel, WithActive, WithBadges {
-    items?: menu_item[];
-    variant?: menu_variant;
-}
+export interface MenuFoldProps
+    extends WithClassName,
+        WithIcon,
+        WithColorOfBox,
+        WithLabel,
+        WithActive,
+        WithBadges,
+        WithItemsOfMenu,
+        WithVariantOfMenu {}
 
 export default MenuFold;

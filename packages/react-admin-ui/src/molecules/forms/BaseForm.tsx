@@ -4,7 +4,7 @@ import Column from '../../atoms/Column';
 import FormHeader from '../../atoms/FormHeader';
 import FormFooter from '../../atoms/FormFooter';
 import {
-    WithBoxColor,
+    WithColorOfBox,
     WithChildren,
     WithDynamicChildren,
     WithClassName,
@@ -65,7 +65,7 @@ export interface BaseFormProps
         WithSubmitting,
         WithHeader,
         WithFooter,
-        WithBoxColor {
+        WithColorOfBox {
     errors?: any;
 }
 

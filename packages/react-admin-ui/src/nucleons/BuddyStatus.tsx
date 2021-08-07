@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { WithBuddyStatus, WithClassName } from '../withs';
+import { WithStatusOfBuddy, WithClassName } from '../withs';
 import statusClass from '../mappings/statuses';
 
 export function BuddyStatus({ status, className }: BuddyStatusProps) {
@@ -14,6 +14,6 @@ export function BuddyStatus({ status, className }: BuddyStatusProps) {
     );
 }
 
-export interface BuddyStatusProps extends WithClassName, WithBuddyStatus {}
+export interface BuddyStatusProps extends WithClassName, WithStatusOfBuddy {}
 
 export default BuddyStatus;

@@ -1,7 +1,6 @@
 import LinearProgress from '@material-ui/core/LinearProgress';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { progress_variant } from '../mappings/progress-variants';
-import { WithClassName } from '../withs';
+import { WithClassName, WithVariantOfProgress } from '../withs';
 
 const variants = {
     circular: CircularProgress,
@@ -14,9 +13,8 @@ export function Progress({ className, value = 0, variant = 'linear' }: ProgressP
     return <Component variant={'determinate'} value={value} className={className} />;
 }
 
-export interface ProgressProps extends WithClassName {
+export interface ProgressProps extends WithClassName, WithVariantOfProgress {
     value?: number;
-    variant?: progress_variant;
 }
 
 export default Progress;

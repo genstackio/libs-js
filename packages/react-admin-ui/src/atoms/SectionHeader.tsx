@@ -1,8 +1,7 @@
 import clsx from 'clsx';
-import { block_variant } from '../types';
 import Block from './Block';
 import Text from './Text';
-import { WithBoxColor, WithClassName, WithSubtitle, WithTitle } from '../withs';
+import { WithColorOfBox, WithClassName, WithSubtitle, WithTitle, WithVariantOfBlock } from '../withs';
 
 export function SectionHeader({
     className,
@@ -26,8 +25,11 @@ export function SectionHeader({
     ) : null;
 }
 
-export interface SectionHeaderProps extends WithClassName, WithTitle, WithSubtitle, WithBoxColor {
-    variant?: block_variant;
-}
+export interface SectionHeaderProps
+    extends WithClassName,
+        WithTitle,
+        WithSubtitle,
+        WithColorOfBox,
+        WithVariantOfBlock {}
 
 export default SectionHeader;

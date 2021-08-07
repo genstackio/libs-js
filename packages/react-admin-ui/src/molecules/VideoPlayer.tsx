@@ -5,7 +5,7 @@ import ReactPlayer from 'react-player';
 import { icon } from '../types';
 import { useToggle } from '../hooks/useToggle';
 import cornerClass from '../mappings/corners';
-import { WithBoxColor, WithButtonLabel, WithClassName, WithCorner, WithIcon, WithImage } from '../withs';
+import { WithColorOfBox, WithButtonLabel, WithClassName, WithCorner, WithIcon, WithImage } from '../withs';
 
 export function VideoPlayer({
     url,
@@ -67,7 +67,7 @@ export interface VideoPlayerProps
     extends WithClassName,
         WithIcon,
         WithImage,
-        WithBoxColor,
+        WithColorOfBox,
         WithButtonLabel,
         WithCorner {
     url: string;

@@ -1,10 +1,18 @@
-import { avatar_size } from '../mappings/avatar-sizes';
 import Div from './Div';
 import Text from './Text';
 import AvatarImage from './AvatarImage';
 import BuddyStatus from '../nucleons/BuddyStatus';
 import AvatarInitials from './AvatarInitials';
-import { WithClassName, WithName, WithImage, WithShape, WithBuddyStatus, WithTitle, WithSubtitle } from '../withs';
+import {
+    WithClassName,
+    WithName,
+    WithImage,
+    WithShape,
+    WithStatusOfBuddy,
+    WithTitle,
+    WithSubtitle,
+    WithSizeOfAvatar,
+} from '../withs';
 import clsx from 'clsx';
 
 export function Avatar({ className, image, name, size, shape = 'circular', status, title, subtitle }: AvatarProps) {
@@ -33,10 +41,9 @@ export interface AvatarProps
         Required<WithName>,
         WithImage,
         WithShape,
-        WithBuddyStatus,
+        WithStatusOfBuddy,
         WithTitle,
-        WithSubtitle {
-    size?: avatar_size;
-}
+        WithSizeOfAvatar,
+        WithSubtitle {}
 
 export default Avatar;

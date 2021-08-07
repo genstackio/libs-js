@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import Button from '../atoms/Button';
 import Row from '../atoms/Row';
-import { WithBoxColor, WithLogo } from '../withs';
+import { WithColorOfBox, WithLogo } from '../withs';
 import { Image } from '../atoms';
 import { target } from '../types';
 import { useTranslation } from 'react-i18next';
@@ -31,7 +31,7 @@ export function MenuAppBar({ logo, menuItems = [], color, onLoginClick }: MenuAp
     );
 }
 
-export interface MenuAppBarProps extends WithLogo, WithBoxColor {
+export interface MenuAppBarProps extends WithLogo, WithColorOfBox {
     menuItems?: any[];
     onLoginClick?: target;
 }

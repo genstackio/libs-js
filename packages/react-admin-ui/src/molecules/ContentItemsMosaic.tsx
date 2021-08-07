@@ -1,5 +1,5 @@
 import Column from '../atoms/Column';
-import { WithTitle, WithClassName, WithBoxColor } from '../withs';
+import { WithTitle, WithClassName, WithColorOfBox } from '../withs';
 import { content_item_mosaic_item, text_color } from '../types';
 import ContentItemMosaic from './ContentItemMosaic';
 import Text from '../atoms/Text';
@@ -18,7 +18,7 @@ export function ContentItemsMosaic({ title, items, color, titleColor = 'dark', c
     );
 }
 
-export interface ContentItemsMosaicProps extends WithTitle, WithBoxColor, WithClassName {
+export interface ContentItemsMosaicProps extends WithTitle, WithColorOfBox, WithClassName {
     items: content_item_mosaic_item[];
     titleColor?: text_color;
 }

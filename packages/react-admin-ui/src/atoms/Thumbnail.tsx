@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import Image from './Image';
-import thumbnailSizeClass, { thumbnail_size } from '../mappings/thumbnail-sizes';
-import { WithClassName, WithCorner, WithImage } from '../withs';
+import thumbnailSizeClass from '../mappings/thumbnail-sizes';
+import { WithClassName, WithCorner, WithImage, WithSizeOfThumbnail } from '../withs';
 
 export function Thumbnail({ className, image, corner = 'rounded-xsmall', size }: ThumbnailProps) {
     return (
@@ -11,9 +11,7 @@ export function Thumbnail({ className, image, corner = 'rounded-xsmall', size }:
     );
 }
 
-export interface ThumbnailProps extends WithClassName, WithImage, WithCorner {
-    size?: thumbnail_size;
-}
+export interface ThumbnailProps extends WithClassName, WithImage, WithCorner, WithSizeOfThumbnail {}
 
 // noinspection JSUnusedGlobalSymbols
 export default Thumbnail;
