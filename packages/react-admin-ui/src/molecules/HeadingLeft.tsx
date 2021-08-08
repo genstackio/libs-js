@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Text from '../atoms/Text';
-import { WithClassName, WithTitle, WithDescription } from '../withs';
+import { WithTitle, WithDescription } from '../withs';
+import { AsComponent } from '../as';
 
 export function HeadingLeft({ className, title, description }: HeadingLeftProps) {
     return (
@@ -11,6 +12,7 @@ export function HeadingLeft({ className, title, description }: HeadingLeftProps)
     );
 }
 
-export interface HeadingLeftProps extends WithClassName, WithTitle, WithDescription {}
+export interface HeadingLeftProps extends AsComponent, WithTitle, WithDescription {}
 
+// noinspection JSUnusedGlobalSymbols
 export default HeadingLeft;

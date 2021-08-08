@@ -5,7 +5,8 @@ import { flag } from '../types';
 import Badge from '../atoms/Badge';
 import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { WithColorOfBox, WithClassName, WithItemsOfTable, WithColumnsOfTable } from '../withs';
+import { WithColorOfBox, WithItemsOfTable, WithColumnsOfTable } from '../withs';
+import { AsComponent } from '../as';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 const tailwindTextColors = tailwindConfig.theme.extend.textColors;
@@ -166,8 +167,8 @@ export function Table({
 }
 
 export interface TableProps
-    extends Omit<DataGridProps, 'columns' | 'onPageChange' | 'rows'>,
-        WithClassName,
+    extends AsComponent,
+        Omit<DataGridProps, 'columns' | 'onPageChange' | 'rows'>,
         WithItemsOfTable,
         WithColumnsOfTable,
         WithColorOfBox {
@@ -180,4 +181,5 @@ export interface TableProps
     loading?: flag;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default Table;

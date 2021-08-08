@@ -3,9 +3,10 @@ import Row from '../atoms/Row';
 import Text from '../atoms/Text';
 import { rich_text } from '../types';
 import clsx from 'clsx';
-import { WithBox, WithClassName, WithDescription, WithTitle } from '../withs';
+import { WithBox, WithDescription, WithTitle } from '../withs';
 import bgClass from '../utils/bgClass';
 import Divider from '../atoms/Divider';
+import { AsComponent } from '../as';
 
 export function AppPush({
     title,
@@ -53,7 +54,7 @@ export function AppPush({
     );
 }
 
-export interface AppPushProps extends WithTitle, WithClassName, WithBox, WithDescription {
+export interface AppPushProps extends AsComponent, WithTitle, WithBox, WithDescription {
     btnLabelAppStore?: rich_text;
     btnLabelGooglePlay?: rich_text;
 }

@@ -8,4 +8,5 @@ export function Row({ className, children, center = false }: RowProps) {
 
 export interface RowProps extends AsWrapper, WithCenter {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Row;

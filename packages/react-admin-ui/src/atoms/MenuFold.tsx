@@ -8,7 +8,6 @@ import textClass from '../utils/textClass';
 import { useToggle } from '../hooks';
 import {
     WithColorOfBox,
-    WithClassName,
     WithIcon,
     WithLabel,
     WithActive,
@@ -17,6 +16,7 @@ import {
     WithVariantOfMenu,
 } from '../withs';
 import Items from './Items';
+import { AsComponent } from '../as';
 
 export function MenuFold({ className, label, icon, active, badges, items = [], color, variant }: MenuFoldProps) {
     const [open, toggle] = useToggle(active || false);
@@ -70,7 +70,7 @@ export function MenuFold({ className, label, icon, active, badges, items = [], c
 }
 
 export interface MenuFoldProps
-    extends WithClassName,
+    extends AsComponent,
         WithIcon,
         WithColorOfBox,
         WithLabel,
@@ -79,4 +79,5 @@ export interface MenuFoldProps
         WithItemsOfMenu,
         WithVariantOfMenu {}
 
+// noinspection JSUnusedGlobalSymbols
 export default MenuFold;

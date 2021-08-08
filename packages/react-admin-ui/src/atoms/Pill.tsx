@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import boxClass from '../utils/boxClass';
-import { WithBox, WithClassName, WithText } from '../withs';
+import { WithBox, WithText } from '../withs';
+import { AsComponent } from '../as';
 
 export function Pill({ className, color, text, variant }: PillProps) {
     return (
@@ -16,6 +17,7 @@ export function Pill({ className, color, text, variant }: PillProps) {
     );
 }
 
-export interface PillProps extends WithClassName, WithBox, WithText {}
+export interface PillProps extends AsComponent, WithBox, WithText {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Pill;

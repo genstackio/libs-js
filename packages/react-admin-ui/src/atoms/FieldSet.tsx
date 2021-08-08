@@ -20,4 +20,5 @@ export function FieldSet({ className, name, label, options, children, error, hel
 
 export interface FieldSetProps extends AsWrapper, WithLabel, Required<WithName>, WithHelper, WithError, WithOptions {}
 
+// noinspection JSUnusedGlobalSymbols
 export default FieldSet;

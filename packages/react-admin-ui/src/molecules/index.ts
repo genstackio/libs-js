@@ -55,6 +55,7 @@ export * from './Table';
 export * from './TabPanel';
 export * from './TextBlock';
 export * from './Timeline';
+export * from './TimelineItem';
 export * from './charts/UsageChart';
 export * from './StatsChartHeader';
 export * from './UserToolbar';

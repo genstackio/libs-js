@@ -23,4 +23,5 @@ export function CreateUserForm({ children, ...props }: CreateUserFormProps) {
 
 export type CreateUserFormProps = BaseFormProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default CreateUserForm;

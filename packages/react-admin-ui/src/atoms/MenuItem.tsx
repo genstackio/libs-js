@@ -3,17 +3,9 @@ import Badge from '../atoms/Badge';
 import Block from '../atoms/Block';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
-import {
-    WithActive,
-    WithBadges,
-    WithColorOfBox,
-    WithClassName,
-    WithIcon,
-    WithLabel,
-    WithTarget,
-    WithVariantOfMenu,
-} from '../withs';
+import { WithActive, WithBadges, WithColorOfBox, WithIcon, WithLabel, WithTarget, WithVariantOfMenu } from '../withs';
 import Items from './Items';
+import { AsComponent } from '../as';
 
 export function MenuItem({ className, label, icon, target, active = false, badges, color, variant }: MenuItemProps) {
     return (
@@ -45,7 +37,7 @@ export function MenuItem({ className, label, icon, target, active = false, badge
 }
 
 export interface MenuItemProps
-    extends WithClassName,
+    extends AsComponent,
         WithLabel,
         WithIcon,
         WithColorOfBox,
@@ -54,4 +46,5 @@ export interface MenuItemProps
         WithVariantOfMenu,
         WithBadges {}
 
+// noinspection JSUnusedGlobalSymbols
 export default MenuItem;

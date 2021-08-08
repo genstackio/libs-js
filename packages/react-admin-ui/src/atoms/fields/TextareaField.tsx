@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import useField from '../../hooks/useField';
 import FieldSet from '../FieldSet';
-import { WithValue } from '../../withs';
-import { AsField } from '../../as';
+import { WithRows } from '../../withs';
+import { AsTextField } from '../../as';
 
 export function TextareaField({ className, ...props }: TextareaFieldProps) {
     const { name, required, label, error, helper, disabled, register, placeholder, options, extra } = useField(props);
@@ -25,9 +25,7 @@ export function TextareaField({ className, ...props }: TextareaFieldProps) {
     );
 }
 
-export interface TextareaFieldProps extends AsField, WithValue {
-    rows?: number;
-}
+export interface TextareaFieldProps extends AsTextField, WithRows {}
 
 // noinspection JSUnusedGlobalSymbols
 export default TextareaField;

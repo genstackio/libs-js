@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import Avatar from '../atoms/Avatar';
 import Items from '../atoms/Items';
-import { WithClassName, WithItemsOfAvatar } from '../withs';
+import { WithItemsOfAvatar } from '../withs';
+import { AsComponent } from '../as';
 
 export function Avatars({ className, items = [] }: AvatarsProps) {
     return (
@@ -11,6 +12,7 @@ export function Avatars({ className, items = [] }: AvatarsProps) {
     );
 }
 
-export interface AvatarsProps extends WithClassName, WithItemsOfAvatar {}
+export interface AvatarsProps extends AsComponent, WithItemsOfAvatar {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Avatars;

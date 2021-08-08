@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import Text from '../atoms/Text';
 import Icon from '../atoms/Icon';
 import { rich_text } from '../types';
-import { WithClassName } from '../withs';
+import { AsComponent } from '../as';
 
 export function ItemSummary({ className, date, author, likes, comments }: ItemSummaryProps) {
     return (
@@ -32,7 +32,7 @@ export function ItemSummary({ className, date, author, likes, comments }: ItemSu
     );
 }
 
-export interface ItemSummaryProps extends WithClassName {
+export interface ItemSummaryProps extends AsComponent {
     date: number;
     author?: rich_text;
     likes?: number;

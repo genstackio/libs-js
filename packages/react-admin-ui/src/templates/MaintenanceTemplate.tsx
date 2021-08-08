@@ -1,10 +1,13 @@
+import clsx from 'clsx';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
 import Button from '../atoms/Button';
 import { target } from '../types';
 import { WithBox, WithDescription, WithTitle } from '../withs';
+import { AsComponent } from '../as';
 
 export function MaintenanceTemplate({
+    className,
     logo,
     title,
     description,
@@ -13,7 +16,7 @@ export function MaintenanceTemplate({
     variant = 'contained',
 }: MaintenanceTemplateProps) {
     return (
-        <div className={'h-screen flex items-center'}>
+        <div className={clsx('h-screen flex items-center', className)}>
             <div className={'text-center max-w-3xl mx-auto'}>
                 <div className={'flex justify-center'}>
                     <Icon className={'text-disabled'} icon={logo} size={'9xl'} />
@@ -34,7 +37,7 @@ export function MaintenanceTemplate({
     );
 }
 
-export interface MaintenanceTemplateProps extends WithBox, WithTitle, WithDescription {
+export interface MaintenanceTemplateProps extends AsComponent, WithBox, WithTitle, WithDescription {
     logo?: string;
     actions: {
         label?: string;
@@ -42,4 +45,5 @@ export interface MaintenanceTemplateProps extends WithBox, WithTitle, WithDescri
     }[];
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default MaintenanceTemplate;

@@ -3,7 +3,8 @@ import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
 import Text from '../../atoms/Text';
 import { lighten } from '@material-ui/core/styles';
-import { WithColorOfBox, WithClassName, WithSubtitle, WithOverline, WithTitleAsString } from '../../withs';
+import { WithColorOfBox, WithSubtitle, WithOverline, WithTitleAsString, WithValueAsNumber } from '../../withs';
+import { AsComponent } from '../../as';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 
@@ -85,13 +86,12 @@ export function RateChart({ className, color = 'primary', overline, subtitle, ti
 }
 
 export interface RateChartProps
-    extends WithClassName,
+    extends AsComponent,
         WithColorOfBox,
         Required<WithTitleAsString>,
         WithSubtitle,
-        WithOverline {
-    value: number;
-}
+        WithOverline,
+        Required<WithValueAsNumber> {}
 
 // noinspection JSUnusedGlobalSymbols
 export default RateChart;

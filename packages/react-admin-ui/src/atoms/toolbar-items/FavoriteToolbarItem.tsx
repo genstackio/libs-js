@@ -6,4 +6,5 @@ export function FavoriteToolbarItem(props: FavoriteToolbarItemProps) {
 
 export type FavoriteToolbarItemProps = BaseToolbarItemProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default FavoriteToolbarItem;

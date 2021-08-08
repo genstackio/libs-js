@@ -4,10 +4,11 @@ import SwiperCore, { EffectFade } from 'swiper';
 import 'swiper/swiper-bundle.css';
 import clsx from 'clsx';
 import { WithItems } from '../withs';
+import { AsComponent } from '../as';
 
 SwiperCore.use([EffectFade]);
 
-export function QuoteSwiperTexts({ controller, onSwiper, items = [] }: QuoteSwiperTextsProps) {
+export function QuoteSwiperTexts({ className, controller, onSwiper, items = [] }: QuoteSwiperTextsProps) {
     const params: any = {
         loop: true,
         loopAdditionalSlides: 5,
@@ -27,7 +28,7 @@ export function QuoteSwiperTexts({ controller, onSwiper, items = [] }: QuoteSwip
         },
     };
     return (
-        <Swiper {...params} className={clsx('sm:w-full md:w-3/4 w-2/3')}>
+        <Swiper {...params} className={clsx('sm:w-full md:w-3/4 w-2/3', className)}>
             {items.map(({ image, ...text }, index) => (
                 <SwiperSlide key={index}>
                     <QuoteSlide {...text} noImage />
@@ -37,7 +38,7 @@ export function QuoteSwiperTexts({ controller, onSwiper, items = [] }: QuoteSwip
     );
 }
 
-export interface QuoteSwiperTextsProps extends WithItems {
+export interface QuoteSwiperTextsProps extends AsComponent, WithItems {
     controller?: any;
     onSwiper?: Function;
 }

@@ -109,4 +109,5 @@ export interface BaseBlockProps
 
 export interface BlockProps extends BaseBlockProps, WithImage {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Block;

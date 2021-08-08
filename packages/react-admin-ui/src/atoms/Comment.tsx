@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Text from './Text';
-import { WithClassName, WithSubtitle, WithTitle, WithMessage } from '../withs';
+import { WithSubtitle, WithTitle, WithMessage } from '../withs';
+import { AsComponent } from '../as';
 
 export function Comment({ title, subtitle, message, className }: CommentProps) {
     return (
@@ -16,6 +17,7 @@ export function Comment({ title, subtitle, message, className }: CommentProps) {
     );
 }
 
-export interface CommentProps extends WithClassName, WithTitle, WithSubtitle, WithMessage {}
+export interface CommentProps extends AsComponent, WithTitle, WithSubtitle, WithMessage {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Comment;

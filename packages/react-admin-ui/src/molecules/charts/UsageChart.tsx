@@ -1,6 +1,6 @@
 import Progress from '../../atoms/Progress';
 import { rich_text } from '../../types';
-import { WithClassName } from '../../withs';
+import { WithClassName, WithMax, WithValueAsNumber } from '../../withs';
 
 export function UsageChart({ className, max, unit, value }: UsageChartProps) {
     return (
@@ -17,10 +17,9 @@ export function UsageChart({ className, max, unit, value }: UsageChartProps) {
     );
 }
 
-export interface UsageChartProps extends WithClassName {
-    max: number;
+export interface UsageChartProps extends WithClassName, Required<WithMax>, Required<WithValueAsNumber> {
     unit?: rich_text;
-    value: number;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default UsageChart;

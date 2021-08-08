@@ -40,15 +40,7 @@ export function EditCurrentUserAction({
         prepare,
     });
 
-    if (!data) {
-        return <SpinnerComponent />;
-    }
-
-    return (
-        <>
-            <Component {...someProps} defaultValues={data.getUser} {...props} />
-        </>
-    );
+    return data ? <Component {...someProps} defaultValues={data.getUser} {...props} /> : <SpinnerComponent />;
 }
 
 export interface EditCurrentUserActionProps
@@ -59,4 +51,5 @@ export interface EditCurrentUserActionProps
         WithQueryName,
         WithMutationName {}
 
+// noinspection JSUnusedGlobalSymbols
 export default EditCurrentUserAction;

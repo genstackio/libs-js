@@ -3,7 +3,8 @@ import clsx from 'clsx';
 import Popper from '@material-ui/core/Popper';
 import { children, flag } from '../types';
 import Clickable from '../atoms/Clickable';
-import { WithClassName, WithPlacement } from '../withs';
+import { WithPlacement } from '../withs';
+import { AsComponent } from '../as';
 
 export function Expandable({ className, children, expandedChildren, placement = 'bottom-start' }: ExpandableProps) {
     const [opened, setOpened] = useState(false);
@@ -36,9 +37,10 @@ export function Expandable({ className, children, expandedChildren, placement = 
     );
 }
 
-export interface ExpandableProps extends WithClassName, WithPlacement {
+export interface ExpandableProps extends AsComponent, WithPlacement {
     children?: children | ((opened: flag) => children);
     expandedChildren?: children | ((opened: flag) => children);
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default Expandable;

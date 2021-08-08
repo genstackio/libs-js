@@ -14,4 +14,5 @@ export function LastNameField({ options = {}, ...props }: LastNameFieldProps) {
 
 export type LastNameFieldProps = TextFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default LastNameField;

@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
-import { WithClassName, WithVariantOfSpace } from '../withs';
+import { WithSizeOfSpacer, WithVariantOfSpace } from '../withs';
+import { AsComponent } from '../as';
 
 export function Spacer({ className, variant = 'default', size = 1, unitSize = 4 }: SpacerProps) {
     const styles = useMemo(() => {
@@ -22,9 +23,7 @@ export function Spacer({ className, variant = 'default', size = 1, unitSize = 4 
     return <div style={styles} className={className} />;
 }
 
-export interface SpacerProps extends WithClassName, WithVariantOfSpace {
-    size?: number;
-    unitSize?: number;
-}
+export interface SpacerProps extends AsComponent, WithVariantOfSpace, WithSizeOfSpacer {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Spacer;

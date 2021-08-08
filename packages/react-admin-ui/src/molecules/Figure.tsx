@@ -3,7 +3,8 @@ import Tag from '../atoms/Tag';
 import Pill from '../atoms/Pill';
 import Text from '../atoms/Text';
 import { pill, tag } from '../types';
-import { WithClassName, WithTitle } from '../withs';
+import { WithTitle } from '../withs';
+import { AsComponent } from '../as';
 
 export function Figure({ className, pill, price, tag, title }: FigureProps) {
     return (
@@ -26,10 +27,11 @@ export function Figure({ className, pill, price, tag, title }: FigureProps) {
     );
 }
 
-export interface FigureProps extends WithClassName, WithTitle {
+export interface FigureProps extends AsComponent, WithTitle {
     pill?: pill;
     price?: string;
     tag?: tag;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default Figure;

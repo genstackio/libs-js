@@ -6,8 +6,10 @@ import Text from '../atoms/Text';
 import { flag } from '../types';
 import { WithBox, WithButtonLabel, WithButtonTarget, WithImage, WithSubtitle, WithText, WithTitle } from '../withs';
 import { Block } from '../atoms';
+import { AsComponent } from '../as';
 
 export function Push({
+    className,
     title,
     subtitle,
     text,
@@ -19,7 +21,7 @@ export function Push({
     image,
 }: PushProps) {
     return (
-        <Block color={color} variant={variant}>
+        <Block color={color} variant={variant} className={className}>
             <Row className={clsx('xs:flex-col', imageLeft && 'flex-row-reverse xs:flex-col-reverse')}>
                 <div className={'flex-1 sm:flex-auto sm:p-5'}>
                     <Text className={'mb-2'} variant={'title3'} text={title} />
@@ -42,7 +44,8 @@ export function Push({
 }
 
 export interface PushProps
-    extends WithTitle,
+    extends AsComponent,
+        WithTitle,
         WithSubtitle,
         WithText,
         WithBox,
@@ -52,4 +55,5 @@ export interface PushProps
     imageLeft?: flag;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default Push;

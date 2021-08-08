@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import Badge from '../atoms/Badge';
 import boxClass from '../utils/boxClass';
-import { WithBadge, WithColorOfBox, WithClassName, WithItemsOfList } from '../withs';
+import { WithBadge, WithColorOfBox, WithItemsOfList } from '../withs';
+import { AsComponent } from '../as';
 
 export function List({ className, badge: globalBadge, color: globalColor, items = [] }: ListProps) {
     return (
@@ -28,6 +29,7 @@ export function List({ className, badge: globalBadge, color: globalColor, items 
     );
 }
 
-export interface ListProps extends WithClassName, WithColorOfBox, WithBadge, WithItemsOfList {}
+export interface ListProps extends AsComponent, WithColorOfBox, WithBadge, WithItemsOfList {}
 
+// noinspection JSUnusedGlobalSymbols
 export default List;

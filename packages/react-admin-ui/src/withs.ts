@@ -6,6 +6,7 @@ import {
     image,
     shape,
     rich_text,
+    slide,
     icon,
     size,
     text_color,
@@ -49,6 +50,8 @@ import {
     form_item,
     news_item,
     tab_item,
+    select_item,
+    rating_value,
 } from './types';
 import { padding } from './mappings/paddings';
 import { alignment } from './mappings/alignments';
@@ -98,6 +101,15 @@ export interface WithValueAsRichText {
 export interface WithDefaultValueAsBoolean {
     defaultValue?: flag;
 }
+export interface WithDefaultValueAsNumber {
+    defaultValue?: number;
+}
+export interface WithDefaultValueAsString {
+    defaultValue?: string;
+}
+export interface WithDefaultValue {
+    defaultValue?: any;
+}
 
 // WithVariant
 export interface WithVariantOfText {
@@ -128,6 +140,18 @@ export interface WithVariantOfField {
     variant?: field_variant;
 }
 
+export interface WithRows {
+    rows?: number;
+}
+
+// WithValues
+export interface WithValuesOfSelect {
+    values?: select_item[];
+}
+export interface WithValuesOfRating {
+    values?: rating_value[];
+}
+
 // WithSize
 export interface WithSize {
     size?: size;
@@ -140,6 +164,10 @@ export interface WithSizeOfThumbnail {
 }
 export interface WithSizeOfSpinner {
     size?: spinner_size;
+}
+export interface WithSizeOfSpacer {
+    size?: number;
+    unitSize?: number;
 }
 
 // WithItems
@@ -349,6 +377,12 @@ export interface WithDynamicChildren {
 export interface WithName {
     name?: string;
 }
+export interface WithMin {
+    min?: number;
+}
+export interface WithMax {
+    max?: number;
+}
 export interface WithImage {
     image?: image;
 }
@@ -516,6 +550,10 @@ export interface WithOnClear {
 export interface WithOnClick {
     onClick?: target;
 }
+export interface WithSlide {
+    slide: slide;
+}
+
 export interface WithIndex {
     index?: number;
 }

@@ -43,4 +43,5 @@ export function MoodRating(props: MoodRatingProps) {
 
 export type MoodRatingProps = BaseBaseRatingProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default MoodRating;

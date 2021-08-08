@@ -15,4 +15,5 @@ export function EditOrganizationForm({ children, ...props }: EditOrganizationFor
 
 export type EditOrganizationFormProps = BaseFormProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default EditOrganizationForm;

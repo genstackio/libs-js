@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import Avatar from '../atoms/Avatar';
 import Text from '../atoms/Text';
-import { WithClassName, WithImage, WithSubtitle, WithText, WithColorOfText, WithTitle } from '../withs';
+import { WithImage, WithSubtitle, WithText, WithColorOfText, WithTitle } from '../withs';
+import { AsComponent } from '../as';
 
 export function FeaturedQuote({ className, text, title, subtitle, image, color = 'primary' }: FeaturedQuoteProps) {
     return (
@@ -15,7 +16,7 @@ export function FeaturedQuote({ className, text, title, subtitle, image, color =
 }
 
 export interface FeaturedQuoteProps
-    extends WithClassName,
+    extends AsComponent,
         WithText,
         WithTitle,
         WithSubtitle,

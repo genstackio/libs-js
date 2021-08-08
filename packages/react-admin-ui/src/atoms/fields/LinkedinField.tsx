@@ -6,4 +6,5 @@ export function LinkedinField(props: LinkedinFieldProps) {
 
 export type LinkedinFieldProps = UrlFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default LinkedinField;

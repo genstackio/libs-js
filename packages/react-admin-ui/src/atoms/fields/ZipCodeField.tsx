@@ -14,4 +14,5 @@ export function ZipCodeField({ options = {}, ...props }: ZipCodeFieldProps) {
 
 export type ZipCodeFieldProps = TextFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default ZipCodeField;

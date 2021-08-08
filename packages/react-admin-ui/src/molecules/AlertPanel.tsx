@@ -17,4 +17,5 @@ export function AlertPanel({ children, title, ...props }: AlertPanelProps) {
 
 export interface AlertPanelProps extends AlertProps, WithTitle {}
 
+// noinspection JSUnusedGlobalSymbols
 export default AlertPanel;

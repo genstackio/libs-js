@@ -1,11 +1,12 @@
 import Column from '../atoms/Column';
-import { WithTitle, WithClassName, WithColorOfBox, WithItemsOfContentItemsMosaic } from '../withs';
+import { WithTitle, WithColorOfBox, WithItemsOfContentItemsMosaic } from '../withs';
 import ContentItemMosaic from './ContentItemMosaic';
 import Text from '../atoms/Text';
 import clsx from 'clsx';
 import { Items } from '../atoms';
+import { AsComponent } from '../as';
 
-export function ContentItemsMosaic({ title, items = [], color, className }: ContentItemsMosaicProps) {
+export function ContentItemsMosaic({ className, title, items = [], color }: ContentItemsMosaicProps) {
     return (
         <Column className={clsx(className)}>
             <Text variant={'title3'} text={title} color={color} />
@@ -17,9 +18,9 @@ export function ContentItemsMosaic({ title, items = [], color, className }: Cont
 }
 
 export interface ContentItemsMosaicProps
-    extends WithTitle,
+    extends AsComponent,
+        WithTitle,
         WithColorOfBox,
-        WithClassName,
         WithItemsOfContentItemsMosaic {}
 
 // noinspection JSUnusedGlobalSymbols

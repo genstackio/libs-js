@@ -6,4 +6,5 @@ export function OverlineText(props: OverlineTextProps) {
 
 export type OverlineTextProps = Omit<TextProps, 'variant'>;
 
+// noinspection JSUnusedGlobalSymbols
 export default OverlineText;

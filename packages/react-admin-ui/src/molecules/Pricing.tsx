@@ -4,7 +4,8 @@ import Button from '../atoms/Button';
 import Text from '../atoms/Text';
 import boxClass from '../utils/boxClass';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
-import { WithClassName, WithItemsOfPricing } from '../withs';
+import { WithItemsOfPricing } from '../withs';
+import { AsComponent } from '../as';
 
 export function Pricing({ className, items = [] }: PricingProps) {
     return (
@@ -47,6 +48,7 @@ export function Pricing({ className, items = [] }: PricingProps) {
     );
 }
 
-export interface PricingProps extends WithClassName, WithItemsOfPricing {}
+export interface PricingProps extends AsComponent, WithItemsOfPricing {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Pricing;

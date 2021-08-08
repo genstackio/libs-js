@@ -4,7 +4,8 @@ import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-import { WithColorOfBox, WithClassName, WithItemsOfBreadcrumb } from '../withs';
+import { WithColorOfBox, WithItemsOfBreadcrumb } from '../withs';
+import { AsComponent } from '../as';
 
 const colors = {
     danger: 'text-danger',
@@ -52,8 +53,9 @@ export function Breadcrumb({ className, items = [], color = 'primary', toRight =
     );
 }
 
-export interface BreadcrumbProps extends WithClassName, WithColorOfBox, WithItemsOfBreadcrumb {
+export interface BreadcrumbProps extends AsComponent, WithColorOfBox, WithItemsOfBreadcrumb {
     toRight?: flag;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default Breadcrumb;

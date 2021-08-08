@@ -11,4 +11,5 @@ export function FormHeader({ className, children }: FormHeaderProps) {
 
 export type FormHeaderProps = AsWrapper;
 
+// noinspection JSUnusedGlobalSymbols
 export default FormHeader;

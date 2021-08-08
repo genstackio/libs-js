@@ -6,8 +6,9 @@ import bgClass from '../utils/bgClass';
 import Popper from '@material-ui/core/Popper';
 import { useTranslation } from 'react-i18next';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import { WithColorOfBox, WithClassName, WithLocales } from '../withs';
+import { WithColorOfBox, WithLocales } from '../withs';
 import shortenLocale from '../utils/shortenLocale';
+import { AsComponent } from '../as';
 
 export function LocaleChange({ className, locales = [], color = 'primary' }: LocaleChangeProps) {
     const { i18n } = useTranslation() as any;
@@ -60,6 +61,7 @@ export function LocaleChange({ className, locales = [], color = 'primary' }: Loc
     );
 }
 
-export interface LocaleChangeProps extends WithClassName, WithColorOfBox, WithLocales {}
+export interface LocaleChangeProps extends AsComponent, WithColorOfBox, WithLocales {}
 
+// noinspection JSUnusedGlobalSymbols
 export default LocaleChange;

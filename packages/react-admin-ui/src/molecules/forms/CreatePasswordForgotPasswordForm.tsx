@@ -7,7 +7,8 @@ import PasswordField from '../../atoms/fields/PasswordField';
 import PasswordConfirmationField from '../../atoms/fields/PasswordConfirmationField';
 import { useTranslation } from 'react-i18next';
 import { flag } from '../../types';
-import { WithColorOfBox, WithClassName, WithDefaultValues, WithOnSubmit } from '../../withs';
+import { WithColorOfBox, WithDefaultValues, WithOnSubmit } from '../../withs';
+import { AsComponent } from '../../as';
 
 export function CreatePasswordForgotPasswordForm({
     className,
@@ -43,7 +44,7 @@ export function CreatePasswordForgotPasswordForm({
 }
 
 export interface CreatePasswordForgotPasswordFormProps
-    extends WithClassName,
+    extends AsComponent,
         WithColorOfBox,
         WithDefaultValues,
         WithOnSubmit {
@@ -51,4 +52,5 @@ export interface CreatePasswordForgotPasswordFormProps
     rememberMe?: flag;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default CreatePasswordForgotPasswordForm;

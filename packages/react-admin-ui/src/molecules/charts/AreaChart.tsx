@@ -1,7 +1,8 @@
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
-import { WithBox, WithClassName, WithSeries } from '../../withs';
+import { WithBox, WithSeries } from '../../withs';
+import { AsComponent } from '../../as';
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 
@@ -55,7 +56,7 @@ export function AreaChart({ className, color = 'primary', series = [], variant =
     return <Chart type={'area'} options={options} series={newData} height={'250px'} className={className} />;
 }
 
-export interface AreaChartProps extends WithClassName, WithBox, WithSeries {}
+export interface AreaChartProps extends AsComponent, WithBox, WithSeries {}
 
 // noinspection JSUnusedGlobalSymbols
 export default AreaChart;

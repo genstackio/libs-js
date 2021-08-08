@@ -22,4 +22,5 @@ export function EmailField({ options = {}, ...props }: EmailFieldProps) {
 
 export type EmailFieldProps = TextFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default EmailField;

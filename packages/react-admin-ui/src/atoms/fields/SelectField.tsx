@@ -1,10 +1,9 @@
 import FieldSet from '../FieldSet';
 import useField from '../../hooks/useField';
 import Select from 'react-select';
-import { select_item } from '../../types';
 import { Controller } from 'react-hook-form';
 import { useCallback } from 'react';
-import { AsField } from '../../as';
+import { AsChoiceField } from '../../as';
 
 export function SelectField({ className, values = [], onChange: parentOnChange, ...props }: SelectFieldProps) {
     const { name, label, error, helper, disabled, placeholder, options, defaultValue, extra, control } =
@@ -44,8 +43,7 @@ export function SelectField({ className, values = [], onChange: parentOnChange, 
     );
 }
 
-export interface SelectFieldProps extends AsField {
-    values?: select_item[];
-}
+export type SelectFieldProps = AsChoiceField;
 
+// noinspection JSUnusedGlobalSymbols
 export default SelectField;

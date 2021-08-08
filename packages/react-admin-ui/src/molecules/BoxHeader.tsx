@@ -3,7 +3,8 @@ import { Panel } from '../atoms/Panel';
 import { Text } from '../atoms/Text';
 import { Icon } from '../atoms/Icon';
 import { Clickable } from '../atoms/Clickable';
-import { WithClassName, WithBox, WithTitle } from '../withs';
+import { WithBox, WithTitle } from '../withs';
+import { AsComponent } from '../as';
 
 export function BoxHeader({ title, onAddClick, ...props }: BoxHeaderProps) {
     return (
@@ -18,8 +19,9 @@ export function BoxHeader({ title, onAddClick, ...props }: BoxHeaderProps) {
     );
 }
 
-export interface BoxHeaderProps extends WithClassName, WithBox, WithTitle {
+export interface BoxHeaderProps extends AsComponent, WithBox, WithTitle {
     onAddClick?: target;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default BoxHeader;

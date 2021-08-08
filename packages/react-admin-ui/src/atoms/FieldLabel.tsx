@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { flag } from '../types';
-import { WithClassName, WithName, WithLabel, WithOptions } from '../withs';
+import { WithName, WithLabel, WithOptions } from '../withs';
+import { AsComponent } from '../as';
 
 export function FieldLabel({ className, name, label, error, options = {} }: FieldLabelProps) {
     return label ? (
@@ -19,8 +20,9 @@ export function FieldLabel({ className, name, label, error, options = {} }: Fiel
     ) : null;
 }
 
-export interface FieldLabelProps extends WithClassName, Required<WithName>, WithLabel, WithOptions {
+export interface FieldLabelProps extends AsComponent, Required<WithName>, WithLabel, WithOptions {
     error?: flag;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default FieldLabel;

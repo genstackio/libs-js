@@ -6,11 +6,12 @@ import Image from '../../atoms/Image';
 import Icon from '../../atoms/Icon';
 import textClass from '../../utils/textClass';
 import { menu_item } from '../../types';
-import { WithBox, WithChildren, WithLogo } from '../../withs';
+import { WithBox, WithLogo } from '../../withs';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
+import { AsWrapper } from '../../as';
 
-export function AppLayoutTemplate({ logo, menu, children, toolbar, ...props }: AppLayoutTemplateProps) {
+export function AppLayoutTemplate({ className, logo, menu, children, toolbar, ...props }: AppLayoutTemplateProps) {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const [show, setShow] = useState(!isMobile);
@@ -18,7 +19,7 @@ export function AppLayoutTemplate({ logo, menu, children, toolbar, ...props }: A
         setShow(!show);
     }, [setShow, show]);
     return (
-        <div className={'flex h-screen'}>
+        <div className={clsx('flex h-screen', className)}>
             <div
                 className={clsx(
                     'w-drawer bg-clear transform h-full overflow-auto transition-all duration-300 z-30 absolute',
@@ -50,9 +51,10 @@ export function AppLayoutTemplate({ logo, menu, children, toolbar, ...props }: A
     );
 }
 
-export interface AppLayoutTemplateProps extends WithBox, WithChildren, WithLogo {
+export interface AppLayoutTemplateProps extends AsWrapper, WithBox, WithLogo {
     menu?: menu_item[];
     toolbar?: ReactNode;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default AppLayoutTemplate;

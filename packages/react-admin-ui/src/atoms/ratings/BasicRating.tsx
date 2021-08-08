@@ -3,7 +3,8 @@ import RatingUI from '@material-ui/lab/Rating';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { WithClassName, WithOnChange, WithText } from '../../withs';
+import { WithDefaultValueAsNumber, WithOnChange, WithText, WithValueAsNumber } from '../../withs';
+import { AsComponent } from '../../as';
 
 const StyledRating = withStyles({
     iconFilled: {
@@ -24,8 +25,8 @@ export function BasicRating({ className, defaultValue, onChange, text, value }: 
             {text && <Typography component={'legend'}>{text}</Typography>}
             <StyledRating
                 name={readOnly ? 'basic-rating' : undefined}
-                defaultValue={defaultValue ? parseInt(defaultValue as any) : undefined}
-                value={value ? parseInt(value as any) : undefined}
+                defaultValue={defaultValue}
+                value={value}
                 precision={0.5}
                 emptyIcon={<StarBorderIcon fontSize={'inherit'} />}
                 onChange={onChange as any}
@@ -35,9 +36,12 @@ export function BasicRating({ className, defaultValue, onChange, text, value }: 
     );
 }
 
-export interface BasicRatingProps extends WithClassName, WithText, WithOnChange {
-    defaultValue?: number | string;
-    value?: number | string;
-}
+export interface BasicRatingProps
+    extends AsComponent,
+        WithText,
+        WithOnChange,
+        WithDefaultValueAsNumber,
+        WithValueAsNumber {}
 
+// noinspection JSUnusedGlobalSymbols
 export default BasicRating;

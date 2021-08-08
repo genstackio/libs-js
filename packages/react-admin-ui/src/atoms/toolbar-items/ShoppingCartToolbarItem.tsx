@@ -6,4 +6,5 @@ export function ShoppingCartToolbarItem(props: ShoppingCartToolbarItemProps) {
 
 export type ShoppingCartToolbarItemProps = BaseToolbarItemProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default ShoppingCartToolbarItem;

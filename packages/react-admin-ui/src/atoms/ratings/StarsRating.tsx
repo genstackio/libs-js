@@ -39,4 +39,5 @@ export function StarsRating(props: StarsRatingProps) {
 
 export type StarsRatingProps = BaseBaseRatingProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default StarsRating;

@@ -33,4 +33,5 @@ export interface BlockFooterProps extends AsWrapper, WithButtons, WithBox {
     buttonsClassName?: class_name;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default BlockFooter;

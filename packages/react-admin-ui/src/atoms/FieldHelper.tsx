@@ -1,5 +1,6 @@
 import clsx from 'clsx';
-import { WithClassName, WithHelper } from '../withs';
+import { WithHelper } from '../withs';
+import { AsComponent } from '../as';
 
 export function FieldHelper({ className, helper }: FieldHelperProps) {
     if (!helper) return null;
@@ -12,6 +13,7 @@ export function FieldHelper({ className, helper }: FieldHelperProps) {
     );
 }
 
-export interface FieldHelperProps extends WithClassName, WithHelper {}
+export interface FieldHelperProps extends AsComponent, WithHelper {}
 
+// noinspection JSUnusedGlobalSymbols
 export default FieldHelper;

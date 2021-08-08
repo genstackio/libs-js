@@ -21,4 +21,5 @@ export function EditUserForm({ children, ...props }: EditUserFormProps) {
 
 export type EditUserFormProps = BaseFormProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default EditUserForm;

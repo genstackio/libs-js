@@ -30,4 +30,5 @@ export function Frame({ icon, size, className, children, color = 'clear', varian
 
 export interface FrameProps extends AsWrapper, WithBox, WithIcon, WithSize {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Frame;

@@ -8,7 +8,7 @@ import { BaseFormProps } from './BaseForm';
 import useForm from '../../hooks/useForm';
 import Button from '../../atoms/Button';
 import { useTranslation } from 'react-i18next';
-import { WithClassName, WithLocales } from '../../withs';
+import { WithLocales } from '../../withs';
 
 export function UnlockForm({
     children,
@@ -44,7 +44,7 @@ export function UnlockForm({
         </Form>
     );
 }
-export interface UnlockFormProps extends BaseFormProps, WithClassName, WithLocales {
+export interface UnlockFormProps extends BaseFormProps, WithLocales {
     onRegisterClick?: Function;
     onForgotPasswordClick?: target;
     rememberMe?: flag;

@@ -6,4 +6,5 @@ export function FacebookField(props: FacebookFieldProps) {
 
 export type FacebookFieldProps = UrlFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default FacebookField;

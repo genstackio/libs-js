@@ -108,4 +108,5 @@ export interface ButtonProps
     spinnerClassName?: class_name;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default Button;

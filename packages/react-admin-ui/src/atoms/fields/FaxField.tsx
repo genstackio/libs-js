@@ -6,4 +6,5 @@ export function FaxField(props: FaxFieldProps) {
 
 export type FaxFieldProps = PhoneFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default FaxField;

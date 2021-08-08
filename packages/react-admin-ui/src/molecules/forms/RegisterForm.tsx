@@ -94,4 +94,5 @@ export interface RegisterFormProps extends BaseFormProps {
     socialLogins?: flag;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default RegisterForm;

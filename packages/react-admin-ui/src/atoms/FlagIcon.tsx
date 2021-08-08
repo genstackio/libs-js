@@ -8,4 +8,5 @@ export interface FlagIconProps extends IconProps {
     locale: string;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default FlagIcon;

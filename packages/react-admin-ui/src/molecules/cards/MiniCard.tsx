@@ -17,4 +17,5 @@ export function MiniCard({ className, children, description, image, title }: Min
 
 export interface MiniCardProps extends AsWrapper, WithDescription, WithImage, WithTitle {}
 
+// noinspection JSUnusedGlobalSymbols
 export default MiniCard;

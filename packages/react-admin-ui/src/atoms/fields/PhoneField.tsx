@@ -22,4 +22,5 @@ export function PhoneField({ options = {}, ...props }: PhoneFieldProps) {
 
 export type PhoneFieldProps = TextFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default PhoneField;

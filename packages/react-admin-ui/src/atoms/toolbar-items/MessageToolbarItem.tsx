@@ -10,4 +10,5 @@ export function MessageToolbarItem(props: MessageToolbarItemProps) {
 
 export type MessageToolbarItemProps = BaseToolbarItemProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default MessageToolbarItem;

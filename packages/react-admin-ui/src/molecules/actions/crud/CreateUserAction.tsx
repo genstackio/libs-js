@@ -15,4 +15,5 @@ export function CreateUserAction({
 
 export interface CreateUserActionProps extends CreateUserFormProps, FormActionProps, WithMutationName {}
 
+// noinspection JSUnusedGlobalSymbols
 export default CreateUserAction;

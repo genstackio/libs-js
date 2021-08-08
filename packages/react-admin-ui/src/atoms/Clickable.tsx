@@ -68,4 +68,5 @@ export interface ClickableProps extends AsWrapper, WithOnClick, WithOnClickAway,
     visible?: flag;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default Clickable;

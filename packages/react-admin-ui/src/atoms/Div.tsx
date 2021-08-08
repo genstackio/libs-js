@@ -38,4 +38,5 @@ export interface DivProps extends AsWrapper, WithPadding, WithCenter {
     flex?: flag;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default Div;

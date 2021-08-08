@@ -2,10 +2,17 @@ import { ReactNode } from 'react';
 import Image from '../atoms/Image';
 import Container from '../atoms/Container';
 import { WithImage, WithLogo } from '../withs';
+import clsx from 'clsx';
+import { AsComponent } from '../as';
 
-export function Login2Template({ image, logo, bgColor, form }: Login2TemplateProps) {
+export function Login2Template({ className, image, logo, bgColor, form }: Login2TemplateProps) {
     return (
-        <div className={'h-screen flex bg-opacity-70 md:relative md:items-center sm:relative sm:items-center'}>
+        <div
+            className={clsx(
+                'h-screen flex bg-opacity-70 md:relative md:items-center sm:relative sm:items-center',
+                className,
+            )}
+        >
             <Container
                 bgImage={image}
                 className={
@@ -27,7 +34,7 @@ export function Login2Template({ image, logo, bgColor, form }: Login2TemplatePro
     );
 }
 
-export interface Login2TemplateProps extends WithImage, WithLogo {
+export interface Login2TemplateProps extends AsComponent, WithImage, WithLogo {
     bgColor?: string;
     form?: ReactNode;
 }

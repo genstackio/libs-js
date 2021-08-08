@@ -7,15 +7,15 @@ import Row from '../atoms/Row';
 import { WithItems, WithTitle } from '../withs';
 import Container from '../atoms/Container';
 import Text from '../atoms/Text';
+import clsx from 'clsx';
+import { AsComponent } from '../as';
 
 SwiperCore.use([A11y]);
 
-export function ItemCarroussel({ title, items = [] }: ItemCarrousselProps) {
+export function ItemCarroussel({ className, title, items = [] }: ItemCarrousselProps) {
     const theme = useTheme();
     const isTablet = useMediaQuery(theme.breakpoints.only('md'));
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
-    if (items.length === 0) return null;
 
     const slidesOffset = isTablet ? 24 : isMobile ? 16 : 150;
     const spaceBetween = isTablet ? 16 : isMobile ? 8 : 24;
@@ -34,8 +34,8 @@ export function ItemCarroussel({ title, items = [] }: ItemCarrousselProps) {
         grabCursor: true,
     };
 
-    return (
-        <div className={'relative pb-3.5 sm:pb-7 bg-clear'}>
+    return items.length ? (
+        <div className={clsx('relative pb-3.5 sm:pb-7 bg-clear', className)}>
             <Row className={'p-0'}>
                 <Container className={'grid-cols-12'}>
                     <Text variant={'title3'} text={title} className={'pt-16 sm:pt-32'} />
@@ -49,9 +49,9 @@ export function ItemCarroussel({ title, items = [] }: ItemCarrousselProps) {
                 ))}
             </Swiper>
         </div>
-    );
+    ) : null;
 }
 
-export interface ItemCarrousselProps extends WithTitle, WithItems {}
+export interface ItemCarrousselProps extends AsComponent, WithTitle, WithItems {}
 
 export default ItemCarroussel;

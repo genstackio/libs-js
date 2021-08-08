@@ -77,4 +77,5 @@ export interface ConfirmModalProps extends AsWrapper, WithTitle, WithOnCancel, W
     danger?: flag;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default ConfirmModal;

@@ -1,15 +1,8 @@
 import clsx from 'clsx';
 import Container from './Container';
 import { wizard_step } from '../types';
-import {
-    WithClassName,
-    WithDefaultValues,
-    WithOnCancel,
-    WithOnComplete,
-    WithOnNext,
-    WithOnPrevious,
-    WithOnSave,
-} from '../withs';
+import { WithDefaultValues, WithOnCancel, WithOnComplete, WithOnNext, WithOnPrevious, WithOnSave } from '../withs';
+import { AsComponent } from '../as';
 
 export function WizardContent({ className, currentStep, onNext, onComplete, ...props }: WizardContentProps) {
     const { component: Component, bgImage } = currentStep || {};
@@ -24,7 +17,7 @@ export function WizardContent({ className, currentStep, onNext, onComplete, ...p
 }
 
 export interface WizardContentProps
-    extends WithClassName,
+    extends AsComponent,
         WithDefaultValues,
         WithOnNext,
         WithOnPrevious,
@@ -34,4 +27,5 @@ export interface WizardContentProps
     currentStep: wizard_step;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default WizardContent;

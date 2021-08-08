@@ -14,4 +14,5 @@ export function GenderField(props: GenderFieldProps) {
 
 export type GenderFieldProps = SelectFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default GenderField;

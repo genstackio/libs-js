@@ -19,4 +19,5 @@ export function Panel({ className, children, color = 'primary', variant = 'conta
 
 export interface PanelProps extends AsWrapper, WithBox, WithVertical {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Panel;

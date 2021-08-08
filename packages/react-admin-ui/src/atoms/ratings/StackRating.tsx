@@ -30,4 +30,5 @@ export function StackRating(props: StackRatingProps) {
 
 export type StackRatingProps = BaseBaseRatingProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default StackRating;

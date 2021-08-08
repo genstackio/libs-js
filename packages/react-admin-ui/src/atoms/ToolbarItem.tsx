@@ -2,7 +2,8 @@ import { useCallback } from 'react';
 import clsx from 'clsx';
 import Icon from './Icon';
 import useToggle from '../hooks/useToggle';
-import { WithActive, WithActiveIcon, WithClassName, WithCount, WithIcon, WithOnToggle, WithSizeOfText } from '../withs';
+import { WithActive, WithActiveIcon, WithCount, WithIcon, WithOnToggle, WithSizeOfText } from '../withs';
+import { AsComponent } from '../as';
 
 export function ToolbarItem({
     className,
@@ -34,8 +35,9 @@ export function ToolbarItem({
     );
 }
 
-export interface BaseToolbarItemProps extends WithClassName, WithActive, WithOnToggle {}
+export interface BaseToolbarItemProps extends AsComponent, WithActive, WithOnToggle {}
 
 export interface ToolbarItemProps extends BaseToolbarItemProps, WithIcon, WithCount, WithSizeOfText, WithActiveIcon {}
 
+// noinspection JSUnusedGlobalSymbols
 export default ToolbarItem;

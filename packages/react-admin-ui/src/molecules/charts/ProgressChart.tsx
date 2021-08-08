@@ -4,7 +4,8 @@ import Icon from '../../atoms/Icon';
 import formatAmount from '../../utils/formatAmount';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
-import { WithBox, WithClassName, WithSeries, WithTitle, WithValueAsNumber } from '../../withs';
+import { WithBox, WithSeries, WithTitle, WithValueAsNumber } from '../../withs';
+import { AsComponent } from '../../as';
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 
@@ -90,9 +91,10 @@ export function ProgressChart({
     );
 }
 
-export interface ProgressChartProps extends WithClassName, WithTitle, WithBox, WithSeries, WithValueAsNumber {
+export interface ProgressChartProps extends AsComponent, WithTitle, WithBox, WithSeries, WithValueAsNumber {
     progress?: number;
     unit?: string;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default ProgressChart;

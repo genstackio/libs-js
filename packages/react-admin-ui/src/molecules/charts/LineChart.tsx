@@ -2,7 +2,8 @@ import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
 import Text from '../../atoms/Text';
-import { WithBox, WithClassName, WithLabels, WithSeries, WithTitle } from '../../withs';
+import { WithBox, WithLabels, WithSeries, WithTitle } from '../../withs';
+import { AsComponent } from '../../as';
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 const defaultOptions: ApexOptions = {
@@ -43,6 +44,7 @@ export function LineChart({
     );
 }
 
-export interface LineChartProps extends WithClassName, WithBox, WithTitle, WithSeries, WithLabels {}
+export interface LineChartProps extends AsComponent, WithBox, WithTitle, WithSeries, WithLabels {}
 
+// noinspection JSUnusedGlobalSymbols
 export default LineChart;

@@ -3,9 +3,21 @@ import clsx from 'clsx';
 import Text from '../Text';
 import useRating from '../../hooks/useRating';
 import MuiRating from '@material-ui/lab/Rating';
-import { class_name, rating_value } from '../../types';
+import { class_name } from '../../types';
 import { defaultLabelPlacement } from '../../mappings/label-placements';
-import { WithColorOfBox, WithClassName, WithKind, WithName, WithOnChange, WithLabelPlacement } from '../../withs';
+import {
+    WithColorOfBox,
+    WithKind,
+    WithName,
+    WithOnChange,
+    WithLabelPlacement,
+    WithValueAsNumber,
+    WithDefaultValueAsNumber,
+    WithMin,
+    WithMax,
+    WithValuesOfRating,
+} from '../../withs';
+import { AsComponent } from '../../as';
 
 const labelPlacements = {
     left: 'flex-row-reverse space-x-2',
@@ -60,13 +72,17 @@ export function BaseRating(props: BaseRatingProps) {
     );
 }
 
-export interface BaseBaseRatingProps extends WithClassName, WithName, WithOnChange, WithLabelPlacement, WithColorOfBox {
-    min?: number;
-    max?: number;
-    values?: rating_value[];
-    value?: number | string;
-    defaultValue?: number | string;
-}
+export interface BaseBaseRatingProps
+    extends AsComponent,
+        WithName,
+        WithOnChange,
+        WithLabelPlacement,
+        WithColorOfBox,
+        WithValueAsNumber,
+        WithDefaultValueAsNumber,
+        WithMin,
+        WithMax,
+        WithValuesOfRating {}
 
 export interface BaseRatingProps extends BaseBaseRatingProps, Required<WithKind> {
     styles?: (props: any) => { [key: string]: class_name };
@@ -78,4 +94,5 @@ export interface BaseRatingProps extends BaseBaseRatingProps, Required<WithKind>
     reverse?: boolean;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default BaseRating;

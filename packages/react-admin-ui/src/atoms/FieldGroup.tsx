@@ -7,4 +7,5 @@ export function FieldGroup({ className, children }: FieldGroupProps) {
 
 export type FieldGroupProps = AsWrapper;
 
+// noinspection JSUnusedGlobalSymbols
 export default FieldGroup;

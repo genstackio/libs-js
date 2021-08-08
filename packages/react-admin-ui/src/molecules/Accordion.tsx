@@ -11,7 +11,8 @@ import Icon from '../atoms/Icon';
 import Badge from '../atoms/Badge';
 import Text from '../atoms/Text';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
-import { WithClassName, WithExpandIcon, WithItemsOfAccordion, WithColorOfText, WithVariantOfMenu } from '../withs';
+import { WithExpandIcon, WithItemsOfAccordion, WithColorOfText, WithVariantOfMenu } from '../withs';
+import { AsComponent } from '../as';
 
 const StyledAccordion = withStyles({
     root: {
@@ -112,10 +113,11 @@ export function Accordion({
 }
 
 export interface AccordionProps
-    extends WithClassName,
+    extends AsComponent,
         WithColorOfText,
         WithItemsOfAccordion,
         WithVariantOfMenu,
         WithExpandIcon {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Accordion;

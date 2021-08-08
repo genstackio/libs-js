@@ -17,4 +17,5 @@ export function PasswordField({ options = {}, ...props }: PasswordFieldProps) {
 
 export type PasswordFieldProps = TextFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default PasswordField;

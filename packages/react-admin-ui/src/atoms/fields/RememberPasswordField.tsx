@@ -6,4 +6,5 @@ export function RememberPasswordField(props: RememberPasswordFieldProps) {
 
 export type RememberPasswordFieldProps = CheckboxFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default RememberPasswordField;

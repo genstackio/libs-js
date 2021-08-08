@@ -1,6 +1,7 @@
 import Block from '../atoms/Block';
 import Text from '../atoms/Text';
-import { WithClassName, WithItemsOfInfos, WithColorOfText } from '../withs';
+import { WithItemsOfInfos, WithColorOfText } from '../withs';
+import { AsComponent } from '../as';
 
 export function Infos({ color = 'primary', items = [], ...props }: InfosProps) {
     return (
@@ -16,6 +17,7 @@ export function Infos({ color = 'primary', items = [], ...props }: InfosProps) {
     );
 }
 
-export interface InfosProps extends WithClassName, WithColorOfText, WithItemsOfInfos {}
+export interface InfosProps extends AsComponent, WithColorOfText, WithItemsOfInfos {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Infos;

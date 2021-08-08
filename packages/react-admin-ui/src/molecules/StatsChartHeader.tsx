@@ -1,6 +1,7 @@
 import Text from '../atoms/Text';
 import Icon from '../atoms/Icon';
-import { WithClassName, WithSubtitle, WithValueAsRichText } from '../withs';
+import { WithSubtitle, WithValueAsRichText } from '../withs';
+import { AsComponent } from '../as';
 
 export function StatsChartHeader({ className, subtitle, stats, value }: StatsChartHeaderProps) {
     return (
@@ -19,8 +20,9 @@ export function StatsChartHeader({ className, subtitle, stats, value }: StatsCha
     );
 }
 
-export interface StatsChartHeaderProps extends WithClassName, WithSubtitle, WithValueAsRichText {
+export interface StatsChartHeaderProps extends AsComponent, WithSubtitle, WithValueAsRichText {
     stats?: number;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default StatsChartHeader;

@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Button from '../atoms/Button';
-import { WithClassName, WithItemsOfAction } from '../withs';
+import { WithItemsOfAction } from '../withs';
+import { AsComponent } from '../as';
 
 export function ButtonsGroup({ className, items = [] }: ButtonsGroupProps) {
     return (
@@ -16,7 +17,7 @@ export function ButtonsGroup({ className, items = [] }: ButtonsGroupProps) {
     );
 }
 
-export interface ButtonsGroupProps extends WithClassName, WithItemsOfAction {}
+export interface ButtonsGroupProps extends AsComponent, WithItemsOfAction {}
 
 // noinspection JSUnusedGlobalSymbols
 export default ButtonsGroup;

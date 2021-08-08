@@ -10,4 +10,5 @@ export function MosaicItem({ children, item, className }: MosaicItemProps) {
 
 export interface MosaicItemProps extends AsWrapper, WithItem {}
 
+// noinspection JSUnusedGlobalSymbols
 export default MosaicItem;

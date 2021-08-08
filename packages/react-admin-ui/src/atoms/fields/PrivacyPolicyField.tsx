@@ -18,4 +18,5 @@ export function PrivacyPolicyField({ onClick, color, ...props }: PrivacyPolicyFi
 
 export interface PrivacyPolicyFieldProps extends CheckboxFieldProps, WithColorOfText, WithOnClick {}
 
+// noinspection JSUnusedGlobalSymbols
 export default PrivacyPolicyField;

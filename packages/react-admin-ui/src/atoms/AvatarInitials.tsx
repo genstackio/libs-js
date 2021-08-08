@@ -3,7 +3,8 @@ import Div from './Div';
 import avatarSizeClass from '../mappings/avatar-sizes';
 import shapeClass from '../mappings/shapes';
 import getInitials from '../utils/getInitials';
-import { WithClassName, WithName, WithShape, WithSizeOfAvatar } from '../withs';
+import { WithName, WithShape, WithSizeOfAvatar } from '../withs';
+import { AsComponent } from '../as';
 
 export function AvatarInitials({ size, name, shape, className }: AvatarInitialsProps) {
     return (
@@ -13,6 +14,7 @@ export function AvatarInitials({ size, name, shape, className }: AvatarInitialsP
     );
 }
 
-export interface AvatarInitialsProps extends WithClassName, WithSizeOfAvatar, Required<WithName>, WithShape {}
+export interface AvatarInitialsProps extends AsComponent, WithSizeOfAvatar, Required<WithName>, WithShape {}
 
+// noinspection JSUnusedGlobalSymbols
 export default AvatarInitials;

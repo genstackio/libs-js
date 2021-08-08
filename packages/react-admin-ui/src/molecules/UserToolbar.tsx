@@ -88,4 +88,5 @@ export interface UserToolbarProps extends AsWrapper, WithOnLogout, WithOnSearch,
     languageEnabled?: flag;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default UserToolbar;

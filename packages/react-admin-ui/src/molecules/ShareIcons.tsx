@@ -2,9 +2,10 @@ import clsx from 'clsx';
 import { Icon } from '../atoms/Icon';
 import boxClass from '../utils/boxClass';
 import shareIconTypeClass from '../mappings/share-icon-types';
-import { WithBox, WithClassName, WithItemsOfShareIcons } from '../withs';
+import { WithBox, WithItemsOfShareIcons } from '../withs';
+import { AsComponent } from '../as';
 
-export function ShareIcons({ items = [], color, variant, className }: ShareIconsProps) {
+export function ShareIcons({ className, items = [], color, variant }: ShareIconsProps) {
     return (
         <div className={clsx('flex flex-row space-x-5', className)}>
             {items.map((item, index) => (
@@ -22,7 +23,7 @@ export function ShareIcons({ items = [], color, variant, className }: ShareIcons
     );
 }
 
-export interface ShareIconsProps extends WithClassName, WithBox, WithItemsOfShareIcons {}
+export interface ShareIconsProps extends AsComponent, WithBox, WithItemsOfShareIcons {}
 
 // noinspection JSUnusedGlobalSymbols
 export default ShareIcons;

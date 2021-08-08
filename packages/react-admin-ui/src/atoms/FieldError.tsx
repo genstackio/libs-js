@@ -1,5 +1,6 @@
 import clsx from 'clsx';
-import { WithClassName, WithError } from '../withs';
+import { WithError } from '../withs';
+import { AsComponent } from '../as';
 
 export function FieldError({ className, error }: FieldErrorProps) {
     if (!error) return null;
@@ -10,6 +11,7 @@ export function FieldError({ className, error }: FieldErrorProps) {
     );
 }
 
-export interface FieldErrorProps extends WithClassName, WithError {}
+export interface FieldErrorProps extends AsComponent, WithError {}
 
+// noinspection JSUnusedGlobalSymbols
 export default FieldError;

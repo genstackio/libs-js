@@ -30,4 +30,6 @@ export function Form({ className, defaultValues, children, onSubmit }: FormProps
 }
 
 export interface FormProps extends AsWrapper, WithDefaultValues, WithOnSubmit {}
+
+// noinspection JSUnusedGlobalSymbols
 export default Form;

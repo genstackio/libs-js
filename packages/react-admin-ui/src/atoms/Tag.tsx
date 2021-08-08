@@ -3,7 +3,8 @@ import boxClass from '../utils/boxClass';
 import Icon from './Icon';
 import Text from './Text';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
-import { WithBox, WithClassName, WithIcon, WithText, WithSizeOfText } from '../withs';
+import { WithBox, WithIcon, WithText, WithSizeOfText } from '../withs';
+import { AsComponent } from '../as';
 
 export function Tag({ className, color = 'primary', icon, size, text, variant = 'contained' }: TagProps) {
     return (
@@ -22,6 +23,7 @@ export function Tag({ className, color = 'primary', icon, size, text, variant = 
     );
 }
 
-export interface TagProps extends WithClassName, WithBox, WithIcon, WithText, WithSizeOfText {}
+export interface TagProps extends AsComponent, WithBox, WithIcon, WithText, WithSizeOfText {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Tag;

@@ -3,7 +3,8 @@ import textColorClass, { text_color } from '../mappings/text-colors';
 import textVariantClass from '../mappings/text-variants';
 import { box_context_value } from '@genstackio/react-contexts/lib/types';
 import useBox from '@genstackio/react-contexts/lib/hooks/useBox';
-import { WithCenter, WithClassName, WithText, WithColorOfText, WithComponentOfText, WithVariantOfText } from '../withs';
+import { WithCenter, WithText, WithColorOfText, WithComponentOfText, WithVariantOfText } from '../withs';
+import { AsComponent } from '../as';
 
 const mappings = {
     // contained
@@ -103,11 +104,12 @@ export function Text({
 }
 
 export interface TextProps
-    extends WithClassName,
+    extends AsComponent,
         WithText,
         WithColorOfText,
         WithComponentOfText,
         WithVariantOfText,
         WithCenter {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Text;

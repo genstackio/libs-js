@@ -1,9 +1,10 @@
-import { WithClassName } from '../withs';
+import { AsComponent } from '../as';
 
 export function Calendar({ className }: CalendarProps) {
     return <div className={className}>CALENDAR</div>;
 }
 
-export type CalendarProps = WithClassName;
+export type CalendarProps = AsComponent;
 
+// noinspection JSUnusedGlobalSymbols
 export default Calendar;

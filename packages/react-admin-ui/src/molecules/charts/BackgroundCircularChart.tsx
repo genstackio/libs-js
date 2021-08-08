@@ -3,7 +3,8 @@ import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
 import { summary_item } from '../../types';
 import Summaries from '../Summaries';
-import { WithColorOfBox, WithClassName, WithImage } from '../../withs';
+import { WithColorOfBox, WithImage, WithValueAsNumber } from '../../withs';
+import { AsComponent } from '../../as';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 
@@ -78,9 +79,13 @@ export function BackgroundCircularChart({
     );
 }
 
-export interface BackgroundCircularChartProps extends WithClassName, WithColorOfBox, WithImage {
-    value: number;
+export interface BackgroundCircularChartProps
+    extends AsComponent,
+        WithColorOfBox,
+        WithImage,
+        Required<WithValueAsNumber> {
     summaries?: summary_item[];
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default BackgroundCircularChart;

@@ -6,8 +6,11 @@ import Row from '../atoms/Row';
 import Text from '../atoms/Text';
 import Block from '../atoms/Block';
 import { WithBox, WithImage, WithSubtitle, WithText, WithTitle } from '../withs';
+import { AsComponent } from '../as';
+import { slide } from '../types';
 
 export function Slideshow({
+    className,
     title,
     text,
     subtitle,
@@ -40,7 +43,7 @@ export function Slideshow({
         setActiveSlide('slide-2');
     }, [setActiveSlide]);
     return (
-        <Block color={color} variant={variant} image={image}>
+        <Block color={color} variant={variant} image={image} className={className}>
             <Row className={clsx('flex-col')}>
                 <Text className={'text-center'} variant={'title4'} text={title} />
                 <Text className={'text-center py-10 sm:py-5'} variant={'text'} text={text} />
@@ -61,8 +64,9 @@ export function Slideshow({
     );
 }
 
-export interface SlideshowProps extends WithTitle, WithSubtitle, WithText, WithBox, WithImage {
-    slides?: any[];
+export interface SlideshowProps extends AsComponent, WithTitle, WithSubtitle, WithText, WithBox, WithImage {
+    slides?: slide[];
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default Slideshow;

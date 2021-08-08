@@ -3,17 +3,9 @@ import Text from './Text';
 import AvatarImage from './AvatarImage';
 import BuddyStatus from '../nucleons/BuddyStatus';
 import AvatarInitials from './AvatarInitials';
-import {
-    WithClassName,
-    WithName,
-    WithImage,
-    WithShape,
-    WithStatusOfBuddy,
-    WithTitle,
-    WithSubtitle,
-    WithSizeOfAvatar,
-} from '../withs';
+import { WithName, WithImage, WithShape, WithStatusOfBuddy, WithTitle, WithSubtitle, WithSizeOfAvatar } from '../withs';
 import clsx from 'clsx';
+import { AsComponent } from '../as';
 
 export function Avatar({ className, image, name, size, shape = 'circular', status, title, subtitle }: AvatarProps) {
     const hasTitleOrSubtitle = !!title || !!subtitle;
@@ -37,7 +29,7 @@ export function Avatar({ className, image, name, size, shape = 'circular', statu
 }
 
 export interface AvatarProps
-    extends WithClassName,
+    extends AsComponent,
         Required<WithName>,
         WithImage,
         WithShape,
@@ -46,4 +38,5 @@ export interface AvatarProps
         WithSizeOfAvatar,
         WithSubtitle {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Avatar;

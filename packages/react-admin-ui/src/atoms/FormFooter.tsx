@@ -11,4 +11,5 @@ export function FormFooter({ className, children }: FormFooterProps) {
 
 export type FormFooterProps = AsWrapper;
 
+// noinspection JSUnusedGlobalSymbols
 export default FormFooter;

@@ -27,4 +27,5 @@ export function UserProfileForm({ children, ...props }: UserProfileFormProps) {
 
 export type UserProfileFormProps = BaseFormProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default UserProfileForm;

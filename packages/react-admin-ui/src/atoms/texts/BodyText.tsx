@@ -6,4 +6,5 @@ export function BodyText(props: BodyTextProps) {
 
 export type BodyTextProps = Omit<TextProps, 'variant'>;
 
+// noinspection JSUnusedGlobalSymbols
 export default BodyText;

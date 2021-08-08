@@ -6,4 +6,5 @@ export function InstagramField(props: InstagramFieldProps) {
 
 export type InstagramFieldProps = UrlFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default InstagramField;

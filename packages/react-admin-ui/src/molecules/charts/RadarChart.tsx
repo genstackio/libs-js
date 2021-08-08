@@ -2,7 +2,8 @@ import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
 import { flag } from '../../types';
-import { WithBox, WithClassName, WithLabels } from '../../withs';
+import { WithBox, WithLabels } from '../../withs';
+import { AsComponent } from '../../as';
 
 const tailwindTextColors = tailwindConfig.theme.extend.textColors;
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
@@ -85,7 +86,7 @@ export function RadarChart({
     return <Chart type={'radar'} options={options} series={series} className={className} />;
 }
 
-export interface RadarChartProps extends WithClassName, WithBox, WithLabels {
+export interface RadarChartProps extends AsComponent, WithBox, WithLabels {
     isMenu?: flag;
     series?: {
         data?: number[];
@@ -93,4 +94,5 @@ export interface RadarChartProps extends WithClassName, WithBox, WithLabels {
     }[];
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default RadarChart;

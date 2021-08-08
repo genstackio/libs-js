@@ -17,4 +17,5 @@ export function CreateTokenForm({ children, ...props }: CreateTokenFormProps) {
 
 export type CreateTokenFormProps = BaseFormProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default CreateTokenForm;

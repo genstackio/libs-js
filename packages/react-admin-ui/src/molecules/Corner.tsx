@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import Tag from '../atoms/Tag';
 import { icon_variant } from '../types';
-import { WithBox, WithClassName, WithItemsOfCorner, WithText } from '../withs';
+import { WithBox, WithItemsOfCorner, WithText } from '../withs';
+import { AsComponent } from '../as';
 
 export function Corner({ className, color, iconCorner, items = [], text, variant, ...props }: CornerProps) {
     return (
@@ -16,8 +17,9 @@ export function Corner({ className, color, iconCorner, items = [], text, variant
     );
 }
 
-export interface CornerProps extends WithClassName, WithBox, WithText, WithItemsOfCorner {
+export interface CornerProps extends AsComponent, WithBox, WithText, WithItemsOfCorner {
     iconCorner?: icon_variant;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default Corner;

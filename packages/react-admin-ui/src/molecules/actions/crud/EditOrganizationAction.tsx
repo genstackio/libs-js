@@ -38,15 +38,7 @@ export function EditOrganizationAction({
         prepare,
     });
 
-    if (!data) {
-        return <SpinnerComponent />;
-    }
-
-    return (
-        <>
-            <Component {...someProps} defaultValues={data.getOrganization} {...props} />
-        </>
-    );
+    return data ? <Component {...someProps} defaultValues={data.getOrganization} {...props} /> : <SpinnerComponent />;
 }
 
 export interface EditOrganizationActionProps

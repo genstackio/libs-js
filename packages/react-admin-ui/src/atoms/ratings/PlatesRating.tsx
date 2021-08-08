@@ -27,4 +27,5 @@ export function PlatesRating(props: PlatesRatingProps) {
 
 export type PlatesRatingProps = BaseBaseRatingProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default PlatesRating;

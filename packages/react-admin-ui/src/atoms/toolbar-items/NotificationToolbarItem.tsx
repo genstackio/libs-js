@@ -6,4 +6,5 @@ export function NotificationToolbarItem(props: NotificationToolbarItemProps) {
 
 export type NotificationToolbarItemProps = BaseToolbarItemProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default NotificationToolbarItem;

@@ -7,8 +7,10 @@ import { Image } from '../atoms/Image';
 import { WithBox, WithDescription, WithLogo } from '../withs';
 import { Block, Icon } from '../atoms';
 import Link from '@material-ui/core/Link';
+import { AsComponent } from '../as';
 
 export function Footer({
+    className,
     logo,
     color = 'dark',
     variant = 'contained',
@@ -20,7 +22,7 @@ export function Footer({
     const { t } = useTranslation();
 
     return (
-        <Block color={color} variant={variant} corner={'square'} padding={'none'}>
+        <Block className={className} color={color} variant={variant} corner={'square'} padding={'none'}>
             <Row className={clsx('p-8 xs:flex-col')}>
                 <div className={'flex-1 flex flex-col pl-8'}>
                     {logo && <Image {...logo} className={'m-6 w-24 h-24 ml-1 rounded-full'} expand={false} />}
@@ -62,7 +64,7 @@ export function Footer({
     );
 }
 
-export interface FooterProps extends WithDescription, WithLogo, WithBox {
+export interface FooterProps extends AsComponent, WithDescription, WithLogo, WithBox {
     contact?: any;
     links?: any;
     copyright?: rich_text;

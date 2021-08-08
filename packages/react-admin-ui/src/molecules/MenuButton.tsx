@@ -6,7 +6,8 @@ import Avatar from '../atoms/Avatar';
 import MenuButtonWidget from './MenuButtonWidget';
 import { flag } from '../types';
 import Expandable from './Expandable';
-import { WithColorOfBox, WithClassName, WithDescription, WithImage, WithLabel, WithItemsOfMenuButton } from '../withs';
+import { WithColorOfBox, WithDescription, WithImage, WithLabel, WithItemsOfMenuButton } from '../withs';
+import { AsComponent } from '../as';
 
 export function MenuButton({
     className,
@@ -44,7 +45,7 @@ export function MenuButton({
 }
 
 export interface MenuButtonProps
-    extends WithClassName,
+    extends AsComponent,
         WithImage,
         WithLabel,
         WithDescription,
@@ -53,4 +54,5 @@ export interface MenuButtonProps
     avatar?: flag;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default MenuButton;

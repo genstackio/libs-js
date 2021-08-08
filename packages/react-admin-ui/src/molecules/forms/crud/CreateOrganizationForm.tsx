@@ -17,4 +17,5 @@ export function CreateOrganizationForm({ children, ...props }: CreateOrganizatio
 
 export type CreateOrganizationFormProps = BaseFormProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default CreateOrganizationForm;

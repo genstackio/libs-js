@@ -3,7 +3,7 @@ import Chart from 'react-apexcharts';
 import Text from '../../atoms/Text';
 import { ApexOptions } from 'apexcharts';
 import { box_color } from '../../types';
-import { WithClassName } from '../../withs';
+import { AsComponent } from '../../as';
 
 const defaultOptions = {
     chart: {
@@ -79,7 +79,7 @@ export function FiguresChart({ className, items }: FiguresChartProps) {
     );
 }
 
-export interface FiguresChartProps extends WithClassName {
+export interface FiguresChartProps extends AsComponent {
     items?: {
         color: box_color;
         name?: string;
@@ -91,4 +91,5 @@ export interface FiguresChartProps extends WithClassName {
     }[];
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default FiguresChart;

@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Text from './Text';
-import { WithClassName, WithText, WithColorOfText, WithValueAsRichText } from '../withs';
+import { WithText, WithColorOfText, WithValueAsRichText } from '../withs';
+import { AsComponent } from '../as';
 
 export function PeriodBlock({ className, color, text, value }: PeriodBlockProps) {
     return (
@@ -11,6 +12,7 @@ export function PeriodBlock({ className, color, text, value }: PeriodBlockProps)
     );
 }
 
-export interface PeriodBlockProps extends WithClassName, WithColorOfText, WithText, WithValueAsRichText {}
+export interface PeriodBlockProps extends AsComponent, WithColorOfText, WithText, WithValueAsRichText {}
 
+// noinspection JSUnusedGlobalSymbols
 export default PeriodBlock;

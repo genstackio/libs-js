@@ -4,8 +4,7 @@ import useField from '../../hooks/useField';
 import { flag, icon, rich_text } from '../../types';
 import { fieldVariantClass } from '../../mappings/field-variants';
 import { useMemo } from 'react';
-import { WithValue } from '../../withs';
-import { AsField } from '../../as';
+import { AsTextField } from '../../as';
 
 export function TextField(props: TextFieldProps) {
     const {
@@ -78,7 +77,7 @@ export function TextField(props: TextFieldProps) {
     );
 }
 
-export interface TextFieldProps extends AsField, WithValue {
+export interface TextFieldProps extends AsTextField {
     type?: string;
     append?: rich_text;
     appendIcon?: icon;
@@ -89,4 +88,5 @@ export interface TextFieldProps extends AsField, WithValue {
     twoOf5?: flag;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default TextField;

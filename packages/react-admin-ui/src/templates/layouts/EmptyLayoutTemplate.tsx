@@ -5,4 +5,5 @@ export function EmptyLayoutTemplatePage({}: EmptyLayoutTemplatePageProps) {
 /* eslint @typescript-eslint/no-empty-interface: 0 */
 export interface EmptyLayoutTemplatePageProps {}
 
+// noinspection JSUnusedGlobalSymbols
 export default EmptyLayoutTemplatePage;

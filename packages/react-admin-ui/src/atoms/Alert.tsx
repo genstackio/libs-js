@@ -19,4 +19,5 @@ export function Alert({ children, closable = false, ...props }: AlertProps) {
 
 export interface AlertProps extends PanelProps, WithClosable {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Alert;

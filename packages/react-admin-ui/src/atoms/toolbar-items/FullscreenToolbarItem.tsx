@@ -8,4 +8,5 @@ export function FullscreenToolbarItem(props: FullscreenToolbarItemProps) {
 
 export type FullscreenToolbarItemProps = BaseToolbarItemProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default FullscreenToolbarItem;

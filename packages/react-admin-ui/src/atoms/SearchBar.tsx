@@ -4,7 +4,8 @@ import Icon from './Icon';
 import { flag } from '../types';
 import InputBase from '@material-ui/core/InputBase';
 import { useTranslation } from 'react-i18next';
-import { WithClassName, WithOnChange, WithOnClear } from '../withs';
+import { WithOnChange, WithOnClear } from '../withs';
+import { AsComponent } from '../as';
 
 export function SearchBar({ className, defaultFocus = false, onClear, onChange }: SearchBarProps) {
     const { t } = useTranslation();
@@ -37,8 +38,9 @@ export function SearchBar({ className, defaultFocus = false, onClear, onChange }
     );
 }
 
-export interface SearchBarProps extends WithClassName, WithOnChange, WithOnClear {
+export interface SearchBarProps extends AsComponent, WithOnChange, WithOnClear {
     defaultFocus?: flag;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default SearchBar;

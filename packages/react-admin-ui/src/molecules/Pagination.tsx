@@ -4,7 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import MuiPagination from '@material-ui/lab/Pagination';
 import { basic_size, flag } from '../types';
 import tailwindConfig from '../../tailwind.config';
-import { WithColorOfBox, WithClassName } from '../withs';
+import { WithColorOfBox } from '../withs';
+import { AsComponent } from '../as';
 
 const ellipsisPaddings = {
     lg: 8,
@@ -118,7 +119,7 @@ export function Pagination({ className, ...props }: PaginationProps) {
     );
 }
 
-export interface PaginationProps extends WithClassName, WithColorOfBox {
+export interface PaginationProps extends AsComponent, WithColorOfBox {
     boundaryCount?: number;
     disabledPass?: flag;
     disabledSkip?: flag;

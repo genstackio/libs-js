@@ -11,4 +11,5 @@ export function LanguageToolbarItem(props: LanguageToolbarItemProps) {
 
 export type LanguageToolbarItemProps = Omit<LocaleChangeProps, 'locales'>;
 
+// noinspection JSUnusedGlobalSymbols
 export default LanguageToolbarItem;

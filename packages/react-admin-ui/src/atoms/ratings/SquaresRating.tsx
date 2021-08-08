@@ -27,4 +27,5 @@ export function SquaresRating(props: SquaresRatingProps) {
 
 export type SquaresRatingProps = BaseBaseRatingProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default SquaresRating;

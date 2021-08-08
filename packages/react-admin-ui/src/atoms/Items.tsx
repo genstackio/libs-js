@@ -19,6 +19,10 @@ export function Items({
                     {...(itemProp ? { [itemProp]: item } : item)}
                     {...props}
                     className={clsx(className, itemClassName)}
+                    last={index === items.length - 1}
+                    first={index === 0}
+                    odd={1 === index % 2}
+                    even={0 === index % 2}
                 />
             ))}
         </>
@@ -32,4 +36,5 @@ export interface ItemsProps extends WithAny, Required<WithComponent>, WithItems 
     containerClassName?: class_name;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default Items;

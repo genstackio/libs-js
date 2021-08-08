@@ -3,12 +3,13 @@ import SwiperCore, { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Row from '../atoms/Row';
 import { WithItems } from '../withs';
+import { AsComponent } from '../as';
 
 SwiperCore.use([Pagination]);
 
-export function PushSlider({ items = [] }: PushSliderProps) {
+export function PushSlider({ className, items = [] }: PushSliderProps) {
     return (
-        <Row>
+        <Row className={className}>
             <Swiper pagination={{ clickable: true }}>
                 {items.map((itemsProps, index) => (
                     <SwiperSlide key={`slide-${index}`}>
@@ -20,6 +21,7 @@ export function PushSlider({ items = [] }: PushSliderProps) {
     );
 }
 
-export type PushSliderProps = WithItems;
+export interface PushSliderProps extends AsComponent, WithItems {}
 
+// noinspection JSUnusedGlobalSymbols
 export default PushSlider;

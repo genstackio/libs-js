@@ -2,6 +2,7 @@ import {
     WithAutoFocus,
     WithChildren,
     WithClassName,
+    WithDefaultValueAsBoolean,
     WithDefaultValues,
     WithDisabled,
     WithErrors,
@@ -15,11 +16,15 @@ import {
     WithPlaceholder,
     WithRegister,
     WithRequired,
+    WithValue,
+    WithValuesOfSelect,
     WithVariantOfField,
 } from './withs';
 
+export type AsComponent = WithClassName;
+
 export interface AsField
-    extends WithClassName,
+    extends AsComponent,
         WithName,
         WithDisabled,
         WithHelper,
@@ -36,4 +41,9 @@ export interface AsField
         WithVariantOfField,
         WithKind {}
 
-export interface AsWrapper extends WithClassName, WithChildren {}
+export interface AsFlagField extends AsField, WithDefaultValueAsBoolean {}
+export interface AsTextField extends AsField, WithValue {}
+
+export interface AsChoiceField extends AsField, WithValuesOfSelect {}
+
+export interface AsWrapper extends AsComponent, WithChildren {}

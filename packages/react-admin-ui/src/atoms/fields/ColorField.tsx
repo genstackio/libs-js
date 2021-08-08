@@ -7,4 +7,5 @@ export function ColorField({ className, ...props }: ColorFieldProps) {
 
 export type ColorFieldProps = TextFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default ColorField;

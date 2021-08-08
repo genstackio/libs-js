@@ -6,4 +6,5 @@ export function SubtitleText(props: SubtitleTextProps) {
 
 export type SubtitleTextProps = Omit<TextProps, 'variant'>;
 
+// noinspection JSUnusedGlobalSymbols
 export default SubtitleText;

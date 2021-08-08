@@ -13,4 +13,5 @@ export function Column({ className, children, center = false }: ColumnProps) {
 
 export interface ColumnProps extends AsWrapper, WithCenter {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Column;

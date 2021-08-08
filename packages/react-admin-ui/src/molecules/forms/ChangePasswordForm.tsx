@@ -19,4 +19,5 @@ export function ChangePasswordForm({ ...props }: ChangePasswordFormProps) {
 
 export type ChangePasswordFormProps = BaseFormProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default ChangePasswordForm;

@@ -2,7 +2,8 @@ import clsx from 'clsx';
 import { useCallback, useRef } from 'react';
 import Cropper from 'react-cropper';
 import 'cropperjs/dist/cropper.css';
-import { WithClassName, WithImage, WithOnChange } from '../withs';
+import { WithImage, WithOnChange } from '../withs';
+import { AsComponent } from '../as';
 
 export function ImageCropper({ className, image, onChange }: ImageCropperProps) {
     const cropperRef = useRef<HTMLImageElement>(null);
@@ -24,6 +25,7 @@ export function ImageCropper({ className, image, onChange }: ImageCropperProps) 
     ) : null;
 }
 
-export interface ImageCropperProps extends WithClassName, WithImage, WithOnChange {}
+export interface ImageCropperProps extends AsComponent, WithImage, WithOnChange {}
 
+// noinspection JSUnusedGlobalSymbols
 export default ImageCropper;

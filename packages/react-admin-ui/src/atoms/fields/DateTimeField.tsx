@@ -6,4 +6,5 @@ export function DateTimeField(props: DateTimeFieldProps) {
 
 export type DateTimeFieldProps = DateFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default DateTimeField;

@@ -6,4 +6,5 @@ export function TimeField(props: TimeFieldProps) {
 
 export type TimeFieldProps = TextFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default TimeField;

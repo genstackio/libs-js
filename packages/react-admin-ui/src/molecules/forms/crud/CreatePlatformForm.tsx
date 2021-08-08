@@ -15,4 +15,5 @@ export function CreatePlatformForm({ children, ...props }: CreatePlatformFormPro
 
 export type CreatePlatformFormProps = BaseFormProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default CreatePlatformForm;

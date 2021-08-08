@@ -217,3 +217,4 @@ export type content_item_mosaic_item = {
 };
 
 export type box_list_item = { label?: rich_text; target?: target };
+export type slide = { image: image };

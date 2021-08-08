@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import Image from '../atoms/Image';
 import Text from '../atoms/Text';
-import { WithColorOfBox, WithClassName, WithImage } from '../withs';
+import { WithColorOfBox, WithImage } from '../withs';
+import { AsComponent } from '../as';
 
 export function CentralTemplate({ className, color = 'primary', image, message }: CentralTemplateProps) {
     return (
@@ -18,7 +19,7 @@ export function CentralTemplate({ className, color = 'primary', image, message }
     );
 }
 
-export interface CentralTemplateProps extends WithClassName, WithColorOfBox, WithImage {
+export interface CentralTemplateProps extends AsComponent, WithColorOfBox, WithImage {
     message: string;
 }
 

@@ -1,15 +1,7 @@
 import clsx from 'clsx';
 import { Badge, Clickable, Text } from './';
-import {
-    WithActive,
-    WithColorOfBox,
-    WithClassName,
-    WithDescription,
-    WithDisabled,
-    WithIndex,
-    WithLabel,
-    WithOnClick,
-} from '../withs';
+import { WithActive, WithColorOfBox, WithDescription, WithDisabled, WithIndex, WithLabel, WithOnClick } from '../withs';
+import { AsComponent } from '../as';
 
 export function WizardStep({
     className,
@@ -47,7 +39,7 @@ export function WizardStep({
 }
 
 export interface WizardStepProps
-    extends WithClassName,
+    extends AsComponent,
         WithLabel,
         WithDescription,
         WithActive,

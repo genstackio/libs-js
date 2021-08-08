@@ -6,4 +6,5 @@ export function OtpField(props: OtpFieldProps) {
 
 export type OtpFieldProps = TextFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default OtpField;

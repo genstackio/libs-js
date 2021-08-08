@@ -6,4 +6,5 @@ export function DarkModeToolbarItem(props: DarkModeToolbarItemProps) {
 
 export type DarkModeToolbarItemProps = BaseToolbarItemProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default DarkModeToolbarItem;

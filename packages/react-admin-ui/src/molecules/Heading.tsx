@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Text from '../atoms/Text';
-import { WithClassName, WithText, WithColorOfText } from '../withs';
+import { WithText, WithColorOfText } from '../withs';
+import { AsComponent } from '../as';
 
 export function Heading({ className, text, color }: HeadingProps) {
     return (
@@ -12,6 +13,7 @@ export function Heading({ className, text, color }: HeadingProps) {
     );
 }
 
-export interface HeadingProps extends WithClassName, WithText, WithColorOfText {}
+export interface HeadingProps extends AsComponent, WithText, WithColorOfText {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Heading;

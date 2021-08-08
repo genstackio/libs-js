@@ -6,4 +6,5 @@ export function NewPasswordConfirmationField(props: NewPasswordConfirmationField
 
 export type NewPasswordConfirmationFieldProps = PasswordConfirmationFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default NewPasswordConfirmationField;

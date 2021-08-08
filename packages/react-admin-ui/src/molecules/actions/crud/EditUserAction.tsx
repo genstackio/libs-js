@@ -38,15 +38,7 @@ export function EditUserAction({
         prepare,
     });
 
-    if (!data) {
-        return <SpinnerComponent />;
-    }
-
-    return (
-        <>
-            <Component {...someProps} defaultValues={data.getUser} {...props} />
-        </>
-    );
+    return data ? <Component {...someProps} defaultValues={data.getUser} {...props} /> : <SpinnerComponent />;
 }
 
 export interface EditUserActionProps

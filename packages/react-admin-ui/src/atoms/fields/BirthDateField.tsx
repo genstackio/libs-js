@@ -6,4 +6,5 @@ export function BirthDateField(props: BirthDateFieldProps) {
 
 export type BirthDateFieldProps = DateFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default BirthDateField;

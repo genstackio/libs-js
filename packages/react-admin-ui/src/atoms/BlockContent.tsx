@@ -13,4 +13,5 @@ export function BlockContent({ padding = 'default', className, children }: Block
 
 export interface BlockContentProps extends AsWrapper, WithPadding {}
 
+// noinspection JSUnusedGlobalSymbols
 export default BlockContent;

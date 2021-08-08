@@ -1,9 +1,10 @@
-import { useState, useCallback } from 'react';
 import clsx from 'clsx';
+import { useState, useCallback } from 'react';
 import MosaicItem from '../atoms/MosaicItem';
 import { WithItems } from '../withs';
+import { AsComponent } from '../as';
 
-export function MosaicItems({ items, selected = {}, onSelectionChange }: MosaicItemsProps) {
+export function MosaicItems({ className, items, selected = {}, onSelectionChange }: MosaicItemsProps) {
     const [selectedItem, setSelected] = useState(selected);
     const handleClick = useCallback(
         (item) => () => {
@@ -14,7 +15,7 @@ export function MosaicItems({ items, selected = {}, onSelectionChange }: MosaicI
     );
 
     return (
-        <div className={'flex flex-wrap xs:justify-around'}>
+        <div className={clsx('flex flex-wrap xs:justify-around', className)}>
             {items &&
                 items.map((item, index) => (
                     <div
@@ -32,9 +33,10 @@ export function MosaicItems({ items, selected = {}, onSelectionChange }: MosaicI
     );
 }
 
-export interface MosaicItemsProps extends WithItems {
+export interface MosaicItemsProps extends AsComponent, WithItems {
     onSelectionChange?: Function;
     selected: any;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default MosaicItems;

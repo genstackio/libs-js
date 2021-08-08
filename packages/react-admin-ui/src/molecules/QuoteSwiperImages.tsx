@@ -3,8 +3,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import clsx from 'clsx';
 import { WithItems } from '../withs';
+import { AsComponent } from '../as';
 
 export function QuoteSwiperImages({
+    className,
     controller,
     onSwiper,
     navLeftController,
@@ -29,7 +31,7 @@ export function QuoteSwiperImages({
         onSwiper: onSwiper,
     };
     return (
-        <Swiper {...params} className={clsx('w-2/3 mb-5 p-1.5', 'md:w-1/2', 'sm:w-full')}>
+        <Swiper {...params} className={clsx('w-2/3 mb-5 p-1.5', 'md:w-1/2', 'sm:w-full', className)}>
             {items.map(({ image }, index) => (
                 <SwiperSlide key={index} className={clsx('w-16 h-16')}>
                     <QuoteSlide image={image} />
@@ -39,7 +41,7 @@ export function QuoteSwiperImages({
     );
 }
 
-export interface QuoteSwiperImagesProps extends WithItems {
+export interface QuoteSwiperImagesProps extends AsComponent, WithItems {
     controller?: any;
     onSwiper?: Function;
     navLeftController?: any;

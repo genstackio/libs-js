@@ -1,11 +1,14 @@
+import clsx from 'clsx';
 import Image from '../atoms/Image';
 import Block from '../atoms/Block';
 import { Text } from '../atoms';
 import { WithButtonLabel, WithButtonTarget, WithImage, WithSubtitle, WithTitle } from '../withs';
 import { flag } from '../types';
 import Button from '../atoms/Button';
+import { AsComponent } from '../as';
 
 export function ArgumentBlock({
+    className,
     title,
     subtitle,
     image,
@@ -18,7 +21,7 @@ export function ArgumentBlock({
         <Block
             padding={'none'}
             corner={'rounded'}
-            className={'flex flex-col overflow-hidden bg-clear'}
+            className={clsx('flex flex-col overflow-hidden bg-clear', className)}
             elevation={noShadow ? 0 : 2}
         >
             <div className={'flex-1 p-4 lg:p-3 sm:p-2 bg-clear'}>
@@ -40,9 +43,16 @@ export function ArgumentBlock({
     );
 }
 
-export interface ArgumentBlockProps extends WithTitle, WithSubtitle, WithImage, WithButtonLabel, WithButtonTarget {
+export interface ArgumentBlockProps
+    extends AsComponent,
+        WithTitle,
+        WithSubtitle,
+        WithImage,
+        WithButtonLabel,
+        WithButtonTarget {
     noImage?: flag;
     noShadow?: flag;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default ArgumentBlock;

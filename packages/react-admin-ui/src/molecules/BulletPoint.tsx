@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
-import { WithBox, WithClassName, WithIcon, WithText, WithTitle } from '../withs';
+import { WithBox, WithIcon, WithText, WithTitle } from '../withs';
+import { AsComponent } from '../as';
 
 export function BulletPoint({ className, icon, text, title, color }: BulletPointProps) {
     return (
@@ -15,6 +16,7 @@ export function BulletPoint({ className, icon, text, title, color }: BulletPoint
     );
 }
 
-export interface BulletPointProps extends WithClassName, WithBox, WithIcon, WithText, WithTitle {}
+export interface BulletPointProps extends AsComponent, WithBox, WithIcon, WithText, WithTitle {}
 
+// noinspection JSUnusedGlobalSymbols
 export default BulletPoint;

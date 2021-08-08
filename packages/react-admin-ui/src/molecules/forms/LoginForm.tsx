@@ -9,7 +9,7 @@ import { useCallback } from 'react';
 import { flag, target } from '../../types';
 import { BaseFormProps } from './BaseForm';
 import useForm from '../../hooks/useForm';
-import { WithClassName, WithLocales } from '../../withs';
+import { WithLocales } from '../../withs';
 
 export function LoginForm({
     children,
@@ -84,11 +84,13 @@ export function LoginForm({
         </Form>
     );
 }
-export interface LoginFormProps extends BaseFormProps, WithClassName, WithLocales {
+
+export interface LoginFormProps extends BaseFormProps, WithLocales {
     onRegisterClick?: Function;
     onForgotPasswordClick?: target;
     socialLogins?: flag;
     rememberMe?: flag;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default LoginForm;

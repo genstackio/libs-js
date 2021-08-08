@@ -5,11 +5,12 @@ import { WithColorOfBox, WithLogo } from '../withs';
 import { Image } from '../atoms';
 import { target } from '../types';
 import { useTranslation } from 'react-i18next';
+import { AsComponent } from '../as';
 
-export function MenuAppBar({ logo, menuItems = [], color, onLoginClick }: MenuAppBarProps) {
+export function MenuAppBar({ className, logo, menuItems = [], color, onLoginClick }: MenuAppBarProps) {
     const { t } = useTranslation();
     return (
-        <Row className={clsx('h-44', 'justify-between')}>
+        <Row className={clsx('h-44', 'justify-between', className)}>
             {logo && <Image {...logo} className={'flex m-4 max-h-36'} expand={false} />}
             <div className={'flex items-center space-x-14 m-4'}>
                 <nav className={'w-auto md:hidden'}>
@@ -31,9 +32,10 @@ export function MenuAppBar({ logo, menuItems = [], color, onLoginClick }: MenuAp
     );
 }
 
-export interface MenuAppBarProps extends WithLogo, WithColorOfBox {
+export interface MenuAppBarProps extends AsComponent, WithLogo, WithColorOfBox {
     menuItems?: any[];
     onLoginClick?: target;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default MenuAppBar;

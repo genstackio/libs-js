@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import Block from './Block';
 import Text from './Text';
-import { WithColorOfBox, WithClassName, WithSubtitle, WithTitle, WithVariantOfBlock } from '../withs';
+import { WithColorOfBox, WithSubtitle, WithTitle, WithVariantOfBlock } from '../withs';
+import { AsComponent } from '../as';
 
 export function SectionHeader({
     className,
@@ -25,11 +26,7 @@ export function SectionHeader({
     ) : null;
 }
 
-export interface SectionHeaderProps
-    extends WithClassName,
-        WithTitle,
-        WithSubtitle,
-        WithColorOfBox,
-        WithVariantOfBlock {}
+export interface SectionHeaderProps extends AsComponent, WithTitle, WithSubtitle, WithColorOfBox, WithVariantOfBlock {}
 
+// noinspection JSUnusedGlobalSymbols
 export default SectionHeader;

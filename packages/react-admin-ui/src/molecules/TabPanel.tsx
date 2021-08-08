@@ -1,4 +1,4 @@
-import { WithIndex } from '../withs';
+import { WithIndex, WithValueAsNumber } from '../withs';
 import { AsWrapper } from '../as';
 
 export function TabPanel({ className, children, value, index, ...props }: TabPanelProps) {
@@ -16,8 +16,7 @@ export function TabPanel({ className, children, value, index, ...props }: TabPan
     );
 }
 
-export interface TabPanelProps extends AsWrapper, Required<WithIndex> {
-    value: number;
-}
+export interface TabPanelProps extends AsWrapper, Required<WithIndex>, Required<WithValueAsNumber> {}
 
+// noinspection JSUnusedGlobalSymbols
 export default TabPanel;

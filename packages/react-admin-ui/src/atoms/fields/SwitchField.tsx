@@ -86,4 +86,5 @@ export function SwitchField({ className, onChange, ...props }: SwitchFieldProps)
 
 export type SwitchFieldProps = AsField;
 
+// noinspection JSUnusedGlobalSymbols
 export default SwitchField;

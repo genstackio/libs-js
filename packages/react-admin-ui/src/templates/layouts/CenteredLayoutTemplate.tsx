@@ -1,14 +1,17 @@
+import clsx from 'clsx';
 import Image from '../../atoms/Image';
 import Container from '../../atoms/Container';
-import { WithChildren, WithImage, WithLogo } from '../../withs';
+import { WithImage, WithLogo } from '../../withs';
+import { AsWrapper } from '../../as';
 
-export function CenteredLayoutTemplate({ image, logo, children }: CenteredLayoutTemplateProps) {
+export function CenteredLayoutTemplate({ className, image, logo, children }: CenteredLayoutTemplateProps) {
     return (
         <Container
             bgImage={image}
-            className={
-                'bg-cover h-screen py-10 px-3 xs:px-0 flex flex-col justify-center xs:justify-start items-center'
-            }
+            className={clsx(
+                'bg-cover h-screen py-10 px-3 xs:px-0 flex flex-col justify-center xs:justify-start items-center',
+                className,
+            )}
         >
             {logo && <Image expand={false} {...logo} className={'mx-auto max-w-xs xs:max-w-xxs'} />}
             <div
@@ -22,6 +25,7 @@ export function CenteredLayoutTemplate({ image, logo, children }: CenteredLayout
     );
 }
 
-export interface CenteredLayoutTemplateProps extends WithImage, WithLogo, WithChildren {}
+export interface CenteredLayoutTemplateProps extends AsWrapper, WithImage, WithLogo {}
 
+// noinspection JSUnusedGlobalSymbols
 export default CenteredLayoutTemplate;

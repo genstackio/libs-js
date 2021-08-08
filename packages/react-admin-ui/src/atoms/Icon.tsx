@@ -8,16 +8,8 @@ import Badge from '@material-ui/core/Badge';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { mapFaSize } from '../mappings/fa-sizes';
 import { mapIconColor } from '../mappings/icon-colors';
-import {
-    WithClassName,
-    WithIcon,
-    WithColorOfText,
-    WithSizeOfText,
-    WithWidth,
-    WithHeight,
-    WithOnClick,
-    WithCount,
-} from '../withs';
+import { WithIcon, WithColorOfText, WithSizeOfText, WithWidth, WithHeight, WithOnClick, WithCount } from '../withs';
+import { AsComponent } from '../as';
 
 export function Icon({ count = 0, icon, size, onClick, color, ...props }: IconProps) {
     if (!icon) return null;
@@ -86,7 +78,7 @@ export function Icon({ count = 0, icon, size, onClick, color, ...props }: IconPr
 }
 
 export interface IconProps
-    extends WithClassName,
+    extends AsComponent,
         WithIcon,
         WithColorOfText,
         WithSizeOfText,
@@ -95,4 +87,5 @@ export interface IconProps
         WithOnClick,
         WithCount {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Icon;

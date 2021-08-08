@@ -6,4 +6,5 @@ export function OrganizationNameField(props: OrganizationNameFieldProps) {
 
 export type OrganizationNameFieldProps = NameFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default OrganizationNameField;

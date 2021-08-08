@@ -35,4 +35,5 @@ export interface ContainerProps extends AsWrapper, WithCorner, WithOnClick {
     fullscreen?: flag;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default Container;

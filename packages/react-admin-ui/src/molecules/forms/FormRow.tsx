@@ -16,4 +16,5 @@ export function FormRow({ items }: FormRowProps) {
 
 export type FormRowProps = WithItemsOfFormRow;
 
+// noinspection JSUnusedGlobalSymbols
 export default FormRow;

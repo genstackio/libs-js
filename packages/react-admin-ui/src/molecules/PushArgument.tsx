@@ -4,8 +4,10 @@ import Block from '../atoms/Block';
 import clsx from 'clsx';
 import { WithButtonLabel, WithButtonTarget, WithImage, WithSubtitle, WithTitle } from '../withs';
 import { image } from '../types';
+import { AsComponent } from '../as';
 
 export function PushArgument({
+    className,
     title,
     subtitle,
     image,
@@ -15,7 +17,7 @@ export function PushArgument({
     btnTarget,
 }: PushArgumentProps) {
     return (
-        <Block className={clsx('bg-clear')}>
+        <Block className={clsx('bg-clear', className)}>
             <div
                 className={clsx(
                     'maw-w-5/6 m-auto flex flew-row sm:flex-col sm:max-h: inherit',
@@ -40,10 +42,17 @@ export function PushArgument({
     );
 }
 
-export interface PushArgumentProps extends WithTitle, WithSubtitle, WithImage, WithButtonLabel, WithButtonTarget {
+export interface PushArgumentProps
+    extends AsComponent,
+        WithTitle,
+        WithSubtitle,
+        WithImage,
+        WithButtonLabel,
+        WithButtonTarget {
     image2?: image;
     imagePosition?: 'right' | 'left';
     mobileImagePosition?: 'right' | 'left';
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default PushArgument;

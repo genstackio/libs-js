@@ -6,4 +6,5 @@ export function WeekField({ type = 'week', kind = 'week', ...props }: WeekFieldP
 
 export type WeekFieldProps = TextFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default WeekField;

@@ -34,4 +34,5 @@ export function SmallStarsRating(props: SmallStarsRatingProps) {
 
 export type SmallStarsRatingProps = BaseBaseRatingProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default SmallStarsRating;

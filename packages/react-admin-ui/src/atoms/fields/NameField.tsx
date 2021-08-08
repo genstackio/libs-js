@@ -6,4 +6,5 @@ export function NameField(props: NameFieldProps) {
 
 export type NameFieldProps = TextFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default NameField;

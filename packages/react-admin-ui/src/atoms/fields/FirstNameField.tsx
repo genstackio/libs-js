@@ -14,4 +14,5 @@ export function FirstNameField({ options = {}, ...props }: FirstNameFieldProps) 
 
 export type FirstNameFieldProps = TextFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default FirstNameField;

@@ -15,4 +15,5 @@ export function NewsletterForm({ ...props }: NewsletterFormProps) {
 
 export type NewsletterFormProps = BaseFormProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default NewsletterForm;

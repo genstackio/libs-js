@@ -7,7 +7,6 @@ import {
     WithColorOfBox,
     WithChildren,
     WithDynamicChildren,
-    WithClassName,
     WithDefaultValues,
     WithOnSubmit,
     WithSubtitle,
@@ -17,6 +16,7 @@ import {
     WithFooter,
     WithErrors,
 } from '../../withs';
+import { AsComponent } from '../../as';
 
 export function BaseForm({
     className,
@@ -57,7 +57,7 @@ export interface InternalBaseFormProps extends Omit<BaseFormProps, 'children'>, 
 }
 
 export interface BaseFormProps
-    extends WithClassName,
+    extends AsComponent,
         WithOnSubmit,
         WithDefaultValues,
         WithDynamicChildren,
@@ -69,4 +69,5 @@ export interface BaseFormProps
         WithErrors,
         WithColorOfBox {}
 
+// noinspection JSUnusedGlobalSymbols
 export default BaseForm;

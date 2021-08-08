@@ -30,4 +30,5 @@ export function ReverseSquaresRating(props: ReverseSquaresRatingProps) {
 
 export type ReverseSquaresRatingProps = BaseBaseRatingProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default ReverseSquaresRating;

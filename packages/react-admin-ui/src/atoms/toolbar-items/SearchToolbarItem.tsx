@@ -1,6 +1,6 @@
 import SearchBar from '../SearchBar';
 import ToolbarItem, { BaseToolbarItemProps } from '../ToolbarItem';
-import { WithActive, WithClassName, WithOnChange, WithOnToggle } from '../../withs';
+import { WithOnChange } from '../../withs';
 
 export function SearchToolbarItem({ className, onChange, onToggle, active = false, ...props }: SearchToolbarItemProps) {
     return active ? (
@@ -10,11 +10,7 @@ export function SearchToolbarItem({ className, onChange, onToggle, active = fals
     );
 }
 
-export interface SearchToolbarItemProps
-    extends BaseToolbarItemProps,
-        WithClassName,
-        WithOnChange,
-        WithOnToggle,
-        WithActive {}
+export interface SearchToolbarItemProps extends BaseToolbarItemProps, WithOnChange {}
 
+// noinspection JSUnusedGlobalSymbols
 export default SearchToolbarItem;

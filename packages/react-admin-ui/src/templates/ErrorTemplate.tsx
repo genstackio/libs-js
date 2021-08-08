@@ -1,12 +1,14 @@
+import clsx from 'clsx';
 import { target } from '../types';
 import Button from '../atoms/Button';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
 import { WithColorOfBox, WithIcon, WithMessage } from '../withs';
+import { AsComponent } from '../as';
 
-export function ErrorTemplate({ actions, code, color, icon, message }: ErrorTemplateProps) {
+export function ErrorTemplate({ className, actions, code, color, icon, message }: ErrorTemplateProps) {
     return (
-        <div className={'h-screen flex items-center'}>
+        <div className={clsx('h-screen flex items-center', className)}>
             <div className={'text-center max-w-3xl mx-auto'}>
                 <Icon icon={icon} size={'8xl'} className={`text-disabled`} />
                 <Text text={`${code}`} variant={'title7'} color={color} />
@@ -27,7 +29,7 @@ export function ErrorTemplate({ actions, code, color, icon, message }: ErrorTemp
     );
 }
 
-export interface ErrorTemplateProps extends WithColorOfBox, WithMessage, WithIcon {
+export interface ErrorTemplateProps extends AsComponent, WithColorOfBox, WithMessage, WithIcon {
     actions?: {
         label?: string;
         target?: target;
@@ -35,4 +37,5 @@ export interface ErrorTemplateProps extends WithColorOfBox, WithMessage, WithIco
     code: number;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default ErrorTemplate;

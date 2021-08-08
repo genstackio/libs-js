@@ -6,4 +6,5 @@ export function MonthField(props: MonthFieldProps) {
 
 export type MonthFieldProps = DateFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default MonthField;

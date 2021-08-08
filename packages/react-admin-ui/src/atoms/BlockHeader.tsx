@@ -20,8 +20,7 @@ export function BlockHeader({
     variant = 'filled',
     children,
 }: BlockHeaderProps) {
-    if (!title) return null;
-    return (
+    return title ? (
         <Div
             padding={'default'}
             className={clsx(bgClass({ color, variant }), 'border-b-1 flex justify-between items-center', className)}
@@ -37,7 +36,7 @@ export function BlockHeader({
                 {children || ''}
             </BoxProvider>
         </Div>
-    );
+    ) : null;
 }
 
 export interface BlockHeaderProps
@@ -49,4 +48,5 @@ export interface BlockHeaderProps
         WithIcon,
         WithButtonLabel {}
 
+// noinspection JSUnusedGlobalSymbols
 export default BlockHeader;

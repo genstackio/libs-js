@@ -6,4 +6,5 @@ export function DescriptionText(props: DescriptionTextProps) {
 
 export type DescriptionTextProps = Omit<TextProps, 'variant'>;
 
+// noinspection JSUnusedGlobalSymbols
 export default DescriptionText;

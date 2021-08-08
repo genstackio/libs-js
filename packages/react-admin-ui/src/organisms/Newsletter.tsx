@@ -7,8 +7,10 @@ import { WithColorOfBox, WithButtonLabel, WithImage, WithText, WithTitle } from 
 import Divider from '../atoms/Divider';
 import Block from '../atoms/Block';
 import { NewsletterAction } from '../molecules/actions/NewsletterAction';
+import { AsComponent } from '../as';
 
 export function Newsletter({
+    className,
     title,
     text,
     imageLeft = false,
@@ -23,6 +25,7 @@ export function Newsletter({
                 imageLeft && 'flex-row-reverse xs:flex-col-reverse',
                 imageLeft ? 'pr-52 md:pr-20' : 'pl-52 md:pl-20',
                 'sm:p-5',
+                className,
             )}
         >
             <Block className={clsx('flex-1 p-20 sm:p-5')} color={color} elevation={0}>
@@ -40,7 +43,7 @@ export function Newsletter({
     );
 }
 
-export interface NewsletterProps extends WithImage, WithText, WithTitle, WithColorOfBox, WithButtonLabel {
+export interface NewsletterProps extends AsComponent, WithImage, WithText, WithTitle, WithColorOfBox, WithButtonLabel {
     imageLeft?: flag;
     onAfterSubscribe?: Function;
 }

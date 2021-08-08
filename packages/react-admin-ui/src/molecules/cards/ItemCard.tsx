@@ -45,4 +45,5 @@ export interface ItemCardProps extends WithDescription, WithIcon, WithSubtitle, 
     date?: string;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default ItemCard;

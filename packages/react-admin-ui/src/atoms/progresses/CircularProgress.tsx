@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import MuiCircularProgress from '@material-ui/core/CircularProgress';
-import { WithClassName, WithValueAsNumber } from '../../withs';
+import { WithValueAsNumber } from '../../withs';
+import { AsComponent } from '../../as';
 
 export function CircularProgress({ className, value = 0 }: CircularProgressProps) {
     return (
@@ -15,6 +16,7 @@ export function CircularProgress({ className, value = 0 }: CircularProgressProps
     );
 }
 
-export interface CircularProgressProps extends WithClassName, WithValueAsNumber {}
+export interface CircularProgressProps extends AsComponent, WithValueAsNumber {}
 
+// noinspection JSUnusedGlobalSymbols
 export default CircularProgress;

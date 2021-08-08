@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { Clickable } from '../atoms/Clickable';
 import { Image } from '../atoms/Image';
 import {
@@ -15,10 +16,19 @@ import {
 import { Block } from '../atoms/Block';
 import { Text } from '../atoms/Text';
 import { Button } from '../atoms/Button';
+import { AsComponent } from '../as';
 
-export function ItemCarrousselSlide({ title, label, image, btnLabel, btnTarget, target }: ItemCarrousselSlideProps) {
+export function ItemCarrousselSlide({
+    className,
+    title,
+    label,
+    image,
+    btnLabel,
+    btnTarget,
+    target,
+}: ItemCarrousselSlideProps) {
     return (
-        <div className={'flex relative flex-col justify-between w-full pb-2'}>
+        <div className={clsx('flex relative flex-col justify-between w-full pb-2', className)}>
             <Clickable onClick={target} className={'max-w-full'}>
                 <div className={'relative w-full'}>
                     <Block
@@ -46,7 +56,8 @@ export function ItemCarrousselSlide({ title, label, image, btnLabel, btnTarget, 
 }
 
 export interface ItemCarrousselSlideProps
-    extends WithImage,
+    extends AsComponent,
+        WithImage,
         WithTitle,
         WithLabel,
         WithTarget,
@@ -57,4 +68,5 @@ export interface ItemCarrousselSlideProps
         WithButton2Target,
         WithButton2Type {}
 
+// noinspection JSUnusedGlobalSymbols
 export default ItemCarrousselSlide;

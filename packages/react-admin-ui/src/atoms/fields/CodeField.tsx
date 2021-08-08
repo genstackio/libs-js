@@ -13,4 +13,5 @@ export function CodeField({ options = {}, ...props }: CodeFieldProps) {
 
 export type CodeFieldProps = TextFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default CodeField;

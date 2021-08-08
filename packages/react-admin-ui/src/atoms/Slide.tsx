@@ -1,13 +1,12 @@
 import Image from './Image';
-import { image } from '../types';
-import { WithIndex } from '../withs';
+import { WithIndex, WithSlide } from '../withs';
+import { AsComponent } from '../as';
 
-export function Slide({ slide }: SlideProps) {
-    return <div>{slide.image && <Image {...slide.image} objectFit={'contain'} />}</div>;
+export function Slide({ slide, className }: SlideProps) {
+    return <div className={className}>{slide.image && <Image {...slide.image} objectFit={'contain'} />}</div>;
 }
 
-export interface SlideProps extends Required<WithIndex> {
-    slide: { image: image };
-}
+export interface SlideProps extends AsComponent, Required<WithIndex>, Required<WithSlide> {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Slide;

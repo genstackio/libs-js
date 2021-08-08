@@ -6,11 +6,11 @@ import { Container } from '../atoms/Container';
 import clsx from 'clsx';
 import { Text } from '../atoms/Text';
 import Button from '../atoms/Button';
+import { AsComponent } from '../as';
 
-export function Quotes({ title, items = [], btnTarget, btnLabel, btnIcon, btnEndIcon }: QuotesProps) {
-    if (items.length === 0) return null;
-    return (
-        <Row className={clsx('bg-clear')}>
+export function Quotes({ className, title, items = [], btnTarget, btnLabel, btnIcon, btnEndIcon }: QuotesProps) {
+    return items.length ? (
+        <Row className={clsx('bg-clear', className)}>
             <Container className={clsx('relative flex flex-col items-center grid-cols-12 max-w-full')}>
                 <Text className={clsx('mb-8 sm:mb-4')} variant={'title3'} text={title} />
                 {btnLabel && (
@@ -34,15 +34,17 @@ export function Quotes({ title, items = [], btnTarget, btnLabel, btnIcon, btnEnd
                 {items.length > 1 && <QuoteSwiper items={items} />}
             </Container>
         </Row>
-    );
+    ) : null;
 }
 
 export interface QuotesProps
-    extends WithTitle,
+    extends AsComponent,
+        WithTitle,
         WithButtonTarget,
         WithButtonLabel,
         WithButtonIcon,
         WithButtonEndIcon,
         WithItems {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Quotes;

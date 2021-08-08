@@ -13,4 +13,5 @@ export function NumberField({ options = {}, ...props }: NumberFieldProps) {
 
 export type NumberFieldProps = TextFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default NumberField;

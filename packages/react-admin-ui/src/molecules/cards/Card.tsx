@@ -8,7 +8,6 @@ import Text from '../../atoms/Text';
 import Rating from '../../atoms/Rating';
 import {
     WithBox,
-    WithClassName,
     WithDescription,
     WithImage,
     WithTitle,
@@ -16,6 +15,7 @@ import {
     WithOnClick,
     WithValueAsNumber,
 } from '../../withs';
+import { AsComponent } from '../../as';
 
 export function Card({
     className,
@@ -66,7 +66,7 @@ export function Card({
 }
 
 export interface CardProps
-    extends WithClassName,
+    extends AsComponent,
         WithBox,
         WithImage,
         WithTitle,

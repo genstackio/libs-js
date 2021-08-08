@@ -2,7 +2,8 @@ import clsx from 'clsx';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
 import boxClass from '../utils/boxClass';
-import { WithColorOfBox, WithClassName, WithIcon, WithQuantity, WithName } from '../withs';
+import { WithColorOfBox, WithIcon, WithQuantity, WithName } from '../withs';
+import { AsComponent } from '../as';
 
 export function Kpi({ className, icon, name, quantity, color }: KpiProps) {
     return (
@@ -20,6 +21,7 @@ export function Kpi({ className, icon, name, quantity, color }: KpiProps) {
     );
 }
 
-export interface KpiProps extends WithClassName, WithName, WithIcon, WithQuantity, WithColorOfBox {}
+export interface KpiProps extends AsComponent, WithName, WithIcon, WithQuantity, WithColorOfBox {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Kpi;

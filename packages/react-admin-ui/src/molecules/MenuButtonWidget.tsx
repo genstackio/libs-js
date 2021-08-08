@@ -4,7 +4,8 @@ import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
 import textClass from '../utils/textClass';
 import boxClass from '../utils/boxClass';
-import { WithColorOfBox, WithClassName, WithItemsOfMenuButton } from '../withs';
+import { WithColorOfBox, WithItemsOfMenuButton } from '../withs';
+import { AsComponent } from '../as';
 
 export function MenuButtonWidget({ className, items = [], color }: MenuButtonWidgetProps) {
     const handleClick = useCallback(
@@ -40,6 +41,7 @@ export function MenuButtonWidget({ className, items = [], color }: MenuButtonWid
     );
 }
 
-export interface MenuButtonWidgetProps extends WithClassName, WithColorOfBox, WithItemsOfMenuButton {}
+export interface MenuButtonWidgetProps extends AsComponent, WithColorOfBox, WithItemsOfMenuButton {}
 
+// noinspection JSUnusedGlobalSymbols
 export default MenuButtonWidget;

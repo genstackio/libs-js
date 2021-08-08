@@ -12,6 +12,7 @@ export function LoginAction({
 }: LoginActionProps) {
     return <Component {...useAction(mutationName, { onSuccess, prepare })} {...props} />;
 }
+
 export interface LoginActionProps extends LoginFormProps, FormActionProps, WithMutationName {}
 
 // noinspection JSUnusedGlobalSymbols

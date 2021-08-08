@@ -6,4 +6,5 @@ export function AddressField(props: AddressFieldProps) {
 
 export type AddressFieldProps = TextFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default AddressField;

@@ -3,7 +3,8 @@ import Image from '../atoms/Image';
 import Text from '../atoms/Text';
 import Button from '../atoms/Button';
 import Icon from '../atoms/Icon';
-import { WithClassName, WithTitle, WithIcon, WithButton, WithItemsOfGallery } from '../withs';
+import { WithTitle, WithIcon, WithButton, WithItemsOfGallery } from '../withs';
+import { AsComponent } from '../as';
 
 export function Gallery({
     className,
@@ -44,7 +45,7 @@ export function Gallery({
     );
 }
 
-export interface GalleryProps extends WithClassName, WithTitle, WithIcon, WithButton, WithItemsOfGallery {}
+export interface GalleryProps extends AsComponent, WithTitle, WithIcon, WithButton, WithItemsOfGallery {}
 
 // noinspection JSUnusedGlobalSymbols
 export default Gallery;

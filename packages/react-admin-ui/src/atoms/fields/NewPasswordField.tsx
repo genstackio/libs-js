@@ -6,4 +6,5 @@ export function NewPasswordField(props: NewPasswordFieldProps) {
 
 export type NewPasswordFieldProps = PasswordFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default NewPasswordField;

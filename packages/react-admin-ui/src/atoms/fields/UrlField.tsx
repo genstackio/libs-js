@@ -22,4 +22,5 @@ export function UrlField({ options = {}, ...props }: UrlFieldProps) {
 
 export type UrlFieldProps = TextFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default UrlField;

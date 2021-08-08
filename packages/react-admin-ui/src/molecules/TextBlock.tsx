@@ -8,26 +8,25 @@ import { WithIcon, WithText, WithTitle } from '../withs';
 export function TextBlock({ icon, text, title, ...props }: TextBlockProps) {
     return (
         <Block {...props}>
-            {title && (
-                <div
-                    className={clsx(
-                        textClass({ color: props.color, variant: props.variant }),
-                        'flex justify-between items-center',
-                    )}
-                >
-                    <div className={'flex-col'}>
-                        <Text className={'flex-1'} text={title} variant={'title5'} />
-                        <div className={'text-md flex-1'}>
-                            <Text text={text || ''} variant={'body'} />
-                        </div>
+            <div
+                className={clsx(
+                    textClass({ color: props.color, variant: props.variant }),
+                    'flex justify-between items-center',
+                )}
+            >
+                <div className={'flex-col'}>
+                    <Text className={'flex-1'} text={title} variant={'title5'} />
+                    <div className={'text-md flex-1'}>
+                        <Text text={text || ''} variant={'body'} />
                     </div>
-                    <Icon icon={icon} />
                 </div>
-            )}
+                <Icon icon={icon} />
+            </div>
         </Block>
     );
 }
 
 export interface TextBlockProps extends BaseBlockProps, WithText, WithTitle, WithIcon {}
 
+// noinspection JSUnusedGlobalSymbols
 export default TextBlock;

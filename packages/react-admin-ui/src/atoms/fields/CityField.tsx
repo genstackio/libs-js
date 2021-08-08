@@ -6,4 +6,5 @@ export function CityField(props: CityFieldProps) {
 
 export type CityFieldProps = TextFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default CityField;

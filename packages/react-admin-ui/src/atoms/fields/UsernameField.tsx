@@ -6,4 +6,5 @@ export function UsernameField({ ...props }: UsernameFieldProps) {
 
 export type UsernameFieldProps = EmailFieldProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default UsernameField;

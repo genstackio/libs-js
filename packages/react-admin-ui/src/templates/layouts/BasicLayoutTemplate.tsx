@@ -7,4 +7,5 @@ export function BasicLayoutTemplatePage({}: BasicLayoutTemplatePageProps) {
 /* eslint @typescript-eslint/no-empty-interface: 0 */
 export interface BasicLayoutTemplatePageProps {}
 
+// noinspection JSUnusedGlobalSymbols
 export default BasicLayoutTemplatePage;

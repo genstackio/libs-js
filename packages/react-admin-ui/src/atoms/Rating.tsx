@@ -35,4 +35,5 @@ export function Rating({ variant = 'stars', ...props }: RatingProps) {
 
 export interface RatingProps extends BaseBaseRatingProps, WithText, WithVariantOfRating {}
 
+// noinspection JSUnusedGlobalSymbols
 export default Rating;

@@ -27,4 +27,5 @@ export function UnitsRating(props: UnitsRatingProps) {
 
 export type UnitsRatingProps = BaseBaseRatingProps;
 
+// noinspection JSUnusedGlobalSymbols
 export default UnitsRating;

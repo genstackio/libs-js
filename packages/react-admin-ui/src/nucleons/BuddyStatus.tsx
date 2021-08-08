@@ -1,6 +1,7 @@
 import clsx from 'clsx';
-import { WithStatusOfBuddy, WithClassName } from '../withs';
+import { WithStatusOfBuddy } from '../withs';
 import statusClass from '../mappings/statuses';
+import { AsComponent } from '../as';
 
 export function BuddyStatus({ status, className }: BuddyStatusProps) {
     return (
@@ -14,6 +15,7 @@ export function BuddyStatus({ status, className }: BuddyStatusProps) {
     );
 }
 
-export interface BuddyStatusProps extends WithClassName, WithStatusOfBuddy {}
+export interface BuddyStatusProps extends AsComponent, WithStatusOfBuddy {}
 
+// noinspection JSUnusedGlobalSymbols
 export default BuddyStatus;
