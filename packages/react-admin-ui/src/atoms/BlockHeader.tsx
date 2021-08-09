@@ -2,12 +2,12 @@ import clsx from 'clsx';
 import Button from './Button';
 import Dropdown from './Dropdown';
 import Icon from './Icon';
-import Text from './Text';
 import Div from './Div';
 import bgClass from '../utils/bgClass';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
-import { WithTitle, WithSubtitle, WithIcon, WithButtonLabel, WithDropdownItems } from '../withs';
+import { WithIcon, WithButtonLabel, WithDropdownItems, WithHeadingText } from '../withs';
 import { AsBoxWrapper } from '../as';
+import HeadingText from './HeadingText';
 
 export function BlockHeader({
     className,
@@ -17,7 +17,9 @@ export function BlockHeader({
     icon,
     title,
     subtitle,
+    description,
     variant = 'filled',
+    center,
     children,
 }: BlockHeaderProps) {
     return title ? (
@@ -26,10 +28,14 @@ export function BlockHeader({
             className={clsx(bgClass({ color, variant }), 'border-b-1 flex justify-between items-center', className)}
         >
             <BoxProvider value={{ color, variant }}>
-                <div className={'w-full'}>
-                    <Text variant={'title5'} text={title} />
-                    <Text variant={'overline'} text={subtitle} />
-                </div>
+                <HeadingText
+                    full
+                    center={center}
+                    title={title}
+                    subtitle={subtitle}
+                    description={description}
+                    variant={'smmd'}
+                />
                 {btnLabel && <Button color={color}>{btnLabel}</Button>}
                 <Dropdown items={dropdownItems} color={color} variant={variant} />
                 <Icon icon={icon} />
@@ -39,13 +45,7 @@ export function BlockHeader({
     ) : null;
 }
 
-export interface BlockHeaderProps
-    extends AsBoxWrapper,
-        WithDropdownItems,
-        WithTitle,
-        WithSubtitle,
-        WithIcon,
-        WithButtonLabel {}
+export interface BlockHeaderProps extends AsBoxWrapper, WithDropdownItems, WithIcon, WithButtonLabel, WithHeadingText {}
 
 // noinspection JSUnusedGlobalSymbols
 export default BlockHeader;

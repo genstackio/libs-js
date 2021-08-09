@@ -16,6 +16,7 @@ import {
     WithValueAsNumber,
 } from '../../withs';
 import { AsComponent } from '../../as';
+import { HeadingText } from '../../atoms';
 
 export function Card({
     className,
@@ -51,12 +52,7 @@ export function Card({
                     </div>
                 </div>
             </div>
-            {(title || description) && (
-                <div className={'p-10 border-b-2'}>
-                    <Text className={'mb-2'} variant={'title5'} text={title} />
-                    <Text className={'mb-2'} variant={'description'} text={description} />
-                </div>
-            )}
+            <HeadingText title={title} description={description} variant={'smmd'} className={'p-10 border-b-2 mb-2'} />
             <div className="p-10 flex flex-inline justify-between items-center">
                 <Text text={content} variant={'body'} />
                 <Rating value={value} />

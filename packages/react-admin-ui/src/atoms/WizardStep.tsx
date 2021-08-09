@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { Badge, Clickable, Text } from './';
+import { Badge, Clickable, HeadingText } from './';
 import { WithActive, WithColorOfBox, WithDescription, WithDisabled, WithIndex, WithLabel, WithOnClick } from '../withs';
 import { AsComponent } from '../as';
 
@@ -30,10 +30,7 @@ export function WizardStep({
                 text={index}
                 className={'w-14 h-14 flex text-center justify-center items-center text-2xl'}
             />
-            <div>
-                <Text text={label} color={color} variant={'title6'} />
-                <Text text={description} color={color} variant={'overline'} />
-            </div>
+            <HeadingText title={label} subtitle={description} variant={'xxsmall'} color={color} />
         </Clickable>
     );
 }

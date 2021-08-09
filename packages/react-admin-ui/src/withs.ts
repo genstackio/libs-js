@@ -67,6 +67,8 @@ import { spinner_color, spinner_size, spinner_variant } from './mappings/spinner
 import { thumbnail_size } from './mappings/thumbnail-sizes';
 import { field_variant } from './mappings/field-variants';
 import { label_placement } from './mappings/label-placements';
+import { heading_text_variant } from './mappings/heading-text-variants';
+import { AsComponent } from './as';
 
 export interface WithCenter {
     center?: flag;
@@ -138,6 +140,9 @@ export interface WithVariantOfRating {
 }
 export interface WithVariantOfField {
     variant?: field_variant;
+}
+export interface WithVariantOfHeadingText {
+    variant?: heading_text_variant;
 }
 
 export interface WithRows {
@@ -632,3 +637,5 @@ export interface WithButton3
         WithButton3Label,
         WithButton3Icon,
         WithButton3EndIcon {}
+
+export interface WithHeadingText extends AsComponent, WithTitle, WithSubtitle, WithDescription, WithCenter {}

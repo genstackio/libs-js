@@ -1,15 +1,17 @@
 import clsx from 'clsx';
 import Block from './Block';
-import Text from './Text';
-import { WithSubtitle, WithTitle } from '../withs';
+import { WithHeadingText } from '../withs';
 import { AsBlock } from '../as';
+import HeadingText from './HeadingText';
 
 export function SectionHeader({
     className,
     color = 'primary',
     title,
     subtitle,
+    description,
     variant = 'contained',
+    center,
     children,
 }: SectionHeaderProps) {
     return title || subtitle ? (
@@ -21,14 +23,20 @@ export function SectionHeader({
             variant={variant}
             corner={'rounded-small'}
         >
-            <Text text={title} color={color} variant={'section'} />
-            <Text text={subtitle} color={'dark'} variant={'xsmall'} />
+            <HeadingText
+                title={title}
+                subtitle={subtitle}
+                description={description}
+                center={center}
+                variant={'xsection'}
+                color={color}
+            />
             {children || ''}
         </Block>
     ) : null;
 }
 
-export interface SectionHeaderProps extends AsBlock, WithTitle, WithSubtitle {}
+export interface SectionHeaderProps extends AsBlock, WithHeadingText {}
 
 // noinspection JSUnusedGlobalSymbols
 export default SectionHeader;
