@@ -15,7 +15,7 @@ export function Footer({
     color = 'dark',
     variant = 'contained',
     contact,
-    links,
+    links = [],
     description,
     copyright,
 }: FooterProps) {
@@ -31,7 +31,7 @@ export function Footer({
                     </div>
                     <Text className={'mt-2 leading-loose'} variant={'overline'} text={copyright} />
                 </div>
-                <div className={'flex sm:flex-col'}>
+                { (links || contact) && <div className={'flex sm:flex-col'}>
                     <div className={'px-8 xs:pt-8'}>
                         <Text className={'mb-6'} variant={'section'} text={t('project_name')} />
                         {links.map((link, index) => (
@@ -40,7 +40,7 @@ export function Footer({
                             </Link>
                         ))}
                     </div>
-                    <div className={clsx('px-8', links ? 'sm:mt-6' : 'xs:pt-8')}>
+                    { contact && <div className={clsx('px-8', links ? 'sm:mt-6' : 'xs:pt-8')}>
                         <Text className={'mb-6'} variant={'section'} text={t('footer_contact_us')} />
                         <Link color="inherit" href={`tel:${contact?.phone}`} className={'block leading-loose'}>
                             {contact?.phone}
@@ -49,16 +49,18 @@ export function Footer({
                             {contact?.email}
                         </Link>
                         <Text variant={'body'} text={contact?.address} className={'block leading-loose'} />
-                        <Text
+                        { (contact.zipCode || contact.city) && <Text
                             variant={'body'}
-                            text={`${contact?.zipCode} / ${contact?.city}`}
+                            text={(contact.zipCode ? `${contact?.zipCode}` : '') +
+                            (contact.zipCode && contact.city ? ' / ' : '') +
+                            (contact.city ? `${contact?.city}` : '')}
                             className={'block leading-loose'}
-                        />
+                        />}
                         <Link href={contact?.facebook}>
                             <Icon icon={'fa-fab--facebook-square'} className={'mt-2'} size={'md'} />
                         </Link>
-                    </div>
-                </div>
+                    </div>}
+                </div>}
             </Row>
         </Block>
     );
@@ -66,7 +68,7 @@ export function Footer({
 
 export interface FooterProps extends AsBox, WithDescription, WithLogo {
     contact?: any;
-    links?: any;
+    links?: any[];
     copyright?: rich_text;
 }
 
