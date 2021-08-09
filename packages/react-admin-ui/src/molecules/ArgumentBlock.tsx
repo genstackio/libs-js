@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import Image from '../atoms/Image';
 import Block from '../atoms/Block';
 import { Text } from '../atoms';
-import { WithButtonLabel, WithButtonTarget, WithImage, WithSubtitle, WithTitle } from '../withs';
+import { WithButton, WithImage, WithSubtitle, WithTitle } from '../withs';
 import { flag } from '../types';
 import Button from '../atoms/Button';
 import { AsComponent } from '../as';
@@ -16,6 +16,10 @@ export function ArgumentBlock({
     noShadow = false,
     btnLabel,
     btnTarget,
+    btnIcon,
+    btnEndIcon,
+    btnType,
+    btnColor,
 }: ArgumentBlockProps) {
     return (
         <Block
@@ -28,7 +32,14 @@ export function ArgumentBlock({
                 <Text variant={'title6'} text={title} />
                 <Text variant={'subtitle'} text={subtitle} />
                 {btnLabel && (
-                    <Button color={'primary'} variant={'outlined'} onClick={btnTarget} className={'mt-2'}>
+                    <Button
+                        color={btnColor || 'primary'}
+                        variant={(btnType as any) || 'outlined'}
+                        onClick={btnTarget}
+                        className={'mt-2'}
+                        icon={btnIcon}
+                        endIcon={btnEndIcon}
+                    >
                         {btnLabel}
                     </Button>
                 )}
@@ -43,13 +54,7 @@ export function ArgumentBlock({
     );
 }
 
-export interface ArgumentBlockProps
-    extends AsComponent,
-        WithTitle,
-        WithSubtitle,
-        WithImage,
-        WithButtonLabel,
-        WithButtonTarget {
+export interface ArgumentBlockProps extends AsComponent, WithTitle, WithSubtitle, WithImage, WithButton {
     noImage?: flag;
     noShadow?: flag;
 }

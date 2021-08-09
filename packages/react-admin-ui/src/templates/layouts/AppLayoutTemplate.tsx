@@ -6,10 +6,10 @@ import Image from '../../atoms/Image';
 import Icon from '../../atoms/Icon';
 import textClass from '../../utils/textClass';
 import { menu_item } from '../../types';
-import { WithBox, WithLogo } from '../../withs';
+import { WithLogo } from '../../withs';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
-import { AsWrapper } from '../../as';
+import { AsBoxWrapper } from '../../as';
 
 export function AppLayoutTemplate({ className, logo, menu, children, toolbar, ...props }: AppLayoutTemplateProps) {
     const theme = useTheme();
@@ -51,7 +51,7 @@ export function AppLayoutTemplate({ className, logo, menu, children, toolbar, ..
     );
 }
 
-export interface AppLayoutTemplateProps extends AsWrapper, WithBox, WithLogo {
+export interface AppLayoutTemplateProps extends AsBoxWrapper, WithLogo {
     menu?: menu_item[];
     toolbar?: ReactNode;
 }

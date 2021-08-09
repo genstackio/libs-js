@@ -7,7 +7,6 @@ import { Spinner } from './Spinner';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
 import cornerClass from '../mappings/corners';
 import {
-    WithBox,
     WithCorner,
     WithIcon,
     WithSize,
@@ -19,7 +18,7 @@ import {
     WithEndIcon,
 } from '../withs';
 import { useConfirmable } from '../hooks';
-import { AsWrapper } from '../as';
+import { AsBoxWrapper } from '../as';
 
 export function Button({
     children,
@@ -94,8 +93,7 @@ export function Button({
 }
 
 export interface ButtonProps
-    extends AsWrapper,
-        WithBox,
+    extends AsBoxWrapper,
         WithIcon,
         WithEndIcon,
         WithSize,

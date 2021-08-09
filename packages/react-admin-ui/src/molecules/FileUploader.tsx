@@ -2,8 +2,8 @@ import { useCallback } from 'react';
 import Dropzone from 'react-dropzone-uploader/dist/react-dropzone-uploader';
 import Block from '../atoms/Block';
 import { rich_text } from '../types';
-import { WithBox, WithOnSubmit, WithPlaceholder, WithTitle } from '../withs';
-import { AsComponent } from '../as';
+import { WithOnSubmit, WithPlaceholder, WithTitle } from '../withs';
+import { AsBox } from '../as';
 
 const defaultDropzoneStyle = {
     dropzone: {
@@ -83,7 +83,7 @@ export function FileUploader({
     );
 }
 
-export interface FileUploaderProps extends AsComponent, WithBox, WithTitle, WithPlaceholder, WithOnSubmit {
+export interface FileUploaderProps extends AsBox, WithTitle, WithPlaceholder, WithOnSubmit {
     accept?: string;
     dropzoneStyle?: any | null;
     nonEmptyPlaceholder?: string;

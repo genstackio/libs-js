@@ -563,7 +563,7 @@ export interface WithOnClickAway {
 export interface WithStyle {
     style?: any;
 }
-export interface WithClosable {
+export interface WithClosable extends WithOnClose {
     closable?: flag;
 }
 export interface WithOverline {
@@ -598,6 +598,9 @@ export interface WithId {
 }
 export interface WithOnSuccess {
     onSuccess?: Function;
+}
+export interface WithOnClose {
+    onClose?: Function;
 }
 export interface WithPrepare {
     prepare?: Function;

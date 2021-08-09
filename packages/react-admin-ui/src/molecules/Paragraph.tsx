@@ -3,8 +3,8 @@ import Button from '../atoms/Button';
 import Image from '../atoms/Image';
 import Row from '../atoms/Row';
 import Text from '../atoms/Text';
-import { WithTitle, WithText, WithImage, WithBox, WithButtonLabel, WithButtonTarget, WithColorOfBox } from '../withs';
-import { AsComponent } from '../as';
+import { WithTitle, WithText, WithImage, WithButtonLabel, WithButtonTarget } from '../withs';
+import { AsBox } from '../as';
 // @todo: add theme
 
 export function Paragraph({
@@ -38,15 +38,7 @@ export function Paragraph({
     );
 }
 
-export interface ParagraphProps
-    extends AsComponent,
-        WithTitle,
-        WithText,
-        WithImage,
-        WithBox,
-        WithColorOfBox,
-        WithButtonLabel,
-        WithButtonTarget {
+export interface ParagraphProps extends AsBox, WithTitle, WithText, WithImage, WithButtonLabel, WithButtonTarget {
     imageLeft?: boolean;
 }
 

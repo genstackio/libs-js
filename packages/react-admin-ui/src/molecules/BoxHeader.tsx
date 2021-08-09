@@ -3,8 +3,8 @@ import { Panel } from '../atoms/Panel';
 import { Text } from '../atoms/Text';
 import { Icon } from '../atoms/Icon';
 import { Clickable } from '../atoms/Clickable';
-import { WithBox, WithTitle } from '../withs';
-import { AsComponent } from '../as';
+import { WithTitle } from '../withs';
+import { AsBox } from '../as';
 
 export function BoxHeader({ title, onAddClick, ...props }: BoxHeaderProps) {
     return (
@@ -19,7 +19,7 @@ export function BoxHeader({ title, onAddClick, ...props }: BoxHeaderProps) {
     );
 }
 
-export interface BoxHeaderProps extends AsComponent, WithBox, WithTitle {
+export interface BoxHeaderProps extends AsBox, WithTitle {
     onAddClick?: target;
 }
 

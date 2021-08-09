@@ -3,8 +3,8 @@ import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
 import Button from '../atoms/Button';
 import { target } from '../types';
-import { WithBox, WithDescription, WithTitle } from '../withs';
-import { AsComponent } from '../as';
+import { WithDescription, WithTitle } from '../withs';
+import { AsBox } from '../as';
 
 export function MaintenanceTemplate({
     className,
@@ -37,7 +37,7 @@ export function MaintenanceTemplate({
     );
 }
 
-export interface MaintenanceTemplateProps extends AsComponent, WithBox, WithTitle, WithDescription {
+export interface MaintenanceTemplateProps extends AsBox, WithTitle, WithDescription {
     logo?: string;
     actions: {
         label?: string;

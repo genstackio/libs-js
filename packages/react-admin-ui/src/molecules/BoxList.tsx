@@ -1,8 +1,8 @@
-import { WithBox, WithItemsOfBoxList } from '../withs';
+import { WithItemsOfBoxList } from '../withs';
 import Items from '../atoms/Items';
 import Panel from '../atoms/Panel';
 import BoxListItem from '../atoms/BoxListItem';
-import { AsComponent } from '../as';
+import { AsBox } from '../as';
 
 export function BoxList({ items = [], variant = 'filled', ...props }: BoxListProps) {
     return (
@@ -12,7 +12,7 @@ export function BoxList({ items = [], variant = 'filled', ...props }: BoxListPro
     );
 }
 
-export interface BoxListProps extends AsComponent, WithBox, WithItemsOfBoxList {}
+export interface BoxListProps extends AsBox, WithItemsOfBoxList {}
 
 // noinspection JSUnusedGlobalSymbols
 export default BoxList;

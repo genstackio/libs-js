@@ -4,10 +4,10 @@ import Row from '../atoms/Row';
 import Text from '../atoms/Text';
 import { rich_text } from '../types';
 import { Image } from '../atoms/Image';
-import { WithBox, WithDescription, WithLogo } from '../withs';
+import { WithDescription, WithLogo } from '../withs';
 import { Block, Icon } from '../atoms';
 import Link from '@material-ui/core/Link';
-import { AsComponent } from '../as';
+import { AsBox } from '../as';
 
 export function Footer({
     className,
@@ -64,7 +64,7 @@ export function Footer({
     );
 }
 
-export interface FooterProps extends AsComponent, WithDescription, WithLogo, WithBox {
+export interface FooterProps extends AsBox, WithDescription, WithLogo {
     contact?: any;
     links?: any;
     copyright?: rich_text;

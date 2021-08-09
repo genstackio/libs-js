@@ -6,8 +6,8 @@ import Text from './Text';
 import Div from './Div';
 import bgClass from '../utils/bgClass';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
-import { WithBox, WithTitle, WithSubtitle, WithIcon, WithButtonLabel, WithDropdownItems } from '../withs';
-import { AsWrapper } from '../as';
+import { WithTitle, WithSubtitle, WithIcon, WithButtonLabel, WithDropdownItems } from '../withs';
+import { AsBoxWrapper } from '../as';
 
 export function BlockHeader({
     className,
@@ -40,9 +40,8 @@ export function BlockHeader({
 }
 
 export interface BlockHeaderProps
-    extends AsWrapper,
+    extends AsBoxWrapper,
         WithDropdownItems,
-        WithBox,
         WithTitle,
         WithSubtitle,
         WithIcon,

@@ -4,8 +4,8 @@ import MenuItem from '../atoms/MenuItem';
 import SectionHeader from '../atoms/SectionHeader';
 import clsx from 'clsx';
 import boxColorClass from '../mappings/box-colors';
-import { WithBox, WithItemsOfMenu } from '../withs';
-import { AsComponent } from '../as';
+import { WithItemsOfMenu } from '../withs';
+import { AsBox } from '../as';
 
 export function Menu({ className, items = [], color = 'primary', variant = 'contained' }: MenuProps) {
     return (
@@ -23,7 +23,7 @@ export function Menu({ className, items = [], color = 'primary', variant = 'cont
     );
 }
 
-export interface MenuProps extends AsComponent, WithBox, WithItemsOfMenu {}
+export interface MenuProps extends AsBox, WithItemsOfMenu {}
 
 // noinspection JSUnusedGlobalSymbols
 export default Menu;

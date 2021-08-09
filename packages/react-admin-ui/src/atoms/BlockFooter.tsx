@@ -3,9 +3,9 @@ import Buttons from './Buttons';
 import { class_name } from '../types';
 import bgClass from '../utils/bgClass';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
-import { WithBox, WithButtons } from '../withs';
+import { WithButtons } from '../withs';
 import Div from './Div';
-import { AsWrapper } from '../as';
+import { AsBoxWrapper } from '../as';
 
 export function BlockFooter({
     className,
@@ -29,7 +29,7 @@ export function BlockFooter({
     );
 }
 
-export interface BlockFooterProps extends AsWrapper, WithButtons, WithBox {
+export interface BlockFooterProps extends AsBoxWrapper, WithButtons {
     buttonsClassName?: class_name;
 }
 

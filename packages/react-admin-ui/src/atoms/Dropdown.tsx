@@ -5,8 +5,8 @@ import textClass from '../utils/textClass';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import { makeStyles } from '@material-ui/core/styles';
-import { WithBox, WithItemsOfDropdown } from '../withs';
-import { AsComponent } from '../as';
+import { WithItemsOfDropdown } from '../withs';
+import { AsBox } from '../as';
 
 const useStyles = makeStyles({
     root: {
@@ -63,7 +63,7 @@ export function Dropdown({ className, color, items = [], variant }: DropdownProp
     );
 }
 
-export interface DropdownProps extends AsComponent, WithBox, WithItemsOfDropdown {}
+export interface DropdownProps extends AsBox, WithItemsOfDropdown {}
 
 // noinspection JSUnusedGlobalSymbols
 export default Dropdown;

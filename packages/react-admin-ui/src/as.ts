@@ -1,7 +1,9 @@
 import {
     WithAutoFocus,
+    WithBox,
     WithChildren,
     WithClassName,
+    WithColorOfBox,
     WithDefaultValueAsBoolean,
     WithDefaultValues,
     WithDisabled,
@@ -18,10 +20,15 @@ import {
     WithRequired,
     WithValue,
     WithValuesOfSelect,
+    WithVariantOfBlock,
     WithVariantOfField,
 } from './withs';
 
 export type AsComponent = WithClassName;
+
+export interface AsBox extends AsComponent, WithBox {}
+export interface AsBoxWrapper extends AsWrapper, WithBox {}
+export interface AsBlock extends AsWrapper, WithColorOfBox, WithVariantOfBlock {}
 
 export interface AsField
     extends AsComponent,

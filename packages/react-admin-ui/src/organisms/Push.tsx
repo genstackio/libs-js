@@ -4,9 +4,9 @@ import Image from '../atoms/Image';
 import Row from '../atoms/Row';
 import Text from '../atoms/Text';
 import { flag } from '../types';
-import { WithBox, WithButtonLabel, WithButtonTarget, WithImage, WithSubtitle, WithText, WithTitle } from '../withs';
+import { WithButtonLabel, WithButtonTarget, WithImage, WithSubtitle, WithText, WithTitle } from '../withs';
 import { Block } from '../atoms';
-import { AsComponent } from '../as';
+import { AsBox } from '../as';
 
 export function Push({
     className,
@@ -44,11 +44,10 @@ export function Push({
 }
 
 export interface PushProps
-    extends AsComponent,
+    extends AsBox,
         WithTitle,
         WithSubtitle,
         WithText,
-        WithBox,
         WithImage,
         WithButtonLabel,
         WithButtonTarget {

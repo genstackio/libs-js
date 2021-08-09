@@ -5,8 +5,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Row from '../atoms/Row';
 import Text from '../atoms/Text';
 import Block from '../atoms/Block';
-import { WithBox, WithImage, WithSubtitle, WithText, WithTitle } from '../withs';
-import { AsComponent } from '../as';
+import { WithImage, WithSubtitle, WithText, WithTitle } from '../withs';
+import { AsBox } from '../as';
 import { slide } from '../types';
 
 export function Slideshow({
@@ -64,7 +64,7 @@ export function Slideshow({
     );
 }
 
-export interface SlideshowProps extends AsComponent, WithTitle, WithSubtitle, WithText, WithBox, WithImage {
+export interface SlideshowProps extends AsBox, WithTitle, WithSubtitle, WithText, WithImage {
     slides?: slide[];
 }
 
