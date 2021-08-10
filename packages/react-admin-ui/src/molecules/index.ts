@@ -1,6 +1,7 @@
 export * from './actions';
 export * from './Accordion';
 export * from './AlertPanel';
+export * from './AppWall';
 export * from './ArgumentBlock';
 export * from './Avatars';
 export * from './BoxHeader';

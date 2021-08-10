@@ -1,4 +1,5 @@
 export * from './Alert';
+export * from './AppWallItem';
 export * from './Avatar';
 export * from './AvatarImage';
 export * from './AvatarInitials';
