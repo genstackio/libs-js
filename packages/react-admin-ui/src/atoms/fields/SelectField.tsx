@@ -22,10 +22,11 @@ export function SelectField({ className, values = [], onChange: parentOnChange, 
                 control={control}
                 defaultValue={defaultValue}
                 name={name}
-                render={({ onChange, value, name, ref }: any) => {
+                render={({ field: { ref, value, onChange, ...field } }: any) => {
+                    console.log(value);
                     return (
                         <Select
-                            name={name}
+                            {...field}
                             inputRef={ref}
                             isDisabled={disabled}
                             options={values}
