@@ -26,11 +26,11 @@ export function HeadingText({
     return !!title || !!subtitle ? (
         <Div full={full} className={clsx(className, center ? 'text-center' : '')}>
             <Div className={headerClassName}>
-                <Text text={title} color={color} variant={v['title'] as any || 'title'} className={titleClassName} />
+                <Text text={title} color={color} variant={(v['title'] as any) || 'title'} className={titleClassName} />
                 <Text
                     text={subtitle}
                     color={color}
-                    variant={v['subtitle'] as any || 'subtitle'}
+                    variant={(v['subtitle'] as any) || 'subtitle'}
                     className={subtitleClassName}
                 />
             </Div>
