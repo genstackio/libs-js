@@ -31,36 +31,48 @@ export function Footer({
                     </div>
                     <Text className={'mt-2 leading-loose'} variant={'overline'} text={copyright} />
                 </div>
-                { (links || contact) && <div className={'flex sm:flex-col'}>
-                    <div className={'px-8 xs:pt-8'}>
-                        <Text className={'mb-6'} variant={'section'} text={t('project_name')} />
-                        {links.map((link, index) => (
-                            <Link key={index} color="inherit" href={link.target} className={'block leading-loose'}>
-                                {link.label}
-                            </Link>
-                        ))}
+                {(links || contact) && (
+                    <div className={'flex sm:flex-col'}>
+                        <div className={'px-8 xs:pt-8'}>
+                            <Text className={'mb-6'} variant={'section'} text={t('project_name')} />
+                            {links.map((link, index) => (
+                                <Link key={index} color="inherit" href={link.target} className={'block leading-loose'}>
+                                    {link.label}
+                                </Link>
+                            ))}
+                        </div>
+                        {contact && (
+                            <div className={clsx('px-8', links ? 'sm:mt-6' : 'xs:pt-8')}>
+                                <Text className={'mb-6'} variant={'section'} text={t('footer_contact_us')} />
+                                <Link color="inherit" href={`tel:${contact?.phone}`} className={'block leading-loose'}>
+                                    {contact?.phone}
+                                </Link>
+                                <Link
+                                    color="inherit"
+                                    href={`mailto:${contact?.email}`}
+                                    className={'block leading-loose'}
+                                >
+                                    {contact?.email}
+                                </Link>
+                                <Text variant={'body'} text={contact?.address} className={'block leading-loose'} />
+                                {(contact.zipCode || contact.city) && (
+                                    <Text
+                                        variant={'body'}
+                                        text={
+                                            (contact.zipCode ? `${contact?.zipCode}` : '') +
+                                            (contact.zipCode && contact.city ? ' / ' : '') +
+                                            (contact.city ? `${contact?.city}` : '')
+                                        }
+                                        className={'block leading-loose'}
+                                    />
+                                )}
+                                <Link href={contact?.facebook}>
+                                    <Icon icon={'fa-fab--facebook-square'} className={'mt-2'} size={'md'} />
+                                </Link>
+                            </div>
+                        )}
                     </div>
-                    { contact && <div className={clsx('px-8', links ? 'sm:mt-6' : 'xs:pt-8')}>
-                        <Text className={'mb-6'} variant={'section'} text={t('footer_contact_us')} />
-                        <Link color="inherit" href={`tel:${contact?.phone}`} className={'block leading-loose'}>
-                            {contact?.phone}
-                        </Link>
-                        <Link color="inherit" href={`mailto:${contact?.email}`} className={'block leading-loose'}>
-                            {contact?.email}
-                        </Link>
-                        <Text variant={'body'} text={contact?.address} className={'block leading-loose'} />
-                        { (contact.zipCode || contact.city) && <Text
-                            variant={'body'}
-                            text={(contact.zipCode ? `${contact?.zipCode}` : '') +
-                            (contact.zipCode && contact.city ? ' / ' : '') +
-                            (contact.city ? `${contact?.city}` : '')}
-                            className={'block leading-loose'}
-                        />}
-                        <Link href={contact?.facebook}>
-                            <Icon icon={'fa-fab--facebook-square'} className={'mt-2'} size={'md'} />
-                        </Link>
-                    </div>}
-                </div>}
+                )}
             </Row>
         </Block>
     );

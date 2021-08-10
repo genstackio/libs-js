@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import Image from '../atoms/Image';
 import Block from '../atoms/Block';
-import { Text } from '../atoms';
-import { WithButton, WithImage, WithSubtitle, WithTitle } from '../withs';
+import HeadingText from '../atoms/HeadingText';
+import { WithButton, WithHeadingText, WithImage } from '../withs';
 import { flag } from '../types';
 import Button from '../atoms/Button';
 import { AsComponent } from '../as';
@@ -11,6 +11,7 @@ export function ArgumentBlock({
     className,
     title,
     subtitle,
+    description,
     image,
     noImage = false,
     noShadow = false,
@@ -29,20 +30,17 @@ export function ArgumentBlock({
             elevation={noShadow ? 0 : 2}
         >
             <div className={'flex-1 p-4 lg:p-3 sm:p-2 bg-clear'}>
-                <Text variant={'title6'} text={title} />
-                <Text variant={'subtitle'} text={subtitle} />
-                {btnLabel && (
-                    <Button
-                        color={btnColor || 'primary'}
-                        variant={(btnType as any) || 'outlined'}
-                        onClick={btnTarget}
-                        className={'mt-2'}
-                        icon={btnIcon}
-                        endIcon={btnEndIcon}
-                    >
-                        {btnLabel}
-                    </Button>
-                )}
+                <HeadingText title={title} subtitle={subtitle} description={description} variant={'xxsmall3'} />
+                <Button
+                    color={btnColor || 'primary'}
+                    variant={(btnType as any) || 'outlined'}
+                    onClick={btnTarget}
+                    className={'mt-2'}
+                    icon={btnIcon}
+                    endIcon={btnEndIcon}
+                >
+                    {btnLabel}
+                </Button>
             </div>
             {!noImage && (
                 <div className={'leading-none'}>
@@ -54,7 +52,7 @@ export function ArgumentBlock({
     );
 }
 
-export interface ArgumentBlockProps extends AsComponent, WithTitle, WithSubtitle, WithImage, WithButton {
+export interface ArgumentBlockProps extends AsComponent, WithHeadingText, WithImage, WithButton {
     noImage?: flag;
     noShadow?: flag;
 }

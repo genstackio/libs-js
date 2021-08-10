@@ -6,7 +6,7 @@ import { WithImage, WithShape, WithSizeOfAvatar } from '../withs';
 import { AsComponent } from '../as';
 
 export function AvatarImage({ image, size, shape, className }: AvatarImageProps) {
-    return <Image {...image} className={clsx(avatarSizeClass(size), shapeClass(shape), className)} />;
+    return image ? <Image {...image} className={clsx(avatarSizeClass(size), shapeClass(shape), className)} /> : null;
 }
 
 export interface AvatarImageProps extends AsComponent, WithSizeOfAvatar, WithImage, WithShape {}

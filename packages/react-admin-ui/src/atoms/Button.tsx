@@ -16,6 +16,7 @@ import {
     WithOnClick,
     WithAutoFocus,
     WithEndIcon,
+    WithLabel,
 } from '../withs';
 import { useConfirmable } from '../hooks';
 import { AsBoxWrapper } from '../as';
@@ -41,6 +42,7 @@ export function Button({
     autoFocus = false,
     endIcon,
     endIconSize,
+    label,
 }: ButtonProps) {
     const handleClick = useCallback(
         (event) => {
@@ -59,6 +61,8 @@ export function Button({
     });
     disabled = disabled || loading;
     const boxProviderValue = useMemo(() => ({ color, variant }), [color, variant]);
+
+    if (!children && !icon && !endIcon) return null;
 
     const content = (
         <button
@@ -81,7 +85,7 @@ export function Button({
                 {!loading && (
                     <>
                         <Icon icon={icon} size={iconSize} className={children && icon ? 'mr-2' : undefined} />
-                        {children || ''}
+                        {label || children || ''}
                         <Icon icon={endIcon} size={endIconSize} className={children && endIcon ? 'ml-2' : undefined} />
                     </>
                 )}
@@ -94,6 +98,7 @@ export function Button({
 
 export interface ButtonProps
     extends AsBoxWrapper,
+        WithLabel,
         WithIcon,
         WithEndIcon,
         WithSize,
