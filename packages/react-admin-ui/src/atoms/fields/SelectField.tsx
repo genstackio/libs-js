@@ -23,7 +23,6 @@ export function SelectField({ className, values = [], onChange: parentOnChange, 
                 defaultValue={defaultValue}
                 name={name}
                 render={({ field: { ref, value, onChange, ...field } }: any) => {
-                    console.log(value);
                     return (
                         <Select
                             {...field}
