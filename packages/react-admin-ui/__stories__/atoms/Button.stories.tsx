@@ -49,6 +49,14 @@ export const withEndIcon = s(Template, {
     endIcon: 'fa-fas--arrow-right',
 });
 
+export const withLoading = s(Template, {
+    children: 'label',
+    color: 'primary',
+    variant: 'contained',
+    endIcon: 'fa-fas--arrow-right',
+    loading: true,
+});
+
 export const showcase = s(
     (args) => (
         <div className={'space-y-2'}>
@@ -172,3 +180,4 @@ export const showcase = s(
     ),
     {},
 );
+
