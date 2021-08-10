@@ -34,6 +34,9 @@ export default {
             mood_good: 'Bon',
             mood_very_good: 'Très bon',
 
+            role_user_label: 'Utilisateur',
+            role_admin_label: 'Administrateur',
+
             error_action_login_bad_credentials: 'Identifiant ou mot de passe incorrect',
 
             footer_contact_us: 'Nous contacter',
@@ -305,6 +308,9 @@ export default {
             mood_good: 'Bene',
             mood_very_good: 'Molto Buona',
 
+            role_user_label: 'Utante',
+            role_admin_label: 'Ammin',
+
             error_action_login_bad_credentials: 'Nome utente o password errati',
 
             footer_contact_us: 'Contattaci',
@@ -493,6 +499,9 @@ export default {
             mood_normal: 'Normal',
             mood_good: 'Good',
             mood_very_good: 'Very Good',
+
+            role_user_label: 'User',
+            role_admin_label: 'Admin',
 
             error_action_login_bad_credentials: 'Bad credentials',
 

@@ -4,6 +4,7 @@ import {
     WithChildren,
     WithClassName,
     WithColorOfBox,
+    WithDefaultValue,
     WithDefaultValueAsBoolean,
     WithDefaultValues,
     WithDisabled,
@@ -51,6 +52,6 @@ export interface AsField
 export interface AsFlagField extends AsField, WithDefaultValueAsBoolean {}
 export interface AsTextField extends AsField, WithValue {}
 
-export interface AsChoiceField extends AsField, WithValuesOfSelect {}
+export interface AsChoiceField extends AsField, WithValuesOfSelect, WithDefaultValue {}
 
 export interface AsWrapper extends AsComponent, WithChildren {}

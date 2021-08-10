@@ -29,6 +29,7 @@ export * from './PasswordField';
 export * from './PhoneField';
 export * from './PrivacyPolicyField';
 export * from './RememberPasswordField';
+export * from './RoleField';
 export * from './SelectField';
 export * from './SwitchField';
 export * from './TextareaField';
