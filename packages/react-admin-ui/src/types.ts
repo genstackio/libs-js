@@ -88,7 +88,13 @@ export type list_global_action = string | any;
 export type list = { columns?: list_column[]; actions?: list_action[]; globalActions?: list_global_action[] };
 export type select_item = { value?: string; label?: rich_text };
 export type news_item = { title?: rich_text; content?: rich_text };
-export type tab_item = { title?: rich_text; content?: rich_text; disabled?: flag };
+export type tab_item = {
+    title?: rich_text;
+    content?: rich_text;
+    disabled?: flag;
+    component?: ComponentType<any>;
+    props?: any;
+};
 export type corner_item = { color?: box_color; icon?: icon; text?: rich_text; variant?: box_variant };
 export type action_item = {
     color?: box_color;

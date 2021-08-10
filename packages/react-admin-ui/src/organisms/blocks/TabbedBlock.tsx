@@ -7,7 +7,7 @@ import Block, { BaseBlockProps } from '../../atoms/Block';
 import TabPanel from '../../molecules/TabPanel';
 import { WithItemsOfTabs } from '../../withs';
 
-export function TabbedBlock({ items = [], ...props }: TabbedBlockProps) {
+export function TabbedBlock({ items = [], tabProps = {}, ...props }: TabbedBlockProps) {
     const [value, setValue] = useState(0);
     const handleChange = useCallback((event: ChangeEvent, newValue: number) => setValue(newValue), [setValue]);
     return (
@@ -34,16 +34,18 @@ export function TabbedBlock({ items = [], ...props }: TabbedBlockProps) {
                     ))}
                 </Tabs>
             </AppBar>
-            {items.map(({ content }, index) => (
+            {items.map(({ content = null, component: Component, props = {} }, index) => (
                 <TabPanel value={value} index={index} key={index}>
-                    {content}
+                    {Component ? <Component {...tabProps} {...props} /> : content}
                 </TabPanel>
             ))}
         </Block>
     );
 }
 
-export interface TabbedBlockProps extends BaseBlockProps, WithItemsOfTabs {}
+export interface TabbedBlockProps extends BaseBlockProps, WithItemsOfTabs {
+    tabProps?: any;
+}
 
 // noinspection JSUnusedGlobalSymbols
 export default TabbedBlock;
