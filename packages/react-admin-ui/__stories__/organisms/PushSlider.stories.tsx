@@ -15,23 +15,23 @@ export const basic = s(Template, {
     items: [
         {
             title: 'Un titre',
-            subTitle: 'Un sous-titre',
-            text: 'Le texte qui va avec',
+            subtitle: 'Un sous-titre',
+            description: 'Le texte qui va avec',
             btnLabel: 'Cliquez ici',
             image: { url: 'https://via.placeholder.com/687x426?text=Image' },
         },
         {
             title: 'Un autre titre',
-            subTitle: 'Un autre sous-titre',
-            text: 'Encore un texte qui va avec mais qui cette fois est un petit peu plus long',
+            subtitle: 'Un autre sous-titre',
+            description: 'Encore un texte qui va avec mais qui cette fois est un petit peu plus long',
             btnLabel: 'Mon Bouton',
             image: { url: 'https://via.placeholder.com/687x426?text=Image' },
             bgImage: { url: 'https://via.placeholder.com/687x426?text=Image' },
         },
         {
             title: 'Le dernier titre',
-            subTitle: 'Le dernier sous-titre',
-            text:
+            subtitle: 'Le dernier sous-titre',
+            description:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet quam imperdiet diam' +
                 ' rhoncus faucibus eget gravida purus. Maecenas maximus neque ut lorem feugiat, nec maximus risus' +
                 ' rhoncus. Cras pharetra, dolor a lobortis cursus, nisl sem vehicula leo, vitae iaculis purus tortor' +

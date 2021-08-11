@@ -52,6 +52,8 @@ import {
     tab_item,
     select_item,
     rating_value,
+    push_image_position,
+    push_item,
 } from './types';
 import { padding } from './mappings/paddings';
 import { alignment } from './mappings/alignments';
@@ -68,16 +70,12 @@ import { thumbnail_size } from './mappings/thumbnail-sizes';
 import { field_variant } from './mappings/field-variants';
 import { label_placement } from './mappings/label-placements';
 import { heading_text_variant } from './mappings/heading-text-variants';
-import { AsComponent } from './as';
 
 export interface WithCenter {
     center?: flag;
 }
 export interface WithClassName {
     className?: class_name;
-}
-export interface WithButtons {
-    buttons?: any[];
 }
 
 // WithTitle
@@ -181,6 +179,12 @@ export interface WithItems {
 }
 export interface WithItemsOfTimeline {
     items?: timeline_item[];
+}
+export interface WithItemsOfPush {
+    items?: push_item[];
+}
+export interface WithItemsOfButtonItems {
+    items?: any[];
 }
 export interface WithItemsOfTabs {
     items?: tab_item[];
@@ -302,6 +306,24 @@ export interface WithButton2Color {
 export interface WithButton3Color {
     btn3Color?: box_color;
 }
+export interface WithButtonSize {
+    btnSize?: size;
+}
+export interface WithButton2Size {
+    btn2Size?: size;
+}
+export interface WithButton3Size {
+    btn3Size?: size;
+}
+export interface WithButtonCorner {
+    btnCorner?: corner;
+}
+export interface WithButton2Corner {
+    btn2Corner?: corner;
+}
+export interface WithButton3Corner {
+    btn3Corner?: corner;
+}
 export interface WithButtonIcon {
     btnIcon?: rich_text;
 }
@@ -319,6 +341,15 @@ export interface WithButton2EndIcon {
 }
 export interface WithButton3EndIcon {
     btn3EndIcon?: rich_text;
+}
+export interface WithButtonClassName {
+    btnClassName?: class_name;
+}
+export interface WithButton2ClassName {
+    btn2ClassName?: class_name;
+}
+export interface WithButton3ClassName {
+    btn3ClassName?: class_name;
 }
 export interface WithHoverable {
     hoverable?: flag;
@@ -622,6 +653,9 @@ export interface WithButton
         WithButtonColor,
         WithButtonLabel,
         WithButtonIcon,
+        WithButtonClassName,
+        WithButtonSize,
+        WithButtonCorner,
         WithButtonEndIcon {}
 export interface WithButton2
     extends WithButton2Type,
@@ -629,6 +663,9 @@ export interface WithButton2
         WithButton2Color,
         WithButton2Label,
         WithButton2Icon,
+        WithButton2ClassName,
+        WithButton2Size,
+        WithButton2Corner,
         WithButton2EndIcon {}
 export interface WithButton3
     extends WithButton3Type,
@@ -636,6 +673,23 @@ export interface WithButton3
         WithButton3Color,
         WithButton3Label,
         WithButton3Icon,
+        WithButton3ClassName,
+        WithButton3Size,
+        WithButton3Corner,
         WithButton3EndIcon {}
 
-export interface WithHeadingText extends AsComponent, WithTitle, WithSubtitle, WithDescription, WithCenter {}
+export interface WithButtons extends WithButton, WithButton2, WithButton3 {}
+
+export interface WithHeadingText extends WithTitle, WithSubtitle, WithDescription, WithCenter {}
+
+export interface WithPositionOfPushImage {
+    imagePosition?: push_image_position;
+}
+
+export interface WithPush
+    extends WithHeadingText,
+        WithImage,
+        WithButton,
+        WithButton2,
+        WithButton3,
+        WithPositionOfPushImage {}

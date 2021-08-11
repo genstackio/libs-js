@@ -20,7 +20,6 @@ import {
     WithHoverAnimation,
     WithOnClick,
     WithVariantOfBlock,
-    WithButtons,
 } from '../withs';
 import { AsWrapper } from '../as';
 
@@ -100,11 +99,11 @@ export interface BaseBlockProps
         WithActive,
         WithHoverable,
         WithOnClick,
-        WithButtons,
         WithHoverAnimation {
     headerClassName?: class_name;
     contentClassName?: class_name;
     footerClassName?: class_name;
+    buttons?: any[];
 }
 
 export interface BlockProps extends BaseBlockProps, WithImage {}

@@ -1,4 +1,4 @@
-import Push from './Push';
+import Push from '../molecules/Push';
 import SwiperCore, { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Row from '../atoms/Row';

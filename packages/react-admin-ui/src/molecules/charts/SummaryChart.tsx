@@ -1,22 +1,24 @@
 import clsx from 'clsx';
-import Button from '../../atoms/Button';
 import { icon } from '../../types';
 import Icon from '../../atoms/Icon';
 import AreaLineChart from './AreaLineChart';
 import { boxColorClass } from '../../mappings/box-colors';
-import { WithColorOfBox, WithButtonLabel, WithSubtitle, WithTitle } from '../../withs';
+import { WithColorOfBox, WithSubtitle, WithTitle, WithButtons } from '../../withs';
 import { AsComponent } from '../../as';
+import { Buttons } from '../../atoms';
+import useButtons from '../../hooks/useButtons';
 
 export function SummaryChart({
     className,
     chartItems = [],
-    btnLabel,
     datas,
     dashboardItems = [],
     subtitle,
     title,
+    color,
     ...props
 }: SummaryChartProps) {
+    const [buttonsProps] = useButtons(props);
     return (
         <div className={clsx('w-full grid grid-cols-4', className)}>
             <div
@@ -27,11 +29,7 @@ export function SummaryChart({
                         {title && <div className={'font-bold'}>{title}</div>}
                         {subtitle && <div className={'text-sm'}>{subtitle}</div>}
                     </div>
-                    {btnLabel && (
-                        <Button className={'hidden md:block'} color={props.color} variant={'contained'}>
-                            {btnLabel}
-                        </Button>
-                    )}
+                    <Buttons className={'hidden md:block'} {...buttonsProps} btnColor={color} />
                 </div>
                 {dashboardItems && (
                     <div className={'mb-2 md:flex md:flex-wrap md:justify-between md:items-center'}>
@@ -43,14 +41,10 @@ export function SummaryChart({
                         ))}
                     </div>
                 )}
-                {btnLabel && (
-                    <Button className={'self-start md:hidden'} color={props.color} variant={'contained'}>
-                        {btnLabel}
-                    </Button>
-                )}
+                <Buttons className={'self-start md:hidden'} {...buttonsProps} btnColor={color} />
             </div>
             <div className={'col-span-3 md:col-span-4'}>
-                <AreaLineChart datas={datas} color={props.color} />
+                <AreaLineChart datas={datas} color={color} />
                 {chartItems && (
                     <div
                         className={
@@ -62,7 +56,7 @@ export function SummaryChart({
                                 <div
                                     className={clsx(
                                         'w-10 h-10 rounded-full flex justify-center items-center hover:animate-pulse',
-                                        boxColorClass(props.color),
+                                        boxColorClass(color as any),
                                     )}
                                 >
                                     <Icon icon={icon} />
@@ -80,7 +74,7 @@ export function SummaryChart({
     );
 }
 
-export interface SummaryChartProps extends AsComponent, WithColorOfBox, WithButtonLabel, WithTitle, WithSubtitle {
+export interface SummaryChartProps extends AsComponent, WithColorOfBox, WithButtons, WithTitle, WithSubtitle {
     datas: {
         categories?: string[];
         colors?: string[];

@@ -32,7 +32,7 @@ export function Button({
     iconSize,
     size = 'md',
     onClick,
-    variant = 'filled',
+    variant = 'contained',
     corner = 'rounded-xxsmall',
     confirm = false,
     confirmTitle,
@@ -62,7 +62,7 @@ export function Button({
     disabled = disabled || loading;
     const boxProviderValue = useMemo(() => ({ color, variant }), [color, variant]);
 
-    if (!children && !icon && !endIcon) return null;
+    if (!label && !children && !icon && !endIcon) return null;
 
     const content = (
         <button

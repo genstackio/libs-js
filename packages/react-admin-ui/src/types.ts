@@ -229,3 +229,10 @@ export type user_role = {
     value: string;
     label: string;
 };
+
+export type push_image_position = 'left' | 'right' | 'top' | 'bottom';
+
+export type push_item = {
+    btnLabel?: rich_text;
+    btnTarget?: target;
+};

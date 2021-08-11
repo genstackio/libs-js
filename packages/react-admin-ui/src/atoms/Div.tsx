@@ -8,6 +8,7 @@ export function Div({
     padding = 'none',
     center = false,
     full = false,
+    auto = false,
     inline = false,
     relative = false,
     flex = false,
@@ -19,6 +20,7 @@ export function Div({
             className={clsx(
                 paddingClass(padding),
                 center && 'flex items-center justify-center',
+                auto && 'w-auto',
                 full && 'w-full',
                 inline && 'inline-block',
                 relative && 'relative',
@@ -36,6 +38,7 @@ export interface DivProps extends AsWrapper, WithPadding, WithCenter {
     inline?: flag;
     relative?: flag;
     flex?: flag;
+    auto?: flag;
 }
 
 // noinspection JSUnusedGlobalSymbols

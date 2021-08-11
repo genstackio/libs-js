@@ -18,6 +18,12 @@ export const basic = s(Template, {
     title: 'this is the title',
 });
 
+export const withButtons = s(Template, {
+    title: 'this is the title',
+    btnLabel: 'ClickMe!',
+    btn2Label: 'MeToo!',
+});
+
 export const withLogo = s(Template, {
     title: 'this is the title',
     icon: 'fa-fas--arrow-right',
