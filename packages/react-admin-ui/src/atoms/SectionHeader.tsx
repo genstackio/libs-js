@@ -3,18 +3,17 @@ import Block from './Block';
 import { WithHeadingText } from '../withs';
 import { AsBlock } from '../as';
 import HeadingText from './HeadingText';
+import useHeadingText from '../hooks/useHeadingText';
 
 export function SectionHeader({
     className,
     color = 'primary',
-    title,
-    subtitle,
-    description,
     variant = 'contained',
-    center,
     children,
+    ...props
 }: SectionHeaderProps) {
-    return title || subtitle ? (
+    const [htProps, , hasContent] = useHeadingText(props);
+    return hasContent ? (
         <Block
             padding={'small'}
             elevation={0}
@@ -23,14 +22,7 @@ export function SectionHeader({
             variant={variant}
             corner={'rounded-small'}
         >
-            <HeadingText
-                title={title}
-                subtitle={subtitle}
-                description={description}
-                center={center}
-                variant={'xsection'}
-                color={color}
-            />
+            <HeadingText {...htProps} variant={'xsection'} color={color} />
             {children || ''}
         </Block>
     ) : null;

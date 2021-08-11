@@ -9,36 +9,27 @@ import { AsBoxWrapper } from '../as';
 import HeadingText from './HeadingText';
 import useButtons from '../hooks/useButtons';
 import Buttons from './Buttons';
+import useHeadingText from '../hooks/useHeadingText';
 
 export function BlockHeader({
     className,
     color = 'primary',
     dropdownItems,
     icon,
-    title,
-    subtitle,
-    description,
     variant = 'filled',
-    center,
     children,
     ...props
 }: BlockHeaderProps) {
-    const [buttonsProps] = useButtons(props);
-    return title ? (
+    const [buttonsProps, rest] = useButtons(props);
+    const [htProps] = useHeadingText(rest);
+    return props.title ? (
         <Div
             padding={'default'}
             className={clsx(bgClass({ color, variant }), 'border-b-1 flex justify-between items-center', className)}
         >
             <BoxProvider value={{ color, variant }}>
-                <HeadingText
-                    full
-                    center={center}
-                    title={title}
-                    subtitle={subtitle}
-                    description={description}
-                    variant={'smmd'}
-                />
-                <Buttons className={'flex justify-end'} {...buttonsProps} />
+                <HeadingText {...htProps} full variant={'smmd'} />
+                <Buttons {...buttonsProps} className={'flex justify-end'} />
                 <Dropdown items={dropdownItems} color={color} variant={variant} />
                 <Icon icon={icon} />
                 {children || ''}

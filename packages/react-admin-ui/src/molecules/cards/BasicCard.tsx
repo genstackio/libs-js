@@ -2,10 +2,12 @@ import Block, { BaseBlockProps } from '../../atoms/Block';
 import Image from '../../atoms/Image';
 import Text from '../../atoms/Text';
 import { WithDescription, WithImage, WithOnClick } from '../../withs';
+import { useBlock } from '../../hooks';
 
 export function BasicCard({ description, image, title, ...props }: BasicCardProps) {
+    const [bProps] = useBlock(props, { padding: 'xsmall' });
     return (
-        <Block padding={'xsmall'} {...props}>
+        <Block {...bProps}>
             {image && <Image className={'w-full'} {...image} />}
             <Text className={'my-4'} variant={'title4'} text={title} />
             <Text variant={'description'} text={description} />

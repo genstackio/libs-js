@@ -14,6 +14,7 @@ import {
 import clsx from 'clsx';
 import { AsComponent } from '../as';
 import HeadingText from './HeadingText';
+import useHeadingText from '../hooks/useHeadingText';
 
 export function Avatar({
     className,
@@ -26,7 +27,9 @@ export function Avatar({
     subtitle,
     center,
     color,
+    ...props
 }: AvatarProps) {
+    const [htProps] = useHeadingText(props);
     const hasTitleOrSubtitle = !!title || !!subtitle;
     return (
         <Div
@@ -37,14 +40,7 @@ export function Avatar({
             {!image && <AvatarInitials size={size} shape={shape} name={name} />}
             <AvatarImage size={size} shape={shape} image={image} />
             {status && <BuddyStatus status={status} />}
-            <HeadingText
-                title={title}
-                subtitle={subtitle}
-                variant={'xxsmall'}
-                color={color}
-                center={center}
-                className={'pl-4'}
-            />
+            <HeadingText {...htProps} color={color} className={'pl-4'} variant={'xxsmall'} />
         </Div>
     );
 }

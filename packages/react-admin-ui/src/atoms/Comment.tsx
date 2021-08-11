@@ -1,16 +1,15 @@
 import clsx from 'clsx';
-import { WithColorOfText, WithHeadingText, WithMessage } from '../withs';
+import { WithColorOfText, WithHeadingText } from '../withs';
 import { AsComponent } from '../as';
 import HeadingText from './HeadingText';
+import useHeadingText from '../hooks/useHeadingText';
 
-export function Comment({ title, subtitle, center, color, message, className }: CommentProps) {
+export function Comment({ color, className, ...props }: CommentProps) {
+    const [htProps] = useHeadingText(props);
     return (
         <HeadingText
-            title={title}
-            subtitle={subtitle}
-            description={message}
+            {...htProps}
             variant={'xsmall'}
-            center={center}
             color={color || 'dark'}
             className={clsx('p-4', className)}
             headerClassName={'flex items-end'}
@@ -21,7 +20,7 @@ export function Comment({ title, subtitle, center, color, message, className }: 
     );
 }
 
-export interface CommentProps extends AsComponent, WithColorOfText, WithHeadingText, WithMessage {}
+export interface CommentProps extends AsComponent, WithColorOfText, WithHeadingText {}
 
 // noinspection JSUnusedGlobalSymbols
 export default Comment;

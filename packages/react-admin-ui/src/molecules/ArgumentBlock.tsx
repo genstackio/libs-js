@@ -6,12 +6,10 @@ import { WithButton, WithHeadingText, WithImage } from '../withs';
 import { flag } from '../types';
 import Button from '../atoms/Button';
 import { AsComponent } from '../as';
+import useHeadingText from '../hooks/useHeadingText';
 
 export function ArgumentBlock({
     className,
-    title,
-    subtitle,
-    description,
     image,
     noImage = false,
     noShadow = false,
@@ -21,7 +19,9 @@ export function ArgumentBlock({
     btnEndIcon,
     btnType,
     btnColor,
+    ...props
 }: ArgumentBlockProps) {
+    const [htProps] = useHeadingText(props);
     return (
         <Block
             padding={'none'}
@@ -30,7 +30,7 @@ export function ArgumentBlock({
             elevation={noShadow ? 0 : 2}
         >
             <div className={'flex-1 p-4 lg:p-3 sm:p-2 bg-clear'}>
-                <HeadingText title={title} subtitle={subtitle} description={description} variant={'xxsmall3'} />
+                <HeadingText {...htProps} variant={'xxsmall3'} />
                 <Button
                     color={btnColor || 'primary'}
                     variant={(btnType as any) || 'outlined'}
