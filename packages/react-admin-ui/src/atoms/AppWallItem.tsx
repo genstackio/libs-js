@@ -8,7 +8,7 @@ export function AppWallItem({ image, title, target }: AppWallItemProps) {
     return (
         <Clickable className={'flex flex-col items-center w-16 h-16'} onClick={target}>
             <Image {...image} corner={'rounded'} />
-            <Text text={title} variant={'description'} />
+            <Text text={title} variant={'description'} maxLen={12} ellipsis={'...'} />
         </Clickable>
     );
 }

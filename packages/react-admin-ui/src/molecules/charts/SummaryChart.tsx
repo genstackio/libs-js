@@ -29,7 +29,7 @@ export function SummaryChart({
                         {title && <div className={'font-bold'}>{title}</div>}
                         {subtitle && <div className={'text-sm'}>{subtitle}</div>}
                     </div>
-                    <Buttons className={'hidden md:block'} {...buttonsProps} btnColor={color} />
+                    <Buttons {...buttonsProps} btnColor={color} className={'hidden md:block'} />
                 </div>
                 {dashboardItems && (
                     <div className={'mb-2 md:flex md:flex-wrap md:justify-between md:items-center'}>
@@ -41,7 +41,7 @@ export function SummaryChart({
                         ))}
                     </div>
                 )}
-                <Buttons className={'self-start md:hidden'} {...buttonsProps} btnColor={color} />
+                <Buttons {...buttonsProps} btnColor={color} className={'self-start md:hidden'} />
             </div>
             <div className={'col-span-3 md:col-span-4'}>
                 <AreaLineChart datas={datas} color={color} />

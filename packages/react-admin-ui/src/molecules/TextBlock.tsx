@@ -4,10 +4,12 @@ import Block, { BaseBlockProps } from '../atoms/Block';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
 import { WithIcon, WithText, WithTitle } from '../withs';
+import { useBlock } from '../hooks';
 
 export function TextBlock({ icon, text, title, ...props }: TextBlockProps) {
+    const [bProps] = useBlock(props);
     return (
-        <Block {...props}>
+        <Block {...bProps}>
             <div
                 className={clsx(
                     textClass({ color: props.color, variant: props.variant }),
@@ -17,7 +19,7 @@ export function TextBlock({ icon, text, title, ...props }: TextBlockProps) {
                 <div className={'flex-col'}>
                     <Text className={'flex-1'} text={title} variant={'title5'} />
                     <div className={'text-md flex-1'}>
-                        <Text text={text || ''} variant={'body'} />
+                        <Text text={text} variant={'body'} />
                     </div>
                 </div>
                 <Icon icon={icon} />

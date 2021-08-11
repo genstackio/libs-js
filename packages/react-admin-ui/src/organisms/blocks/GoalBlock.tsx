@@ -2,16 +2,18 @@ import Badge from '../../atoms/Badge';
 import Block, { BaseBlockProps } from '../../atoms/Block';
 import Progress from '../../atoms/Progress';
 import formatAmount from '../../utils/formatAmount';
+import { useBlock } from '../../hooks';
 
 export function GoalBlock({ badgeLabel, unit, values, ...props }: GoalBlockProps) {
+    const [bProps] = useBlock(props);
     const progressValue = Math.round((values.current / values.goal) * 100);
     return (
-        <Block {...props}>
+        <Block {...bProps}>
             <div className={'flex justify-between items-center'}>
                 <div className={'space-y-2'}>
                     <div className={'flex justify-between items-center space-x-4 xs:space-x-2'}>
                         <div className={'text-2xl font-semibold'}>{formatAmount(values.current, unit)}</div>
-                        {badgeLabel && <Badge type={'tag'} color={props.color} text={badgeLabel} />}
+                        <Badge type={'tag'} color={props.color} text={badgeLabel} />
                     </div>
                     <div className={'text-sm font-light'}>{values.text}</div>
                 </div>

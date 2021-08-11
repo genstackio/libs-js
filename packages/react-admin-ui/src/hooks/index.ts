@@ -1,4 +1,5 @@
 export * from './useAction';
+export * from './useActivator';
 export * from './useBlock';
 export * from './useButtons';
 export * from './useConfirmable';

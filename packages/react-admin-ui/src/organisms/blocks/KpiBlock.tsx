@@ -1,22 +1,18 @@
-import { useCallback, useState } from 'react';
 import clsx from 'clsx';
 import Block, { BaseBlockProps } from '../../atoms/Block';
 import Icon from '../../atoms/Icon';
 import Kpi from '../../molecules/Kpi';
+import useBlock from '../../hooks/useBlock';
+import useActivator from '../../hooks/useActivator';
 import { icon } from '../../types';
 import { WithIcon, WithName, WithQuantity } from '../../withs';
 
 export function KpiBlock({ icon, name, quantity, bgIcon, ...props }: KpiBlockProps) {
-    const [isHover, setIsHover] = useState(false);
-    const onHover = useCallback(() => {
-        setIsHover(true);
-    }, [setIsHover]);
-    const onLeave = useCallback(() => {
-        setIsHover(false);
-    }, [setIsHover]);
+    const [bProps] = useBlock(props);
+    const [isHover, onHover, onLeave] = useActivator(false);
 
     return (
-        <Block {...props}>
+        <Block {...bProps}>
             <div className={'flex justify-between items-center'} onMouseOver={onHover} onMouseLeave={onLeave}>
                 <Kpi icon={icon} name={name} quantity={quantity} color={props.color} />
                 {bgIcon && (

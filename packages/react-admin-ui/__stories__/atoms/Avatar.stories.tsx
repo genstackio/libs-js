@@ -7,7 +7,7 @@ export default {
     argTypes: a({
         name: args.name,
         image: args.image,
-        size: args.size,
+        size: args.avatarSize,
         shape: args.shape,
         status: args.status,
         title: args.title,

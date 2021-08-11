@@ -16,31 +16,18 @@ import { AsComponent } from '../as';
 import HeadingText from './HeadingText';
 import useHeadingText from '../hooks/useHeadingText';
 
-export function Avatar({
-    className,
-    image,
-    name,
-    size,
-    shape = 'circular',
-    status,
-    title,
-    subtitle,
-    center,
-    color,
-    ...props
-}: AvatarProps) {
-    const [htProps] = useHeadingText(props);
-    const hasTitleOrSubtitle = !!title || !!subtitle;
+export function Avatar({ className, image, name, size, shape = 'circular', status, color, ...props }: AvatarProps) {
+    const [htProps, , hasContent] = useHeadingText(props, { color, className: 'pl-4', variant: 'xxsmall' });
     return (
         <Div
             center
             relative={!!status}
-            className={clsx(className, !hasTitleOrSubtitle && 'inline-block', hasTitleOrSubtitle && 'inline-flex')}
+            className={clsx(className, !hasContent && 'inline-block', hasContent && 'inline-flex')}
         >
             {!image && <AvatarInitials size={size} shape={shape} name={name} />}
             <AvatarImage size={size} shape={shape} image={image} />
             {status && <BuddyStatus status={status} />}
-            <HeadingText {...htProps} color={color} className={'pl-4'} variant={'xxsmall'} />
+            <HeadingText {...htProps} />
         </Div>
     );
 }

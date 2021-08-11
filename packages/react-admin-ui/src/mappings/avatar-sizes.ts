@@ -9,7 +9,7 @@ export const avatarSizes = {
     xl: 'w-24 h-24 text-5xl',
 };
 
-export const avatarSizeValues = Object.values(avatarSizes);
+export const avatarSizeValues = Object.keys(avatarSizes);
 
 export type avatar_size = 'xs' | 'xsm' | 'sm' | 'md' | 'lg' | 'xl';
 

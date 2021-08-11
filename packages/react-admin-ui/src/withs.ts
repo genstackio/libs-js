@@ -594,6 +594,9 @@ export interface WithOnClick {
 export interface WithSlide {
     slide: slide;
 }
+export interface WithSlides {
+    slides?: slide[];
+}
 
 export interface WithIndex {
     index?: number;

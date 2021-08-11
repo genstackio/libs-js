@@ -8,6 +8,7 @@ export const headingTextVariants = {
     xxsmall3: { title: 'title6', subtitle: 'subtitle' },
     xsmall: { title: 'subtitle', subtitle: 'xsmall' },
     smmd: { title: 'title5', subtitle: 'overline' },
+    smmd2: { title: 'title5', subtitle: 'subtitle' },
     medium: { title: 'title3', subtitle: 'subtitle' },
     medium2: { title: 'title3', subtitle: 'subtitle', description: 'body' },
     medium3: { title: 'body', subtitle: 'title4' },
@@ -28,6 +29,7 @@ export type heading_text_variant =
     | 'xsmall'
     | 'small'
     | 'smmd'
+    | 'smmd2'
     | 'medium'
     | 'medium2'
     | 'medium3'

@@ -1,23 +1,20 @@
+import clsx from 'clsx';
 import ArgumentBlock from './ArgumentBlock';
 import { Image } from '../atoms/Image';
 import Block from '../atoms/Block';
-import clsx from 'clsx';
-import { WithButtonLabel, WithButtonTarget, WithImage, WithSubtitle, WithTitle } from '../withs';
+import useButtons from '../hooks/useButtons';
+import useBlock from '../hooks/useBlock';
+import useHeadingText from '../hooks/useHeadingText';
 import { image } from '../types';
 import { AsComponent } from '../as';
+import { WithButtons, WithHeadingText, WithImage } from '../withs';
 
-export function PushArgument({
-    className,
-    title,
-    subtitle,
-    image,
-    image2,
-    imagePosition = 'left',
-    btnLabel,
-    btnTarget,
-}: PushArgumentProps) {
+export function PushArgument({ image, image2, imagePosition = 'left', ...props }: PushArgumentProps) {
+    const [bProps, rest2] = useBlock(props, { color: 'clear' });
+    const [htProps, rest] = useHeadingText(rest2);
+    const [btProps] = useButtons(rest);
     return (
-        <Block className={clsx('bg-clear', className)}>
+        <Block {...bProps}>
             <div
                 className={clsx(
                     'maw-w-5/6 m-auto flex flew-row sm:flex-col sm:max-h: inherit',
@@ -28,27 +25,14 @@ export function PushArgument({
                     {image2 && <Image {...image2} objectFit={'contain'} />}
                 </div>
                 <div className={'flex-1 flex items-center justify-center'}>
-                    <ArgumentBlock
-                        subtitle={subtitle}
-                        title={title}
-                        btnLabel={btnLabel}
-                        btnTarget={btnTarget}
-                        image={image}
-                        noShadow={true}
-                    />
+                    <ArgumentBlock {...htProps} {...btProps} image={image} noShadow={true} />
                 </div>
             </div>
         </Block>
     );
 }
 
-export interface PushArgumentProps
-    extends AsComponent,
-        WithTitle,
-        WithSubtitle,
-        WithImage,
-        WithButtonLabel,
-        WithButtonTarget {
+export interface PushArgumentProps extends AsComponent, WithHeadingText, WithImage, WithButtons {
     image2?: image;
     imagePosition?: 'right' | 'left';
     mobileImagePosition?: 'right' | 'left';

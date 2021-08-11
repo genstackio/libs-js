@@ -2,11 +2,13 @@ import Block, { BaseBlockProps } from '../atoms/Block';
 import Progress from '../atoms/Progress';
 import Text from '../atoms/Text';
 import { rich_text } from '../types';
-import { WithText } from '../withs';
+import { WithText, WithValueAsNumber } from '../withs';
+import useBlock from '../hooks/useBlock';
 
 export function KpiProgress({ goal, text, unit, value, ...props }: KpiProgressProps) {
+    const [bProps] = useBlock(props);
     return (
-        <Block {...props}>
+        <Block {...bProps}>
             <div className={'flex justify-between items-center'}>
                 <div className={'flex-col'}>
                     <Text className={'flex-1'} variant={'description'} text={text} color={props.color} />
@@ -21,10 +23,9 @@ export function KpiProgress({ goal, text, unit, value, ...props }: KpiProgressPr
     );
 }
 
-export interface KpiProgressProps extends BaseBlockProps, WithText {
+export interface KpiProgressProps extends BaseBlockProps, WithText, Required<WithValueAsNumber> {
     goal: number;
     unit?: rich_text;
-    value: number;
 }
 
 // noinspection JSUnusedGlobalSymbols

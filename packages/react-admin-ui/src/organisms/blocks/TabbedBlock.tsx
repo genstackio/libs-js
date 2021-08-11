@@ -6,12 +6,14 @@ import bgClass from '../../utils/bgClass';
 import Block, { BaseBlockProps } from '../../atoms/Block';
 import TabPanel from '../../molecules/TabPanel';
 import { WithItemsOfTabs } from '../../withs';
+import useBlock from '../../hooks/useBlock';
 
 export function TabbedBlock({ items = [], tabProps = {}, ...props }: TabbedBlockProps) {
+    const [bProps] = useBlock(props, { padding: 'none' });
     const [value, setValue] = useState(0);
     const handleChange = useCallback((event: ChangeEvent, newValue: number) => setValue(newValue), [setValue]);
     return (
-        <Block padding={'none'} {...props}>
+        <Block {...bProps}>
             <AppBar position={'static'} elevation={0} color={'transparent'}>
                 <Tabs
                     variant={'scrollable'}

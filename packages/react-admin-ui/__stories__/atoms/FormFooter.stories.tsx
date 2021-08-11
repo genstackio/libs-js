@@ -22,7 +22,9 @@ const Template = (args) => <FormFooter {...args} />;
 export const basic = s(Template, {
     children: (
         <>
-            <UsernameField />, <FirstNameField />, <BirthDateField />
+            <UsernameField />
+            <FirstNameField />
+            <BirthDateField />
         </>
     ),
 });

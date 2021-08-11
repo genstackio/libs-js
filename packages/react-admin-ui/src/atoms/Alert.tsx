@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import CloseIcon from '@material-ui/icons/Close';
 import Div from './Div';
 import Clickable from './Clickable';
@@ -7,11 +6,7 @@ import { useToggle } from '../hooks/useToggle';
 import { WithClosable } from '../withs';
 
 export function Alert({ children, onClose, closable = false, ...props }: AlertProps) {
-    const [show, onCloseClick] = useToggle(true);
-    const handleClick = useCallback(() => {
-        onCloseClick();
-        onClose && onClose();
-    }, [onClose]);
+    const [show, handleClick] = useToggle(true, onClose);
     return show ? (
         <Panel {...props}>
             <Div full>{children}</Div>

@@ -1,21 +1,24 @@
 import Block, { BaseBlockProps } from '../../atoms/Block';
-import Button from '../../atoms/Button';
-import { WithButtonLabel, WithDropdownItems, WithItemsOfNews } from '../../withs';
 import NewsBlockItem from '../../molecules/NewsBlockItem';
-import { Items } from '../../atoms';
+import Items from '../../atoms/Items';
+import Buttons from '../../atoms/Buttons';
+import useBlock from '../../hooks/useBlock';
+import useButtons from '../../hooks/useButtons';
+import { WithButtons, WithDropdownItems, WithItemsOfNews } from '../../withs';
 
-export function NewsBlock({ items = [], btnLabel, ...props }: NewsBlockProps) {
+export function NewsBlock({ title, items = [], ...props }: NewsBlockProps) {
+    const [bProps, rest] = useBlock(props, { padding: 'none', title });
+    const [btProps] = useButtons(rest, { btnColor: props.color, className: 'flex justify-center mt-4 xs:mt-2' });
+
     return (
-        <Block padding={'none'} {...props}>
+        <Block {...bProps}>
             <Items items={items} component={NewsBlockItem} />
-            <Button color={props.color} container containerClassName={'flex justify-center mt-4 xs:mt-2'}>
-                {btnLabel}
-            </Button>
+            <Buttons {...btProps} />
         </Block>
     );
 }
 
-export interface NewsBlockProps extends BaseBlockProps, WithButtonLabel, WithItemsOfNews, WithDropdownItems {}
+export interface NewsBlockProps extends BaseBlockProps, WithButtons, WithItemsOfNews, WithDropdownItems {}
 
 // noinspection JSUnusedGlobalSymbols
 export default NewsBlock;

@@ -1,12 +1,10 @@
-import { args, s, a } from '../utils';
+import { s, a } from '../utils';
 import { AppWallItem } from '../../src';
 
 export default {
     title: 'Atoms/AppWallItem',
     component: AppWallItem,
-    argTypes: a({
-        items: args.items,
-    }),
+    argTypes: a({}),
 };
 
 const Template = (args) => <AppWallItem {...args} />;

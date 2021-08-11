@@ -4,6 +4,7 @@ import Block from '../atoms/Block';
 import { rich_text } from '../types';
 import { WithOnSubmit, WithPlaceholder, WithTitle } from '../withs';
 import { AsBox } from '../as';
+import { useBlock } from '../hooks';
 
 const defaultDropzoneStyle = {
     dropzone: {
@@ -30,6 +31,7 @@ export function FileUploader({
     onSubmit,
     ...props
 }: FileUploaderProps) {
+    const [bProps] = useBlock(props);
     dropzoneStyle = null === dropzoneStyle ? undefined : dropzoneStyle || defaultDropzoneStyle;
     const getUploadParams = useCallback(() => ({ url: url }), []);
     const handleChangeStatus = useCallback(
@@ -60,7 +62,7 @@ export function FileUploader({
     return (
         <>
             <div id={'toast'} />
-            <Block {...props}>
+            <Block {...bProps}>
                 <div
                     className={
                         'flex flex-col px-4 py-6 bg-clear text-info tracking-wide uppercase ' +

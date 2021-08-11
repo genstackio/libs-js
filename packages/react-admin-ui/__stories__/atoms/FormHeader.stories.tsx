@@ -14,7 +14,9 @@ const Template = (args) => <FormHeader {...args} />;
 export const basic = s(Template, {
     children: (
         <>
-            <InstagramField />, <IpAddressField />, <FirstNameField />
+            <InstagramField />
+            <IpAddressField />
+            <FirstNameField />
         </>
     ),
 });

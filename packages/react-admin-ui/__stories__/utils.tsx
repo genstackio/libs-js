@@ -30,6 +30,7 @@ import themes from './configs/themes';
 import { IconsProvider } from '../../react-contexts/lib/IconsProvider';
 import icons from './configs/icons';
 import { DarkModeProvider } from '@genstackio/react-contexts/lib/contexts/DarkModeContext';
+import { avatarSizeValues } from '../lib/mappings/avatar-sizes';
 
 const translationNames = Object.keys(translations);
 translationNames.sort();
@@ -211,6 +212,7 @@ export const args = {
     selection: { control: { type: 'boolean' } },
     series: { control: { type: 'object' } },
     shape: { control: { type: 'select' }, options: Object.keys(shapes) },
+    avatarSize: { control: { type: 'select' }, options: avatarSizeValues },
     size: { control: { type: 'select' }, options: ['xs', 'sm', 'md', 'lg', 'xl'] },
     target: { control: { type: 'text' } },
     textSize: { control: { type: 'select' }, options: Object.keys(textSizes) },

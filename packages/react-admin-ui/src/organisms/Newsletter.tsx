@@ -8,6 +8,7 @@ import Divider from '../atoms/Divider';
 import Block from '../atoms/Block';
 import { NewsletterAction } from '../molecules/actions/NewsletterAction';
 import { AsComponent } from '../as';
+import { useBlock } from '../hooks';
 
 export function Newsletter({
     className,
@@ -15,9 +16,10 @@ export function Newsletter({
     text,
     imageLeft = false,
     image,
-    color = 'primary',
     onAfterSubscribe,
+    ...props
 }: NewsletterProps) {
+    const [bProps] = useBlock(props, { color: 'primary', className: 'flex-1 p-20 sm:p-5', elevation: 0 });
     return (
         <Row
             className={clsx(
@@ -28,7 +30,7 @@ export function Newsletter({
                 className,
             )}
         >
-            <Block className={clsx('flex-1 p-20 sm:p-5')} color={color} elevation={0}>
+            <Block {...bProps}>
                 {title && (
                     <div className={'flex flex-col items-center'}>
                         <Text variant={'title6'} text={title} center={true} />

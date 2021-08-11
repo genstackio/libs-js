@@ -8,21 +8,13 @@ import { WithDescription, WithLogo } from '../withs';
 import { Block, Icon } from '../atoms';
 import Link from '@material-ui/core/Link';
 import { AsBox } from '../as';
+import { useBlock } from '../hooks';
 
-export function Footer({
-    className,
-    logo,
-    color = 'dark',
-    variant = 'contained',
-    contact,
-    links = [],
-    description,
-    copyright,
-}: FooterProps) {
+export function Footer({ logo, contact, links = [], description, copyright, ...props }: FooterProps) {
     const { t } = useTranslation();
-
+    const [bProps] = useBlock(props, { color: 'dark', padding: 'none', variant: 'contained', corner: 'square' });
     return (
-        <Block className={className} color={color} variant={variant} corner={'square'} padding={'none'}>
+        <Block {...bProps}>
             <Row className={clsx('p-8 xs:flex-col')}>
                 <div className={'flex-1 flex flex-col pl-8'}>
                     {logo && <Image {...logo} className={'m-6 w-24 h-24 ml-1 rounded-full'} expand={false} />}

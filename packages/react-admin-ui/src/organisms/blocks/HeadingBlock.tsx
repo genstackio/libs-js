@@ -7,6 +7,7 @@ import Corner from '../../molecules/Corner';
 import { flag, icon_variant } from '../../types';
 import { WithButtons, WithImage, WithText, WithTitle } from '../../withs';
 import useButtons from '../../hooks/useButtons';
+import { useBlock } from '../../hooks';
 
 export function HeadingBlock({
     iconTitle,
@@ -27,9 +28,10 @@ export function HeadingBlock({
     textCornerBottomRight,
     ...props
 }: HeadingBlockProps) {
-    const [buttonProps, rest] = useButtons(props);
+    const [bProps, rest] = useBlock(props, { image });
+    const [buttonProps] = useButtons(rest);
     return (
-        <Block {...rest} image={image}>
+        <Block {...bProps}>
             {topLeft && (
                 <div className={'absolute top-4 left-4'}>
                     <Corner
