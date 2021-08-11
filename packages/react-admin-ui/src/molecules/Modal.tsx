@@ -11,9 +11,7 @@ export function Modal({ className, buttonsItems = [], children, onClose, opened 
         <MuiModal open={opened} className={clsx('flex justify-center items-center', className)}>
             <div className={'bg-clear border border-disabled rounded-md w-8/12 sm:w-11/12 xs:w-full'}>
                 <div className={'flex flex-row-reverse justify-between items-center m-4'}>
-                    <Button color={'dark'} onClick={onClose}>
-                        X
-                    </Button>
+                    <Button color={'dark'} onClick={onClose} label={'X'} />
                     {title && <div className={'text-xl font-bold'}>{title}</div>}
                 </div>
                 <hr />

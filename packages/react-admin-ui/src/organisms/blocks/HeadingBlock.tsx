@@ -58,9 +58,11 @@ export function HeadingBlock({
                     </div>
                 </div>
                 <Text className={'m-4'} text={text} variant={'body'} />
-                <Button variant={'header-contained' === props.variant ? 'filled' : props.variant} color={props.color}>
-                    {btnLabel}
-                </Button>
+                <Button
+                    variant={'header-contained' === props.variant ? 'filled' : props.variant}
+                    color={props.color}
+                    label={btnLabel}
+                />
             </div>
             {bottomLeft && (
                 <div className={'absolute bottom-4 left-4'}>

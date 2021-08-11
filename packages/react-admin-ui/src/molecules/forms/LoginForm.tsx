@@ -68,15 +68,9 @@ export function LoginForm({
                         <hr className={'flex-1 mt-2 ml-2'} />
                     </div>
                     <div className={'mt-4 block flex flex-inline space-x-2 justify-center'}>
-                        <Button onClick={onLinkedInClick} variant={'outlined'} color={color}>
-                            Linkedin
-                        </Button>
-                        <Button onClick={onTwitterClick} variant={'outlined'} color={color}>
-                            Twitter
-                        </Button>
-                        <Button onClick={onFacebookClick} variant={'outlined'} color={color}>
-                            Facebook
-                        </Button>
+                        <Button onClick={onLinkedInClick} variant={'outlined'} color={color} label={'Linkedin'} />
+                        <Button onClick={onTwitterClick} variant={'outlined'} color={color} label={'Twitter'} />
+                        <Button onClick={onFacebookClick} variant={'outlined'} color={color} label={'Facebook'} />
                     </div>
                 </>
             )}
