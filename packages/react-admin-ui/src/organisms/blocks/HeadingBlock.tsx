@@ -1,14 +1,14 @@
 import Avatar from '../../atoms/Avatar';
 import Block, { BaseBlockProps } from '../../atoms/Block';
-import Button from '../../atoms/Button';
+import Buttons from '../../atoms/Buttons';
 import Pill from '../../atoms/Pill';
 import Text from '../../atoms/Text';
 import Corner from '../../molecules/Corner';
 import { flag, icon_variant } from '../../types';
-import { WithButtonLabel, WithImage, WithText, WithTitle } from '../../withs';
+import { WithButtons, WithImage, WithText, WithTitle } from '../../withs';
+import useButtons from '../../hooks/useButtons';
 
 export function HeadingBlock({
-    btnLabel,
     iconTitle,
     image,
     text,
@@ -27,13 +27,14 @@ export function HeadingBlock({
     textCornerBottomRight,
     ...props
 }: HeadingBlockProps) {
+    const [buttonProps, rest] = useButtons(props);
     return (
-        <Block {...props} image={image}>
+        <Block {...rest} image={image}>
             {topLeft && (
                 <div className={'absolute top-4 left-4'}>
                     <Corner
-                        color={props.color}
-                        variant={'header-contained' === props.variant ? 'filled' : props.variant}
+                        color={rest.color}
+                        variant={'header-contained' === rest.variant ? 'filled' : rest.variant}
                         text={textCornerTopLeft}
                         iconCorner={iconCornerTopLeft}
                     />
@@ -42,8 +43,8 @@ export function HeadingBlock({
             {topRight && (
                 <div className={'absolute top-4 right-4'}>
                     <Corner
-                        color={props.color}
-                        variant={'header-contained' === props.variant ? 'filled' : props.variant}
+                        color={rest.color}
+                        variant={'header-contained' === rest.variant ? 'filled' : rest.variant}
                         text={textCornerTopRight}
                         iconCorner={iconCornerTopRight}
                     />
@@ -54,21 +55,17 @@ export function HeadingBlock({
                 <div className={'flex inline-block'}>
                     <Text text={title} variant={'title4'} />
                     <div className={'ml-2 font-bold'}>
-                        <Pill text={iconTitle} color={props.color} />
+                        <Pill text={iconTitle} color={rest.color} />
                     </div>
                 </div>
                 <Text className={'m-4'} text={text} variant={'body'} />
-                <Button
-                    variant={'header-contained' === props.variant ? 'filled' : props.variant}
-                    color={props.color}
-                    label={btnLabel}
-                />
+                <Buttons {...buttonProps} className={'flex justify-center'} />
             </div>
             {bottomLeft && (
                 <div className={'absolute bottom-4 left-4'}>
                     <Corner
-                        color={props.color}
-                        variant={'header-contained' === props.variant ? 'filled' : props.variant}
+                        color={rest.color}
+                        variant={'header-contained' === rest.variant ? 'filled' : rest.variant}
                         text={textCornerBottomLeft}
                         iconCorner={iconCornerBottomLeft}
                     />
@@ -77,8 +74,8 @@ export function HeadingBlock({
             {bottomRight && (
                 <div className={'absolute bottom-4 right-4'}>
                     <Corner
-                        color={props.color}
-                        variant={'header-contained' === props.variant ? 'filled' : props.variant}
+                        color={rest.color}
+                        variant={'header-contained' === rest.variant ? 'filled' : rest.variant}
                         text={textCornerBottomRight}
                         iconCorner={iconCornerBottomRight}
                     />
@@ -88,7 +85,7 @@ export function HeadingBlock({
     );
 }
 
-export interface HeadingBlockProps extends BaseBlockProps, WithButtonLabel, WithText, WithImage, WithTitle {
+export interface HeadingBlockProps extends BaseBlockProps, WithButtons, WithText, WithImage, WithTitle {
     bottomLeft?: flag;
     bottomRight?: flag;
     iconCornerBottomLeft?: icon_variant;
