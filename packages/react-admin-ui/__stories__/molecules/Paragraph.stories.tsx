@@ -42,3 +42,13 @@ export const withButton = s(Template, {
     btnLabel: 'About Us',
     btnTarget: 'https://google.fr',
 });
+
+export const withButtons = s(Template, {
+    title: 'Bienvenue chez Gotombola',
+    text: "Nous voulons permettre à toutes les associations de s'auto-financer rapidement et facilement grâce à la tombola augmentée par le digital. Pour aider un maximum d'associations, nous ne pensons pas que la rupture 100% digitale soit adaptée. Nous vous accompagnons en combinant outils digitaux et traditionnels pour ne mettre personne de côté. Commencez à promouvoir votre tombola plus efficacement en créant gratuitement votre sticker digital GoTombola.",
+    image: { url: 'https://via.placeholder.com/687x426?text=Image' },
+    btnLabel: 'About Us',
+    btnTarget: 'https://google.fr',
+    btn2Label: 'ClickMe',
+    btn3Label: 'Button',
+});
