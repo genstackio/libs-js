@@ -87,7 +87,7 @@ export type list_action = string | any;
 export type list_global_action = string | any;
 export type list = { columns?: list_column[]; actions?: list_action[]; globalActions?: list_global_action[] };
 export type select_item = { value?: string; label?: rich_text };
-export type news_item = { title?: rich_text; content?: rich_text };
+export type news_item = { title?: rich_text; description?: rich_text };
 export type tab_item = {
     title?: rich_text;
     content?: rich_text;
@@ -235,4 +235,10 @@ export type push_image_position = 'left' | 'right' | 'top' | 'bottom';
 export type push_item = {
     btnLabel?: rich_text;
     btnTarget?: target;
+};
+
+export type visual_bullet_block_item = {
+    icon?: icon;
+    title?: rich_text;
+    subtitle?: rich_text;
 };

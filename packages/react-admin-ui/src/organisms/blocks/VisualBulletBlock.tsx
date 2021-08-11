@@ -1,29 +1,14 @@
-import Icon from '../../atoms/Icon';
+import Items from '../../atoms/Items';
 import Block, { BaseBlockProps } from '../../atoms/Block';
-import Text from '../../atoms/Text';
+import { visual_bullet_block_item } from '../../types';
+import VisualBulletBlockItem from '../../molecules/VisualBulletBlockItem';
 
 export function VisualBulletBlock({ items, ...props }: VisualBulletBlockProps) {
-    return (
-        <Block {...props}>
-            {items.map((item, index) => (
-                <div key={index} className={'flex items-center'}>
-                    <Icon className={'mb-5'} size={'4xl'} icon={item.icon} />
-                    <div className={'flex-column ml-4'}>
-                        <Text text={item.title} variant={'title6'} />
-                        <p>{item.subtitle || ''}</p>
-                    </div>
-                </div>
-            ))}
-        </Block>
-    );
+    return <Items items={items} container={Block} containerProps={props} component={VisualBulletBlockItem} />;
 }
 
 export interface VisualBulletBlockProps extends BaseBlockProps {
-    items: {
-        icon: string;
-        subtitle: string;
-        title: string;
-    }[];
+    items: visual_bullet_block_item[];
 }
 
 // noinspection JSUnusedGlobalSymbols

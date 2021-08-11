@@ -78,6 +78,11 @@ export interface WithClassName {
     className?: class_name;
 }
 
+// WithContent
+export interface WithContent {
+    content?: rich_text;
+}
+
 // WithTitle
 export interface WithTitle {
     title?: rich_text;
@@ -681,6 +686,7 @@ export interface WithButton3
 export interface WithButtons extends WithButton, WithButton2, WithButton3 {}
 
 export interface WithHeadingText extends WithTitle, WithSubtitle, WithDescription, WithCenter {}
+export interface WithFullText extends WithHeadingText, WithContent {}
 
 export interface WithPositionOfPushImage {
     imagePosition?: push_image_position;

@@ -13,19 +13,16 @@ export function Quotes({ className, title, items = [], btnTarget, btnLabel, btnI
         <Row className={clsx('bg-clear', className)}>
             <Container className={clsx('relative flex flex-col items-center grid-cols-12 max-w-full')}>
                 <Text className={clsx('mb-8 sm:mb-4')} variant={'title3'} text={title} />
-                {btnLabel && (
-                    <Button
-                        size={'lg'}
-                        icon={btnIcon}
-                        endIcon={btnEndIcon}
-                        variant={'outlined'}
-                        color={'primary'}
-                        className={'mb-4'}
-                        onClick={btnTarget}
-                    >
-                        {btnLabel}
-                    </Button>
-                )}
+                <Button
+                    size={'lg'}
+                    icon={btnIcon}
+                    endIcon={btnEndIcon}
+                    variant={'outlined'}
+                    color={'primary'}
+                    className={'mb-4'}
+                    onClick={btnTarget}
+                    label={btnLabel}
+                />
                 {items.length === 1 && (
                     <div className={clsx('w-2/3 md:3/4 sm:w-full')}>
                         <QuoteSlide {...items[0]} />

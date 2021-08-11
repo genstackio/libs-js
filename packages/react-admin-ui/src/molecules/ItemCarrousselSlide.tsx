@@ -46,11 +46,13 @@ export function ItemCarrousselSlide({
                     </div>
                 </div>
             </Clickable>
-            {btnLabel && (
-                <Button variant={'outlined'} color={'primary'} onClick={btnTarget} className={'self-start mt-2.5'}>
-                    {btnLabel}
-                </Button>
-            )}
+            <Button
+                variant={'outlined'}
+                color={'primary'}
+                onClick={btnTarget}
+                className={'self-start mt-2.5'}
+                label={btnLabel}
+            />
         </div>
     );
 }

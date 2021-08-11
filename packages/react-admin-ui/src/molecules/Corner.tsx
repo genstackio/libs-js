@@ -9,7 +9,7 @@ export function Corner({ className, color, iconCorner, items = [], text, variant
         <div>
             {items.map(({ text, variant, icon, color }, index) => (
                 <div key={index} className={clsx('py-1', className)}>
-                    <Tag text={text} variant={variant} color={color} icon={iconCorner} {...props} />
+                    <Tag text={text} variant={variant} color={color} icon={icon} {...props} />
                 </div>
             ))}
             {text && <Tag text={text} variant={variant} color={color} icon={iconCorner} {...props} />}

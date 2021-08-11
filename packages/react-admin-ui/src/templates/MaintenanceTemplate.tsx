@@ -5,6 +5,8 @@ import Button from '../atoms/Button';
 import { target } from '../types';
 import { WithDescription, WithTitle } from '../withs';
 import { AsBox } from '../as';
+import { Items } from '../atoms';
+import { buttonMap } from '../propMaps';
 
 export function MaintenanceTemplate({
     className,
@@ -27,11 +29,7 @@ export function MaintenanceTemplate({
                 <div className={'flex justify-center mb-10'}>
                     <Text text={description} variant={'body'} color={'dark'} />
                 </div>
-                {actions.map(({ target, label }, i) => (
-                    <Button color={color} variant={variant} onClick={target} key={i}>
-                        {label}
-                    </Button>
-                ))}
+                <Items items={actions} component={Button} map={buttonMap} color={color} variant={variant} />
             </div>
         </div>
     );

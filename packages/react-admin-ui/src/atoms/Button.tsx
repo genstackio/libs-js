@@ -2,7 +2,7 @@ import { useCallback, useMemo } from 'react';
 import clsx from 'clsx';
 import Icon from './Icon';
 import buttonClass from '../utils/buttonClass';
-import { class_name } from '../types';
+import { class_name, flag } from '../types';
 import { Spinner } from './Spinner';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
 import cornerClass from '../mappings/corners';
@@ -23,6 +23,8 @@ import { AsBoxWrapper } from '../as';
 
 export function Button({
     children,
+    container,
+    containerClassName,
     loading = false,
     className,
     spinnerClassName,
@@ -64,7 +66,7 @@ export function Button({
 
     if (!label && !children && !icon && !endIcon) return null;
 
-    const content = (
+    let content = (
         <button
             disabled={disabled}
             className={clsx(
@@ -93,7 +95,9 @@ export function Button({
         </button>
     );
 
-    return <Confirmable>{content}</Confirmable>;
+    content = <Confirmable>{content}</Confirmable>;
+
+    return container ? <div className={containerClassName}>{content}</div> : content;
 }
 
 export interface ButtonProps
@@ -109,6 +113,8 @@ export interface ButtonProps
         WithAutoFocus,
         WithConfirm {
     spinnerClassName?: class_name;
+    container?: flag;
+    containerClassName?: class_name;
 }
 
 // noinspection JSUnusedGlobalSymbols
