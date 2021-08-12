@@ -11,9 +11,7 @@ export default {
     }),
 };
 
-const Template = (args) => <MosaicItemsSelector {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(MosaicItemsSelector, {
     title: data.common.title,
     items: [
         { id: 0 },
@@ -31,7 +29,7 @@ export const basic = s(Template, {
     ],
 });
 
-export const withSelected = s(Template, {
+export const withSelected = s(MosaicItemsSelector, {
     title: data.common.title,
     items: [
         { id: 0 },

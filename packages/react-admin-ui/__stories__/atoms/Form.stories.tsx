@@ -9,9 +9,7 @@ export default {
     }),
 };
 
-const Template = (args) => <Form {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Form, {
     children: (
         <>
             <InstagramField />
@@ -21,7 +19,7 @@ export const basic = s(Template, {
     ),
 });
 
-export const moreFields = s(Template, {
+export const moreFields = s(Form, {
     children: (
         <>
             <InstagramField />

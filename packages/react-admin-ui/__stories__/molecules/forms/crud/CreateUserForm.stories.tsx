@@ -12,8 +12,6 @@ export default {
     }),
 };
 
-const Template = (args) => <CreateUserForm {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(CreateUserForm, {
     onSubmit: (v) => alert(JSON.stringify(v, null, 4)),
 });

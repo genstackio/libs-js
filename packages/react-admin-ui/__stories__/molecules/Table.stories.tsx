@@ -16,8 +16,6 @@ export default {
     }),
 };
 
-const Template = (args) => <Table {...args} />;
-
 const pages = [
     [
         { id: 'azert234', a: 12, b: true, c: 'hello', d: 'test', e: 88 },
@@ -64,7 +62,7 @@ export const basic = s(
         }, []);
         const items = state.data?.items || [];
         return (
-            <Template
+            <Table
                 {...args}
                 items={state.loading ? [] : items}
                 onPageChange={handleOnPageChange}
@@ -114,7 +112,7 @@ export const withoutSelection = s(
         }, []);
         const items = state.data?.items || [];
         return (
-            <Template
+            <Table
                 {...args}
                 items={state.loading ? [] : items}
                 onPageChange={handleOnPageChange}
@@ -142,7 +140,7 @@ export const withoutSelection = s(
     },
 );
 
-export const showcase = s(Template, {
+export const showcase = s(Table, {
     columns: [
         { id: 'id', label: '#', width: 70 },
         { id: 'firstname', label: 'FirstName' },

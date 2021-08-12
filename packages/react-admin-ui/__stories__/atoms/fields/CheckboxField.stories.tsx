@@ -17,9 +17,7 @@ export default {
     }),
 };
 
-const Template = (args) => <CheckboxField {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(CheckboxField, {
     label: 'Checkbox',
     name: 'checkbox',
 });

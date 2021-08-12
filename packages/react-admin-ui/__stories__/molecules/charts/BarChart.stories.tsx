@@ -11,9 +11,7 @@ export default {
     }),
 };
 
-const Template = (args) => <BarChart {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(BarChart, {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
     series: [
         [40, 90, 80, 40, 90, 80, 40, 90, 80, 40, 90, 80],

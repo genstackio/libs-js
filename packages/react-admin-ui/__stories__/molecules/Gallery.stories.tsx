@@ -10,9 +10,7 @@ export default {
     }),
 };
 
-const Template = (args) => <Gallery {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Gallery, {
     items: [
         {
             url: 'https://picsum.photos/200/200',
@@ -61,7 +59,7 @@ export const basic = s(Template, {
     ],
 });
 
-export const withHeader = s(Template, {
+export const withHeader = s(Gallery, {
     items: [
         {
             url: 'https://picsum.photos/200/200',

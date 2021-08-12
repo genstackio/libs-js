@@ -14,9 +14,7 @@ export default {
     }),
 };
 
-const Template = (args) => <BoxListPanel {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(BoxListPanel, {
     title: data.common.title,
     color: 'primary',
     variant: 'filled',

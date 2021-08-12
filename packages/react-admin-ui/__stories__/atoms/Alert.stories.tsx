@@ -13,9 +13,7 @@ export default {
     }),
 };
 
-const Template = (args) => <Alert {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Alert, {
     children: data.common.content,
     color: 'secondary',
     variant: 'contained',
@@ -25,22 +23,22 @@ export const basic = s(Template, {
 export const showcase = s(
     (args) => (
         <div className={'space-y-2'}>
-            <Template {...args} color={'primary'} />
-            <Template {...args} color={'secondary'} />
-            <Template {...args} color={'success'} />
-            <Template {...args} color={'info'} />
-            <Template {...args} color={'warning'} closable />
-            <Template {...args} color={'danger'} closable />
-            <Template {...args} color={'light'} closable />
-            <Template {...args} color={'dark'} closable />
-            <Template {...args} color={'primary'} variant={'outlined'} closable />
-            <Template {...args} color={'secondary'} variant={'outlined'} closable />
-            <Template {...args} color={'success'} variant={'outlined'} closable />
-            <Template {...args} color={'info'} variant={'outlined'} closable />
-            <Template {...args} color={'warning'} variant={'outlined'} />
-            <Template {...args} color={'danger'} variant={'outlined'} />
-            <Template {...args} color={'light'} variant={'outlined'} />
-            <Template {...args} color={'dark'} variant={'outlined'} />
+            <Alert {...args} color={'primary'} />
+            <Alert {...args} color={'secondary'} />
+            <Alert {...args} color={'success'} />
+            <Alert {...args} color={'info'} />
+            <Alert {...args} color={'warning'} closable />
+            <Alert {...args} color={'danger'} closable />
+            <Alert {...args} color={'light'} closable />
+            <Alert {...args} color={'dark'} closable />
+            <Alert {...args} color={'primary'} variant={'outlined'} closable />
+            <Alert {...args} color={'secondary'} variant={'outlined'} closable />
+            <Alert {...args} color={'success'} variant={'outlined'} closable />
+            <Alert {...args} color={'info'} variant={'outlined'} closable />
+            <Alert {...args} color={'warning'} variant={'outlined'} />
+            <Alert {...args} color={'danger'} variant={'outlined'} />
+            <Alert {...args} color={'light'} variant={'outlined'} />
+            <Alert {...args} color={'dark'} variant={'outlined'} />
         </div>
     ),
     {

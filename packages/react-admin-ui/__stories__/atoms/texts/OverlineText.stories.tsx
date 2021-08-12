@@ -9,8 +9,6 @@ export default {
     }),
 };
 
-const Template = (args) => <OverlineText {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(OverlineText, {
     text: 42,
 });

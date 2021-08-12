@@ -9,8 +9,6 @@ export default {
     }),
 };
 
-const Template = (args) => <CircularProgress {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(CircularProgress, {
     value: 42,
 });

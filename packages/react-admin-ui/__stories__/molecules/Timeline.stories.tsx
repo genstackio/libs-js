@@ -9,9 +9,7 @@ export default {
     }),
 };
 
-const Template = (args) => <Timeline {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Timeline, {
     items: [
         {
             title: 'Update Product',

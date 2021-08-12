@@ -20,26 +20,24 @@ export default {
     }),
 };
 
-const Template = (args) => <TextField {...args} />;
-
-export const basic = s(Template, {});
+export const basic = s(TextField, {});
 
 export const withPrepend = s(
     (args) => (
         <div>
-            <Template prepend={'@'} {...args} />
-            <Template prepend={'hello'} {...args} />
-            <Template prependIcon={'people'} {...args} />
+            <TextField prepend={'@'} {...args} />
+            <TextField prepend={'hello'} {...args} />
+            <TextField prependIcon={'people'} {...args} />
         </div>
     ),
     {},
 );
 
-export const withAppend = s(Template, {
+export const withAppend = s(TextField, {
     append: 'units',
 });
 
-export const withPrependAndAppend = s(Template, {
+export const withPrependAndAppend = s(TextField, {
     prepend: <p>Hello&nbsp;world</p>,
     append: <p>Bye&nbsp;bye</p>,
 });
@@ -47,10 +45,10 @@ export const withPrependAndAppend = s(Template, {
 export const showcase = s(
     (props) => (
         <div>
-            <Template {...props} />
-            <Template {...props} errors={{ all: true }} />
-            <Template {...props} placehoder={'field_generic_required_placeholder'} required />
-            <Template {...props} placehoder={'field_generic_disabled_placeholder'} disabled />
+            <TextField {...props} />
+            <TextField {...props} errors={{ all: true }} />
+            <TextField {...props} placehoder={'field_generic_required_placeholder'} required />
+            <TextField {...props} placehoder={'field_generic_disabled_placeholder'} disabled />
         </div>
     ),
     {

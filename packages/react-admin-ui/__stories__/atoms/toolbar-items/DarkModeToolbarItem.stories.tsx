@@ -9,6 +9,4 @@ export default {
     }),
 };
 
-const Template = (args) => <DarkModeToolbarItem {...args} />;
-
-export const basic = s(Template, {});
+export const basic = s(DarkModeToolbarItem, {});

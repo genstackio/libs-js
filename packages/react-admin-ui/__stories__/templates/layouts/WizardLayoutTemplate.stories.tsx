@@ -2,7 +2,7 @@ import { args, s, a } from '../../utils';
 import { useForm, FirstNameField, LastNameField, PhoneField, WizardLayoutTemplate, Block } from '../../../src';
 
 export default {
-    title: 'Templates/Layout/WizardLayoutTemplate',
+    title: 'WizardLayoutTemplates/Layout/WizardLayoutWizardLayoutTemplate',
     component: WizardLayoutTemplate,
     argTypes: a({
         steps: args.steps,
@@ -47,9 +47,7 @@ const Form3 = (props) => {
     );
 };
 
-const Template = (args) => <WizardLayoutTemplate {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(WizardLayoutTemplate, {
     color: 'primary',
     steps: [
         {

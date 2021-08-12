@@ -13,9 +13,7 @@ export default {
     }),
 };
 
-const Template = (args) => <FieldSet {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(FieldSet, {
     error: data.common.error,
     helper: data.common.helper,
     label: data.common.label,
@@ -23,7 +21,7 @@ export const basic = s(Template, {
     options: '',
 });
 
-export const children = s(Template, {
+export const children = s(FieldSet, {
     children: data.common.content,
     error: data.common.error,
     helper: data.common.helper,

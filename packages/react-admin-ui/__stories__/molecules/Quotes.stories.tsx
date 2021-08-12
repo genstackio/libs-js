@@ -10,8 +10,6 @@ export default {
     }),
 };
 
-const Template = (args) => <Quotes {...args} />;
-
 const item = {
     image: data.common.image,
     overline: data.common.overline,
@@ -31,21 +29,21 @@ const item3 = {
     buttonTarget: data.buttons.button3.target,
 };
 
-export const basic = s(Template, {
+export const basic = s(Quotes, {
     title: data.common.title,
     btnLabel: data.buttons.button1.label,
     btnTarget: data.buttons.button1.target,
     items: [item],
 });
 
-export const withItems = s(Template, {
+export const withItems = s(Quotes, {
     title: data.common.title,
     btnLabel: data.buttons.button1.label,
     btnTarget: data.buttons.button1.target,
     items: [item, item2, item3, item, item2, item3],
 });
 
-export const withButtonEndIcon = s(Template, {
+export const withButtonEndIcon = s(Quotes, {
     title: data.common.title,
     btnLabel: data.buttons.button1.label,
     btnTarget: data.buttons.button1.target,
@@ -53,7 +51,7 @@ export const withButtonEndIcon = s(Template, {
     items: [item],
 });
 
-export const withButtonIcon = s(Template, {
+export const withButtonIcon = s(Quotes, {
     title: data.common.title,
     btnLabel: data.buttons.button1.label,
     btnTarget: data.buttons.button1.target,
@@ -61,17 +59,17 @@ export const withButtonIcon = s(Template, {
     items: [item],
 });
 
-export const withoutButton = s(Template, {
+export const withoutButton = s(Quotes, {
     title: data.common.title,
     items: [item],
 });
 
-export const withoutTitle = s(Template, {
+export const withoutTitle = s(Quotes, {
     btnLabel: data.buttons.button1.label,
     btnTarget: data.buttons.button1.target,
     items: [item],
 });
 
-export const justItem = s(Template, { items: [item] });
+export const justItem = s(Quotes, { items: [item] });
 
-export const justItems = s(Template, { items: [item, item2, item3] });
+export const justItems = s(Quotes, { items: [item, item2, item3] });

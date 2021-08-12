@@ -12,6 +12,4 @@ export default {
     }),
 };
 
-const Template = (args) => <ChangePasswordForm {...args} />;
-
-export const basic = s(Template, {});
+export const basic = s(ChangePasswordForm, {});

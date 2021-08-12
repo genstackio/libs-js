@@ -11,18 +11,16 @@ export default {
     }),
 };
 
-const Template = (args) => <Image {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Image, {
     ...data.common.image,
 });
 
-export const rounded = s(Template, {
+export const rounded = s(Image, {
     ...data.common.image,
     corner: 'rounded',
 });
 
-export const circle = s(Template, {
+export const circle = s(Image, {
     ...data.common.image,
     corner: 'circle',
 });

@@ -8,9 +8,7 @@ export default {
     argTypes: a({}),
 };
 
-const Template = (args) => <AppWallItem {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(AppWallItem, {
     title: data.item.title,
     image: data.item.image,
     target: data.item.target,

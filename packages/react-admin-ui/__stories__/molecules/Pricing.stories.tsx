@@ -9,9 +9,7 @@ export default {
     }),
 };
 
-const Template = (args) => <Pricing {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Pricing, {
     items: [
         {
             features: [
@@ -95,7 +93,7 @@ export const basic = s(Template, {
         },
     ],
 });
-export const withBackgroundImage = s(Template, {
+export const withBackgroundImage = s(Pricing, {
     items: [
         {
             currency: '$',

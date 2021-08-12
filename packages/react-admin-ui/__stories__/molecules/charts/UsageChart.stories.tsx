@@ -6,9 +6,7 @@ export default {
     component: UsageChart,
 };
 
-const Template = (args) => <UsageChart {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(UsageChart, {
     value: 25,
     max: 100,
     unit: 'GB',

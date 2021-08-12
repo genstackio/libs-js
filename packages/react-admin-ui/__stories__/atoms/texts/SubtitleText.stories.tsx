@@ -9,8 +9,6 @@ export default {
     }),
 };
 
-const Template = (args) => <SubtitleText {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(SubtitleText, {
     text: 42,
 });

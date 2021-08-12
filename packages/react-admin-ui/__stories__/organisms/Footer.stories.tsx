@@ -12,9 +12,7 @@ export default {
     }),
 };
 
-const Template = (args) => <Footer {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Footer, {
     description: 'Fusce ut elit aliquet, fermentum leo vel, tempus nunc. Fusce eu rhoncus augue.',
     copyright: '© 2021  Company',
     contact: {
@@ -34,7 +32,7 @@ export const basic = s(Template, {
     ],
 });
 
-export const withoutDescription = s(Template, {
+export const withoutDescription = s(Footer, {
     copyright: '© 2021  Company',
     contact: {
         phone: '(+33) 1 01 01 01 01',
@@ -53,7 +51,7 @@ export const withoutDescription = s(Template, {
     ],
 });
 
-export const withoutCopyright = s(Template, {
+export const withoutCopyright = s(Footer, {
     description: 'Fusce ut elit aliquet, fermentum leo vel, tempus nunc. Fusce eu rhoncus augue.',
     contact: {
         phone: '(+33) 1 01 01 01 01',
@@ -72,7 +70,7 @@ export const withoutCopyright = s(Template, {
     ],
 });
 
-export const withoutContact = s(Template, {
+export const withoutContact = s(Footer, {
     description: 'Fusce ut elit aliquet, fermentum leo vel, tempus nunc. Fusce eu rhoncus augue.',
     copyright: '© 2021  Company',
     links: [
@@ -84,7 +82,7 @@ export const withoutContact = s(Template, {
     ],
 });
 
-export const withoutLinks = s(Template, {
+export const withoutLinks = s(Footer, {
     description: 'Fusce ut elit aliquet, fermentum leo vel, tempus nunc. Fusce eu rhoncus augue.',
     copyright: '© 2021  Company',
     contact: {
@@ -97,7 +95,7 @@ export const withoutLinks = s(Template, {
     },
 });
 
-export const withLogo = s(Template, {
+export const withLogo = s(Footer, {
     description: 'Fusce ut elit aliquet, fermentum leo vel, tempus nunc. Fusce eu rhoncus augue.',
     copyright: '© 2021  Company',
     logo: {

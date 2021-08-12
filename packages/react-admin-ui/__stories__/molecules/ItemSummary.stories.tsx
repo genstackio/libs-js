@@ -13,9 +13,7 @@ export default {
     },
 };
 
-const Template = (args) => <ItemSummary {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(ItemSummary, {
     date: data.common.date,
     author: data.user.name,
     likes: data.common.likes,

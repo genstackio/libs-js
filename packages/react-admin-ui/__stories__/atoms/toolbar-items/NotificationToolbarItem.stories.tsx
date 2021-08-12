@@ -7,6 +7,4 @@ export default {
     argTypes: a({}),
 };
 
-const Template = (args) => <NotificationToolbarItem {...args} />;
-
-export const basic = s(Template, {});
+export const basic = s(NotificationToolbarItem, {});

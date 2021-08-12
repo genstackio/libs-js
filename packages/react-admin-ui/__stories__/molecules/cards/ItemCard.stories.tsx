@@ -10,9 +10,7 @@ export default {
     }),
 };
 
-const Template = (args) => <ItemCard {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(ItemCard, {
     title: 'UI/UX IT Frontend Developer',
     subtitle: '(L6) Salt Lake City, UT',
     date: '3 days ago',
@@ -21,7 +19,7 @@ export const basic = s(Template, {
     colorDate: 'dark',
 });
 
-export const withIcone = s(Template, {
+export const withIcone = s(ItemCard, {
     title: 'First French Kebab',
     subtitle: 'Toujours convoité, jamais égalé !!!',
     description:
@@ -35,7 +33,7 @@ export const withIcone = s(Template, {
     size: 40,
 });
 
-export const Federica = s(Template, {
+export const Federica = s(ItemCard, {
     title: 'W la mer',
     subtitle: 'Toujours convoité, jamais égalé !!!',
     description:

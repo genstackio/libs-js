@@ -9,9 +9,7 @@ export default {
     }),
 };
 
-const Template = (args) => <SmallFooter {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(SmallFooter, {
     logo: {
         url: 'https://via.placeholder.com/687x426?text=Image',
         alt: 'Some Placeholder',

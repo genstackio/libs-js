@@ -14,9 +14,7 @@ export default {
     }),
 };
 
-const Template = (args) => <UnlockForm {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(UnlockForm, {
     onSubmit: (v) => alert(JSON.stringify(v, null, 4)),
     onForgotPasswordClick: undefined,
     onRegisterClick: () => alert('register clicked!'),

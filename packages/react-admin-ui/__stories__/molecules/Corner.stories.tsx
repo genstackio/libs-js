@@ -9,9 +9,7 @@ export default {
     }),
 };
 
-const Template = (args) => <Corner {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Corner, {
     items: [
         {
             text: 'Corner Tag 1',
@@ -28,7 +26,7 @@ export const basic = s(Template, {
     ],
 });
 
-export const withManyItems = s(Template, {
+export const withManyItems = s(Corner, {
     items: [
         {
             text: 'Corner Tag 1',

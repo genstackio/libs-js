@@ -19,6 +19,4 @@ export default {
     }),
 };
 
-const Template = (args) => <CurrentPasswordField {...args} />;
-
-export const basic = s(Template, {});
+export const basic = s(CurrentPasswordField, {});

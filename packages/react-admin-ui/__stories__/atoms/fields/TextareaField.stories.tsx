@@ -20,6 +20,4 @@ export default {
     }),
 };
 
-const Template = (args) => <TextareaField {...args} />;
-
-export const basic = s(Template, {});
+export const basic = s(TextareaField, {});

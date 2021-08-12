@@ -9,9 +9,7 @@ export default {
     }),
 };
 
-const Template = (args) => <ButtonsGroup {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(ButtonsGroup, {
     items: [
         {
             color: 'primary',

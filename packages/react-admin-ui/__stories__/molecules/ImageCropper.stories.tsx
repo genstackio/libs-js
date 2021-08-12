@@ -12,8 +12,6 @@ export default {
     }),
 };
 
-const Template = (args) => <ImageCropper {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(ImageCropper, {
     image: data.common.image,
 });

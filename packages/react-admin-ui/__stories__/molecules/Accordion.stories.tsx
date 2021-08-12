@@ -12,9 +12,7 @@ export default {
     }),
 };
 
-const Template = (args) => <Accordion {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Accordion, {
     items: [
         {
             title: data.common.title,

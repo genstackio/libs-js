@@ -9,9 +9,7 @@ export default {
     }),
 };
 
-const Template = (args) => <FormRow {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(FormRow, {
     items: [
         { type: 'field', field: 'email', required: true, autofocus: true },
         { type: 'field', field: 'password', required: true },

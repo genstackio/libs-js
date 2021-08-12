@@ -61,19 +61,17 @@ const item4 = {
     },
 };
 
-const Template = (args) => <ItemCarroussel {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(ItemCarroussel, {
     title: 'Découvrez aussi ...',
     items: [item0, item1, item2],
 });
 
-export const manyManyItemsWithInfosOnFirst = s(Template, {
+export const manyManyItemsWithInfosOnFirst = s(ItemCarroussel, {
     title: 'Découvrez aussi ...',
     items: [item3, item1, item2, item0, item1, item2, item0, item1, item2, item0, item1, item2],
 });
 
-export const manyManyItemsWithNoInfosOnFirst = s(Template, {
+export const manyManyItemsWithNoInfosOnFirst = s(ItemCarroussel, {
     title: 'Découvrez aussi ...',
     items: [item4, item1, item2, item0, item1, item2, item0, item1, item2, item0, item1, item2],
 });

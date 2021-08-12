@@ -12,9 +12,7 @@ export default {
     }),
 };
 
-const Template = (args) => <Login2Template {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Login2Template, {
     image: {
         url: 'https://picsum.photos/3840/2160',
         alt: 'Background',

@@ -11,9 +11,7 @@ export default {
     }),
 };
 
-const Template = (args) => <FieldLabel {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(FieldLabel, {
     label: data.common.label,
     name: 'Label Name',
 });

@@ -10,8 +10,6 @@ export default {
     }),
 };
 
-const Template = (args) => <FieldGroup {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(FieldGroup, {
     children: data.common.content,
 });

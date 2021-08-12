@@ -12,9 +12,7 @@ export default {
     }),
 };
 
-const Template = (args) => <Text {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Text, {
     text: data.common.content,
     color: 'inherit',
     variant: 'body',

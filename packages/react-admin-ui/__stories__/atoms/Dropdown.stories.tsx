@@ -11,13 +11,11 @@ export default {
     }),
 };
 
-const Template = (args) => <Dropdown {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Dropdown, {
     items: [{ name: 'Today' }, { name: 'Tomorrow' }, { name: 'Yesterday' }],
 });
 
-export const manyItems = s(Template, {
+export const manyItems = s(Dropdown, {
     items: [
         { name: 'Today' },
         { name: 'Tomorrow' },

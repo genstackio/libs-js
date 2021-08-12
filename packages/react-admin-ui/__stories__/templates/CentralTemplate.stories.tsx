@@ -11,9 +11,7 @@ export default {
     }),
 };
 
-const Template = (args) => <CentralTemplate {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(CentralTemplate, {
     image: {
         url: 'https://picsum.photos/200/300',
         alt: '',

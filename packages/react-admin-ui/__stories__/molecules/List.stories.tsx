@@ -11,9 +11,7 @@ export default {
     }),
 };
 
-const Template = (args) => <List {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(List, {
     items: [
         {
             text: 'Item1',

@@ -12,8 +12,6 @@ export default {
     }),
 };
 
-const Template = (args) => <CreatePlatformForm {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(CreatePlatformForm, {
     onSubmit: (v) => alert(JSON.stringify(v, null, 4)),
 });

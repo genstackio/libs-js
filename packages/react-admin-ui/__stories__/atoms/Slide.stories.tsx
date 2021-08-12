@@ -11,9 +11,7 @@ export default {
     }),
 };
 
-const Template = (args) => <Slide {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Slide, {
     slide: { image: data.common.image },
     index: 0,
 });

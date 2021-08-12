@@ -12,9 +12,7 @@ export default {
     }),
 };
 
-const Template = (args) => <TabbedBlock {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(TabbedBlock, {
     items: [
         {
             title: 'Home',

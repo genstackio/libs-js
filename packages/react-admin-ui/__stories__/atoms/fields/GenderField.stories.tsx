@@ -10,6 +10,4 @@ export default {
     }),
 };
 
-const Template = (args) => <GenderField {...args} />;
-
-export const basic = s(Template, {});
+export const basic = s(GenderField, {});

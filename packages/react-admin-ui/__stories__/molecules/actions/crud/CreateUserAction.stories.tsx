@@ -11,6 +11,4 @@ export default {
     }),
 };
 
-const Template = (args) => <CreateUserAction {...args} />;
-
-export const basic = s(Template, {});
+export const basic = s(CreateUserAction, {});

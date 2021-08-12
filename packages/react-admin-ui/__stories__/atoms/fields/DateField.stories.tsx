@@ -19,8 +19,6 @@ export default {
     }),
 };
 
-const Template = (args) => <DateField {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(DateField, {
     now: '2020-03-18T21:11:54',
 });

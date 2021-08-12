@@ -30,22 +30,20 @@ export default {
     }),
 };
 
-const Template = (args) => <Block {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Block, {
     title: data.common.title,
     children: data.common.content,
     firstIcon: 'Adb',
 });
 
-export const withSubtitle = s(Template, {
+export const withSubtitle = s(Block, {
     title: data.common.title,
     subtitle: data.common.subtitle,
     children: data.common.content,
     firstIcon: 'Adb',
 });
 
-export const withButtons = s(Template, {
+export const withButtons = s(Block, {
     title: data.common.title,
     children: data.common.content,
     firstIcon: 'Adb',
@@ -57,7 +55,7 @@ export const withButtons = s(Template, {
     ],
 });
 
-export const withBackgroundImage = s(Template, {
+export const withBackgroundImage = s(Block, {
     title: data.common.title,
     children: data.common.content,
     image: data.common.image,

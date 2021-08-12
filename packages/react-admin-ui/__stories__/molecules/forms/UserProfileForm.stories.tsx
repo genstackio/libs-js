@@ -11,6 +11,4 @@ export default {
     }),
 };
 
-const Template = (args) => <UserProfileForm {...args} />;
-
-export const basic = s(Template, {});
+export const basic = s(UserProfileForm, {});

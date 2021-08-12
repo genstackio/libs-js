@@ -13,9 +13,7 @@ export default {
     }),
 };
 
-const Template = (args) => <CornerItem {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(CornerItem, {
     text: data.tag.text,
     variant: 'contained',
     iconCorner: data.common.icon,

@@ -7,9 +7,7 @@ export default {
     argTypes: a({}),
 };
 
-const Template = (args) => <Infos {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Infos, {
     items: [
         {
             label: 'label',

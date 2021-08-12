@@ -16,16 +16,14 @@ export default {
     }),
 };
 
-const Template = (args) => <HeadingBlock {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(HeadingBlock, {
     title: data.common.title,
     text: data.common.content,
     btnLabel: data.buttons.button1.label,
     image: data.common.image,
 });
 
-export const custom = s(Template, {
+export const custom = s(HeadingBlock, {
     title: data.common.title,
     text: data.common.content,
     btnLabel: data.buttons.button1.label,

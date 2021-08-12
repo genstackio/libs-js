@@ -14,9 +14,7 @@ export default {
     }),
 };
 
-const Template = (args) => <MenuButton {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(MenuButton, {
     label: data.user.name,
     description: data.user.email,
     items: [
@@ -38,7 +36,7 @@ export const basic = s(Template, {
     ],
 });
 
-export const withImage = s(Template, {
+export const withImage = s(MenuButton, {
     label: data.user.name,
     description: data.user.email,
     size: 'xs',
@@ -62,7 +60,7 @@ export const withImage = s(Template, {
     ],
 });
 
-export const withAvatar = s(Template, {
+export const withAvatar = s(MenuButton, {
     label: data.user.name,
     description: data.user.email,
     size: 'xs',

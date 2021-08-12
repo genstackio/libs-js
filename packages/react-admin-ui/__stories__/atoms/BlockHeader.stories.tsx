@@ -13,19 +13,17 @@ export default {
     }),
 };
 
-const Template = (args) => <BlockHeader {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(BlockHeader, {
     title: data.common.title,
 });
 
-export const withButtons = s(Template, {
+export const withButtons = s(BlockHeader, {
     title: data.common.title,
     btnLabel: data.buttons.button1.label,
     btn2Label: data.buttons.button2.label,
 });
 
-export const withLogo = s(Template, {
+export const withLogo = s(BlockHeader, {
     title: data.common.title,
     icon: 'fa-fas--arrow-right',
     variant: 'contained',

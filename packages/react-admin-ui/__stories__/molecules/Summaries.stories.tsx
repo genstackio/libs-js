@@ -16,9 +16,7 @@ export default {
     }),
 };
 
-const Template = (args) => <Summaries {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Summaries, {
     items: [
         {
             value: '1001M',
@@ -41,7 +39,7 @@ export const basic = s(Template, {
 export const inPrimaryBlock = s(
     ({ color, ...args }) => (
         <Block color={color} variant={'contained'}>
-            <Template {...args} />{' '}
+            <Summaries {...args} />{' '}
         </Block>
     ),
     {

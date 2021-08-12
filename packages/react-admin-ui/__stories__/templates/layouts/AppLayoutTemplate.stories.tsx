@@ -14,9 +14,7 @@ export default {
     }),
 };
 
-const Template = (args) => <AppLayoutTemplate {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(AppLayoutTemplate, {
     logo: {
         url: 'https://via.placeholder.com/97x28?text=Logo',
         alt: 'Logo',

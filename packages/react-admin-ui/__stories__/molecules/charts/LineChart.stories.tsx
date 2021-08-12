@@ -13,9 +13,7 @@ export default {
     }),
 };
 
-const Template = (args) => <LineChart {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(LineChart, {
     title: 'Fondamental Analysis of Stocks',
     series: [
         [8100, 8337, 8700, 8530, 8990, 9130, 9400],

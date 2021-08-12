@@ -10,8 +10,6 @@ export default {
     }),
 };
 
-const Template = (args) => <ArcChart {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(ArcChart, {
     value: 35,
 });

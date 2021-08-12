@@ -15,9 +15,7 @@ export default {
     }),
 };
 
-const Template = (args) => <TextBlock {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(TextBlock, {
     icon: data.common.icon,
     title: data.common.title,
     text: data.common.content,

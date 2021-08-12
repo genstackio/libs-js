@@ -18,9 +18,7 @@ export default {
     }),
 };
 
-const Template = (args) => <Push {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Push, {
     title: data.common.title,
     subtitle: data.common.subtitle,
     text: data.common.content,
@@ -33,7 +31,7 @@ export const basic = s(Template, {
     image: data.common.image,
 });
 
-export const imageBottom = s(Template, {
+export const imageBottom = s(Push, {
     title: data.common.title,
     subtitle: data.common.subtitle,
     text: data.common.content,
@@ -47,7 +45,7 @@ export const imageBottom = s(Template, {
     imagePosition: 'bottom',
 });
 
-export const withBgImage = s(Template, {
+export const withBgImage = s(Push, {
     title: data.common.title,
     subtitle: data.common.subtitle,
     text: data.common.content,
@@ -55,7 +53,7 @@ export const withBgImage = s(Template, {
     image: data.common.image,
 });
 
-export const imageLeft = s(Template, {
+export const imageLeft = s(Push, {
     title: data.common.title,
     subtitle: data.common.subtitle,
     text: data.common.content,

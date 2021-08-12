@@ -11,8 +11,6 @@ export default {
     }),
 };
 
-const Template = (args) => <OrganizationForm {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(OrganizationForm, {
     onSubmit: (v) => alert(JSON.stringify(v, null, 4)),
 });

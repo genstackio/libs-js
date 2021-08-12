@@ -15,7 +15,6 @@ export default {
     }),
 };
 
-const Template = (args) => <FileUploader {...args} />;
 const Uploader = (props) => {
     const toast = useCallback((color, message) => {
         const el = document.getElementById('toast');
@@ -57,7 +56,7 @@ const Uploader = (props) => {
     }, [toast]);
 
     return (
-        <Template
+        <FileUploader
             {...props}
             onFileUpload={onFileUpload}
             onFileRemove={onFileRemove}

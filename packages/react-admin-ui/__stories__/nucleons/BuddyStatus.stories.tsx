@@ -7,8 +7,6 @@ export default {
     argTypes: {},
 };
 
-const Template = (args) => <BuddyStatus {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(BuddyStatus, {
     status: 'unknown',
 });

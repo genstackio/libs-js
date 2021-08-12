@@ -10,8 +10,6 @@ export default {
     }),
 };
 
-const Template = (args) => <FieldError {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(FieldError, {
     error: data.common.error,
 });

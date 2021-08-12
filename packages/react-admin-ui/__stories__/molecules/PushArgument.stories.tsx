@@ -12,9 +12,7 @@ export default {
     }),
 };
 
-const Template = (args) => <PushArgument {...args} />;
-
-export const imageLeft = s(Template, {
+export const imageLeft = s(PushArgument, {
     title: data.common.title,
     subtitle: data.common.subtitle,
     image: data.common.image,
@@ -24,7 +22,7 @@ export const imageLeft = s(Template, {
     imagePosition: 'left',
 });
 
-export const imageRight = s(Template, {
+export const imageRight = s(PushArgument, {
     title: data.common.title,
     subtitle: data.common.subtitle,
     image: data.common.image,
@@ -34,7 +32,7 @@ export const imageRight = s(Template, {
     imagePosition: 'right',
 });
 
-export const imageLeftWithoutButton = s(Template, {
+export const imageLeftWithoutButton = s(PushArgument, {
     title: data.common.title,
     subtitle: data.common.subtitle,
     image: data.common.image,

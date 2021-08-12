@@ -11,9 +11,7 @@ export default {
     }),
 };
 
-const Template = (args) => <ContentItemMosaic {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(ContentItemMosaic, {
     title: data.common.title,
     text: data.common.content,
     image: data.common.image,

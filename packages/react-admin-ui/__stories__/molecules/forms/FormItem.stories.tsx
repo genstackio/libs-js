@@ -9,8 +9,6 @@ export default {
     }),
 };
 
-const Template = (args) => <FormItem {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(FormItem, {
     definition: { type: 'field', field: 'email', required: true, autofocus: true },
 });

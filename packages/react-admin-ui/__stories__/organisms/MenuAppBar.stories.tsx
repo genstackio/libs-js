@@ -10,9 +10,7 @@ export default {
     }),
 };
 
-const Template = (args) => <MenuAppBar {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(MenuAppBar, {
     logo: {
         url: 'https://image.flaticon.com/icons/png/512/3800/3800024.png',
         alt: 'Slack Logo',
@@ -25,7 +23,7 @@ export const basic = s(Template, {
     ],
 });
 
-export const withoutLogo = s(Template, {
+export const withoutLogo = s(MenuAppBar, {
     menuItems: [
         { label: 'Home', target: 'btnTarget', active: true },
         { label: 'About Us', target: 'btnTarget', active: false },

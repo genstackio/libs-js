@@ -10,9 +10,7 @@ export default {
     }),
 };
 
-const Template = (args) => <TreeMapChart {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(TreeMapChart, {
     values: [
         {
             label: 'Confiance en soi',

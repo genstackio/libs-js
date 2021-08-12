@@ -14,9 +14,7 @@ export default {
     }),
 };
 
-const Template = (args) => <NewsBlock {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(NewsBlock, {
     title: 'News & Update',
     items: [
         {

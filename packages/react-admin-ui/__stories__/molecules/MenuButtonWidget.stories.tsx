@@ -10,9 +10,7 @@ export default {
     }),
 };
 
-const Template = (args) => <MenuButtonWidget {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(MenuButtonWidget, {
     items: [
         {
             icon: 'person',

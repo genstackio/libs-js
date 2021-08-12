@@ -13,9 +13,7 @@ export default {
     }),
 };
 
-const Template = (args) => <FiguresChartItem {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(FiguresChartItem, {
     color: ['#7366FF'],
     series: [{ data: [400, 900, 800, 1000, 700, 1200, 300] }],
     value: 1001,

@@ -11,22 +11,20 @@ export default {
     }),
 };
 
-const Template = (args) => <Newsletter {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Newsletter, {
     title: 'Recevez notre newsletter',
     text: 'Subscribe to our newsletter for daily/weekly update of our products and services.',
     image: { url: 'https://via.placeholder.com/687x426?text=Image' },
 });
 
-export const imageLeft = s(Template, {
+export const imageLeft = s(Newsletter, {
     title: 'Recevez notre newsletter',
     text: 'Subscribe to our newsletter for daily/weekly update of our products and services.',
     image: { url: 'https://via.placeholder.com/687x426?text=Image' },
     imageLeft: true,
 });
 
-export const withoutImage = s(Template, {
+export const withoutImage = s(Newsletter, {
     title: 'Recevez notre newsletter',
     text: 'Subscribe to our newsletter for daily/weekly update of our products and services.',
 });

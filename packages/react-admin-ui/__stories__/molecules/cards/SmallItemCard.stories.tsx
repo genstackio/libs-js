@@ -14,9 +14,7 @@ export default {
     }),
 };
 
-const Template = (args) => <SmallItemCard {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(SmallItemCard, {
     title: "Fancy Women's Cotton",
     rating: 5,
     image: {

@@ -12,15 +12,13 @@ export default {
     }),
 };
 
-const Template = (args) => <ItemCarrousselSlide {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(ItemCarrousselSlide, {
     title: data.common.title,
     label: data.common.subtitle,
     image: data.common.image,
 });
 
-export const withButton = s(Template, {
+export const withButton = s(ItemCarrousselSlide, {
     title: data.common.title,
     label: data.common.subtitle,
     image: data.common.image,
@@ -28,7 +26,7 @@ export const withButton = s(Template, {
     btnTarget: data.buttons.button1.target,
 });
 
-export const withoutImage = s(Template, {
+export const withoutImage = s(ItemCarrousselSlide, {
     title: data.common.title,
     label: data.common.subtitle,
 });
