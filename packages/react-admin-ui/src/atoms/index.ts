@@ -53,6 +53,7 @@ export * from './SectionHeader';
 export * from './Slide';
 export * from './Spacer';
 export * from './Spinner';
+export * from './SummariesItem';
 export * from './Tag';
 export * from './Text';
 export * from './texts';
