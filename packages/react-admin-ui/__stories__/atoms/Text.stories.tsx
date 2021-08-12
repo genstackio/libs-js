@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { Text } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Atoms/Text',
@@ -14,7 +15,7 @@ export default {
 const Template = (args) => <Text {...args} />;
 
 export const basic = s(Template, {
-    text: 'texte',
+    text: data.common.content,
     color: 'inherit',
     variant: 'body',
 });

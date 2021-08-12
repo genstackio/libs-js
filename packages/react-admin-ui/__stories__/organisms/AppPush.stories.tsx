@@ -1,5 +1,6 @@
 import { args, a, s } from '../utils';
 import { AppPush } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Organisms/AppPush',
@@ -15,8 +16,8 @@ export default {
 const Template = (args) => <AppPush {...args} />;
 
 export const basic = s(Template, {
-    title: 'Téléchargez notre application',
-    description: "Disponible sur l'App Store ou sous Android",
+    title: data.common.title,
+    description: data.common.description,
     btnLabelAppStore: 'AppStore',
     btnLabelGooglePlay: 'GooglePlay',
 });

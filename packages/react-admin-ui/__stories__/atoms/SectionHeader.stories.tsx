@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { SectionHeader } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Atoms/SectionHeader',
@@ -15,8 +16,8 @@ export default {
 const Template = (args) => <SectionHeader {...args} />;
 
 export const basic = s(Template, {
-    title: 'This is the title',
-    subtitle: 'This is the subtitle',
+    title: data.common.title,
+    subtitle: data.common.subtitle,
 });
 
 export const showcase = s(
@@ -33,7 +34,7 @@ export const showcase = s(
         </>
     ),
     {
-        title: 'This is the title',
-        subtitle: 'This is the subtitle',
+        title: data.common.title,
+        subtitle: data.common.subtitle,
     },
 );

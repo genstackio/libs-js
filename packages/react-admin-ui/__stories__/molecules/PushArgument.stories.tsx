@@ -1,5 +1,6 @@
 import PushArgument from '../../src/molecules/PushArgument';
 import { args, a, s } from '../utils';
+import data from '../data';
 
 export default {
     title: 'Molecules/PushArgument',
@@ -14,56 +15,29 @@ export default {
 const Template = (args) => <PushArgument {...args} />;
 
 export const imageLeft = s(Template, {
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    subtitle:
-        'Sit vestibulum odio morbi egestas vitae scelerisque eu risus. A, erat laoreet nisl, diam adipiscing nibh ' +
-        'vitae quis cras.',
-    image: {
-        url: 'https://picsum.photos/200/200',
-    },
-    image2: {
-        url: 'https://picsum.photos/200/200',
-        mobile: {
-            url: 'https://picsum.photos/200/200',
-        },
-    },
-    btnLabel: 'button',
-    btnTarget: 'https://www.google.fr',
+    title: data.common.title,
+    subtitle: data.common.subtitle,
+    image: data.common.image,
+    image2: data.common.image2,
+    btnLabel: data.buttons.button1.label,
+    btnTarget: data.buttons.button1.target,
     imagePosition: 'left',
 });
 
 export const imageRight = s(Template, {
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    subtitle:
-        'Sit vestibulum odio morbi egestas vitae scelerisque eu risus. A, erat laoreet nisl, diam adipiscing nibh ' +
-        'vitae quis cras.',
-    image: {
-        url: 'https://picsum.photos/200/200',
-    },
-    image2: {
-        url: 'https://picsum.photos/200/200',
-        mobile: {
-            url: 'https://picsum.photos/200/200',
-        },
-    },
-    btnLabel: 'button',
-    btnTarget: 'https://www.google.fr',
+    title: data.common.title,
+    subtitle: data.common.subtitle,
+    image: data.common.image,
+    image2: data.common.image2,
+    btnLabel: data.buttons.button1.label,
+    btnTarget: data.buttons.button1.target,
     imagePosition: 'right',
 });
 
 export const imageLeftWithoutButton = s(Template, {
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    subtitle:
-        'Sit vestibulum odio morbi egestas vitae scelerisque eu risus. A, erat laoreet nisl, diam adipiscing nibh ' +
-        'vitae quis cras.',
-    image: {
-        url: 'https://picsum.photos/200/200',
-    },
-    image2: {
-        url: 'https://picsum.photos/200/200',
-        mobile: {
-            url: 'https://picsum.photos/200/200',
-        },
-    },
+    title: data.common.title,
+    subtitle: data.common.subtitle,
+    image: data.common.image,
+    image2: data.common.image2,
     imagePosition: 'left',
 });

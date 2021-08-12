@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { Frame } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Atoms/Frame',
@@ -14,11 +15,11 @@ export default {
 const Template = (args) => <Frame {...args} />;
 
 export const basic = s(Template, {
-    children: 'Lorem ipsum',
+    children: data.common.content,
 });
 
 export const withIcon = s(Template, {
-    children: 'Lorem ipsum',
+    children: data.common.content,
     variant: 'outlined',
-    icon: 'settings',
+    icon: data.common.icon,
 });

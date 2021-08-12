@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { Image } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Atoms/Image',
@@ -13,18 +14,15 @@ export default {
 const Template = (args) => <Image {...args} />;
 
 export const basic = s(Template, {
-    url: 'https://image-placeholder.com/images/actual-size/240x320.png',
-    alt: 'img',
+    ...data.common.image,
 });
 
 export const rounded = s(Template, {
-    url: 'https://image-placeholder.com/images/actual-size/240x320.png',
-    alt: 'img',
+    ...data.common.image,
     corner: 'rounded',
 });
 
 export const circle = s(Template, {
-    url: 'https://image-placeholder.com/images/actual-size/240x320.png',
-    alt: 'img',
+    ...data.common.image,
     corner: 'circle',
 });

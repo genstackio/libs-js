@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { AlertPanel } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Molecules/AlertPanel',
@@ -12,17 +13,15 @@ export default {
     }),
 };
 
-const Template = (args) => (
-    <AlertPanel {...args}>
-        <div>Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</div>
-    </AlertPanel>
-);
+const Template = (args) => <AlertPanel {...args} />;
 
 export const basic = s(Template, {
-    title: 'Well done!',
+    title: data.common.title,
+    children: data.common.content,
 });
 
 export const withClosable = s(Template, {
-    title: 'Well done !',
+    title: data.common.title,
+    children: data.common.content,
     closable: true,
 });

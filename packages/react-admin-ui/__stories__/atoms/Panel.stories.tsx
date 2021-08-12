@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { Panel } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Atoms/Panel',
@@ -14,7 +15,7 @@ export default {
 const Template = (args) => <Panel {...args} />;
 
 export const basic = s(Template, {
-    children: 'This is a info panel—check it out!',
+    children: data.common.content,
     color: 'secondary',
     variant: 'contained',
 });
@@ -41,6 +42,6 @@ export const showcase = s(
         </div>
     ),
     {
-        children: 'This is a info panel—check it out!',
+        children: data.common.content,
     },
 );

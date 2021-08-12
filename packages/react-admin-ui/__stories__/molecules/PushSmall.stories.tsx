@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import PushSmall from '../../src/molecules/PushSmall';
+import data from '../data';
 
 export default {
     title: 'Molecules/PushSmall',
@@ -14,31 +15,27 @@ export default {
 const Template = (args) => <PushSmall {...args} />;
 
 export const basic = s(Template, {
-    title: 'Pour aller plus loin',
+    title: data.common.title,
     items: [
         {
-            title: 'Title',
-            subtitle: 'Subtitle',
-            label: 'Compatible Mac et Pc',
-            btnLabel: 'Button Label',
-            btnTarget: 'https://www.google.fr',
-            btn2Label: 'Télécharger',
-            btn2Target: 'https://www.google.fr',
-            image: {
-                url: 'https://via.placeholder.com/500',
-            },
+            title: data.common.title,
+            subtitle: data.common.subtitle,
+            label: data.common.description,
+            btnLabel: data.buttons.button1.label,
+            btnTarget: data.buttons.button1.target,
+            btn2Label: data.buttons.button2.label,
+            btn2Target: data.buttons.button2.target,
+            image: data.common.image,
         },
         {
-            title: 'Title',
-            subtitle: 'Subtitle',
-            label: 'Application mobile iOS et Android',
-            btnLabel: 'Télécharger',
-            btnTarget: 'https://www.google.fr',
-            btn2Label: 'Découvrir',
-            btn2Target: 'https://www.google.fr',
-            image: {
-                url: 'https://via.placeholder.com/500',
-            },
+            title: data.common.title2,
+            subtitle: data.common.subtitle2,
+            label: data.common.description2,
+            btnLabel: data.buttons.button1.label,
+            btnTarget: data.buttons.button1.target,
+            btn2Label: data.buttons.button2.label,
+            btn2Target: data.buttons.button2.target,
+            image: data.common.image2,
         },
     ],
 });

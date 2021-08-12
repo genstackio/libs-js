@@ -1,5 +1,6 @@
 import Quotes from '../../src/molecules/Quotes';
 import { args, a, s } from '../utils';
+import data from '../data';
 
 export default {
     title: 'Molecules/Quotes',
@@ -12,66 +13,62 @@ export default {
 const Template = (args) => <Quotes {...args} />;
 
 const item = {
-    image: {
-        url: 'https://picsum.photos/200/200',
-    },
-    overline: 'Konbini',
-    title: '"Proposer un jouet tech pour enfant sans écran et sans ondes, il fallait le faire. "',
-    buttonLabel: 'Konbini',
-    buttonTarget: 'https://www.google.fr',
+    image: data.common.image,
+    overline: data.common.overline,
+    title: data.common.title,
+    buttonLabel: data.buttons.button1.label,
+    buttonTarget: data.buttons.button1.target,
 };
 const item2 = {
-    overline: 'Le Monde',
-    title: '"le monde lemon de de demon leemm lemonndennde demon lem melon"',
+    overline: data.common.overline2,
+    title: data.common.title2,
 };
 const item3 = {
-    image: {
-        url: 'https://picsum.photos/200/200',
-    },
-    overline: 'Pomme',
-    title: '"Pomme pom pom pomomsomomopo mooppmm pompoi moiopompioim oimo imoi moi"',
-    buttonLabel: 'Pomme',
-    buttonTarget: 'https://www.google.fr',
+    image: data.common.image2,
+    overline: data.common.overline3,
+    title: data.common.title3,
+    buttonLabel: data.buttons.button3.label,
+    buttonTarget: data.buttons.button3.target,
 };
 
 export const basic = s(Template, {
-    title: 'Ils parlent de nous',
-    btnLabel: 'Nos revues de presse',
-    btnTarget: 'https://www.google.fr',
+    title: data.common.title,
+    btnLabel: data.buttons.button1.label,
+    btnTarget: data.buttons.button1.target,
     items: [item],
 });
 
 export const withItems = s(Template, {
-    title: 'Ils parlent de nous',
-    btnLabel: 'Nos revues de presse',
-    btnTarget: 'https://www.google.fr',
+    title: data.common.title,
+    btnLabel: data.buttons.button1.label,
+    btnTarget: data.buttons.button1.target,
     items: [item, item2, item3, item, item2, item3],
 });
 
 export const withButtonEndIcon = s(Template, {
-    title: 'Ils parlent de nous',
-    btnLabel: 'Nos revues de presse',
-    btnTarget: 'https://www.google.fr',
+    title: data.common.title,
+    btnLabel: data.buttons.button1.label,
+    btnTarget: data.buttons.button1.target,
     btnEndIcon: 'fa-fas--arrow-right',
     items: [item],
 });
 
 export const withButtonIcon = s(Template, {
-    title: 'Ils parlent de nous',
-    btnLabel: 'Nos revues de presse',
-    btnTarget: 'https://www.google.fr',
+    title: data.common.title,
+    btnLabel: data.buttons.button1.label,
+    btnTarget: data.buttons.button1.target,
     btnIcon: 'fa-fas--arrow-right',
     items: [item],
 });
 
 export const withoutButton = s(Template, {
-    title: 'Ils parlent de nous',
+    title: data.common.title,
     items: [item],
 });
 
 export const withoutTitle = s(Template, {
-    btnLabel: 'Nos revues de presse',
-    btnTarget: 'https://www.google.fr',
+    btnLabel: data.buttons.button1.label,
+    btnTarget: data.buttons.button1.target,
     items: [item],
 });
 

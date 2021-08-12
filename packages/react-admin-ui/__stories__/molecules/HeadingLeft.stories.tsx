@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { HeadingLeft } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Molecules/HeadingLeft',
@@ -18,8 +19,7 @@ export default {
 const Template = (args) => <HeadingLeft {...args} />;
 
 export const basic = s(Template, {
-    title: 'Alert',
-    subtitle: '10% off For drama lights Couslations...',
-    description: 'Lorem Ipsum is simply dummy...It is a long established fact that a reader will be distracted by',
-    btnLabel: '...',
+    title: data.common.title,
+    subtitle: data.common.subtitle,
+    description: data.common.content,
 });

@@ -1,5 +1,6 @@
 import { args, s } from '../utils';
 import { ItemSummary } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Molecules/ItemSummary',
@@ -15,8 +16,8 @@ export default {
 const Template = (args) => <ItemSummary {...args} />;
 
 export const basic = s(Template, {
-    date: 232567444,
-    author: 'Federica Buzzi',
-    likes: 2,
-    comments: 598,
+    date: data.common.date,
+    author: data.user.name,
+    likes: data.common.likes,
+    comments: data.common.comments,
 });

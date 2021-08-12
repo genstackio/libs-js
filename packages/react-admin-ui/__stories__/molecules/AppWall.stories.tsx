@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { AppWall } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Molecules/AppWall',
@@ -14,25 +15,19 @@ const Template = (args) => <AppWall {...args} />;
 export const basic = s(Template, {
     items: [
         {
-            title: 'Title',
-            image: {
-                url: 'https://picsum.photos/200/200',
-            },
-            target: 'https://www.google.com',
+            title: data.item.title,
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            title: 'Title',
-            image: {
-                url: 'https://picsum.photos/200/200',
-            },
-            target: 'https://www.google.com',
+            title: data.item.title,
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            title: 'Title',
-            image: {
-                url: 'https://picsum.photos/200/200',
-            },
-            target: 'https://www.google.com',
+            title: data.item.title,
+            image: data.item.image,
+            target: data.item.target,
         },
     ],
 });
@@ -40,129 +35,79 @@ export const basic = s(Template, {
 export const manyItems = s(Template, {
     items: [
         {
-            title: 'Title',
-            image: {
-                url: 'https://picsum.photos/200/200',
-            },
-            target: 'https://www.google.com',
+            title: data.item.title,
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            title: 'Title',
-            image: {
-                url: 'https://picsum.photos/200/200',
-            },
-            target: 'https://www.google.com',
+            title: data.item.title,
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            title: 'Title',
-            image: {
-                url: 'https://picsum.photos/200/200',
-            },
-            target: 'https://www.google.com',
+            title: data.item.title,
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            title: 'Title',
-            image: {
-                url: 'https://picsum.photos/200/200',
-            },
-            target: 'https://www.google.com',
+            title: data.item.title,
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            title: 'Title',
-            image: {
-                url: 'https://picsum.photos/200/200',
-            },
-            target: 'https://www.google.com',
+            title: data.item.title,
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            title: 'Title',
-            image: {
-                url: 'https://picsum.photos/200/200',
-            },
-            target: 'https://www.google.com',
+            title: data.item.title,
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            title: 'Title',
-            image: {
-                url: 'https://picsum.photos/200/200',
-            },
+            title: data.item.title,
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            title: 'Title',
-            image: {
-                url: 'https://picsum.photos/200/200',
-            },
-            target: 'https://www.google.com',
+            title: data.item.title,
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            title: 'Title',
-            image: {
-                url: 'https://picsum.photos/200/200',
-            },
-            target: 'https://www.google.com',
+            title: data.item.title,
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            title: 'Title',
-            image: {
-                url: 'https://picsum.photos/200/200',
-            },
-            target: 'https://www.google.com',
+            title: data.item.title,
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            title: 'Title',
-            image: {
-                url: 'https://picsum.photos/200/200',
-            },
-            target: 'https://www.google.com',
+            title: data.item.title,
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            title: 'Title',
-            image: {
-                url: 'https://picsum.photos/200/200',
-            },
-            target: 'https://www.google.com',
+            title: data.item.title,
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            title: 'Title',
-            image: {
-                url: 'https://picsum.photos/200/200',
-            },
-            target: 'https://www.google.com',
+            title: data.item.title,
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            title: 'Title',
-            image: {
-                url: 'https://picsum.photos/200/200',
-            },
-            target: 'https://www.google.com',
+            title: data.item.title,
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            title: 'Title',
-            image: {
-                url: 'https://picsum.photos/200/200',
-            },
-            target: 'https://www.google.com',
-        },
-        {
-            title: 'Title',
-            image: {
-                url: 'https://picsum.photos/200/200',
-            },
-            target: 'https://www.google.com',
-        },
-        {
-            title: 'Title',
-            image: {
-                url: 'https://picsum.photos/200/200',
-            },
-            target: 'https://www.google.com',
-        },
-        {
-            title: 'Title',
-            image: {
-                url: 'https://picsum.photos/200/200',
-            },
-            target: 'https://www.google.com',
+            title: data.item.title,
+            image: data.item.image,
+            target: data.item.target,
         },
     ],
 });

@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { FieldLabel } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Atoms/FieldLabel',
@@ -13,6 +14,6 @@ export default {
 const Template = (args) => <FieldLabel {...args} />;
 
 export const basic = s(Template, {
-    label: 'Field Label',
+    label: data.common.label,
     name: 'Label Name',
 });

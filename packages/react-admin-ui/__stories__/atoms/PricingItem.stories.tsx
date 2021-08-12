@@ -1,5 +1,6 @@
-import { args, s, a } from '../utils';
+import { s, a } from '../utils';
 import { PricingItem } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Atoms/PricingItem',
@@ -48,9 +49,7 @@ export const withBackgroundImage = s(Template, {
                 title: '15 Subdomains',
             },
         ],
-        image: {
-            url: 'https://images.unsplash.com/photo-1557682268-e3955ed5d83f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=486&q=80',
-        },
+        image: data.common.image,
         label: 'Sign Up',
         name: 'standard',
         period: '/mo',

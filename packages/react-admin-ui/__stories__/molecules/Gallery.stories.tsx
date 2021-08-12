@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { Gallery } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Molecules/Gallery',
@@ -107,7 +108,7 @@ export const withHeader = s(Template, {
             alt: 'alt',
         },
     ],
-    icon: 'phone',
-    title: 'This is a title',
-    btnLabel: 'Follow Us',
+    icon: data.common.icon,
+    title: data.common.title,
+    btnLabel: data.buttons.button1.label,
 });

@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { CornerItem } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Molecules/CornerItem',
@@ -15,8 +16,8 @@ export default {
 const Template = (args) => <CornerItem {...args} />;
 
 export const basic = s(Template, {
-    text: 'Corner Tag',
+    text: data.tag.text,
     variant: 'contained',
-    iconCorner: 'settings',
+    iconCorner: data.common.icon,
     color: 'primary',
 });

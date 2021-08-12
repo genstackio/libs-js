@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { BoxHeader } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Molecules/BoxHeader',
@@ -15,7 +16,7 @@ export default {
 const Template = (args) => <BoxHeader {...args} />;
 
 export const basic = s(Template, {
-    title: 'Tags',
+    title: data.common.title,
     color: 'secondary',
     variant: 'contained',
 });

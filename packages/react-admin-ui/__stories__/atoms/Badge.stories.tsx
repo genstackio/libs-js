@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { Badge } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Atoms/Badge',
@@ -12,11 +13,12 @@ export default {
 const Template = (args) => <Badge {...args} />;
 
 export const basic = s(Template, {
-    text: 'je suis un tag',
+    text: data.tag.text,
 });
+
 export const custom = s(Template, {
     color: 'success',
-    text: 'pill tu perds',
+    text: data.tag.text,
     variant: 'contained',
     type: 'pill',
 });

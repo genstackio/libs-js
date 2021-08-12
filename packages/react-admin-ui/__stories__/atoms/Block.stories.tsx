@@ -14,6 +14,7 @@ import {
 import StoreIcon from '@material-ui/icons/Store';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import data from '../data';
 
 export default {
     title: 'Atoms/Block',
@@ -32,38 +33,35 @@ export default {
 const Template = (args) => <Block {...args} />;
 
 export const basic = s(Template, {
-    title: 'this is the title',
-    children: 'this is the content',
+    title: data.common.title,
+    children: data.common.content,
     firstIcon: 'Adb',
 });
 
 export const withSubtitle = s(Template, {
-    title: 'this is the title',
-    subtitle: 'this is the subtitle',
-    children: 'this is the content',
+    title: data.common.title,
+    subtitle: data.common.subtitle,
+    children: data.common.content,
     firstIcon: 'Adb',
 });
 
 export const withButtons = s(Template, {
-    title: 'this is the title',
-    children: 'this is the content',
+    title: data.common.title,
+    children: data.common.content,
     firstIcon: 'Adb',
     buttons: [
-        { children: 'hello', color: 'primary', variant: 'contained' },
-        { children: 'hello', color: 'secondary', variant: 'contained' },
-        { children: 'hello', color: 'info', variant: 'contained' },
-        { children: 'hello', color: 'danger', variant: 'contained' },
+        { children: data.buttons.button1.label, color: 'primary', variant: 'contained' },
+        { children: data.buttons.button2.label, color: 'secondary', variant: 'contained' },
+        { children: data.buttons.button3.label, color: 'info', variant: 'contained' },
+        { children: data.buttons.button4.label, color: 'danger', variant: 'contained' },
     ],
 });
 
 export const withBackgroundImage = s(Template, {
-    title: 'this is the title',
-    children: 'this is the content',
+    title: data.common.title,
+    children: data.common.content,
+    image: data.common.image,
     firstIcon: 'Adb',
-    image: {
-        url: 'https://images.unsplash.com/photo-1543854304-597ff8d86035?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-        alt: '',
-    },
 });
 
 export const areaChart = s(

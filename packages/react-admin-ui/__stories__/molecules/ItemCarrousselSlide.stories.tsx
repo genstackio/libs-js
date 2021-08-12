@@ -1,5 +1,6 @@
 import { ItemCarrousselSlide } from '../../src/molecules/ItemCarrousselSlide';
 import { args, a, s } from '../utils';
+import data from '../data';
 
 export default {
     title: 'Molecules/ItemCarrousselSlide',
@@ -14,24 +15,20 @@ export default {
 const Template = (args) => <ItemCarrousselSlide {...args} />;
 
 export const basic = s(Template, {
-    title: 'Mon Produit',
-    label: 'Compatible Mac, PC & Linux',
-    image: {
-        url: 'https://via.placeholder.com/687x426?text=Image',
-    },
+    title: data.common.title,
+    label: data.common.subtitle,
+    image: data.common.image,
 });
 
 export const withButton = s(Template, {
-    title: 'Mon Produit',
-    label: 'Compatible Mac, PC & Linux',
-    image: {
-        url: 'https://via.placeholder.com/687x426?text=Image',
-    },
-    btnLabel: 'Click Here',
-    btnTarget: 'https://www.google.com',
+    title: data.common.title,
+    label: data.common.subtitle,
+    image: data.common.image,
+    btnLabel: data.buttons.button1.label,
+    btnTarget: data.buttons.button1.target,
 });
 
 export const withoutImage = s(Template, {
-    title: 'Mon Produit',
-    label: 'Compatible Mac, PC & Linux',
+    title: data.common.title,
+    label: data.common.subtitle,
 });

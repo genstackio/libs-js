@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { StatsChartHeader } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Molecules/StatsChartHeader',
@@ -14,7 +15,7 @@ export default {
 const Template = (args) => <StatsChartHeader {...args} />;
 
 export const basic = s(Template, {
-    subtitle: 'Je suis un sous-titre',
-    value: 'Lorem Ipsum',
-    stats: 42,
+    subtitle: data.common.subtitle,
+    value: data.common.value,
+    stats: data.common.number_value,
 });

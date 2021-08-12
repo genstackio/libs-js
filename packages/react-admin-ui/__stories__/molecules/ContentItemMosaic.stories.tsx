@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { ContentItemMosaic } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Molecules/ContentItemMosaic',
@@ -13,8 +14,8 @@ export default {
 const Template = (args) => <ContentItemMosaic {...args} />;
 
 export const basic = s(Template, {
-    title: 'Title',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque leo.',
-    image: { url: 'https://via.placeholder.com/100x100?text=Image' },
-    btnTarget: 'https://google.fr',
+    title: data.common.title,
+    text: data.common.content,
+    image: data.common.image,
+    btnTarget: data.buttons.button1.target,
 });

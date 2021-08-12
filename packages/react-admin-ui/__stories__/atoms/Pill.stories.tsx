@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { Pill } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Atoms/Pill',
@@ -17,7 +18,7 @@ export const basic = s(Template, {
 });
 
 export const withLongText = s(Template, {
-    text: 'My name is BIll and I am a Pill',
+    text: data.tag.text,
     variant: 'contained',
     color: 'primary',
 });

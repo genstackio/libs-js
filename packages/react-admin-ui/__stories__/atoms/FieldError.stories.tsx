@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { FieldError } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Atoms/FieldError',
@@ -12,5 +13,5 @@ export default {
 const Template = (args) => <FieldError {...args} />;
 
 export const basic = s(Template, {
-    error: 'Field Error',
+    error: data.common.error,
 });

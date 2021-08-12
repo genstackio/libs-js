@@ -23,7 +23,7 @@ const Demo = ({ size = undefined, color, variant = undefined }: { size?: number;
                 height: variant === 'vertical' ? 300 : 'unset',
             }}
         >
-            <Spacer size={size} variant={variant} />
+            <Spacer size={size} variant={variant as any} />
         </div>
     </div>
 );
