@@ -18,6 +18,7 @@ export * from './cards';
 export * from './ContentItemMosaic';
 export * from './ContentItemsMosaic';
 export * from './Corner';
+export * from './CornerItem';
 export * from './ConfirmModal';
 export * from './Faq';
 export * from './Expandable';
