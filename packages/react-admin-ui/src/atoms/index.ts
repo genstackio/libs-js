@@ -41,6 +41,7 @@ export * from './MosaicItem';
 export * from './Panel';
 export * from './PeriodBlock';
 export * from './Pill';
+export * from './PricingItem';
 export * from './Progress';
 export * from './progresses';
 export * from './Quote';
