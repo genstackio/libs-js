@@ -16,27 +16,25 @@ export default {
     }),
 };
 
-const Template = (args) => <Paragraph {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Paragraph, {
     title: data.common.title,
     text: data.common.content,
 });
 
-export const withImage = s(Template, {
+export const withImage = s(Paragraph, {
     title: data.common.title,
     text: data.common.content,
     image: data.common.image,
 });
 
-export const withImageLeft = s(Template, {
+export const withImageLeft = s(Paragraph, {
     title: data.common.title,
     text: data.common.content,
     image: data.common.image,
     imageLeft: true,
 });
 
-export const withButton = s(Template, {
+export const withButton = s(Paragraph, {
     title: data.common.title,
     text: data.common.content,
     image: data.common.image,
@@ -44,7 +42,7 @@ export const withButton = s(Template, {
     btnTarget: data.buttons.button1.target,
 });
 
-export const withButtons = s(Template, {
+export const withButtons = s(Paragraph, {
     title: data.common.title,
     text: data.common.content,
     image: data.common.image,

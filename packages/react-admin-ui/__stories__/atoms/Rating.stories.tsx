@@ -18,15 +18,13 @@ export default {
     }),
 };
 
-const Template = (args) => <Rating {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Rating, {
     min: 1,
     max: 10,
     defaultValue: 3,
 });
 
-export const withValues = s(Template, {
+export const withValues = s(Rating, {
     values: [
         {
             value: 'a',
@@ -52,6 +50,6 @@ export const withValues = s(Template, {
     defaultValue: 'b',
     variant: 'plates',
 });
-export const mood = s(Template, {
+export const mood = s(Rating, {
     variant: 'mood',
 });

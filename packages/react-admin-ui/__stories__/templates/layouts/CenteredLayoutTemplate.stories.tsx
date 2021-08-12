@@ -11,9 +11,7 @@ export default {
     }),
 };
 
-const Template = (args) => <CenteredLayoutTemplate {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(CenteredLayoutTemplate, {
     logo: {
         url: 'https://via.placeholder.com/120x40?text=Logo',
         alt: 'Logo',

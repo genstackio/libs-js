@@ -9,6 +9,4 @@ export default {
     }),
 };
 
-const Template = (args) => <FavoriteToolbarItem {...args} />;
-
-export const basic = s(Template, {});
+export const basic = s(FavoriteToolbarItem, {});

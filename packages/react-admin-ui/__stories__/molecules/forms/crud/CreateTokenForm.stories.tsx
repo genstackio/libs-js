@@ -12,8 +12,6 @@ export default {
     }),
 };
 
-const Template = (args) => <CreateTokenForm {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(CreateTokenForm, {
     onSubmit: (v) => alert(JSON.stringify(v, null, 4)),
 });

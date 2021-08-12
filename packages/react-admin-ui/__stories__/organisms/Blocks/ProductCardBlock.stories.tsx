@@ -15,9 +15,7 @@ export default {
     }),
 };
 
-const Template = (args) => <ProductCardBlock {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(ProductCardBlock, {
     description: 'Simply dummy text of the printing.',
     image: {
         url: 'https://picsum.photos/250/400',
@@ -28,7 +26,7 @@ export const basic = s(Template, {
     rating: 5,
     title: "Man's Shirt",
 });
-export const noObligatory = s(Template, {
+export const noObligatory = s(ProductCardBlock, {
     image: {
         url: 'https://picsum.photos/250/400',
         alt: 'alt',

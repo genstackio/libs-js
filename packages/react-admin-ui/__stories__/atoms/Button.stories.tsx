@@ -19,22 +19,20 @@ export default {
     }),
 };
 
-const Template = (args) => <Button {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Button, {
     children: data.buttons.button1.label,
     color: 'primary',
     variant: 'contained',
 });
 
-export const withConfirmation = s(Template, {
+export const withConfirmation = s(Button, {
     children: data.buttons.button1.label,
     color: 'primary',
     variant: 'contained',
     confirm: true,
 });
 
-export const withDeleteConfirmation = s(Template, {
+export const withDeleteConfirmation = s(Button, {
     children: data.buttons.button1.label,
     color: 'primary',
     variant: 'contained',
@@ -43,14 +41,14 @@ export const withDeleteConfirmation = s(Template, {
     confirmDanger: true,
 });
 
-export const withEndIcon = s(Template, {
+export const withEndIcon = s(Button, {
     children: data.buttons.button1.label,
     color: 'primary',
     variant: 'contained',
     endIcon: 'fa-fas--arrow-right',
 });
 
-export const withLoading = s(Template, {
+export const withLoading = s(Button, {
     children: data.buttons.button1.label,
     color: 'primary',
     variant: 'contained',
@@ -66,116 +64,116 @@ export const showcase = s(
                     <p>{variant.toUpperCase()}</p>
                     <div className={'flex items-center space-x-4'}>
                         {Object.keys(boxColors).map((color, j) => (
-                            <Template key={`${i}-${j}`} color={color} variant={variant}>
+                            <Button key={`${i}-${j}`} color={color as any} variant={variant as any}>
                                 {color}
-                            </Template>
+                            </Button>
                         ))}
                     </div>
                 </Fragment>
             ))}
             <p>DISABLED</p>
             <div className={'flex items-center space-x-4'}>
-                <Template color={'primary'} disabled>
+                <Button color={'primary'} disabled>
                     {'primary'}
-                </Template>
-                <Template color={'secondary'} disabled>
+                </Button>
+                <Button color={'secondary'} disabled>
                     {'secondary'}
-                </Template>
-                <Template color={'success'} disabled>
+                </Button>
+                <Button color={'success'} disabled>
                     {'success'}
-                </Template>
-                <Template color={'info'} disabled>
+                </Button>
+                <Button color={'info'} disabled>
                     {'info'}
-                </Template>
-                <Template color={'warning'} disabled>
+                </Button>
+                <Button color={'warning'} disabled>
                     {'warning'}
-                </Template>
-                <Template color={'danger'} disabled>
+                </Button>
+                <Button color={'danger'} disabled>
                     {'danger'}
-                </Template>
-                <Template color={'light'} disabled>
+                </Button>
+                <Button color={'light'} disabled>
                     {'light'}
-                </Template>
-                <Template color={'dark'} disabled>
+                </Button>
+                <Button color={'dark'} disabled>
                     {'dark'}
-                </Template>
+                </Button>
             </div>
             <div className={'flex items-center space-x-4'}>
-                <Template color={'primary'} variant={'outlined'} disabled>
+                <Button color={'primary'} variant={'outlined'} disabled>
                     {'primary'}
-                </Template>
-                <Template color={'secondary'} variant={'outlined'} disabled>
+                </Button>
+                <Button color={'secondary'} variant={'outlined'} disabled>
                     {'secondary'}
-                </Template>
-                <Template color={'success'} variant={'outlined'} disabled>
+                </Button>
+                <Button color={'success'} variant={'outlined'} disabled>
                     {'success'}
-                </Template>
-                <Template color={'info'} variant={'outlined'} disabled>
+                </Button>
+                <Button color={'info'} variant={'outlined'} disabled>
                     {'info'}
-                </Template>
-                <Template color={'warning'} variant={'outlined'} disabled>
+                </Button>
+                <Button color={'warning'} variant={'outlined'} disabled>
                     {'warning'}
-                </Template>
-                <Template color={'danger'} variant={'outlined'} disabled>
+                </Button>
+                <Button color={'danger'} variant={'outlined'} disabled>
                     {'danger'}
-                </Template>
-                <Template color={'light'} variant={'outlined'} disabled>
+                </Button>
+                <Button color={'light'} variant={'outlined'} disabled>
                     {'light'}
-                </Template>
-                <Template color={'dark'} variant={'outlined'} disabled>
+                </Button>
+                <Button color={'dark'} variant={'outlined'} disabled>
                     {'dark'}
-                </Template>
+                </Button>
             </div>
             <div className={'flex items-center space-x-4'}>
-                <Template color={'primary'} variant={'contained'} disabled>
+                <Button color={'primary'} variant={'contained'} disabled>
                     {'primary'}
-                </Template>
-                <Template color={'secondary'} variant={'contained'} disabled>
+                </Button>
+                <Button color={'secondary'} variant={'contained'} disabled>
                     {'secondary'}
-                </Template>
-                <Template color={'success'} variant={'contained'} disabled>
+                </Button>
+                <Button color={'success'} variant={'contained'} disabled>
                     {'success'}
-                </Template>
-                <Template color={'info'} variant={'contained'} disabled>
+                </Button>
+                <Button color={'info'} variant={'contained'} disabled>
                     {'info'}
-                </Template>
-                <Template color={'warning'} variant={'contained'} disabled>
+                </Button>
+                <Button color={'warning'} variant={'contained'} disabled>
                     {'warning'}
-                </Template>
-                <Template color={'danger'} variant={'contained'} disabled>
+                </Button>
+                <Button color={'danger'} variant={'contained'} disabled>
                     {'danger'}
-                </Template>
-                <Template color={'light'} variant={'contained'} disabled>
+                </Button>
+                <Button color={'light'} variant={'contained'} disabled>
                     {'light'}
-                </Template>
-                <Template color={'dark'} variant={'contained'} disabled>
+                </Button>
+                <Button color={'dark'} variant={'contained'} disabled>
                     {'dark'}
-                </Template>
+                </Button>
             </div>
             <p>LARGE</p>
             <div className={'flex items-center space-x-4'}>
-                <Template color={'primary'} size={'xl'}>
+                <Button color={'primary'} size={'xl'}>
                     {'primary'}
-                </Template>
-                <Template color={'secondary'} size={'xl'}>
+                </Button>
+                <Button color={'secondary'} size={'xl'}>
                     {'secondary'}
-                </Template>
+                </Button>
             </div>
             <div className={'flex items-center space-x-4'}>
-                <Template color={'primary'} variant={'outlined'} size={'xl'}>
+                <Button color={'primary'} variant={'outlined'} size={'xl'}>
                     {'primary'}
-                </Template>
-                <Template color={'secondary'} variant={'outlined'} size={'xl'}>
+                </Button>
+                <Button color={'secondary'} variant={'outlined'} size={'xl'}>
                     {'secondary'}
-                </Template>
+                </Button>
             </div>
             <div className={'flex items-center space-x-4'}>
-                <Template color={'primary'} variant={'contained'} size={'xl'}>
+                <Button color={'primary'} variant={'contained'} size={'xl'}>
                     {'primary'}
-                </Template>
-                <Template color={'secondary'} variant={'contained'} size={'xl'}>
+                </Button>
+                <Button color={'secondary'} variant={'contained'} size={'xl'}>
                     {'secondary'}
-                </Template>
+                </Button>
             </div>
         </div>
     ),

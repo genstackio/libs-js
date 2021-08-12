@@ -11,9 +11,7 @@ export default {
     }),
 };
 
-const Template = (args) => <InfosItem {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(InfosItem, {
     label: data.common.property,
     value: data.common.value,
 });

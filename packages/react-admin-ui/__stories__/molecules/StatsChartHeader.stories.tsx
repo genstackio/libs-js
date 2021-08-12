@@ -12,9 +12,7 @@ export default {
     }),
 };
 
-const Template = (args) => <StatsChartHeader {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(StatsChartHeader, {
     subtitle: data.common.subtitle,
     value: data.common.value,
     stats: data.common.number_value,

@@ -10,8 +10,6 @@ export default {
     }),
 };
 
-const Template = (args) => <Icon {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Icon, {
     icon: 'phone',
 });

@@ -12,9 +12,7 @@ export default {
     }),
 };
 
-const Template = (args) => <QuoteSlide {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(QuoteSlide, {
     image: data.common.image,
     overline: data.common.overline,
     title: data.common.title,
@@ -27,7 +25,7 @@ export const basic = s(Template, {
     },
 });
 
-export const withoutImage = s(Template, {
+export const withoutImage = s(QuoteSlide, {
     overline: data.common.overline,
     title: data.common.title,
     button: {
@@ -39,7 +37,7 @@ export const withoutImage = s(Template, {
     },
 });
 
-export const withoutButton = s(Template, {
+export const withoutButton = s(QuoteSlide, {
     image: data.common.image,
     overline: data.common.overline,
     title: data.common.title,

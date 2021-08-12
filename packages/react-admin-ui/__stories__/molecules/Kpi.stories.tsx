@@ -15,9 +15,7 @@ export default {
     }),
 };
 
-const Template = (args) => <Kpi {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Kpi, {
     icon: data.common.icon,
     name: 'Earnings',
     quantity: data.common.quantity,

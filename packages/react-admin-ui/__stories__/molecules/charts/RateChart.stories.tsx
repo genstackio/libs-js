@@ -13,9 +13,7 @@ export default {
     }),
 };
 
-const Template = (args) => <RateChart {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(RateChart, {
     value: 70,
     title: 'Selling Rate',
     subtitle: 'As From',

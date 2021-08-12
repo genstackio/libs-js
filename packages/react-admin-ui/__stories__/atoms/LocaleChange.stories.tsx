@@ -10,9 +10,7 @@ export default {
     }),
 };
 
-const Template = (args) => <LocaleChange {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(LocaleChange, {
     locales: [
         {
             value: 'fr-FR',

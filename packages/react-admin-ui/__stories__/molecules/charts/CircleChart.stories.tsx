@@ -10,8 +10,6 @@ export default {
     }),
 };
 
-const Template = (args) => <CircleChart {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(CircleChart, {
     series: [40, 70],
 });

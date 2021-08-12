@@ -12,9 +12,7 @@ export default {
     }),
 };
 
-const Template = (args) => <VisualBulletBlock {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(VisualBulletBlock, {
     items: [
         {
             icon: 'local_shipping',

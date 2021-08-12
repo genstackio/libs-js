@@ -13,15 +13,13 @@ export default {
     }),
 };
 
-const Template = (args) => <FeaturedQuote {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(FeaturedQuote, {
     title: data.user.name,
     subtitle: data.user.title,
     text: data.common.content,
 });
 
-export const withImage = s(Template, {
+export const withImage = s(FeaturedQuote, {
     text: data.common.content,
     title: data.user.name,
     subtitle: data.user.title,

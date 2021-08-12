@@ -15,20 +15,18 @@ export default {
     }),
 };
 
-const Template = (args) => <Figure {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Figure, {
     title: 'Our Sale Value',
     price: '$745425',
 });
 
-export const withTag = s(Template, {
+export const withTag = s(Figure, {
     title: 'Our Sale Value',
     price: '$745425',
     tag: { text: 'New', color: 'success' },
 });
 
-export const withPill = s(Template, {
+export const withPill = s(Figure, {
     title: 'Our Sale Value',
     price: '$745425',
     pill: {
@@ -37,7 +35,7 @@ export const withPill = s(Template, {
     },
 });
 
-export const withTagAndPill = s(Template, {
+export const withTagAndPill = s(Figure, {
     title: 'Our Sale Value',
     price: '$745425',
     tag: { text: 'New', color: 'success' },

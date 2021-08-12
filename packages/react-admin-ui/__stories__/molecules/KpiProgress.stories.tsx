@@ -14,9 +14,7 @@ export default {
     }),
 };
 
-const Template = (args) => <KpiProgress {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(KpiProgress, {
     text: 'Turnover',
     value: 5348,
     goal: 10000,

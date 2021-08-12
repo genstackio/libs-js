@@ -13,9 +13,7 @@ export default {
     }),
 };
 
-const Template = (args) => <BoxHeader {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(BoxHeader, {
     title: data.common.title,
     color: 'secondary',
     variant: 'contained',

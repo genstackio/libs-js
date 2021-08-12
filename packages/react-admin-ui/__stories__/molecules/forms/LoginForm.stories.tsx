@@ -15,15 +15,13 @@ export default {
     }),
 };
 
-const Template = (args) => <LoginForm {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(LoginForm, {
     onSubmit: (v) => alert(JSON.stringify(v, null, 4)),
     onForgotPasswordClick: undefined,
     onRegisterClick: undefined,
 });
 
-export const prePopulated = s(Template, {
+export const prePopulated = s(LoginForm, {
     onSubmit: (v) => alert(JSON.stringify(v, null, 4)),
     onForgotPasswordClick: undefined,
     defaultValues: {
@@ -33,14 +31,14 @@ export const prePopulated = s(Template, {
     onRegisterClick: undefined,
 });
 
-export const withSocialLogins = s(Template, {
+export const withSocialLogins = s(LoginForm, {
     onSubmit: (v) => alert(JSON.stringify(v, null, 4)),
     onForgotPasswordClick: undefined,
     socialLogins: true,
     onRegisterClick: undefined,
 });
 
-export const allOptions = s(Template, {
+export const allOptions = s(LoginForm, {
     onSubmit: (v) => alert(JSON.stringify(v, null, 4)),
     onForgotPasswordClick: () => alert('forgot password clicked!'),
     onRegisterClick: () => alert('register clicked!'),

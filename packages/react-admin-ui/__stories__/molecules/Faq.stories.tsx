@@ -15,9 +15,7 @@ export default {
     }),
 };
 
-const Template = (args) => <Faq {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Faq, {
     variant: 'contained',
     color: 'light',
     items: [

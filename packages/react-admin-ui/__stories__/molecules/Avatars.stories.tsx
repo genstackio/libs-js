@@ -10,9 +10,7 @@ export default {
     }),
 };
 
-const Template = (args) => <Avatars {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Avatars, {
     items: [
         {
             name: data.user.name,
@@ -32,7 +30,7 @@ export const basic = s(Template, {
     ],
 });
 
-export const withStatuses = s(Template, {
+export const withStatuses = s(Avatars, {
     items: [
         {
             name: data.user.name,

@@ -13,9 +13,7 @@ export default {
     }),
 };
 
-const Template = (args) => <ArgumentBlock {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(ArgumentBlock, {
     title: data.common.title,
     subtitle: data.common.subtitle,
     btnLabel: data.buttons.button1.label,
@@ -23,7 +21,7 @@ export const basic = s(Template, {
     image: data.common.image,
 });
 
-export const withButtons = s(Template, {
+export const withButtons = s(ArgumentBlock, {
     title: data.common.title,
     subtitle: data.common.subtitle,
     btnLabel: data.buttons.button1.label,

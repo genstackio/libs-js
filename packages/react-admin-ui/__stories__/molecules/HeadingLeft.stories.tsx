@@ -16,9 +16,7 @@ export default {
     }),
 };
 
-const Template = (args) => <HeadingLeft {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(HeadingLeft, {
     title: data.common.title,
     subtitle: data.common.subtitle,
     description: data.common.content,

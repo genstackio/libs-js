@@ -9,8 +9,6 @@ export default {
     }),
 };
 
-const Template = (args) => <BodyText {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(BodyText, {
     text: 42,
 });

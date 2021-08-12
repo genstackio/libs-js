@@ -14,19 +14,17 @@ export default {
     }),
 };
 
-const Template = (args) => <Tag {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Tag, {
     text: data.tag.text,
 });
 
-export const custom = s(Template, {
+export const custom = s(Tag, {
     text: data.tag.text,
     variant: 'outlined',
     icon: data.common.icon,
     size: 21,
 });
-export const noText = s(Template, {
+export const noText = s(Tag, {
     variant: 'outlined',
     icon: data.common.icon,
     size: 21,

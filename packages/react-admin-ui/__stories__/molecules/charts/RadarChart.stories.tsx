@@ -13,9 +13,7 @@ export default {
     }),
 };
 
-const Template = (args) => <RadarChart {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(RadarChart, {
     labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
     series: [
         {

@@ -12,9 +12,7 @@ export default {
     }),
 };
 
-const Template = (args) => <RadialBarChart {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(RadialBarChart, {
     series: [67, 84, 97, 61],
     labels: ['Apples', 'Oranges', 'Bananas', 'Berries'],
     title: 'Total',

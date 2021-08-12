@@ -10,13 +10,11 @@ export default {
     }),
 };
 
-const Template = (args) => <Badge {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Badge, {
     text: data.tag.text,
 });
 
-export const custom = s(Template, {
+export const custom = s(Badge, {
     color: 'success',
     text: data.tag.text,
     variant: 'contained',

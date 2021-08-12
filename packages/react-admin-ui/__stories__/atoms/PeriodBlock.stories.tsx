@@ -11,13 +11,11 @@ export default {
     }),
 };
 
-const Template = (args) => <PeriodBlock {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(PeriodBlock, {
     text: 'Daily',
 });
 
-export const withValue = s(Template, {
+export const withValue = s(PeriodBlock, {
     text: 'Daily',
     value: '36%',
 });

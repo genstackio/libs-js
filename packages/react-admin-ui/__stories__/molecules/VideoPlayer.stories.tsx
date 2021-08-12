@@ -12,20 +12,18 @@ export default {
     }),
 };
 
-const Template = (args) => <VideoPlayer {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(VideoPlayer, {
     url: data.common.video,
     image: data.common.image,
 });
 
-export const customIcon = s(Template, {
+export const customIcon = s(VideoPlayer, {
     url: data.common.video,
     image: data.common.image,
     icon: data.common.icon,
 });
 
-export const withButtonLabel = s(Template, {
+export const withButtonLabel = s(VideoPlayer, {
     url: data.common.video,
     image: data.common.image,
     btnLabel: data.buttons.button1.label,

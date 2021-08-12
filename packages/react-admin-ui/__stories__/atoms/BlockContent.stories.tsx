@@ -30,9 +30,7 @@ export default {
     }),
 };
 
-const Template = (args) => <BlockContent {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(BlockContent, {
     children: data.common.content,
 });
 

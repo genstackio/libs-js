@@ -13,9 +13,7 @@ export default {
     }),
 };
 
-const Template = (args) => <PeriodFigureBlock {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(PeriodFigureBlock, {
     icon: (
         <div className={'flex justify-center items-center'}>
             <svg width="96" height="96" viewBox="0 0 24 24">

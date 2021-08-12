@@ -9,8 +9,6 @@ export default {
     }),
 };
 
-const Template = (args) => <LinearProgress {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(LinearProgress, {
     value: 42,
 });

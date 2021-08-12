@@ -12,9 +12,7 @@ export default {
     }),
 };
 
-const Template = (args) => <AreaLineChart {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(AreaLineChart, {
     datas: [
         {
             categories: ['categorie1', 'categorie2', 'categorie3'],

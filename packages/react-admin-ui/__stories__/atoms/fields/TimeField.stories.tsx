@@ -19,8 +19,6 @@ export default {
     }),
 };
 
-const Template = (args) => <TimeField {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(TimeField, {
     defaultValue: '11:54',
 });

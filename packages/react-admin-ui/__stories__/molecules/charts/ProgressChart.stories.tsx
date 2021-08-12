@@ -15,9 +15,7 @@ export default {
     }),
 };
 
-const Template = (args) => <ProgressChart {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(ProgressChart, {
     title: 'SALE',
     progress: 90,
     value: 3654.0,

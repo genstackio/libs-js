@@ -12,6 +12,4 @@ export default {
     }),
 };
 
-const Template = (args) => <NewsletterForm {...args} />;
-
-export const basic = s(Template, {});
+export const basic = s(NewsletterForm, {});

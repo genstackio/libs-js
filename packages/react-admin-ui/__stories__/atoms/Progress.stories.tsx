@@ -11,13 +11,11 @@ export default {
     }),
 };
 
-const Template = (args) => <Progress {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Progress, {
     value: data.common.number_value,
 });
 
-export const circular = s(Template, {
+export const circular = s(Progress, {
     value: data.common.number_value,
     variant: 'circular',
 });

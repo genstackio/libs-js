@@ -12,9 +12,7 @@ export default {
     }),
 };
 
-const Template = (args) => <ChoiceButton {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(ChoiceButton, {
     children: data.buttons.button1.label,
     items: [
         {

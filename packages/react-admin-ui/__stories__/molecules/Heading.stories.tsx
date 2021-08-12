@@ -11,8 +11,6 @@ export default {
     }),
 };
 
-const Template = (args) => <Heading {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Heading, {
     text: data.common.title,
 });

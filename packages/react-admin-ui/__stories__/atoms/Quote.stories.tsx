@@ -12,15 +12,13 @@ export default {
     }),
 };
 
-const Template = (args) => <Quote {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Quote, {
     text: data.common.content,
     title: data.common.title,
     position: 'left',
 });
 
-export const onRightSide = s(Template, {
+export const onRightSide = s(Quote, {
     text: data.common.content,
     title: data.common.title,
     position: 'right',

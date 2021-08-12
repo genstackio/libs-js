@@ -14,9 +14,7 @@ export default {
     }),
 };
 
-const Template = (args) => <WizardStep {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(WizardStep, {
     index: 1,
     label: 'Personal',
     description: 'Add personal details',
@@ -24,7 +22,7 @@ export const basic = s(Template, {
     color: 'primary',
 });
 
-export const disabled = s(Template, {
+export const disabled = s(WizardStep, {
     index: 1,
     label: 'Personal',
     description: 'Add personal details',

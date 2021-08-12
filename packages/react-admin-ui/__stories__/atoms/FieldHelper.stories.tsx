@@ -10,8 +10,6 @@ export default {
     }),
 };
 
-const Template = (args) => <FieldHelper {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(FieldHelper, {
     helper: data.common.helper,
 });

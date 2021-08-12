@@ -10,9 +10,7 @@ export default {
     }),
 };
 
-const Template = (args) => <ShareIcons {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(ShareIcons, {
     items: [
         { type: 'facebook', target: 'https://www.facebook.com' },
         { type: 'googleplus' },

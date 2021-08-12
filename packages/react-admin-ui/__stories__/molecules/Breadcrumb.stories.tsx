@@ -11,9 +11,7 @@ export default {
     }),
 };
 
-const Template = (args) => <Breadcrumb {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Breadcrumb, {
     items: [
         {
             label: 'Home',
@@ -30,7 +28,7 @@ export const basic = s(Template, {
     ],
 });
 
-export const manyItems = s(Template, {
+export const manyItems = s(Breadcrumb, {
     items: [
         {
             label: 'Home',

@@ -12,8 +12,6 @@ export default {
     }),
 };
 
-const Template = (args) => <Thumbnail {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Thumbnail, {
     image: data.common.image,
 });

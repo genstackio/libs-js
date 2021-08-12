@@ -10,9 +10,7 @@ export default {
     }),
 };
 
-const Template = (args) => <AppWall {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(AppWall, {
     items: [
         {
             title: data.item.title,
@@ -32,7 +30,7 @@ export const basic = s(Template, {
     ],
 });
 
-export const manyItems = s(Template, {
+export const manyItems = s(AppWall, {
     items: [
         {
             title: data.item.title,

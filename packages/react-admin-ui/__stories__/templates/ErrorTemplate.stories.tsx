@@ -13,9 +13,7 @@ export default {
     }),
 };
 
-const Template = (args) => <ErrorTemplate {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(ErrorTemplate, {
     code: 400,
     message:
         'The page you are attempting to reach is currently not available. This may be because the page does not exist or has been moved.',

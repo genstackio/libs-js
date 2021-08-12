@@ -15,9 +15,7 @@ export default {
     }),
 };
 
-const Template = (args) => <KpiBlock {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(KpiBlock, {
     icon: (
         <svg
             width="30"

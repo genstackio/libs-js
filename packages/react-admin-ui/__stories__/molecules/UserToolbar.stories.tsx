@@ -8,13 +8,11 @@ export default {
     argTypes: a({}),
 };
 
-const Template = (args) => <UserToolbar {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(UserToolbar, {
     user: { firstName: data.user.firstName, lastName: data.user.lastName, email: data.user.email },
 });
 
-export const withAll = s(Template, {
+export const withAll = s(UserToolbar, {
     user: { firstName: data.user.firstName, lastName: data.user.lastName, email: data.user.email },
     userMenu: [
         {
@@ -45,7 +43,7 @@ export const withAll = s(Template, {
     ),
 });
 
-export const withSomeButtons = s(Template, {
+export const withSomeButtons = s(UserToolbar, {
     user: { firstName: data.user.firstName, lastName: data.user.lastName, email: data.user.email },
     fullScreenEnabled: true,
     shoppingCartEnabled: true,
@@ -53,7 +51,7 @@ export const withSomeButtons = s(Template, {
     languageEnabled: true,
 });
 
-export const withAllButtons = s(Template, {
+export const withAllButtons = s(UserToolbar, {
     user: { firstName: data.user.firstName, lastName: data.user.lastName, email: data.user.email },
     fullScreenEnabled: true,
     shoppingCartEnabled: true,

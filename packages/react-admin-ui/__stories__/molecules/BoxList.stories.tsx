@@ -11,9 +11,7 @@ export default {
     }),
 };
 
-const Template = (args) => <BoxList {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(BoxList, {
     items: [
         {
             label: 'Notification',

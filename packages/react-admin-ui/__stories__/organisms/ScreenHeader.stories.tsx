@@ -10,9 +10,7 @@ export default {
     }),
 };
 
-const Template = (args) => <ScreenHeader {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(ScreenHeader, {
     items: [
         {
             label: 'Home',

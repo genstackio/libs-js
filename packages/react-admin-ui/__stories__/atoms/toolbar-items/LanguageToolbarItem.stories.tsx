@@ -9,9 +9,7 @@ export default {
     }),
 };
 
-const Template = (args) => <LanguageToolbarItem {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(LanguageToolbarItem, {
     locales: [
         {
             value: 'fr-FR',

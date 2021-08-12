@@ -13,9 +13,7 @@ export default {
     }),
 };
 
-const Template = (args) => <AppPush {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(AppPush, {
     title: data.common.title,
     description: data.common.description,
     btnLabelAppStore: 'AppStore',

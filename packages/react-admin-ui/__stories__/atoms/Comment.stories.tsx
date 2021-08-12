@@ -12,14 +12,12 @@ export default {
     }),
 };
 
-const Template = (args) => <Comment {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Comment, {
     title: data.user.name,
     description: data.common.content,
 });
 
-export const withSubtitle = s(Template, {
+export const withSubtitle = s(Comment, {
     title: data.user.name,
     subtitle: `(${data.user.title})`,
     description: data.common.content,

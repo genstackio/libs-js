@@ -6,33 +6,32 @@ export default {
     component: Divider,
     argTypes: a({}),
 };
-const Template = (args) => <Divider {...args} />;
 
-export const basic = s(Template, {});
+export const basic = s(Divider, {});
 
 export const showcase = s(
     (args) => (
         <div className={'flex flex-col space-y-2'}>
             <p className={'mt-4'}>COLORS</p>
-            <Template size={'md'} color={'primary'} />
-            <Template size={'md'} color={'secondary'} />
-            <Template size={'md'} color={'success'} />
-            <Template size={'md'} color={'info'} />
-            <Template size={'md'} color={'warning'} />
-            <Template size={'md'} color={'danger'} />
-            <Template size={'md'} color={'light'} />
-            <Template size={'md'} color={'dark'} />
-            <Template size={'md'} color={'disabled'} />
+            <Divider size={'md'} color={'primary'} />
+            <Divider size={'md'} color={'secondary'} />
+            <Divider size={'md'} color={'success'} />
+            <Divider size={'md'} color={'info'} />
+            <Divider size={'md'} color={'warning'} />
+            <Divider size={'md'} color={'danger'} />
+            <Divider size={'md'} color={'light'} />
+            <Divider size={'md'} color={'dark'} />
+            <Divider size={'md'} color={'disabled'} />
             <p className={'mt-4'}>SIZES</p>
-            <Template size={'xs'} />
-            <Template size={'sm'} />
-            <Template size={'md'} />
-            <Template size={'lg'} />
-            <Template size={'xl'} />
+            <Divider size={'xs'} />
+            <Divider size={'sm'} />
+            <Divider size={'md'} />
+            <Divider size={'lg'} />
+            <Divider size={'xl'} />
             <p className={'mt-4'}>VARIANTS</p>
-            <Template size={'md'} variant={'contained'} />
-            <Template size={'md'} variant={'filled'} />
-            <Template size={'md'} variant={'outlined'} />
+            <Divider size={'md'} variant={'contained'} />
+            <Divider size={'md'} variant={'filled'} />
+            <Divider size={'md'} variant={'outlined'} />
         </div>
     ),
     {},

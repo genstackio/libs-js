@@ -12,20 +12,18 @@ export default {
     }),
 };
 
-const Template = (args) => <HeadingText {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(HeadingText, {
     title: data.common.title,
     subtitle: data.common.subtitle,
 });
 
-export const section = s(Template, {
+export const section = s(HeadingText, {
     title: data.common.title,
     subtitle: data.common.subtitle,
     variant: 'section',
 });
 
-export const sectionInheritColor = s(Template, {
+export const sectionInheritColor = s(HeadingText, {
     title: data.common.title,
     subtitle: data.common.subtitle,
     color: 'inherit',

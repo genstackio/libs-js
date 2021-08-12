@@ -13,14 +13,12 @@ export default {
     }),
 };
 
-const Template = (args) => <AlertPanel {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(AlertPanel, {
     title: data.common.title,
     children: data.common.content,
 });
 
-export const withClosable = s(Template, {
+export const withClosable = s(AlertPanel, {
     title: data.common.title,
     children: data.common.content,
     closable: true,

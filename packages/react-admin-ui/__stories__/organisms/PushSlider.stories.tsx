@@ -9,9 +9,7 @@ export default {
     }),
 };
 
-const Template = (args) => <PushSlider {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(PushSlider, {
     items: [
         {
             title: 'Un titre',

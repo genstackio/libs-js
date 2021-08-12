@@ -7,9 +7,7 @@ export default {
     argTypes: a({}),
 };
 
-const Template = (args) => <MiniCard {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(MiniCard, {
     description: 'Perspicatis unde omnis iste natus error sit.Dummy text',
     image: {
         url: 'https://picsum.photos/550/400',

@@ -13,9 +13,7 @@ export default {
     }),
 };
 
-const Template = (args) => <Card {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Card, {
     image: {
         url: 'https://picsum.photos/1900/500',
         alt: 'image',

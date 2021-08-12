@@ -10,13 +10,12 @@ export default {
         center: args.selection,
     }),
 };
-const Template = (args) => <Column {...args} />;
 
-export const basic = s(Template, {
+export const basic = s(Column, {
     children: data.common.content,
 });
 
-export const centered = s(Template, {
+export const centered = s(Column, {
     children: data.common.content,
     center: true,
 });

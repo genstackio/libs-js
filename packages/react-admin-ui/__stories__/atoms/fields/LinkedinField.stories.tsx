@@ -19,6 +19,4 @@ export default {
     }),
 };
 
-const Template = (args) => <LinkedinField {...args} />;
-
-export const basic = s(Template, {});
+export const basic = s(LinkedinField, {});

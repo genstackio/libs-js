@@ -10,9 +10,7 @@ export default {
     }),
 };
 
-const Template = (args) => <BodyMainBar {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(BodyMainBar, {
     children: (
         <div className={'flex space-x-4'}>
             <div className={'flex items-center '}>

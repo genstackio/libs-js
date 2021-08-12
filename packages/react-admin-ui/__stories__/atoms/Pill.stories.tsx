@@ -11,13 +11,12 @@ export default {
         variant: args.blockVariant,
     }),
 };
-const Template = (args) => <Pill {...args} />;
 
-export const basic = s(Template, {
+export const basic = s(Pill, {
     text: '8',
 });
 
-export const withLongText = s(Template, {
+export const withLongText = s(Pill, {
     text: data.tag.text,
     variant: 'contained',
     color: 'primary',

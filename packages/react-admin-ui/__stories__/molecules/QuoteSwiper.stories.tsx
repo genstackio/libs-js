@@ -29,8 +29,6 @@ const item3 = {
     btnTarget: data.buttons.button1.target,
 };
 
-const Template = (args) => <QuoteSwiper {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(QuoteSwiper, {
     items: [item, item2, item3],
 });

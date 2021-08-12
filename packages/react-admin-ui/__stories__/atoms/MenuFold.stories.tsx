@@ -16,9 +16,7 @@ export default {
     }),
 };
 
-const Template = (args) => <MenuFold {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(MenuFold, {
     label: 'Dashboards',
     icon: 'home',
     active: false,
@@ -36,7 +34,7 @@ export const basic = s(Template, {
     ],
 });
 
-export const withBadge = s(Template, {
+export const withBadge = s(MenuFold, {
     label: 'Dashboards',
     icon: 'home',
     active: false,
@@ -62,7 +60,7 @@ export const withBadge = s(Template, {
     ],
 });
 
-export const withManyItems = s(Template, {
+export const withManyItems = s(MenuFold, {
     label: 'Dashboards',
     icon: 'home',
     active: false,

@@ -13,9 +13,7 @@ export default {
     }),
 };
 
-const Template = (args) => <Container {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Container, {
     children: data.common.content,
     bgImage: data.common.image,
 });
@@ -23,7 +21,7 @@ export const basic = s(Template, {
 export const fullscreen = s(
     (args) => (
         <div style={{ width: '100wh', height: '100vh' }}>
-            <Template {...args} />
+            <Container {...args} />
         </div>
     ),
     {

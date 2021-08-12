@@ -14,9 +14,7 @@ export default {
     }),
 };
 
-const Template = (args) => <BulletPoint {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(BulletPoint, {
     icon: data.common.icon,
     title: data.common.title,
     text: data.common.content,

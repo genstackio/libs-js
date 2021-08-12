@@ -12,13 +12,11 @@ export default {
     }),
 };
 
-const Template = (args) => <Frame {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Frame, {
     children: data.common.content,
 });
 
-export const withIcon = s(Template, {
+export const withIcon = s(Frame, {
     children: data.common.content,
     variant: 'outlined',
     icon: data.common.icon,

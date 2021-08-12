@@ -7,7 +7,6 @@ export default {
     argTypes: a({
         label: args.label,
         disabled: args.disabled,
-        required: args.required,
         helper: args.helper,
         name: args._disabled,
         register: args._disabled,
@@ -20,6 +19,4 @@ export default {
     }),
 };
 
-const Template = (args) => <SwitchField {...args} />;
-
-export const basic = s(Template, {});
+export const basic = s(SwitchField, {});

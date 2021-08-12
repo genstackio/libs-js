@@ -14,9 +14,7 @@ export default {
     }),
 };
 
-const Template = (args) => <MaintenanceTemplate {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(MaintenanceTemplate, {
     logo: 'settings',
     title: 'MAINTENANCE',
     description: 'Our Site is Currently under maintenance We will be back Shortly. Thank You For Patience',

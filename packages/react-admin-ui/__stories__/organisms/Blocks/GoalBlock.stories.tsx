@@ -14,9 +14,7 @@ export default {
     }),
 };
 
-const Template = (args) => <GoalBlock {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(GoalBlock, {
     badgeLabel: 'Hot',
     values: {
         current: 95900,

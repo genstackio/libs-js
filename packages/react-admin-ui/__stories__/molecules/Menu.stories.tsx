@@ -13,9 +13,7 @@ export default {
     }),
 };
 
-const Template = (args) => <Menu {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(Menu, {
     items: [
         {
             label: 'General',
@@ -76,7 +74,7 @@ export const basic = s(Template, {
     ],
 });
 
-export const withActive = s(Template, {
+export const withActive = s(Menu, {
     items: [
         {
             label: 'General',

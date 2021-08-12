@@ -8,9 +8,7 @@ export default {
     argTypes: a({}),
 };
 
-const Template = (args) => <PricingItem {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(PricingItem, {
     item: {
         features: [
             {
@@ -32,7 +30,7 @@ export const basic = s(Template, {
         variant: 'contained',
     },
 });
-export const withBackgroundImage = s(Template, {
+export const withBackgroundImage = s(PricingItem, {
     item: {
         currency: '$',
         features: [

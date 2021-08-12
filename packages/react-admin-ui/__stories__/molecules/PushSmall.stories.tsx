@@ -12,9 +12,7 @@ export default {
     }),
 };
 
-const Template = (args) => <PushSmall {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(PushSmall, {
     title: data.common.title,
     items: [
         {

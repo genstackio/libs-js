@@ -12,9 +12,7 @@ export default {
     }),
 };
 
-const Template = (args) => <AreaChart {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(AreaChart, {
     series: [
         [40, 90, 80],
         [100, 70, 120],

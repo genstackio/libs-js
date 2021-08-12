@@ -7,9 +7,7 @@ export default {
     argTypes: a({}),
 };
 
-const Template = (args) => <FillInOtpForgotPasswordForm {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(FillInOtpForgotPasswordForm, {
     onSubmit: (data) => alert(JSON.stringify(data, null, 4)),
     defaultValues: {},
     onLoginCLick: (data) => alert(JSON.stringify(data, null, 4)),

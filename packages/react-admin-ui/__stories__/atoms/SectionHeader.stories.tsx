@@ -13,9 +13,7 @@ export default {
     }),
 };
 
-const Template = (args) => <SectionHeader {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(SectionHeader, {
     title: data.common.title,
     subtitle: data.common.subtitle,
 });
@@ -23,14 +21,14 @@ export const basic = s(Template, {
 export const showcase = s(
     (args) => (
         <>
-            <Template {...args} color={'primary'} />
-            <Template {...args} color={'secondary'} />
-            <Template {...args} color={'success'} />
-            <Template {...args} color={'info'} />
-            <Template {...args} color={'warning'} />
-            <Template {...args} color={'danger'} />
-            <Template {...args} color={'light'} />
-            <Template {...args} color={'dark'} />
+            <SectionHeader {...args} color={'primary'} />
+            <SectionHeader {...args} color={'secondary'} />
+            <SectionHeader {...args} color={'success'} />
+            <SectionHeader {...args} color={'info'} />
+            <SectionHeader {...args} color={'warning'} />
+            <SectionHeader {...args} color={'danger'} />
+            <SectionHeader {...args} color={'light'} />
+            <SectionHeader {...args} color={'dark'} />
         </>
     ),
     {

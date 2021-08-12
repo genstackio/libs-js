@@ -14,9 +14,7 @@ export default {
     }),
 };
 
-const Template = (args) => <SummaryChart {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(SummaryChart, {
     title: 'Dashboard',
     subtitle: 'Overview of last month',
     dashboardItems: [

@@ -12,9 +12,7 @@ export default {
     }),
 };
 
-const Template = (args) => <TabPanel {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(TabPanel, {
     children: data.common.content,
     index: 8,
     value: 8,

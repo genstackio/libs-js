@@ -9,9 +9,7 @@ export default {
     }),
 };
 
-const Template = (args) => <SendOtpForgotPasswordForm {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(SendOtpForgotPasswordForm, {
     onSubmit: (data) => alert(JSON.stringify(data, null, 4)),
     defaultValues: {},
     onLoginCLick: (data) => alert(JSON.stringify(data, null, 4)),

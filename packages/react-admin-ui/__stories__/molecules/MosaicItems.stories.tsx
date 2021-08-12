@@ -9,13 +9,11 @@ export default {
     }),
 };
 
-const Template = (args) => <MosaicItems {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(MosaicItems, {
     items: [{ id: 0 }, { id: 1 }, { id: 2 }],
 });
 
-export const manyItems = s(Template, {
+export const manyItems = s(MosaicItems, {
     items: [
         { id: 0 },
         { id: 1 },
@@ -32,14 +30,14 @@ export const manyItems = s(Template, {
     ],
 });
 
-export const withSelectionAlert = s(Template, {
+export const withSelectionAlert = s(MosaicItems, {
     items: [{ id: 0 }, { id: 1 }, { id: 2 }],
     onSelectionChange: (item) => {
         alert(`Selected item : ${item.id}`);
     },
 });
 
-export const withSelected = s(Template, {
+export const withSelected = s(MosaicItems, {
     items: [{ id: 0 }, { id: 1 }, { id: 2 }],
     selected: { id: 2 },
 });

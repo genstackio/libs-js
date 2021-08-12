@@ -19,8 +19,6 @@ export default {
     }),
 };
 
-const Template = (args) => <BirthDateField {...args} />;
-
-export const basic = s(Template, {
+export const basic = s(BirthDateField, {
     now: '2020-03-18T21:11:54',
 });
