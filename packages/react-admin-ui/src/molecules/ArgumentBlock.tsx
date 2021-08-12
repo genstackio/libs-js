@@ -1,46 +1,29 @@
 import clsx from 'clsx';
 import Image from '../atoms/Image';
 import Block from '../atoms/Block';
+import Buttons from '../atoms/Buttons';
 import HeadingText from '../atoms/HeadingText';
-import { WithButton, WithHeadingText, WithImage } from '../withs';
-import { flag } from '../types';
-import Button from '../atoms/Button';
-import { AsComponent } from '../as';
+import useBlock from '../hooks/useBlock';
+import useButtons from '../hooks/useButtons';
 import useHeadingText from '../hooks/useHeadingText';
+import { flag } from '../types';
+import { AsComponent } from '../as';
+import { WithButtons, WithHeadingText, WithImage } from '../withs';
 
-export function ArgumentBlock({
-    className,
-    image,
-    noImage = false,
-    noShadow = false,
-    btnLabel,
-    btnTarget,
-    btnIcon,
-    btnEndIcon,
-    btnType,
-    btnColor,
-    ...props
-}: ArgumentBlockProps) {
-    const [htProps] = useHeadingText(props);
+export function ArgumentBlock({ className, image, noImage = false, noShadow = false, ...props }: ArgumentBlockProps) {
+    const [bProps, rest2] = useBlock(props, {
+        padding: 'none',
+        corner: 'rounded',
+        className: clsx('flex flex-col overflow-hidden bg-clear', className),
+        elevation: noShadow ? 0 : 2,
+    });
+    const [htProps, rest] = useHeadingText(rest2, { variant: 'xxsmall3' });
+    const [btProps] = useButtons(rest, { className: 'mt-2', btnColor: 'primary', btnType: 'outlined' });
     return (
-        <Block
-            padding={'none'}
-            corner={'rounded'}
-            className={clsx('flex flex-col overflow-hidden bg-clear', className)}
-            elevation={noShadow ? 0 : 2}
-        >
+        <Block {...bProps}>
             <div className={'flex-1 p-4 lg:p-3 sm:p-2 bg-clear'}>
-                <HeadingText {...htProps} variant={'xxsmall3'} />
-                <Button
-                    color={btnColor || 'primary'}
-                    variant={(btnType as any) || 'outlined'}
-                    onClick={btnTarget}
-                    className={'mt-2'}
-                    icon={btnIcon}
-                    endIcon={btnEndIcon}
-                >
-                    {btnLabel}
-                </Button>
+                <HeadingText {...htProps} />
+                <Buttons {...btProps} />
             </div>
             {!noImage && (
                 <div className={'leading-none'}>
@@ -52,7 +35,7 @@ export function ArgumentBlock({
     );
 }
 
-export interface ArgumentBlockProps extends AsComponent, WithHeadingText, WithImage, WithButton {
+export interface ArgumentBlockProps extends AsComponent, WithHeadingText, WithImage, WithButtons {
     noImage?: flag;
     noShadow?: flag;
 }

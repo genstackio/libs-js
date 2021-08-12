@@ -23,3 +23,16 @@ export const basic = s(Template, {
     btnTarget: 'https://www.google.fr',
     image: { url: 'https://picsum.photos/200/200' },
 });
+
+export const withButtons = s(Template, {
+    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    subtitle:
+        'Sit vestibulum odio morbi egestas vitae scelerisque eu risus. A, erat laoreet nisl, diam adipiscing nibh ' +
+        'vitae quis cras.',
+    btnLabel: 'En savoir plus',
+    btnTarget: 'https://www.google.fr',
+    image: { url: 'https://picsum.photos/200/200' },
+    btn2Label: 'En savoir ENCORE plus',
+    btn2Target: 'https://www.google.com',
+    btn2Type: 'outlined',
+});
