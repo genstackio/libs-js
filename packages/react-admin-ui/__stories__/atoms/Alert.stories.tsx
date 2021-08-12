@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { Alert } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Atoms/Alert',
@@ -15,7 +16,7 @@ export default {
 const Template = (args) => <Alert {...args} />;
 
 export const basic = s(Template, {
-    children: 'This is a info alert—check it out!',
+    children: data.common.content,
     color: 'secondary',
     variant: 'contained',
     closable: true,
@@ -28,14 +29,14 @@ export const showcase = s(
             <Template {...args} color={'secondary'} />
             <Template {...args} color={'success'} />
             <Template {...args} color={'info'} />
-            <Template {...args} color={'warning'} closable={true} />
-            <Template {...args} color={'danger'} closable={true} />
-            <Template {...args} color={'light'} closable={true} />
-            <Template {...args} color={'dark'} closable={true} />
-            <Template {...args} color={'primary'} variant={'outlined'} closable={true} />
-            <Template {...args} color={'secondary'} variant={'outlined'} closable={true} />
-            <Template {...args} color={'success'} variant={'outlined'} closable={true} />
-            <Template {...args} color={'info'} variant={'outlined'} closable={true} />
+            <Template {...args} color={'warning'} closable />
+            <Template {...args} color={'danger'} closable />
+            <Template {...args} color={'light'} closable />
+            <Template {...args} color={'dark'} closable />
+            <Template {...args} color={'primary'} variant={'outlined'} closable />
+            <Template {...args} color={'secondary'} variant={'outlined'} closable />
+            <Template {...args} color={'success'} variant={'outlined'} closable />
+            <Template {...args} color={'info'} variant={'outlined'} closable />
             <Template {...args} color={'warning'} variant={'outlined'} />
             <Template {...args} color={'danger'} variant={'outlined'} />
             <Template {...args} color={'light'} variant={'outlined'} />
@@ -43,6 +44,6 @@ export const showcase = s(
         </div>
     ),
     {
-        children: 'This is a info alert—check it out!',
+        children: data.common.content,
     },
 );

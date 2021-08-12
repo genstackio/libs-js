@@ -1,5 +1,6 @@
 import { args, a, s } from '../utils';
 import { VideoPlayer } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Molecules/VideoPlayer',
@@ -14,18 +15,18 @@ export default {
 const Template = (args) => <VideoPlayer {...args} />;
 
 export const basic = s(Template, {
-    url: 'https://www.youtube.com/embed/Z3xkHmC-KQE',
-    image: { url: 'https://via.placeholder.com/419x219?text=Image', alt: 'an image' },
+    url: data.common.video,
+    image: data.common.image,
 });
 
 export const customIcon = s(Template, {
-    url: 'https://www.youtube.com/embed/Z3xkHmC-KQE',
-    image: { url: 'https://via.placeholder.com/419x219?text=Image', alt: 'an image' },
-    icon: 'exit_to_app',
+    url: data.common.video,
+    image: data.common.image,
+    icon: data.common.icon,
 });
 
 export const withButtonLabel = s(Template, {
-    url: 'https://www.youtube.com/embed/Z3xkHmC-KQE',
-    image: { url: 'https://via.placeholder.com/419x219?text=Image', alt: 'an image' },
-    btnLabel: 'Click Here',
+    url: data.common.video,
+    image: data.common.image,
+    btnLabel: data.buttons.button1.label,
 });

@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { FieldHelper } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Atoms/FieldHelper',
@@ -12,5 +13,5 @@ export default {
 const Template = (args) => <FieldHelper {...args} />;
 
 export const basic = s(Template, {
-    helper: 'Field Helper',
+    helper: data.common.helper,
 });

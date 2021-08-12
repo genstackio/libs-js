@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { FieldSet } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Atoms/FieldSet',
@@ -15,18 +16,18 @@ export default {
 const Template = (args) => <FieldSet {...args} />;
 
 export const basic = s(Template, {
-    error: 'Field Error',
-    helper: 'Field Helper',
-    label: 'Field Label',
+    error: data.common.error,
+    helper: data.common.helper,
+    label: data.common.label,
     name: 'Label Name',
     options: '',
 });
 
 export const children = s(Template, {
-    children: ' Children we are',
-    error: 'Field Error',
-    helper: 'Field Helper',
-    label: 'Field Label',
+    children: data.common.content,
+    error: data.common.error,
+    helper: data.common.helper,
+    label: data.common.label,
     name: 'Label Name',
     options: '',
 });

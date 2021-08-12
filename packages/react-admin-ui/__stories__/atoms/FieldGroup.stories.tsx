@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { FieldGroup } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Atoms/FieldGroup',
@@ -12,5 +13,5 @@ export default {
 const Template = (args) => <FieldGroup {...args} />;
 
 export const basic = s(Template, {
-    children: 'Field Group',
+    children: data.common.content,
 });

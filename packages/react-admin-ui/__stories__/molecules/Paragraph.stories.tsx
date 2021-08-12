@@ -1,5 +1,6 @@
 import { s, a, args } from '../utils';
 import { Paragraph } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Molecules/Paragraph',
@@ -18,37 +19,37 @@ export default {
 const Template = (args) => <Paragraph {...args} />;
 
 export const basic = s(Template, {
-    title: 'Bienvenue chez Gotombola',
-    text: "Nous voulons permettre à toutes les associations de s'auto-financer rapidement et facilement grâce à la tombola augmentée par le digital. Pour aider un maximum d'associations, nous ne pensons pas que la rupture 100% digitale soit adaptée. Nous vous accompagnons en combinant outils digitaux et traditionnels pour ne mettre personne de côté. Commencez à promouvoir votre tombola plus efficacement en créant gratuitement votre sticker digital GoTombola.",
+    title: data.common.title,
+    text: data.common.content,
 });
 
 export const withImage = s(Template, {
-    title: 'Bienvenue chez Gotombola',
-    text: "Nous voulons permettre à toutes les associations de s'auto-financer rapidement et facilement grâce à la tombola augmentée par le digital. Pour aider un maximum d'associations, nous ne pensons pas que la rupture 100% digitale soit adaptée. Nous vous accompagnons en combinant outils digitaux et traditionnels pour ne mettre personne de côté. Commencez à promouvoir votre tombola plus efficacement en créant gratuitement votre sticker digital GoTombola.",
-    image: { url: 'https://via.placeholder.com/687x426?text=Image' },
+    title: data.common.title,
+    text: data.common.content,
+    image: data.common.image,
 });
 
 export const withImageLeft = s(Template, {
-    title: 'Bienvenue chez Gotombola',
-    text: "Nous voulons permettre à toutes les associations de s'auto-financer rapidement et facilement grâce à la tombola augmentée par le digital. Pour aider un maximum d'associations, nous ne pensons pas que la rupture 100% digitale soit adaptée. Nous vous accompagnons en combinant outils digitaux et traditionnels pour ne mettre personne de côté. Commencez à promouvoir votre tombola plus efficacement en créant gratuitement votre sticker digital GoTombola.",
-    image: { url: 'https://via.placeholder.com/687x426?text=Image' },
+    title: data.common.title,
+    text: data.common.content,
+    image: data.common.image,
     imageLeft: true,
 });
 
 export const withButton = s(Template, {
-    title: 'Bienvenue chez Gotombola',
-    text: "Nous voulons permettre à toutes les associations de s'auto-financer rapidement et facilement grâce à la tombola augmentée par le digital. Pour aider un maximum d'associations, nous ne pensons pas que la rupture 100% digitale soit adaptée. Nous vous accompagnons en combinant outils digitaux et traditionnels pour ne mettre personne de côté. Commencez à promouvoir votre tombola plus efficacement en créant gratuitement votre sticker digital GoTombola.",
-    image: { url: 'https://via.placeholder.com/687x426?text=Image' },
-    btnLabel: 'About Us',
-    btnTarget: 'https://google.fr',
+    title: data.common.title,
+    text: data.common.content,
+    image: data.common.image,
+    btnLabel: data.buttons.button1.label,
+    btnTarget: data.buttons.button1.target,
 });
 
 export const withButtons = s(Template, {
-    title: 'Bienvenue chez Gotombola',
-    text: "Nous voulons permettre à toutes les associations de s'auto-financer rapidement et facilement grâce à la tombola augmentée par le digital. Pour aider un maximum d'associations, nous ne pensons pas que la rupture 100% digitale soit adaptée. Nous vous accompagnons en combinant outils digitaux et traditionnels pour ne mettre personne de côté. Commencez à promouvoir votre tombola plus efficacement en créant gratuitement votre sticker digital GoTombola.",
-    image: { url: 'https://via.placeholder.com/687x426?text=Image' },
-    btnLabel: 'About Us',
-    btnTarget: 'https://google.fr',
-    btn2Label: 'ClickMe',
-    btn3Label: 'Button',
+    title: data.common.title,
+    text: data.common.content,
+    image: data.common.image,
+    btnLabel: data.buttons.button1.label,
+    btnTarget: data.buttons.button1.target,
+    btn2Label: data.buttons.button2.label,
+    btn3Label: data.buttons.button3.label,
 });

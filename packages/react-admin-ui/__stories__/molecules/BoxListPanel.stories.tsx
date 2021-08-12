@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { BoxListPanel } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Molecules/BoxListPanel',
@@ -16,7 +17,7 @@ export default {
 const Template = (args) => <BoxListPanel {...args} />;
 
 export const basic = s(Template, {
-    title: 'Tags',
+    title: data.common.title,
     color: 'primary',
     variant: 'filled',
     onAddClick: () => alert('New tag'),

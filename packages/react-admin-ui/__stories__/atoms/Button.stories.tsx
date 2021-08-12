@@ -3,6 +3,7 @@ import { args, s, a } from '../utils';
 import { Button } from '../../src';
 import { boxColors } from '../../src/mappings/box-colors';
 import { boxVariants } from '../../lib/mappings/box-variants';
+import data from '../data';
 
 export default {
     title: 'Atoms/Button',
@@ -21,20 +22,20 @@ export default {
 const Template = (args) => <Button {...args} />;
 
 export const basic = s(Template, {
-    children: 'label',
+    children: data.buttons.button1.label,
     color: 'primary',
     variant: 'contained',
 });
 
 export const withConfirmation = s(Template, {
-    children: 'label',
+    children: data.buttons.button1.label,
     color: 'primary',
     variant: 'contained',
     confirm: true,
 });
 
 export const withDeleteConfirmation = s(Template, {
-    children: 'label',
+    children: data.buttons.button1.label,
     color: 'primary',
     variant: 'contained',
     confirm: true,
@@ -43,14 +44,14 @@ export const withDeleteConfirmation = s(Template, {
 });
 
 export const withEndIcon = s(Template, {
-    children: 'label',
+    children: data.buttons.button1.label,
     color: 'primary',
     variant: 'contained',
     endIcon: 'fa-fas--arrow-right',
 });
 
 export const withLoading = s(Template, {
-    children: 'label',
+    children: data.buttons.button1.label,
     color: 'primary',
     variant: 'contained',
     endIcon: 'fa-fas--arrow-right',

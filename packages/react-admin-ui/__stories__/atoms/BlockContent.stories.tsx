@@ -14,6 +14,7 @@ import {
 import StoreIcon from '@material-ui/icons/Store';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import data from '../data';
 
 export default {
     title: 'Atoms/BlockContent',
@@ -32,7 +33,7 @@ export default {
 const Template = (args) => <BlockContent {...args} />;
 
 export const basic = s(Template, {
-    children: 'this is the content',
+    children: data.common.content,
 });
 
 export const areaChart = s(

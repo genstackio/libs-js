@@ -1,5 +1,6 @@
 import { QuoteSwiper } from '../../src/molecules/QuoteSwiper';
 import { args, a, s } from '../utils';
+import data from '../data';
 
 export default {
     title: 'Molecules/QuoteSwiper',
@@ -10,26 +11,22 @@ export default {
 };
 
 const item = {
-    image: {
-        url: 'https://picsum.photos/200/200',
-    },
-    overline: 'Konbini',
-    title: '"Proposer un jouet tech pour enfant sans écran et sans ondes, il fallait le faire. "',
-    buttonLabel: 'Konbini',
-    buttonTarget: 'https://www.google.fr',
+    image: data.common.image,
+    overline: data.common.overline,
+    title: data.common.title,
+    btnLabel: data.buttons.button1.label,
+    btnTarget: data.buttons.button1.target,
 };
 const item2 = {
-    overline: 'Le Monde',
-    title: '"le monde lemon de de demon leemm lemonndennde demon lem melon"',
+    overline: data.common.overline,
+    title: data.common.title,
 };
 const item3 = {
-    image: {
-        url: 'https://picsum.photos/200/200',
-    },
-    overline: 'Pomme',
-    title: '"Pomme pom pom pomomsomomopo mooppmm pompoi moiopompioim oimo imoi moi"',
-    buttonLabel: 'Pomme',
-    buttonTarget: 'https://www.google.fr',
+    image: data.common.image,
+    overline: data.common.overline,
+    title: data.common.title,
+    btnLabel: data.buttons.button1.label,
+    btnTarget: data.buttons.button1.target,
 };
 
 const Template = (args) => <QuoteSwiper {...args} />;

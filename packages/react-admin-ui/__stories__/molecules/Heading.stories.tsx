@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { Heading } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Molecules/Heading',
@@ -13,5 +14,5 @@ export default {
 const Template = (args) => <Heading {...args} />;
 
 export const basic = s(Template, {
-    text: 'IMAGE GALLERY',
+    text: data.common.title,
 });

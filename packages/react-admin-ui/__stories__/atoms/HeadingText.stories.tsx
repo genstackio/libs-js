@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { HeadingText } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Atoms/HeadingText',
@@ -14,19 +15,19 @@ export default {
 const Template = (args) => <HeadingText {...args} />;
 
 export const basic = s(Template, {
-    title: 'Title',
-    subtitle: 'Subtitle',
+    title: data.common.title,
+    subtitle: data.common.subtitle,
 });
 
 export const section = s(Template, {
-    title: 'Title',
-    subtitle: 'Subtitle',
+    title: data.common.title,
+    subtitle: data.common.subtitle,
     variant: 'section',
 });
 
 export const sectionInheritColor = s(Template, {
-    title: 'Title',
-    subtitle: 'Subtitle',
+    title: data.common.title,
+    subtitle: data.common.subtitle,
     color: 'inherit',
     variant: 'section',
 });

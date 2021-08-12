@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { InfosItem } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Atoms/InfosItem',
@@ -13,6 +14,6 @@ export default {
 const Template = (args) => <InfosItem {...args} />;
 
 export const basic = s(Template, {
-    label: 'My label',
-    value: 'Its value',
+    label: data.common.property,
+    value: data.common.value,
 });

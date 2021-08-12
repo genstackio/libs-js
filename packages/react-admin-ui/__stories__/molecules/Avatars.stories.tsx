@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { Avatars } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Molecules/Avatars',
@@ -14,27 +15,18 @@ const Template = (args) => <Avatars {...args} />;
 export const basic = s(Template, {
     items: [
         {
-            name: 'John Doe',
-            image: {
-                url: 'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-                alt: 'profile picture',
-            },
+            name: data.user.name,
+            image: data.user.image,
             size: 'sm',
         },
         {
-            name: 'John Doe',
-            image: {
-                url: 'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-                alt: 'profile picture',
-            },
+            name: data.user.name,
+            image: data.user.image,
             size: 'sm',
         },
         {
-            name: 'John Doe',
-            image: {
-                url: 'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-                alt: 'profile picture',
-            },
+            name: data.user.name,
+            image: data.user.image,
             size: 'sm',
         },
     ],
@@ -43,29 +35,20 @@ export const basic = s(Template, {
 export const withStatuses = s(Template, {
     items: [
         {
-            name: 'John Doe',
-            image: {
-                url: 'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-                alt: 'profile picture',
-            },
+            name: data.user.name,
+            image: data.user.image,
             size: 'sm',
             status: 'online',
         },
         {
-            name: 'John Doe',
-            image: {
-                url: 'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-                alt: 'profile picture',
-            },
+            name: data.user.name,
+            image: data.user.image,
             size: 'sm',
             status: 'busy',
         },
         {
-            name: 'John Doe',
-            image: {
-                url: 'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-                alt: 'profile picture',
-            },
+            name: data.user.name,
+            image: data.user.image,
             size: 'sm',
             status: 'offline',
         },

@@ -1,5 +1,6 @@
 import { MenuButton } from '../../src';
 import { args, s, a } from '../utils';
+import data from '../data';
 
 export default {
     title: 'Molecules/MenuButton',
@@ -16,8 +17,8 @@ export default {
 const Template = (args) => <MenuButton {...args} />;
 
 export const basic = s(Template, {
-    label: 'John Doe',
-    description: 'Admin',
+    label: data.user.name,
+    description: data.user.email,
     items: [
         {
             icon: 'person',
@@ -38,13 +39,10 @@ export const basic = s(Template, {
 });
 
 export const withImage = s(Template, {
-    label: 'John Doe',
-    description: 'Admin',
+    label: data.user.name,
+    description: data.user.email,
     size: 'xs',
-    image: {
-        url: 'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-        alt: 'profile picture',
-    },
+    image: data.user.image,
     items: [
         {
             icon: 'person',
@@ -65,8 +63,8 @@ export const withImage = s(Template, {
 });
 
 export const withAvatar = s(Template, {
-    label: 'John Doe',
-    description: 'Admin',
+    label: data.user.name,
+    description: data.user.email,
     size: 'xs',
     avatar: true,
     items: [

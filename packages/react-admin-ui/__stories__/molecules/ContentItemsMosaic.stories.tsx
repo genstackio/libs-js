@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { ContentItemsMosaic } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Molecules/ContentItemsMosaic',
@@ -13,7 +14,7 @@ export default {
 const Template = (args) => <ContentItemsMosaic {...args} />;
 
 export const basic = s(Template, {
-    title: 'Pour aller plus loin',
+    title: data.common.title,
     items: [
         {
             title: 'Title',

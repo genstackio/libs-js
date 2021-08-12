@@ -1,5 +1,6 @@
 import { QuoteSlide } from '../../src/molecules/QuoteSlide';
 import { args, a, s } from '../utils';
+import data from '../data';
 
 export default {
     title: 'Molecules/QuoteSlide',
@@ -14,27 +15,24 @@ export default {
 const Template = (args) => <QuoteSlide {...args} />;
 
 export const basic = s(Template, {
-    image: {
-        url: 'https://picsum.photos/200/200',
-    },
-    overline: 'Konbini',
-    title: 'Titre',
+    image: data.common.image,
+    overline: data.common.overline,
+    title: data.common.title,
     button: {
-        children: 'Konbini',
-        target: 'https://www.google.com',
+        children: data.buttons.button1.label,
+        target: data.buttons.button1.target,
         color: 'primary',
         variant: 'filled',
         icon: 'fa-fas--arrow-right',
-        className: '',
     },
 });
 
 export const withoutImage = s(Template, {
-    overline: 'Konbini',
-    title: 'Titre',
+    overline: data.common.overline,
+    title: data.common.title,
     button: {
-        children: 'Konbini',
-        target: 'https://www.google.com',
+        children: data.buttons.button1.label,
+        target: data.buttons.button1.target,
         color: 'primary',
         variant: 'filled',
         icon: 'fa-fas--arrow-right',
@@ -42,9 +40,7 @@ export const withoutImage = s(Template, {
 });
 
 export const withoutButton = s(Template, {
-    image: {
-        url: 'https://images.prismic.io/lunii/dce49374-4a9c-40e7-b73f-d693e3acff80_dev-konbini.png?auto=compress,format',
-    },
-    overline: 'Konbini',
-    title: 'Titre',
+    image: data.common.image,
+    overline: data.common.overline,
+    title: data.common.title,
 });

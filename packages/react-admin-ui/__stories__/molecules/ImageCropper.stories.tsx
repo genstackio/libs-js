@@ -1,5 +1,6 @@
 import { ImageCropper } from '../../src';
 import { args, s, a } from '../utils';
+import data from '../data';
 
 export default {
     title: 'Molecules/ImageCropper',
@@ -14,8 +15,5 @@ export default {
 const Template = (args) => <ImageCropper {...args} />;
 
 export const basic = s(Template, {
-    image: {
-        url: 'https://raw.githubusercontent.com/roadmanfong/react-cropper/master/example/img/child.jpg',
-        alt: 'an image',
-    },
+    image: data.common.image,
 });

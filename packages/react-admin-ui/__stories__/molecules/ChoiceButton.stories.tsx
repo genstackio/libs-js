@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { ChoiceButton } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Molecules/ChoiceButton',
@@ -14,7 +15,7 @@ export default {
 const Template = (args) => <ChoiceButton {...args} />;
 
 export const basic = s(Template, {
-    children: 'DropDown Button',
+    children: data.buttons.button1.label,
     items: [
         {
             label: 'link one',

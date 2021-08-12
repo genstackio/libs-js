@@ -1,5 +1,6 @@
 import { args, a, s } from '../utils';
 import { Push } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Molecules/Push',
@@ -20,45 +21,45 @@ export default {
 const Template = (args) => <Push {...args} />;
 
 export const basic = s(Template, {
-    title: 'Title goes here',
-    subtitle: 'Subtitle goes here',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut commodo faucibus eros, vitae accumsan neque blandit molestie. Cras turpis urna, blandit consequat dui in, tincidunt dictum lectus.',
-    btnLabel: 'Button Label',
+    title: data.common.title,
+    subtitle: data.common.subtitle,
+    text: data.common.content,
+    btnLabel: data.buttons.button1.label,
     btnType: 'contained',
     btnColor: 'primary',
+    btn2Label: data.buttons.button2.label,
     btn2Type: 'contained',
-    btn2Label: 'Button 2 Label',
     btn2Color: 'secondary',
-    image: { url: 'https://via.placeholder.com/687x426?text=Image' },
+    image: data.common.image,
 });
 
 export const imageBottom = s(Template, {
-    title: 'Title goes here',
-    subtitle: 'Subtitle goes here',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut commodo faucibus eros, vitae accumsan neque blandit molestie. Cras turpis urna, blandit consequat dui in, tincidunt dictum lectus.',
-    btnLabel: 'Button Label',
+    title: data.common.title,
+    subtitle: data.common.subtitle,
+    text: data.common.content,
+    btnLabel: data.buttons.button1.label,
     btnType: 'contained',
     btnColor: 'primary',
+    btn2Label: data.buttons.button2.label,
     btn2Type: 'contained',
-    btn2Label: 'Button 2 Label',
     btn2Color: 'secondary',
+    image: data.common.image,
     imagePosition: 'bottom',
-    image: { url: 'https://via.placeholder.com/687x426?text=Image' },
 });
 
 export const withBgImage = s(Template, {
-    title: 'Title goes here',
-    subtitle: 'Subtitle goes here',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut commodo faucibus eros, vitae accumsan neque blandit molestie. Cras turpis urna, blandit consequat dui in, tincidunt dictum lectus.',
-    btnLabel: 'Button Label',
-    image: { url: 'https://via.placeholder.com/687x426?text=Image' },
+    title: data.common.title,
+    subtitle: data.common.subtitle,
+    text: data.common.content,
+    btnLabel: data.buttons.button1.label,
+    image: data.common.image,
 });
 
 export const imageLeft = s(Template, {
-    title: 'Title goes here',
-    subtitle: 'Subtitle goes here',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut commodo faucibus eros, vitae accumsan neque blandit molestie. Cras turpis urna, blandit consequat dui in, tincidunt dictum lectus.',
-    btnLabel: 'Button Label',
-    image: { url: 'https://via.placeholder.com/687x426?text=Image' },
+    title: data.common.title,
+    subtitle: data.common.subtitle,
+    text: data.common.content,
+    btnLabel: data.buttons.button1.label,
+    image: data.common.image,
     imageLeft: true,
 });

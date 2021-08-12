@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { BlockHeader } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Atoms/BlockHeader',
@@ -15,17 +16,17 @@ export default {
 const Template = (args) => <BlockHeader {...args} />;
 
 export const basic = s(Template, {
-    title: 'this is the title',
+    title: data.common.title,
 });
 
 export const withButtons = s(Template, {
-    title: 'this is the title',
-    btnLabel: 'ClickMe!',
-    btn2Label: 'MeToo!',
+    title: data.common.title,
+    btnLabel: data.buttons.button1.label,
+    btn2Label: data.buttons.button2.label,
 });
 
 export const withLogo = s(Template, {
-    title: 'this is the title',
+    title: data.common.title,
     icon: 'fa-fas--arrow-right',
     variant: 'contained',
 });

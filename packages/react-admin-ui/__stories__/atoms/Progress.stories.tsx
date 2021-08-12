@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { Progress } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Atoms/Progress',
@@ -13,10 +14,10 @@ export default {
 const Template = (args) => <Progress {...args} />;
 
 export const basic = s(Template, {
-    value: 33,
+    value: data.common.number_value,
 });
 
 export const circular = s(Template, {
-    value: 33,
+    value: data.common.number_value,
     variant: 'circular',
 });

@@ -1,5 +1,6 @@
 import { s, a } from '../utils';
 import { Button, UserToolbar } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Molecules/UserToolbar',
@@ -10,11 +11,11 @@ export default {
 const Template = (args) => <UserToolbar {...args} />;
 
 export const basic = s(Template, {
-    user: { firstName: 'Alphonse', lastName: 'Daudet', email: 'me@email.com' },
+    user: { firstName: data.user.firstName, lastName: data.user.lastName, email: data.user.email },
 });
 
 export const withAll = s(Template, {
-    user: { firstName: 'Alphonse', lastName: 'Daudet', email: 'me@email.com' },
+    user: { firstName: data.user.firstName, lastName: data.user.lastName, email: data.user.email },
     userMenu: [
         {
             icon: 'person',
@@ -45,7 +46,7 @@ export const withAll = s(Template, {
 });
 
 export const withSomeButtons = s(Template, {
-    user: { firstName: 'Alphonse', lastName: 'Daudet', email: 'me@email.com' },
+    user: { firstName: data.user.firstName, lastName: data.user.lastName, email: data.user.email },
     fullScreenEnabled: true,
     shoppingCartEnabled: true,
     notificationsEnabled: true,
@@ -53,7 +54,7 @@ export const withSomeButtons = s(Template, {
 });
 
 export const withAllButtons = s(Template, {
-    user: { firstName: 'Alphonse', lastName: 'Daudet', email: 'me@email.com' },
+    user: { firstName: data.user.firstName, lastName: data.user.lastName, email: data.user.email },
     fullScreenEnabled: true,
     shoppingCartEnabled: true,
     notificationsEnabled: true,
