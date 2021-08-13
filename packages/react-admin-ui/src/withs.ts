@@ -54,6 +54,7 @@ import {
     rating_value,
     push_image_position,
     push_item,
+    items_section_layouts,
 } from './types';
 import { padding } from './mappings/paddings';
 import { alignment } from './mappings/alignments';
@@ -702,3 +703,7 @@ export interface WithPush
         WithButton2,
         WithButton3,
         WithPositionOfPushImage {}
+
+export interface WithLayoutOfItemsSection {
+    layout?: items_section_layouts;
+}
