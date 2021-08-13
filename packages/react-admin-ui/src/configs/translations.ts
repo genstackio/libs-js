@@ -36,6 +36,8 @@ export default {
 
             role_user_label: 'Utilisateur',
             role_admin_label: 'Administrateur',
+            role_guest_label: 'Invité',
+            role_owner_label: 'Propriétaire',
 
             error_action_login_bad_credentials: 'Identifiant ou mot de passe incorrect',
 
@@ -310,6 +312,8 @@ export default {
 
             role_user_label: 'Utante',
             role_admin_label: 'Ammin',
+            role_guest_label: 'Ospite',
+            role_owner_label: 'Proprietario',
 
             error_action_login_bad_credentials: 'Nome utente o password errati',
 
@@ -502,6 +506,8 @@ export default {
 
             role_user_label: 'User',
             role_admin_label: 'Admin',
+            role_guest_label: 'Guest',
+            role_owner_label: 'Owner',
 
             error_action_login_bad_credentials: 'Bad credentials',
 

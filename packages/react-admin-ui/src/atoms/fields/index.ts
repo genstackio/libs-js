@@ -17,6 +17,7 @@ export * from './InstagramField';
 export * from './IpAddressField';
 export * from './LastNameField';
 export * from './LinkedinField';
+export * from './MembershipRoleField';
 export * from './MonthField';
 export * from './NameField';
 export * from './NewPasswordConfirmationField';
