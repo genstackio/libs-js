@@ -1,8 +1,9 @@
-import { BasicItemsSection } from './itemssections';
+import { BasicItemsSection, SmallItemsSection } from './itemssections';
 import { WithItems, WithLayoutOfItemsSection, WithTitle, WithDescription } from '../withs';
 
 const layouts = {
     basic: BasicItemsSection,
+    small: SmallItemsSection,
 };
 
 export function ItemsSection({ layout = 'basic', ...props }: ItemsSectionProps) {
