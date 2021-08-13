@@ -32,3 +32,16 @@ export const SmallLayout = s(ItemsSection, {
     description: data.common.content,
     layout: 'small',
 });
+
+export const framedLayout = s(ItemsSection, {
+    items: [
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+    ],
+    layout: 'framed',
+    title: data.common.title,
+    description: data.common.content,
+    color: 'primary',
+    variant: 'filled',
+});
