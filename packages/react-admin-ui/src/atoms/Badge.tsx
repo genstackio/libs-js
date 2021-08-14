@@ -1,7 +1,6 @@
 import Pill from './Pill';
-import { badge_variant } from '../types';
 import Tag from './Tag';
-import { WithText } from '../withs';
+import { WithText, WithTypeOfBadge } from '../withs';
 import { AsBox } from '../as';
 
 const types = {
@@ -17,9 +16,7 @@ export function Badge({ type, ...props }: BadgeProps) {
     return Component ? <Component {...props} /> : null;
 }
 
-export interface BadgeProps extends AsBox, WithText {
-    type?: badge_variant;
-}
+export interface BadgeProps extends AsBox, WithText, WithTypeOfBadge {}
 
 // noinspection JSUnusedGlobalSymbols
 export default Badge;

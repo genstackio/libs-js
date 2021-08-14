@@ -14,9 +14,7 @@ export function PricingItem({ item, className }: PricingItemProps) {
             contentClassName={'space-y-3 flex justify-center items-center flex-col pr-4 pl-4'}
             className={className}
         >
-            <div className={'uppercase'}>
-                <Text text={item?.name} variant={'title4'} />
-            </div>
+            <Text upper text={item?.name} variant={'title4'} />
             <div
                 className={clsx(
                     boxClass({ color: item.color, variant: item.variant }),
@@ -34,9 +32,7 @@ export function PricingItem({ item, className }: PricingItemProps) {
                     item.features.map(({ title }, index) => <Text key={index} text={title} variant={'subtitle'} />)}
             </div>
             <div className={'uppercase'}>
-                <Button variant={item.variant} color={item.color} onClick={item.onClick}>
-                    {item.label}
-                </Button>
+                <Button variant={item.variant} color={item.color} onClick={item.onClick} label={item.label} />
             </div>
         </Block>
     );

@@ -5,6 +5,7 @@ import textClass from '../utils/textClass';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import { makeStyles } from '@material-ui/core/styles';
+import useActivator from '../hooks/useActivator';
 import { WithItemsOfDropdown } from '../withs';
 import { AsBox } from '../as';
 
@@ -19,19 +20,13 @@ const useStyles = makeStyles({
 export function Dropdown({ className, color, items = [], variant }: DropdownProps) {
     const classes = useStyles();
     const [value, setValue] = useState<string | number | undefined>(items[0]?.name);
-    const [open, setOpen] = useState(false);
+    const [open, handleOpen, handleClose] = useActivator(false);
     const handleChange = useCallback(
         (event: ChangeEvent<{ value: unknown }>) => {
             setValue(event.target.value as number);
         },
         [setValue, value],
     );
-    const handleClose = useCallback(() => {
-        setOpen(false);
-    }, [setOpen]);
-    const handleOpen = useCallback(() => {
-        setOpen(true);
-    }, [setOpen]);
 
     if (!items || !items.length) return null;
     return (

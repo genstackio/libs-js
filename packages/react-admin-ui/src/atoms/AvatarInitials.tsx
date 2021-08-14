@@ -2,14 +2,15 @@ import clsx from 'clsx';
 import Div from './Div';
 import avatarSizeClass from '../mappings/avatar-sizes';
 import shapeClass from '../mappings/shapes';
-import getInitials from '../utils/getInitials';
+import useInitials from '../hooks/useInitials';
 import { WithName, WithShape, WithSizeOfAvatar } from '../withs';
 import { AsComponent } from '../as';
 
 export function AvatarInitials({ size, name, shape, className }: AvatarInitialsProps) {
+    const initials = useInitials(name);
     return (
         <Div center className={clsx(avatarSizeClass(size), shapeClass(shape), 'text-clear bg-disabled', className)}>
-            {getInitials(name)}
+            {initials}
         </Div>
     );
 }

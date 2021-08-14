@@ -6,6 +6,7 @@ export * from './useConfirmable';
 export * from './useField';
 export * from './useForm';
 export * from './useHeadingText';
+export * from './useInitials';
 export * from './useItems';
 export * from './useRating';
 export * from './useToggle';

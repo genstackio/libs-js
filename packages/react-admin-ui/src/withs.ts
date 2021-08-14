@@ -55,6 +55,7 @@ import {
     push_image_position,
     push_item,
     items_section_layouts,
+    badge_variant,
 } from './types';
 import { padding } from './mappings/paddings';
 import { alignment } from './mappings/alignments';
@@ -436,6 +437,9 @@ export interface WithShape {
 }
 export interface WithText {
     text?: rich_text;
+}
+export interface WithTypeOfBadge {
+    type?: badge_variant;
 }
 export interface WithPadding {
     padding?: padding;

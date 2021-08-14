@@ -1,18 +1,17 @@
 import clsx from 'clsx';
 import boxClass from '../utils/boxClass';
 import Icon from './Icon';
+import Div from './Div';
 import { BoxProvider } from '@genstackio/react-contexts/src/contexts/BoxContext';
 import { WithSize, WithIcon } from '../withs';
 import { AsBoxWrapper } from '../as';
 
 export function Frame({ icon, size, className, children, color = 'clear', variant = 'outlined' }: FrameProps) {
     return (
-        <div
-            className={clsx(
-                boxClass({ color, variant, size }),
-                'flex flex-col w-full mt-4 border rounded-lg relative',
-                className,
-            )}
+        <Div
+            full
+            flex
+            className={clsx(boxClass({ color, variant, size }), 'flex-col mt-4 border rounded-lg relative', className)}
         >
             <BoxProvider value={{ color, variant }}>
                 <div className="flex items-center ml-4 mb-1 ">
@@ -24,7 +23,7 @@ export function Frame({ icon, size, className, children, color = 'clear', varian
                 </div>
                 <div className={'p-8'}>{children || ''}</div>
             </BoxProvider>
-        </div>
+        </Div>
     );
 }
 

@@ -5,7 +5,7 @@ import { box_context_value } from '@genstackio/react-contexts/lib/types';
 import useBox from '@genstackio/react-contexts/lib/hooks/useBox';
 import { WithCenter, WithText, WithColorOfText, WithComponentOfText, WithVariantOfText } from '../withs';
 import { AsComponent } from '../as';
-import { rich_text } from '../types';
+import { flag, rich_text } from '../types';
 
 const mappings = {
     // contained
@@ -71,6 +71,7 @@ export function Text({
     component = 'div',
     maxLen = -1,
     ellipsis = undefined,
+    upper = false,
 }: TextProps) {
     if (!text) return null;
     const box = useBox();
@@ -89,6 +90,7 @@ export function Text({
             textColorClass(computeTextColorFromBox(box, color)),
             textVariantClass(variant),
             center && 'text-center',
+            upper && 'uppercase',
             className,
         ),
         children,
@@ -125,6 +127,7 @@ export interface TextProps
         WithCenter {
     maxLen?: number;
     ellipsis?: rich_text;
+    upper?: flag;
 }
 
 // noinspection JSUnusedGlobalSymbols

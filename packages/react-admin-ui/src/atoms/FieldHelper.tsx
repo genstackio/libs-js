@@ -3,14 +3,13 @@ import { WithHelper } from '../withs';
 import { AsComponent } from '../as';
 
 export function FieldHelper({ className, helper }: FieldHelperProps) {
-    if (!helper) return null;
-    return (
+    return helper ? (
         <span
             className={clsx('flex items-center font-medium tracking-wide text-xs mt-1 ml-1 text-disabled', className)}
         >
             {helper}
         </span>
-    );
+    ) : null;
 }
 
 export interface FieldHelperProps extends AsComponent, WithHelper {}
