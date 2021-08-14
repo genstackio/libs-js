@@ -12,52 +12,23 @@ export default {
     }),
 };
 
+const item = {
+    image: {
+        url: images.random_square,
+    },
+    title: data.user.name,
+    subtitle: data.user.title,
+};
+
 export const basic = s(ItemsSection, {
-    items: [
-        {
-            image: {
-                url: images.random_square,
-            },
-            title: data.user.name,
-            subtitle: data.user.title,
-            color: 'primary',
-        },
-        {
-            image: {
-                url: images.random_square,
-            },
-            title: data.user.name,
-            subtitle: data.user.title,
-        },
-        {
-            image: {
-                url: images.random_square,
-            },
-            title: data.user.name,
-            subtitle: data.user.title,
-        },
-        {
-            image: {
-                url: images.random_square,
-            },
-            title: data.user.name,
-            subtitle: data.user.title,
-        },
-        {
-            image: {
-                url: images.random_square,
-            },
-            title: data.user.name,
-            subtitle: data.user.title,
-        },
-        {
-            image: {
-                url: images.random_square,
-            },
-            title: data.user.name,
-            subtitle: data.user.title,
-        },
-    ],
+    items: [{ ...item, color: 'primary' }, item, item, item, item, item],
     title: data.common.title,
     description: data.common.content,
+});
+
+export const SmallLayout = s(ItemsSection, {
+    items: [item, item, item, item, item, item, item, item, item, item, item, item, item, item, item, item, item, item],
+    title: data.common.title,
+    description: data.common.content,
+    layout: 'small',
 });
