@@ -242,3 +242,13 @@ export type visual_bullet_block_item = {
     title?: rich_text;
     subtitle?: rich_text;
 };
+
+export type items_section_layouts =
+    | 'basic'
+    | 'large'
+    | 'small'
+    | 'framed'
+    | 'summary'
+    | 'vertical-summary'
+    | 'large-summary'
+    | 'rounded-large-summary';
