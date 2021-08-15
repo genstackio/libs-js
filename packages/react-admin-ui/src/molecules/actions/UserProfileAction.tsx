@@ -1,6 +1,6 @@
 import UserProfileForm, { UserProfileFormProps } from '../forms/UserProfileForm';
-import useAction from '../../hooks/useAction';
 import FormActionProps from '../forms/FormActionProps';
+import useAction from '../../hooks/useAction';
 import { WithMutationName } from '../../withs';
 
 export function UserProfileAction({

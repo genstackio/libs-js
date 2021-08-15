@@ -73,7 +73,7 @@ export function useField(
     appendIcon = appendIcon ? <Icon icon={appendIcon} /> : undefined;
 
     className =
-        clsx(className, half && 'w-1/2 xs:w-full', threeOf5 && 'w-3/5 xs:w-full', twoOf5 && 'w-2/5 xs:w-full') ||
+        clsx(className, half && 'w-full sm:w-1/2', threeOf5 && 'w-full sm:w-3/5', twoOf5 && 'w-full sm:w-2/5') ||
         undefined;
 
     return {

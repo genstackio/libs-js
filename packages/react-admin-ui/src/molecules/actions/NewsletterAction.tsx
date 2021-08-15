@@ -1,6 +1,6 @@
 import NewsletterForm, { NewsletterFormProps } from '../forms/NewsletterForm';
-import useAction from '../../hooks/useAction';
 import FormActionProps from '../forms/FormActionProps';
+import useAction from '../../hooks/useAction';
 import { WithMutationName } from '../../withs';
 
 export function NewsletterAction({

@@ -1,10 +1,11 @@
 import { useCallback } from 'react';
 import Dropzone from 'react-dropzone-uploader/dist/react-dropzone-uploader';
 import Block from '../atoms/Block';
+import Column from '../atoms/Column';
+import useBlock from '../hooks/useBlock';
 import { rich_text } from '../types';
-import { WithOnSubmit, WithPlaceholder, WithTitle } from '../withs';
 import { AsBox } from '../as';
-import { useBlock } from '../hooks';
+import { WithOnSubmit, WithPlaceholder, WithTitle } from '../withs';
 
 const defaultDropzoneStyle = {
     dropzone: {
@@ -18,17 +19,17 @@ const defaultDropzoneStyle = {
 };
 
 export function FileUploader({
-    className,
     accept,
     dropzoneStyle = undefined,
+    className,
     nonEmptyPlaceholder,
+    onFileAbort,
+    onFileRemove,
+    onFileUpload,
+    onSubmit,
     placeholder,
     submitLabel,
     url,
-    onFileAbort,
-    onFileUpload,
-    onFileRemove,
-    onSubmit,
     ...props
 }: FileUploaderProps) {
     const [bProps] = useBlock(props);
@@ -50,7 +51,6 @@ export function FileUploader({
         },
         [onFileUpload, onFileRemove, onFileAbort],
     );
-
     const handleSubmit = useCallback(
         ({ meta }, allFiles) => {
             allFiles.forEach((f) => f.remove());
@@ -63,23 +63,25 @@ export function FileUploader({
         <>
             <div id={'toast'} />
             <Block {...bProps}>
-                <div
+                <Column
+                    p={'md'}
+                    b={'xs'}
                     className={
-                        'flex flex-col px-4 py-6 bg-clear text-info tracking-wide uppercase ' +
-                        'border border-info cursor-pointer hover:bg-primary hover:text-clear'
+                        'bg-clear text-info tracking-wide uppercase ' +
+                        'border-info cursor-pointer hover:bg-primary hover:text-clear'
                     }
                 >
                     <Dropzone
-                        inputContent={placeholder}
-                        submitButtonContent={submitLabel}
-                        inputWithFilesContent={nonEmptyPlaceholder || placeholder}
+                        accept={accept}
                         getUploadParams={getUploadParams as any}
+                        inputContent={placeholder}
+                        inputWithFilesContent={nonEmptyPlaceholder || placeholder}
                         onChangeStatus={handleChangeStatus as any}
                         onSubmit={handleSubmit as any}
-                        accept={accept}
                         styles={dropzoneStyle as any}
+                        submitButtonContent={submitLabel}
                     />
-                </div>
+                </Column>
             </Block>
         </>
     );

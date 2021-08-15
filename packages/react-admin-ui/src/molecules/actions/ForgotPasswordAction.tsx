@@ -1,6 +1,6 @@
 import ForgotPasswordForm, { ForgotPasswordFormProps } from '../forms/ForgotPasswordForm';
-import useAction from '../../hooks/useAction';
 import { FormActionProps } from '../forms';
+import useAction from '../../hooks/useAction';
 import { WithMutationName } from '../../withs';
 
 export function ForgotPasswordAction({

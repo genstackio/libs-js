@@ -1,45 +1,46 @@
-import clsx from 'clsx';
-import RememberPasswordField from '../../atoms/fields/RememberPasswordField';
-import Button from '../../atoms/Button';
+import { useTranslation } from 'react-i18next';
 import Form from '../../atoms/Form';
 import Text from '../../atoms/Text';
+import Div from '../../atoms/Div';
+import Column from '../../atoms/Column';
+import Button from '../../atoms/Button';
 import PasswordField from '../../atoms/fields/PasswordField';
+import RememberPasswordField from '../../atoms/fields/RememberPasswordField';
 import PasswordConfirmationField from '../../atoms/fields/PasswordConfirmationField';
-import { useTranslation } from 'react-i18next';
 import { flag } from '../../types';
-import { WithColorOfBox, WithDefaultValues, WithOnSubmit } from '../../withs';
 import { AsComponent } from '../../as';
+import { WithColorOfBox, WithDefaultValues, WithOnSubmit } from '../../withs';
 
 export function CreatePasswordForgotPasswordForm({
     className,
-    onSubmit,
-    confirm = false,
-    rememberMe = false,
     color,
+    confirm = false,
     defaultValues = {},
+    onSubmit,
+    rememberMe = false,
 }: CreatePasswordForgotPasswordFormProps) {
     const { t } = useTranslation();
 
     return (
-        <div className={clsx('w-full flex flex-col', className)}>
-            <Form onSubmit={onSubmit} defaultValues={defaultValues}>
-                <Text text={t('form_forgot_password_create_password_title')} variant={'title6'} color={color} />
+        <Column full className={className}>
+            <Form defaultValues={defaultValues} onSubmit={onSubmit}>
+                <Text color={color} text={t('form_forgot_password_create_password_title')} variant={'title6'} />
                 <Text
-                    className={'text-disabled mb-4'}
+                    color={color}
                     text={t('form_forgot_password_create_password_subtitle')}
                     variant={'body'}
-                    color={color}
+                    className={'text-disabled mb-4'}
                 />
-                <PasswordField field required autoFocus />
+                <PasswordField autoFocus field required />
                 {confirm && <PasswordConfirmationField field required />}
                 {rememberMe && <RememberPasswordField field />}
-                <div className={'flex justify-center mt-6'}>
-                    <Button className={'w-full items-center justify-center'} variant={'contained'} color={color}>
+                <Div center flex mt={'lg'}>
+                    <Button color={color} variant={'contained'} className={'w-full items-center justify-center'}>
                         {t('form_forgot_password_create_password_submit_label')}
                     </Button>
-                </div>
+                </Div>
             </Form>
-        </div>
+        </Column>
     );
 }
 

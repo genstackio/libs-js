@@ -1,76 +1,83 @@
 import clsx from 'clsx';
-import { icon } from '../../types';
+import Div from '../../atoms/Div';
+import Row from '../../atoms/Row';
 import Icon from '../../atoms/Icon';
+import Buttons from '../../atoms/Buttons';
 import AreaLineChart from './AreaLineChart';
 import { boxColorClass } from '../../mappings/box-colors';
-import { WithColorOfBox, WithSubtitle, WithTitle, WithButtons } from '../../withs';
-import { AsComponent } from '../../as';
-import { Buttons } from '../../atoms';
 import useButtons from '../../hooks/useButtons';
+import { icon } from '../../types';
+import { AsComponent } from '../../as';
+import { WithColorOfBox, WithSubtitle, WithTitle, WithButtons } from '../../withs';
 
 export function SummaryChart({
-    className,
     chartItems = [],
+    className,
+    color,
     datas,
     dashboardItems = [],
     subtitle,
     title,
-    color,
     ...props
 }: SummaryChartProps) {
     const [buttonsProps] = useButtons(props);
+
     return (
-        <div className={clsx('w-full grid grid-cols-4', className)}>
-            <div
-                className={'md:col-span-4 border-r-1 md:border-r-0 md:border-b-1 p-6 xs:p-2 flex flex-col md:space-y-4'}
+        <Div grid={4} className={className}>
+            <Div
+                col
+                p={'lg'}
+                className={'col-span-1 md:border-r-1 border-r-0 border-b-1 sm:border-b-0 md:space-y-4 sm:p-2 p-0'}
             >
-                <div className={'flex justify-between items-center mb-2'}>
+                <Div center flex spaced mb={'sm'}>
                     <div>
                         {title && <div className={'font-bold'}>{title}</div>}
                         {subtitle && <div className={'text-sm'}>{subtitle}</div>}
                     </div>
-                    <Buttons {...buttonsProps} btnColor={color} className={'hidden md:block'} />
-                </div>
+                </Div>
                 {dashboardItems && (
-                    <div className={'mb-2 md:flex md:flex-wrap md:justify-between md:items-center'}>
+                    <Div mb={'sm'}>
                         {dashboardItems.map(({ value, description }, index) => (
                             <div className={'mb-2'} key={index}>
                                 <div className={'font-bold'}>{value}</div>
                                 <div className={'text-sm'}>{description}</div>
                             </div>
                         ))}
-                    </div>
+                    </Div>
                 )}
-                <Buttons {...buttonsProps} btnColor={color} className={'self-start md:hidden'} />
-            </div>
-            <div className={'col-span-3 md:col-span-4'}>
+                <Buttons {...buttonsProps} btnColor={color} className={'self-start hidden md:block'} />
+            </Div>
+            <div className={'col-span-1 sm:col-span-3'}>
                 <AreaLineChart datas={datas} color={color} />
                 {chartItems && (
-                    <div
-                        className={
-                            'h-1/4 md:h-auto border-t-1 p-6 xs:p-2 flex md:flex-wrap justify-between md:space-y-3'
-                        }
+                    <Row
+                        spacebetween
+                        spaced={30}
+                        wrap
+                        className={'h-auto md:h-1/4 border-t-1 p-2 sm:p-6 md:flex-nowrap'}
                     >
                         {chartItems.map(({ icon, color, name, value }, index) => (
-                            <div className={'flex items-center space-x-2'} key={index}>
-                                <div
+                            <Div flex key={index} spaced={2}>
+                                <Div
+                                    center
+                                    flex
                                     className={clsx(
-                                        'w-10 h-10 rounded-full flex justify-center items-center hover:animate-pulse',
+                                        'w-10 h-10 rounded-full hover:animate-pulse',
                                         boxColorClass(color as any),
                                     )}
                                 >
                                     <Icon icon={icon} />
-                                </div>
+                                </Div>
                                 <div>
                                     <div className={'font-bold'}>{name}</div>
                                     <div className={'text-sm'}>{value}</div>
                                 </div>
-                            </div>
+                            </Div>
                         ))}
-                    </div>
+                    </Row>
                 )}
             </div>
-        </div>
+        </Div>
     );
 }
 

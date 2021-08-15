@@ -1,12 +1,11 @@
-import Accordion from './Accordion';
-import { WithExpandIcon, WithItemsOfFaq } from '../withs';
-import { AsBox } from '../as';
+import Accordion, { AccordionProps } from './Accordion';
+import { WithItemsOfFaq } from '../withs';
 
-export function Faq({ className, color, expandIcon, items = [], variant }: FaqProps) {
-    return <Accordion items={items} color={color} variant={variant} expandIcon={expandIcon} className={className} />;
+export function Faq(props: FaqProps) {
+    return <Accordion {...props} />;
 }
 
-export interface FaqProps extends AsBox, WithItemsOfFaq, WithExpandIcon {}
+export interface FaqProps extends Omit<AccordionProps, 'items'>, WithItemsOfFaq {}
 
 // noinspection JSUnusedGlobalSymbols
 export default Faq;

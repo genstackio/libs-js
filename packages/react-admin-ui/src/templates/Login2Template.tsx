@@ -1,36 +1,34 @@
 import { ReactNode } from 'react';
+import clsx from 'clsx';
+import Div from '../atoms/Div';
 import Image from '../atoms/Image';
 import Container from '../atoms/Container';
-import { WithImage, WithLogo } from '../withs';
-import clsx from 'clsx';
 import { AsComponent } from '../as';
+import { WithImage, WithLogo } from '../withs';
 
-export function Login2Template({ className, image, logo, bgColor, form }: Login2TemplateProps) {
+export function Login2Template({ bgColor, className, form, image, logo }: Login2TemplateProps) {
     return (
-        <div
-            className={clsx(
-                'h-screen flex bg-opacity-70 md:relative md:items-center sm:relative sm:items-center',
-                className,
-            )}
-        >
+        <Div center flex hscreen relative className={clsx('bg-opacity-70', className)}>
             <Container
                 bgImage={image}
-                className={
-                    'w-7/12 p-3 bg-cover bg-center flex-3 md:opacity-60 md:absolute md:w-full md:h-full sm:opacity-60 sm:absolute sm:w-full sm:h-full'
-                }
+                className={'w-7/12 p-3 bg-cover bg-center flex-3 opacity-60 absolute w-full h-full'}
             />
             <Container
                 bgColor={bgColor}
-                className={'w-5/12 py-8 px-3 flex-2 flex-col justify-center items-center md:hidden sm:hidden'}
+                className={'w-5/12 py-8 px-3 flex-2 flex-col justify-center items-center hidden md:block'}
             >
                 {logo && <Image expand={false} {...logo} />}
-                <div className={'mt-4 p-10 w-full max-w-md bg-clear rounded-lg shadow-block'}>{form || ''}</div>
+                <Div corner={'rounded-xsmall'} full mt={'md'} p={'sl'} className={'max-w-md bg-clear shadow-block'}>
+                    {form}
+                </Div>
             </Container>
-            <div className={'z-50 hidden flex sm:block md:block mx-auto'}>
+            <Div flex mobile mx={'auto'} tablet className={'z-50'}>
                 {logo && <Image expand={false} {...logo} />}
-                <div className={'mt-4 p-10 xs:p-5 md:p-5 w-full bg-clear rounded-lg shadow-block'}>{form || ''}</div>
-            </div>
-        </div>
+                <Div corner={'rounded-xsmall'} full mt={'md'} p={'_sl'} className={'bg-clear shadow-block'}>
+                    {form}
+                </Div>
+            </Div>
+        </Div>
     );
 }
 

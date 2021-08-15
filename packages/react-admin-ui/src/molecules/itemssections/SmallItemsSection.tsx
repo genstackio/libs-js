@@ -1,23 +1,24 @@
-import { WithColorOfText, WithDescription, WithItems, WithTitle } from '../../withs';
-import HeadingText from '../../atoms/HeadingText';
+import clsx from 'clsx';
 import Div from '../../atoms/Div';
 import Image from '../../atoms/Image';
+import Column from '../../atoms/Column';
+import HeadingText from '../../atoms/HeadingText';
 import { AsComponent } from '../../as';
-import clsx from 'clsx';
+import { WithColorOfText, WithDescription, WithItems, WithTitle } from '../../withs';
 
-export function SmallItemsSection({ title, description, items = [], color, className }: SmallItemsSectionProps) {
+export function SmallItemsSection({ className, color, description, items = [], title }: SmallItemsSectionProps) {
     return (
-        <Div flex className={clsx('py-14 px-8 sm:px-6 flex-col', className)}>
-            <HeadingText title={title} description={description} variant={'medium2'} color={color} center />
-            <Div flex className={'grid grid-cols-6 gap-y-10 sm:grid-cols-2'}>
+        <Column className={clsx('py-14 px-6 sm:px-8', className)}>
+            <HeadingText center color={color} description={description} title={title} variant={'medium2'} />
+            <Div grid={6} className={'gap-y-10'}>
                 {items.map(({ image, title, subtitle }, index) => (
-                    <Div flex key={index} center className={'flex-col mt-10'}>
-                        <Image {...image} corner={'circle'} expand={false} className={'w-24 h-24'} />
-                        <HeadingText title={title} subtitle={subtitle} variant={'section'} className={'pt-6'} center />
-                    </Div>
+                    <Column center key={index} mt={'sl'}>
+                        <Image corner={'circle'} expand={false} {...image} className={'w-24 h-24'} />
+                        <HeadingText center pt={'lg'} subtitle={subtitle} title={title} variant={'section'} />
+                    </Column>
                 ))}
             </Div>
-        </Div>
+        </Column>
     );
 }
 

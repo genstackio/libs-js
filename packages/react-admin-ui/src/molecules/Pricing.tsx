@@ -1,15 +1,14 @@
-import clsx from 'clsx';
-import { WithItemsOfPricing } from '../withs';
+import Row from '../atoms/Row';
+import Items from '../atoms/Items';
+import PricingItem from '../atoms/PricingItem';
 import { AsComponent } from '../as';
-import { PricingItem } from '../atoms/PricingItem';
+import { WithItemsOfPricing } from '../withs';
 
 export function Pricing({ className, items = [] }: PricingProps) {
     return (
-        <div className={clsx('flex inline', className)}>
-            {items.map((item, index) => (
-                <PricingItem key={index} item={item} />
-            ))}
-        </div>
+        <Row className={className} gap={2} grid={items.length}>
+            <Items component={PricingItem} itemProp={'item'} items={items} />
+        </Row>
     );
 }
 

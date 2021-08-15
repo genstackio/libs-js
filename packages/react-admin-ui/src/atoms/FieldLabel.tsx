@@ -1,10 +1,12 @@
 import clsx from 'clsx';
 import { flag } from '../types';
-import { WithName, WithLabel, WithOptions } from '../withs';
 import { AsComponent } from '../as';
+import { WithName, WithLabel, WithOptions } from '../withs';
 
-export function FieldLabel({ className, name, label, error, options = {} }: FieldLabelProps) {
-    return label ? (
+export function FieldLabel({ className, error, label, name, options = {} }: FieldLabelProps) {
+    if (!label) return null;
+
+    return (
         <label
             htmlFor={name}
             className={clsx(
@@ -17,7 +19,7 @@ export function FieldLabel({ className, name, label, error, options = {} }: Fiel
             {label}
             {!!options?.required && '*'}
         </label>
-    ) : null;
+    );
 }
 
 export interface FieldLabelProps extends AsComponent, Required<WithName>, WithLabel, WithOptions {

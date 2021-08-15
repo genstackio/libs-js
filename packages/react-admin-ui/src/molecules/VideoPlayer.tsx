@@ -1,63 +1,57 @@
 import clsx from 'clsx';
+import ReactPlayer from 'react-player';
+import Row from '../atoms/Row';
+import Div from '../atoms/Div';
 import Image from '../atoms/Image';
 import Button from '../atoms/Button';
-import ReactPlayer from 'react-player';
 import { useToggle } from '../hooks/useToggle';
-import cornerClass from '../mappings/corners';
-import { WithColorOfBox, WithButtonLabel, WithCorner, WithIcon, WithImage, WithPlayingIcon } from '../withs';
 import { AsComponent } from '../as';
+import { WithColorOfBox, WithButtonLabel, WithCorner, WithIcon, WithImage, WithPlayingIcon } from '../withs';
 
 export function VideoPlayer({
-    url,
-    icon = 'fa-fas--play',
-    playingIcon = 'fa-fas--pause',
-    image,
     btnLabel,
-    corner,
-    color,
     className,
+    color,
+    corner,
+    icon = 'fa-fas--play',
+    image,
+    playingIcon = 'fa-fas--pause',
+    url,
 }: VideoPlayerProps) {
     const [video, toggle] = useToggle();
 
     return (
-        <div
-            className={clsx(
-                'relative w-full flex items-center justify-center overflow-hidden',
-                cornerClass(corner),
-                className,
-            )}
-        >
+        <Row center corner={corner} full relative className={clsx('overflow-hidden', className)}>
             <Image {...image} className={'flex-1'} />
             <Button
-                corner={btnLabel ? 'rounded' : 'circle'}
-                variant={'contained'}
-                size={btnLabel ? 'lg' : undefined}
                 color={color}
-                onClick={toggle}
+                corner={btnLabel ? 'rounded' : 'circle'}
                 icon={video ? playingIcon : icon}
                 iconSize={btnLabel ? 'lg' : '3xl'}
+                onClick={toggle}
+                size={btnLabel ? 'lg' : undefined}
+                variant={'contained'}
                 className={clsx(
                     'absolute',
                     btnLabel && 'h-14 left-0 bottom-0 m-10 overflow-hidden',
-                    !btnLabel && 'flex items-center h-24 w-24 m-auto',
+                    !btnLabel && 'flex items-center h-24 w-24 ',
                     className,
                 )}
-            >
-                {btnLabel}
-            </Button>
+                label={btnLabel}
+            />
             {video && (
-                <div className={'absolute top-0 w-full h-full'}>
+                <Div absolute full hfull className={'top-0'}>
                     <ReactPlayer
+                        controls
+                        height={'100%'}
+                        onEnded={toggle as () => void}
+                        playing
                         url={url}
                         width={'100%'}
-                        height={'100%'}
-                        playing={true}
-                        controls
-                        onEnded={toggle as () => void}
                     />
-                </div>
+                </Div>
             )}
-        </div>
+        </Row>
     );
 }
 

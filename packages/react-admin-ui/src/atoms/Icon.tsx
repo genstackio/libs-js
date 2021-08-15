@@ -1,17 +1,27 @@
 import clsx from 'clsx';
+import Image from './Image';
+import Clickable from './Clickable';
 import MuiIcon from '@material-ui/core/Icon';
 import textSizeClass from '../utils/textSizeClass';
-import Clickable from './Clickable';
-import Image from './Image';
 import Loadable from '@loadable/component';
 import Badge from '@material-ui/core/Badge';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { mapFaSize } from '../mappings/fa-sizes';
 import { mapIconColor } from '../mappings/icon-colors';
-import { WithIcon, WithColorOfText, WithSizeOfText, WithWidth, WithHeight, WithOnClick, WithCount } from '../withs';
+import { flag } from '../types';
 import { AsComponent } from '../as';
+import {
+    WithIcon,
+    WithColorOfText,
+    WithSizeOfText,
+    WithWidth,
+    WithHeight,
+    WithOnClick,
+    WithCount,
+    WithDisabled,
+} from '../withs';
 
-export function Icon({ count = 0, icon, size, onClick, color, ...props }: IconProps) {
+export function Icon({ bold = false, color, count = 0, disabled, icon, onClick, size, ...props }: IconProps) {
     if (!icon) return null;
     const className = props.className;
     let content;
@@ -37,13 +47,26 @@ export function Icon({ count = 0, icon, size, onClick, color, ...props }: IconPr
                     let xx = icon.slice(3).split(/--/g) as any;
                     xx.length === 1 && (xx = xx[0]);
                     content = (
-                        <FontAwesomeIcon icon={xx} className={className} {...(size ? { size: mapFaSize(size) } : {})} />
+                        <FontAwesomeIcon
+                            icon={xx}
+                            className={clsx(className, bold && 'font-bold', disabled && 'text-disabled')}
+                            {...(size ? { size: mapFaSize(size) } : {})}
+                        />
                     );
                     break;
                 }
                 if (size) {
                     content = (
-                        <MuiIcon color={iconColor} {...props} className={clsx(textSizeClass({ size }), className)}>
+                        <MuiIcon
+                            color={iconColor}
+                            {...props}
+                            className={clsx(
+                                textSizeClass({ size }),
+                                bold && 'font-bold',
+                                disabled && 'text-disabled',
+                                className,
+                            )}
+                        >
                             {icon}
                         </MuiIcon>
                     );
@@ -85,7 +108,10 @@ export interface IconProps
         WithWidth,
         WithHeight,
         WithOnClick,
-        WithCount {}
+        WithDisabled,
+        WithCount {
+    bold?: flag;
+}
 
 // noinspection JSUnusedGlobalSymbols
 export default Icon;

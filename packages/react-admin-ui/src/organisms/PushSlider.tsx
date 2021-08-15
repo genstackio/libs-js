@@ -1,16 +1,18 @@
-import Push from '../molecules/Push';
 import SwiperCore, { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Row from '../atoms/Row';
+import Push from '../molecules/Push';
 import { WithItems } from '../withs';
 import { AsComponent } from '../as';
 
 SwiperCore.use([Pagination]);
 
+const pagination = { clickable: true };
+
 export function PushSlider({ className, items = [] }: PushSliderProps) {
     return (
         <Row className={className}>
-            <Swiper pagination={{ clickable: true }}>
+            <Swiper pagination={pagination}>
                 {items.map((itemsProps, index) => (
                     <SwiperSlide key={`slide-${index}`}>
                         <Push {...itemsProps} />

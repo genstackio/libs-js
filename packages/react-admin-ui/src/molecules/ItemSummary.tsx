@@ -1,34 +1,18 @@
 import clsx from 'clsx';
-import Text from '../atoms/Text';
-import Icon from '../atoms/Icon';
+import Row from '../atoms/Row';
+import ItemSummaryItem from './ItemSummaryItem';
+import ItemSummaryTitle from './ItemSummaryTitle';
 import { rich_text } from '../types';
 import { AsComponent } from '../as';
 
-export function ItemSummary({ className, date, author, likes, comments }: ItemSummaryProps) {
+export function ItemSummary({ author, className, comments, date, likes }: ItemSummaryProps) {
     return (
-        <div
-            className={clsx(
-                'flex flex-wrap justify-start text-disabled space-x-8 xs:space-x-2 items-center',
-                className,
-            )}
-        >
-            <div className={'flex items-center'}>
-                <Text text={new Date(date).toDateString()} variant={'subtitle'} />
-                <div className={'ml-4'}>|</div>
-            </div>
-            <div className={'flex items-center space-x-2'}>
-                <Icon icon={'person'} size={'lg'} />
-                <Text text={author} variant={'subtitle'} />
-            </div>
-            <div className={'flex items-center space-x-2'}>
-                <Icon icon={'thumb_up'} size={'lg'} />
-                <Text text={`${likes}`} variant={'subtitle'} />
-            </div>
-            <div className={'flex items-center space-x-2'}>
-                <Icon icon={'question_answer'} size={'lg'} />
-                <Text text={`${comments}`} variant={'subtitle'} />
-            </div>
-        </div>
+        <Row vcenter wrap className={clsx('justify-start text-disabled space-x-2 sm:space-x-8', className)}>
+            <ItemSummaryTitle text={new Date(date).toDateString()} />
+            <ItemSummaryItem icon={'person'} text={author} />
+            <ItemSummaryItem icon={'thumb_up'} text={String(likes)} />
+            <ItemSummaryItem icon={'question_answer'} text={String(comments)} />
+        </Row>
     );
 }
 

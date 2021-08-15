@@ -11,14 +11,15 @@ export const textVariants = {
     overline: 'text-sm font-overline',
     subsection: 'text-sm font-subsection font-medium',
     subtitle: 'text-lg font-light font-subtitle',
-    title0: 'lg:text-9xl md:text-7xl sm:text-4xl font-bold font-title1',
+    sl: 'text-2xl',
+    title0: 'xl:text-9xl md:text-7xl sm:text-4xl font-bold font-title1',
     title1: 'text-6xl font-bold font-title1',
     title2: 'text-5xl font-bold font-title2',
     title3: 'text-4xl font-bold font-title3',
     title4: 'text-3xl font-bold font-title4',
     title5: 'text-2xl font-bold font-title5',
     title6: 'text-xl font-bold font-title6',
-    title7: 'text-xxl xs:text-9xl font-bold font-title7 -mt-12 -mb-8 xs:m-0',
+    title7: 'text-9xl sm:text-xxl font-bold font-title7 m-0 sm:-mt-12 sm:-mb-8',
     underline: 'text-base underline font-underline',
 };
 
@@ -35,6 +36,7 @@ export type text_variant =
     | 'subsection'
     | 'subtitle'
     | 'text'
+    | 'sl'
     | 'title0'
     | 'title1'
     | 'title2'

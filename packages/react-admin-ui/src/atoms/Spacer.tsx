@@ -1,26 +1,18 @@
-import { useMemo } from 'react';
-import { WithSizeOfSpacer, WithVariantOfSpace } from '../withs';
+import VerticalSpacer from './spacers/VerticalSpacer';
+import HorizontalSpacer from './spacers/HorizontalSpacer';
 import { AsComponent } from '../as';
+import { WithSizeOfSpacer, WithVariantOfSpace } from '../withs';
 
-export function Spacer({ className, variant = 'default', size = 1, unitSize = 4 }: SpacerProps) {
-    const styles = useMemo(() => {
-        const styles = {};
-        switch (variant) {
-            case 'vertical':
-                styles['display'] = 'inline-block';
-                styles['width'] = size * unitSize;
-                styles['height'] = '100%';
-                break;
-            default:
-            case 'default':
-            case 'horizontal':
-                styles['height'] = size * unitSize;
-                break;
-        }
-        return styles;
-    }, [variant, size, unitSize]);
+const components = {
+    vertical: VerticalSpacer,
+    horizontal: HorizontalSpacer,
+    default: HorizontalSpacer,
+};
 
-    return <div style={styles} className={className} />;
+export function Spacer({ variant = 'default', ...props }: SpacerProps) {
+    const Component = components[variant] || components.default;
+
+    return <Component {...props} />;
 }
 
 export interface SpacerProps extends AsComponent, WithVariantOfSpace, WithSizeOfSpacer {}

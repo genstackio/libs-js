@@ -1,11 +1,25 @@
 import clsx from 'clsx';
 import textColorClass, { text_color } from '../mappings/text-colors';
 import textVariantClass from '../mappings/text-variants';
+import marginClass from '../mappings/margins';
+import paddingClass from '../mappings/paddings';
+import { flag } from '../types';
 import { box_context_value } from '@genstackio/react-contexts/lib/types';
 import useBox from '@genstackio/react-contexts/lib/hooks/useBox';
-import { WithCenter, WithText, WithColorOfText, WithComponentOfText, WithVariantOfText } from '../withs';
 import { AsComponent } from '../as';
-import { flag, rich_text } from '../types';
+import {
+    WithCenter,
+    WithText,
+    WithColorOfText,
+    WithComponentOfText,
+    WithVariantOfText,
+    WithMaxLen,
+    WithEllipsis,
+    WithUpper,
+    WithMargin,
+    WithDisabled,
+    WithPadding,
+} from '../withs';
 
 const mappings = {
     // contained
@@ -59,18 +73,23 @@ const mappings = {
 function computeTextColorFromBox(box: box_context_value, forcedColor: text_color | undefined = undefined) {
     if (forcedColor) return forcedColor;
     const k = [box.variant || 'default', box.color || 'default'].join('-');
+
     return mappings[k] || mappings['default-default'];
 }
 
 export function Text({
-    className,
+    bold = false,
     center = false,
+    className,
     color = undefined,
+    component = 'div',
+    disabled = false,
+    ellipsis = undefined,
+    m = 'none',
+    maxLen = -1,
+    p = 'none',
     text,
     variant = 'body',
-    component = 'div',
-    maxLen = -1,
-    ellipsis = undefined,
     upper = false,
 }: TextProps) {
     if (!text) return null;
@@ -89,8 +108,12 @@ export function Text({
         className: clsx(
             textColorClass(computeTextColorFromBox(box, color)),
             textVariantClass(variant),
+            marginClass(m),
+            paddingClass(p),
             center && 'text-center',
             upper && 'uppercase',
+            disabled && 'text-disabled',
+            bold && 'font-bold',
             className,
         ),
         children,
@@ -124,10 +147,14 @@ export interface TextProps
         WithColorOfText,
         WithComponentOfText,
         WithVariantOfText,
+        WithMaxLen,
+        WithEllipsis,
+        WithUpper,
+        WithMargin,
+        WithDisabled,
+        WithPadding,
         WithCenter {
-    maxLen?: number;
-    ellipsis?: rich_text;
-    upper?: flag;
+    bold?: flag;
 }
 
 // noinspection JSUnusedGlobalSymbols

@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import clsx from 'clsx';
 import Slide from '../atoms/Slide';
-import Row from '../atoms/Row';
 import Text from '../atoms/Text';
 import Block from '../atoms/Block';
+import Column from '../atoms/Column';
+import Div from '../atoms/Div';
+import useBlock from '../hooks/useBlock';
 import { AsBox } from '../as';
 import { WithImage, WithSlides, WithSubtitle, WithText, WithTitle } from '../withs';
-import useBlock from '../hooks/useBlock';
 
 const swiperProps: any = {
     slidesPerView: 1,
@@ -29,30 +29,32 @@ const swiperProps: any = {
     },
 };
 
-export function Slideshow({ title, text, subtitle, slides = [], image, ...props }: SlideshowProps) {
+export function Slideshow({ image, text, title, slides = [], subtitle, ...props }: SlideshowProps) {
     const [bProps] = useBlock(props, { color: 'primary', variant: 'contained', image });
     const [activeSlide, setActiveSlide] = useState<any>(null);
+
     useEffect(() => {
         setActiveSlide('slide-2');
     }, [setActiveSlide]);
+
     return (
         <Block {...bProps}>
-            <Row className={clsx('flex-col')}>
-                <Text className={'text-center'} variant={'title4'} text={title} />
-                <Text className={'text-center py-10 sm:py-5'} variant={'text'} text={text} />
-                <Text className={'text-center'} text={subtitle} variant={'subtitle'} />
-                <div className={'self-center w-full py-5'}>
+            <Column>
+                <Text center text={title} variant={'title4'} />
+                <Text center py={'xlg'} text={text} variant={'text'} />
+                <Text center text={subtitle} variant={'subtitle'} />
+                <Div full py={'xlg'} selfcenter>
                     {!!slides.length && (
-                        <Swiper {...swiperProps} className={'w-10/12'} activeSlideKey={activeSlide}>
+                        <Swiper {...swiperProps} activeSlideKey={activeSlide} className={'w-10/12'}>
                             {slides.map((slide, index) => (
                                 <SwiperSlide key={`slide-${index}`}>
-                                    <Slide slide={slide} index={index} />
+                                    <Slide index={index} slide={slide} />
                                 </SwiperSlide>
                             ))}
                         </Swiper>
                     )}
-                </div>
-            </Row>
+                </Div>
+            </Column>
         </Block>
     );
 }

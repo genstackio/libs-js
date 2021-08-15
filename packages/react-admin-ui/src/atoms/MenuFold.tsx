@@ -1,11 +1,15 @@
 import clsx from 'clsx';
-import Clickable from '../atoms/Clickable';
-import Badge from '../atoms/Badge';
-import Block from '../atoms/Block';
-import Icon from '../atoms/Icon';
-import Text from '../atoms/Text';
+import Items from './Items';
+import Row from './Row';
+import Div from './Div';
+import Clickable from './Clickable';
+import Badge from './Badge';
+import Block from './Block';
+import Icon from './Icon';
+import Text from './Text';
 import textClass from '../utils/textClass';
-import { useToggle } from '../hooks';
+import useToggle from '../hooks/useToggle';
+import { AsComponent } from '../as';
 import {
     WithColorOfBox,
     WithIcon,
@@ -15,52 +19,51 @@ import {
     WithItemsOfMenu,
     WithVariantOfMenu,
 } from '../withs';
-import Items from './Items';
-import { AsComponent } from '../as';
 
-export function MenuFold({ className, label, icon, active, badges, items = [], color, variant }: MenuFoldProps) {
+export function MenuFold({ active, badges, className, color, icon, label, items = [], variant }: MenuFoldProps) {
     const [open, toggle] = useToggle(active || false);
+
     return (
         <>
             <Block
-                padding={'small'}
+                active={active}
+                color={color}
+                contentClassName={'flex justify-between'}
+                corner={'rounded-small'}
                 elevation={0}
+                hoverable
+                onClick={toggle}
+                p={'md'}
+                variant={open ? 'contained' : 'light' === variant ? 'filled' : variant}
                 className={clsx(
                     'mx-4 cursor-pointer transition duration-500',
                     open && 'mb-2.5 bg-opacity-20',
                     className,
                 )}
-                corner={'rounded-small'}
-                onClick={toggle}
-                contentClassName={'flex justify-between'}
-                active={active}
-                hoverable
-                color={color}
-                variant={open ? 'contained' : 'light' === variant ? 'filled' : variant}
             >
-                <div className={'flex items-center space-x-4'}>
+                <Row center responsive={false} spaced={4}>
                     {icon && (
-                        <div className={'w-6 flex'}>
-                            <Icon className={'flex-1'} icon={icon} />
-                        </div>
+                        <Div flex className={'w-6'}>
+                            <Icon icon={icon} className={'flex-1'} />
+                        </Div>
                     )}
                     <Text text={label} variant={'description'} />
-                </div>
-                <div className={'flex items-center space-x-2'}>
-                    <Items items={badges} component={Badge} />
+                </Row>
+                <Row center responsive={false} spaced={2}>
+                    <Items component={Badge} items={badges} />
                     <Icon icon={open ? 'expand_more' : 'navigate_next'} />
-                </div>
+                </Row>
             </Block>
             {open &&
                 items &&
                 items.map(({ label, target }, index) => (
                     <Clickable
+                        key={index}
+                        onClick={target}
                         className={clsx(
                             'cursor-pointer mx-6 px-6 py-2 flex flex-col',
                             textClass({ color: color, variant: variant, hoverable: true }),
                         )}
-                        key={index}
-                        onClick={target}
                     >
                         - {label}
                     </Clickable>

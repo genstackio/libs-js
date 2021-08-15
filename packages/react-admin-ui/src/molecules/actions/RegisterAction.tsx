@@ -1,6 +1,6 @@
 import RegisterForm, { RegisterFormProps } from '../forms/RegisterForm';
-import useAction from '../../hooks/useAction';
 import FormActionProps from '../forms/FormActionProps';
+import useAction from '../../hooks/useAction';
 import { WithMutationName } from '../../withs';
 
 export function RegisterAction({

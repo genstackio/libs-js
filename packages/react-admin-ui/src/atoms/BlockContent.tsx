@@ -1,17 +1,11 @@
 import clsx from 'clsx';
-import Div from './Div';
-import { WithPadding } from '../withs';
-import { AsWrapper } from '../as';
+import Div, { DivProps } from './Div';
 
-export function BlockContent({ padding = 'default', className, children }: BlockContentProps) {
-    return (
-        <Div padding={padding} className={clsx('text-md', className)}>
-            {children}
-        </Div>
-    );
+export function BlockContent({ className, p = 'sl', ...props }: BlockContentProps) {
+    return <Div p={p} {...props} className={clsx('text-md', className)} />;
 }
 
-export interface BlockContentProps extends AsWrapper, WithPadding {}
+export type BlockContentProps = DivProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default BlockContent;

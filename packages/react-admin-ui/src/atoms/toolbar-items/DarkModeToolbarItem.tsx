@@ -1,7 +1,7 @@
 import ToolbarItem, { BaseToolbarItemProps } from '../ToolbarItem';
 
 export function DarkModeToolbarItem(props: DarkModeToolbarItemProps) {
-    return <ToolbarItem {...props} icon={'fa-far--moon'} activeIcon={'fa-far--lightbulb'} />;
+    return <ToolbarItem {...props} activeIcon={'fa-far--lightbulb'} icon={'fa-far--moon'} />;
 }
 
 export type DarkModeToolbarItemProps = BaseToolbarItemProps;

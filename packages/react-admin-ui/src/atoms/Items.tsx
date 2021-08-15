@@ -1,39 +1,52 @@
-import { WithAny, WithComponent, WithItems } from '../withs';
+import { ComponentType, useCallback } from 'react';
 import clsx from 'clsx';
+import Div from './Div';
 import { class_name, flag } from '../types';
 import applyMap from '../utils/applyMap';
-import { ComponentType } from 'react';
-import Div from './Div';
+import { WithAny, WithComponent, WithItems } from '../withs';
 
 export function Items({
-    items = [],
+    className,
+    component: Component,
     container = false,
     containerClassName,
     containerProps,
-    component: Component,
+    current,
     itemProp = undefined,
+    items = [],
     map = {},
-    className,
+    onChangeFactory,
+    propsFactory,
     ...props
 }: ItemsProps) {
     const Container =
         false === container ? (containerClassName ? Div : undefined) : true === container ? Div : container;
+    const computedPropsFactory = useCallback(
+        (item: any, index: number) => ({
+            active: current === index,
+            ...(itemProp ? { [itemProp]: applyMap(item, map) } : applyMap(item, map)),
+            ...props,
+            index,
+            even: 0 === index % 2,
+            first: index === 0,
+            last: index === items.length - 1,
+            odd: 1 === index % 2,
+            ...(onChangeFactory ? { onChange: onChangeFactory(index) } : {}),
+            className: clsx(className, item.itemClassName),
+        }),
+        [className, current, items, itemProp, props],
+    );
     const content = (
         <>
-            {items.map(({ className: itemClassName, ...item }, index) => (
-                <Component
-                    key={index}
-                    {...(itemProp ? { [itemProp]: applyMap(item, map) } : applyMap(item, map))}
-                    {...props}
-                    className={clsx(className, itemClassName)}
-                    last={index === items.length - 1}
-                    first={index === 0}
-                    odd={1 === index % 2}
-                    even={0 === index % 2}
-                />
-            ))}
+            {items.map(({ className: itemClassName, ...item }, index) => {
+                const computedProps = computedPropsFactory(item, index);
+                return (
+                    <Component key={index} {...computedProps} {...(propsFactory ? propsFactory(computedProps) : {})} />
+                );
+            })}
         </>
     );
+
     return Container ? (
         <Container className={containerClassName} {...containerProps}>
             {content}
@@ -48,6 +61,9 @@ export interface ItemsProps extends WithAny, Required<WithComponent>, WithItems 
     container?: flag | ComponentType<any>;
     containerProps?: any;
     containerClassName?: class_name;
+    current?: any;
+    propsFactory?: (props: any) => any;
+    onChangeFactory?: (index: number) => Function;
     map?: { [key: string]: string | string[] };
 }
 

@@ -1,3 +1,5 @@
+import Div from '../../atoms/Div';
+import Column from '../../atoms/Column';
 import Avatar from '../../atoms/Avatar';
 import Block, { BaseBlockProps } from '../../atoms/Block';
 import Buttons from '../../atoms/Buttons';
@@ -5,83 +7,84 @@ import Pill from '../../atoms/Pill';
 import Text from '../../atoms/Text';
 import Corner from '../../molecules/Corner';
 import { flag, icon_variant } from '../../types';
-import { WithButtons, WithImage, WithText, WithTitle } from '../../withs';
 import useButtons from '../../hooks/useButtons';
-import { useBlock } from '../../hooks';
+import useBlock from '../../hooks/useBlock';
+import { WithButtons, WithImage, WithText, WithTitle } from '../../withs';
 
 export function HeadingBlock({
+    bottomLeft,
+    bottomRight,
+    iconCornerBottomLeft,
+    iconCornerBottomRight,
+    iconCornerTopLeft,
+    iconCornerTopRight,
     iconTitle,
     image,
     text,
-    title,
-    iconCornerTopLeft,
-    textCornerTopLeft,
-    topLeft,
-    iconCornerTopRight,
-    textCornerTopRight,
-    topRight,
-    bottomLeft,
-    iconCornerBottomLeft,
     textCornerBottomLeft,
-    bottomRight,
-    iconCornerBottomRight,
     textCornerBottomRight,
+    textCornerTopLeft,
+    textCornerTopRight,
+    title,
+    topLeft,
+    topRight,
     ...props
 }: HeadingBlockProps) {
     const [bProps, rest] = useBlock(props, { image });
-    const [buttonProps] = useButtons(rest);
+    const [btProps] = useButtons(rest);
+
     return (
         <Block {...bProps}>
             {topLeft && (
-                <div className={'absolute top-4 left-4'}>
+                <Div absolute className={'top-4 left-4'}>
                     <Corner
                         color={rest.color}
-                        variant={'header-contained' === rest.variant ? 'filled' : rest.variant}
-                        text={textCornerTopLeft}
                         iconCorner={iconCornerTopLeft}
+                        text={textCornerTopLeft}
+                        variant={'header-contained' === rest.variant ? 'filled' : rest.variant}
                     />
-                </div>
+                </Div>
             )}
             {topRight && (
-                <div className={'absolute top-4 right-4'}>
+                <Div absolute className={'top-4 right-4'}>
                     <Corner
                         color={rest.color}
-                        variant={'header-contained' === rest.variant ? 'filled' : rest.variant}
-                        text={textCornerTopRight}
                         iconCorner={iconCornerTopRight}
+                        text={textCornerTopRight}
+                        variant={'header-contained' === rest.variant ? 'filled' : rest.variant}
                     />
-                </div>
+                </Div>
             )}
-            <div className={'flex items-center flex-col mt-4'}>
+            <Column center mt={'md'}>
                 <Avatar name={'noname'} />
-                <div className={'flex inline-block'}>
+                <Div flex inline>
                     <Text text={title} variant={'title4'} />
                     <div className={'ml-2 font-bold'}>
-                        <Pill text={iconTitle} color={rest.color} />
+                        <Pill color={rest.color} text={iconTitle} />
                     </div>
-                </div>
-                <Text className={'m-4'} text={text} variant={'body'} />
-                <Buttons {...buttonProps} className={'flex justify-center'} />
-            </div>
+                </Div>
+                <Text m={'md'} text={text} variant={'body'} />
+                <Buttons {...btProps} className={'flex justify-center'} />
+            </Column>
             {bottomLeft && (
-                <div className={'absolute bottom-4 left-4'}>
+                <Div absolute className={'bottom-4 left-4'}>
                     <Corner
                         color={rest.color}
-                        variant={'header-contained' === rest.variant ? 'filled' : rest.variant}
-                        text={textCornerBottomLeft}
                         iconCorner={iconCornerBottomLeft}
+                        text={textCornerBottomLeft}
+                        variant={'header-contained' === rest.variant ? 'filled' : rest.variant}
                     />
-                </div>
+                </Div>
             )}
             {bottomRight && (
-                <div className={'absolute bottom-4 right-4'}>
+                <Div absolute className={'bottom-4 right-4'}>
                     <Corner
                         color={rest.color}
-                        variant={'header-contained' === rest.variant ? 'filled' : rest.variant}
-                        text={textCornerBottomRight}
                         iconCorner={iconCornerBottomRight}
+                        text={textCornerBottomRight}
+                        variant={'header-contained' === rest.variant ? 'filled' : rest.variant}
                     />
-                </div>
+                </Div>
             )}
         </Block>
     );

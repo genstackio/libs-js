@@ -1,32 +1,33 @@
-import { WithColorOfText, WithDescription, WithItems, WithTitle } from '../../withs';
-import HeadingText from '../../atoms/HeadingText';
+import clsx from 'clsx';
 import Div from '../../atoms/Div';
 import Image from '../../atoms/Image';
+import Column from '../../atoms/Column';
+import HeadingText from '../../atoms/HeadingText';
 import { AsComponent } from '../../as';
-import clsx from 'clsx';
+import { WithColorOfText, WithDescription, WithItems, WithTitle } from '../../withs';
 
-export function BasicItemsSection({ title, description, items = [], color, className }: BasicItemsSectionProps) {
+export function BasicItemsSection({ className, color, description, items = [], title }: BasicItemsSectionProps) {
     return (
-        <Div flex className={clsx('grid grid-cols-3 py-14 px-8 sm:flex-col sm:grid-cols-1', className)}>
+        <Column grid={3} className={clsx('py-14 px-8', className)}>
             <HeadingText
-                title={title}
-                description={description}
-                className={'col-span-1'}
-                variant={'medium2'}
-                color={color}
                 center
+                color={color}
+                description={description}
+                title={title}
+                variant={'medium2'}
+                className={'col-span-1'}
             />
-            <Div className={'col-span-2 sm:mt-10'}>
-                <Div flex className={'grid grid-cols-2 gap-y-10 sm:grid-cols-1'}>
+            <Div mt={'_sl'} className={'col-span-2'}>
+                <Div flex grid={2} className={'gap-y-10'}>
                     {items.map(({ image, title, subtitle }, index) => (
-                        <Div flex key={index} center>
-                            <Image {...image} corner={'circle'} expand={false} className={'w-24 h-24'} />
-                            <HeadingText title={title} subtitle={subtitle} variant={'section'} className={'pl-8'} />
+                        <Div center flex key={index}>
+                            <Image corner={'circle'} expand={false} {...image} className={'w-24 h-24'} />
+                            <HeadingText subtitle={subtitle} title={title} variant={'section'} className={'pl-8'} />
                         </Div>
                     ))}
                 </Div>
             </Div>
-        </Div>
+        </Column>
     );
 }
 

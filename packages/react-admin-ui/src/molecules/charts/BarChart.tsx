@@ -1,11 +1,10 @@
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
-import { WithBox, WithLabels, WithSeries } from '../../withs';
 import { AsComponent } from '../../as';
+import { WithBox, WithLabels, WithSeries } from '../../withs';
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
-
 const defaultOptions: ApexOptions = {
     chart: {
         toolbar: {
@@ -73,13 +72,12 @@ const defaultOptions: ApexOptions = {
 export function BarChart({ className, color = 'primary', labels, series = [], variant = 'filled' }: BarChartProps) {
     const col = `${variant}_${color}`;
     const options = { ...defaultOptions, colors: tailwindChartColors[col], labels: labels };
-
     const newData: { data: number[] }[] = series.reduce((acc, data) => {
         acc.push({ data: data });
         return acc;
     }, [] as { data: number[] }[]);
 
-    return <Chart type="bar" options={options} series={newData} height={'250px'} className={className} />;
+    return <Chart height={'250px'} options={options} series={newData} type={'bar'} className={className} />;
 }
 
 export interface BarChartProps extends AsComponent, WithBox, WithSeries, WithLabels {}

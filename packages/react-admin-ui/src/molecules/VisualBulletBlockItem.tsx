@@ -1,22 +1,28 @@
-import clsx from 'clsx';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
-import { AsComponent } from '../as';
+import Column from '../atoms/Column';
+import Row, { RowProps } from '../atoms/Row';
 import { WithIcon, WithSubtitle, WithTitle } from '../withs';
 
-export function VisualBulletBlockItem({ className, icon, title, subtitle }: VisualBulletBlockItemProps) {
+export function VisualBulletBlockItem({
+    icon,
+    iconSize = '4xl',
+    subtitle,
+    title,
+    ...props
+}: VisualBulletBlockItemProps) {
     return (
-        <div className={clsx('flex items-center', className)}>
-            <Icon className={'mb-5'} size={'4xl'} icon={icon} />
-            <div className={'flex-column ml-4'}>
+        <Row center {...props}>
+            <Icon icon={icon} size={iconSize} className={'mb-5'} />
+            <Column ml={'md'}>
                 <Text text={title} variant={'title6'} />
                 <p>{subtitle || ''}</p>
-            </div>
-        </div>
+            </Column>
+        </Row>
     );
 }
 
-export interface VisualBulletBlockItemProps extends AsComponent, WithIcon, WithTitle, WithSubtitle {}
+export interface VisualBulletBlockItemProps extends RowProps, WithIcon, WithTitle, WithSubtitle {}
 
 // noinspection JSUnusedGlobalSymbols
 export default VisualBulletBlockItem;

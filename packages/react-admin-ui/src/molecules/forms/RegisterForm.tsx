@@ -1,25 +1,27 @@
 import { useCallback } from 'react';
-import FirstNameField from '../../atoms/fields/FirstNameField';
-import LastNameField from '../../atoms/fields/LastNameField';
+import Text from '../../atoms/Text';
+import Row from '../../atoms/Row';
+import Div from '../../atoms/Div';
+import Column from '../../atoms/Column';
+import Button from '../../atoms/Button';
+import Clickable from '../../atoms/Clickable';
 import UsernameField from '../../atoms/fields/UsernameField';
 import PasswordField from '../../atoms/fields/PasswordField';
+import LastNameField from '../../atoms/fields/LastNameField';
+import FirstNameField from '../../atoms/fields/FirstNameField';
 import PrivacyPolicyField from '../../atoms/fields/PrivacyPolicyField';
-import Text from '../../atoms/Text';
-import Button from '../../atoms/Button';
 import useForm from '../../hooks/useForm';
-import { flag } from '../../types';
 import { BaseFormProps } from './BaseForm';
-import Clickable from '../../atoms/Clickable';
+import { flag } from '../../types';
 
 export function RegisterForm({
     children,
-    onPrivacyPolicyClick,
     onLoginClick,
+    onPrivacyPolicyClick,
     socialLogins,
     ...props
 }: RegisterFormProps) {
     const { Form, SubmitButton, field, tf, color } = useForm(props, 'register');
-
     const onFacebookClick = useCallback((event) => {
         event.preventDefault();
     }, []);
@@ -31,51 +33,47 @@ export function RegisterForm({
     }, []);
 
     const footer = onLoginClick && (
-        <div className={'w-full flex flex-col justify-center'}>
-            <div className={'mt-4 flex flex-inline items-center justify-center'}>
-                <Text className={'mr-2'} text={tf('login_question')} variant={'body'} />
+        <Column center full>
+            <Div center flex inline mt={'md'}>
+                <Text text={tf('login_question')} variant={'body'} className={'mr-2'} />
                 <Clickable onClick={onLoginClick as any}>
-                    <Text text={tf('login_label')} color={color} variant={'body'} />
+                    <Text color={color} text={tf('login_label')} variant={'body'} />
                 </Clickable>
-            </div>
-        </div>
+            </Div>
+        </Column>
     );
 
     return (
         <Form customChildren={children} footer={footer}>
-            <div
-                className={
-                    'py-2 leading-tight focus:outline-none focus:shadow-outline flex inline xs:flex-col space-x-3 xs:space-x-0'
-                }
-            >
-                <LastNameField {...field} threeOf5 autoFocus />
+            <Row mb={'md'} py={'sm'} spaced={30} className={'leading-tight focus:outline-none focus:shadow-outline'}>
+                <LastNameField {...field} autoFocus threeOf5 />
                 <FirstNameField {...field} twoOf5 />
-            </div>
-            <div className={'block text-sm font-bold mb-2 mt-4'}>
-                <div className={'py-2 leading-tight focus:outline-none focus:shadow-outline'}>
+            </Row>
+            <Div mb={'sm'} className={'text-sm font-bold'}>
+                <Div py={'sm'} className={'leading-tight focus:outline-none focus:shadow-outline'}>
                     <UsernameField {...field} required />
-                </div>
-                <div className={'w-full py-2 mb-3 leading-tight focus:outline-none focus:shadow-outline'}>
+                </Div>
+                <Div full mb={'xmd'} py={'sm'} className={'leading-tight focus:outline-none focus:shadow-outline'}>
                     <PasswordField {...field} required />
-                </div>
+                </Div>
                 {onPrivacyPolicyClick && (
-                    <div className={'mb-4 flex items-center justify-start'}>
+                    <Div center flex mb={'md'} className={'justify-start'}>
                         <PrivacyPolicyField {...field} onClick={onPrivacyPolicyClick} className={'mr-4'} />
-                    </div>
+                    </Div>
                 )}
                 <SubmitButton />
-            </div>
+            </Div>
             {socialLogins && (
                 <>
-                    <div className={'flex mt-4 relative'}>
-                        <Text text={tf('other_login_methods_title')} variant={'description'} color={color} />
+                    <Div flex mt={'md'} relative>
+                        <Text color={color} text={tf('other_login_methods_title')} variant={'description'} />
                         <hr className={'flex-1 mt-2 ml-2'} />
-                    </div>
-                    <div className={'mt-4 block flex flex-inline space-x-2 justify-center'}>
-                        <Button onClick={onLinkedInClick} variant={'outlined'} color={color} label={'Linkedin'} />
-                        <Button onClick={onTwitterClick} variant={'outlined'} color={color} label={'Twitter'} />
-                        <Button onClick={onFacebookClick} variant={'outlined'} color={color} label={'Facebook'} />
-                    </div>
+                    </Div>
+                    <Div center flex inline mt={'md'} spaced={2}>
+                        <Button color={color} label={'Linkedin'} onClick={onLinkedInClick} variant={'outlined'} />
+                        <Button color={color} label={'Twitter'} onClick={onTwitterClick} variant={'outlined'} />
+                        <Button color={color} label={'Facebook'} onClick={onFacebookClick} variant={'outlined'} />
+                    </Div>
                 </>
             )}
         </Form>

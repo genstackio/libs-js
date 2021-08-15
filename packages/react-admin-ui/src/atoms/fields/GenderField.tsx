@@ -1,5 +1,5 @@
-import SelectField, { SelectFieldProps } from './SelectField';
 import { useTranslation } from 'react-i18next';
+import SelectField, { SelectFieldProps } from './SelectField';
 
 export function GenderField(props: GenderFieldProps) {
     const { t } = useTranslation();
@@ -9,6 +9,7 @@ export function GenderField(props: GenderFieldProps) {
         { value: 'non-binary', label: t('field_gender_value_nonbinary_label') },
         { value: 'not-specified', label: t('field_gender_value_notspecified_label') },
     ];
+
     return <SelectField kind={'gender'} values={values} {...props} />;
 }
 

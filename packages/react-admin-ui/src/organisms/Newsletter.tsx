@@ -2,45 +2,43 @@ import clsx from 'clsx';
 import Image from '../atoms/Image';
 import Row from '../atoms/Row';
 import Text from '../atoms/Text';
-import { flag } from '../types';
-import { WithColorOfBox, WithButtonLabel, WithImage, WithText, WithTitle } from '../withs';
 import Divider from '../atoms/Divider';
 import Block from '../atoms/Block';
+import Cell from '../atoms/Cell';
+import Column from '../atoms/Column';
 import { NewsletterAction } from '../molecules/actions/NewsletterAction';
+import useBlock from '../hooks/useBlock';
+import { flag } from '../types';
 import { AsComponent } from '../as';
-import { useBlock } from '../hooks';
+import { WithColorOfBox, WithButtonLabel, WithImage, WithText, WithTitle } from '../withs';
 
 export function Newsletter({
     className,
-    title,
-    text,
-    imageLeft = false,
     image,
+    imageLeft = false,
     onAfterSubscribe,
+    text,
+    title,
     ...props
 }: NewsletterProps) {
-    const [bProps] = useBlock(props, { color: 'primary', className: 'flex-1 p-20 sm:p-5', elevation: 0 });
+    const [bProps] = useBlock(props, { color: 'primary', className: 'flex-1 p-5 sm:p-20', elevation: 0 });
+
     return (
         <Row
-            className={clsx(
-                'xs:flex-col',
-                imageLeft && 'flex-row-reverse xs:flex-col-reverse',
-                imageLeft ? 'pr-52 md:pr-20' : 'pl-52 md:pl-20',
-                'sm:p-5',
-                className,
-            )}
+            reverse={imageLeft}
+            className={clsx('p-0 sm:p-5', imageLeft ? 'pr-20 md:pr-52' : 'pl-20 md:pl-52', className)}
         >
             <Block {...bProps}>
                 {title && (
-                    <div className={'flex flex-col items-center'}>
-                        <Text variant={'title6'} text={title} center={true} />
-                        <Divider size={'xs'} variant={'contained'} color={'warning'} className={clsx('w-1/4')} />
-                    </div>
+                    <Column center>
+                        <Text center text={title} variant={'title6'} />
+                        <Divider color={'warning'} size={'xs'} variant={'contained'} className={'w-1/4'} />
+                    </Column>
                 )}
-                <Text className={'py-3 text-center'} text={text} variant={'text'} />
+                <Text center p={'xmd'} text={text} variant={'text'} />
                 <NewsletterAction onSuccess={onAfterSubscribe} />
             </Block>
-            <div className={'flex-1'}>{image && <Image {...image} objectFit={'contain'} />}</div>
+            <Cell>{image && <Image contained {...image} />}</Cell>
         </Row>
     );
 }

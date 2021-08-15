@@ -1,25 +1,18 @@
-import clsx from 'clsx';
-import boxClass from '../utils/boxClass';
 import Icon from './Icon';
 import Text from './Text';
-import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
-import { WithIcon, WithText, WithSizeOfText } from '../withs';
+import Div from './Div';
+import useBox from '../hooks/useBox';
 import { AsBox } from '../as';
+import { WithIcon, WithText, WithSizeOfText } from '../withs';
 
-export function Tag({ className, color = 'primary', icon, size, text, variant = 'contained' }: TagProps) {
+export function Tag({ className, icon, text, ...props }: TagProps) {
+    const [box, rest] = useBox(props, { color: 'primary', variant: 'contained' });
+
     return (
-        <div
-            className={clsx(
-                boxClass({ color, variant, size }),
-                'inline-flex px-4 rounded-lg font-bold uppercase py-1 space-x-1',
-                className,
-            )}
-        >
-            <BoxProvider value={{ color, variant }}>
-                <Text text={text} />
-                <Icon size={size} icon={icon} />
-            </BoxProvider>
-        </div>
+        <Div box={box} corner={'rounded-xsmall'} flex inline p={'xs'} spaced={1} className={className} {...rest}>
+            <Text bold text={text} upper />
+            <Icon bold icon={icon} size={box.size} />
+        </Div>
     );
 }
 

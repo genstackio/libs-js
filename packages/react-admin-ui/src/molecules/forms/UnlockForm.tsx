@@ -1,22 +1,23 @@
+import { useTranslation } from 'react-i18next';
+import Div from '../../atoms/Div';
+import Text from '../../atoms/Text';
+import Button from '../../atoms/Button';
 import Clickable from '../../atoms/Clickable';
 import LocaleChange from '../../atoms/LocaleChange';
 import PasswordField from '../../atoms/fields/PasswordField';
 import RememberPasswordField from '../../atoms/fields/RememberPasswordField';
-import Text from '../../atoms/Text';
-import { flag, target } from '../../types';
 import { BaseFormProps } from './BaseForm';
+import { flag, target } from '../../types';
 import useForm from '../../hooks/useForm';
-import Button from '../../atoms/Button';
-import { useTranslation } from 'react-i18next';
 import { WithLocales } from '../../withs';
 
 export function UnlockForm({
     children,
     className,
-    onRegisterClick,
-    onForgotPasswordClick,
-    rememberMe = false,
     locales = [],
+    onForgotPasswordClick,
+    onRegisterClick,
+    rememberMe = false,
     ...props
 }: UnlockFormProps) {
     const { t } = useTranslation();
@@ -24,22 +25,22 @@ export function UnlockForm({
 
     return (
         <Form customChildren={children} className={className}>
-            <div className={'mb-6'}>
-                <div className={'block text-sm mb-2'}>
-                    <div className={'w-full py-2 mb-3 leading-tight focus:outline-none focus:shadow-outline'}>
-                        <PasswordField {...field} required autoFocus appendIcon={'fa-far--plus-square'} />
-                    </div>
-                    <div className={'mb-4 flex items-center justify-between'}>
+            <Div mb={'lg'}>
+                <Div mb={'sm'} className={'text-sm'}>
+                    <Div full mb={'xmd'} py={'sm'} className={'leading-tight focus:outline-none focus:shadow-outline'}>
+                        <PasswordField {...field} appendIcon={'fa-far--plus-square'} autoFocus required />
+                    </Div>
+                    <Div center flex m={'md'} spacebetween>
                         {rememberMe && <RememberPasswordField {...field} />}
                         <Clickable onClick={onForgotPasswordClick as any} optional>
-                            <Text text={tf('password_label')} color={color} variant={'body'} />
+                            <Text color={color} text={tf('password_label')} variant={'body'} />
                         </Clickable>
-                    </div>
-                    <Button className={'w-full items-center justify-center'} variant={'contained'} color={color}>
+                    </Div>
+                    <Button color={color} variant={'contained'} className={'w-full items-center justify-center'}>
                         {t('form_unlock_password_send_otp_submit_label')}
                     </Button>
-                </div>
-            </div>
+                </Div>
+            </Div>
             <LocaleChange locales={locales} />
         </Form>
     );

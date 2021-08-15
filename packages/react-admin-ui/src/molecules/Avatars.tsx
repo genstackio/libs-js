@@ -1,18 +1,17 @@
-import clsx from 'clsx';
-import Avatar from '../atoms/Avatar';
 import Items from '../atoms/Items';
+import Avatar from '../atoms/Avatar';
+import Div, { DivProps } from '../atoms/Div';
 import { WithItemsOfAvatar } from '../withs';
-import { AsComponent } from '../as';
 
-export function Avatars({ className, items = [] }: AvatarsProps) {
+export function Avatars({ items = [], ...props }: AvatarsProps) {
     return (
-        <div className={clsx('-space-x-4', className)}>
-            <Items items={items} component={Avatar} />
-        </div>
+        <Div spaced={-4} {...props}>
+            <Items component={Avatar} items={items} />
+        </Div>
     );
 }
 
-export interface AvatarsProps extends AsComponent, WithItemsOfAvatar {}
+export interface AvatarsProps extends DivProps, WithItemsOfAvatar {}
 
 // noinspection JSUnusedGlobalSymbols
 export default Avatars;

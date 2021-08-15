@@ -1,27 +1,25 @@
-import clsx from 'clsx';
 import Image from '../atoms/Image';
 import Text from '../atoms/Text';
-import { WithColorOfBox, WithImage } from '../withs';
+import Div from '../atoms/Div';
 import { AsComponent } from '../as';
+import { WithColorOfBox, WithImage, WithMessage } from '../withs';
 
 export function CentralTemplate({ className, color = 'primary', image, message }: CentralTemplateProps) {
     return (
-        <div className={clsx('h-screen flex items-center', className)}>
-            <div className={'text-center max-w-3xl mx-auto'}>
+        <Div center flex hscreen className={className}>
+            <Div center mx={'auto'} className={'max-w-3xl'}>
                 {image && (
-                    <div className={'flex justify-center'}>
+                    <Div center flex>
                         <Image {...image} />
-                    </div>
+                    </Div>
                 )}
-                <Text text={message} variant={'title5'} color={color} />
-            </div>
-        </div>
+                <Text color={color} text={message} variant={'title5'} />
+            </Div>
+        </Div>
     );
 }
 
-export interface CentralTemplateProps extends AsComponent, WithColorOfBox, WithImage {
-    message: string;
-}
+export interface CentralTemplateProps extends AsComponent, WithColorOfBox, WithImage, WithMessage {}
 
 // noinspection JSUnusedGlobalSymbols
 export default CentralTemplate;

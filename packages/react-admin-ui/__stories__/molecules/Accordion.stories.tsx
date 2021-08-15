@@ -8,6 +8,7 @@ export default {
     argTypes: a({
         items: args.items,
         color: args.color,
+        corner: args.accordionCorner,
         variant: args.accordionVariant,
     }),
 };

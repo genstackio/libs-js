@@ -1,19 +1,19 @@
-import { Swiper } from 'swiper/react';
-import 'swiper/swiper-bundle.css';
-import clsx from 'clsx';
-import { WithItems } from '../withs';
-import { AsComponent } from '../as';
-import { Items } from '../atoms';
-import QuoteSwiperImage from './QuoteSwiperImage';
 import { useMemo } from 'react';
+import clsx from 'clsx';
+import 'swiper/swiper-bundle.css';
+import { Swiper } from 'swiper/react';
+import Items from '../atoms/Items';
+import QuoteSwiperImage from './QuoteSwiperImage';
+import { AsComponent } from '../as';
+import { WithItems } from '../withs';
 
 export function QuoteSwiperImages({
     className,
     controller,
+    items = [],
     onSwiper,
     navLeftController,
     navRightController,
-    items = [],
 }: QuoteSwiperImagesProps) {
     const params: any = useMemo(
         () => ({
@@ -35,8 +35,9 @@ export function QuoteSwiperImages({
         }),
         [items.length, controller, onSwiper, navLeftController, navRightController],
     );
+
     return (
-        <Swiper {...params} className={clsx('w-2/3 mb-5 p-1.5', 'md:w-1/2', 'sm:w-full', className)}>
+        <Swiper {...params} className={clsx('w-full sm:w-2/3 md:w-1/2 mb-5 p-1.5', className)}>
             <Items items={items} component={QuoteSwiperImage} />
         </Swiper>
     );

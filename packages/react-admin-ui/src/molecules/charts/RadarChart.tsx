@@ -1,9 +1,10 @@
+import { useMemo } from 'react';
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
 import { flag } from '../../types';
-import { WithBox, WithLabels } from '../../withs';
 import { AsComponent } from '../../as';
+import { WithBox, WithLabels } from '../../withs';
 
 const tailwindTextColors = tailwindConfig.theme.extend.textColors;
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
@@ -65,25 +66,29 @@ export function RadarChart({
     series = [],
     variant = 'filled',
 }: RadarChartProps) {
-    const col = `${variant}_${color}`;
-    const options = {
-        ...defaultOptions,
-        chart: { toolbar: { show: isMenu } },
-        labels: labels,
-        colors: tailwindChartColors[col],
-        plotOptions: { radar: { polygons: { fill: { colors: tailwindChartBgColors[col] } } } },
-        markers: { ...(defaultOptions.markers || {}) },
-        xaxis: { ...(defaultOptions.xaxis || {}) },
-    };
-    options.markers.strokeColors = tailwindChartColors[col];
-    const buffer: string[] = [];
-    if (series && series[0] && series[0].data) {
-        for (let n = 0; n < series[0].data.length; n++) {
-            buffer.push(tailwindTextColors[`${col}`]);
-            options.xaxis.labels!.style!.colors = buffer;
+    const options = useMemo(() => {
+        const col = `${variant}_${color}`;
+        const o = {
+            ...defaultOptions,
+            chart: { toolbar: { show: isMenu } },
+            labels: labels,
+            colors: tailwindChartColors[col],
+            plotOptions: { radar: { polygons: { fill: { colors: tailwindChartBgColors[col] } } } },
+            markers: { ...(defaultOptions.markers || {}) },
+            xaxis: { ...(defaultOptions.xaxis || {}) },
+        };
+        o.markers.strokeColors = tailwindChartColors[col];
+        const buffer: string[] = [];
+        if (series && series[0] && series[0].data) {
+            for (let n = 0; n < series[0].data.length; n++) {
+                buffer.push(tailwindTextColors[`${col}`]);
+                o.xaxis.labels!.style!.colors = buffer;
+            }
         }
-    }
-    return <Chart type={'radar'} options={options} series={series} className={className} />;
+        return o;
+    }, [isMenu, labels, variant, color]);
+
+    return <Chart options={options} series={series} type={'radar'} className={className} />;
 }
 
 export interface RadarChartProps extends AsComponent, WithBox, WithLabels {

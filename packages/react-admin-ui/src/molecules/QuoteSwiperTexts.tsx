@@ -1,36 +1,41 @@
+import { useMemo } from 'react';
+import clsx from 'clsx';
+import 'swiper/swiper-bundle.css';
 import { Swiper } from 'swiper/react';
 import SwiperCore, { EffectFade } from 'swiper';
-import 'swiper/swiper-bundle.css';
-import clsx from 'clsx';
-import { WithItems } from '../withs';
-import { AsComponent } from '../as';
-import QuoteSwiperText from './QuoteSwiperText';
 import Items from '../atoms/Items';
+import QuoteSwiperText from './QuoteSwiperText';
+import { AsComponent } from '../as';
+import { WithItems } from '../withs';
 
 SwiperCore.use([EffectFade]);
 
-export function QuoteSwiperTexts({ className, controller, onSwiper, items = [] }: QuoteSwiperTextsProps) {
-    const params: any = {
-        loop: true,
-        loopAdditionalSlides: 5,
-        slidesPerView: 1,
-        centeredSlides: true,
-        initialSlide: 0,
-        controller: {
-            control: controller,
-        },
-        onSwiper: onSwiper,
-        effect: 'fade',
-        fadeEffect: {
-            crossFade: true,
-        },
-        autoplay: {
-            delay: 4000,
-        },
-    };
+export function QuoteSwiperTexts({ className, controller, items = [], onSwiper }: QuoteSwiperTextsProps) {
+    const params: any = useMemo(
+        () => ({
+            loop: true,
+            loopAdditionalSlides: 5,
+            slidesPerView: 1,
+            centeredSlides: true,
+            initialSlide: 0,
+            controller: {
+                control: controller,
+            },
+            onSwiper: onSwiper,
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true,
+            },
+            autoplay: {
+                delay: 4000,
+            },
+        }),
+        [controller, onSwiper],
+    );
+
     return (
-        <Swiper {...params} className={clsx('sm:w-full md:w-3/4 w-2/3', className)}>
-            <Items items={items} component={QuoteSwiperText} />
+        <Swiper {...params} className={clsx('w-full sm:w-2/3 md:w-3/4', className)}>
+            <Items component={QuoteSwiperText} items={items} />
         </Swiper>
     );
 }

@@ -1,13 +1,23 @@
 import clsx from 'clsx';
-import { WithError } from '../withs';
+import Div from './Div';
 import { AsComponent } from '../as';
+import { WithError } from '../withs';
 
 export function FieldError({ className, error }: FieldErrorProps) {
-    return error ? (
-        <span className={clsx('flex items-center font-medium tracking-wide text-danger text-xs mt-1 ml-1', className)}>
+    if (!error) return null;
+
+    return (
+        <Div
+            flex
+            inline
+            ml={'xs'}
+            mt={'xs'}
+            vcenter
+            className={clsx('font-medium tracking-wide text-danger text-xs', className)}
+        >
             {error}
-        </span>
-    ) : null;
+        </Div>
+    );
 }
 
 export interface FieldErrorProps extends AsComponent, WithError {}

@@ -1,18 +1,18 @@
 import { useMemo } from 'react';
-import { flag } from '../types';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import { WithOnClick, WithOnClickAway, WithStyle } from '../withs';
 import clsx from 'clsx';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import { flag } from '../types';
 import { AsWrapper } from '../as';
+import { WithOnClick, WithOnClickAway, WithStyle } from '../withs';
 
 export function Clickable({
-    className,
-    onClick,
-    style,
     children,
-    optional = false,
+    className,
     inline = false,
+    onClick,
     onClickAway,
+    optional = false,
+    style,
     visible = true,
 }: ClickableProps) {
     const extraProps = useMemo(
@@ -43,7 +43,7 @@ export function Clickable({
     }
     if ('string' === typeof onClick) {
         content = (
-            <a className={className} href={onClick as string} style={style}>
+            <a href={onClick as string} style={style} className={className}>
                 {children || ''}
             </a>
         );

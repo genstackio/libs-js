@@ -1,7 +1,8 @@
 import { useCallback } from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+import Div from '../Div';
 import BaseRating, { BaseBaseRatingProps } from './BaseRating';
+import { makeStyles } from '@material-ui/core/styles';
 
 const colors = {
     primary: 'border border-primary',
@@ -22,17 +23,15 @@ const useStyles = makeStyles({
 
 export function PillRating(props: PillRatingProps) {
     const Container = useCallback(
-        ({ className, children }) => {
-            return (
-                <div className={clsx('p-2 mr-1', colors[(props.color as string) || 'primary'], className)}>
-                    {children}
-                </div>
-            );
-        },
+        ({ className, children }) => (
+            <Div mr={'xs'} p={'sm'} className={clsx(colors[(props.color as string) || 'primary'], className)}>
+                {children}
+            </Div>
+        ),
         [props.color],
     );
 
-    return <BaseRating kind={'pill'} styles={useStyles} container={Container} {...props} />;
+    return <BaseRating container={Container} kind={'pill'} styles={useStyles} {...props} />;
 }
 
 export type PillRatingProps = BaseBaseRatingProps;

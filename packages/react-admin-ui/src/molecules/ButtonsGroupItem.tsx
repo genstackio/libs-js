@@ -1,12 +1,13 @@
+import Div from '../atoms/Div';
 import Button from '../atoms/Button';
-import { WithIcon, WithItemsOfAction, WithLabel, WithTarget } from '../withs';
 import { AsComponent } from '../as';
+import { WithIcon, WithItemsOfAction, WithLabel, WithTarget } from '../withs';
 
-export function ButtonsGroupItem({ className, items = [], label, target, icon, ...props }: ButtonsGroupItemProps) {
+export function ButtonsGroupItem({ className, items = [], target, ...props }: ButtonsGroupItemProps) {
     return (
-        <div className={'xs:mt-2 xs:w-full'}>
-            <Button icon={icon} className={'xs:w-full'} onClick={target} label={label} {...props} />
-        </div>
+        <Div auto mt={'sm'}>
+            <Button onClick={target} {...props} className={'w-full sm:w-auto'} />
+        </Div>
     );
 }
 

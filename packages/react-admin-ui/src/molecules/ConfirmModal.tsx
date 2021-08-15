@@ -1,25 +1,24 @@
-import { useTranslation } from 'react-i18next';
-import { flag } from '../types';
 import { useMemo } from 'react';
-import { WithKind, WithOnCancel, WithOnConfirm, WithOpened, WithTitle } from '../withs';
+import { useTranslation } from 'react-i18next';
+import Button from '../atoms/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogActions from '@material-ui/core/DialogActions';
-import Button from '../atoms/Button';
-import clsx from 'clsx';
+import { flag } from '../types';
 import { AsWrapper } from '../as';
+import { WithKind, WithOnCancel, WithOnConfirm, WithOpened, WithTitle } from '../withs';
 
 export function ConfirmModal({
-    kind = 'confirm',
-    danger = false,
-    title,
-    onConfirm,
-    onCancel,
-    opened = false,
     children,
     className,
+    danger = false,
+    kind = 'confirm',
+    onCancel,
+    onConfirm,
+    opened = false,
+    title,
 }: ConfirmModalProps) {
     const { t } = useTranslation();
     const buttonsItems = useMemo(
@@ -50,11 +49,11 @@ export function ConfirmModal({
 
     return (
         <Dialog
-            open={opened}
+            aria-describedby={'alert-dialog-description'}
+            aria-labelledby={'alert-dialog-title'}
             onClose={onCancel as any}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
-            className={clsx(className)}
+            open={opened}
+            className={className}
         >
             <DialogTitle>{title || t(`modal_confirm_${'confirm' === kind ? 'generic' : kind}_title`)}</DialogTitle>
             <DialogContent>

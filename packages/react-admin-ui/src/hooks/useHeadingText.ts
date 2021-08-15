@@ -2,10 +2,10 @@ export function useHeadingText({ title, subtitle, description, center, ...rest }
     return [
         {
             ...props,
-            title,
-            subtitle,
-            description,
-            center,
+            ...(title ? { title } : {}),
+            ...(subtitle ? { subtitle } : {}),
+            ...(description ? { description } : {}),
+            ...(undefined !== center ? { center } : {}),
         },
         rest,
         title || subtitle || description,

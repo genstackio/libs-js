@@ -1,27 +1,29 @@
-import Push from '../molecules/Push';
 import clsx from 'clsx';
-import gridColsClass from '../mappings/grid-cols';
+import Div from '../atoms/Div';
 import Items from '../atoms/Items';
+import Push from '../molecules/Push';
 import { AsBox } from '../as';
 import { WithItemsOfPush } from '../withs';
 
-export function PushSmall({ items = [], color, variant = 'filled', className }: PushSmallProps) {
-    return items.length ? (
-        <div className={'flex flex-grow justify-center items-center p-6'}>
-            <div className={'flex flex-wrap justify-between box-border w-full'}>
-                <div className={clsx(gridColsClass(2), 'grid sm:grid-cols-1 gap-3', className)}>
+export function PushSmall({ className, color, items = [], variant = 'filled' }: PushSmallProps) {
+    if (!items.length) return null;
+
+    return (
+        <Div flex center p={'lg'} className={'flex-grow'}>
+            <Div flex full spaced wrap className={'box-border'}>
+                <Div grid={2} className={clsx('gap-3', className)}>
                     <Items
-                        items={items}
-                        component={Push}
                         color={color}
-                        variant={variant}
+                        component={Push}
                         imagePosition={'bottom'}
-                        className={'flex-grow-0 self-stretch sm:w-full sm:flex-col'}
+                        items={items}
+                        variant={variant}
+                        className={'sm:flex-grow-0 self-stretch w-full sm:w-auto flex-col sm:flex-row'}
                     />
-                </div>
-            </div>
-        </div>
-    ) : null;
+                </Div>
+            </Div>
+        </Div>
+    );
 }
 
 export interface PushSmallProps extends AsBox, WithItemsOfPush {}

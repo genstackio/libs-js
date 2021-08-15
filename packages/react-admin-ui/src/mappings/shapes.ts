@@ -6,7 +6,7 @@ export const shapes = {
     square: '',
 };
 
-export const shapeValues = Object.values(shapes);
+export const shapeValues = Object.keys(shapes);
 
 export type shape = 'circular' | 'rounded' | 'square';
 

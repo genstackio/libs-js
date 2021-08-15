@@ -8,7 +8,7 @@ export default {
         items: args.items,
         color: args.color,
         variant: args.blockVariant,
-        padding: args.padding,
+        p: args.padding,
     }),
 };
 

@@ -1,24 +1,21 @@
-import clsx from 'clsx';
+import Div from '../atoms/Div';
 import { Icon } from '../atoms/Icon';
-import boxClass from '../utils/boxClass';
 import shareIconTypeClass from '../mappings/share-icon-types';
-import { WithItemsOfShareIcons, WithTarget } from '../withs';
+import useBox from '../hooks/useBox';
 import { AsBox } from '../as';
+import { WithTarget } from '../withs';
 
-export function ShareIcon({ className, items = [], color, variant, target, ...item }: ShareIconProps) {
+export function ShareIcon({ className, target, ...props }: ShareIconProps) {
+    const [box, item] = useBox(props);
+
     return (
-        <div
-            className={clsx(
-                boxClass({ color: color, variant: variant }),
-                'flex rounded-full h-16 w-16 items-center justify-center',
-            )}
-        >
-            <Icon icon={shareIconTypeClass(item['type'] || 'default')} size={'xl'} color={color} onClick={target} />
-        </div>
+        <Div box={box} center corner={'circle'} flex size={'sm'}>
+            <Icon icon={shareIconTypeClass(item['type'] || 'default')} size={'xl'} color={box.color} onClick={target} />
+        </Div>
     );
 }
 
-export interface ShareIconProps extends AsBox, WithItemsOfShareIcons, WithTarget {}
+export interface ShareIconProps extends AsBox, WithTarget {}
 
 // noinspection JSUnusedGlobalSymbols
 export default ShareIcon;

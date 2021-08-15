@@ -1,6 +1,6 @@
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
 import BaseRating, { BaseBaseRatingProps } from './BaseRating';
+import { makeStyles } from '@material-ui/core/styles';
+import Div from '../Div';
 
 const colors = {
     primary: 'bg-primary',
@@ -12,7 +12,6 @@ const colors = {
     light: 'bg-light',
     dark: 'bg-dark',
 };
-
 const useStyles = makeStyles({
     root: {
         flexDirection: 'row-reverse',
@@ -22,10 +21,10 @@ const useStyles = makeStyles({
     },
 });
 
-const Icon = ({ color }: any) => <div className={clsx('w-5 h-5 mr-1', colors[(color as string) || 'primary'])} />;
+const Icon = ({ color }: any) => <Div mr={'xs'} size={'xs'} className={colors[(color as string) || 'primary']} />;
 
 export function ReverseSquaresRating(props: ReverseSquaresRatingProps) {
-    return <BaseRating reverse kind={'reverse-squares'} styles={useStyles} icon={Icon} {...props} />;
+    return <BaseRating icon={Icon} kind={'reverse-squares'} reverse styles={useStyles} {...props} />;
 }
 
 export type ReverseSquaresRatingProps = BaseBaseRatingProps;

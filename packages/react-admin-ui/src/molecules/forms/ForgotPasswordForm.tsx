@@ -5,13 +5,12 @@ import CreatePasswordForgotPasswordForm from './CreatePasswordForgotPasswordForm
 import { WithDefaultValues, WithOnSubmit } from '../../withs';
 
 export function ForgotPasswordForm({
-    onSubmit,
     onLoginClick,
     onSendVerificationCode,
+    onSubmit,
     ...props
 }: ForgotPasswordFormProps) {
     const [state, setState] = useState({ step: 'sendOtp', data: {} });
-
     const handleSendOtpSubmit = useCallback(
         (data) => {
             onSendVerificationCode && onSendVerificationCode(data);
@@ -19,14 +18,12 @@ export function ForgotPasswordForm({
         },
         [onSendVerificationCode, setState, state],
     );
-
     const handleFillInOtpSubmit = useCallback(
         (data) => {
             setState({ step: 'createPassword', data: { ...state.data, ...data } });
         },
         [setState, state],
     );
-
     const handleCreatePasswordSubmit = useCallback(
         (data) => {
             onSubmit && onSubmit({ ...state.data, ...data });

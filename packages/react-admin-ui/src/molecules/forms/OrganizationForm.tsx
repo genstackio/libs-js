@@ -1,4 +1,3 @@
-import useForm from '../../hooks/useForm';
 import FieldGroup from '../../atoms/FieldGroup';
 import LastNameField from '../../atoms/fields/LastNameField';
 import CityField from '../../atoms/fields/CityField';
@@ -9,24 +8,25 @@ import PhoneField from '../../atoms/fields/PhoneField';
 import EmailField from '../../atoms/fields/EmailField';
 import UrlField from '../../atoms/fields/UrlField';
 import { BaseFormProps } from './BaseForm';
+import useForm from '../../hooks/useForm';
 
 export function OrganizationForm({ children, ...props }: OrganizationFormProps) {
     const { Form, SubmitButton, field } = useForm(props, 'organization');
 
     return (
         <Form customChildren={children}>
-            <LastNameField {...field} required autoFocus />
+            <LastNameField {...field} autoFocus required />
             <FieldGroup>
-                <AddressField {...field} required half />
-                <AdditionalAddressField {...field} required half />
+                <AddressField {...field} half required />
+                <AdditionalAddressField {...field} half required />
             </FieldGroup>
             <FieldGroup>
-                <CityField {...field} required half />
-                <ZipCodeField {...field} required half />
+                <CityField {...field} half required />
+                <ZipCodeField {...field} half required />
             </FieldGroup>
             <FieldGroup>
-                <PhoneField {...field} required half />
-                <EmailField {...field} required half />
+                <PhoneField {...field} half required />
+                <EmailField {...field} half required />
             </FieldGroup>
             <UrlField {...field} required />
             <SubmitButton />

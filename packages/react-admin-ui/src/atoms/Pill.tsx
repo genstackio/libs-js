@@ -1,19 +1,24 @@
 import clsx from 'clsx';
-import boxClass from '../utils/boxClass';
-import { WithText } from '../withs';
+import Div from './Div';
+import useBox from '../hooks/useBox';
 import { AsBox } from '../as';
+import { WithText } from '../withs';
 
-export function Pill({ className, color, text, variant }: PillProps) {
+export function Pill({ className, text, ...props }: PillProps) {
+    const [box, rest] = useBox(props);
+
     return (
-        <div
-            className={clsx(
-                boxClass({ color, variant }),
-                'text-xs inline-flex font-bold uppercase pl-2 pr-2 py-1 rounded-full text-clear',
-                className,
-            )}
+        <Div
+            box={box}
+            corner={'circle'}
+            flex
+            inline
+            p={'xs'}
+            className={clsx('text-xs font-bold uppercase text-clear', className)}
+            {...rest}
         >
             {text}
-        </div>
+        </Div>
     );
 }
 

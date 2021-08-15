@@ -25,8 +25,9 @@ export default {
         children: args.children,
         color: args.color,
         variant: args.blockVariant,
-        padding: args.padding,
+        p: args.padding,
         corner: args.corner,
+        elevation: args.elevation,
     }),
 };
 
@@ -86,7 +87,7 @@ export const areaChart = s(
 
 export const fullWidthAreaChart = s(
     ({ title, subtitle, value, series, ...props }) => (
-        <Block padding={'none'} {...props}>
+        <Block p={'none'} {...props}>
             <StatsChartHeader className={'p-10'} subtitle={title} value={value} stats={subtitle} />
             <AreaChart color={props.color} series={series} />
         </Block>
@@ -108,7 +109,7 @@ export const fullWidthAreaChart = s(
 
 export const radarChart = s(
     ({ labels, series, ...props }) => (
-        <Block padding={'none'} {...props}>
+        <Block p={'none'} {...props}>
             <RadarChart color={props.color} variant={props.variant} isMenu={false} labels={labels} series={series} />
         </Block>
     ),
@@ -158,7 +159,7 @@ export const circleChart = s(
 
 export const figuresChart = s(
     ({ items, ...props }) => (
-        <Block padding={'none'} {...props}>
+        <Block p={'none'} {...props}>
             <FiguresChart items={items} />
         </Block>
     ),
@@ -217,7 +218,7 @@ export const lineChart = s(
 
 export const progressChart = s(
     ({ series, title, progress, value, unit, ...props }) => (
-        <Block padding={'none'} {...props}>
+        <Block p={'none'} {...props}>
             <ProgressChart
                 color={props.color}
                 variant={props.variant}
@@ -239,7 +240,7 @@ export const progressChart = s(
 );
 export const summaryChart = s(
     ({ title, subtitle, dashboardItems, btnLabel, chartItems, datas, ...props }) => (
-        <Block padding={'none'} {...props}>
+        <Block p={'none'} {...props}>
             <SummaryChart
                 title={title}
                 subtitle={subtitle}

@@ -7,8 +7,9 @@ export default {
     component: ArgumentBlock,
     argTypes: a({
         title: args.title,
+        color: args.color,
+        variant: args.blockVariant,
         subtitle: args.subtitle,
-        btnLabel: args.btnLabel,
         image: args.image,
     }),
 };
@@ -16,9 +17,12 @@ export default {
 export const basic = s(ArgumentBlock, {
     title: data.common.title,
     subtitle: data.common.subtitle,
-    btnLabel: data.buttons.button1.label,
-    btnTarget: data.buttons.button1.target,
     image: data.common.image,
+});
+
+export const withoutImage = s(ArgumentBlock, {
+    title: data.common.title,
+    subtitle: data.common.subtitle,
 });
 
 export const withButtons = s(ArgumentBlock, {

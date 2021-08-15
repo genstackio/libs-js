@@ -1,5 +1,5 @@
-import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import RoleField, { RoleFieldProps } from './RoleField';
 
 export function MembershipRoleField({ roles: rawRoles = undefined, ...props }: MembershipRoleFieldProps) {
@@ -14,6 +14,7 @@ export function MembershipRoleField({ roles: rawRoles = undefined, ...props }: M
             ],
         [rawRoles],
     );
+
     return <RoleField roles={roles} {...props} />;
 }
 

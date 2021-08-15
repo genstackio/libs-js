@@ -5,10 +5,12 @@ import { box_color } from './mappings/box-colors';
 import { box_variant } from './mappings/box-variants';
 import { text_size } from './mappings/text-sizes';
 import { share_icon_type } from './mappings/share-icon-types';
+import { ApexOptions } from 'apexcharts';
 
 export { corner } from './mappings/corners';
 export { alignment } from './mappings/alignments';
 export { padding } from './mappings/paddings';
+export { margin } from './mappings/margins';
 export { status } from './mappings/statuses';
 export { shape } from './mappings/shapes';
 export { text_color } from './mappings/text-colors';
@@ -113,12 +115,11 @@ export type icon = ReactNode;
 export type register = ((name: string, options?: any) => any) | any;
 export type control = Function | any;
 export type flag = boolean;
+export type pricing_item_feature = { title?: rich_text };
 export type pricing_item = {
     color?: box_color;
     currency?: string;
-    features?: {
-        title?: string;
-    }[];
+    features?: pricing_item_feature[];
     image?: image;
     label?: string;
     name: string;
@@ -254,3 +255,11 @@ export type items_section_layouts =
     | 'vertical-summary'
     | 'large-summary'
     | 'rounded-large-summary';
+
+export type figures_chart_item = {
+    color?: box_color;
+    name?: string;
+    options?: ApexOptions;
+    series?: chart_series;
+    value?: number;
+};

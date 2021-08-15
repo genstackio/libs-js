@@ -1,12 +1,13 @@
 import BoxList, { BoxListProps } from './BoxList';
+import Column from '../atoms/Column';
 import BoxHeader, { BoxHeaderProps } from './BoxHeader';
 
-export function BoxListPanel({ title, onAddClick, items = [], ...props }: BoxListPanelProps) {
+export function BoxListPanel({ items = [], onAddClick, title, ...props }: BoxListPanelProps) {
     return (
-        <>
-            <BoxHeader title={title} onAddClick={onAddClick} {...props} />
+        <Column>
+            <BoxHeader onAddClick={onAddClick} title={title} {...props} />
             <BoxList items={items} {...props} />
-        </>
+        </Column>
     );
 }
 

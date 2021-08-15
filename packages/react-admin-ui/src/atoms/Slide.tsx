@@ -1,12 +1,13 @@
 import Image from './Image';
-import { WithIndex, WithSlide } from '../withs';
+import Div from './Div';
 import { AsComponent } from '../as';
+import { WithIndex, WithSlide } from '../withs';
 
-export function Slide({ slide, className }: SlideProps) {
+export function Slide({ className, slide }: SlideProps) {
     return (
-        <div className={className}>
-            <Image {...slide.image} objectFit={'contain'} />
-        </div>
+        <Div className={className}>
+            <Image {...slide.image} contained />
+        </Div>
     );
 }
 

@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Cell from '../atoms/Cell';
 import Image from '../atoms/Image';
 import Block from '../atoms/Block';
 import Buttons from '../atoms/Buttons';
@@ -7,36 +8,31 @@ import useBlock from '../hooks/useBlock';
 import useButtons from '../hooks/useButtons';
 import useHeadingText from '../hooks/useHeadingText';
 import { flag } from '../types';
-import { AsComponent } from '../as';
+import { AsBlock } from '../as';
 import { WithButtons, WithHeadingText, WithImage } from '../withs';
 
-export function ArgumentBlock({ className, image, noImage = false, noShadow = false, ...props }: ArgumentBlockProps) {
+export function ArgumentBlock({ className, image, noShadow = false, ...props }: ArgumentBlockProps) {
     const [bProps, rest2] = useBlock(props, {
-        padding: 'none',
+        p: 'none',
         corner: 'rounded',
-        className: clsx('flex flex-col overflow-hidden bg-clear', className),
+        className: clsx('flex flex-col overflow-hidden', className),
         elevation: noShadow ? 0 : 2,
     });
     const [htProps, rest] = useHeadingText(rest2, { variant: 'xxsmall3' });
-    const [btProps] = useButtons(rest, { className: 'mt-2', btnColor: 'primary', btnType: 'outlined' });
+    const [btProps] = useButtons(rest, { className: 'mt-2', btnColor: 'primary', btnType: 'contained' });
+
     return (
         <Block {...bProps}>
-            <div className={'flex-1 p-4 lg:p-3 sm:p-2 bg-clear'}>
+            <Cell col p={'_md'}>
                 <HeadingText {...htProps} />
                 <Buttons {...btProps} />
-            </div>
-            {!noImage && (
-                <div className={'leading-none'}>
-                    <Image {...image} objectFit={'contain'} />
-                </div>
-            )}
-            {noImage && <div className={'h-80 flex items-center lg:h-60 sm:h-40'} />}
+            </Cell>
+            <Image contained {...image} />
         </Block>
     );
 }
 
-export interface ArgumentBlockProps extends AsComponent, WithHeadingText, WithImage, WithButtons {
-    noImage?: flag;
+export interface ArgumentBlockProps extends AsBlock, WithHeadingText, WithImage, WithButtons {
     noShadow?: flag;
 }
 

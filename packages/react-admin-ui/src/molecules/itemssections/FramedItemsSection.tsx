@@ -1,48 +1,50 @@
-import { WithBox, WithDescription, WithItems, WithTitle } from '../../withs';
-import HeadingText from '../../atoms/HeadingText';
-import Div from '../../atoms/Div';
-import Image from '../../atoms/Image';
-import { AsComponent } from '../../as';
 import clsx from 'clsx';
+import Row from '../../atoms/Row';
+import Image from '../../atoms/Image';
 import { Block } from '../../atoms/Block';
+import Column from '../../atoms/Column';
+import HeadingText from '../../atoms/HeadingText';
 import ShareIcons from '../ShareIcons';
+import { AsComponent } from '../../as';
+import { WithBox, WithDescription, WithItems, WithTitle } from '../../withs';
 
 export function FramedItemsSection({
-    title,
+    className,
+    color,
     description,
     items = [],
-    color,
-    className,
+    title,
     variant,
 }: FramedItemsSectionProps) {
     return (
-        <Block className={clsx('flex py-14 px-8 sm:px-4 flex-col', className)} color={color} variant={variant}>
-            <HeadingText title={title} description={description} variant={'medium2'} center />
-            <Div flex className={'grid grid-cols-3 gap-x-10 sm:grid-cols-1 sm:flex-col mt-10 sm:mt-6'}>
+        <Block color={color} variant={variant} className={clsx('flex px-4 py-14 sm:px-8 flex-col', className)}>
+            <HeadingText center description={description} title={title} variant={'medium2'} />
+            <Row grid={3} className={'gap-x-10 mt-6 sm:mt-10'}>
                 {items.map(({ image, title, subtitle, share_icons }, index) => (
-                    <Block key={index} corner={'rounded'} variant={variant}>
-                        <Div flex className={'flex-col'} center>
+                    <Block corner={'rounded'} key={index} variant={variant}>
+                        <Column center>
                             <Image {...image} corner={'circle'} expand={false} className={'w-30 h-30'} />
-                            <Div flex className={'justify-between w-full pt-6 sm:flex-col'}>
+                            <Row full pt={'lg'} spaced>
                                 <HeadingText
-                                    title={title}
+                                    center
                                     subtitle={subtitle}
+                                    title={title}
                                     variant={'section'}
-                                    className={'pt-4 sm:text-center'}
+                                    className={'pt-4 sm:text-left'}
                                 />
                                 {share_icons && (
                                     <ShareIcons
-                                        items={share_icons}
-                                        className={'max-w-26'}
                                         color={color}
+                                        items={share_icons}
                                         variant={'none'}
+                                        className={'max-w-26'}
                                     />
                                 )}
-                            </Div>
-                        </Div>
+                            </Row>
+                        </Column>
                     </Block>
                 ))}
-            </Div>
+            </Row>
         </Block>
     );
 }

@@ -1,41 +1,42 @@
-import clsx from 'clsx';
+import Row from '../atoms/Row';
+import Div from '../atoms/Div';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
-import Button from '../atoms/Button';
-import { target } from '../types';
-import { WithDescription, WithTitle } from '../withs';
-import { AsBox } from '../as';
-import useItems from '../hooks/useItems';
 import Items from '../atoms/Items';
+import Button from '../atoms/Button';
+import useItems from '../hooks/useItems';
 import { buttonMap } from '../propMaps';
+import { target } from '../types';
+import { AsBox } from '../as';
+import { WithDescription, WithTitle } from '../withs';
 
 export function MaintenanceTemplate({
+    actions = [],
     className,
+    color = 'primary',
+    description,
     logo,
     title,
-    description,
-    actions = [],
-    color = 'primary',
     variant = 'contained',
     ...props
 }: MaintenanceTemplateProps) {
     const [itProps] = useItems({ items: actions, ...props }, Button, { map: buttonMap, color, variant });
 
     return (
-        <div className={clsx('h-screen flex items-center', className)}>
-            <div className={'text-center max-w-3xl mx-auto'}>
-                <div className={'flex justify-center'}>
-                    <Icon className={'text-disabled'} icon={logo} size={'9xl'} />
-                </div>
-                <div className={'flex justify-center mb-4'}>
-                    <Text text={title} variant={'title0'} color={color} />
-                </div>
-                <div className={'flex justify-center mb-10'}>
-                    <Text text={description} variant={'body'} color={'dark'} />
-                </div>
+        <Row center hscreen className={className}>
+            <Div center mx={'auto'} className={'max-w-3xl'}>
+                <Div center flex>
+                    <Icon disabled icon={logo} size={'9xl'} />
+                </Div>
+                <Div center flex mb={'md'}>
+                    <Text color={color} text={title} variant={'title0'} />
+                </Div>
+                <Div center flex mb={'sl'}>
+                    <Text color={'dark'} text={description} variant={'body'} />
+                </Div>
                 <Items {...itProps} />
-            </div>
-        </div>
+            </Div>
+        </Row>
     );
 }
 

@@ -1,15 +1,16 @@
-import { Text } from './Text';
-import { Clickable } from './Clickable';
-import { WithLabel, WithTarget } from '../withs';
-import bgClass from '../utils/bgClass';
-import clsx from 'clsx';
+import Text from './Text';
+import Cell from './Cell';
+import useBox from '../hooks/useBox';
 import { AsBox } from '../as';
+import { WithLabel, WithTarget } from '../withs';
 
-export function BoxListItem({ label, target, color = 'primary', variant = 'filled' }: BoxListItemProps) {
+export function BoxListItem({ label, target, ...props }: BoxListItemProps) {
+    const [box, rest] = useBox(props, { p: 'sm', color: 'primary', variant: 'filled', hoverable: true });
+
     return (
-        <Clickable onClick={target} className={clsx(bgClass({ color, variant, hoverable: true }), 'p-2 rounded-sm')}>
-            <Text text={label} variant={'overline'} className={'ml-4'} />
-        </Clickable>
+        <Cell box={box} full corner={'r-sm'} onClick={target} {...rest}>
+            <Text ml={'md'} text={label} variant={'overline'} />
+        </Cell>
     );
 }
 

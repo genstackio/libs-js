@@ -1,31 +1,39 @@
+import { useMemo } from 'react';
 import clsx from 'clsx';
-import { children } from '../types';
-import Clickable from '../atoms/Clickable';
 import Text from '../atoms/Text';
-import Button from '../atoms/Button';
+import Div from '../atoms/Div';
 import Icon from '../atoms/Icon';
-import boxClass from '../utils/boxClass';
+import Button from '../atoms/Button';
+import Clickable from '../atoms/Clickable';
 import Expandable from './Expandable';
-import { WithItemsOfChoiceButton } from '../withs';
+import boxClass from '../utils/boxClass';
+import { children } from '../types';
 import { AsBoxWrapper } from '../as';
+import { WithItemsOfChoiceButton } from '../withs';
 
-export function ChoiceButton({ className, color, items = [], children, expandedChildren }: ChoiceButtonProps) {
-    const expandedSubChildren = () => (
-        <div className={'w-full shadow-lg'}>
-            {items.map(({ label, active, target }, index) => (
-                <Clickable
-                    key={index}
-                    onClick={target}
-                    className={clsx(boxClass({ color: color, hoverable: active }), 'py-2 px-4 whitespace-no-wrap flex')}
-                >
-                    <Text text={label} />
-                </Clickable>
-            ))}
-        </div>
+export function ChoiceButton({ children, className, color, expandedChildren, items = [] }: ChoiceButtonProps) {
+    const expandedSubChildren = useMemo(
+        () => (
+            <Div full className={'shadow-lg'}>
+                {items.map(({ label, active, target }, index) => (
+                    <Clickable
+                        key={index}
+                        onClick={target}
+                        className={clsx(
+                            boxClass({ color: color, hoverable: active }),
+                            'py-2 px-4 whitespace-no-wrap flex',
+                        )}
+                    >
+                        <Text text={label} />
+                    </Clickable>
+                ))}
+            </Div>
+        ),
+        [color],
     );
 
     return (
-        <Expandable className={className} expandedChildren={expandedSubChildren}>
+        <Expandable expandedChildren={expandedSubChildren} className={className}>
             {(opened) => (
                 <Button
                     color={color}

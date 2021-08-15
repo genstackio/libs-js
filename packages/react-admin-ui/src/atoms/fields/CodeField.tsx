@@ -1,5 +1,5 @@
-import TextField, { TextFieldProps } from './TextField';
 import { useMemo } from 'react';
+import TextField, { TextFieldProps } from './TextField';
 
 export function CodeField({ options = {}, ...props }: CodeFieldProps) {
     options = useMemo(
@@ -8,6 +8,7 @@ export function CodeField({ options = {}, ...props }: CodeFieldProps) {
         }),
         [options],
     );
+
     return <TextField kind={'code'} {...props} options={options} />;
 }
 

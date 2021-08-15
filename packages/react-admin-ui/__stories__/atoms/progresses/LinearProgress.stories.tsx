@@ -5,7 +5,7 @@ export default {
     title: 'Atoms/progresses/LinearProgress',
     component: LinearProgress,
     argTypes: a({
-        value: args.defaultValue,
+        value: args.value,
     }),
 };
 

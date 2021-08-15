@@ -4,8 +4,8 @@ import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
 import textClass from '../utils/textClass';
 import boxClass from '../utils/boxClass';
-import { WithColorOfBox, WithItemsOfMenuButton } from '../withs';
 import { AsComponent } from '../as';
+import { WithColorOfBox, WithItemsOfMenuButton } from '../withs';
 
 export function MenuButtonWidget({ className, items = [], color }: MenuButtonWidgetProps) {
     const handleClick = useCallback(
@@ -26,12 +26,12 @@ export function MenuButtonWidget({ className, items = [], color }: MenuButtonWid
         >
             {items.map(({ icon, label, target }, index) => (
                 <li
+                    key={index}
+                    onClick={handleClick(target)}
                     className={clsx(
                         textClass({ color: color, variant: 'light', hoverable: true }),
                         'flex space-x-2 py-2 px-4 rounded-md cursor-pointer',
                     )}
-                    key={index}
-                    onClick={handleClick(target)}
                 >
                     <Icon icon={icon} />
                     <Text text={label} variant={'description'} />

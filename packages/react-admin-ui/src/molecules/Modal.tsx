@@ -1,34 +1,36 @@
 import { MouseEventHandler } from 'react';
 import clsx from 'clsx';
+import Row from '../atoms/Row';
+import Div from '../atoms/Div';
 import Button from '../atoms/Button';
 import MuiModal from '@material-ui/core/Modal';
 import { action_item } from '../types';
-import { WithOpened, WithTitle } from '../withs';
 import { AsWrapper } from '../as';
+import { WithOpened, WithTitle } from '../withs';
 
-export function Modal({ className, buttonsItems = [], children, onClose, opened = false, title }: ModalProps) {
+export function Modal({ buttonsItems = [], children, className, onClose, opened = false, title }: ModalProps) {
     return (
         <MuiModal open={opened} className={clsx('flex justify-center items-center', className)}>
-            <div className={'bg-clear border border-disabled rounded-md w-8/12 sm:w-11/12 xs:w-full'}>
-                <div className={'flex flex-row-reverse justify-between items-center m-4'}>
-                    <Button color={'dark'} onClick={onClose} label={'X'} />
+            <Div b={'xs'} full className={'bg-clear border-disabled rounded-md sm:w-8/12'}>
+                <Row center m={'md'} responsive={false} reverse spaced>
+                    <Button color={'dark'} label={'X'} onClick={onClose} />
                     {title && <div className={'text-xl font-bold'}>{title}</div>}
-                </div>
+                </Row>
                 <hr />
                 {children || ''}
                 {buttonsItems.length && (
                     <div>
                         <hr />
-                        <div className={'flex justify-end space-x-4 m-4'}>
+                        <Div flex m={'md'} spaced={4} className={'justify-end'}>
                             {buttonsItems.map(({ label, variant, color, target }, i) => (
                                 <Button key={i} variant={variant} color={color} onClick={target}>
                                     {label}
                                 </Button>
                             ))}
-                        </div>
+                        </Div>
                     </div>
                 )}
-            </div>
+            </Div>
         </MuiModal>
     );
 }

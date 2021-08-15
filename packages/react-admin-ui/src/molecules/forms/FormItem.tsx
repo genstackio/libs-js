@@ -2,8 +2,8 @@ import EmailField from '../../atoms/fields/EmailField';
 import LastNameField from '../../atoms/fields/LastNameField';
 import FirstNameField from '../../atoms/fields/FirstNameField';
 import PasswordField from '../../atoms/fields/PasswordField';
-import { form_item } from '../../types';
 import FormRow from './FormRow';
+import { form_item } from '../../types';
 import { AsComponent } from '../../as';
 
 const types = {
@@ -17,6 +17,7 @@ const types = {
 export function FormItem({ definition, ...props }: FormItemProps) {
     const { type, field, ...extra } = definition;
     const Component = types[field || type];
+
     return <Component {...extra} {...props} />;
 }
 

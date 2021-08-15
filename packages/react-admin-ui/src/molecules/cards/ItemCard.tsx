@@ -1,4 +1,5 @@
 import Tag from '../../atoms/Tag';
+import Div from '../../atoms/Div';
 import Icon from '../../atoms/Icon';
 import Text from '../../atoms/Text';
 import Block from '../../atoms/Block';
@@ -11,17 +12,18 @@ import { WithDescription, WithIcon, WithSubtitle, WithText, WithSizeOfText, With
 export function ItemCard({ colorDate, colorDescription, date, description, icon, size, ...props }: ItemCardProps) {
     const [bProps, rest] = useBlock(props);
     const [htProps] = useHeadingText(rest, { variant: 'smmd2' });
+
     return (
         <Block {...bProps}>
-            <div className={'flex justify-between mb-6'}>
-                <div className={'flex mb-6'}>
-                    <div className={'row-span-2 ml-4 mt-2'}>
-                        <Icon size={size} icon={icon} />
-                    </div>
+            <Div flex mb={'lg'} spacebetween>
+                <Div flex mb={'lg'}>
+                    <Div ml={'md'} className={'row-span-2 mt-2'}>
+                        <Icon icon={icon} size={size} />
+                    </Div>
                     <HeadingText {...htProps} />
-                </div>
-                <div className={'mt-2'}>{date ? <Text text={date} variant={'overline'} /> : <Tag text={'new'} />}</div>
-            </div>
+                </Div>
+                <Div mt={'sm'}>{date ? <Text text={date} variant={'overline'} /> : <Tag text={'new'} />}</Div>
+            </Div>
             <Text text={description} variant={'body'} />
         </Block>
     );

@@ -9,7 +9,7 @@ export default {
         title: args.title,
         color: args.color,
         variant: args.blockVariant,
-        padding: args.padding,
+        p: args.padding,
     }),
 };
 

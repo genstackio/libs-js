@@ -1,8 +1,8 @@
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import BaseRating, { BaseBaseRatingProps } from './BaseRating';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import Div from '../Div';
+import BaseRating, { BaseBaseRatingProps } from './BaseRating';
+import { makeStyles } from '@material-ui/core/styles';
 
 const colors = {
     primary: 'bg-primary',
@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 });
 
 const Icon = ({ color }: any) => (
-    <div className={clsx('w-6 rounded-full h-6 mr-1', colors[(color as string) || 'primary'])} />
+    <Div corner={'circle'} mr={'xs'} size={'xs'} className={colors[(color as string) || 'primary']} />
 );
 
 export function MoodRating(props: MoodRatingProps) {

@@ -3,11 +3,10 @@ import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
 import { summary_item } from '../../types';
 import Summaries from '../Summaries';
-import { WithColorOfBox, WithImage, WithValueAsNumber } from '../../withs';
 import { AsComponent } from '../../as';
+import { WithColorOfBox, WithImage, WithValueAsNumber } from '../../withs';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
-
 const defaultOptions: ApexOptions = {
     chart: {
         toolbar: {
@@ -58,9 +57,9 @@ const defaultOptions: ApexOptions = {
 export function BackgroundCircularChart({
     className,
     color = 'dark',
-    value,
     image,
     summaries,
+    value,
 }: BackgroundCircularChartProps) {
     const options = {
         ...defaultOptions,
@@ -73,7 +72,7 @@ export function BackgroundCircularChart({
 
     return (
         <>
-            <Chart type={'radialBar'} options={options} series={[[value]]} className={className} />
+            <Chart options={options} series={[[value]]} type={'radialBar'} className={className} />
             {summaries && <Summaries items={summaries} />}
         </>
     );

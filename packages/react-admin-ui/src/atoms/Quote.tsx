@@ -1,6 +1,6 @@
 import alignmentClass from '../mappings/alignments';
-import { WithText, WithTitle, WithAlignmentAsPosition } from '../withs';
 import { AsComponent } from '../as';
+import { WithText, WithTitle, WithAlignmentAsPosition } from '../withs';
 
 const textPositions = {
     left: 'border-l-4 p-4 blockquote',

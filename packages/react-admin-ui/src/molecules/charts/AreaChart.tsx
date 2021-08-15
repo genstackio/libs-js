@@ -1,11 +1,10 @@
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
-import { WithBox, WithSeries } from '../../withs';
 import { AsComponent } from '../../as';
+import { WithBox, WithSeries } from '../../withs';
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
-
 const defaultOptions: ApexOptions = {
     chart: {
         toolbar: {
@@ -47,13 +46,12 @@ const defaultOptions: ApexOptions = {
 export function AreaChart({ className, color = 'primary', series = [], variant = 'filled' }: AreaChartProps) {
     const col = `${variant}_${color}`;
     const options = { ...defaultOptions, colors: tailwindChartColors[col] };
-
     const newData: { data: number[] }[] = series.reduce((acc: any[], data) => {
         acc.push({ data: data });
         return acc;
     }, [] as { data: number[] }[]);
 
-    return <Chart type={'area'} options={options} series={newData} height={'250px'} className={className} />;
+    return <Chart height={'250px'} options={options} series={newData} type={'area'} className={className} />;
 }
 
 export interface AreaChartProps extends AsComponent, WithBox, WithSeries {}

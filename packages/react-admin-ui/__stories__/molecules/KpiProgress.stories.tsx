@@ -10,7 +10,7 @@ export default {
         unit: args.unit,
         color: args.color,
         variant: args.blockVariant,
-        padding: args.padding,
+        p: args.padding,
     }),
 };
 

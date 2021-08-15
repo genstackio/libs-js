@@ -1,25 +1,25 @@
 import clsx from 'clsx';
-import { WithTitle, WithIcon, WithButton, WithItemsOfGallery } from '../withs';
-import { AsComponent } from '../as';
 import Items from '../atoms/Items';
+import BlockHeader from '../atoms/BlockHeader';
 import GalleryItem from './GalleryItem';
 import gridColsClass from '../mappings/grid-cols';
-import BlockHeader from '../atoms/BlockHeader';
+import { AsComponent } from '../as';
+import { WithTitle, WithIcon, WithButton, WithItemsOfGallery } from '../withs';
 
-export function Gallery({ className, title, items = [], icon, btnColor, btnLabel, btnType }: GalleryProps) {
+export function Gallery({ btnColor, btnLabel, btnType, className, icon, items = [], title }: GalleryProps) {
     return (
         <>
             <BlockHeader
-                title={title || ''}
                 btnColor={btnColor}
                 btnEndIcon={icon}
-                btnType={btnType}
                 btnLabel={btnLabel}
+                btnType={btnType}
+                title={title || ''}
             />
             <Items
-                items={items}
                 component={GalleryItem}
-                containerClassName={clsx(gridColsClass(4), 'grid md:grid-cols-2 sm:grid-cols-1 gap-3', className)}
+                containerClassName={clsx(gridColsClass(4), 'grid gap-3', className)}
+                items={items}
             />
         </>
     );

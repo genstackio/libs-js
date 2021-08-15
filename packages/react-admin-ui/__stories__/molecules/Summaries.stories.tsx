@@ -12,7 +12,7 @@ export default {
         chart: args.chart,
         color: args.color,
         variant: args.blockVariant,
-        padding: args.padding,
+        p: args.padding,
     }),
 };
 

@@ -1,11 +1,12 @@
 import clsx from 'clsx';
 import Container from './Container';
 import { wizard_step } from '../types';
-import { WithDefaultValues, WithOnCancel, WithOnComplete, WithOnNext, WithOnPrevious, WithOnSave } from '../withs';
 import { AsComponent } from '../as';
+import { WithDefaultValues, WithOnCancel, WithOnComplete, WithOnNext, WithOnPrevious, WithOnSave } from '../withs';
 
-export function WizardContent({ className, currentStep, onNext, onComplete, ...props }: WizardContentProps) {
+export function WizardContent({ className, currentStep, onComplete, onNext, ...props }: WizardContentProps) {
     const { component: Component, bgImage } = currentStep || {};
+
     return (
         <Container
             bgImage={bgImage}

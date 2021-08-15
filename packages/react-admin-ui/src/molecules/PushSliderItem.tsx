@@ -1,5 +1,5 @@
-import { Push, PushProps } from './Push';
 import { SwiperSlide } from 'swiper/react';
+import Push, { PushProps } from './Push';
 
 export function PushSliderItem({ className, ...props }: PushSliderItemProps) {
     return (

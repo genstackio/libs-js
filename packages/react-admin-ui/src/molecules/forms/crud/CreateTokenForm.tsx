@@ -1,14 +1,14 @@
-import useForm from '../../../hooks/useForm';
 import NameField from '../../../atoms/fields/NameField';
-import { BaseFormProps } from '../BaseForm';
 import CodeField from '../../../atoms/fields/CodeField';
+import { BaseFormProps } from '../BaseForm';
+import useForm from '../../../hooks/useForm';
 
 export function CreateTokenForm({ children, ...props }: CreateTokenFormProps) {
     const { Form, SubmitButton, field } = useForm(props, 'create_token');
 
     return (
         <Form customChildren={children}>
-            <NameField {...field} required autoFocus />
+            <NameField {...field} autoFocus required />
             <CodeField {...field} required />
             <SubmitButton />
         </Form>

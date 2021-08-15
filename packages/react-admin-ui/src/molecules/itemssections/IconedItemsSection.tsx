@@ -1,70 +1,58 @@
 import clsx from 'clsx';
-import { useMediaQuery } from '@material-ui/core';
-import useTheme from '@material-ui/core/styles/useTheme';
 import HeadingText from '../../atoms/HeadingText';
-import Div from '../../atoms/Div';
 import Icon from '../../atoms/Icon';
+import Row from '../../atoms/Row';
 import { Block } from '../../atoms/Block';
 import Panel from '../../atoms/Panel';
+import Column from '../../atoms/Column';
 import ShareIcons from '../ShareIcons';
+import useBlock from '../../hooks/useBlock';
 import { AsComponent } from '../../as';
 import { WithBox, WithDescription, WithItems, WithTitle } from '../../withs';
 
-export function IconedItemsSection({
-    color,
-    description,
-    items = [],
-    title,
-    variant,
-    className,
-}: IconedItemsSectionProps) {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+export function IconedItemsSection({ className, description, items = [], title, ...props }: IconedItemsSectionProps) {
+    const [bProps] = useBlock(props);
+
     return (
-        <Block
-            className={clsx('flex py-14 px-8 sm:px-4 flex-col', className)}
-            color={color}
-            padding={isMobile ? 'xsmall' : 'small'}
-            variant={variant}
-        >
-            <HeadingText title={title} description={description} variant={'medium2'} center />
-            <Div flex className={'grid grid-cols-3 gap-x-10 sm:grid-cols-1 sm:flex-col mt-10 sm:mt-16'}>
+        <Block className={clsx('flex py-14 px-8 sm:px-4 flex-col', className)} p={'_sm'} {...bProps}>
+            <HeadingText center description={description} title={title} variant={'medium2'} />
+            <Row grid={3} className={'gap-y-10 sm:gap-x-10 mt-10 sm:mt-16'}>
                 {items.map(({ image, title, share_icons, icon, iconSize, description }, index) => (
                     <Panel
                         key={index}
-                        variant={variant == 'contained' ? 'filled' : 'outlined'}
+                        variant={bProps.variant == 'contained' ? 'filled' : 'outlined'}
+                        color={bProps.color}
                         className={'rounded-2xl sm:mt-10'}
-                        color={color}
                     >
-                        <Div flex className={'flex-col -mt-10'} center>
+                        <Column center className={'-mt-10'}>
                             <Panel
-                                variant={variant == 'contained' ? 'filled' : 'contained'}
-                                color={color}
-                                className={'rounded-2xl'}
+                                color={bProps.color}
+                                corner={'rounded'}
+                                variant={bProps.variant == 'contained' ? 'filled' : 'contained'}
                             >
                                 <Icon icon={icon} iconSize={iconSize} />
                             </Panel>
-                            <Div flex center className={'justify-between w-full flex-col'}>
+                            <Column center full spacebetween>
                                 <HeadingText
-                                    title={title}
                                     center
                                     description={description}
+                                    title={title}
                                     variant={'section'}
                                     className={'pt-4'}
                                 />
                                 {share_icons && (
                                     <ShareIcons
                                         items={share_icons}
-                                        className={'max-w-26'}
-                                        color={color}
                                         variant={'none'}
+                                        className={'max-w-26'}
+                                        color={bProps.color}
                                     />
                                 )}
-                            </Div>
-                        </Div>
+                            </Column>
+                        </Column>
                     </Panel>
                 ))}
-            </Div>
+            </Row>
         </Block>
     );
 }

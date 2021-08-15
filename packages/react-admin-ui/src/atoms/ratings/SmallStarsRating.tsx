@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles';
-import tailwindConfig from '../../../tailwind.config';
 import BaseRating, { BaseBaseRatingProps } from './BaseRating';
+import tailwindConfig from '../../../tailwind.config';
+import { makeStyles } from '@material-ui/core/styles';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 const colors = {
@@ -13,12 +13,14 @@ const colors = {
     light: tailwindColors.light,
     dark: tailwindColors.dark,
 };
-
 const useStyles = makeStyles({
     iconFilled: {
         color: (props: SmallStarsRatingProps) => colors[props.color || ''] || colors.primary,
     },
 });
+
+const ratingProps = { size: 'small' };
+const labelProps = { variant: 'description' };
 
 export function SmallStarsRating(props: SmallStarsRatingProps) {
     return (
@@ -26,8 +28,8 @@ export function SmallStarsRating(props: SmallStarsRatingProps) {
             kind={'small-stars'}
             styles={useStyles}
             {...props}
-            ratingProps={{ size: 'small' }}
-            labelProps={{ variant: 'description' }}
+            ratingProps={ratingProps}
+            labelProps={labelProps}
         />
     );
 }

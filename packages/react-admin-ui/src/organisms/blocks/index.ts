@@ -4,6 +4,5 @@ export * from './KpiBlock';
 export * from './NewsBlock';
 export * from './PeriodFigureBlock';
 export * from './ProductCardBlock';
-export * from './TasksBlock';
 export * from './TabbedBlock';
 export * from './VisualBulletBlock';

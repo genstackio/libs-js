@@ -1,10 +1,12 @@
 import { FunctionComponent } from 'react';
 import clsx from 'clsx';
 import Text from '../Text';
+import Row from '../Row';
 import useRating from '../../hooks/useRating';
 import MuiRating from '@material-ui/lab/Rating';
 import { class_name } from '../../types';
 import { defaultLabelPlacement } from '../../mappings/label-placements';
+import { AsComponent } from '../../as';
 import {
     WithColorOfBox,
     WithKind,
@@ -17,7 +19,6 @@ import {
     WithMax,
     WithValuesOfRating,
 } from '../../withs';
-import { AsComponent } from '../../as';
 
 const labelPlacements = {
     left: 'flex-row-reverse space-x-2',
@@ -51,24 +52,25 @@ export function BaseRating(props: BaseRatingProps) {
         onHover: onChangeActive,
         label,
     } = useRating(props, { reverse });
+
     return (
-        <div className={clsx('flex items-center', labelPlacements[labelPlacement || ''], className)}>
+        <Row vcenter responsive={false} className={clsx(labelPlacements[labelPlacement || ''], className)}>
             <MuiRating
-                name={readOnly ? undefined : name || `${kind}-rating`}
                 classes={classes}
-                icon={icon ? icon(props as any) : undefined}
-                emptyIcon={emptyIcon ? emptyIcon(props as any) : icon ? icon(props as any) : undefined}
-                max={max}
-                readOnly={readOnly}
-                value={value}
                 defaultValue={defaultValue}
+                emptyIcon={emptyIcon ? emptyIcon(props as any) : icon ? icon(props as any) : undefined}
+                icon={icon ? icon(props as any) : undefined}
+                IconContainerComponent={container}
+                max={max}
+                name={readOnly ? undefined : name || `${kind}-rating`}
                 onChange={onChange}
                 onChangeActive={onChangeActive}
-                IconContainerComponent={container}
+                readOnly={readOnly}
+                value={value}
                 {...ratingProps}
             />
-            <Text text={label} color={props.color || 'primary'} {...labelProps} />
-        </div>
+            <Text color={props.color || 'primary'} text={label} {...labelProps} />
+        </Row>
     );
 }
 

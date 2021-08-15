@@ -12,18 +12,18 @@ const classes = {
     valueLabel: '-left-2/4 ml-1',
 };
 
-export function Slider({ className, min, max, value, defaultValue, onChange, color }: SliderProps) {
+export function Slider({ className, color, defaultValue, max, min, onChange, value }: SliderProps) {
     return (
         <MuiSlider
-            valueLabelDisplay={'on'}
             aria-label={'slider'}
-            min={min}
-            max={max}
-            defaultValue={defaultValue}
-            className={clsx(boxClass({ color, variant: 'filled' }), 'bg-transparent mt-12', className)}
             classes={classes}
-            value={value}
+            defaultValue={defaultValue}
+            max={max}
+            min={min}
             onChange={onChange}
+            value={value}
+            valueLabelDisplay={'on'}
+            className={clsx(boxClass({ color, variant: 'filled' }), 'bg-transparent mt-12', className)}
         />
     );
 }

@@ -1,29 +1,34 @@
-import clsx from 'clsx';
 import Tag from '../atoms/Tag';
 import Pill from '../atoms/Pill';
 import Text from '../atoms/Text';
+import Div from '../atoms/Div';
+import Row from '../atoms/Row';
 import { pill, tag } from '../types';
-import { WithTitle } from '../withs';
 import { AsComponent } from '../as';
+import { WithTitle } from '../withs';
 
 export function Figure({ className, pill, price, tag, title }: FigureProps) {
     return (
-        <div className={clsx('flex', className)}>
+        <Row responsive={false} className={className}>
             <div>
-                {title && <div className={'text-2xl mr-8 inline-block'}>{title}</div>}
-                {tag && (
-                    <div className={'inline-block'}>
-                        <Tag text={tag.text} color={tag.color} />
-                    </div>
+                {title && (
+                    <Div inline mr={'xl'} className={'text-2xl'}>
+                        {title}
+                    </Div>
                 )}
-                <Text className={'text-dark font-black text-4xl mt-4'} text={`${price}`} />
+                {tag && (
+                    <Div inline>
+                        <Tag color={tag.color} text={tag.text} />
+                    </Div>
+                )}
+                <Text mt={'md'} text={`${price}`} className={'text-dark font-black text-4xl'} />
             </div>
             {pill && (
-                <div className={'absolute right-4'}>
-                    <Pill text={pill.text} color={pill.color} />
-                </div>
+                <Div absolute className={'right-4'}>
+                    <Pill color={pill.color} text={pill.text} />
+                </Div>
             )}
-        </div>
+        </Row>
     );
 }
 

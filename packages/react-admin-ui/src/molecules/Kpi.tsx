@@ -1,23 +1,24 @@
 import clsx from 'clsx';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
+import Div from '../atoms/Div';
 import boxClass from '../utils/boxClass';
-import { WithColorOfBox, WithIcon, WithQuantity, WithName } from '../withs';
 import { AsComponent } from '../as';
+import { WithColorOfBox, WithIcon, WithQuantity, WithName } from '../withs';
 
 export function Kpi({ className, icon, name, quantity, color }: KpiProps) {
     return (
-        <div className={clsx('flex items-center space-x-6', className)}>
+        <Div center flex spaced={6} className={className}>
             <div className={clsx(boxClass({ color }))}>
                 <Icon icon={icon} />
             </div>
             {quantity && (
                 <div>
-                    <Text text={name} variant={'description'} color={color} />
-                    <Text text={`${quantity}`} variant={'title5'} color={color} />
+                    <Text color={color} text={name} variant={'description'} />
+                    <Text color={color} text={`${quantity}`} variant={'title5'} />
                 </div>
             )}
-        </div>
+        </Div>
     );
 }
 

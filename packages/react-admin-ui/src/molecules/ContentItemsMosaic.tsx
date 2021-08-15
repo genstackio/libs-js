@@ -1,18 +1,18 @@
 import Column from '../atoms/Column';
-import { WithTitle, WithColorOfBox, WithItemsOfContentItemsMosaic } from '../withs';
-import ContentItemMosaic from './ContentItemMosaic';
+import Div from '../atoms/Div';
 import Text from '../atoms/Text';
-import clsx from 'clsx';
-import { Items } from '../atoms';
+import Items from '../atoms/Items';
+import ContentItemMosaic from './ContentItemMosaic';
 import { AsComponent } from '../as';
+import { WithTitle, WithColorOfBox, WithItemsOfContentItemsMosaic } from '../withs';
 
-export function ContentItemsMosaic({ className, title, items = [], color }: ContentItemsMosaicProps) {
+export function ContentItemsMosaic({ className, color, items = [], title }: ContentItemsMosaicProps) {
     return (
-        <Column className={clsx(className)}>
-            <Text variant={'title3'} text={title} color={color} />
-            <div className={'my-4 grid grid-cols-2 gap-6 xs:grid-cols-1 xs:gap-2'}>
-                <Items items={items} component={ContentItemMosaic} color={color} />
-            </div>
+        <Column className={className}>
+            <Text color={color} text={title} variant={'title3'} />
+            <Div grid={2} gap={6} my={'md'}>
+                <Items color={color} component={ContentItemMosaic} items={items} />
+            </Div>
         </Column>
     );
 }

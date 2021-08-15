@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
-import TextField, { TextFieldProps } from './TextField';
 import { useTranslation } from 'react-i18next';
+import TextField, { TextFieldProps } from './TextField';
 
 export function PasswordField({ options = {}, ...props }: PasswordFieldProps) {
     const { t } = useTranslation();
@@ -12,6 +12,7 @@ export function PasswordField({ options = {}, ...props }: PasswordFieldProps) {
         }),
         [options],
     );
+
     return <TextField kind={'password'} type={'password'} {...props} />;
 }
 

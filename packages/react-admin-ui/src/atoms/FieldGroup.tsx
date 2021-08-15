@@ -1,8 +1,8 @@
-import clsx from 'clsx';
+import Row from './Row';
 import { AsWrapper } from '../as';
 
-export function FieldGroup({ className, children }: FieldGroupProps) {
-    return <div className={clsx('flex space-x-4 xs:flex-col xs:space-x-0', className)}>{children || ''}</div>;
+export function FieldGroup(props: FieldGroupProps) {
+    return <Row spaced={4} {...props} />;
 }
 
 export type FieldGroupProps = AsWrapper;

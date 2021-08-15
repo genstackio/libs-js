@@ -1,21 +1,25 @@
 import clsx from 'clsx';
+import Div from '../atoms/Div';
 import { Image } from '../atoms/Image';
-import { WithImage, WithOverline, WithTitle } from '../withs';
-import { flag } from '../types';
 import { Text } from '../atoms/Text';
+import Column from '../atoms/Column';
 import Button, { ButtonProps } from '../atoms/Button';
+import { flag } from '../types';
 import { AsComponent } from '../as';
+import { WithImage, WithOverline, WithTitle } from '../withs';
 
-export function QuoteSlide({ className, title, overline, image, noImage = false, button }: QuoteSlideProps) {
+export function QuoteSlide({ button, className, image, noImage = false, overline, title }: QuoteSlideProps) {
     return (
-        <div className={clsx('flex flex-col items-center text-center', className)}>
+        <Column center className={clsx('text-center', className)}>
             {!noImage && (
-                <div className={clsx('w-16 h-16 mb-5', !image && 'bg-disabled')}>{image && <Image {...image} />}</div>
+                <Div mb={'xlg'} size={'sm'} className={clsx(!image && 'bg-disabled')}>
+                    {image && <Image {...image} />}
+                </Div>
             )}
-            <Text variant={'overline'} text={overline} />
-            <Text variant={'title5'} text={title} />
+            <Text text={overline} variant={'overline'} />
+            <Text text={title} variant={'title5'} />
             {button && <Button {...button} />}
-        </div>
+        </Column>
     );
 }
 

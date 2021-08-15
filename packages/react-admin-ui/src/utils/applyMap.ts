@@ -1,5 +1,4 @@
 export function applyMap(item, map): any {
-    console.log(item, map);
     if (!map || !Object.keys(map).length) return item;
     return Object.entries(item).reduce((acc, [k, v]) => {
         if (map[k]) {

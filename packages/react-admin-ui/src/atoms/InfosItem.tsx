@@ -1,13 +1,16 @@
 import Text from './Text';
+import Row from './Row';
 import { WithLabel, WithValue } from '../withs';
 
 export function InfosItem({ label, value }: InfosItemProps) {
     return (
-        <div className={'flex justify-between mt-4'}>
-            <Text text={label} className={'text-disabled'} />
+        <Row mt={'md'} spaced>
+            <Text disabled text={label} />
             <Text text={value} />
-        </div>
+        </Row>
     );
 }
 
 export interface InfosItemProps extends WithLabel, WithValue {}
+
+export default InfosItem;

@@ -1,49 +1,42 @@
-import { WithColorOfText, WithDescription, WithItems, WithTitle } from '../../withs';
-import HeadingText from '../../atoms/HeadingText';
-import Div from '../../atoms/Div';
-import Image from '../../atoms/Image';
-import { AsComponent } from '../../as';
 import clsx from 'clsx';
+import Row from '../../atoms/Row';
+import Image from '../../atoms/Image';
+import Column from '../../atoms/Column';
+import HeadingText from '../../atoms/HeadingText';
 import ShareIcons from '../ShareIcons';
 import { box_color } from '../../mappings/box-colors';
+import { AsComponent } from '../../as';
+import { WithColorOfText, WithDescription, WithItems, WithTitle } from '../../withs';
 
-export function SummaryItemsSection({ title, description, items = [], color, className }: SummaryItemsSectionProps) {
+export function SummaryItemsSection({ className, color, description, items = [], title }: SummaryItemsSectionProps) {
     return (
-        <Div
-            flex
-            className={clsx(
-                'py-14 px-8 sm:py-6 sm:px-4 flex-row sm:flex-col grid grid-cols-3 sm:grid-cols-1 gap-x-10 sm:gap-x-0',
-                className,
-            )}
-        >
-            <HeadingText title={title} description={description} variant={'medium2'} className={'col-span-1'} center />
-            <Div flex className={'grid grid-cols-2 gap-x-10 gap-y-10 sm:grid-cols-1 sm:flex-col sm:mt-6 col-span-2'}>
+        <Row grid={3} className={clsx('sm:py-14 sm:px-8 py-6 px-4 sm:gap-x-10 gap-x-0', className)}>
+            <HeadingText center description={description} span={1} title={title} variant={'medium2'} />
+            <Row gap={10} grid={2} mt={'_lg'} span={2}>
                 {items.map(({ image, title, subtitle, share_icons, description }, index) => (
-                    <Div key={index} className={'sm: pt-8'}>
-                        <Div flex className={'flex-col'} center>
-                            <Image {...image} corner={'rounded'} className={'w-full max-h-90'} expand={false} />
-                            <Div flex className={'justify-between w-full pt-6 flex-col'}>
+                    <Column key={index} className={'pt-8'}>
+                        <Column center className={'flex-col'}>
+                            <Image corner={'rounded'} expand={false} {...image} className={'w-full max-h-90'} />
+                            <Column full pt={'lg'} spacebetween>
                                 <HeadingText
-                                    title={title}
-                                    subtitle={subtitle}
-                                    description={description}
-                                    variant={'section'}
                                     center
+                                    description={description}
+                                    subtitle={subtitle}
+                                    title={title}
+                                    variant={'section'}
                                 />
-                                {share_icons && (
-                                    <ShareIcons
-                                        items={share_icons}
-                                        className={'max-w-26'}
-                                        color={color as box_color}
-                                        variant={'none'}
-                                    />
-                                )}
-                            </Div>
-                        </Div>
-                    </Div>
+                                <ShareIcons
+                                    color={color as box_color}
+                                    items={share_icons}
+                                    variant={'none'}
+                                    className={'max-w-26'}
+                                />
+                            </Column>
+                        </Column>
+                    </Column>
                 ))}
-            </Div>
-        </Div>
+            </Row>
+        </Row>
     );
 }
 

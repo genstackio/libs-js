@@ -1,6 +1,7 @@
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+import Div from '../Div';
 import BaseRating, { BaseBaseRatingProps } from './BaseRating';
+import { makeStyles } from '@material-ui/core/styles';
 
 const colors = {
     primary: 'bg-primary',
@@ -12,17 +13,16 @@ const colors = {
     light: 'bg-light',
     dark: 'bg-dark',
 };
-
 const useStyles = makeStyles({
     iconEmpty: {
         opacity: 0.25,
     },
 });
 
-const Icon = ({ color }: any) => <div className={clsx('w-16 h-2 mr-1', colors[(color as string) || 'primary'])} />;
+const Icon = ({ color }: any) => <Div mr={'xs'} className={clsx('w-16 h-2', colors[(color as string) || 'primary'])} />;
 
 export function PlatesRating(props: PlatesRatingProps) {
-    return <BaseRating kind={'plates'} styles={useStyles} icon={Icon} labelPlacement={'bottom'} {...props} />;
+    return <BaseRating icon={Icon} kind={'plates'} labelPlacement={'bottom'} styles={useStyles} {...props} />;
 }
 
 export type PlatesRatingProps = BaseBaseRatingProps;

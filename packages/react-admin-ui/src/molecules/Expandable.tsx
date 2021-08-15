@@ -1,12 +1,12 @@
 import { useCallback, useState } from 'react';
 import clsx from 'clsx';
+import Clickable from '../atoms/Clickable';
 import Popper from '@material-ui/core/Popper';
 import { children, flag } from '../types';
-import Clickable from '../atoms/Clickable';
-import { WithPlacement } from '../withs';
 import { AsComponent } from '../as';
+import { WithPlacement } from '../withs';
 
-export function Expandable({ className, children, expandedChildren, placement = 'bottom-start' }: ExpandableProps) {
+export function Expandable({ children, className, expandedChildren, placement = 'bottom-start' }: ExpandableProps) {
     const [opened, setOpened] = useState(false);
     const [anchorEl, setAnchorEl] = useState(null);
     const handleClick = useCallback(
@@ -29,7 +29,7 @@ export function Expandable({ className, children, expandedChildren, placement = 
         >
             {children && ('function' === typeof children ? children(opened) : children)}
             {!!expandedChildren && (
-                <Popper open={opened} anchorEl={anchorEl} placement={placement} transition>
+                <Popper anchorEl={anchorEl} open={opened} placement={placement} transition>
                     {'function' === typeof expandedChildren ? expandedChildren(opened) : expandedChildren}
                 </Popper>
             )}

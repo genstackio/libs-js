@@ -1,11 +1,14 @@
 import clsx from 'clsx';
 import boxClass from '../utils/boxClass';
 import dividerSizeClass from '../mappings/divider-sizes';
-import { WithSize } from '../withs';
+import useBox from '../hooks/useBox';
 import { AsBox } from '../as';
+import { WithSize } from '../withs';
 
-export function Divider({ className, size, color, variant = 'contained' }: DividerProps) {
-    return <hr className={clsx(boxClass({ color, variant }), dividerSizeClass(size), className)} />;
+export function Divider({ className, size, ...props }: DividerProps) {
+    const [box] = useBox(props, { variant: 'contained' });
+
+    return <hr className={clsx(boxClass(box), dividerSizeClass(size), className)} />;
 }
 
 export interface DividerProps extends AsBox, WithSize {}

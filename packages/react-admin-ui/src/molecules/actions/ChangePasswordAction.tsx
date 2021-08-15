@@ -1,6 +1,6 @@
+import FormActionProps from '../forms/FormActionProps';
 import ChangePasswordForm, { ChangePasswordFormProps } from '../forms/ChangePasswordForm';
 import useAction from '../../hooks/useAction';
-import FormActionProps from '../forms/FormActionProps';
 import { WithMutationName } from '../../withs';
 
 export function ChangePasswordAction({

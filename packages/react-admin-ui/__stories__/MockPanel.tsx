@@ -1,9 +1,9 @@
-import { AlertPanel } from '../src/molecules/AlertPanel';
+import { Alert } from '../src/atoms/Alert';
 
 export function MockPanel() {
     return (
         <div className={'mt-4'}>
-            <AlertPanel color={'info'} variant={'outlined'} title={'Storybook useful information'}>
+            <Alert color={'info'} variant={'outlined'} title={'Storybook useful information'}>
                 <ul>
                     <li>
                         <b>test@email.com / password</b> : successful login
@@ -30,7 +30,7 @@ export function MockPanel() {
                         <b>unexpected@email.com / password</b> : unexpected error
                     </li>
                 </ul>
-            </AlertPanel>
+            </Alert>
         </div>
     );
 }

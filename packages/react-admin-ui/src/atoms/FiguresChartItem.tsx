@@ -1,6 +1,8 @@
+import Div from './Div';
 import Text from './Text';
-import Chart from 'react-apexcharts';
-import { WithName, WithValue, WithColorOfBox } from '../withs';
+import Chart from './Chart';
+import Column from './Column';
+import { WithName, WithValue, WithColorOfBox, WithSeries } from '../withs';
 
 const defaultOptions = {
     chart: {
@@ -50,23 +52,19 @@ const defaultOptions = {
     },
 };
 
-export function FiguresChartItem({ color, value, name, series }: FiguresChartItemProps) {
+export function FiguresChartItem({ color, name, series, value }: FiguresChartItemProps) {
     return (
-        <div className={'p-6 flex-1 flex items-center space-x-2'}>
-            <Chart type={'bar'} width={'80px'} height={'80px'} options={defaultOptions} series={series} />
-            <div>
-                <Text text={`${value}`} color={color} variant={'title6'} />
-                <Text text={name} color={color} variant={'description'} />
-            </div>
-        </div>
+        <Column p={'xl'}>
+            <Chart options={defaultOptions} series={series} type={'bar'} />
+            <Div center>
+                <Text color={color} text={String(value)} variant={'title6'} />
+                <Text color={color} text={name} variant={'description'} />
+            </Div>
+        </Column>
     );
 }
 
-export interface FiguresChartItemProps extends WithColorOfBox, WithValue, WithName {
-    series?: {
-        data?: number[];
-    }[];
-}
+export interface FiguresChartItemProps extends WithColorOfBox, WithValue, WithName, WithSeries {}
 
 // noinspection JSUnusedGlobalSymbols
 export default FiguresChartItem;
