@@ -18,6 +18,7 @@ const item = {
     },
     title: data.user.name,
     subtitle: data.user.title,
+    description: data.common.content2,
 };
 
 export const basic = s(ItemsSection, {
@@ -44,4 +45,16 @@ export const framedLayout = s(ItemsSection, {
     description: data.common.content,
     color: 'primary',
     variant: 'filled',
+});
+
+export const verticalSummaryLayout = s(ItemsSection, {
+    items: [
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+    ],
+    layout: 'vertical-summary',
+    title: data.common.title,
+    description: data.common.content,
+    color: 'primary',
 });
