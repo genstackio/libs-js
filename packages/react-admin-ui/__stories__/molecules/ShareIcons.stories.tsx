@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { ShareIcons } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Molecules/ShareIcons',
@@ -12,11 +13,14 @@ export default {
 
 export const basic = s(ShareIcons, {
     items: [
-        { type: 'facebook', target: 'https://www.facebook.com' },
-        { type: 'googleplus' },
-        { type: 'twitter' },
-        { type: 'instagram' },
-        { type: 'rss' },
-        { type: 'something' },
+        {
+            type: 'facebook',
+            target: data.item.target,
+        },
+        { type: 'googleplus', target: data.item.target },
+        { type: 'twitter', target: data.item.target },
+        { type: 'instagram', target: data.item.target },
+        { type: 'rss', target: data.item.target },
+        { type: 'something', target: data.item.target },
     ],
 });
