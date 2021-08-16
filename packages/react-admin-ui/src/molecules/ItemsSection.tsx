@@ -2,11 +2,13 @@ import BasicItemsSection from './itemssections/BasicItemsSection';
 import SmallItemsSection from './itemssections/SmallItemsSection';
 import FramedItemsSection from './itemssections/FramedItemsSection';
 import { WithItems, WithLayoutOfItemsSection, WithTitle, WithDescription } from '../withs';
+import LargeSummaryItemsSection from './itemssections/LargeSummaryItemsSection';
 
 const layouts = {
     basic: BasicItemsSection,
     small: SmallItemsSection,
     framed: FramedItemsSection,
+    'large-summary': LargeSummaryItemsSection,
 };
 
 export function ItemsSection({ layout = 'basic', ...props }: ItemsSectionProps) {
