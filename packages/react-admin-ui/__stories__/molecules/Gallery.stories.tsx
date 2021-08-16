@@ -13,48 +13,48 @@ export default {
 export const basic = s(Gallery, {
     items: [
         {
-            url: 'https://picsum.photos/200/200',
-            alt: 'alt',
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            url: 'https://picsum.photos/200/200',
-            alt: 'alt',
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            url: 'https://picsum.photos/200/200',
-            alt: 'alt',
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            url: 'https://picsum.photos/200/200',
-            alt: 'alt',
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            url: 'https://picsum.photos/200/200',
-            alt: 'alt',
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            url: 'https://picsum.photos/200/200',
-            alt: 'alt',
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            url: 'https://picsum.photos/200/200',
-            alt: 'alt',
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            url: 'https://picsum.photos/200/200',
-            alt: 'alt',
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            url: 'https://picsum.photos/200/200',
-            alt: 'alt',
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            url: 'https://picsum.photos/200/200',
-            alt: 'alt',
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            url: 'https://picsum.photos/200/200',
-            alt: 'alt',
+            image: data.item.image,
+            target: data.item.target,
         },
     ],
 });
@@ -62,51 +62,53 @@ export const basic = s(Gallery, {
 export const withHeader = s(Gallery, {
     items: [
         {
-            url: 'https://picsum.photos/200/200',
-            alt: 'alt',
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            url: 'https://picsum.photos/200/200',
-            alt: 'alt',
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            url: 'https://picsum.photos/200/200',
-            alt: 'alt',
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            url: 'https://picsum.photos/200/200',
-            alt: 'alt',
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            url: 'https://picsum.photos/200/200',
-            alt: 'alt',
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            url: 'https://picsum.photos/200/200',
-            alt: 'alt',
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            url: 'https://picsum.photos/200/200',
-            alt: 'alt',
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            url: 'https://picsum.photos/200/200',
-            alt: 'alt',
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            url: 'https://picsum.photos/200/200',
-            alt: 'alt',
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            url: 'https://picsum.photos/200/200',
-            alt: 'alt',
+            image: data.item.image,
+            target: data.item.target,
         },
         {
-            url: 'https://picsum.photos/200/200',
-            alt: 'alt',
+            image: data.item.image,
+            target: data.item.target,
         },
     ],
     icon: data.common.icon,
     title: data.common.title,
     btnLabel: data.buttons.button1.label,
+    btnType: 'contained',
+    btnColor: 'primary',
 });
