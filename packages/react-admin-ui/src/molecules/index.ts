@@ -7,6 +7,7 @@ export * from './Avatars';
 export * from './BoxHeader';
 export * from './BoxList';
 export * from './BoxListPanel';
+export * from './BrandPanel';
 export * from './Breadcrumb';
 export * from './BulletPoint';
 export * from './ButtonsGroup';
