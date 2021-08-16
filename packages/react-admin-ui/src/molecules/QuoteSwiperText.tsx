@@ -1,15 +1,14 @@
-import { Swiper } from 'swiper/react';
+import QuoteSlide from './QuoteSlide';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { EffectFade } from 'swiper';
 import 'swiper/swiper-bundle.css';
 import clsx from 'clsx';
-import { WithItems } from '../withs';
+import { WithItems, WithText, WithTitle } from '../withs';
 import { AsComponent } from '../as';
-import QuoteSwiperText from './QuoteSwiperText';
-import Items from '../atoms/Items';
 
 SwiperCore.use([EffectFade]);
 
-export function QuoteSwiperTexts({ className, controller, onSwiper, items = [] }: QuoteSwiperTextsProps) {
+export function QuoteSwiperText({ className, controller, onSwiper, items = [], ...props }: QuoteSwiperTextProps) {
     const params: any = {
         loop: true,
         loopAdditionalSlides: 5,
@@ -30,14 +29,17 @@ export function QuoteSwiperTexts({ className, controller, onSwiper, items = [] }
     };
     return (
         <Swiper {...params} className={clsx('sm:w-full md:w-3/4 w-2/3', className)}>
-            <Items items={items} component={QuoteSwiperText} />
+            <SwiperSlide className={clsx('w-16 h-16')}>
+                <QuoteSlide {...props} />
+            </SwiperSlide>
         </Swiper>
     );
 }
 
-export interface QuoteSwiperTextsProps extends AsComponent, WithItems {
+export interface QuoteSwiperTextProps extends AsComponent, WithItems, WithTitle, WithItems, WithText {
     controller?: any;
     onSwiper?: Function;
 }
 
-export default QuoteSwiperTexts;
+export default QuoteSwiperText;
+
