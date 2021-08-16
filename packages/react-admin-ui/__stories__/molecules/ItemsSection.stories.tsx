@@ -1,6 +1,7 @@
 import { args, s, a } from '../utils';
 import { ItemsSection } from '../../src';
 import { images, data } from '../data';
+import { Items } from '../../lib';
 
 export default {
     title: 'Molecules/ItemsSection',
@@ -18,6 +19,7 @@ const item = {
     },
     title: data.user.name,
     subtitle: data.user.title,
+    description: data.common.content2,
 };
 
 export const basic = s(ItemsSection, {
@@ -44,4 +46,16 @@ export const framedLayout = s(ItemsSection, {
     description: data.common.content,
     color: 'primary',
     variant: 'filled',
+});
+
+export const roundedLargeSummaryLayout = s(ItemsSection, {
+    items: [
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+    ],
+    layout: 'rounded-large-summary',
+    title: data.common.title,
+    description: data.common.content,
+    color: 'primary',
 });
