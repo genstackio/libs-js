@@ -1,5 +1,6 @@
 import { args, s, a } from '../utils';
 import { ButtonsGroup } from '../../src';
+import data from '../data';
 
 export default {
     title: 'Molecules/ButtonsGroup',
@@ -14,21 +15,45 @@ export const basic = s(ButtonsGroup, {
         {
             color: 'primary',
             variant: 'contained',
-            label: 'Create New Project',
-            target: () => alert('Clicked'),
-            icon: 'add_box_outlined',
+            label: data.buttons.button1.label,
+            target: data.buttons.button1.target,
         },
         {
             color: 'secondary',
             variant: 'contained',
-            label: 'Cancel',
-            icon: 'arrow_back_outlined',
+            label: data.buttons.button2.label,
+            target: data.buttons.button2.target,
         },
         {
             color: 'light',
             variant: 'contained',
-            label: 'Third',
-            target: 'https://www.google.com/',
+            label: data.buttons.button3.label,
+            target: data.buttons.button3.target,
+        },
+    ],
+});
+
+export const withIcon = s(ButtonsGroup, {
+    items: [
+        {
+            color: 'primary',
+            variant: 'contained',
+            label: data.buttons.button1.label,
+            target: data.buttons.button1.target,
+            icon: data.common.icon,
+        },
+        {
+            color: 'secondary',
+            variant: 'contained',
+            label: data.buttons.button2.label,
+            target: data.buttons.button2.target,
+            icon: data.common.icon,
+        },
+        {
+            color: 'light',
+            variant: 'contained',
+            label: data.buttons.button3.label,
+            target: data.buttons.button3.target,
         },
     ],
 });
