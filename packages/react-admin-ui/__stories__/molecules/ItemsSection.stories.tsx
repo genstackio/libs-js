@@ -13,9 +13,7 @@ export default {
 };
 
 const item = {
-    image: {
-        url: images.random_square,
-    },
+    image: data.user.image,
     title: data.user.name,
     subtitle: data.user.title,
 };
@@ -32,6 +30,18 @@ export const SmallLayout = s(ItemsSection, {
     description: data.common.content,
     layout: 'small',
 });
+
+export const LargeLayout = s(ItemsSection, {
+    items: [
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+    ],
+    layout: 'large',
+    title: data.common.title,
+    description: data.common.content,
+    color: 'primary',
+})
 
 export const framedLayout = s(ItemsSection, {
     items: [
