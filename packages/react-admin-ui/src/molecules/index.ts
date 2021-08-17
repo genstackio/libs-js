@@ -57,6 +57,7 @@ export * from './QuoteSlide';
 export * from './QuoteSwiper';
 export * from './QuoteSwiperImage';
 export * from './QuoteSwiperImages';
+export * from './QuoteSwiperText';
 export * from './QuoteSwiperTexts';
 export * from './ShareIcon';
 export * from './ShareIcons';
