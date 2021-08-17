@@ -42,7 +42,7 @@ export const LargeLayout = s(ItemsSection, {
     title: data.common.title,
     description: data.common.content,
     color: 'primary',
-})
+});
 
 export const framedLayout = s(ItemsSection, {
     items: [

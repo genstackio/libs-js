@@ -7,13 +7,7 @@ import clsx from 'clsx';
 import ShareIcons from '../ShareIcons';
 import { box_color } from '../../mappings/box-colors';
 
-export function LargeItemsSection({
-                                                    title,
-                                                    description,
-                                                    items = [],
-                                                    color,
-                                                    className,
-                                                }: LargeItemsSectionProps) {
+export function LargeItemsSection({ title, description, items = [], color, className }: LargeItemsSectionProps) {
     return (
         <Div flex className={clsx('py-14 px-8 sm:py-6 sm:px-4 flex-col', className)}>
             <HeadingText title={title} description={description} variant={'medium2'} center />
@@ -39,12 +33,7 @@ export function LargeItemsSection({
     );
 }
 
-export interface LargeItemsSectionProps
-    extends AsComponent,
-        WithTitle,
-        WithDescription,
-        WithItems,
-        WithColorOfText {}
+export interface LargeItemsSectionProps extends AsComponent, WithTitle, WithDescription, WithItems, WithColorOfText {}
 
 // noinspection JSUnusedGlobalSymbols
 export default LargeItemsSection;

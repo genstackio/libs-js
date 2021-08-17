@@ -5,7 +5,7 @@ import RoundedLargeSummaryItemsSection from './itemssections/RoundedLargeSummary
 import VerticalSummaryItemsSection from './itemssections/VerticalSummaryItemsSection';
 import SummaryItemsSection from './itemssections/SummaryItemsSection';
 import { WithItems, WithLayoutOfItemsSection, WithTitle, WithDescription } from '../withs';
-import LargeItemsSection from "./itemssections/LargeItemsSection";
+import LargeItemsSection from './itemssections/LargeItemsSection';
 import LargeSummaryItemsSection from './itemssections/LargeSummaryItemsSection';
 
 const layouts = {
