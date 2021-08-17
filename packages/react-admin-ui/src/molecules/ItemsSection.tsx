@@ -4,11 +4,13 @@ import FramedItemsSection from './itemssections/FramedItemsSection';
 import VerticalSummaryItemsSection from './itemssections/VerticalSummaryItemsSection';
 import SummaryItemsSection from './itemssections/SummaryItemsSection';
 import { WithItems, WithLayoutOfItemsSection, WithTitle, WithDescription } from '../withs';
+import LargeSummaryItemsSection from './itemssections/LargeSummaryItemsSection';
 
 const layouts = {
     basic: BasicItemsSection,
     small: SmallItemsSection,
     framed: FramedItemsSection,
+    'large-summary': LargeSummaryItemsSection,
     'vertical-summary': VerticalSummaryItemsSection,
     summary: SummaryItemsSection,
 };
