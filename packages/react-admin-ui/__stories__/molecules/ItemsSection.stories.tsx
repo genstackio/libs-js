@@ -48,12 +48,48 @@ export const framedLayout = s(ItemsSection, {
 });
 
 export const roundedLargeSummaryLayout = s(ItemsSection, {
+    layout: 'rounded-large-summary',
     items: [
         { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
         { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
         { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
     ],
-    layout: 'rounded-large-summary',
+    title: data.common.title,
+    description: data.common.content,
+    color: 'primary',
+});
+
+export const largeSummaryLayout = s(ItemsSection, {
+    layout: 'large-summary',
+    items: [
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+    ],
+    title: data.common.title,
+    description: data.common.content,
+    color: 'primary',
+});
+
+export const verticalSummaryLayout = s(ItemsSection, {
+    layout: 'vertical-summary',
+    items: [
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+    ],
+    title: data.common.title,
+    description: data.common.content,
+    color: 'primary',
+});
+
+export const summaryLayout = s(ItemsSection, {
+    layout: 'summary',
+    items: [
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+    ],
     title: data.common.title,
     description: data.common.content,
     color: 'primary',
