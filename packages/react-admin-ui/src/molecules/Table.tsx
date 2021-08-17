@@ -1,12 +1,13 @@
 import { DataGrid, DataGridProps, GridCellParams, GridColDef, GridValueFormatterParams } from '@material-ui/data-grid';
 import { makeStyles } from '@material-ui/core/styles';
 import tailwindConfig from '../../tailwind.config';
-import { flag } from '../types';
+import { class_name, flag } from '../types';
 import Badge from '../atoms/Badge';
 import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { WithColorOfBox, WithItemsOfTable, WithColumnsOfTable } from '../withs';
 import { AsComponent } from '../as';
+import clsx from 'clsx';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 const tailwindTextColors = tailwindConfig.theme.extend.textColors;
@@ -91,9 +92,21 @@ export function Table({
     items = [],
     selection = false,
     defaultRowsPerPage = 50,
+    rootClassName,
+    rowClassName,
+    columnHeaderClassName,
+    cellClassName,
+    rowHeight,
     ...props
 }: TableProps) {
-    const classes = useStyles({ color, striped } as any);
+    let classes = useStyles({ color, striped } as any);
+    classes = useMemo(() => {
+        classes['root'] = clsx(classes['root'], rootClassName);
+        classes['row'] = clsx(classes['row'], rowClassName);
+        classes['columnHeader'] = clsx(classes['columnHeader'], columnHeaderClassName);
+        classes['cell'] = clsx(classes['cell'], cellClassName);
+        return classes;
+    }, [classes, rootClassName, rowClassName, columnHeaderClassName, cellClassName]);
     const [rowsPerPage, setRowsPerPage] = useState(defaultRowsPerPage);
     const handlePageSizeChange = useCallback(
         (e) => {
@@ -112,6 +125,7 @@ export function Table({
             ...acc,
             {
                 field: col.id,
+                flex: 1,
                 headerName: col.label,
                 width: col.width || 150,
                 valueFormatter:
@@ -142,6 +156,7 @@ export function Table({
         }),
         [pagination],
     );
+
     return (
         <DataGrid
             localeText={localeText}
@@ -149,6 +164,7 @@ export function Table({
             rows={items}
             columns={formattedCols}
             classes={classes}
+            rowHeight={rowHeight}
             checkboxSelection={selection}
             disableColumnMenu
             disableSelectionOnClick
@@ -179,6 +195,11 @@ export interface TableProps
     defaultRowsPerPage?: number;
     onPageChange?: Function;
     loading?: flag;
+    rowHeight?: number;
+    rootClassName?: class_name;
+    rowClassName?: class_name;
+    columnHeaderClassName?: class_name;
+    cellClassName?: class_name;
 }
 
 // noinspection JSUnusedGlobalSymbols
