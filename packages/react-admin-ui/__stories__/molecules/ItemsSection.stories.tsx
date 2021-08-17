@@ -1,7 +1,6 @@
 import { args, s, a } from '../utils';
 import { ItemsSection } from '../../src';
 import { images, data } from '../data';
-import { Items } from '../../lib';
 
 export default {
     title: 'Molecules/ItemsSection',
