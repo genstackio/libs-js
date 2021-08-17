@@ -47,13 +47,25 @@ export const framedLayout = s(ItemsSection, {
     variant: 'filled',
 });
 
-export const summaryLayout = s(ItemsSection, {
+export const verticalSummaryLayout = s(ItemsSection, {
+    layout: 'vertical-summary',
     items: [
         { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
         { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
         { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
     ],
+    title: data.common.title,
+    description: data.common.content,
+    color: 'primary',
+});
+
+export const summaryLayout = s(ItemsSection, {
     layout: 'summary',
+    items: [
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+        { ...item, share_icons: [{ type: 'twitter' }, { type: 'google' }] },
+    ],
     title: data.common.title,
     description: data.common.content,
     color: 'primary',
