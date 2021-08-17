@@ -10,6 +10,7 @@ export * from './BoxListPanel';
 export * from './Breadcrumb';
 export * from './BulletPoint';
 export * from './ButtonsGroup';
+export * from './ButtonsGroupItem';
 export * from './CallToActionSection';
 export * from './Calendar';
 export * from './Chat';
