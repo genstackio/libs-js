@@ -27,6 +27,7 @@ export * from './Figure';
 export * from './FileUploader';
 export * from './forms';
 export * from './Gallery';
+export * from './GalleryItem';
 export * from './Heading';
 export * from './HeadingLeft';
 export * from './Infos';
