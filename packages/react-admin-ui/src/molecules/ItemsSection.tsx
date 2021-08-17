@@ -2,6 +2,7 @@ import BasicItemsSection from './itemssections/BasicItemsSection';
 import SmallItemsSection from './itemssections/SmallItemsSection';
 import FramedItemsSection from './itemssections/FramedItemsSection';
 import VerticalSummaryItemsSection from './itemssections/VerticalSummaryItemsSection';
+import SummaryItemsSection from './itemssections/SummaryItemsSection';
 import { WithItems, WithLayoutOfItemsSection, WithTitle, WithDescription } from '../withs';
 
 const layouts = {
@@ -9,6 +10,7 @@ const layouts = {
     small: SmallItemsSection,
     framed: FramedItemsSection,
     'vertical-summary': VerticalSummaryItemsSection,
+    summary: SummaryItemsSection,
 };
 
 export function ItemsSection({ layout = 'basic', ...props }: ItemsSectionProps) {
