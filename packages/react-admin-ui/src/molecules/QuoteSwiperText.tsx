@@ -42,4 +42,3 @@ export interface QuoteSwiperTextProps extends AsComponent, WithItems, WithTitle,
 }
 
 export default QuoteSwiperText;
-
