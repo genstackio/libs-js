@@ -2,6 +2,7 @@ export const headingTextVariants = {
     none: { title: 'title1', subtitle: 'subtitle' },
     section: { title: 'section', subtitle: 'subsection' },
     xsection: { title: 'section', subtitle: 'xsmall' },
+    ctasection: { title: 'title3', subtitle: 'title3' },
     small: { title: 'title6', subtitle: 'body' },
     xxsmall: { title: 'title6', subtitle: 'overline' },
     xxsmall2: { title: 'title6', subtitle: 'title3' },
@@ -23,6 +24,7 @@ export type heading_text_variant =
     | 'none'
     | 'xsection'
     | 'section'
+    | 'ctasection'
     | 'xxsmall'
     | 'xxsmall2'
     | 'xxsmall3'
