@@ -1,24 +1,30 @@
-import Buttons from '../atoms/Buttons';
-import HeadingText from '../atoms/HeadingText';
+import clsx from 'clsx';
 import Block from '../atoms/Block';
-import { AsBox } from '../as';
-import { WithPush } from '../withs';
+import HeadingText from '../atoms/HeadingText';
+import Buttons from '../atoms/Buttons';
+import positionClass from '../mappings/positions';
 import useBlock from '../hooks/useBlock';
 import useButtons from '../hooks/useButtons';
 import useHeadingText from '../hooks/useHeadingText';
+import { AsBox } from '../as';
+import { WithPush } from '../withs';
 
-export function CallToActionSection({ className, ...props }: CallToActionSectionProps) {
+export function CallToActionSection({ className, buttonsPosition = 'right', ...props }: CallToActionSectionProps) {
     const [bProps, rest3] = useBlock(props);
     const [htProps, rest2] = useHeadingText(rest3);
     const [btProps] = useButtons(rest2);
+
     return (
         <Block
             {...bProps}
-            contentClassName={'flex py-12 px-4 sm:px-6 lg:py-16 lg:px-8 justify-between items-center xs:flex-col'}
+            contentClassName={clsx(
+                'flex py-12 px-4 sm:px-6 lg:py-16 lg:px-8 justify-between xs:flex-col',
+                positionClass(buttonsPosition),
+            )}
         >
             <HeadingText {...htProps} titleClassName={'mb-2'} variant={'ctasection'} />
-            <div className={className}>
-                <Buttons className={'mb-2 px-5 py-3'} btnLabel={'Get Started'} btn2Label={'Learn more'} {...btProps} />
+            <div className={clsx(className)}>
+                <Buttons className={clsx(buttonsPosition === 'bottom' && 'mt-4')} {...btProps} />
             </div>
         </Block>
     );

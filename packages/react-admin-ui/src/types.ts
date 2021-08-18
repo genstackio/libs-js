@@ -232,6 +232,8 @@ export type user_role = {
 
 export type push_image_position = 'left' | 'right' | 'top' | 'bottom';
 
+export type position = 'left' | 'right' | 'top' | 'bottom';
+
 export type push_item = {
     btnLabel?: rich_text;
     btnTarget?: target;
