@@ -1,5 +1,6 @@
 import ItemCarroussel from '../../src/organisms/ItemCarroussel';
 import { args, a, s } from '../utils';
+import data from '../data';
 
 export default {
     title: 'Organisms/ItemCarroussel',
@@ -11,67 +12,60 @@ export default {
 };
 
 const item0 = {
-    title: 'Mon Produit',
-    label: 'Compatible Mac, PC & Linux',
-    buttonLabel: 'Découvrir',
-    buttonTarget: 'https://www.google.com',
+    title: data.item.title,
+    label: data.common.label,
+    btnLabel: data.buttons.button1.label,
+    btnTarget: data.buttons.button1.target,
     buttonType: 'tertiary',
-    image: {
-        url: 'https://via.placeholder.com/687x426?text=Image',
-    },
+    image: data.common.image,
 };
 
 const item1 = {
-    title: 'Mon Produit',
-    label: '39,90€',
-    buttonLabel: 'Découvrir',
-    buttonTarget: 'https://www.google.com',
+    title: data.item.title,
+    label: data.common.label,
+    btnLabel: data.buttons.button1.label,
+    btnTarget: data.buttons.button1.target,
     buttonType: 'tertiary',
-    image: {
-        url: 'https://via.placeholder.com/687x426?text=Image',
-    },
+    image: data.common.image,
 };
 
 const item2 = {
-    title: 'Mon Produit',
-    label: 'App iPhone & Android',
-    buttonLabel: 'Découvrir',
-    buttonTarget: 'https://www.google.com',
-    image: {
-        url: 'https://via.placeholder.com/687x426?text=Image',
-    },
+    title: data.item.title,
+    label: data.common.label,
+    btnLabel: data.buttons.button1.label,
+    btnTarget: data.buttons.button1.target,
+    btnTarget2: data.buttons.button2.target,
+    buttonType: 'tertiary',
+    image: data.common.image,
 };
 
 const item3 = {
-    title: 'Mon autre produit',
-    label: "Pas d'écran, place à l'imagination",
-    buttonLabel: 'buttonLabel',
-    buttonTarget: 'https://www.google.fr',
-    buttonTarget2: 'https://www.facebook.fr',
-    image: {
-        url: 'https://via.placeholder.com/687x426?text=Image',
-    },
+    title: data.item.title,
+    label: data.common.label,
+    btnLabel: data.buttons.button1.label,
+    btnTarget: data.buttons.button1.target,
+    btnTarget2: data.buttons.button2.target,
+    buttonType: 'tertiary',
+    image: data.common.image,
 };
 
 const item4 = {
-    buttonLabel: 'Découvrir',
-    buttonTarget: () => console.log('click'),
-    image: {
-        url: 'https://via.placeholder.com/687x426?text=Image',
-    },
+    btnLabel: data.buttons.button1.label,
+    btnTarget: data.buttons.button1.target,
+    image: data.common.image,
 };
 
 export const basic = s(ItemCarroussel, {
-    title: 'Découvrez aussi ...',
+    title: data.common.title,
     items: [item0, item1, item2],
 });
 
 export const manyManyItemsWithInfosOnFirst = s(ItemCarroussel, {
-    title: 'Découvrez aussi ...',
+    title: data.common.title,
     items: [item3, item1, item2, item0, item1, item2, item0, item1, item2, item0, item1, item2],
 });
 
 export const manyManyItemsWithNoInfosOnFirst = s(ItemCarroussel, {
-    title: 'Découvrez aussi ...',
+    title: data.common.title,
     items: [item4, item1, item2, item0, item1, item2, item0, item1, item2, item0, item1, item2],
 });
