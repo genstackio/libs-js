@@ -4,9 +4,10 @@ import FramedItemsSection from './itemssections/FramedItemsSection';
 import RoundedLargeSummaryItemsSection from './itemssections/RoundedLargeSummaryItemsSection';
 import VerticalSummaryItemsSection from './itemssections/VerticalSummaryItemsSection';
 import SummaryItemsSection from './itemssections/SummaryItemsSection';
-import { WithItems, WithLayoutOfItemsSection, WithTitle, WithDescription } from '../withs';
 import LargeItemsSection from './itemssections/LargeItemsSection';
 import LargeSummaryItemsSection from './itemssections/LargeSummaryItemsSection';
+import { IconedItemsSection } from './itemssections/IconedItemsSection';
+import { WithItems, WithLayoutOfItemsSection, WithTitle, WithDescription } from '../withs';
 
 const layouts = {
     basic: BasicItemsSection,
@@ -17,6 +18,7 @@ const layouts = {
     'large-summary': LargeSummaryItemsSection,
     'vertical-summary': VerticalSummaryItemsSection,
     summary: SummaryItemsSection,
+    iconed: IconedItemsSection,
 };
 
 export function ItemsSection({ layout = 'basic', ...props }: ItemsSectionProps) {
