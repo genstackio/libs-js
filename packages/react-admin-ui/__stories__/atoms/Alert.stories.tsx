@@ -20,6 +20,25 @@ export const basic = s(Alert, {
     closable: true,
 });
 
+export const withButton = s(Alert, {
+    children: data.common.content,
+    color: 'secondary',
+    variant: 'contained',
+    closable: true,
+    btnLabel: data.buttons.button1.label,
+    btnTarget: data.buttons.button1.target,
+    btnType: 'filled',
+    btnColor: 'secondary',
+});
+
+export const withIcon = s(Alert, {
+    children: data.common.content,
+    color: 'secondary',
+    variant: 'contained',
+    closable: true,
+    icon: data.common.icon,
+});
+
 export const showcase = s(
     (args) => (
         <div className={'space-y-2'}>
