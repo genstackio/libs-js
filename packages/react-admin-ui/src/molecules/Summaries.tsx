@@ -1,22 +1,13 @@
 import clsx from 'clsx';
-import Text from '../atoms/Text';
-import Icon from '../atoms/Icon';
 import { WithItemsOfSummaries } from '../withs';
 import { AsComponent } from '../as';
+import SummariesItem from '../atoms/SummariesItem';
 
 export function Summaries({ className, items }: SummariesProps) {
     return items ? (
         <div className={clsx(`grid grid-flow-col grid-cols-${items.length} divide-x`, className)}>
-            {items.slice(0, 3).map(({ value, unit, color, percentage, icon }, index) => (
-                <div className={'text-center'} key={index}>
-                    <div className={'flex justify-center'}>
-                        <Text text={`${percentage}` + ' %'} variant={'description'} className={'text-center'} />
-                        {percentage > 0 && <Icon icon={'keyboard_arrow_up'} />}
-                        {percentage < 0 && <Icon icon={'keyboard_arrow_down'} />}
-                    </div>
-                    <Text text={unit} color={'dark'} variant={'description'} />
-                    <Text text={value} color={'dark'} variant={'title6'} />
-                </div>
+            {items.slice(0, 3).map((item, index) => (
+                <SummariesItem {...item} key={index} />
             ))}
         </div>
     ) : null;
