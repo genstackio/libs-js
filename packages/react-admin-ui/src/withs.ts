@@ -53,12 +53,13 @@ import {
     select_item,
     rating_value,
     push_image_position,
+    position,
     push_item,
     items_section_layouts,
     badge_variant,
+    alignment,
 } from './types';
 import { padding } from './mappings/paddings';
-import { alignment } from './mappings/alignments';
 import { elevation } from './mappings/elevations';
 import { corner } from './mappings/corners';
 import { status } from './mappings/statuses';
@@ -543,6 +544,9 @@ export interface WithSizeOfText {
     size?: text_size;
 }
 export interface WithPosition {
+    position?: position;
+}
+export interface WithAlignmentAsPosition {
     position?: alignment;
 }
 export interface WithLogo {
@@ -700,12 +704,21 @@ export interface WithPositionOfPushImage {
     imagePosition?: push_image_position;
 }
 
+export interface WithPositionOfButtons {
+    buttonsPosition?: position;
+}
+
+export interface WithPosition {
+    buttonsPosition?: position;
+}
+
 export interface WithPush
     extends WithHeadingText,
         WithImage,
         WithButton,
         WithButton2,
         WithButton3,
+        WithPosition,
         WithPositionOfPushImage {}
 
 export interface WithLayoutOfItemsSection {

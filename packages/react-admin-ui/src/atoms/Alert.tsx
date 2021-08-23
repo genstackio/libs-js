@@ -4,10 +4,10 @@ import Div from './Div';
 import Clickable from './Clickable';
 import Panel, { PanelProps } from './Panel';
 import { useToggle } from '../hooks/useToggle';
-import {WithButton, WithCenter, WithClosable, WithIcon} from '../withs';
+import { WithButton, WithCenter, WithClosable, WithIcon } from '../withs';
 import Button from './Button';
 import { box_variant } from '../mappings/box-variants';
-import Icon from "./Icon";
+import Icon from './Icon';
 
 export function Alert({
     children,

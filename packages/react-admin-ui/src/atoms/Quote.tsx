@@ -1,5 +1,5 @@
 import alignmentClass from '../mappings/alignments';
-import { WithText, WithTitle, WithPosition } from '../withs';
+import { WithText, WithTitle, WithAlignmentAsPosition } from '../withs';
 import { AsComponent } from '../as';
 
 const textPositions = {
@@ -22,7 +22,7 @@ export function Quote({ className, position = 'left', text, title }: QuoteProps)
     );
 }
 
-export interface QuoteProps extends AsComponent, WithText, WithTitle, WithPosition {}
+export interface QuoteProps extends AsComponent, WithText, WithTitle, WithAlignmentAsPosition {}
 
 // noinspection JSUnusedGlobalSymbols
 export default Quote;
