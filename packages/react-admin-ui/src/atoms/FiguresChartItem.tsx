@@ -1,6 +1,7 @@
 import Text from './Text';
 import Chart from 'react-apexcharts';
 import { WithName, WithValue, WithColorOfBox } from '../withs';
+import { text_align } from '../types';
 
 const defaultOptions = {
     chart: {
@@ -50,11 +51,17 @@ const defaultOptions = {
     },
 };
 
-export function FiguresChartItem({ color, value, name, series }: FiguresChartItemProps) {
+export function FiguresChartItem({ color, value, name, series, align = 'center' }: FiguresChartItemProps) {
+    const alignFunction = {
+        left: 'justify-start',
+        right: 'justify-end',
+        center: 'justify-center',
+    };
+
     return (
-        <div className={'p-6 flex-1 flex items-center space-x-2'}>
+        <div className={`flex ${alignFunction[align]}`}>
             <Chart type={'bar'} width={'80px'} height={'80px'} options={defaultOptions} series={series} />
-            <div>
+            <div className={'pt-6'}>
                 <Text text={`${value}`} color={color} variant={'title6'} />
                 <Text text={name} color={color} variant={'description'} />
             </div>
@@ -66,6 +73,7 @@ export interface FiguresChartItemProps extends WithColorOfBox, WithValue, WithNa
     series?: {
         data?: number[];
     }[];
+    align?: text_align;
 }
 
 // noinspection JSUnusedGlobalSymbols

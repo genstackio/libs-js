@@ -10,6 +10,7 @@ export default {
         color: args.color,
         key: args.number,
         series: args.items,
+        align: args.align,
     }),
 };
 

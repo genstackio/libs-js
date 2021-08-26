@@ -230,4 +230,5 @@ export const args = {
     unit: { control: { type: 'select' }, options: [undefined, '$', '€', '£', 'M'] },
     value: { control: { type: 'number' } },
     values: { control: { type: 'object' } },
+    align: { control: { type: 'select' }, options: ['left', 'center', 'right'] },
 };

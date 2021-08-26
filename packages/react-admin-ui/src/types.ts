@@ -254,3 +254,5 @@ export type items_section_layouts =
     | 'vertical-summary'
     | 'large-summary'
     | 'rounded-large-summary';
+
+export type text_align = 'left' | 'right' | 'center';
