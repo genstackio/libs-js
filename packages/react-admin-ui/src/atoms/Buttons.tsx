@@ -39,7 +39,8 @@ export function Buttons({
         <Div
             full
             className={clsx(
-                'sm:grid sm:grid-cols-1 md:flex lg:flex xl:flex 2xl:flex md:space-x-2 lg:space-x-2 xl:space-x-2 2xl:space-x-2',
+                'sm:grid sm:grid-cols-1 md:flex lg:flex xl:flex 2xl:flex',
+                (btn2Label || btn3Label) && ' md:space-x-2 lg:space-x-2 xl:space-x-2 2xl:space-x-2',
                 className,
             )}
         >

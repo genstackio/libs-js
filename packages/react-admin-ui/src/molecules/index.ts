@@ -35,6 +35,7 @@ export * from './Heading';
 export * from './HeadingLeft';
 export * from './Infos';
 export * from './ImageCropper';
+export * from './ImageUploader';
 export * from './ItemCarrousselSlide';
 export * from './ItemsSection';
 export * from './ItemSummary';
