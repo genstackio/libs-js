@@ -1,17 +1,17 @@
-import clsx from 'clsx';
 import Avatar from '../atoms/Avatar';
 import Text from '../atoms/Text';
-import { WithImage, WithSubtitle, WithText, WithColorOfText, WithTitle } from '../withs';
+import Column from '../atoms/Column';
 import { AsComponent } from '../as';
+import { WithImage, WithSubtitle, WithText, WithColorOfText, WithTitle } from '../withs';
 
-export function FeaturedQuote({ className, text, title, subtitle, image, color = 'primary' }: FeaturedQuoteProps) {
+export function FeaturedQuote({ className, color = 'primary', image, subtitle, text, title }: FeaturedQuoteProps) {
     return (
-        <div className={clsx('flex flex-col items-center', className)}>
-            <Text text={text} variant={'xsmall'} center className={'p-4 pt-7 flex-auto'} />
-            <Avatar name={'string' === typeof title ? title : ''} image={image} size={'lg'} className={'pt-5'} />
-            <Text text={title} variant={'section'} color={color} className={'pt-3'} />
-            <Text text={subtitle} variant={'description'} className={'pt-3 pb-5'} />
-        </div>
+        <Column center pb={'xmd'} className={className}>
+            <Text center text={text} variant={'xsmall'} p={'md'} pt={'sl'} className={'flex-auto'} />
+            <Avatar image={image} name={'string' === typeof title ? title : ''} size={'lg'} className={'pt-3'} />
+            <Text color={color} text={title} pt={'xmd'} variant={'section'} />
+            <Text text={subtitle} pt={'xmd'} variant={'description'} />
+        </Column>
     );
 }
 

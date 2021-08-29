@@ -1,18 +1,19 @@
-import clsx from 'clsx';
+import Div from '../atoms/Div';
+import Row from '../atoms/Row';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
-import { WithIcon, WithText, WithTitle } from '../withs';
 import { AsBox } from '../as';
+import { WithIcon, WithText, WithTitle } from '../withs';
 
-export function BulletPoint({ className, icon, text, title, color }: BulletPointProps) {
+export function BulletPoint({ className, color, icon, text, title }: BulletPointProps) {
     return (
-        <div className={clsx('flex items-center', className)}>
+        <Row responsive={false} center className={className}>
             <Icon icon={icon} />
-            <div className={'flex-column ml-4'}>
-                <Text text={title} variant={'title5'} color={color} />
-                <Text text={text} variant={'body'} color={color} />
-            </div>
-        </div>
+            <Div col ml={'md'}>
+                <Text color={color} text={title} variant={'title5'} />
+                <Text color={color} text={text} variant={'body'} />
+            </Div>
+        </Row>
     );
 }
 

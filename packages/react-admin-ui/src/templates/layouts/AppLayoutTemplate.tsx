@@ -1,38 +1,42 @@
 import { ReactNode, useCallback, useState } from 'react';
 import clsx from 'clsx';
-import Menu from '../../molecules/Menu';
 import Clickable from '../../atoms/Clickable';
 import Image from '../../atoms/Image';
+import Div from '../../atoms/Div';
 import Icon from '../../atoms/Icon';
+import Cell from '../../atoms/Cell';
+import Menu from '../../molecules/Menu';
 import textClass from '../../utils/textClass';
-import { menu_item } from '../../types';
-import { WithLogo } from '../../withs';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
+import { menu_item } from '../../types';
 import { AsBoxWrapper } from '../../as';
+import { WithLogo } from '../../withs';
 
-export function AppLayoutTemplate({ className, logo, menu, children, toolbar, ...props }: AppLayoutTemplateProps) {
+export function AppLayoutTemplate({ children, className, logo, menu, toolbar, ...props }: AppLayoutTemplateProps) {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const [show, setShow] = useState(!isMobile);
     const handleClick = useCallback(() => {
         setShow(!show);
     }, [setShow, show]);
+
     return (
-        <div className={clsx('flex h-screen', className)}>
-            <div
+        <Div flex hscreen className={className}>
+            <Div
+                absolute
                 className={clsx(
-                    'w-drawer bg-clear transform h-full overflow-auto transition-all duration-300 z-30 absolute',
+                    'w-drawer bg-clear transform h-full overflow-auto transition-all duration-300 z-30',
                     show ? 'translate-x-0' : '-translate-x-full',
                 )}
             >
-                <div className={'px-2 py-2 h-xxl shadow-toolbar flex items-center'}>
+                <Div center flex p={'sm'} className={'h-xxl shadow-toolbar'}>
                     {logo && <Image className={'flex-1'} {...logo} />}
-                </div>
+                </Div>
                 {menu && <Menu items={menu} {...props} />}
-            </div>
-            <div className={clsx('flex-1 transition-all duration-300 ', show ? 'x-pl-drawer' : 'pl-0')}>
-                <div className={'px-8 py-6 h-xxl flex items-center'}>
+            </Div>
+            <Cell col className={clsx('transition-all duration-300 ', show ? 'x-pl-drawer' : 'pl-0')}>
+                <Div center flex p={'xl'} className={'h-xxl'}>
                     <Clickable onClick={handleClick} className={'mr-4'}>
                         <Icon
                             icon={'menu'}
@@ -44,10 +48,12 @@ export function AppLayoutTemplate({ className, logo, menu, children, toolbar, ..
                         />
                     </Clickable>
                     {toolbar || ''}
-                </div>
-                <div className={'h-screen p-4 shadow-inside'}>{children || ''}</div>
-            </div>
-        </div>
+                </Div>
+                <Div p={'md'} className={'h-screen shadow-inside'}>
+                    {children}
+                </Div>
+            </Cell>
+        </Div>
     );
 }
 

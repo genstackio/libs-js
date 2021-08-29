@@ -1,37 +1,59 @@
 import clsx from 'clsx';
-import Badge from '../atoms/Badge';
-import Block from '../atoms/Block';
-import Icon from '../atoms/Icon';
-import Text from '../atoms/Text';
-import { WithActive, WithBadges, WithColorOfBox, WithIcon, WithLabel, WithTarget, WithVariantOfMenu } from '../withs';
+import Badge from './Badge';
+import Block from './Block';
+import Icon from './Icon';
+import Text from './Text';
 import Items from './Items';
+import Row from './Row';
+import Div from './Div';
+import marginClass from '../mappings/margins';
 import { AsComponent } from '../as';
+import {
+    WithActive,
+    WithBadges,
+    WithColorOfBox,
+    WithIcon,
+    WithLabel,
+    WithMargin,
+    WithTarget,
+    WithVariantOfMenu,
+} from '../withs';
 
-export function MenuItem({ className, label, icon, target, active = false, badges, color, variant }: MenuItemProps) {
+export function MenuItem({
+    active = false,
+    badges,
+    color,
+    className,
+    icon,
+    label,
+    m = 'md-x',
+    target,
+    variant,
+}: MenuItemProps) {
     return (
         <Block
-            padding={'small'}
-            elevation={0}
-            className={clsx('mx-4 transition duration-500', className)}
-            corner={'rounded-small'}
-            onClick={target}
-            contentClassName={'flex justify-between items-center space-x-4'}
             active={active}
-            hoverable
             color={color}
+            contentClassName={'flex justify-between items-center space-x-4'}
+            corner={'rounded-small'}
+            elevation={0}
+            hoverable
+            onClick={target}
+            p={'md'}
             variant={'light' === variant ? 'filled' : variant}
+            className={clsx('transition duration-500', marginClass(m), className)}
         >
-            <div className={'flex items-center space-x-4'}>
+            <Row center responsive={false} spaced={4}>
                 {icon && (
-                    <div className={'w-6 flex'}>
+                    <Div flex className={'w-6'}>
                         <Icon className={'flex-1'} icon={icon} />
-                    </div>
+                    </Div>
                 )}
                 <Text text={label} variant={'description'} />
-            </div>
-            <div className={'flex items-center space-x-2'}>
-                <Items items={badges} component={Badge} />
-            </div>
+            </Row>
+            <Row center responsive={false} spaced={2}>
+                <Items component={Badge} items={badges} />
+            </Row>
         </Block>
     );
 }
@@ -44,6 +66,7 @@ export interface MenuItemProps
         WithActive,
         WithTarget,
         WithVariantOfMenu,
+        WithMargin,
         WithBadges {}
 
 // noinspection JSUnusedGlobalSymbols

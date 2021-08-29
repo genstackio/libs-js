@@ -1,6 +1,8 @@
 import clsxmp from '../utils/clsxmp';
 
 export const corners = {
+    none: '',
+    'r-sm': 'rounded-sm',
     rounded: 'rounded-2xl',
     'top-rounded': 'rounded-t-2xl',
     'left-rounded': 'rounded-l-2xl',
@@ -18,6 +20,8 @@ export const corners = {
 export const cornerValues = Object.keys(corners);
 
 export type corner =
+    | 'none'
+    | 'r-sm'
     | 'rounded'
     | 'top-rounded'
     | 'left-rounded'

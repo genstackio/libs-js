@@ -1,29 +1,26 @@
-import clsx from 'clsx';
-import textClass from '../utils/textClass';
 import Block, { BaseBlockProps } from '../atoms/Block';
+import Row from '../atoms/Row';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
+import Cell from '../atoms/Cell';
+import Column from '../atoms/Column';
+import useBlock from '../hooks/useBlock';
 import { WithIcon, WithText, WithTitle } from '../withs';
-import { useBlock } from '../hooks';
 
 export function TextBlock({ icon, text, title, ...props }: TextBlockProps) {
     const [bProps] = useBlock(props);
+
     return (
         <Block {...bProps}>
-            <div
-                className={clsx(
-                    textClass({ color: props.color, variant: props.variant }),
-                    'flex justify-between items-center',
-                )}
-            >
-                <div className={'flex-col'}>
-                    <Text className={'flex-1'} text={title} variant={'title5'} />
-                    <div className={'text-md flex-1'}>
+            <Row center spaced>
+                <Column>
+                    <Text text={title} variant={'title5'} className={'flex-1'} />
+                    <Cell>
                         <Text text={text} variant={'body'} />
-                    </div>
-                </div>
-                <Icon icon={icon} />
-            </div>
+                    </Cell>
+                </Column>
+                <Icon icon={icon} className={'mt-2 sm:ml-2'} />
+            </Row>
         </Block>
     );
 }

@@ -1,27 +1,24 @@
 import Tag from '../atoms/Tag';
+import Div from '../atoms/Div';
 import { icon_variant } from '../types';
-import { WithIcon, WithItemsOfCorner, WithText } from '../withs';
 import { AsBox } from '../as';
-import clsx from 'clsx';
+import { WithIcon, WithItemsOfCorner, WithText } from '../withs';
 
 export function CornerItem({
     className,
     color,
+    icon,
     iconCorner,
     items = [],
     text,
-    icon,
     variant,
     ...props
 }: CornerItemProps) {
     return (
-        <div className={clsx('py-1')}>
-            {!!text ? (
-                <Tag text={text} variant={variant} color={color} icon={iconCorner} />
-            ) : (
-                <Tag icon={'account_balance_icon'} {...props} />
-            )}
-        </div>
+        <Div py={'xs'}>
+            {!!text && <Tag color={color} icon={iconCorner} text={text} variant={variant} />}
+            {!text && <Tag icon={'account_balance_icon'} {...props} />}
+        </Div>
     );
 }
 

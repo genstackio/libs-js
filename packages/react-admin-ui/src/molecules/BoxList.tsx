@@ -1,18 +1,17 @@
-import { WithItemsOfBoxList } from '../withs';
 import Items from '../atoms/Items';
-import Panel from '../atoms/Panel';
 import BoxListItem from '../atoms/BoxListItem';
-import { AsBox } from '../as';
+import Panel, { PanelProps } from '../atoms/Panel';
+import { WithItemsOfBoxList } from '../withs';
 
-export function BoxList({ items = [], variant = 'filled', ...props }: BoxListProps) {
+export function BoxList({ items = [], variant = 'filled', color = 'primary', ...props }: BoxListProps) {
     return (
-        <Panel vertical {...props} variant={variant}>
-            <Items items={items} component={BoxListItem} />
+        <Panel variant={variant} {...props}>
+            <Items color={color} component={BoxListItem} items={items} variant={variant} />
         </Panel>
     );
 }
 
-export interface BoxListProps extends AsBox, WithItemsOfBoxList {}
+export interface BoxListProps extends PanelProps, WithItemsOfBoxList {}
 
 // noinspection JSUnusedGlobalSymbols
 export default BoxList;

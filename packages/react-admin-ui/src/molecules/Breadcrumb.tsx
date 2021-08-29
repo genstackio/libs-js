@@ -1,11 +1,11 @@
 import clsx from 'clsx';
-import { flag } from '../types';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-import { WithColorOfBox, WithItemsOfBreadcrumb } from '../withs';
+import { flag } from '../types';
 import { AsComponent } from '../as';
+import { WithColorOfBox, WithItemsOfBreadcrumb } from '../withs';
 
 const colors = {
     danger: 'text-danger',
@@ -18,7 +18,6 @@ const colors = {
     success: 'text-success',
     warning: 'text-warning',
 };
-
 const useStyles = makeStyles({
     root: {
         '&.MuiBreadcrumbs-ol': {
@@ -27,7 +26,7 @@ const useStyles = makeStyles({
     },
 });
 
-export function Breadcrumb({ className, items = [], color = 'primary', toRight = false }: BreadcrumbProps) {
+export function Breadcrumb({ className, color = 'primary', items = [], toRight = false }: BreadcrumbProps) {
     const classes = useStyles();
     const breadcrumbItems = items.slice(0, items.length - 1);
     const lastItem = items.slice(items.length - 1)[0];
@@ -40,8 +39,8 @@ export function Breadcrumb({ className, items = [], color = 'primary', toRight =
         >
             {breadcrumbItems.map(({ label, target }, index) => (
                 <Link
-                    className={clsx(colors[color])}
                     key={index}
+                    className={clsx(colors[color])}
                     {...('function' === typeof target ? { href: '' } : { href: target as string })}
                 >
                     {index === 0 && <HomeOutlinedIcon className={clsx(colors[color], 'flex items-center')} />}

@@ -1,14 +1,14 @@
-import clsx from 'clsx';
+import Div from './Div';
 import Image from './Image';
 import thumbnailSizeClass from '../mappings/thumbnail-sizes';
-import { WithCorner, WithImage, WithSizeOfThumbnail } from '../withs';
 import { AsComponent } from '../as';
+import { WithCorner, WithImage, WithSizeOfThumbnail } from '../withs';
 
-export function Thumbnail({ className, image, corner = 'rounded-xsmall', size }: ThumbnailProps) {
+export function Thumbnail({ className, corner = 'rounded-xsmall', image, size }: ThumbnailProps) {
     return (
-        <div className={clsx('inline-block animated tada', className)}>
-            {image && <Image {...image} corner={corner} className={thumbnailSizeClass(size)} />}
-        </div>
+        <Div inline className={className}>
+            <Image corner={corner} {...image} className={thumbnailSizeClass(size)} />
+        </Div>
     );
 }
 

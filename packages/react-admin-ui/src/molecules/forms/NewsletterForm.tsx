@@ -1,6 +1,6 @@
-import useForm from '../../hooks/useForm';
+import EmailField from '../../atoms/fields/EmailField';
 import { BaseFormProps } from './BaseForm';
-import { EmailField } from '../../atoms';
+import useForm from '../../hooks/useForm';
 
 export function NewsletterForm({ ...props }: NewsletterFormProps) {
     const { Form, SubmitButton, field } = useForm(props, 'newsletter');
@@ -8,7 +8,7 @@ export function NewsletterForm({ ...props }: NewsletterFormProps) {
     return (
         <Form>
             <EmailField {...field} required className={'min-w-full'} />
-            <SubmitButton className={'w-auto xs:w-full mt-4'} />
+            <SubmitButton className={'w-full sm:w-auto mt-4'} />
         </Form>
     );
 }

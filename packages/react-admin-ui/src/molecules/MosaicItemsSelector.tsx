@@ -1,18 +1,20 @@
-import clsx from 'clsx';
 import { useCallback, useState } from 'react';
+import clsx from 'clsx';
+import { useTranslation } from 'react-i18next';
+import Div from '../atoms/Div';
 import Button from '../atoms/Button';
 import Text from '../atoms/Text';
+import Column from '../atoms/Column';
 import MosaicItems from './MosaicItems';
-import { useTranslation } from 'react-i18next';
-import { WithItems, WithTitle } from '../withs';
 import { AsComponent } from '../as';
+import { WithItems, WithTitle } from '../withs';
 
 export function MosaicItemsSelector({
     className,
-    title,
     items,
-    selected = {},
     onValidation,
+    selected = {},
+    title,
 }: MosaicItemsSelectorProps) {
     const { t } = useTranslation();
     const [selectedItem, setSelected] = useState(selected);
@@ -21,19 +23,19 @@ export function MosaicItemsSelector({
     }, [onValidation, selectedItem]);
 
     return (
-        <div className={clsx('flex flex-col items-center p-10 sm:p-5 xs:p-2', className)}>
+        <Column center className={clsx('p-2 sm:p-5 md:p-10', className)}>
             <Text
-                className={clsx('border-b border-solid border-disabled', 'p-3')}
                 center
-                text={title}
                 color={'secondary'}
+                text={title}
                 variant={'text'}
+                className={clsx('border-b border-solid border-disabled', 'p-3')}
             />
-            <div className={'my-3'}>
-                <MosaicItems items={items} selected={selected} onSelectionChange={setSelected} />
-            </div>
-            <Button onClick={handleValidation}>{t('theme_selector_btn_validate')}</Button>
-        </div>
+            <Div my={'xmd'}>
+                <MosaicItems items={items} onSelectionChange={setSelected} selected={selected} />
+            </Div>
+            <Button onClick={handleValidation} label={t('theme_selector_btn_validate')} />
+        </Column>
     );
 }
 

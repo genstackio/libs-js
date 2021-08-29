@@ -5,6 +5,7 @@ import useField from '../../hooks/useField';
 import MuiSwitch from '@material-ui/core/Switch';
 import { makeStyles } from '@material-ui/core/styles';
 import { AsField } from '../../as';
+import Div from '../Div';
 
 const useStyles = makeStyles({
     root: {
@@ -55,11 +56,11 @@ const useStyles = makeStyles({
 export function SwitchField({ className, onChange, ...props }: SwitchFieldProps) {
     const classes = useStyles(props);
     const { name, required, label, error, helper, disabled, register, options, defaultValue, extra } = useField(props);
+
     return (
-        <div className={'mb-2'}>
+        <Div mt={'sm'}>
             <MuiSwitch
-                focusVisibleClassName={classes.focusVisible}
-                disableRipple
+                checked={defaultValue}
                 classes={{
                     root: classes.root,
                     switchBase: classes.switchBase,
@@ -68,10 +69,11 @@ export function SwitchField({ className, onChange, ...props }: SwitchFieldProps)
                     checked: classes.checked,
                     disabled: classes.disabled,
                 }}
-                name={name}
-                checked={defaultValue}
-                onChange={onChange}
                 disabled={disabled}
+                disableRipple
+                focusVisibleClassName={classes.focusVisible}
+                name={name}
+                onChange={onChange}
                 required={required}
                 {...register()}
                 {...extra}
@@ -80,7 +82,7 @@ export function SwitchField({ className, onChange, ...props }: SwitchFieldProps)
             <FieldLabel name={name} label={label} options={options} />
             <FieldError error={error} />
             <FieldHelper helper={helper} />
-        </div>
+        </Div>
     );
 }
 

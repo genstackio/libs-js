@@ -1,22 +1,23 @@
 import clsx from 'clsx';
+import Div from '../atoms/Div';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
 import Image from '../atoms/Image';
 import Avatar from '../atoms/Avatar';
+import Expandable from './Expandable';
 import MenuButtonWidget from './MenuButtonWidget';
 import { flag } from '../types';
-import Expandable from './Expandable';
-import { WithColorOfBox, WithDescription, WithImage, WithLabel, WithItemsOfMenuButton } from '../withs';
 import { AsComponent } from '../as';
+import { WithColorOfBox, WithDescription, WithImage, WithLabel, WithItemsOfMenuButton } from '../withs';
 
 export function MenuButton({
-    className,
-    label,
-    image,
-    description,
-    items = [],
-    color,
     avatar = false,
+    className,
+    color,
+    description,
+    image,
+    label,
+    items = [],
 }: MenuButtonProps) {
     return (
         <Expandable
@@ -28,16 +29,16 @@ export function MenuButton({
                     {!image && avatar && 'string' === typeof label && (
                         <Avatar shape={'rounded'} size={'xsm'} name={label} />
                     )}
-                    {!!image && <Image {...image} corner={'rounded-xsmall'} className={'w-10 h-10'} />}
-                    <div className={'sm:hidden w-auto'}>
+                    {!!image && <Image {...image} corner={'rounded-xsmall'} expand={false} className={'w-10 h-10'} />}
+                    <Div inline tablet desktop className={'w-auto'}>
                         <Text text={label} variant={'description'} className={'w-auto whitespace-nowrap'} />
                         {description && (
-                            <div className={'flex items-center w-auto'}>
+                            <Div flex center className={'w-auto'}>
                                 <Text text={description} variant={'small'} />
                                 <Icon icon={opened ? 'expand_less' : 'expand_more'} />
-                            </div>
+                            </Div>
                         )}
-                    </div>
+                    </Div>
                 </>
             )}
         </Expandable>

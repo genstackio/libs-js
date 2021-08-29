@@ -1,17 +1,18 @@
-import clsx from 'clsx';
-import Button from '../../atoms/Button';
-import Text from '../../atoms/Text';
-import PhoneField from '../../atoms/fields/PhoneField';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { WithColorOfBox, WithDefaultValues, WithOnSubmit } from '../../withs';
+import Div from '../../atoms/Div';
+import Text from '../../atoms/Text';
+import Button from '../../atoms/Button';
+import Column from '../../atoms/Column';
+import PhoneField from '../../atoms/fields/PhoneField';
 import { AsComponent } from '../../as';
+import { WithColorOfBox, WithDefaultValues, WithOnSubmit } from '../../withs';
 
 export function SendOtpForgotPasswordForm({
     className,
-    onSubmit,
     color,
     defaultValues = {},
+    onSubmit,
 }: SendOtpForgotPasswordFormProps) {
     const { t } = useTranslation();
     const {
@@ -22,25 +23,26 @@ export function SendOtpForgotPasswordForm({
     const field = { register, errors, defaultValues };
 
     return (
-        <div className={clsx('w-full flex flex-col', className)}>
-            <div className="w-full flex justify-center">
+        <Column className={className}>
+            <Div full flex center>
                 <form onSubmit={handleSubmit(onSubmit as any)} className={'w-full'}>
-                    <Text text={t('form_forgot_password_send_otp_title')} variant={'title6'} color={color} />
+                    <Text color={color} text={t('form_forgot_password_send_otp_title')} variant={'title6'} />
                     <Text
-                        className={'text-dark mb-4'}
+                        color={color}
+                        mb={'md'}
                         text={t('form_forgot_password_send_otp_subtitle')}
                         variant={'body'}
-                        color={color}
+                        className={'text-dark'}
                     />
-                    <PhoneField {...field} required autoFocus />
-                    <div className="flex justify-center mt-6">
-                        <Button className={'w-full items-center justify-center'} variant={'contained'} color={color}>
+                    <PhoneField {...field} autoFocus required />
+                    <Div flex center mt={'lg'}>
+                        <Button color={color} variant={'contained'} className={'w-full items-center justify-center'}>
                             {t('form_forgot_password_send_otp_submit_label')}
                         </Button>
-                    </div>
+                    </Div>
                 </form>
-            </div>
-        </div>
+            </Div>
+        </Column>
     );
 }
 

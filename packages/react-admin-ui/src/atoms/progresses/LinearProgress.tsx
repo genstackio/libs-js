@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { createStyles, withStyles, Theme } from '@material-ui/core/styles';
 import MuiLinearProgress from '@material-ui/core/LinearProgress';
-import { WithValueAsNumber } from '../../withs';
 import { AsComponent } from '../../as';
+import { WithValueAsNumber } from '../../withs';
 
 const BorderLinearProgress = withStyles((theme: Theme) =>
     createStyles({
@@ -23,7 +23,7 @@ const BorderLinearProgress = withStyles((theme: Theme) =>
 export function LinearProgress({ className, value = 0 }: LinearProgressProps) {
     return (
         <div className={clsx('flex-grow', className)}>
-            <BorderLinearProgress variant={'determinate'} value={value} />
+            <BorderLinearProgress value={value} variant={'determinate'} />
         </div>
     );
 }

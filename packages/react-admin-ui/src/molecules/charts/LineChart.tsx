@@ -2,8 +2,8 @@ import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
 import Text from '../../atoms/Text';
-import { WithBox, WithLabels, WithSeries, WithTitle } from '../../withs';
 import { AsComponent } from '../../as';
+import { WithBox, WithLabels, WithSeries, WithTitle } from '../../withs';
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 const defaultOptions: ApexOptions = {
@@ -36,6 +36,7 @@ export function LineChart({
     series.forEach((data) => {
         datas.push({ data });
     });
+
     return (
         <div className={className}>
             <Text text={title} variant={'subtitle'} />

@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import Badge from '../atoms/Badge';
 import boxClass from '../utils/boxClass';
-import { WithBadge, WithColorOfBox, WithItemsOfList } from '../withs';
 import { AsComponent } from '../as';
+import { WithBadge, WithColorOfBox, WithItemsOfList } from '../withs';
 
-export function List({ className, badge: globalBadge, color: globalColor, items = [] }: ListProps) {
+export function List({ badge: globalBadge, className, color: globalColor = 'clear', items = [] }: ListProps) {
     return (
         <ul className={clsx('px-0', className)}>
             {items.map(({ color, text, badge }, index) => (
@@ -18,9 +18,9 @@ export function List({ className, badge: globalBadge, color: globalColor, items 
                     {text || ''}
                     {(badge || globalBadge) && (
                         <Badge
-                            variant={badge?.variant || globalBadge?.variant}
                             color={badge?.color || globalBadge?.color}
                             text={badge?.text || globalBadge?.label}
+                            variant={badge?.variant || globalBadge?.variant}
                         />
                     )}
                 </li>

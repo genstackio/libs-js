@@ -6,6 +6,8 @@ import { class_name, flag } from '../types';
 import { Spinner } from './Spinner';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
 import cornerClass from '../mappings/corners';
+import useConfirmable from '../hooks/useConfirmable';
+import { AsBoxWrapper } from '../as';
 import {
     WithCorner,
     WithIcon,
@@ -18,10 +20,9 @@ import {
     WithEndIcon,
     WithLabel,
 } from '../withs';
-import { useConfirmable } from '../hooks';
-import { AsBoxWrapper } from '../as';
 
 export function Button({
+    autoFocus = false,
     children,
     container,
     containerClassName,
@@ -29,22 +30,21 @@ export function Button({
     className,
     spinnerClassName,
     color = 'primary',
-    disabled,
-    icon,
-    iconSize,
-    size = 'md',
-    onClick,
-    variant = 'contained',
-    corner = 'rounded-xxsmall',
     confirm = false,
-    confirmTitle,
-    confirmText,
-    confirmKind,
     confirmDanger,
-    autoFocus = false,
+    confirmKind,
+    confirmText,
+    confirmTitle,
+    corner = 'rounded-xxsmall',
+    disabled,
     endIcon,
     endIconSize,
+    icon,
+    iconSize,
     label,
+    onClick,
+    size = 'md',
+    variant = 'contained',
 }: ButtonProps) {
     const handleClick = useCallback(
         (event) => {
@@ -62,13 +62,15 @@ export function Button({
         confirmText,
     });
     disabled = disabled || loading;
-    const boxProviderValue = useMemo(() => ({ color, variant }), [color, variant]);
+    const box = useMemo(() => ({ color, variant }), [color, variant]);
 
     if (!label && !children && !icon && !endIcon) return null;
 
     let content = (
         <button
+            autoFocus={autoFocus}
             disabled={disabled}
+            onClick={handleButtonClick as any}
             className={clsx(
                 buttonClass({ size, color, variant, disabled }),
                 cornerClass(corner),
@@ -77,20 +79,23 @@ export function Button({
                 'justify-center',
                 className,
             )}
-            onClick={handleButtonClick as any}
-            autoFocus={autoFocus}
         >
-            <BoxProvider value={boxProviderValue}>
+            <BoxProvider value={box}>
                 {loading && (
-                    <Spinner variant={'circle'} size={'md'} color={'light'} className={clsx(spinnerClassName)} />
+                    <Spinner
+                        variant={'circle'}
+                        size={'md'}
+                        color={'light'}
+                        className={clsx(spinnerClassName, 'mr-2')}
+                    />
                 )}
-                {!loading && (
-                    <>
-                        <Icon icon={icon} size={iconSize} className={children && icon ? 'mr-2' : undefined} />
-                        {label || children || ''}
-                        <Icon icon={endIcon} size={endIconSize} className={children && endIcon ? 'ml-2' : undefined} />
-                    </>
-                )}
+                <Icon icon={icon} size={iconSize} className={(children || label) && icon ? 'mr-2' : undefined} />
+                {label || children || ''}
+                <Icon
+                    icon={endIcon}
+                    size={endIconSize}
+                    className={(children || label) && endIcon ? 'ml-2' : undefined}
+                />
             </BoxProvider>
         </button>
     );

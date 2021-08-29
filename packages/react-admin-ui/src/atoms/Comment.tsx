@@ -1,26 +1,25 @@
-import clsx from 'clsx';
-import { WithColorOfText, WithHeadingText } from '../withs';
-import { AsComponent } from '../as';
-import HeadingText from './HeadingText';
+import HeadingText, { HeadingTextProps } from './HeadingText';
 import useHeadingText from '../hooks/useHeadingText';
 
-export function Comment({ color, className, ...props }: CommentProps) {
+export function Comment({ className, color, ...props }: CommentProps) {
     const [htProps] = useHeadingText(props);
+
     return (
         <HeadingText
-            {...htProps}
-            variant={'xsmall'}
             color={color || 'dark'}
-            className={clsx('p-4', className)}
-            headerClassName={'flex items-end'}
             contentClassName={'pt-6'}
-            subtitleClassName={'ml-4'}
             descriptionClassName={'leading-7'}
+            headerClassName={'flex items-center'}
+            p={'md'}
+            subtitleClassName={'ml-4'}
+            variant={'xsmall'}
+            {...htProps}
+            className={className}
         />
     );
 }
 
-export interface CommentProps extends AsComponent, WithColorOfText, WithHeadingText {}
+export type CommentProps = HeadingTextProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default Comment;

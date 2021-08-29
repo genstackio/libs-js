@@ -5,32 +5,35 @@ import { StylesProvider } from '@material-ui/core/styles';
 import { LocalesProvider } from '@genstackio/react-contexts/lib/contexts/LocalesContext';
 import { ApiProvider } from '@genstackio/react-contexts/lib/contexts/ApiContext';
 import translations from '../src/configs/translations';
-import { boxVariants } from '../src/mappings/box-variants';
-import { blockVariants } from '../src/mappings/block-variants';
-import { fieldVariants } from '../src/mappings/field-variants';
-import { boxColors } from '../src/mappings/box-colors';
-import { corners } from '../src/mappings/corners';
-import { paddings } from '../src/mappings/paddings';
-import { alignments } from '../src/mappings/alignments';
-import { progressVariants } from '../src/mappings/progress-variants';
-import { ratingVariants } from '../src/mappings/rating-variants';
-import { labelPlacements } from '../src/mappings/label-placements';
-import { shapes } from '../src/mappings/shapes';
-import { spinnerVariants, spinnerSizes, spinnerColors } from '../src/mappings/spinners';
-import { statuses } from '../src/mappings/statuses';
-import { textVariants } from '../src/mappings/text-variants';
 import { argtypes, st } from '@genstackio/react-storybook';
 import { useCallback, useMemo, useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import * as mocks from './mocks';
-import { textSizes } from '../src/mappings/text-sizes';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import { FullscreenProvider } from '@genstackio/react-contexts/lib/contexts/FullscreenContext';
 import themes from './configs/themes';
-import { IconsProvider } from '../../react-contexts/lib/IconsProvider';
+import { IconsProvider } from '@genstackio/react-contexts/lib/IconsProvider';
 import icons from './configs/icons';
 import { DarkModeProvider } from '@genstackio/react-contexts/lib/contexts/DarkModeContext';
-import { avatarSizeValues } from '../lib/mappings/avatar-sizes';
+import { avatarSizeValues } from '../src/mappings/avatar-sizes';
+import { elevationValues } from '../src/mappings/elevations';
+import { paddingValues } from '../src/mappings/paddings';
+import { alignmentValues } from '../src/mappings/alignments';
+import { blockVariantValues } from '../src/mappings/block-variants';
+import { boxVariantValues } from '../src/mappings/box-variants';
+import { boxColorValues } from '../src/mappings/box-colors';
+import { fieldVariantValues } from '../src/mappings/field-variants';
+import { cornerValues } from '../src/mappings/corners';
+import { labelPlacementValues } from '../src/mappings/label-placements';
+import { progressVariantValues } from '../src/mappings/progress-variants';
+import { ratingVariantValues } from '../src/mappings/rating-variants';
+import { shapeValues } from '../src/mappings/shapes';
+import { textSizeValues } from '../src/mappings/text-sizes';
+import { spinnerColorValues, spinnerSizeValues, spinnerVariantValues } from '../src/mappings/spinners';
+import { statusValues } from '../src/mappings/statuses';
+import { textVariantValues } from '../src/mappings/text-variants';
+import { borderValues } from '../src/mappings/borders';
+import { accordionCornerValues } from '../src/mappings/accordion-corners';
 
 const translationNames = Object.keys(translations);
 translationNames.sort();
@@ -143,6 +146,7 @@ export function s(Component, args, opts: any = {}) {
 
 export const args = {
     ...argtypes,
+    accordionCorner: { control: { type: 'select' }, options: accordionCornerValues },
     accordionVariant: { control: { type: 'select' }, options: ['filled', 'outlined', 'contained', 'light'] },
     actions: { control: { type: 'object' } },
     author: { control: { type: 'text' } },
@@ -152,8 +156,9 @@ export const args = {
     badgeVariant: { control: { type: 'select' }, options: ['pill', 'tag', 'none'] },
     bgColor: { control: { type: 'color' } },
     bgIcon: { table: { disable: true } },
-    blockVariant: { control: { type: 'select' }, options: Object.keys(blockVariants) },
-    boxVariant: { control: { type: 'select' }, options: Object.keys(boxVariants) },
+    blockVariant: { control: { type: 'select' }, options: blockVariantValues },
+    boxVariant: { control: { type: 'select' }, options: boxVariantValues },
+    border: { control: { type: 'select' }, options: borderValues },
     btnLabel: { control: { type: 'text' } },
     buttonsItems: { control: { type: 'object' } },
     chart: { control: { type: 'object' } },
@@ -161,7 +166,7 @@ export const args = {
     children: { control: { type: 'text' } },
     classes: { table: { disable: true } },
     code: { control: { type: 'number' } },
-    color: { control: { type: 'select' }, options: Object.keys(boxColors) },
+    color: { control: { type: 'select' }, options: boxColorValues },
     columns: { control: { type: 'object' } },
     comments: { control: { type: 'number' } },
     content: { control: { type: 'text' } },
@@ -175,13 +180,13 @@ export const args = {
     error: { control: { type: 'boolean' } },
     errorText: { control: { type: 'text' } },
     fieldType: { control: { type: 'select' }, options: ['text', 'email', 'password'] },
-    fieldVariant: { control: { type: 'select' }, options: Object.keys(fieldVariants) },
+    fieldVariant: { control: { type: 'select' }, options: fieldVariantValues },
     fieldValue: { control: { type: 'text' } },
     rows: { control: { type: 'number' } },
     form: { control: { type: 'object' } },
     icon: { table: { disable: true } },
-    corner: { control: { type: 'select' }, options: Object.keys(corners) },
-    labelPlacement: { control: { type: 'select' }, options: Object.keys(labelPlacements) },
+    corner: { control: { type: 'select' }, options: cornerValues },
+    labelPlacement: { control: { type: 'select' }, options: labelPlacementValues },
     iconCorner: {
         control: { type: 'select' },
         options: ['settings', 'query_builder', 'notifications_none_icon', 'none'],
@@ -199,35 +204,37 @@ export const args = {
     menu: { control: { type: 'object' } },
     min: { control: { type: 'number' } },
     max: { control: { type: 'number' } },
-    padding: { control: { type: 'radio' }, options: Object.keys(paddings) },
+    padding: { control: { type: 'select' }, options: paddingValues },
+    elevation: { control: { type: 'select' }, options: elevationValues },
     paginationVariant: { control: { type: 'select' }, options: ['text', 'outlined'] },
     pill: { control: { type: 'object' } },
-    position: { control: { type: 'select' }, options: Object.keys(alignments) },
+    position: { control: { type: 'select' }, options: alignmentValues },
     price: { control: { type: 'text' } },
     progress: { control: { type: 'number' } },
-    progressVariant: { control: { type: 'select' }, options: Object.keys(progressVariants) },
-    ratingVariant: { control: { type: 'select' }, options: Object.keys(ratingVariants) },
+    progressVariant: { control: { type: 'select' }, options: progressVariantValues },
+    ratingVariant: { control: { type: 'select' }, options: ratingVariantValues },
     ribbon: { control: { type: 'select' }, options: ['top-left', 'top-right', 'bottom-left', 'bottom-right'] },
     rowsPerPage: { control: { type: 'number' } },
     selection: { control: { type: 'boolean' } },
     series: { control: { type: 'object' } },
-    shape: { control: { type: 'select' }, options: Object.keys(shapes) },
+    shape: { control: { type: 'select' }, options: shapeValues },
     avatarSize: { control: { type: 'select' }, options: avatarSizeValues },
     size: { control: { type: 'select' }, options: ['xs', 'sm', 'md', 'lg', 'xl'] },
     target: { control: { type: 'text' } },
-    textSize: { control: { type: 'select' }, options: Object.keys(textSizes) },
-    spinnerVariant: { control: { type: 'select' }, options: Object.keys(spinnerVariants) },
-    spinnerSize: { control: { type: 'select' }, options: Object.keys(spinnerSizes) },
-    spinnerColor: { control: { type: 'select' }, options: Object.keys(spinnerColors) },
-    status: { control: { type: 'select' }, options: Object.keys(statuses) },
+    textSize: { control: { type: 'select' }, options: textSizeValues },
+    spinnerVariant: { control: { type: 'select' }, options: spinnerVariantValues },
+    spinnerSize: { control: { type: 'select' }, options: spinnerSizeValues },
+    spinnerColor: { control: { type: 'select' }, options: spinnerColorValues },
+    status: { control: { type: 'select' }, options: statusValues },
     steps: { control: { type: 'object' } },
     striped: { control: { type: 'boolean' } },
     tag: { control: { type: 'object' } },
     textValue: { control: { type: 'text' } },
-    textVariant: { control: { type: 'select' }, options: Object.keys(textVariants) },
+    textVariant: { control: { type: 'select' }, options: textVariantValues },
     toolbar: { control: { type: 'object' } },
     toRight: { control: { type: 'boolean' } },
     unit: { control: { type: 'select' }, options: [undefined, '$', '€', '£', 'M'] },
     value: { control: { type: 'number' } },
     values: { control: { type: 'object' } },
+    mocks: { table: { disable: true } },
 };

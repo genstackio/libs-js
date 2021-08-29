@@ -1,11 +1,13 @@
-import clsx from 'clsx';
-import { wizard_step } from '../types';
-import { Container, Image, WizardStep } from './';
 import { useCallback } from 'react';
-import { WithOnChange } from '../withs';
+import clsx from 'clsx';
+import Container from './Container';
+import Image from './Image';
+import WizardStep from './WizardStep';
+import { wizard_step } from '../types';
 import { AsComponent } from '../as';
+import { WithOnChange } from '../withs';
 
-export function WizardMenu({ className, onChange, steps, currentStep, ...props }: WizardMenuProps) {
+export function WizardMenu({ className, currentStep, onChange, steps, ...props }: WizardMenuProps) {
     const handleChange = useCallback(
         (id) => (e) => {
             e.stopPropagation();
@@ -14,31 +16,29 @@ export function WizardMenu({ className, onChange, steps, currentStep, ...props }
         },
         [onChange],
     );
+
     return (
         <Container
-            className={clsx(
-                'relative w-3/10 md:w-2/6 sm:w-full px-20 md:px-10 py-20 sm:p-7 space-y-6 bg-clear',
-                className,
-            )}
+            className={clsx('relative sm:w-3/10 md:w-2/6 w-full p-7 sm:p-10 md:p-20 space-y-6 bg-clear', className)}
         >
             {steps.map(({ id, ...step }, index) => (
                 <WizardStep
-                    key={id}
-                    index={index + 1}
-                    className={'relative z-10'}
                     active={currentStep?.id === id}
+                    key={id}
                     disabled={step.isDisabled && step.isDisabled({ currentStep, steps, index })}
+                    index={index + 1}
                     onClick={handleChange(id)}
                     {...step}
                     {...props}
+                    className={'relative z-10'}
                 />
             ))}
             {currentStep?.image && (
                 <Image
-                    className={'absolute bottom-0 left-0 right-0 z-0 sm:hidden'}
-                    url={currentStep!.image!.url}
                     alt={currentStep!.image!.alt}
                     expand={false}
+                    url={currentStep!.image!.url}
+                    className={'hidden sm:absolute bottom-0 left-0 right-0 z-0'}
                 />
             )}
         </Container>

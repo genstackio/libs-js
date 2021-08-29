@@ -1,9 +1,11 @@
+import { useMemo } from 'react';
 import clsx from 'clsx';
+import Div from '../Div';
+import Column from '../Column';
 import FieldSet from '../FieldSet';
 import useField from '../../hooks/useField';
 import { flag, icon, rich_text } from '../../types';
 import { fieldVariantClass } from '../../mappings/field-variants';
-import { useMemo } from 'react';
 import { AsTextField } from '../../as';
 
 export function TextField(props: TextFieldProps) {
@@ -26,24 +28,28 @@ export function TextField(props: TextFieldProps) {
         variant,
     } = useField(props);
     const ctx = useMemo(() => ({ variant, prepend: !!prepend, append: !!append }), [variant, prepend, append]);
+
     return (
-        <FieldSet name={name} label={label} options={options} error={error} helper={helper} className={className}>
-            <div
+        <FieldSet error={error} helper={helper} label={label} name={name} options={options} className={className}>
+            <Div
+                b={'xs'}
+                flex
+                full
                 className={clsx(
-                    'text-sm sm:text-base w-full border flex',
+                    'text-sm sm:text-base',
                     fieldVariantClass({ ...ctx, type: 'container' }),
-                    error && 'border border-danger ring-red-300',
+                    error && 'border-danger ring-red-300',
                 )}
             >
                 {prepend && (
-                    <div
-                        className={clsx(
-                            fieldVariantClass({ ...ctx, type: 'prepended' }),
-                            'z-10 bg-disabled border-r-2 p-2 flex flex-col',
-                        )}
+                    <Column
+                        b={'sm-r'}
+                        full={false}
+                        p={'sm'}
+                        className={clsx(fieldVariantClass({ ...ctx, type: 'prepended' }), 'z-10 bg-disabled')}
                     >
                         {prepend}
-                    </div>
+                    </Column>
                 )}
                 <input
                     className={clsx(
@@ -52,27 +58,27 @@ export function TextField(props: TextFieldProps) {
                         fieldVariantClass({ ...ctx, type: 'input' }),
                         error && 'border border-danger focus:border-danger ring-red-300',
                     )}
-                    placeholder={placeholder}
-                    disabled={disabled}
-                    type={type}
                     defaultValue={defaultValue}
+                    disabled={disabled}
                     name={name}
+                    placeholder={placeholder}
+                    type={type}
                     required={required}
                     {...(type === 'password' ? { autoComplete: 'new-password' } : {})}
                     {...register()}
                     {...extra}
                 />
                 {append && (
-                    <div
-                        className={clsx(
-                            fieldVariantClass({ ...ctx, type: 'appended' }),
-                            'z-10 bg-disabled border-l-2 p-2 flex flex-col',
-                        )}
+                    <Column
+                        b={'sm-l'}
+                        full={false}
+                        p={'sm'}
+                        className={clsx(fieldVariantClass({ ...ctx, type: 'appended' }), 'z-10 bg-disabled')}
                     >
                         {append}
-                    </div>
+                    </Column>
                 )}
-            </div>
+            </Div>
         </FieldSet>
     );
 }

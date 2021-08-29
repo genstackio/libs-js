@@ -1,14 +1,16 @@
 import clsx from 'clsx';
-import { WithStatusOfBuddy } from '../withs';
+import Div from '../atoms/Div';
 import statusClass from '../mappings/statuses';
 import { AsComponent } from '../as';
+import { WithStatusOfBuddy } from '../withs';
 
-export function BuddyStatus({ status, className }: BuddyStatusProps) {
+export function BuddyStatus({ className, status }: BuddyStatusProps) {
     return (
-        <div
+        <Div
+            absolute
             className={clsx(
                 statusClass(status),
-                'absolute bottom-0 right-0 w-1/4 h-1/4 rounded-full border-1 border-clear',
+                'bottom-0 right-0 w-1/4 h-1/4 rounded-full border-1 border-clear',
                 className,
             )}
         />

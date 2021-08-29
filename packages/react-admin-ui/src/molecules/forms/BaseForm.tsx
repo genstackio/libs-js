@@ -1,8 +1,9 @@
-import AlertPanel from '../AlertPanel';
 import Text from '../../atoms/Text';
 import Column from '../../atoms/Column';
 import FormHeader from '../../atoms/FormHeader';
 import FormFooter from '../../atoms/FormFooter';
+import Alert from '../../atoms/Alert';
+import { AsComponent } from '../../as';
 import {
     WithColorOfBox,
     WithChildren,
@@ -16,35 +17,31 @@ import {
     WithFooter,
     WithErrors,
 } from '../../withs';
-import { AsComponent } from '../../as';
 
 export function BaseForm({
-    className,
-    title,
-    subtitle,
-    color,
-    header,
-    footer,
     children,
+    className,
+    color,
+    errors = {},
+    footer,
+    header,
     onSubmit,
     rhf,
     submitting,
-    errors = {},
+    subtitle,
+    title,
 }: InternalBaseFormProps) {
     const { handleSubmit } = rhf;
     const error = errors && (errors[''] || errors['*'] || errors['_']);
+
     return (
         <Column className={className}>
             <FormHeader>{header}</FormHeader>
             <Column center>
-                <form onSubmit={handleSubmit(onSubmit as any)} className={'w-full'} aria-disabled={submitting}>
-                    <Text text={title} variant={'title6'} color={color} />
-                    <Text className={'mb-4'} text={subtitle} variant={'body'} color={color} />
-                    {error && (
-                        <AlertPanel color={'danger'} className={'mb-4'}>
-                            {error.message}
-                        </AlertPanel>
-                    )}
+                <form aria-disabled={submitting} onSubmit={handleSubmit(onSubmit as any)} className={'w-full'}>
+                    <Text color={color} text={title} variant={'title6'} />
+                    <Text color={color} text={subtitle} variant={'body'} className={'mb-4'} />
+                    <Alert color={'danger'} mb={'md'} message={error?.message} />
                     {children}
                 </form>
             </Column>

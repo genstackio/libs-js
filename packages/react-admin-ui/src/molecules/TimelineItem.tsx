@@ -1,18 +1,19 @@
+import Div from '../atoms/Div';
 import MuiTimelineItem from '@material-ui/lab/TimelineItem';
 import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
 import TimelineConnector from '@material-ui/lab/TimelineConnector';
 import TimelineContent from '@material-ui/lab/TimelineContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
-import { WithColorOfBox, WithDescription, WithTitle } from '../withs';
-import { AsComponent } from '../as';
 import { flag } from '../types';
+import { AsComponent } from '../as';
+import { WithColorOfBox, WithDescription, WithTitle } from '../withs';
 
-export function TimelineItem({ className, title, description, color, last = false }: TimelineItemProps) {
+export function TimelineItem({ className, color, description, last = false, title }: TimelineItemProps) {
     return (
-        <div className={className}>
+        <Div className={className}>
             <MuiTimelineItem>
                 <TimelineSeparator>
-                    <TimelineDot variant={'outlined'} color={color as any} />
+                    <TimelineDot color={color as any} variant={'outlined'} />
                     {!last && <TimelineConnector />}
                 </TimelineSeparator>
                 <TimelineContent className={'-mt-4'}>
@@ -20,7 +21,7 @@ export function TimelineItem({ className, title, description, color, last = fals
                     <p className={'text-sm text-disabled'}>{description}</p>
                 </TimelineContent>
             </MuiTimelineItem>
-        </div>
+        </Div>
     );
 }
 

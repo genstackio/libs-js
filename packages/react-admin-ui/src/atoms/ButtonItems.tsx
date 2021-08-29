@@ -1,10 +1,10 @@
-import { WithItemsOfButtonItems } from '../withs';
 import Items from './Items';
 import Button from './Button';
 import { AsComponent } from '../as';
+import { WithItemsOfButtonItems } from '../withs';
 
 export function ButtonItems({ className, items = [] }: ButtonItemsProps) {
-    return <Items items={items} component={Button} className={'mr-2'} container containerClassName={className} />;
+    return <Items component={Button} container containerClassName={className} items={items} className={'mr-2'} />;
 }
 
 export interface ButtonItemsProps extends AsComponent, WithItemsOfButtonItems {}

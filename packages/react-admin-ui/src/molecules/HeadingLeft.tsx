@@ -1,14 +1,14 @@
-import clsx from 'clsx';
 import Text from '../atoms/Text';
-import { WithTitle, WithDescription } from '../withs';
+import Column from '../atoms/Column';
 import { AsComponent } from '../as';
+import { WithTitle, WithDescription } from '../withs';
 
-export function HeadingLeft({ className, title, description }: HeadingLeftProps) {
+export function HeadingLeft({ className, description, title }: HeadingLeftProps) {
     return (
-        <div className={clsx('space-y-2', className)}>
+        <Column spaced={2} className={className}>
             <Text text={title} variant={'body'} />
             <Text text={description} variant={'description'} />
-        </div>
+        </Column>
     );
 }
 

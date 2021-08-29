@@ -1,25 +1,26 @@
-import { target } from '../types';
-import { Panel } from '../atoms/Panel';
-import { Text } from '../atoms/Text';
 import { Icon } from '../atoms/Icon';
-import { Clickable } from '../atoms/Clickable';
-import { WithTitle } from '../withs';
+import { Text } from '../atoms/Text';
+import { Panel } from '../atoms/Panel';
+import { target } from '../types';
 import { AsBox } from '../as';
+import { WithIcon, WithTitle } from '../withs';
 
-export function BoxHeader({ title, onAddClick, ...props }: BoxHeaderProps) {
+export function BoxHeader({
+    icon = 'fa-far--plus-square',
+    iconSize = 'lg',
+    onAddClick,
+    title,
+    ...props
+}: BoxHeaderProps) {
     return (
-        <Panel {...props}>
+        <Panel col={false} {...props}>
             <Text text={title} variant={'title5'} />
-            {!!onAddClick && (
-                <Clickable onClick={onAddClick}>
-                    <Icon icon={'fa-far--plus-square'} size={'lg'} />
-                </Clickable>
-            )}
+            {!!onAddClick && <Icon icon={icon} onClick={onAddClick} size={iconSize} />}
         </Panel>
     );
 }
 
-export interface BoxHeaderProps extends AsBox, WithTitle {
+export interface BoxHeaderProps extends AsBox, WithIcon, WithTitle {
     onAddClick?: target;
 }
 

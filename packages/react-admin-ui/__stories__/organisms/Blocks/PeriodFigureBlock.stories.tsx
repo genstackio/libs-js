@@ -9,7 +9,7 @@ export default {
         icon: args.icon,
         color: args.color,
         variant: args.blockVariant,
-        padding: args.padding,
+        p: args.padding,
     }),
 };
 

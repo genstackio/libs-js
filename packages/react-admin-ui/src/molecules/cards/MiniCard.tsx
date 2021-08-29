@@ -1,19 +1,20 @@
 import Block from '../../atoms/Block';
 import Image from '../../atoms/Image';
-import { WithHeadingText, WithImage } from '../../withs';
-import { AsWrapper } from '../../as';
 import HeadingText from '../../atoms/HeadingText';
+import useBlock from '../../hooks/useBlock';
 import useHeadingText from '../../hooks/useHeadingText';
-import { useBlock } from '../../hooks';
+import { AsWrapper } from '../../as';
+import { WithHeadingText, WithImage } from '../../withs';
 
 export function MiniCard({ image, ...props }: MiniCardProps) {
-    const [bProps, rest, children] = useBlock(props, { padding: 'none' });
+    const [bProps, rest, children] = useBlock(props, { p: 'none' });
     const [htProps] = useHeadingText(rest, { variant: 'medium3' });
+
     return (
         <Block {...bProps}>
             {image && <Image className={'w-full rounded-t-2xl'} {...image} />}
             {children}
-            <HeadingText {...htProps} titleClassName={'text-center'} subtitleClassName={'ml-8'} />
+            <HeadingText subtitleClassName={'ml-8'} titleClassName={'text-center'} {...htProps} />
         </Block>
     );
 }

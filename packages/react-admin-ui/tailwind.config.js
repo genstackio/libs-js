@@ -9,22 +9,6 @@ module.exports = {
     },
     darkMode: 'class', // or 'media' or 'class'
     theme: {
-        screens: {
-            xl: '1921px',
-            // => @media (min-width: 1921px) { ... }
-
-            lg: { max: '1920px' },
-            // => @media (max-width: 1920px) { ... }
-
-            md: { max: '1280px' },
-            // => @media (max-width: 1280px) { ... }
-
-            sm: { max: '920px' },
-            // => @media (max-width: 920px) { ... }
-
-            xs: { max: '600px' },
-            // => @media (max-width: 600px) { ... }
-        },
         fontFamily: {
             title1: ['Rubik'],
             title2: ['Rubik'],

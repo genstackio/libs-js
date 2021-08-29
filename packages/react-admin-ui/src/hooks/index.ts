@@ -1,7 +1,9 @@
 export * from './useAction';
 export * from './useActivator';
 export * from './useBlock';
+export * from './useBox';
 export * from './useButtons';
+export * from './useCloser';
 export * from './useConfirmable';
 export * from './useDeviceType';
 export * from './useDeviceTypeMediaQueries';
@@ -9,6 +11,7 @@ export * from './useDeviceTypeConfig';
 export * from './useField';
 export * from './useForm';
 export * from './useHeadingText';
+export * from './useIcon';
 export * from './useInitials';
 export * from './useItems';
 export * from './useRating';

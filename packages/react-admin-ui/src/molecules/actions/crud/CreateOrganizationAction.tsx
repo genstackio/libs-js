@@ -12,6 +12,7 @@ export function CreateOrganizationAction({
     ...props
 }: CreateOrganizationActionProps) {
     const [user] = useUser();
+
     return (
         <Component
             {...useAction(mutationName, { onSuccess, prepare })}

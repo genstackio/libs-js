@@ -1,11 +1,12 @@
 import clsx from 'clsx';
+import Div from './Div';
+import Icon from './Icon';
 import { flag, ribbon_position } from '../types';
 import boxClass from '../utils/boxClass';
-import Icon from './Icon';
-import { WithColorOfBox, WithText } from '../withs';
 import { AsWrapper } from '../as';
+import { WithColorOfBox, WithText } from '../withs';
 
-export function Ribbon({ className, children, color, horizontal, position = 'top-left', text, vertical }: RibbonProps) {
+export function Ribbon({ children, className, color, horizontal, position = 'top-left', text, vertical }: RibbonProps) {
     let triangle_position,
         horizontal_rectangle_position,
         triangle_rotate,
@@ -75,25 +76,27 @@ export function Ribbon({ className, children, color, horizontal, position = 'top
             }
         })();
     }
+
     return (
         <div>
             {horizontal && (
                 <div>
                     {bottom_space ? children : ''}
-                    <div
+                    <Div
+                        py={'sm'}
                         className={clsx(
                             boxClass({ color, variant: 'contained' }),
                             horizontal_rectangle_position,
-                            'py-2 w-28 h-10 text-center shadow-md font-sans uppercase ',
+                            'w-28 h-10 text-center shadow-md font-sans uppercase ',
                             className,
                         )}
                     >
                         {text}
-                    </div>
-                    <div className={clsx(triangle_position, 'w-5 overflow-hidden inline-block')}>
+                    </Div>
+                    <Div inline cropped className={clsx(triangle_position, 'w-5')}>
                         <div className={clsx(boxClass({ color, variant: 'contained' }), triangle_rotate)} />
-                    </div>
-                    <div className={'mt-8'} />
+                    </Div>
+                    <Div mt={'xl'} />
                     {top_space ? children : ''}
                 </div>
             )}
@@ -102,15 +105,16 @@ export function Ribbon({ className, children, color, horizontal, position = 'top
                     {bottom_space ? children : ''}
                     <div className={'mt-24'} />
                     <div className={clsx(vertical_rectangle_position, '')}>
-                        <div
+                        <Div
+                            py={'xs'}
                             className={clsx(
                                 boxClass({ color, variant: 'contained' }),
-                                'w-32 transform rotate-90 text-center text-clear py-1',
+                                'w-32 transform rotate-90 text-center text-clear',
                                 className,
                             )}
                         >
                             <Icon icon={'settings'} />
-                        </div>
+                        </Div>
                     </div>
                     {top_space ? children : ''}
                 </div>

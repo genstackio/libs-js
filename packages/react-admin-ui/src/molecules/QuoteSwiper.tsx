@@ -1,15 +1,15 @@
 import { useRef, useState } from 'react';
+import 'swiper/swiper-bundle.css';
+import SwiperCore, { Controller, Navigation } from 'swiper';
+import Icon from '../atoms/Icon';
 import QuoteSwiperImages from './QuoteSwiperImages';
 import QuoteSwiperTexts from './QuoteSwiperTexts';
-import Icon from '../atoms/Icon';
-import SwiperCore, { Controller, Navigation } from 'swiper';
-import 'swiper/swiper-bundle.css';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import { WithItems } from '../withs';
 
 SwiperCore.use([Navigation, Controller]);
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
     swiperWrapper: {
         width: '100%',
         flex: '1 0 auto',
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
             },
         },
     },
-}));
+});
 
 export function QuoteSwiper({ items = [] }: QuoteSwiperProps) {
     const classes = useStyles();
@@ -41,6 +41,7 @@ export function QuoteSwiper({ items = [] }: QuoteSwiperProps) {
     const [carouselImage, setCarouselImage] = useState(undefined);
     const prevEl = useRef(null);
     const nextEl = useRef(null);
+
     return (
         <>
             <div className={classes.swiperWrapper}>
@@ -63,8 +64,8 @@ export function QuoteSwiper({ items = [] }: QuoteSwiperProps) {
             </div>
             <div
                 className={
-                    'absolute top-1/2 left-0 transform-gpu -translate-y-1/2 flex justify-between w-full ' +
-                    'pointer-events-none sm:relative sm:transform-none'
+                    'sm:absolute top-1/2 left-0 sm:transform-gpu -translate-y-1/2 flex justify-between w-full ' +
+                    'pointer-events-none relative transform-none'
                 }
             >
                 <div

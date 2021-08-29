@@ -1,33 +1,35 @@
-import clsx from 'clsx';
+import { useTranslation } from 'react-i18next';
 import Button from '../atoms/Button';
 import Row from '../atoms/Row';
-import { WithColorOfBox, WithLogo } from '../withs';
-import { Image } from '../atoms';
+import Image from '../atoms/Image';
 import { target } from '../types';
-import { useTranslation } from 'react-i18next';
 import { AsComponent } from '../as';
+import { WithColorOfBox, WithLogo } from '../withs';
 
-export function MenuAppBar({ className, logo, menuItems = [], color, onLoginClick }: MenuAppBarProps) {
+export function MenuAppBar({ className, color, logo, menuItems = [], onLoginClick }: MenuAppBarProps) {
     const { t } = useTranslation();
+
     return (
-        <Row className={clsx('h-44', 'justify-between', className)}>
-            {logo && <Image {...logo} className={'flex m-4 max-h-36'} expand={false} />}
-            <div className={'flex items-center space-x-14 m-4'}>
-                <nav className={'w-auto md:hidden'}>
-                    <div className={'flex justify-between space-x-14'}>
+        <Row responsive={false} size={'lg-h'} spaced className={className}>
+            {logo && <Image expand={false} {...logo} className={'flex m-4 max-h-36'} />}
+            <Row center m={'md'} responsive={false} spaced={14}>
+                <nav className={'w-auto hidden md:block'}>
+                    <Row responsive={false} spaced={14}>
                         {menuItems.map(({ label, target, active }, index) => (
-                            <Button color={color} onClick={target} key={index}>
-                                {label}
-                            </Button>
+                            <Button key={index} color={color} onClick={target} label={label} />
                         ))}
-                    </div>
+                    </Row>
                 </nav>
                 {!!onLoginClick && (
-                    <Button onClick={onLoginClick} variant={'contained'} className={'xs:hidden'} color={color}>
-                        {t('button_login_label')}
-                    </Button>
+                    <Button
+                        onClick={onLoginClick}
+                        variant={'contained'}
+                        className={'hidden sm:inline-block'}
+                        color={color}
+                        label={t('button_login_label')}
+                    />
                 )}
-            </div>
+            </Row>
         </Row>
     );
 }

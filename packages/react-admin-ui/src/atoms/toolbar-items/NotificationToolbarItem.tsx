@@ -1,7 +1,7 @@
 import ToolbarItem, { BaseToolbarItemProps } from '../ToolbarItem';
 
 export function NotificationToolbarItem(props: NotificationToolbarItemProps) {
-    return <ToolbarItem {...props} icon={'fa-far--bell'} activeIcon={'fa-bell'} />;
+    return <ToolbarItem {...props} activeIcon={'fa-bell'} icon={'fa-far--bell'} />;
 }
 
 export type NotificationToolbarItemProps = BaseToolbarItemProps;

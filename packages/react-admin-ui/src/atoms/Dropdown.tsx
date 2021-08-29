@@ -1,13 +1,14 @@
-import { useCallback, useState, ChangeEvent } from 'react';
+import { useCallback, useState, ChangeEvent, useMemo } from 'react';
 import clsx from 'clsx';
+import Div from './Div';
 import buttonClass from '../utils/buttonClass';
 import textClass from '../utils/textClass';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import { makeStyles } from '@material-ui/core/styles';
 import useActivator from '../hooks/useActivator';
-import { WithItemsOfDropdown } from '../withs';
 import { AsBox } from '../as';
+import { WithItemsOfDropdown } from '../withs';
 
 const useStyles = makeStyles({
     root: {
@@ -27,26 +28,31 @@ export function Dropdown({ className, color, items = [], variant }: DropdownProp
         },
         [setValue, value],
     );
+    const inputProps = useMemo(
+        () => ({
+            classes: {
+                icon: textClass({ color, variant }),
+                root: 'p-2',
+            },
+        }),
+        [color, variant],
+    );
 
-    if (!items || !items.length) return null;
+    if (!items.length) return null;
+
     return (
-        <div className={className}>
+        <Div className={className}>
             <Select
-                open={open}
+                classes={classes}
+                defaultValue={value}
+                disableUnderline
+                inputProps={inputProps}
+                onChange={handleChange}
                 onClose={handleClose}
                 onOpen={handleOpen}
-                defaultValue={value}
-                onChange={handleChange}
+                open={open}
                 variant={'filled'}
-                disableUnderline
-                classes={classes}
                 className={clsx(buttonClass({ color, variant }), 'rounded-lg')}
-                inputProps={{
-                    classes: {
-                        icon: textClass({ color, variant }),
-                        root: 'p-2',
-                    },
-                }}
             >
                 {items.map(({ name }, index) => (
                     <MenuItem key={index} value={name}>
@@ -54,7 +60,7 @@ export function Dropdown({ className, color, items = [], variant }: DropdownProp
                     </MenuItem>
                 ))}
             </Select>
-        </div>
+        </Div>
     );
 }
 

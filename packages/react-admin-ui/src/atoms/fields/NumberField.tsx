@@ -8,6 +8,7 @@ export function NumberField({ options = {}, ...props }: NumberFieldProps) {
         }),
         [options],
     );
+
     return <TextField kind={'number'} type={'number'} {...props} />;
 }
 

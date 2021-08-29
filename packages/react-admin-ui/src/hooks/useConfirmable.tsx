@@ -53,3 +53,5 @@ export function useConfirmable({
 
     return [confirm ? onClick : onConfirm, Confirmable] as [Function, ComponentType<any>];
 }
+
+export default useConfirmable;

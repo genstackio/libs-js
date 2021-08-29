@@ -1,14 +1,15 @@
-import { useMemo } from 'react';
 import clsx from 'clsx';
-import boxClass from '../utils/boxClass';
-import { class_name } from '../types';
 import Container from './Container';
 import BlockHeader, { BlockHeaderProps } from './BlockHeader';
 import BlockFooter, { BlockFooterProps } from './BlockFooter';
 import BlockContent, { BlockContentProps } from './BlockContent';
+import boxClass from '../utils/boxClass';
+import { class_name } from '../types';
 import elevationClass from '../mappings/elevations';
 import hoverAnimationClass from '../mappings/hover-animations';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
+import useBox from '../hooks/useBox';
+import { AsWrapper } from '../as';
 import {
     WithColorOfBox,
     WithImage,
@@ -21,38 +22,39 @@ import {
     WithOnClick,
     WithVariantOfBlock,
 } from '../withs';
-import { AsWrapper } from '../as';
 
 export function Block({
-    elevation = 1,
-    corner = 'rounded',
+    active = false,
     btnLabel,
+    buttons = [],
     children,
     className,
-    headerClassName,
+    color = 'clear',
     contentClassName,
-    footerClassName,
-    color = 'default',
+    corner = 'rounded',
     dropdownItems,
-    icon,
-    image,
-    padding,
-    title,
-    subtitle,
-    variant = 'filled',
-    onClick,
-    buttons = [],
+    elevation = 7,
+    footerClassName,
+    headerClassName,
     hoverable = false,
     hoverAnimation,
-    active = false,
+    icon,
+    image,
+    onClick,
+    p = 'sl',
+    subtitle,
+    title,
+    variant = 'filled',
 }: BlockProps) {
     const v = active ? 'contained' : 'header-contained' === variant ? 'filled' : variant;
-    const box = useMemo(() => ({ color, variant: v }), [color, variant]);
+    const [box] = useBox({ color, variant: v });
+
     return (
         <BoxProvider value={box}>
             <Container
-                corner={corner}
                 bgImage={image}
+                corner={corner}
+                onClick={onClick}
                 className={clsx(
                     'overflow-hidden relative flex flex-col',
                     elevationClass(elevation),
@@ -60,26 +62,32 @@ export function Block({
                     boxClass({ color, variant: v, hoverable }),
                     className,
                 )}
-                onClick={onClick}
             >
                 <BlockHeader
-                    title={title}
-                    subtitle={subtitle}
                     btnLabel={btnLabel}
-                    dropdownItems={dropdownItems}
                     color={color}
-                    variant={'header-contained' === variant ? 'contained' : variant}
+                    dropdownItems={dropdownItems}
                     icon={icon}
-                    className={clsx(headerClassName)}
+                    p={p}
+                    subtitle={subtitle}
+                    title={title}
+                    variant={'header-contained' === variant ? 'contained' : 'outlined' === variant ? 'filled' : variant}
+                    className={headerClassName}
                 />
-                <BlockContent padding={padding} className={clsx(contentClassName)}>
-                    {children || ''}
+                <BlockContent
+                    p={p}
+                    color={color}
+                    variant={'header-contained' === variant ? 'filled' : 'outlined' === variant ? 'filled' : variant}
+                    className={contentClassName}
+                >
+                    {children}
                 </BlockContent>
                 <BlockFooter
                     buttons={buttons}
                     color={color}
-                    variant={'header-contained' === variant ? 'filled' : variant}
-                    className={clsx(footerClassName)}
+                    p={p}
+                    variant={'header-contained' === variant ? 'filled' : 'outlined' === variant ? 'filled' : variant}
+                    className={footerClassName}
                 />
             </Container>
         </BoxProvider>
@@ -90,7 +98,7 @@ export interface BaseBlockProps
     extends AsWrapper,
         Omit<BlockHeaderProps, 'variant'>,
         Omit<BlockFooterProps, 'variant'>,
-        BlockContentProps,
+        Omit<BlockContentProps, 'variant'>,
         WithColorOfBox,
         WithVariantOfBlock,
         WithPadding,

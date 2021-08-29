@@ -1,17 +1,22 @@
-import { WithIndex, WithValueAsNumber } from '../withs';
+import Div from '../atoms/Div';
 import { AsWrapper } from '../as';
+import { WithIndex, WithValueAsNumber } from '../withs';
 
-export function TabPanel({ className, children, value, index, ...props }: TabPanelProps) {
+export function TabPanel({ children, className, index, value, ...props }: TabPanelProps) {
     return (
         <div
-            role={'tabpanel'}
+            aria-labelledby={`simple-tab-${index}`}
             hidden={value !== index}
             id={`simple-tabpanel-${index}`}
-            aria-labelledby={`simple-tab-${index}`}
+            role={'tabpanel'}
             {...props}
             className={className}
         >
-            {value === index && <div className={'p-3 text-sm'}>{children}</div>}
+            {value === index && (
+                <Div p={'xmd'} className={'text-sm'}>
+                    {children}
+                </Div>
+            )}
         </div>
     );
 }

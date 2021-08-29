@@ -1,9 +1,9 @@
-import clsx from 'clsx';
 import { useCallback, useRef } from 'react';
-import Cropper from 'react-cropper';
+import clsx from 'clsx';
 import 'cropperjs/dist/cropper.css';
-import { WithImage, WithOnChange } from '../withs';
+import Cropper from 'react-cropper';
 import { AsComponent } from '../as';
+import { WithImage, WithOnChange } from '../withs';
 
 export function ImageCropper({ className, image, onChange }: ImageCropperProps) {
     const cropperRef = useRef<HTMLImageElement>(null);
@@ -13,16 +13,18 @@ export function ImageCropper({ className, image, onChange }: ImageCropperProps) 
         onChange && onChange(cropper.getCroppedCanvas().toDataURL(), cropper.getImageData());
     }, [onChange]);
 
-    return image ? (
+    if (!image) return null;
+
+    return (
         <Cropper
-            className={clsx('w-full', className)}
-            src={image.url}
-            initialAspectRatio={16 / 9}
-            guides={false}
             crop={onCrop}
+            guides={false}
+            initialAspectRatio={16 / 9}
             ref={cropperRef}
+            src={image.url}
+            className={clsx('w-full', className)}
         />
-    ) : null;
+    );
 }
 
 export interface ImageCropperProps extends AsComponent, WithImage, WithOnChange {}

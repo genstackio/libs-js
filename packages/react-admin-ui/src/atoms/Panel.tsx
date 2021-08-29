@@ -1,24 +1,13 @@
-import clsx from 'clsx';
-import boxClass from '../utils/boxClass';
-import Row from './Row';
-import { WithVertical } from '../withs';
-import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
-import { useMemo } from 'react';
-import { AsBoxWrapper } from '../as';
+import Div, { DivProps } from './Div';
+import useBox from '../hooks/useBox';
 
-export function Panel({ className, children, color = 'primary', variant = 'contained', vertical = false }: PanelProps) {
-    const box = useMemo(() => ({ color, variant }), [color, variant]);
+export function Panel({ col = true, ...props }: PanelProps) {
+    const [box, rest] = useBox(props, { color: 'primary', variant: 'contained' });
 
-    return (
-        <Row center className={clsx(boxClass({ color, variant }), 'p-4 leading-normal justify-between', className)}>
-            <BoxProvider value={box}>
-                {vertical ? <div className={'w-full'}>{children || ''}</div> : children || ''}
-            </BoxProvider>
-        </Row>
-    );
+    return <Div box={box} col={col} flex p={'md'} responsive={false} spacebetween {...rest} />;
 }
 
-export interface PanelProps extends AsBoxWrapper, WithVertical {}
+export type PanelProps = DivProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default Panel;

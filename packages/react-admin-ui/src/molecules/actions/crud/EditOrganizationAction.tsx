@@ -7,12 +7,12 @@ import { WithId, WithMutationName, WithQueryName, WithSpinnerComponent } from '.
 
 export function EditOrganizationAction({
     component: Component = EditOrganizationForm,
-    spinnerComponent,
-    queryName = 'GET_ORGANIZATION',
-    mutationName = 'UPDATE_ORGANIZATION',
     id,
+    mutationName = 'UPDATE_ORGANIZATION',
     onSuccess,
     prepare,
+    queryName = 'GET_ORGANIZATION',
+    spinnerComponent,
     ...props
 }: EditOrganizationActionProps) {
     prepare = useCallback(
@@ -27,9 +27,7 @@ export function EditOrganizationAction({
                   }))(data),
         [prepare, id],
     );
-
     const SpinnerComponent = spinnerComponent || Spinner;
-
     const { data, props: someProps } = useUpdateAction({
         id,
         queryName,

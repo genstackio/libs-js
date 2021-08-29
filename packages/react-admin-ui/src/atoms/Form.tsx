@@ -1,15 +1,16 @@
-import clsx from 'clsx';
 import { Children } from 'react';
+import clsx from 'clsx';
 import { useForm } from 'react-hook-form';
-import { WithDefaultValues, WithOnSubmit } from '../withs';
 import { AsWrapper } from '../as';
+import { WithDefaultValues, WithOnSubmit } from '../withs';
 
-export function Form({ className, defaultValues, children, onSubmit }: FormProps) {
+export function Form({ children, className, defaultValues, onSubmit }: FormProps) {
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm({ defaultValues });
+
     return (
         <form onSubmit={handleSubmit(onSubmit as any)} className={clsx('w-full', className)}>
             {Children.map(children, (child, i) => {

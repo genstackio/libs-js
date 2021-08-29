@@ -1,17 +1,15 @@
-import clsx from 'clsx';
 import Row from '../atoms/Row';
 import Image from '../atoms/Image';
-import { WithColorOfBox, WithLogo } from '../withs';
+import Cell from '../atoms/Cell';
 import { AsComponent } from '../as';
+import { WithColorOfBox, WithLogo } from '../withs';
 
-export function SmallFooter({ className, logo, color }: SmallFooterProps) {
+export function SmallFooter({ logo, ...props }: SmallFooterProps) {
     return (
-        <Row className={clsx('max-h-14', `bg-${color}`, className)}>
-            {' '}
-            {/* todo do not dynamically use bg-* */}
-            <div className={'flex-1'}>
-                <Image className={clsx('w-40')} {...logo} />
-            </div>
+        <Row size={'_sm-h'} {...props}>
+            <Cell>
+                <Image size={'xl-w'} {...logo} />
+            </Cell>
         </Row>
     );
 }

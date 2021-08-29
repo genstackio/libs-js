@@ -1,52 +1,56 @@
 import { useMemo } from 'react';
-import clsx from 'clsx';
-import { WithColorOfText, WithHeadingText, WithVariantOfHeadingText } from '../withs';
-import { AsComponent } from '../as';
 import Text from './Text';
-import Div from './Div';
+import Div, { DivProps } from './Div';
 import headingTextVariantClass from '../mappings/heading-text-variants';
 import { class_name, flag } from '../types';
+import { WithColorOfText, WithHeadingText, WithVariantOfHeadingText } from '../withs';
 
 export function HeadingText({
-    className,
-    center = false,
-    full = false,
     color = undefined,
-    title,
-    subtitle,
-    description,
-    variant,
-    titleClassName,
-    subtitleClassName,
-    descriptionClassName,
     contentClassName,
+    description,
+    descriptionClassName,
     headerClassName,
+    subtitle,
+    subtitleClassName,
+    title,
+    titleClassName,
+    variant,
+    ...props
 }: HeadingTextProps) {
     const v = useMemo(() => headingTextVariantClass(variant), [variant]);
-    return !!title || !!subtitle ? (
-        <Div full={full} className={clsx(className, center ? 'text-center' : '')}>
+
+    if (!title && !subtitle && !description) return null;
+
+    return (
+        <Div {...props}>
             <Div className={headerClassName}>
-                <Text text={title} color={color} variant={(v['title'] as any) || 'title'} className={titleClassName} />
+                <Text color={color} text={title} variant={(v['title'] as any) || 'title'} className={titleClassName} />
                 <Text
-                    text={subtitle}
                     color={color}
+                    mt={'_sm'}
+                    text={subtitle}
                     variant={(v['subtitle'] as any) || 'subtitle'}
                     className={subtitleClassName}
                 />
             </Div>
-            <Div className={contentClassName}>
+            <Div mt={'_sm'} className={contentClassName}>
                 <Text
-                    text={description}
                     color={color}
+                    text={description}
                     variant={v['description'] || 'description'}
                     className={descriptionClassName}
                 />
             </Div>
         </Div>
-    ) : null;
+    );
 }
 
-export interface HeadingTextProps extends AsComponent, WithColorOfText, WithHeadingText, WithVariantOfHeadingText {
+export interface HeadingTextProps
+    extends Omit<DivProps, 'color' | 'variant'>,
+        WithColorOfText,
+        WithHeadingText,
+        WithVariantOfHeadingText {
     full?: flag;
     titleClassName?: class_name;
     subtitleClassName?: class_name;

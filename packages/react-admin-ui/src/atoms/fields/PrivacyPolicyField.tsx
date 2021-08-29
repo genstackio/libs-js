@@ -1,16 +1,17 @@
-import CheckboxField, { CheckboxFieldProps } from './CheckboxField';
-import Text from '../Text';
 import { useTranslation } from 'react-i18next';
+import Text from '../Text';
 import Clickable from '../Clickable';
+import CheckboxField, { CheckboxFieldProps } from './CheckboxField';
 import { WithOnClick, WithColorOfText } from '../../withs';
 
-export function PrivacyPolicyField({ onClick, color, ...props }: PrivacyPolicyFieldProps) {
+export function PrivacyPolicyField({ color, onClick, ...props }: PrivacyPolicyFieldProps) {
     const { t } = useTranslation();
+
     return (
         <>
             <CheckboxField kind={'privacyPolicy'} {...props} />
             <Clickable onClick={onClick as any} optional>
-                <Text text={t('field_privacy_policy_description')} color={color} variant={'subsection'} />
+                <Text color={color} text={t('field_privacy_policy_description')} variant={'subsection'} />
             </Clickable>
         </>
     );

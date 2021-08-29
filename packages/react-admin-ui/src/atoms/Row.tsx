@@ -1,12 +1,10 @@
-import clsx from 'clsx';
-import { WithCenter } from '../withs';
-import { AsWrapper } from '../as';
+import Div, { DivProps } from './Div';
 
-export function Row({ className, children, center = false }: RowProps) {
-    return <div className={clsx('flex', center && 'items-center', className)}>{children || ''}</div>;
+export function Row(props: RowProps) {
+    return <Div flex responsive {...props} />;
 }
 
-export interface RowProps extends AsWrapper, WithCenter {}
+export type RowProps = DivProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default Row;

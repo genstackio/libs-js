@@ -1,34 +1,39 @@
 import clsx from 'clsx';
 import Block from './Block';
-import { WithHeadingText } from '../withs';
-import { AsBlock } from '../as';
 import HeadingText from './HeadingText';
 import useHeadingText from '../hooks/useHeadingText';
+import marginClass from '../mappings/margins';
+import { AsBlock } from '../as';
+import { WithHeadingText, WithMargin } from '../withs';
 
 export function SectionHeader({
+    children,
     className,
     color = 'primary',
+    m = 'md',
     variant = 'contained',
-    children,
     ...props
 }: SectionHeaderProps) {
     const [htProps, , hasContent] = useHeadingText(props);
-    return hasContent ? (
+
+    if (!hasContent) return null;
+
+    return (
         <Block
-            padding={'small'}
-            elevation={0}
             color={color}
-            className={clsx('m-4 bg-opacity-10', className)}
-            variant={variant}
             corner={'rounded-small'}
+            elevation={0}
+            p={'md'}
+            variant={variant}
+            className={clsx('bg-opacity-10', marginClass(m), className)}
         >
-            <HeadingText {...htProps} variant={'xsection'} color={color} />
+            <HeadingText color={color} variant={'xsection'} {...htProps} />
             {children || ''}
         </Block>
-    ) : null;
+    );
 }
 
-export interface SectionHeaderProps extends AsBlock, WithHeadingText {}
+export interface SectionHeaderProps extends AsBlock, WithHeadingText, WithMargin {}
 
 // noinspection JSUnusedGlobalSymbols
 export default SectionHeader;

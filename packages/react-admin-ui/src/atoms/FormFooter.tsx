@@ -1,13 +1,17 @@
-import clsx from 'clsx';
 import Div from './Div';
+import Column from './Column';
 import { AsWrapper } from '../as';
 
-export function FormFooter({ className, children }: FormFooterProps) {
-    return children ? (
-        <Div full flex center className={clsx('flex-col', className)}>
-            <div className={'mt-4 flex flex-inline items-center justify-center'}>{children}</div>
-        </Div>
-    ) : null;
+export function FormFooter({ children, className }: FormFooterProps) {
+    if (!children) return null;
+
+    return (
+        <Column center className={className}>
+            <Div center flex inline mt={'md'}>
+                {children}
+            </Div>
+        </Column>
+    );
 }
 
 export type FormFooterProps = AsWrapper;

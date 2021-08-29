@@ -1,18 +1,18 @@
 import Block from '../atoms/Block';
 import Text from '../atoms/Text';
+import Items from '../atoms/Items';
+import InfosItem from '../atoms/InfosItem';
 import useBlock from '../hooks/useBlock';
 import { AsComponent } from '../as';
 import { WithItemsOfInfos, WithColorOfText, WithTitle } from '../withs';
-import { InfosItem } from '../atoms/InfosItem';
 
 export function Infos({ items = [], title, ...props }: InfosProps) {
     const [bProps] = useBlock(props, { color: 'primary' });
+
     return (
         <Block {...bProps}>
             <Text text={title} variant={'title6'} />
-            {items.map(({ label, value }, index) => (
-                <InfosItem label={label} value={value} key={index} />
-            ))}
+            <Items component={InfosItem} items={items} className={'mb-2 sm:mb-0'} />
         </Block>
     );
 }

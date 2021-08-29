@@ -1,44 +1,32 @@
-import clsx from 'clsx';
-import Dropdown from './Dropdown';
+import Row, { RowProps } from './Row';
 import Icon from './Icon';
-import Div from './Div';
-import bgClass from '../utils/bgClass';
-import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
-import { WithIcon, WithDropdownItems, WithHeadingText, WithButtons } from '../withs';
-import { AsBoxWrapper } from '../as';
-import HeadingText from './HeadingText';
-import useButtons from '../hooks/useButtons';
 import Buttons from './Buttons';
+import Dropdown from './Dropdown';
+import HeadingText from './HeadingText';
+import useBox from '../hooks/useBox';
+import useButtons from '../hooks/useButtons';
 import useHeadingText from '../hooks/useHeadingText';
+import { WithIcon, WithDropdownItems, WithHeadingText, WithButtons } from '../withs';
 
-export function BlockHeader({
-    className,
-    color = 'primary',
-    dropdownItems,
-    icon,
-    variant = 'filled',
-    children,
-    ...props
-}: BlockHeaderProps) {
-    const [buttonsProps, rest] = useButtons(props);
-    const [htProps] = useHeadingText(rest);
-    return props.title ? (
-        <Div
-            padding={'default'}
-            className={clsx(bgClass({ color, variant }), 'border-b-1 flex justify-between items-center', className)}
-        >
-            <BoxProvider value={{ color, variant }}>
-                <HeadingText {...htProps} full variant={'smmd'} />
-                <Buttons {...buttonsProps} className={'flex justify-end'} />
-                <Dropdown items={dropdownItems} color={color} variant={variant} />
-                <Icon icon={icon} />
-                {children || ''}
-            </BoxProvider>
-        </Div>
-    ) : null;
+export function BlockHeader({ children, dropdownItems, icon, ...props }: BlockHeaderProps) {
+    const [btProps, rest3] = useButtons(props);
+    const [htProps, rest2] = useHeadingText(rest3, { variant: 'smmd' });
+    const [box, rest] = useBox(rest2, { b: 'xs-b', color: 'primary', variant: 'filled', p: 'sl' });
+
+    if (!props.title) return null;
+
+    return (
+        <Row box={box} center spaced {...rest}>
+            <HeadingText full {...htProps} />
+            <Buttons flex {...btProps} className={'justify-end'} />
+            <Dropdown items={dropdownItems} {...box} />
+            <Icon icon={icon} />
+            {children || ''}
+        </Row>
+    );
 }
 
-export interface BlockHeaderProps extends AsBoxWrapper, WithDropdownItems, WithIcon, WithButtons, WithHeadingText {}
+export interface BlockHeaderProps extends RowProps, WithDropdownItems, WithIcon, WithButtons, WithHeadingText {}
 
 // noinspection JSUnusedGlobalSymbols
 export default BlockHeader;

@@ -1,76 +1,72 @@
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
-import Row from '../atoms/Row';
+import Row, { RowProps } from '../atoms/Row';
+import Div from '../atoms/Div';
 import Text from '../atoms/Text';
-import { rich_text } from '../types';
+import Icon from '../atoms/Icon';
+import Cell from '../atoms/Cell';
 import { Image } from '../atoms/Image';
-import { WithDescription, WithLogo } from '../withs';
-import { Block, Icon } from '../atoms';
+import { rich_text } from '../types';
+import useBox from '../hooks/useBox';
 import Link from '@material-ui/core/Link';
-import { AsBox } from '../as';
-import { useBlock } from '../hooks';
+import { WithDescription, WithLogo } from '../withs';
 
-export function Footer({ logo, contact, links = [], description, copyright, ...props }: FooterProps) {
+export function Footer({ contact, copyright, description, links = [], logo, ...props }: FooterProps) {
     const { t } = useTranslation();
-    const [bProps] = useBlock(props, { color: 'dark', padding: 'none', variant: 'contained', corner: 'square' });
+    const [box, rest] = useBox(props, { color: 'dark', variant: 'contained' });
+
     return (
-        <Block {...bProps}>
-            <Row className={clsx('p-8 xs:flex-col')}>
-                <div className={'flex-1 flex flex-col pl-8'}>
-                    {logo && <Image {...logo} className={'m-6 w-24 h-24 ml-1 rounded-full'} expand={false} />}
-                    <div className={'flex-1 mt-3'}>
-                        <Text className={'mt-2 leading-loose'} variant={'overline'} text={description} />
-                    </div>
-                    <Text className={'mt-2 leading-loose'} variant={'overline'} text={copyright} />
-                </div>
-                {(links || contact) && (
-                    <div className={'flex sm:flex-col'}>
-                        <div className={'px-8 xs:pt-8'}>
-                            <Text className={'mb-6'} variant={'section'} text={t('project_name')} />
-                            {links.map((link, index) => (
-                                <Link key={index} color="inherit" href={link.target} className={'block leading-loose'}>
-                                    {link.label}
-                                </Link>
-                            ))}
-                        </div>
-                        {contact && (
-                            <div className={clsx('px-8', links ? 'sm:mt-6' : 'xs:pt-8')}>
-                                <Text className={'mb-6'} variant={'section'} text={t('footer_contact_us')} />
-                                <Link color="inherit" href={`tel:${contact?.phone}`} className={'block leading-loose'}>
-                                    {contact?.phone}
-                                </Link>
-                                <Link
-                                    color="inherit"
-                                    href={`mailto:${contact?.email}`}
+        <Row box={box} p={'xl'} {...rest}>
+            <Cell col pl={'xl'}>
+                <Image expand={false} size={'lg'} {...logo} className={'m-6 ml-1 rounded-full'} />
+                <Cell mt={'xmd'}>
+                    <Text mt={'sm'} text={description} variant={'overline'} className={'leading-loose'} />
+                </Cell>
+                <Text mt={'sm'} text={copyright} variant={'overline'} className={'leading-loose'} />
+            </Cell>
+            {(links || contact) && (
+                <Row>
+                    <Div px={'xl'} pt={'xl_'}>
+                        <Text mb={'lg'} text={t('project_name')} variant={'section'} />
+                        {links.map((link, index) => (
+                            <Link color={'inherit'} href={link.target} key={index} className={'block leading-loose'}>
+                                {link.label}
+                            </Link>
+                        ))}
+                    </Div>
+                    {contact && (
+                        <Div px={'xl'} className={clsx(links ? 'mt-6 sm:mt-0' : 'pt-8 sm:pt-0')}>
+                            <Text mb={'lg'} text={t('footer_contact_us')} variant={'section'} />
+                            <Link color={'inherit'} href={`tel:${contact?.phone}`} className={'block leading-loose'}>
+                                {contact?.phone}
+                            </Link>
+                            <Link color={'inherit'} href={`mailto:${contact?.email}`} className={'block leading-loose'}>
+                                {contact?.email}
+                            </Link>
+                            <Text text={contact?.address} variant={'body'} className={'block leading-loose'} />
+                            {(contact.zipCode || contact.city) && (
+                                <Text
+                                    text={
+                                        (contact.zipCode ? `${contact?.zipCode}` : '') +
+                                        (contact.zipCode && contact.city ? ' / ' : '') +
+                                        (contact.city ? `${contact?.city}` : '')
+                                    }
+                                    variant={'body'}
                                     className={'block leading-loose'}
-                                >
-                                    {contact?.email}
-                                </Link>
-                                <Text variant={'body'} text={contact?.address} className={'block leading-loose'} />
-                                {(contact.zipCode || contact.city) && (
-                                    <Text
-                                        variant={'body'}
-                                        text={
-                                            (contact.zipCode ? `${contact?.zipCode}` : '') +
-                                            (contact.zipCode && contact.city ? ' / ' : '') +
-                                            (contact.city ? `${contact?.city}` : '')
-                                        }
-                                        className={'block leading-loose'}
-                                    />
-                                )}
-                                <Link href={contact?.facebook}>
-                                    <Icon icon={'fa-fab--facebook-square'} className={'mt-2'} size={'md'} />
-                                </Link>
-                            </div>
-                        )}
-                    </div>
-                )}
-            </Row>
-        </Block>
+                                />
+                            )}
+                            <Link href={contact?.facebook}>
+                                <Icon icon={'fa-fab--facebook-square'} size={'md'} className={'mt-2'} />
+                            </Link>
+                        </Div>
+                    )}
+                </Row>
+            )}
+        </Row>
     );
 }
 
-export interface FooterProps extends AsBox, WithDescription, WithLogo {
+export interface FooterProps extends RowProps, WithDescription, WithLogo {
     contact?: any;
     links?: any[];
     copyright?: rich_text;

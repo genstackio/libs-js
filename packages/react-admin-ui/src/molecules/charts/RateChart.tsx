@@ -1,14 +1,14 @@
-import Chart from 'react-apexcharts';
-import { ApexOptions } from 'apexcharts';
+import { useMemo } from 'react';
 import tailwindConfig from '../../../tailwind.config';
+import Div from '../../atoms/Div';
 import Text from '../../atoms/Text';
+import Chart, { ChartOptions } from '../../atoms/Chart';
 import { lighten } from '@material-ui/core/styles';
-import { WithColorOfBox, WithSubtitle, WithOverline, WithTitleAsString, WithValueAsNumber } from '../../withs';
 import { AsComponent } from '../../as';
+import { WithColorOfBox, WithSubtitle, WithOverline, WithTitleAsString, WithValueAsNumber } from '../../withs';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
-
-const defaultOptions: ApexOptions = {
+const defaultOptions: ChartOptions = {
     chart: {
         toolbar: {
             show: false,
@@ -65,22 +65,27 @@ const defaultOptions: ApexOptions = {
 };
 
 export function RateChart({ className, color = 'primary', overline, subtitle, title, value }: RateChartProps) {
-    const options = {
-        ...defaultOptions,
-        colors: [tailwindColors[color]],
-        labels: [title],
-        plotOptions: { ...(defaultOptions.plotOptions || {}) },
-    };
-    options.plotOptions.radialBar!.dataLabels!.name!.color = tailwindColors[color];
-    options.plotOptions.radialBar!.hollow!.background = lighten(tailwindColors[color], 0.9);
-    options.fill!.gradient!.gradientToColors = [lighten(tailwindColors[color], 0.5)];
+    const options = useMemo(() => {
+        const o = {
+            ...defaultOptions,
+            colors: [tailwindColors[color]],
+            labels: [title],
+            plotOptions: { ...(defaultOptions.plotOptions || {}) },
+        };
+        o.plotOptions.radialBar!.dataLabels!.name!.color = tailwindColors[color];
+        o.plotOptions.radialBar!.hollow!.background = lighten(tailwindColors[color], 0.9);
+        o.fill!.gradient!.gradientToColors = [lighten(tailwindColors[color], 0.5)];
+        return o;
+    }, [color, title]);
+    const series = useMemo(() => [[value]], [value]);
+
     return (
         <div className={className}>
-            <Chart type={'radialBar'} options={options} series={[[value]]} height={'450px'} />
-            <div className={'text-center mt-2'}>
-                <Text text={subtitle} color={color} variant={'title6'} />
-                <Text text={overline} />
-            </div>
+            <Chart height={'450px'} options={options} series={series} type={'radialBar'} />
+            <Div p={'sm-t'}>
+                <Text color={color} text={subtitle} center variant={'title6'} />
+                <Text center text={overline} />
+            </Div>
         </div>
     );
 }

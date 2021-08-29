@@ -9,7 +9,7 @@ export default {
         items: args.items,
         color: args.color,
         variant: args.boxVariant,
-        padding: args.padding,
+        p: args.padding,
     }),
 };
 

@@ -1,16 +1,13 @@
-import FormItem from './FormItem';
+import Row from '../../atoms/Row';
 import Items from '../../atoms/Items';
+import FormItem from './FormItem';
 import { WithItemsOfFormRow } from '../../withs';
 
-export function FormRow({ items }: FormRowProps) {
+export function FormRow({ items = [] }: FormRowProps) {
     return (
-        <div
-            className={
-                'py-2 leading-tight focus:outline-none focus:shadow-outline flex inline xs:flex-col space-x-3 xs:space-x-0'
-            }
-        >
-            <Items items={items} component={FormItem} itemProp={'definition'} className={'flex-1'} />
-        </div>
+        <Row inline py={'sm'} spaced={30} className={'leading-tight focus:outline-none focus:shadow-outline'}>
+            <Items component={FormItem} itemProp={'definition'} items={items} className={'flex-1'} />
+        </Row>
     );
 }
 

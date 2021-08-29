@@ -30,6 +30,7 @@ const variants = {
 
 export function Rating({ variant = 'stars', ...props }: RatingProps) {
     const Component = variants[variant || 'basic'] || variants['basic'];
+
     return <Component {...props} />;
 }
 

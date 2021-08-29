@@ -1,42 +1,42 @@
+import clsx from 'clsx';
+import Div from '../atoms/Div';
+import Divider from '../atoms/Divider';
+import Column from '../atoms/Column';
 import Button from '../atoms/Button';
-import Row from '../atoms/Row';
 import Text from '../atoms/Text';
 import { rich_text } from '../types';
-import clsx from 'clsx';
-import { WithDescription, WithTitle } from '../withs';
 import bgClass from '../utils/bgClass';
-import Divider from '../atoms/Divider';
 import { AsBox } from '../as';
+import { WithDescription, WithTitle } from '../withs';
 
 export function AppPush({
-    title,
-    description,
-    className,
-    color = 'dark',
-    variant = 'contained',
     btnLabelAppStore,
     btnLabelGooglePlay,
+    className,
+    color = 'dark',
+    description,
+    title,
+    variant = 'contained',
 }: AppPushProps) {
     return (
-        <Row center className={clsx('mx-auto flex px-5 py-24 items-center justify-center flex-col')}>
-            <div className={'items-center'}>
-                <Text className={'m-2 leading-loose'} variant={'title6'} text={title} />
-                <Divider size={'xs'} variant={'contained'} color={'warning'} className={clsx('w-1/2 justify-center')} />
-            </div>
-            <Text className={'mt-2 py-3 m-2 leading-loose'} variant={'description'} text={description} />
-            <div className={'m-2'}>
+        <Column center mx={'auto'} px={'md'} py={'hl'}>
+            <Div center>
+                <Text m={'sm'} text={title} variant={'title6'} className={'leading-loose'} />
+                <Divider color={'warning'} size={'xs'} variant={'contained'} className={'w-1/2 justify-center'} />
+            </Div>
+            <Text m={'sm'} py={'xmd'} text={description} variant={'description'} className={'leading-loose'} />
+            <Div m={'sm'}>
                 <Button
                     color={color}
-                    variant={variant}
                     corner={'circle'}
+                    variant={variant}
                     className={clsx(
                         bgClass({ color, variant }),
                         'border-t-1 flex justify-between items-center p-3 m-2',
                         className,
                     )}
-                >
-                    {btnLabelAppStore}
-                </Button>
+                    label={btnLabelAppStore}
+                />
                 <Button
                     color={color}
                     variant={variant}
@@ -46,11 +46,10 @@ export function AppPush({
                         'border-t-1 flex justify-between items-center',
                         className,
                     )}
-                >
-                    {btnLabelGooglePlay}
-                </Button>
-            </div>
-        </Row>
+                    label={btnLabelGooglePlay}
+                />
+            </Div>
+        </Column>
     );
 }
 

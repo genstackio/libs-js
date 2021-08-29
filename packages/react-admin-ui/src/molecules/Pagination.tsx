@@ -2,10 +2,10 @@ import { ChangeEvent, useCallback, useState } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import MuiPagination from '@material-ui/lab/Pagination';
-import { basic_size, flag } from '../types';
 import tailwindConfig from '../../tailwind.config';
-import { WithColorOfBox } from '../withs';
+import { basic_size, flag } from '../types';
 import { AsComponent } from '../as';
+import { WithColorOfBox } from '../withs';
 
 const ellipsisPaddings = {
     lg: 8,
@@ -22,7 +22,6 @@ const sizes = {
     md: 'medium',
     sm: 'small',
 };
-
 const tailwindColors = tailwindConfig.theme.extend.colors;
 const colors = {
     primary: tailwindColors.primary,
@@ -34,7 +33,6 @@ const colors = {
     light: tailwindColors.light,
     dark: tailwindColors.dark,
 };
-
 const tailwindTextColors = tailwindConfig.theme.extend.textColors;
 const activeTextColors = {
     primary: tailwindTextColors.contained_primary,
@@ -46,7 +44,6 @@ const activeTextColors = {
     light: tailwindTextColors.contained_primary,
     dark: tailwindTextColors.contained_primary,
 };
-
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'inline-block',
@@ -104,16 +101,16 @@ export function Pagination({ className, ...props }: PaginationProps) {
     return (
         <div className={clsx(classes.root, className)}>
             <MuiPagination
+                boundaryCount={boundaryCount}
                 classes={{ ul: classes.ul }}
                 count={total}
-                page={page}
-                onChange={handleChange}
-                size={sizes[size || ''] || sizes.md}
-                boundaryCount={boundaryCount}
-                hidePrevButton={disabledPass}
                 hideNextButton={disabledPass}
+                hidePrevButton={disabledPass}
+                onChange={handleChange}
+                page={page}
                 showFirstButton={disabledSkip}
                 showLastButton={disabledSkip}
+                size={sizes[size || ''] || sizes.md}
             />
         </div>
     );

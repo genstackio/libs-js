@@ -57,22 +57,36 @@ import {
     push_item,
     items_section_layouts,
     badge_variant,
-    alignment,
+    figures_chart_item,
 } from './types';
-import { padding } from './mappings/paddings';
+import {
+    padding,
+    padding_x,
+    padding_y,
+    padding_top,
+    padding_bottom,
+    padding_left,
+    padding_right,
+} from './mappings/paddings';
+import { margin, margin_x, margin_y, margin_top, margin_bottom, margin_left, margin_right } from './mappings/margins';
+import { alignment } from './mappings/alignments';
 import { elevation } from './mappings/elevations';
 import { corner } from './mappings/corners';
 import { status } from './mappings/statuses';
 import { hover_animation } from './mappings/hover-animations';
-import { ComponentType, MouseEvent, ReactNode } from 'react';
+import { ChangeEvent, ComponentType, MouseEvent, MouseEventHandler, ReactNode } from 'react';
 import { avatar_size } from './mappings/avatar-sizes';
 import { progress_variant } from './mappings/progress-variants';
 import { rating_variant } from './mappings/rating-variants';
 import { spinner_color, spinner_size, spinner_variant } from './mappings/spinners';
 import { thumbnail_size } from './mappings/thumbnail-sizes';
+import { image_size } from './mappings/image-sizes';
+import { box_size } from './mappings/box-sizes';
 import { field_variant } from './mappings/field-variants';
 import { label_placement } from './mappings/label-placements';
 import { heading_text_variant } from './mappings/heading-text-variants';
+import { border, border_bottom, border_left, border_right, border_top, border_x, border_y } from './mappings/borders';
+import { accordion_corner } from './mappings/accordion-corners';
 
 export interface WithCenter {
     center?: flag;
@@ -170,6 +184,12 @@ export interface WithSize {
 export interface WithSizeOfAvatar {
     size?: avatar_size;
 }
+export interface WithSizeOfBox {
+    size?: box_size;
+}
+export interface WithSizeOfImage {
+    size?: image_size;
+}
 export interface WithSizeOfThumbnail {
     size?: thumbnail_size;
 }
@@ -181,12 +201,19 @@ export interface WithSizeOfSpacer {
     unitSize?: number;
 }
 
+export interface WithLocale {
+    locale?: string;
+}
+
 // WithItems
 export interface WithItems {
     items?: any[];
 }
 export interface WithItemsOfTimeline {
     items?: timeline_item[];
+}
+export interface WithItemsOfFiguresChart {
+    items?: figures_chart_item[];
 }
 export interface WithItemsOfPush {
     items?: push_item[];
@@ -443,7 +470,13 @@ export interface WithTypeOfBadge {
     type?: badge_variant;
 }
 export interface WithPadding {
-    padding?: padding;
+    p?: padding;
+    px?: padding_x;
+    py?: padding_y;
+    pt?: padding_top;
+    pb?: padding_bottom;
+    pl?: padding_left;
+    pr?: padding_right;
 }
 export interface WithElevation {
     elevation?: elevation;
@@ -558,6 +591,9 @@ export interface WithPlayingIcon {
 export interface WithCorner {
     corner?: corner;
 }
+export interface WithCornerOfAccordion {
+    corner?: accordion_corner;
+}
 export interface WithDefaultValues {
     defaultValues?: { [key: string]: any };
 }
@@ -599,6 +635,21 @@ export interface WithOnClear {
 }
 export interface WithOnClick {
     onClick?: target;
+}
+export interface WithNativeOnClick {
+    onClick?: MouseEventHandler;
+}
+export interface WithNativeOnChange {
+    onChange?: (event: ChangeEvent<any>, expanded: boolean) => void;
+}
+export interface WithNativeOnMouseOver {
+    onMouseOver?: MouseEventHandler;
+}
+export interface WithNativeOnMouseLeave {
+    onMouseLeave?: MouseEventHandler;
+}
+export interface WithNativeOnMouseEnter {
+    onMouseEnter?: MouseEventHandler;
 }
 export interface WithSlide {
     slide: slide;
@@ -700,6 +751,26 @@ export interface WithButtons extends WithButton, WithButton2, WithButton3 {}
 export interface WithHeadingText extends WithTitle, WithSubtitle, WithDescription, WithCenter {}
 export interface WithFullText extends WithHeadingText, WithContent {}
 
+export interface WithMargin {
+    m?: margin;
+    mx?: margin_x;
+    my?: margin_y;
+    mt?: margin_top;
+    mb?: margin_bottom;
+    ml?: margin_left;
+    mr?: margin_right;
+}
+
+export interface WithBorder {
+    b?: border;
+    bx?: border_x;
+    by?: border_y;
+    bt?: border_top;
+    bb?: border_bottom;
+    bl?: border_left;
+    br?: border_right;
+}
+
 export interface WithPositionOfPushImage {
     imagePosition?: push_image_position;
 }
@@ -718,9 +789,21 @@ export interface WithPush
         WithButton,
         WithButton2,
         WithButton3,
-        WithPosition,
+        WithPositionOfButtons,
         WithPositionOfPushImage {}
 
 export interface WithLayoutOfItemsSection {
     layout?: items_section_layouts;
+}
+
+export interface WithMaxLen {
+    maxLen?: number;
+}
+
+export interface WithEllipsis {
+    ellipsis?: rich_text;
+}
+
+export interface WithUpper {
+    upper?: flag;
 }

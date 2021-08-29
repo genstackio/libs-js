@@ -1,22 +1,21 @@
-import clsx from 'clsx';
-import { WizardMenu } from '../atoms/WizardMenu';
-import { WizardContent } from '../atoms/WizardContent';
+import Row from '../atoms/Row';
+import WizardMenu, { WizardMenuProps } from '../atoms/WizardMenu';
+import WizardContent, { WizardContentProps } from '../atoms/WizardContent';
 import { wizard_step } from '../types';
-import { WithColorOfBox, WithDefaultValues, WithOnChange, WithOnComplete } from '../withs';
-import { AsComponent } from '../as';
 
 export function Wizard({ className, ...props }: WizardProps) {
     return (
-        <div className={clsx('flex sm:flex-col', className)}>
+        <Row className={className}>
             <WizardMenu {...props} />
             <WizardContent {...props} />
-        </div>
+        </Row>
     );
 }
 
-export interface WizardProps extends AsComponent, WithOnChange, WithOnComplete, WithDefaultValues, WithColorOfBox {
+export interface WizardProps extends WizardMenuProps, WizardContentProps {
     steps: wizard_step[];
     currentStep: wizard_step;
+    [key: string]: any;
 }
 
 // noinspection JSUnusedGlobalSymbols

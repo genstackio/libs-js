@@ -1,7 +1,7 @@
-import Pill from './Pill';
 import Tag from './Tag';
-import { WithText, WithTypeOfBadge } from '../withs';
+import Pill from './Pill';
 import { AsBox } from '../as';
+import { WithText, WithTypeOfBadge } from '../withs';
 
 const types = {
     pill: Pill,
@@ -11,9 +11,11 @@ const types = {
 };
 
 export function Badge({ type, ...props }: BadgeProps) {
-    if (!props.text) return null;
     const Component = types[type || 'default'] || types.default;
-    return Component ? <Component {...props} /> : null;
+
+    if (!props.text || !Component) return null;
+
+    return <Component {...props} />;
 }
 
 export interface BadgeProps extends AsBox, WithText, WithTypeOfBadge {}

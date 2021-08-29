@@ -1,14 +1,16 @@
-import clsx from 'clsx';
-import { WithItemsOfShareIcons } from '../withs';
-import { AsBox } from '../as';
+import Row from '../atoms/Row';
 import Items from '../atoms/Items';
 import ShareIcon from './ShareIcon';
+import { AsBox } from '../as';
+import { WithItemsOfShareIcons } from '../withs';
 
 export function ShareIcons({ className, items = [], ...props }: ShareIconsProps) {
+    if (!items.length) return null;
+
     return (
-        <div className={clsx('flex flex-row space-x-5', className)}>
-            <Items items={items} component={ShareIcon} {...props} />
-        </div>
+        <Row spaced={4} className={className}>
+            <Items component={ShareIcon} items={items} {...props} />
+        </Row>
     );
 }
 

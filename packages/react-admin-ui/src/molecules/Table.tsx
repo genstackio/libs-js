@@ -1,49 +1,17 @@
+import { useCallback, useMemo, useState } from 'react';
+import clsx from 'clsx';
+import Badge from '../atoms/Badge';
 import { DataGrid, DataGridProps, GridCellParams, GridColDef, GridValueFormatterParams } from '@material-ui/data-grid';
 import { makeStyles } from '@material-ui/core/styles';
 import tailwindConfig from '../../tailwind.config';
+import useTableTranslation from '../utils/useTableTranslation';
 import { class_name, flag } from '../types';
-import Badge from '../atoms/Badge';
-import { useCallback, useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { WithColorOfBox, WithItemsOfTable, WithColumnsOfTable } from '../withs';
 import { AsComponent } from '../as';
-import clsx from 'clsx';
+import { WithColorOfBox, WithItemsOfTable, WithColumnsOfTable } from '../withs';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 const tailwindTextColors = tailwindConfig.theme.extend.textColors;
 
-const useTableTranslation = () => {
-    const { i18n } = useTranslation();
-    return useMemo(() => {
-        const r: any = { ...i18n.getResourceBundle(i18n.language, 'table') };
-        const x = r.footerTotalVisibleRows;
-        r.footerTotalVisibleRows = (a, b) => x.replace('{{visibleCount}}', a).replace('{{totalCount}}', b);
-        const y1 = r.footerRowSelected;
-        const yN = r.footerRowSelectedPlural;
-        delete r.footerRowSelectedPlural;
-        r.footerRowSelected = (a) => (a > 1 ? yN.replace('{{count}}', a) : y1.replace('{{count}}', a));
-        const z1 = r.columnHeaderFiltersTooltipActive;
-        const zN = r.columnHeaderFiltersTooltipActivePlural;
-        delete r.columnHeaderFiltersTooltipActivePlural;
-        r.columnHeaderFiltersTooltipActive = (a) => (a > 1 ? zN.replace('{{count}}', a) : z1.replace('{{count}}', a));
-        const t1 = r.toolbarFiltersTooltipActive;
-        const tN = r.toolbarFiltersTooltipActivePlural;
-        delete r.toolbarFiltersTooltipActivePlural;
-        r.toolbarFiltersTooltipActive = (a) => (a > 1 ? tN.replace('{{count}}', a) : t1.replace('{{count}}', a));
-        const r2 = { ...i18n.getResourceBundle(i18n.language, 'tablePagination') };
-        const uN = r2.labelDisplayedRows || '';
-        const uX = r2.labelDisplayedRowsUnknown || '';
-        delete r2.labelDisplayedRowsUnknown;
-        r2.labelDisplayedRows = ({ count, from, to }) =>
-            count !== -1
-                ? uN.replace('{{count}}', count).replace('{{from}}', from).replace('{{to}}', to)
-                : uX.replace('{{from}}', from).replace('{{to}}', to);
-        return {
-            localeText: r,
-            pagination: r2,
-        };
-    }, [i18n, i18n.language]);
-};
 const useStyles = makeStyles({
     root: (props: TableProps) => ({
         '& .MuiDataGrid-columnHeaderWrapper, .MuiDataGrid-footer, .MuiTablePagination-toolbar': {
@@ -82,21 +50,21 @@ const useStyles = makeStyles({
 });
 
 export function Table({
+    cellClassName,
     className,
-    total,
-    onPageChange,
     color,
-    striped,
-    loading = false,
+    columnHeaderClassName,
     columns = [],
-    items = [],
-    selection = false,
     defaultRowsPerPage = 50,
+    items = [],
+    loading = false,
+    onPageChange,
     rootClassName,
     rowClassName,
-    columnHeaderClassName,
-    cellClassName,
     rowHeight,
+    selection = false,
+    striped,
+    total,
     ...props
 }: TableProps) {
     let classes = useStyles({ color, striped } as any);
@@ -159,24 +127,24 @@ export function Table({
 
     return (
         <DataGrid
-            localeText={localeText}
-            loading={loading}
-            rows={items}
-            columns={formattedCols}
-            classes={classes}
-            rowHeight={rowHeight}
+            autoHeight
             checkboxSelection={selection}
+            classes={classes}
+            columns={formattedCols}
+            componentsProps={componentsProps}
             disableColumnMenu
             disableSelectionOnClick
-            autoHeight
-            className={className}
-            rowsPerPageOptions={[5, 10, 20, 50, 100, 200]}
-            pageSize={rowsPerPage}
-            rowCount={total}
-            onPageSizeChange={handlePageSizeChange}
+            loading={loading}
+            localeText={localeText}
             onPageChange={handlePageChange}
+            onPageSizeChange={handlePageSizeChange}
+            pageSize={rowsPerPage}
             paginationMode={'server'}
-            componentsProps={componentsProps}
+            rowHeight={rowHeight}
+            rowCount={total}
+            rows={items}
+            rowsPerPageOptions={[5, 10, 20, 50, 100, 200]}
+            className={className}
             {...props}
         />
     );

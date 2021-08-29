@@ -2,9 +2,10 @@ import { useCallback, useState } from 'react';
 import clsx from 'clsx';
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
+import Div from '../../atoms/Div';
 import Button from '../../atoms/Button';
-import { WithColorOfBox } from '../../withs';
 import { AsComponent } from '../../as';
+import { WithColorOfBox } from '../../withs';
 
 const defaultOptions: ApexOptions = {
     chart: {
@@ -70,22 +71,21 @@ export function AreaLineChart({ className, datas, color }: AreaLineChartProps) {
     options.colors = series.colors;
 
     return (
-        <div className={clsx('relative h-3/4 min-h-250 md:h-auto p-6 xs:p-2', className)}>
-            <div className={'absolute xs:static top-2 left-2 flex'}>
+        <Div relative className={clsx('min-h-250 h-auto md:h-3/4 p-2 sm:p-6', className)}>
+            <Div flex className={'static sm:absolute top-2 left-2'}>
                 {datas.map((data, index) => (
                     <Button
-                        variant={'filled'}
                         color={color}
-                        key={index}
-                        onClick={handleClick(data)}
                         disabled={series === data}
-                    >
-                        {data.label}
-                    </Button>
+                        key={index}
+                        label={data.label}
+                        onClick={handleClick(data)}
+                        variant={'filled'}
+                    />
                 ))}
-            </div>
-            <Chart type={'area'} height={'100%'} options={options} series={series.series} />
-        </div>
+            </Div>
+            <Chart height={'100%'} options={options} series={series.series} type={'area'} />
+        </Div>
     );
 }
 

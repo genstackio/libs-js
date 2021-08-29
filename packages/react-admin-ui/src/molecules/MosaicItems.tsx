@@ -1,10 +1,11 @@
-import clsx from 'clsx';
 import { useState, useCallback } from 'react';
+import clsx from 'clsx';
+import Div from '../atoms/Div';
 import MosaicItem from '../atoms/MosaicItem';
-import { WithItems } from '../withs';
 import { AsComponent } from '../as';
+import { WithItems } from '../withs';
 
-export function MosaicItems({ className, items, selected = {}, onSelectionChange }: MosaicItemsProps) {
+export function MosaicItems({ className, items, onSelectionChange, selected = {} }: MosaicItemsProps) {
     const [selectedItem, setSelected] = useState(selected);
     const handleClick = useCallback(
         (item) => () => {
@@ -15,21 +16,21 @@ export function MosaicItems({ className, items, selected = {}, onSelectionChange
     );
 
     return (
-        <div className={clsx('flex flex-wrap xs:justify-around', className)}>
+        <Div flex wrap className={clsx('justify-around sm:justify-between', className)}>
             {items &&
                 items.map((item, index) => (
                     <div
                         key={`mosaicItem-${index}`}
+                        onClick={handleClick(item)}
                         className={clsx(
                             'm-1 cursor-pointer border-4',
                             selectedItem.id === item.id ? 'border-primary' : 'border-opacity-0 border-transparent',
                         )}
-                        onClick={handleClick(item)}
                     >
                         <MosaicItem item={item} />
                     </div>
                 ))}
-        </div>
+        </Div>
     );
 }
 

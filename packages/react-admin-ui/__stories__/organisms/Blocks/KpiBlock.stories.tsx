@@ -11,7 +11,7 @@ export default {
         quantity: args.quantity,
         color: args.color,
         variant: args.blockVariant,
-        padding: args.padding,
+        p: args.padding,
     }),
 };
 

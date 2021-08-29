@@ -1,34 +1,21 @@
 import clsx from 'clsx';
-import { ApexOptions } from 'apexcharts';
-import { box_color } from '../../types';
-import { AsComponent } from '../../as';
+import Items from '../../atoms/Items';
 import { FiguresChartItem } from '../../atoms/FiguresChartItem';
+import { AsComponent } from '../../as';
+import { WithItemsOfFiguresChart } from '../../withs';
 
 export function FiguresChart({ className, items = [] }: FiguresChartProps) {
     return (
-        <>
-            {items && (
-                <div className={clsx('grid grid-cols-4 xs:grid-cols-1 divide-x xs:divide-x-0', className)}>
-                    {items.map((item, index) => (
-                        <FiguresChartItem key={index} {...item} />
-                    ))}
-                </div>
-            )}
-        </>
+        <Items
+            container
+            containerClassName={clsx('grid grid-cols-1 sm:grid-cols-4 divide-x-0 sm:divide-x', className)}
+            component={FiguresChartItem}
+            items={items}
+        />
     );
 }
 
-export interface FiguresChartProps extends AsComponent {
-    items?: {
-        color?: box_color;
-        name?: string;
-        options?: ApexOptions;
-        series?: {
-            data?: number[];
-        }[];
-        value?: number;
-    }[];
-}
+export interface FiguresChartProps extends AsComponent, WithItemsOfFiguresChart {}
 
 // noinspection JSUnusedGlobalSymbols
 export default FiguresChart;

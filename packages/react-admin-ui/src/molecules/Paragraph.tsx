@@ -1,37 +1,38 @@
-import clsx from 'clsx';
 import Image from '../atoms/Image';
 import Row from '../atoms/Row';
+import Div from '../atoms/Div';
+import Cell from '../atoms/Cell';
 import Text from '../atoms/Text';
-import { WithTitle, WithText, WithImage, WithButtons } from '../withs';
-import { AsBox } from '../as';
+import Buttons from '../atoms/Buttons';
 import useButtons from '../hooks/useButtons';
-import { Buttons } from '../atoms';
-// @todo: add theme
+import { AsBox } from '../as';
+import { WithTitle, WithText, WithImage, WithButtons } from '../withs';
 
 export function Paragraph({
     className,
-    title,
-    text,
     color = 'primary',
-    imageLeft = false,
     image,
+    imageLeft = false,
+    text,
+    title,
     ...props
 }: ParagraphProps) {
     const [buttonProps] = useButtons(props);
+
     return (
-        <Row className={clsx('xs:flex-col', imageLeft && 'flex-row-reverse xs:flex-col-reverse', className)}>
-            <div className={clsx('flex-1')}>
-                <Text className={'mb-2'} variant={'title5'} text={title} color={color} />
+        <Row reverse={imageLeft} className={className}>
+            <Cell col>
+                <Text color={color} mb={'sm'} text={title} variant={'title5'} />
                 <div className={'th-title-underline'} />
-                <Text className={'leading-loose py-3'} variant={'body'} text={text} />
-                <div className={'flex justify-center mt-3'}>
+                <Text py={'xmd'} text={text} variant={'body'} className={'leading-loose'} />
+                <Div center flex mt={'xmd'}>
                     <Buttons {...buttonProps} />
-                </div>
-            </div>
+                </Div>
+            </Cell>
             {image && (
-                <div className={'flex-1 mr-4'}>
+                <Cell mr={'md'}>
                     <Image {...image} />
-                </div>
+                </Cell>
             )}
         </Row>
     );

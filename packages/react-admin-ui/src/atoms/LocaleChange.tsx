@@ -1,16 +1,18 @@
 import { useCallback, useState } from 'react';
 import clsx from 'clsx';
-import Text from './Text';
-import FlagIcon from './FlagIcon';
-import bgClass from '../utils/bgClass';
-import Popper from '@material-ui/core/Popper';
 import { useTranslation } from 'react-i18next';
+import Text from './Text';
+import Div from './Div';
+import Row from './Row';
+import FlagIcon from './FlagIcon';
+import Popper from '@material-ui/core/Popper';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import { WithColorOfBox, WithLocales } from '../withs';
+import bgClass from '../utils/bgClass';
 import shortenLocale from '../utils/shortenLocale';
 import { AsComponent } from '../as';
+import { WithColorOfBox, WithLocales } from '../withs';
 
-export function LocaleChange({ className, locales = [], color = 'primary' }: LocaleChangeProps) {
+export function LocaleChange({ className, color = 'primary', locales = [] }: LocaleChangeProps) {
     const { i18n } = useTranslation() as any;
     const [opened, setOpened] = useState(false);
     const onLocaleChange = useCallback(
@@ -36,26 +38,32 @@ export function LocaleChange({ className, locales = [], color = 'primary' }: Loc
 
     return !locales || 1 >= locales.length ? null : (
         <ClickAwayListener onClickAway={handleClickAway}>
-            <div className={clsx('cursor-pointer flex items-center space-x-2', className)} onClick={handleClick}>
-                <FlagIcon locale={i18n.language} />
-                <Text text={shortenLocale(i18n.language)} variant={'subsection'} />
-                <Popper open={opened} anchorEl={anchorEl} placement={'bottom-start'} transition>
-                    <div className={'max-w-xxs divide-y bg-clear mt-4'}>
-                        {locales.map(({ value, language }, index) => (
-                            <div
-                                className={clsx(
-                                    bgClass({ color: color, variant: 'outlined', hoverable: true }),
-                                    'flex items-center space-x-2 p-3 cursor-pointer',
-                                )}
-                                key={index}
-                                onClick={onLocaleChange(value) as any}
-                            >
-                                <FlagIcon locale={value} />
-                                <Text text={language} variant={'subsection'} />
-                            </div>
-                        ))}
-                    </div>
-                </Popper>
+            <div className={className} onClick={handleClick}>
+                {' '}
+                {/* native div is required here to be injected the ref from ClickAwayListener */}
+                <Row responsive={false} pointer spaced={2}>
+                    <FlagIcon locale={i18n.language} />
+                    <Text text={shortenLocale(i18n.language)} variant={'subsection'} />
+                    <Popper anchorEl={anchorEl} open={opened} placement={'bottom-start'} transition>
+                        <Div mt={'md'} className={'max-w-xxs divide-y bg-clear'}>
+                            {locales.map(({ value, language }, index) => (
+                                <Div
+                                    flex
+                                    key={index}
+                                    pointer
+                                    onClick={onLocaleChange(value) as any}
+                                    className={clsx(
+                                        bgClass({ color: color, variant: 'outlined', hoverable: true }),
+                                        'space-x-2 p-3',
+                                    )}
+                                >
+                                    <FlagIcon locale={value} />
+                                    <Text text={language} variant={'subsection'} />
+                                </Div>
+                            ))}
+                        </Div>
+                    </Popper>
+                </Row>
             </div>
         </ClickAwayListener>
     );

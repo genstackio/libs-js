@@ -1,22 +1,23 @@
 import Text from '../atoms/Text';
 import Icon from '../atoms/Icon';
-import { WithSubtitle, WithValueAsRichText } from '../withs';
+import Div from '../atoms/Div';
 import { AsComponent } from '../as';
+import { WithSubtitle, WithValueAsRichText } from '../withs';
 
 export function StatsChartHeader({ className, subtitle, stats, value }: StatsChartHeaderProps) {
     return (
-        <div className={className}>
+        <Div className={className}>
             {subtitle && (
-                <div className={'flex justify-between items-center mb2'}>
-                    <div className={'flex items-center space-x-2'}>
+                <Div center flex mb={'sm'} spaced>
+                    <Div center flex spaced={2}>
                         <Text text={subtitle} variant={'body'} />
-                        <Text text={value} color={'primary'} variant={'title6'} />
-                    </div>
+                        <Text color={'primary'} text={value} variant={'title6'} />
+                    </Div>
                     <Icon icon={'settings'} className={'animate-spin'} />
-                </div>
+                </Div>
             )}
-            <Text text={`${stats}`} color={'dark'} variant={'title5'} />
-        </div>
+            <Text color={'dark'} text={`${stats}`} variant={'title5'} />
+        </Div>
     );
 }
 

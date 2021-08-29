@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
-import { WithImage, WithLogo } from '../withs';
 import CenteredLayoutTemplate from './layouts/CenteredLayoutTemplate';
 import { AsComponent } from '../as';
+import { WithImage, WithLogo } from '../withs';
 
 export function LoginTemplate({ form, ...props }: LoginTemplateProps) {
     return <CenteredLayoutTemplate {...props}>{form}</CenteredLayoutTemplate>;

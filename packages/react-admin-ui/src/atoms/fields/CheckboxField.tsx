@@ -1,11 +1,10 @@
-import Checkbox from '@material-ui/core/Checkbox';
+import Row from '../Row';
 import Text from '../Text';
+import FieldSet from '../FieldSet';
+import Checkbox from '@material-ui/core/Checkbox';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
 import useField from '../../hooks/useField';
-import FieldSet from '../FieldSet';
-import Row from '../Row';
 import { AsFlagField } from '../../as';
 
 const useStyles = makeStyles({
@@ -44,22 +43,23 @@ export function CheckboxField({ className, onChange, ...props }: CheckboxFieldPr
         defaultValue = false,
         extra,
     } = useField(props, { kind: 'checkbox' });
+
     return (
-        <FieldSet name={name} label={label} options={options} error={error} helper={helper} className={className}>
-            <Row center>
+        <FieldSet error={error} helper={helper} label={label} name={name} options={options} className={className}>
+            <Row center responsive={false}>
                 <Checkbox
                     checkedIcon={<CheckBoxOutlinedIcon />}
                     classes={classes}
+                    defaultChecked={defaultValue}
                     disabled={disabled}
                     disableRipple
-                    defaultChecked={defaultValue}
-                    onChange={onChange}
                     name={name}
+                    onChange={onChange}
                     required={required}
                     {...register()}
                     {...extra}
                 />
-                <Text text={label} className={clsx(disabled && 'text-disabled')} />
+                <Text disabled={disabled} text={label} />
             </Row>
         </FieldSet>
     );

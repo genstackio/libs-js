@@ -8,7 +8,7 @@ export default {
     argTypes: a({
         color: args.color,
         variant: args.blockVariant,
-        padding: args.padding,
+        p: args.padding,
         iconCornerTopLeft: args.iconCorner,
         iconCornerTopRight: args.iconCorner,
         iconCornerBottomLeft: args.iconCorner,

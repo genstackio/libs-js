@@ -1,11 +1,11 @@
+import { useCallback } from 'react';
+import { Controller } from 'react-hook-form';
+import Select from 'react-select';
 import FieldSet from '../FieldSet';
 import useField from '../../hooks/useField';
-import Select from 'react-select';
-import { Controller } from 'react-hook-form';
-import { useCallback } from 'react';
 import { AsChoiceField } from '../../as';
 
-export function SelectField({ className, values = [], onChange: parentOnChange, ...props }: SelectFieldProps) {
+export function SelectField({ className, onChange: parentOnChange, values = [], ...props }: SelectFieldProps) {
     const { name, label, error, helper, disabled, placeholder, options, defaultValue, extra, control } =
         useField(props);
 
@@ -16,28 +16,27 @@ export function SelectField({ className, values = [], onChange: parentOnChange, 
         },
         [parentOnChange],
     );
+
     return (
-        <FieldSet name={name} label={label} options={options} error={error} helper={helper} className={className}>
+        <FieldSet error={error} helper={helper} label={label} name={name} options={options} className={className}>
             <Controller
                 control={control}
                 defaultValue={defaultValue}
                 name={name}
-                render={({ field: { ref, value, onChange, ...field } }: any) => {
-                    return (
-                        <Select
-                            {...field}
-                            inputRef={ref}
-                            isDisabled={disabled}
-                            options={values}
-                            value={values.find((c) =>
-                                undefined !== value && '' !== value ? c.value === value : c.value === defaultValue,
-                            )}
-                            onChange={handleChange(onChange)}
-                            placeholder={placeholder}
-                            {...extra}
-                        />
-                    );
-                }}
+                render={({ field: { ref, value, onChange, ...field } }: any) => (
+                    <Select
+                        {...field}
+                        inputRef={ref}
+                        isDisabled={disabled}
+                        onChange={handleChange(onChange)}
+                        options={values}
+                        placeholder={placeholder}
+                        value={values.find((c) =>
+                            undefined !== value && '' !== value ? c.value === value : c.value === defaultValue,
+                        )}
+                        {...extra}
+                    />
+                )}
             />
         </FieldSet>
     );

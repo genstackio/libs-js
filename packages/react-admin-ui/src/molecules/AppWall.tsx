@@ -1,14 +1,15 @@
-import { WithImage, WithCorner, WithItems } from '../withs';
-import { AsComponent } from '../as';
+import clsx from 'clsx';
+import Div from '../atoms/Div';
 import Items from '../atoms/Items';
 import AppWallItem from '../atoms/AppWallItem';
-import clsx from 'clsx';
+import { AsComponent } from '../as';
+import { WithImage, WithCorner, WithItems } from '../withs';
 
-export function AppWall({ items = [], className }: AppWallProps) {
+export function AppWall({ className, items = [] }: AppWallProps) {
     return (
-        <div className={clsx('grid grid-cols-6 sm:grid-cols-4 gap-x-5 gap-y-11', className)}>
-            <Items items={items} component={AppWallItem} />
-        </div>
+        <Div grid={64} className={clsx('place-items-center gap-x-5 gap-y-11', className)}>
+            <Items component={AppWallItem} items={items} />
+        </Div>
     );
 }
 

@@ -1,14 +1,14 @@
-import clsx from 'clsx';
+import Div from '../atoms/Div';
 import Image from '../atoms/Image';
-import { WithTitle, WithIcon, WithButton, WithItemsOfGallery, WithImage } from '../withs';
 import { AsComponent } from '../as';
+import { WithTitle, WithIcon, WithButton, WithItemsOfGallery, WithImage } from '../withs';
 
 export function GalleryItem({ className, image }: GalleryItemProps) {
     return (
-        <div className={clsx(className)}>
-            <div className={'border-double border-4 rounded-md'}>
+        <div className={className}>
+            <Div b={'lg'} className={'border-double rounded-md'}>
                 <Image {...image} />
-            </div>
+            </Div>
         </div>
     );
 }

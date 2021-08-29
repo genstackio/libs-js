@@ -1,7 +1,7 @@
 import Icon from '../Icon';
-import { makeStyles } from '@material-ui/core/styles';
 import tailwindConfig from '../../../tailwind.config';
 import BaseRating, { BaseBaseRatingProps } from './BaseRating';
+import { makeStyles } from '@material-ui/core/styles';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 const colors = {
@@ -23,15 +23,16 @@ const useStyles = makeStyles({
         color: (props: StarsRatingProps) => colors[props.color || ''] || colors.primary,
     },
 });
+const labelProps = { variant: 'title6' };
 
 export function StarsRating(props: StarsRatingProps) {
     return (
         <BaseRating
-            kind={'stars'}
-            styles={useStyles}
-            labelProps={{ variant: 'title6' }}
-            icon={NonEmpty}
             emptyIcon={Empty}
+            icon={NonEmpty}
+            kind={'stars'}
+            labelProps={labelProps}
+            styles={useStyles}
             {...props}
         />
     );

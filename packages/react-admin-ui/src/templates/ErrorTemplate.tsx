@@ -1,31 +1,29 @@
-import clsx from 'clsx';
-import { target } from '../types';
 import Button from '../atoms/Button';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
-import { WithColorOfBox, WithIcon, WithMessage } from '../withs';
+import Div from '../atoms/Div';
+import { target } from '../types';
 import { AsComponent } from '../as';
+import { WithColorOfBox, WithIcon, WithMessage } from '../withs';
 
-export function ErrorTemplate({ className, actions, code, color, icon, message }: ErrorTemplateProps) {
+export function ErrorTemplate({ actions, className, code, color, icon, message }: ErrorTemplateProps) {
     return (
-        <div className={clsx('h-screen flex items-center', className)}>
-            <div className={'text-center max-w-3xl mx-auto'}>
-                <Icon icon={icon} size={'8xl'} className={`text-disabled`} />
-                <Text text={`${code}`} variant={'title7'} color={color} />
-                <Text text={message} variant={'subtitle'} />
+        <Div center flex hscreen className={className}>
+            <Div center col flex mx={'auto'} className={'max-w-3xl'} spaced={1}>
+                <Icon disabled icon={icon} size={'8xl'} />
+                <Text center color={color} text={`${code}`} variant={'title7'} />
+                <Text center text={message} variant={'subtitle'} />
                 {actions && (
-                    <div className={'x-buttons justify-center mt-6 sm:mt-4 xs:mt-2'}>
+                    <Div center flex mt={'lg'} spaced={420} wrap>
                         {actions.map(({ target, label }, i) => (
-                            <div className={'xs:mt-2 xs:w-full'} key={i}>
-                                <Button color={color} variant={'contained'} onClick={target}>
-                                    {label}
-                                </Button>
-                            </div>
+                            <Div auto key={i} mt={'_sm'}>
+                                <Button color={color} onClick={target} variant={'contained'} label={label} />
+                            </Div>
                         ))}
-                    </div>
+                    </Div>
                 )}
-            </div>
-        </div>
+            </Div>
+        </Div>
     );
 }
 

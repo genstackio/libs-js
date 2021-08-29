@@ -1,8 +1,9 @@
 import { useCallback, useState } from 'react';
-import clsx from 'clsx';
 import Avatar from 'react-avatar-edit';
 import Div from '../atoms/Div';
+import Row from '../atoms/Row';
 import Image from '../atoms/Image';
+import Column from '../atoms/Column';
 import Button from '../atoms/Button';
 import { box_variant } from '../mappings/box-variants';
 import useDeviceTypeConfig from '../hooks/useDeviceTypeConfig';
@@ -49,7 +50,7 @@ export function ImageUploader({
     }, [onChange, state]);
 
     return (
-        <Div flex className={clsx(className, 'items-center sm:flex-col')}>
+        <Row center className={className}>
             <Avatar
                 width={width}
                 height={height}
@@ -59,8 +60,8 @@ export function ImageUploader({
                 src={state.src}
             />
             {!!state.preview && (
-                <Div flex className={'flex-col ml-32 sm:ml-0'}>
-                    <Div className={'w-32 py-2'}>
+                <Column ml={'_3xl'}>
+                    <Div py={'sm'} className={'w-32'}>
                         <Image url={state.preview} alt={'Preview'} />
                     </Div>
                     <Button
@@ -74,9 +75,9 @@ export function ImageUploader({
                         size={btnSize}
                         corner={btnCorner}
                     />
-                </Div>
+                </Column>
             )}
-        </Div>
+        </Row>
     );
 }
 

@@ -1,18 +1,18 @@
+import { useCallback } from 'react';
 import EditCurrentUserForm, { EditCurrentUserFormProps } from '../../forms/crud/EditCurrentUserForm';
 import FormActionProps from '../../forms/FormActionProps';
 import Spinner from '../../../atoms/Spinner';
 import useUpdateAction from '../../../hooks/useUpdateAction';
-import { useCallback } from 'react';
 import { WithId, WithMutationName, WithQueryName, WithSpinnerComponent } from '../../../withs';
 
 export function EditCurrentUserAction({
     component: Component = EditCurrentUserForm,
-    spinnerComponent,
-    queryName = 'GET_USER',
-    mutationName = 'UPDATE_USER',
     id,
+    mutationName = 'UPDATE_USER',
     onSuccess,
     prepare,
+    spinnerComponent,
+    queryName = 'GET_USER',
     ...props
 }: EditCurrentUserActionProps) {
     prepare = useCallback(
@@ -29,9 +29,7 @@ export function EditCurrentUserAction({
                   }))(data),
         [prepare, id],
     );
-
     const SpinnerComponent = spinnerComponent || Spinner;
-
     const { data, props: someProps } = useUpdateAction({
         id,
         queryName,

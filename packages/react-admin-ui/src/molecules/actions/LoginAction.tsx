@@ -1,6 +1,6 @@
 import LoginForm, { LoginFormProps } from '../forms/LoginForm';
-import useAction from '../../hooks/useAction';
 import { FormActionProps } from '../forms';
+import useAction from '../../hooks/useAction';
 import { WithMutationName } from '../../withs';
 
 export function LoginAction({

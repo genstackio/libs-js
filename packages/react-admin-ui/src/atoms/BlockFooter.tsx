@@ -1,34 +1,22 @@
-import clsx from 'clsx';
+import Row, { RowProps } from './Row';
 import ButtonItems from './ButtonItems';
+import useBox from '../hooks/useBox';
 import { class_name } from '../types';
-import bgClass from '../utils/bgClass';
-import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
-import Div from './Div';
-import { AsBoxWrapper } from '../as';
 
-export function BlockFooter({
-    className,
-    buttonsClassName,
-    buttons = [],
-    color = 'primary',
-    variant = 'filled',
-    children,
-}: BlockFooterProps) {
-    if (!buttons || !buttons.length) return null;
+export function BlockFooter({ buttons = [], buttonsClassName, children, ...props }: BlockFooterProps) {
+    const [box, rest] = useBox(props, { b: 'xs-t', color: 'primary', variant: 'filled', p: 'sl' });
+
+    if (!children && !buttons.length) return null;
+
     return (
-        <Div
-            padding={'default'}
-            className={clsx(bgClass({ color, variant }), 'border-t-1 flex justify-between items-center', className)}
-        >
-            <BoxProvider value={{ color, variant }}>
-                {children || ''}
-                <ButtonItems items={buttons} className={clsx(buttonsClassName)} />
-            </BoxProvider>
-        </Div>
+        <Row box={box} center spaced {...rest}>
+            {children || ''}
+            <ButtonItems items={buttons} className={buttonsClassName} />
+        </Row>
     );
 }
 
-export interface BlockFooterProps extends AsBoxWrapper {
+export interface BlockFooterProps extends RowProps {
     buttonsClassName?: class_name;
     buttons?: any[];
 }

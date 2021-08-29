@@ -1,23 +1,25 @@
-import Block, { BaseBlockProps } from '../atoms/Block';
-import Progress from '../atoms/Progress';
+import Div from '../atoms/Div';
 import Text from '../atoms/Text';
+import Progress from '../atoms/Progress';
+import Block, { BaseBlockProps } from '../atoms/Block';
 import { rich_text } from '../types';
-import { WithText, WithValueAsNumber } from '../withs';
 import useBlock from '../hooks/useBlock';
+import { WithText, WithValueAsNumber } from '../withs';
 
 export function KpiProgress({ goal, text, unit, value, ...props }: KpiProgressProps) {
     const [bProps] = useBlock(props);
+
     return (
         <Block {...bProps}>
-            <div className={'flex justify-between items-center'}>
-                <div className={'flex-col'}>
-                    <Text className={'flex-1'} variant={'description'} text={text} color={props.color} />
-                    <div className={'flex inline'}>
-                        <Text className={'flex-1'} variant={'title3'} text={value || ''} color={props.color} />
-                        <Text className={'flex-1'} variant={'title3'} text={unit} color={props.color} />
-                    </div>
-                </div>
-            </div>
+            <Div center flex spaced>
+                <Div col>
+                    <Text color={props.color} text={text} variant={'description'} className={'flex-1'} />
+                    <Div flex inline>
+                        <Text color={props.color} text={value || ''} variant={'title3'} className={'flex-1'} />
+                        <Text color={props.color} text={unit} variant={'title3'} className={'flex-1'} />
+                    </Div>
+                </Div>
+            </Div>
             <Progress value={(value / goal) * 100} />
         </Block>
     );

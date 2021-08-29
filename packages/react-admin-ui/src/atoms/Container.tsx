@@ -1,28 +1,32 @@
+import { useMemo } from 'react';
 import clsx from 'clsx';
+import Clickable from './Clickable';
 import { flag, image } from '../types';
 import cornerClass from '../mappings/corners';
-import Clickable from './Clickable';
-import { WithCorner, WithOnClick } from '../withs';
 import { AsWrapper } from '../as';
+import { WithCorner, WithOnClick } from '../withs';
 
 export function Container({
-    bgImage,
     bgColor,
-    corner,
-    className,
+    bgImage,
     children,
-    onClick,
+    className,
+    corner,
     fullscreen = false,
+    onClick,
 }: ContainerProps) {
-    const style = {
-        backgroundImage: bgImage ? 'url(' + bgImage.url + ')' : undefined,
-        backgroundColor: bgColor ? bgColor : undefined,
-    };
+    const style = useMemo(
+        () => ({
+            backgroundImage: bgImage ? 'url(' + bgImage.url + ')' : undefined,
+            backgroundColor: bgColor ? bgColor : undefined,
+        }),
+        [bgImage, bgColor],
+    );
     return (
         <Clickable
-            className={clsx(cornerClass(corner), fullscreen && 'w-full absolute inset-0', className)}
-            style={style}
             onClick={onClick as any}
+            style={style}
+            className={clsx(cornerClass(corner), fullscreen && 'w-full absolute inset-0', className)}
         >
             {children || ''}
         </Clickable>

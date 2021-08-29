@@ -1,7 +1,9 @@
 import { useMemo } from 'react';
 import clsx from 'clsx';
-import MenuButton from './MenuButton';
 import { useTranslation } from 'react-i18next';
+import MenuButton from './MenuButton';
+import Div from '../atoms/Div';
+import Cell from '../atoms/Cell';
 import DarkModeToolbarItem from '../atoms/toolbar-items/DarkModeToolbarItem';
 import FavoriteToolbarItem from '../atoms/toolbar-items/FavoriteToolbarItem';
 import FullscreenToolbarItem from '../atoms/toolbar-items/FullscreenToolbarItem';
@@ -11,50 +13,47 @@ import NotificationToolbarItem from '../atoms/toolbar-items/NotificationToolbarI
 import SearchToolbarItem from '../atoms/toolbar-items/SearchToolbarItem';
 import ShoppingCartToolbarItem from '../atoms/toolbar-items/ShoppingCartToolbarItem';
 import { useToggle } from '../hooks/useToggle';
-import { WithOnLogout, WithOnSearch, WithUser } from '../withs';
 import { menu_button_item, flag } from '../types';
 import { AsWrapper } from '../as';
+import { WithOnLogout, WithOnSearch, WithUser } from '../withs';
 
 export function UserToolbar({
+    children,
     className,
-    user,
-    onSearch,
-    onLogout,
-    userMenu = [],
-    fullScreenEnabled = false,
-    messagesEnabled = false,
-    shoppingCartEnabled = false,
     darkModeEnabled = false,
     favoritesEnabled = false,
-    notificationsEnabled = false,
-    searchBarEnabled = false,
+    fullScreenEnabled = false,
     languageEnabled = false,
-    children,
+    messagesEnabled = false,
+    notificationsEnabled = false,
+    onLogout,
+    onSearch,
+    searchBarEnabled = false,
+    shoppingCartEnabled = false,
+    user,
+    userMenu = [],
 }: UserToolbarProps) {
     const { t } = useTranslation();
-
     const items = useMemo(() => [...userMenu, { target: onLogout, label: t('button_logout_label') }], [onLogout]);
-
     const userName = useMemo(() => `${user!.firstName} ${user!.lastName}`, [user]);
     const userEmail = useMemo(() => user!.email, [user]);
     const userThumbnail = useMemo(
         () => (user!.picture ? { url: user!.picture, alt: userName } : undefined),
         [user, userName],
     );
-
     const [search, toggleSearch] = useToggle();
-    const baseIconClassName = 'my-1.5 mx-3 xs:mx-1';
+    const baseIconClassName = 'my-1.5 mx-1 sm:mx-3';
     const toolbarIconClassName = clsx(baseIconClassName, search && 'hidden');
 
     return (
-        <div className={clsx('w-full flex items-center', className)}>
-            <div className={clsx('flex-1', search && 'hidden')}>{children || ''}</div>
+        <Div center flex full className={className}>
+            <Cell hidden={search}>{children}</Cell>
             {languageEnabled && <LanguageToolbarItem className={toolbarIconClassName} />}
             {searchBarEnabled && (
                 <SearchToolbarItem
                     active={search}
-                    onToggle={toggleSearch}
                     onChange={onSearch}
+                    onToggle={toggleSearch}
                     className={baseIconClassName}
                 />
             )}
@@ -65,14 +64,14 @@ export function UserToolbar({
             {messagesEnabled && <MessageToolbarItem className={toolbarIconClassName} />}
             {fullScreenEnabled && <FullscreenToolbarItem className={toolbarIconClassName} />}
             <MenuButton
-                items={items}
-                label={userName}
-                description={userEmail}
-                image={userThumbnail}
-                className={clsx('ml-2.5 xs:ml-1', search && 'hidden')}
                 avatar
+                description={userEmail}
+                label={userName}
+                image={userThumbnail}
+                items={items}
+                className={clsx('ml-1 sm:ml-2.5', search && 'hidden')}
             />
-        </div>
+        </Div>
     );
 }
 

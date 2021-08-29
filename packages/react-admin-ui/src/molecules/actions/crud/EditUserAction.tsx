@@ -7,12 +7,12 @@ import { WithId, WithMutationName, WithQueryName, WithSpinnerComponent } from '.
 
 export function EditUserAction({
     component: Component = EditUserForm,
-    spinnerComponent,
-    queryName = 'GET_USER',
-    mutationName = 'UPDATE_USER',
     id,
+    mutationName = 'UPDATE_USER',
     onSuccess,
     prepare,
+    queryName = 'GET_USER',
+    spinnerComponent,
     ...props
 }: EditUserActionProps) {
     prepare = useCallback(
@@ -27,9 +27,7 @@ export function EditUserAction({
                   }))(data),
         [prepare, id],
     );
-
     const SpinnerComponent = spinnerComponent || Spinner;
-
     const { data, props: someProps } = useUpdateAction({
         id,
         queryName,

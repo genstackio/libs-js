@@ -10,7 +10,7 @@ export default {
         text: args.children,
         color: args.color,
         variant: args.blockVariant,
-        padding: args.padding,
+        p: args.padding,
         items: args.items,
     }),
 };

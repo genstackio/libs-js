@@ -12,7 +12,13 @@ export default {
 };
 
 export const basic = s(Column, {
-    children: data.common.content,
+    children: (
+        <>
+            <div>{data.common.content}</div>
+            <div>{data.common.content}</div>
+            <div>{data.common.content}</div>
+        </>
+    ),
 });
 
 export const centered = s(Column, {

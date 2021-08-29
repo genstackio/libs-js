@@ -1,26 +1,28 @@
 import clsx from 'clsx';
+import Div from '../../atoms/Div';
 import Image from '../../atoms/Image';
 import Container from '../../atoms/Container';
-import { WithImage, WithLogo } from '../../withs';
 import { AsWrapper } from '../../as';
+import { WithImage, WithLogo } from '../../withs';
 
-export function CenteredLayoutTemplate({ className, image, logo, children }: CenteredLayoutTemplateProps) {
+export function CenteredLayoutTemplate({ children, className, image, logo }: CenteredLayoutTemplateProps) {
     return (
         <Container
             bgImage={image}
             className={clsx(
-                'bg-cover h-screen py-10 px-3 xs:px-0 flex flex-col justify-center xs:justify-start items-center',
+                'bg-cover h-screen py-10 px-0 sm:px-3 flex flex-col justify-start sm:justify-center items-center',
                 className,
             )}
         >
-            {logo && <Image expand={false} {...logo} className={'mx-auto max-w-xs xs:max-w-xxs'} />}
-            <div
-                className={
-                    'mt-4 p-10 xs:p-5 w-full max-w-md xs:max-w-full bg-clear rounded-lg xs:rounded-none shadow-block'
-                }
+            {logo && <Image expand={false} {...logo} className={'mx-auto max-w-xxs sm:max-w-xs'} />}
+            <Div
+                full
+                mt={'md'}
+                p={'_sl'}
+                className={'max-w-full sm:max-w-md bg-clear rounded-none sm:rounded-lg shadow-block'}
             >
-                {children || ''}
-            </div>
+                {children}
+            </Div>
         </Container>
     );
 }

@@ -1,17 +1,10 @@
-import clsx from 'clsx';
-import Div from './Div';
-import { WithCenter } from '../withs';
-import { AsWrapper } from '../as';
+import Div, { DivProps } from './Div';
 
-export function Column({ className, children, center = false }: ColumnProps) {
-    return (
-        <Div full flex center={center} className={clsx('flex-col', className)}>
-            {children}
-        </Div>
-    );
+export function Column(props: ColumnProps) {
+    return <Div col full {...props} />;
 }
 
-export interface ColumnProps extends AsWrapper, WithCenter {}
+export type ColumnProps = DivProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default Column;

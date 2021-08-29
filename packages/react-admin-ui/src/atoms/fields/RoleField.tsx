@@ -1,6 +1,6 @@
-import SelectField, { SelectFieldProps } from './SelectField';
-import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import SelectField, { SelectFieldProps } from './SelectField';
 import { user_role } from '../../types';
 
 export function RoleField({ roles: rawRoles = undefined, ...props }: RoleFieldProps) {
@@ -15,7 +15,7 @@ export function RoleField({ roles: rawRoles = undefined, ...props }: RoleFieldPr
         [rawRoles],
     );
 
-    return <SelectField kind={'role'} values={roles} defaultValue={'user'} {...props} />;
+    return <SelectField defaultValue={'user'} kind={'role'} values={roles} {...props} />;
 }
 
 export interface RoleFieldProps extends SelectFieldProps {

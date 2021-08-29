@@ -1,18 +1,22 @@
 import { useCallback, useState } from 'react';
 import clsx from 'clsx';
+import Cell from '../../atoms/Cell';
+import Column from '../../atoms/Column';
 import Rating from '../../atoms/Rating';
 import Badge from '../../atoms/Badge';
 import Icon from '../../atoms/Icon';
 import Image from '../../atoms/Image';
 import Text from '../../atoms/Text';
-import { WithImage, WithTitle, WithClosable, WithBadges } from '../../withs';
-import { Items } from '../../atoms';
+import Div from '../../atoms/Div';
+import Items from '../../atoms/Items';
+import marginClass from '../../mappings/margins';
 import { AsWrapper } from '../../as';
+import { WithImage, WithTitle, WithClosable, WithBadges } from '../../withs';
 
 export function SmallItemCard({
-    className,
     badges,
     children,
+    className,
     closable = false,
     image,
     rating,
@@ -20,26 +24,28 @@ export function SmallItemCard({
 }: SmallItemCardProps) {
     const [show, setShow] = useState(true);
     const handleClick = useCallback(() => setShow(false), [setShow]);
+
     if (!show) return null;
+
     return (
-        <div className={clsx('relative flex border-1 border-disabled py-4 rounded-lg max-w-2xl', className)}>
+        <Column b={'xs'} flex relative className={clsx('border-disabled py-4 rounded-lg max-w-2xl', className)}>
             {closable && (
                 <Icon icon={'close'} onClick={handleClick} className={'absolute top-2 right-2 cursor-pointer'} />
             )}
-            {image && <Image {...image} className={'object-none mx-6'} />}
-            <div className={'flex-1 flex flex-col justify-between'}>
-                <div className={'space-y-2'}>
+            {image && <Image {...image} className={clsx('object-none', marginClass('lg-x'))} />}
+            <Cell col spacebetween>
+                <Column spaced={2}>
                     <Text text={title} variant={'title6'} />
                     <Rating value={rating} />
                     <div>{children || ''}</div>
-                </div>
+                </Column>
                 {badges && (
-                    <div className={'text-right space-x-2 mx-3 xs:space-y-2 xs:mt-2'}>
-                        <Items items={badges} component={Badge} />
-                    </div>
+                    <Div mx={'xmd'} mt={'_sm'} spaced={30} className={'text-right'}>
+                        <Items component={Badge} items={badges} />
+                    </Div>
                 )}
-            </div>
-        </div>
+            </Cell>
+        </Column>
     );
 }
 
