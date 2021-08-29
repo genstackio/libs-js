@@ -9,7 +9,7 @@ export function BasicCard({ description, image, title, ...props }: BasicCardProp
 
     return (
         <Block {...bProps}>
-            {image && <Image className={'w-full'} {...image} />}
+            <Image className={'w-full'} {...image} />
             <Text text={title} my={'md'} variant={'title4'} />
             <Text text={description} variant={'description'} />
         </Block>

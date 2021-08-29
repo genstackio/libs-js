@@ -12,7 +12,7 @@ export function MiniCard({ image, ...props }: MiniCardProps) {
 
     return (
         <Block {...bProps}>
-            {image && <Image className={'w-full rounded-t-2xl'} {...image} />}
+            <Image className={'w-full rounded-t-2xl'} {...image} />
             {children}
             <HeadingText subtitleClassName={'ml-8'} titleClassName={'text-center'} {...htProps} />
         </Block>

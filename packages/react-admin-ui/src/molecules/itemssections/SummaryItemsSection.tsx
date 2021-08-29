@@ -15,7 +15,7 @@ export function SummaryItemsSection({ className, color, description, items = [],
             <Row gap={10} grid={2} mt={'_lg'} span={2}>
                 {items.map(({ image, title, subtitle, share_icons, description }, index) => (
                     <Column key={index} className={'pt-8'}>
-                        <Column center className={'flex-col'}>
+                        <Column center>
                             <Image corner={'rounded'} expand={false} {...image} className={'w-full max-h-90'} />
                             <Column full pt={'lg'} spacebetween>
                                 <HeadingText

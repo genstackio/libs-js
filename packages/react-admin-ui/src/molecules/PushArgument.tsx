@@ -15,7 +15,7 @@ export function PushArgument({ image, image2, imagePosition = 'left', ...props }
     return (
         <Row reverse={imagePosition === 'right'} className={'maw-w-5/6 sm:m-auto max-h inherit'}>
             <Cell className={'sm:items-center justify-end items-end sm:justify-center -mb-1'}>
-                {image2 && <Image contained {...image2} />}
+                <Image contained {...image2} />
             </Cell>
             <Cell center>
                 <ArgumentBlock {...htProps} {...btProps} image={image} noShadow />

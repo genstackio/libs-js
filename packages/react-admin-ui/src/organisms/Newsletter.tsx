@@ -38,7 +38,9 @@ export function Newsletter({
                 <Text center p={'xmd'} text={text} variant={'text'} />
                 <NewsletterAction onSuccess={onAfterSubscribe} />
             </Block>
-            <Cell>{image && <Image contained {...image} />}</Cell>
+            <Cell>
+                <Image contained {...image} />
+            </Cell>
         </Row>
     );
 }

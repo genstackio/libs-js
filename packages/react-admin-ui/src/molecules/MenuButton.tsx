@@ -29,7 +29,7 @@ export function MenuButton({
                     {!image && avatar && 'string' === typeof label && (
                         <Avatar shape={'rounded'} size={'xsm'} name={label} />
                     )}
-                    {!!image && <Image {...image} corner={'rounded-xsmall'} expand={false} className={'w-10 h-10'} />}
+                    <Image {...image} corner={'rounded-xsmall'} expand={false} className={'w-10 h-10'} />
                     <Div inline tablet desktop className={'w-auto'}>
                         <Text text={label} variant={'description'} className={'w-auto whitespace-nowrap'} />
                         {description && (

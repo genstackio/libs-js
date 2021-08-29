@@ -14,7 +14,7 @@ export function CenteredLayoutTemplate({ children, className, image, logo }: Cen
                 className,
             )}
         >
-            {logo && <Image expand={false} {...logo} className={'mx-auto max-w-xxs sm:max-w-xs'} />}
+            <Image expand={false} {...logo} className={'mx-auto max-w-xxs sm:max-w-xs'} />
             <Div
                 full
                 mt={'md'}

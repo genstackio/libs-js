@@ -11,7 +11,7 @@ export function MenuAppBar({ className, color, logo, menuItems = [], onLoginClic
 
     return (
         <Row responsive={false} size={'lg-h'} spaced className={className}>
-            {logo && <Image expand={false} {...logo} className={'flex m-4 max-h-36'} />}
+            <Image expand={false} {...logo} className={'flex m-4 max-h-36'} />
             <Row center m={'md'} responsive={false} spaced={14}>
                 <nav className={'w-auto hidden md:block'}>
                     <Row responsive={false} spaced={14}>

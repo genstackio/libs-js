@@ -2,9 +2,10 @@ import { useCallback, useMemo } from 'react';
 import clsx from 'clsx';
 import { useForm as useRhfForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { box_color } from '../mappings/box-colors';
-import BaseForm from '../molecules/forms/BaseForm';
+import Div from '../atoms/Div';
 import Button from '../atoms/Button';
+import BaseForm from '../molecules/forms/BaseForm';
+import { box_color } from '../mappings/box-colors';
 import { class_name } from '../types';
 
 export function useForm(
@@ -39,7 +40,7 @@ export function useForm(
     const SubmitButton = useCallback(
         ({ className = undefined }: { className?: class_name }) => {
             return (
-                <div className="flex justify-center mt-6">
+                <Div center flex mt={'lg'}>
                     <Button
                         loading={submitting}
                         className={clsx('w-full items-center justify-center', className)}
@@ -48,7 +49,7 @@ export function useForm(
                     >
                         {tf(['submit_label', 'form_generic_submit_label'])}
                     </Button>
-                </div>
+                </Div>
             );
         },
         [color, tf],

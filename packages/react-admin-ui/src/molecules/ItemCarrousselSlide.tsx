@@ -32,13 +32,14 @@ export function ItemCarrousselSlide({
             <Clickable onClick={target} className={'max-w-full'}>
                 <Div full relative>
                     <Block
+                        col
                         elevation={2}
+                        relative
                         className={
-                            'bg-clear relative flex flex-col justify-center' +
-                            'box-border p-4 rounded-2xl h-64 sm:h-80 w-40 sm:h-48 md:w-56 xl:w-72'
+                            'bg-clear justify-center box-border p-4 rounded-2xl h-64 sm:h-80 w-40 sm:h-48 md:w-56 xl:w-72'
                         }
                     >
-                        {image && <Image contained className={'w-full'} {...image} />}
+                        <Image contained className={'w-full'} {...image} />
                     </Block>
                     <Div mt={'xs'}>
                         <Text text={title} variant={'title5'} />

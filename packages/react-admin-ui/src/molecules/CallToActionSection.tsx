@@ -18,14 +18,15 @@ export function CallToActionSection({ className, buttonsPosition = 'right', ...p
         <Block
             {...bProps}
             contentClassName={clsx(
-                'flex py-12 px-4 sm:px-6 lg:py-16 lg:px-8 justify-between xs:flex-col',
+                'flex py-12 px-4 sm:px-6 md:py-16 md:px-8 justify-between flex-col sm:flex-row',
                 positionClass(buttonsPosition),
             )}
         >
-            <HeadingText {...htProps} titleClassName={'mb-2'} variant={'ctasection'} />
-            <div className={clsx(className)}>
-                <Buttons className={clsx(buttonsPosition === 'bottom' && 'mt-4')} {...btProps} />
-            </div>
+            <HeadingText {...htProps} titleClassName={'mb-2'} subtitleClassName={'mb-2'} variant={'ctasection'} />
+            <Buttons
+                className={clsx('sm:justify-center sm:items-center', buttonsPosition === 'bottom' && 'mt-4')}
+                {...btProps}
+            />
         </Block>
     );
 }

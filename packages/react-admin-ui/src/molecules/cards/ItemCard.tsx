@@ -17,7 +17,7 @@ export function ItemCard({ colorDate, colorDescription, date, description, icon,
         <Block {...bProps}>
             <Div flex mb={'lg'} spacebetween>
                 <Div flex mb={'lg'}>
-                    <Div ml={'md'} className={'row-span-2 mt-2'}>
+                    <Div ml={'md'} mt={'sm'} className={'row-span-2'}>
                         <Icon icon={icon} size={size} />
                     </Div>
                     <HeadingText {...htProps} />

@@ -34,7 +34,7 @@ export function Card({ image, title, description, content, value, link, onClick,
                     </Div>
                 </Div>
             </Div>
-            <HeadingText variant={'smmd'} {...htProps} className={'p-10 border-b-2 mb-2'} />
+            <HeadingText bb={'sm'} mb={'sm'} p={'sl'} variant={'smmd'} {...htProps} />
             <Div center flex inline p={'sl'} spacebetween>
                 <Text text={content} variant={'body'} />
                 <Rating value={value} />

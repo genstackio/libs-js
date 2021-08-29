@@ -31,7 +31,7 @@ export function AppLayoutTemplate({ children, className, logo, menu, toolbar, ..
                 )}
             >
                 <Div center flex p={'sm'} className={'h-xxl shadow-toolbar'}>
-                    {logo && <Image className={'flex-1'} {...logo} />}
+                    <Image className={'flex-1'} {...logo} />
                 </Div>
                 {menu && <Menu items={menu} {...props} />}
             </Div>

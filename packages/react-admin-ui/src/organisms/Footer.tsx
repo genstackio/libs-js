@@ -19,8 +19,8 @@ export function Footer({ contact, copyright, description, links = [], logo, ...p
         <Row box={box} p={'xl'} {...rest}>
             <Cell col pl={'xl'}>
                 <Image expand={false} size={'lg'} {...logo} className={'m-6 ml-1 rounded-full'} />
-                <Cell mt={'xmd'}>
-                    <Text mt={'sm'} text={description} variant={'overline'} className={'leading-loose'} />
+                <Cell mt={'sm'}>
+                    <Text text={description} variant={'overline'} className={'leading-loose'} />
                 </Cell>
                 <Text mt={'sm'} text={copyright} variant={'overline'} className={'leading-loose'} />
             </Cell>

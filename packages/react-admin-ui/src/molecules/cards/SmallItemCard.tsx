@@ -28,11 +28,18 @@ export function SmallItemCard({
     if (!show) return null;
 
     return (
-        <Column b={'xs'} flex relative className={clsx('border-disabled py-4 rounded-lg max-w-2xl', className)}>
+        <Column
+            b={'xs'}
+            corner={'rounded-xsmall'}
+            flex
+            py={'md'}
+            relative
+            className={clsx('border-disabled max-w-2xl', className)}
+        >
             {closable && (
                 <Icon icon={'close'} onClick={handleClick} className={'absolute top-2 right-2 cursor-pointer'} />
             )}
-            {image && <Image {...image} className={clsx('object-none', marginClass('lg-x'))} />}
+            <Image {...image} className={clsx('object-none', marginClass('lg-x'))} />
             <Cell col spacebetween>
                 <Column spaced={2}>
                     <Text text={title} variant={'title6'} />

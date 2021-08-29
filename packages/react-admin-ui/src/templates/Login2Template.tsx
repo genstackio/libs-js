@@ -17,13 +17,13 @@ export function Login2Template({ bgColor, className, form, image, logo }: Login2
                 bgColor={bgColor}
                 className={'w-5/12 py-8 px-3 flex-2 flex-col justify-center items-center hidden md:block'}
             >
-                {logo && <Image expand={false} {...logo} />}
+                <Image expand={false} {...logo} />
                 <Div corner={'rounded-xsmall'} full mt={'md'} p={'sl'} className={'max-w-md bg-clear shadow-block'}>
                     {form}
                 </Div>
             </Container>
             <Div flex mobile mx={'auto'} tablet className={'z-50'}>
-                {logo && <Image expand={false} {...logo} />}
+                <Image expand={false} {...logo} />
                 <Div corner={'rounded-xsmall'} full mt={'md'} p={'_sl'} className={'bg-clear shadow-block'}>
                     {form}
                 </Div>

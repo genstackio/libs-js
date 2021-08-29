@@ -2,7 +2,7 @@ import { args, s, a } from '../../utils';
 import { useForm, FirstNameField, LastNameField, PhoneField, WizardLayoutTemplate, Block } from '../../../src';
 
 export default {
-    title: 'WizardLayoutTemplates/Layout/WizardLayoutWizardLayoutTemplate',
+    title: 'Templates/Layout/WizardLayoutTemplate',
     component: WizardLayoutTemplate,
     argTypes: a({
         steps: args.steps,

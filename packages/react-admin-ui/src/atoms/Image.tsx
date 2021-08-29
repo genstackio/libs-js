@@ -42,7 +42,7 @@ export function Image({
                 src={url || defaultImage}
                 style={style}
                 className={clsx(
-                    expand && 'w-full h-full object-contain',
+                    expand && !contained && 'w-full h-full object-contain',
                     cornerClass(corner),
                     shapeClass(shape),
                     imageSizeClass(size),

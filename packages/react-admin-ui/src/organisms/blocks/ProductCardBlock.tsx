@@ -21,7 +21,7 @@ export function ProductCardBlock({
 
     return (
         <Block {...bProps}>
-            {image && <Image {...image} />}
+            <Image {...image} />
             {rating && (
                 <Div mt={'md'}>
                     <Rating defaultValue={rating} />

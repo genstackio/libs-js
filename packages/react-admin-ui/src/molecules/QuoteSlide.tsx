@@ -13,7 +13,7 @@ export function QuoteSlide({ button, className, image, noImage = false, overline
         <Column center className={clsx('text-center', className)}>
             {!noImage && (
                 <Div mb={'xlg'} size={'sm'} className={clsx(!image && 'bg-disabled')}>
-                    {image && <Image {...image} />}
+                    <Image {...image} />
                 </Div>
             )}
             <Text text={overline} variant={'overline'} />
