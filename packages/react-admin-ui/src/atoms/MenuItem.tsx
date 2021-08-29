@@ -49,9 +49,7 @@ export function MenuItem({
                         <Icon className={'flex-1'} icon={icon} />
                     </Div>
                 )}
-                <Text text={label} variant={'description'} />
-            </Row>
-            <Row center responsive={false} spaced={2}>
+                <Text text={label} variant={'description'} className={'flex-1'} />
                 <Items component={Badge} items={badges} />
             </Row>
         </Block>

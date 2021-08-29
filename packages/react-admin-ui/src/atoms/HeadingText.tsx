@@ -24,24 +24,33 @@ export function HeadingText({
 
     return (
         <Div {...props}>
-            <Div className={headerClassName}>
-                <Text color={color} text={title} variant={(v['title'] as any) || 'title'} className={titleClassName} />
-                <Text
-                    color={color}
-                    mt={'_sm'}
-                    text={subtitle}
-                    variant={(v['subtitle'] as any) || 'subtitle'}
-                    className={subtitleClassName}
-                />
-            </Div>
-            <Div mt={'_sm'} className={contentClassName}>
-                <Text
-                    color={color}
-                    text={description}
-                    variant={v['description'] || 'description'}
-                    className={descriptionClassName}
-                />
-            </Div>
+            {!!(title || subtitle) && (
+                <Div className={headerClassName}>
+                    <Text
+                        color={color}
+                        text={title}
+                        variant={(v['title'] as any) || 'title'}
+                        className={titleClassName}
+                    />
+                    <Text
+                        color={color}
+                        mt={'_sm'}
+                        text={subtitle}
+                        variant={(v['subtitle'] as any) || 'subtitle'}
+                        className={subtitleClassName}
+                    />
+                </Div>
+            )}
+            {!!description && (
+                <Div mt={'_sm'} className={contentClassName}>
+                    <Text
+                        color={color}
+                        text={description}
+                        variant={v['description'] || 'description'}
+                        className={descriptionClassName}
+                    />
+                </Div>
+            )}
         </Div>
     );
 }

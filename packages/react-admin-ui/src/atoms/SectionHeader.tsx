@@ -1,33 +1,26 @@
 import clsx from 'clsx';
 import Block from './Block';
 import HeadingText from './HeadingText';
+import useBlock from '../hooks/useBlock';
 import useHeadingText from '../hooks/useHeadingText';
-import marginClass from '../mappings/margins';
 import { AsBlock } from '../as';
 import { WithHeadingText, WithMargin } from '../withs';
 
-export function SectionHeader({
-    children,
-    className,
-    color = 'primary',
-    m = 'md',
-    variant = 'contained',
-    ...props
-}: SectionHeaderProps) {
-    const [htProps, , hasContent] = useHeadingText(props);
+export function SectionHeader({ children, className, ...props }: SectionHeaderProps) {
+    const [bProps, rest2] = useBlock(props, { color: 'primary', variant: 'contained', m: 'md', p: 'md' });
+    const [htProps, rest, hasContent] = useHeadingText(rest2);
 
     if (!hasContent) return null;
 
     return (
         <Block
-            color={color}
             corner={'rounded-small'}
             elevation={0}
-            p={'md'}
-            variant={variant}
-            className={clsx('bg-opacity-10', marginClass(m), className)}
+            {...bProps}
+            {...rest}
+            className={clsx('bg-opacity-10', className)}
         >
-            <HeadingText color={color} variant={'xsection'} {...htProps} />
+            <HeadingText color={bProps.color} variant={'xsection'} {...htProps} />
             {children || ''}
         </Block>
     );

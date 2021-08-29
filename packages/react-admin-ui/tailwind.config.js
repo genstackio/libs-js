@@ -1,7 +1,6 @@
 module.exports = {
     mode: 'jit',
     purge: {
-        enabled: false,
         content: ['./src/**/*.tsx', './src/**/*.ts', './__stories__/configs/themes.ts'],
         options: {
             safelist: [/theme-/],

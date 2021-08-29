@@ -5,7 +5,7 @@ import { ComponentType, useCallback } from 'react';
 
 export function useCloser({
     onClose,
-    closable = true,
+    closable = false,
     ...rest
 }: {
     onClose?: Function;

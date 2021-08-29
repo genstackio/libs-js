@@ -21,7 +21,9 @@ import {
     WithHoverAnimation,
     WithOnClick,
     WithVariantOfBlock,
+    WithMargin,
 } from '../withs';
+import marginClass from '../mappings/margins';
 
 export function Block({
     active = false,
@@ -42,6 +44,7 @@ export function Block({
     image,
     onClick,
     p = 'sl',
+    m = 'none',
     subtitle,
     title,
     variant = 'filled',
@@ -59,6 +62,7 @@ export function Block({
                     'overflow-hidden relative flex flex-col',
                     elevationClass(elevation),
                     hoverAnimationClass(hoverAnimation),
+                    marginClass(m),
                     boxClass({ color, variant: v, hoverable }),
                     className,
                 )}
@@ -71,13 +75,29 @@ export function Block({
                     p={p}
                     subtitle={subtitle}
                     title={title}
-                    variant={'header-contained' === variant ? 'contained' : 'outlined' === variant ? 'filled' : variant}
+                    variant={
+                        active
+                            ? 'contained'
+                            : 'header-contained' === variant
+                            ? 'contained'
+                            : 'outlined' === variant
+                            ? 'filled'
+                            : variant
+                    }
                     className={headerClassName}
                 />
                 <BlockContent
                     p={p}
                     color={color}
-                    variant={'header-contained' === variant ? 'filled' : 'outlined' === variant ? 'filled' : variant}
+                    variant={
+                        active
+                            ? 'contained'
+                            : 'header-contained' === variant
+                            ? 'filled'
+                            : 'outlined' === variant
+                            ? 'filled'
+                            : variant
+                    }
                     className={contentClassName}
                 >
                     {children}
@@ -86,7 +106,15 @@ export function Block({
                     buttons={buttons}
                     color={color}
                     p={p}
-                    variant={'header-contained' === variant ? 'filled' : 'outlined' === variant ? 'filled' : variant}
+                    variant={
+                        active
+                            ? 'contained'
+                            : 'header-contained' === variant
+                            ? 'filled'
+                            : 'outlined' === variant
+                            ? 'filled'
+                            : variant
+                    }
                     className={footerClassName}
                 />
             </Container>
@@ -102,6 +130,7 @@ export interface BaseBlockProps
         WithColorOfBox,
         WithVariantOfBlock,
         WithPadding,
+        WithMargin,
         WithElevation,
         WithCorner,
         WithActive,
