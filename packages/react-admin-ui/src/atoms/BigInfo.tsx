@@ -5,7 +5,6 @@ import { WithSubtitle, WithTitle, WithVariantOfBox } from '../withs';
 import { AsComponent } from '../as';
 
 export function BigInfo({ title, subtitle, className, variant }: BigInfoProps) {
-    console.log(variant);
     return (
         <Div hfull center className={clsx(variant === 'contained' ? 'border-r-0' : '', className)} p={'_lg'}>
             <Text text={title} variant={'title3'} center />
