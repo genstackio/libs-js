@@ -34,6 +34,7 @@ import { statusValues } from '../src/mappings/statuses';
 import { textVariantValues } from '../src/mappings/text-variants';
 import { borderValues } from '../src/mappings/borders';
 import { accordionCornerValues } from '../src/mappings/accordion-corners';
+import { marginValues } from '../lib/mappings/margins';
 
 const translationNames = Object.keys(translations);
 translationNames.sort();
@@ -205,6 +206,7 @@ export const args = {
     min: { control: { type: 'number' } },
     max: { control: { type: 'number' } },
     padding: { control: { type: 'select' }, options: paddingValues },
+    margin: { control: { type: 'select' }, options: marginValues },
     elevation: { control: { type: 'select' }, options: elevationValues },
     paginationVariant: { control: { type: 'select' }, options: ['text', 'outlined'] },
     pill: { control: { type: 'object' } },

@@ -60,7 +60,7 @@ export function ImageUploader({
                 src={state.src}
             />
             {!!state.preview && (
-                <Column ml={'_3xl'}>
+                <Column center ml={'_3xl'}>
                     <Div py={'sm'} className={'w-32'}>
                         <Image url={state.preview} alt={'Preview'} />
                     </Div>

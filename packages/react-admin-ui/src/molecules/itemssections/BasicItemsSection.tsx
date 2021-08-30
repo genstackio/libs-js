@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import Div from '../../atoms/Div';
 import Image from '../../atoms/Image';
 import Column from '../../atoms/Column';
@@ -8,21 +7,14 @@ import { WithColorOfText, WithDescription, WithItems, WithTitle } from '../../wi
 
 export function BasicItemsSection({ className, color, description, items = [], title }: BasicItemsSectionProps) {
     return (
-        <Column grid={3} className={clsx('py-14 px-8', className)}>
-            <HeadingText
-                center
-                color={color}
-                description={description}
-                title={title}
-                variant={'medium2'}
-                className={'col-span-1'}
-            />
-            <Div mt={'_sl'} className={'col-span-2'}>
+        <Column grid={3} px={'_xl'} py={'hl'} className={className}>
+            <HeadingText center span={1} color={color} description={description} title={title} variant={'medium2'} />
+            <Div mt={'_sl'} span={2}>
                 <Div flex grid={2} className={'gap-y-10'}>
                     {items.map(({ image, title, subtitle }, index) => (
                         <Div center flex key={index}>
-                            <Image corner={'circle'} expand={false} {...image} className={'w-24 h-24'} />
-                            <HeadingText subtitle={subtitle} title={title} variant={'section'} className={'pl-8'} />
+                            <Image corner={'circle'} expand={false} size={'lg'} {...image} />
+                            <HeadingText pl={'xl'} subtitle={subtitle} title={title} variant={'section'} />
                         </Div>
                     ))}
                 </Div>
