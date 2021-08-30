@@ -11,6 +11,10 @@ export default {
         variant: args.blockVariant,
         subtitle: args.subtitle,
         image: args.image,
+        p: args.padding,
+        m: args.margin,
+        b: args.border,
+        corner: args.corner,
     }),
 };
 

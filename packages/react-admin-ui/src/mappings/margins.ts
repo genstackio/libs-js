@@ -17,9 +17,9 @@ export const marginsX = {
     lg: 'mx-6',
     _lg: 'mx-2 sm:mx-4 md:mx-6',
     xl: 'mx-8',
-    _xl: 'mx-0 sm:mx-8',
+    _xl: 'mx-2 sm:mx-4 md:mx-8',
     sl: 'mx-10',
-    _sl: 'mx-0 sm:mx-10',
+    _sl: 'mx-4 sm:mx-6 md:mx-10',
 };
 
 export const marginsY = {
@@ -39,9 +39,9 @@ export const marginsY = {
     lg: 'my-6',
     _lg: 'my-2 sm:my-4 md:my-6',
     xl: 'my-8',
-    _xl: 'my-0 sm:my-8',
+    _xl: 'my-2 sm:my-4 md:my-8',
     sl: 'my-10',
-    _sl: 'my-0 sm:my-10',
+    _sl: 'my-4 sm:my-6 md:my-10',
 };
 
 export const marginsTop = {
@@ -61,9 +61,9 @@ export const marginsTop = {
     lg: 'mt-6',
     _lg: 'mt-2 sm:mt-4 md:mt-6',
     xl: 'mt-8',
-    _xl: 'mt-0 sm:mt-8',
+    _xl: 'mt-2 sm:mt-4 md:mt-8',
     sl: 'mt-10',
-    _sl: 'mt-0 sm:mt-10',
+    _sl: 'mt-4 sm:mt-6 md:mt-10',
 };
 
 export const marginsBottom = {
@@ -83,9 +83,9 @@ export const marginsBottom = {
     lg: 'mb-6',
     _lg: 'mb-2 sm:mb-4 md:mb-6',
     xl: 'mb-8',
-    _xl: 'mb-0 sm:mb-8',
+    _xl: 'mb-2 sm:mb-4 md:mb-8',
     sl: 'mb-10',
-    _sl: 'mb-0 sm:mb-10',
+    _sl: 'mb-4 sm:mb-6 md:mb-10',
 };
 
 export const marginsLeft = {
@@ -105,9 +105,9 @@ export const marginsLeft = {
     lg: 'ml-6',
     _lg: 'ml-2 sm:ml-4 md:ml-6',
     xl: 'ml-8',
-    _xl: 'ml-0 sm:ml-8',
+    _xl: 'ml-2 sm:ml-4 md:ml-8',
     sl: 'ml-10',
-    _sl: 'ml-0 sm:ml-10',
+    _sl: 'ml-4 sm:ml-6 md:ml-10',
     _3xl: 'ml-0 sm:ml-32',
 };
 
@@ -128,9 +128,9 @@ export const marginsRight = {
     lg: 'mr-6',
     _lg: 'mr-2 sm:mr-4 md:mr-6',
     xl: 'mr-8',
-    _xl: 'mr-0 sm:mr-8',
+    _xl: 'mr-2 sm:mr-4 md:mr-8',
     sl: 'mr-10',
-    _sl: 'mr-0 sm:mr-10',
+    _sl: 'mr-4 sm:mr-6 md:mr-10',
 };
 
 export const margins = {
@@ -150,9 +150,9 @@ export const margins = {
     lg: 'm-6',
     _lg: 'm-2 sm:m-4 md:m-6',
     xl: 'm-8',
-    _xl: 'm-0 sm:m-8',
+    _xl: 'm-2 sm:m-4 md:m-8',
     sl: 'm-10',
-    _sl: 'm-0 sm:m-10',
+    _sl: 'm-4 sm:m-6 md:m-10',
     ...Object.entries(marginsX).reduce((acc, [k, v]) => ({ ...acc, [`${k}-x`]: v }), {} as any),
     ...Object.entries(marginsY).reduce((acc, [k, v]) => ({ ...acc, [`${k}-y`]: v }), {} as any),
     ...Object.entries(marginsTop).reduce((acc, [k, v]) => ({ ...acc, [`${k}-t`]: v }), {} as any),

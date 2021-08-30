@@ -12,17 +12,17 @@ import { AsBlock } from '../as';
 import { WithButtons, WithHeadingText, WithImage } from '../withs';
 
 export function ArgumentBlock({ className, image, noShadow = false, ...props }: ArgumentBlockProps) {
-    const [bProps, rest2] = useBlock(props, {
+    const [bProps, rest3] = useBlock(props, {
         p: 'none',
         corner: 'rounded',
         className: clsx('flex flex-col overflow-hidden', className),
         elevation: noShadow ? 0 : 2,
     });
-    const [htProps, rest] = useHeadingText(rest2, { variant: 'xxsmall3' });
-    const [btProps] = useButtons(rest, { className: 'mt-2', btnColor: 'primary', btnType: 'contained' });
+    const [htProps, rest2] = useHeadingText(rest3, { variant: 'xxsmall3' });
+    const [btProps, rest] = useButtons(rest2, { className: 'mt-2', btnColor: 'primary', btnType: 'contained' });
 
     return (
-        <Block {...bProps}>
+        <Block {...bProps} {...rest}>
             <Cell col p={'_md'}>
                 <HeadingText {...htProps} />
                 <Buttons {...btProps} />

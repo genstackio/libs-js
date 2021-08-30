@@ -25,9 +25,7 @@ export function BrandPanel({ className, color, image, variant, ...props }: Brand
                 <Block
                     color={color}
                     variant={variant}
-                    className={
-                        'h-full items-center justify-center sm:px-10 sm:pl-10 sm:py-10 px-0 pl-0 py-0 -mt-10 sm:mt-0'
-                    }
+                    className={'h-full items-center justify-center p-2 -mt-10 sm:mt-0'}
                 >
                     <Column center>
                         <HeadingText center {...htProps} className={'w-5/6'} />

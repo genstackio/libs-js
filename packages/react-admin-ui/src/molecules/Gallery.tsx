@@ -18,6 +18,7 @@ export function Gallery({ btnColor, btnLabel, btnType, className, icon, items = 
             />
             <Items
                 component={GalleryItem}
+                container
                 containerClassName={clsx(gridColsClass(4), 'grid gap-3', className)}
                 items={items}
             />
