@@ -23,6 +23,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons/faPlay';
 import { faPause } from '@fortawesome/free-solid-svg-icons/faPause';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons/faArrowLeft';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons/faArrowRight';
+import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 
 const icons = {
     fa: [
@@ -51,6 +52,7 @@ const icons = {
         faPause,
         faArrowLeft,
         faArrowRight,
+        faUser,
     ],
 };
 

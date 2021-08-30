@@ -87,6 +87,8 @@ import { label_placement } from './mappings/label-placements';
 import { heading_text_variant } from './mappings/heading-text-variants';
 import { border, border_bottom, border_left, border_right, border_top, border_x, border_y } from './mappings/borders';
 import { accordion_corner } from './mappings/accordion-corners';
+import { height } from './mappings/heights';
+import { width } from './mappings/widths';
 
 export interface WithCenter {
     center?: flag;
@@ -622,10 +624,16 @@ export interface WithOnNext {
     onNext?: Function;
 }
 export interface WithWidth {
+    w?: width;
+}
+export interface WithWidthAsNumber {
     width?: number;
 }
-export interface WithHeight {
+export interface WithHeightAsNumber {
     height?: number;
+}
+export interface WithHeight {
+    h?: height;
 }
 export interface WithOnChange {
     onChange?: Function;

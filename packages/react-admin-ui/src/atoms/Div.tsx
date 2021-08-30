@@ -42,6 +42,8 @@ import {
     WithColorOfBox,
     WithCorner,
     WithMargin,
+    WithWidth,
+    WithHeight,
     WithNativeOnMouseEnter,
     WithNativeOnMouseLeave,
     WithNativeOnMouseOver,
@@ -51,8 +53,11 @@ import {
     WithSizeOfBox,
     WithVariantOfBox,
 } from '../withs';
+import heightClass from '../mappings/heights';
+import widthClass from '../mappings/widths';
 
 export function Div({
+    id = undefined,
     absolute = false,
     auto = false,
     b = 'none',
@@ -112,6 +117,8 @@ export function Div({
     variant = undefined,
     vcenter = false,
     wrap = false,
+    h = undefined,
+    w = undefined,
 }: DivProps) {
     if ('boolean' === typeof row) {
         col = !row;
@@ -149,6 +156,8 @@ export function Div({
         borderRightClass(br),
         shapeClass(shape),
         boxSizeClass(size),
+        !!h && heightClass(h),
+        !!w && widthClass(w),
         grid && (true === grid ? 'grid' : `grid ${gridColsClass(grid as number)}`),
         gap && gapClass(true === gap ? 2 : (gap as number)),
         span && colSpanClass(span as number),
@@ -189,24 +198,32 @@ export function Div({
         if ('string' === typeof onClick) {
             return (
                 <a href={onClick as string}>
-                    <div className={cls}>{content}</div>
+                    <div id={id} className={cls}>
+                        {content}
+                    </div>
                 </a>
             );
         }
 
         return (
-            <div onClick={onClick as any} className={cls}>
+            <div id={id} onClick={onClick as any} className={cls}>
                 {content}
             </div>
         );
     }
 
-    return <div className={cls}>{content}</div>;
+    return (
+        <div id={id} className={cls}>
+            {content}
+        </div>
+    );
 }
 
 export interface DivProps
     extends AsWrapper,
         WithPadding,
+        WithWidth,
+        WithHeight,
         WithOnClick,
         WithNativeOnMouseEnter,
         WithNativeOnMouseOver,
@@ -248,6 +265,7 @@ export interface DivProps
     selfcenter?: flag;
     spacebetween?: flag;
     hidden?: flag;
+    id?: string;
 }
 
 // noinspection JSUnusedGlobalSymbols

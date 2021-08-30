@@ -20,6 +20,7 @@ export * from './ContentItemsMosaic';
 export * from './Corner';
 export * from './CornerItem';
 export * from './ConfirmModal';
+export * from './DataList';
 export * from './Faq';
 export * from './Expandable';
 export * from './FeaturedQuote';
