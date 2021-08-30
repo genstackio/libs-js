@@ -9,11 +9,19 @@ import Menu from '../../molecules/Menu';
 import textClass from '../../utils/textClass';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
-import { menu_item } from '../../types';
+import { menu_item, target } from '../../types';
 import { AsBoxWrapper } from '../../as';
 import { WithLogo } from '../../withs';
 
-export function AppLayoutTemplate({ children, className, logo, menu, toolbar, ...props }: AppLayoutTemplateProps) {
+export function AppLayoutTemplate({
+    children,
+    className,
+    logo,
+    onLogoClick,
+    menu,
+    toolbar,
+    ...props
+}: AppLayoutTemplateProps) {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const [show, setShow] = useState(!isMobile);
@@ -30,7 +38,7 @@ export function AppLayoutTemplate({ children, className, logo, menu, toolbar, ..
                     show ? 'translate-x-0' : '-translate-x-full',
                 )}
             >
-                <Div center flex p={'sm'} className={'h-xxl shadow-toolbar'}>
+                <Div center flex p={'sm'} className={'h-xxl shadow-toolbar'} onClick={onLogoClick}>
                     <Image className={'flex-1'} {...logo} />
                 </Div>
                 {menu && <Menu items={menu} {...props} />}
@@ -60,6 +68,7 @@ export function AppLayoutTemplate({ children, className, logo, menu, toolbar, ..
 export interface AppLayoutTemplateProps extends AsBoxWrapper, WithLogo {
     menu?: menu_item[];
     toolbar?: ReactNode;
+    onLogoClick?: target;
 }
 
 // noinspection JSUnusedGlobalSymbols

@@ -79,3 +79,70 @@ export const basic = s(AppLayoutTemplate, {
     ],
     toolbar: <UserToolbar user={{ firstName: 'Alphonse', lastName: 'Daudet', email: 'me@email.com' }} />,
 });
+
+export const withLogoClick = s(AppLayoutTemplate, {
+    logo: {
+        url: 'https://via.placeholder.com/97x28?text=Logo',
+        alt: 'Logo',
+    },
+    onLogoClick: 'https://www.google.fr',
+    menu: [
+        {
+            label: 'General',
+            type: 'section',
+            description: 'Dashboards, Widgets & Layout',
+        },
+        {
+            type: 'menu',
+            label: 'Dashboards',
+            icon: 'home',
+            active: false,
+            badges: [
+                {
+                    type: 'tag',
+                    variant: 'contained',
+                    text: '2',
+                    color: 'success',
+                },
+            ],
+            items: [
+                {
+                    label: 'Default',
+                    target: 'https://www.google.com/webhp?hl=fr&sa=X&ved=0ahUKEwj8oNu2_uvwAhUiBmMBHeFQB30QPAgI',
+                    active: false,
+                },
+                {
+                    label: 'Ecommerce',
+                    target: 'https://www.google.com/webhp?hl=fr&sa=X&ved=0ahUKEwj8oNu2_uvwAhUiBmMBHeFQB30QPAgI',
+                    active: false,
+                },
+            ],
+        },
+        {
+            type: 'item',
+            label: 'Calendar',
+            icon: 'fa-star',
+            target: 'https://www.google.com/webhp?hl=fr&sa=X&ved=0ahUKEwj8oNu2_uvwAhUiBmMBHeFQB30QPAgI',
+            active: false,
+        },
+        {
+            type: 'menu',
+            label: 'Widgets',
+            icon: 'airplay',
+            active: false,
+            items: [
+                {
+                    label: 'General',
+                    target: 'https://www.google.com/webhp?hl=fr&sa=X&ved=0ahUKEwj8oNu2_uvwAhUiBmMBHeFQB30QPAgI',
+                    active: false,
+                },
+                {
+                    label: 'Chart',
+                    target: 'https://www.google.com/webhp?hl=fr&sa=X&ved=0ahUKEwj8oNu2_uvwAhUiBmMBHeFQB30QPAgI',
+                    active: false,
+                },
+            ],
+        },
+    ],
+    toolbar: <UserToolbar user={{ firstName: 'Alphonse', lastName: 'Daudet', email: 'me@email.com' }} />,
+});
