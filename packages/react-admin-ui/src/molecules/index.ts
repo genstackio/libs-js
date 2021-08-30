@@ -3,6 +3,8 @@ export * from './Accordion';
 export * from './AppWall';
 export * from './ArgumentBlock';
 export * from './Avatars';
+export * from './BigInfos';
+export * from './BigInfosBlock';
 export * from './BoxHeader';
 export * from './BoxList';
 export * from './BoxListPanel';
