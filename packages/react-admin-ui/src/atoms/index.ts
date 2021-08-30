@@ -4,6 +4,7 @@ export * from './Avatar';
 export * from './AvatarImage';
 export * from './AvatarInitials';
 export * from './Badge';
+export * from './BigInfo';
 export * from './Block';
 export * from './BlockContent';
 export * from './BlockHeader';
