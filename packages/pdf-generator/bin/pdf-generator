@@ -1,8 +1,0 @@
-#!/usr/bin/env node
-
-const [,, configFile, targetFile] = process.argv;
-
-require(`${__dirname}/../lib/index.js`).default(configFile, targetFile).then(() => {}).catch(e => {
-    console.error(e.message);
-    process.exit(1);
-});

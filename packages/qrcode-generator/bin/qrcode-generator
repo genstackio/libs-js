@@ -1,8 +1,0 @@
-#!/usr/bin/env node
-
-const [,, jsonFile] = process.argv;
-
-require(`${__dirname}/../lib/index.js`).default(jsonFile).then(() => {}).catch(e => {
-    console.error(e.message);
-    process.exit(1);
-});
