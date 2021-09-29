@@ -5,6 +5,7 @@ export default {
     title: 'Atoms/fields/TextField',
     component: TextField,
     argTypes: a({
+        classes: args.classes,
         disabled: args.disabled,
         label: args.label,
         placeholder: args.placeholder,

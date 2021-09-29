@@ -30,7 +30,7 @@ const useStyles = makeStyles({
 });
 
 export function CheckboxField({ className, onChange, ...props }: CheckboxFieldProps) {
-    const classes = useStyles();
+    const muiClasses = useStyles();
     const {
         name,
         label,
@@ -42,14 +42,23 @@ export function CheckboxField({ className, onChange, ...props }: CheckboxFieldPr
         options,
         defaultValue = false,
         extra,
+        classes,
     } = useField(props, { kind: 'checkbox' });
 
     return (
-        <FieldSet error={error} helper={helper} label={label} name={name} options={options} className={className}>
-            <Row center responsive={false}>
+        <FieldSet
+            error={error}
+            helper={helper}
+            label={label}
+            name={name}
+            options={options}
+            className={className}
+            classes={classes}
+        >
+            <Row center responsive={false} className={classes?.container}>
                 <Checkbox
                     checkedIcon={<CheckBoxOutlinedIcon />}
-                    classes={classes}
+                    classes={muiClasses}
                     defaultChecked={defaultValue}
                     disabled={disabled}
                     disableRipple
@@ -57,6 +66,7 @@ export function CheckboxField({ className, onChange, ...props }: CheckboxFieldPr
                     onChange={onChange}
                     required={required}
                     {...register()}
+                    className={classes?.checkbox}
                     {...extra}
                 />
                 <Text disabled={disabled} text={label} />

@@ -410,6 +410,10 @@ export interface WithExpandIcon {
     expandIcon?: icon;
 }
 
+export interface WithClasses {
+    classes?: { [key: string]: string };
+}
+
 export interface WithBox extends WithColorOfBox, WithVariantOfBox {}
 export interface WithSeries {
     series?: chart_series;

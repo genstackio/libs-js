@@ -1,4 +1,5 @@
 import {
+    WithClasses,
     WithAutoFocus,
     WithBox,
     WithChildren,
@@ -33,6 +34,7 @@ export interface AsBlock extends AsWrapper, WithColorOfBox, WithVariantOfBlock {
 
 export interface AsField
     extends AsComponent,
+        WithClasses,
         WithName,
         WithDisabled,
         WithHelper,

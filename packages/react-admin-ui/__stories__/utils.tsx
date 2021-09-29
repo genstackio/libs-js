@@ -165,7 +165,7 @@ export const args = {
     chart: { control: { type: 'object' } },
     chartItems: { control: { type: 'object' } },
     children: { control: { type: 'text' } },
-    classes: { table: { disable: true } },
+    classes: { control: { type: 'object' } },
     code: { control: { type: 'number' } },
     color: { control: { type: 'select' }, options: boxColorValues },
     columns: { control: { type: 'object' } },

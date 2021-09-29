@@ -26,11 +26,20 @@ export function TextField(props: TextFieldProps) {
         append,
         extra,
         variant,
+        classes,
     } = useField(props);
     const ctx = useMemo(() => ({ variant, prepend: !!prepend, append: !!append }), [variant, prepend, append]);
 
     return (
-        <FieldSet error={error} helper={helper} label={label} name={name} options={options} className={className}>
+        <FieldSet
+            error={error}
+            helper={helper}
+            label={label}
+            name={name}
+            options={options}
+            className={className}
+            classes={classes}
+        >
             <Div
                 b={'xs'}
                 flex
@@ -39,6 +48,7 @@ export function TextField(props: TextFieldProps) {
                     'text-sm sm:text-base',
                     fieldVariantClass({ ...ctx, type: 'container' }),
                     error && 'border-danger ring-red-300',
+                    classes?.container,
                 )}
             >
                 {prepend && (
@@ -57,6 +67,7 @@ export function TextField(props: TextFieldProps) {
                             'focus:border-indigo-400 focus:outline-none py-2 pr-2 pl-2 focus:ring-4',
                         fieldVariantClass({ ...ctx, type: 'input' }),
                         error && 'border border-danger focus:border-danger ring-red-300',
+                        classes?.input,
                     )}
                     defaultValue={defaultValue}
                     disabled={disabled}

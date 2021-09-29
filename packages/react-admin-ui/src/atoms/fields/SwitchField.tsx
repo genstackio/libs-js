@@ -54,24 +54,26 @@ const useStyles = makeStyles({
 });
 
 export function SwitchField({ className, onChange, ...props }: SwitchFieldProps) {
-    const classes = useStyles(props);
-    const { name, required, label, error, helper, disabled, register, options, defaultValue, extra } = useField(props);
+    const muiClasses = useStyles(props);
+    const { name, required, label, error, helper, disabled, register, options, defaultValue, extra, classes } =
+        useField(props);
 
     return (
-        <Div mt={'sm'}>
+        <Div mt={'sm'} className={classes?.root}>
             <MuiSwitch
                 checked={defaultValue}
                 classes={{
-                    root: classes.root,
-                    switchBase: classes.switchBase,
-                    thumb: classes.thumb,
-                    track: classes.track,
-                    checked: classes.checked,
-                    disabled: classes.disabled,
+                    root: muiClasses.root,
+                    switchBase: muiClasses.switchBase,
+                    thumb: muiClasses.thumb,
+                    track: muiClasses.track,
+                    checked: muiClasses.checked,
+                    disabled: muiClasses.disabled,
+                    ...classes?.switch,
                 }}
                 disabled={disabled}
                 disableRipple
-                focusVisibleClassName={classes.focusVisible}
+                focusVisibleClassName={muiClasses.focusVisible}
                 name={name}
                 onChange={onChange}
                 required={required}
@@ -79,9 +81,9 @@ export function SwitchField({ className, onChange, ...props }: SwitchFieldProps)
                 {...extra}
                 className={className}
             />
-            <FieldLabel name={name} label={label} options={options} />
-            <FieldError error={error} />
-            <FieldHelper helper={helper} />
+            <FieldLabel name={name} label={label} options={options} className={classes?.label} />
+            <FieldError error={error} className={classes?.error} />
+            <FieldHelper helper={helper} className={classes?.helper} />
         </Div>
     );
 }

@@ -33,6 +33,7 @@ export function useField(
         control,
         field,
         variant,
+        classes,
         ...extra
     }: field_def_params,
     defaults: { name?: string; kind?: string } = {},
@@ -115,6 +116,7 @@ export function useField(
             ) : appendIcon ? (
                 appendIcon
             ) : undefined,
+        classes,
     };
 }
 
@@ -134,6 +136,7 @@ export interface field_def_params extends WithLabel, WithAny, WithOptions, WithD
     register?: register;
     control?: control;
     field?: boolean;
+    classes?: any;
 }
 
 export default useField;
