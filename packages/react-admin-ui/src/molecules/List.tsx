@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import Badge from '../atoms/Badge';
-import boxClass from '../utils/boxClass';
+import boxClass from '../mappings/boxs';
 import { AsComponent } from '../as';
 import { WithBadge, WithColorOfBox, WithItemsOfList } from '../withs';
 

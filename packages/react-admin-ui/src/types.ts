@@ -263,3 +263,19 @@ export type figures_chart_item = {
     series?: chart_series;
     value?: number;
 };
+
+export type preset = {
+    get: (key: string, defaultValues?: any) => any;
+    set: (key: string, value: any) => preset;
+    override: (key: string, value: any) => preset;
+    overrides: (overrides: { [key: string]: any }) => preset;
+    classes: (key: string, v: any, e?: any, d?: string) => string | undefined;
+    pclasses: (key: string, keys?: string[]) => (params: clsxm_params, keys?: string[] | undefined) => string | undefined;
+    xclasses: <T = any, U = string | undefined>(key: string) => (v: T | undefined, e?: any) => U;
+    xvalues: <T = any, U = any>(key: string) => (v: T | undefined, e?: any) => U;
+    values: (key: string) => string[];
+    combine: (...args: ((clsxm_params) => string | undefined)[]) => (clsxm_params) => string | undefined;
+    customCombine: (parametrize: (clsxm_params) => clsxm_params, ...args: ((clsxm_params) => string | undefined)[]) => (clsxm_params) => string | undefined;
+    load: (config: any) => preset;
+};
+

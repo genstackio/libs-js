@@ -1,9 +1,8 @@
 import { Fragment } from 'react';
 import { args, s, a } from '../utils';
 import { Button } from '../../src';
-import { boxColors } from '../../src/mappings/box-colors';
-import { boxVariants } from '../../lib/mappings/box-variants';
 import data from '../data';
+import preset from "../../lib/preset";
 
 export default {
     title: 'Atoms/Button',
@@ -59,11 +58,11 @@ export const withLoading = s(Button, {
 export const showcase = s(
     (args) => (
         <div className={'space-y-2'}>
-            {Object.keys(boxVariants).map((variant, i) => (
+            {preset.values('boxVariant').map((variant, i) => (
                 <Fragment key={i}>
                     <p>{variant.toUpperCase()}</p>
                     <div className={'flex items-center space-x-4'}>
-                        {Object.keys(boxColors).map((color, j) => (
+                        {preset.values('boxColor').map((color, j) => (
                             <Button key={`${i}-${j}`} color={color as any} variant={variant as any}>
                                 {color}
                             </Button>

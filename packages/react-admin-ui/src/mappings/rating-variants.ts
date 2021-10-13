@@ -1,20 +1,4 @@
-import clsxmp from '../utils/clsxmp';
-
-export const ratingVariants = {
-    units: '',
-    plates: '',
-    'labelled-squares': '',
-    pill: '',
-    squares: '',
-    'reverse-squares': '',
-    'small-stars': '',
-    stack: '',
-    stars: '',
-    basic: '',
-    mood: '',
-};
-
-export const ratingVariantValues = Object.keys(ratingVariants);
+import preset from "../preset";
 
 export type rating_variant =
     | 'units'
@@ -29,9 +13,6 @@ export type rating_variant =
     | 'mood'
     | 'basic';
 
-export const defaultMoodVariant = 'basic';
-
-export const ratingVariantClass = (v: rating_variant | undefined, e: any = {}) =>
-    clsxmp(v, defaultMoodVariant, ratingVariants, e);
+export const ratingVariantClass = preset.xclasses<rating_variant>('ratingVariant');
 
 export default ratingVariantClass;

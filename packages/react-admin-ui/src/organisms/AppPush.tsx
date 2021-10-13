@@ -5,7 +5,7 @@ import Column from '../atoms/Column';
 import Button from '../atoms/Button';
 import Text from '../atoms/Text';
 import { rich_text } from '../types';
-import bgClass from '../utils/bgClass';
+import bgClass from '../mappings/bgs';
 import { AsBox } from '../as';
 import { WithDescription, WithTitle } from '../withs';
 

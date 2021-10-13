@@ -6,7 +6,7 @@ import Div from '../../atoms/Div';
 import Icon from '../../atoms/Icon';
 import Cell from '../../atoms/Cell';
 import Menu from '../../molecules/Menu';
-import textClass from '../../utils/textClass';
+import boxTextClass from '../../mappings/box-texts';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import { menu_item, target } from '../../types';
@@ -49,7 +49,7 @@ export function AppLayoutTemplate({
                         <Icon
                             icon={'menu'}
                             className={clsx(
-                                textClass({ color: props.color, variant: 'light', hoverable: true }),
+                                boxTextClass({ color: props.color, variant: 'light', hoverable: true }),
                                 'transition duration-300 rounded-full h-7 w-7 flex items-center justify-center',
                                 'hover:bg-purple-100',
                             )}

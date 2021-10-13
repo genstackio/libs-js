@@ -1,21 +1,4 @@
-import clsxmp from '../utils/clsxmp';
-
-export const boxColors = {
-    primary: 'bg-primary',
-    secondary: 'bg-secondary',
-    success: 'bg-success',
-    info: 'bg-info',
-    warning: 'bg-warning',
-    danger: 'bg-danger',
-    disabled: 'bg-disabled',
-    light: 'bg-light',
-    dark: 'bg-dark',
-    none: 'bg-clear',
-    clear: 'bg-clear',
-    default: '',
-};
-
-export const boxColorValues = Object.keys(boxColors);
+import preset from "../preset";
 
 export type box_color =
     | 'primary'
@@ -29,10 +12,9 @@ export type box_color =
     | 'dark'
     | 'none'
     | 'clear'
-    | 'default';
+    | 'default'
+;
 
-export const defaultBoxColor = 'default';
-
-export const boxColorClass = (v: box_color | undefined, e: any = {}) => clsxmp(v, defaultBoxColor, boxColors, e);
+export const boxColorClass = preset.xclasses<box_color>('boxColor');
 
 export default boxColorClass;

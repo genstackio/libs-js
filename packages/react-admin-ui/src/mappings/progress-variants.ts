@@ -1,18 +1,7 @@
-import clsxmp from '../utils/clsxmp';
-
-export const progressVariants = {
-    circular: '',
-    linear: '',
-    default: '',
-};
-
-export const progressVariantValues = Object.keys(progressVariants);
+import preset from "../preset";
 
 export type progress_variant = 'circular' | 'linear' | 'default';
 
-export const defaultProgressVariant = 'default';
-
-export const progressVariantClass = (v: progress_variant | undefined, e: any = {}) =>
-    clsxmp(v, defaultProgressVariant, progressVariants, e);
+export const progressVariantClass = preset.xclasses<progress_variant>('progressVariant');
 
 export default progressVariantClass;

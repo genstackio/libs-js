@@ -1,18 +1,7 @@
-import clsxmp from '../utils/clsxmp';
-
-export const statuses = {
-    online: 'bg-success',
-    offline: 'bg-disabled',
-    busy: 'bg-danger',
-    unknown: 'bg-warning',
-};
-
-export const statusValues = Object.keys(statuses);
+import preset from "../preset";
 
 export type status = 'online' | 'offline' | 'busy' | 'unknown';
 
-export const defaultStatus = 'unknown';
-
-export const statusClass = (v: status | undefined, e: any = {}) => clsxmp(v, defaultStatus, statuses, e);
+export const statusClass = preset.xclasses<status>('status');
 
 export default statusClass;

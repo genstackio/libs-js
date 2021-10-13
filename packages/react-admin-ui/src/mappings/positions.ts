@@ -1,17 +1,6 @@
-import clsxmp from '../utils/clsxmp';
 import { position } from '../types';
+import preset from "../preset";
 
-export const positions = {
-    left: 'flex flex-row-reverse',
-    right: 'flex flex-row',
-    bottom: 'flex flex-col',
-    top: 'flex flex-col-reverse',
-};
-
-export const positionValues = Object.keys(positions);
-
-export const defaultPosition = 'default';
-
-export const positionClass = (v: position | undefined, e: any = {}) => clsxmp(v, defaultPosition, positions, e);
+export const positionClass = preset.xclasses<position>('position');
 
 export default positionClass;

@@ -15,26 +15,7 @@ import themes from './configs/themes';
 import { IconsProvider } from '@genstackio/react-contexts/lib/IconsProvider';
 import icons from './configs/icons';
 import { DarkModeProvider } from '@genstackio/react-contexts/lib/contexts/DarkModeContext';
-import { avatarSizeValues } from '../src/mappings/avatar-sizes';
-import { elevationValues } from '../src/mappings/elevations';
-import { paddingValues } from '../src/mappings/paddings';
-import { alignmentValues } from '../src/mappings/alignments';
-import { blockVariantValues } from '../src/mappings/block-variants';
-import { boxVariantValues } from '../src/mappings/box-variants';
-import { boxColorValues } from '../src/mappings/box-colors';
-import { fieldVariantValues } from '../src/mappings/field-variants';
-import { cornerValues } from '../src/mappings/corners';
-import { labelPlacementValues } from '../src/mappings/label-placements';
-import { progressVariantValues } from '../src/mappings/progress-variants';
-import { ratingVariantValues } from '../src/mappings/rating-variants';
-import { shapeValues } from '../src/mappings/shapes';
-import { textSizeValues } from '../src/mappings/text-sizes';
-import { spinnerColorValues, spinnerSizeValues, spinnerVariantValues } from '../src/mappings/spinners';
-import { statusValues } from '../src/mappings/statuses';
-import { textVariantValues } from '../src/mappings/text-variants';
-import { borderValues } from '../src/mappings/borders';
-import { accordionCornerValues } from '../src/mappings/accordion-corners';
-import { marginValues } from '../lib/mappings/margins';
+import preset from '../src/preset';
 
 const translationNames = Object.keys(translations);
 translationNames.sort();
@@ -147,7 +128,7 @@ export function s(Component, args, opts: any = {}) {
 
 export const args = {
     ...argtypes,
-    accordionCorner: { control: { type: 'select' }, options: accordionCornerValues },
+    accordionCorner: { control: { type: 'select' }, options: preset.values('accordionCorner') },
     accordionVariant: { control: { type: 'select' }, options: ['filled', 'outlined', 'contained', 'light'] },
     actions: { control: { type: 'object' } },
     author: { control: { type: 'text' } },
@@ -157,9 +138,9 @@ export const args = {
     badgeVariant: { control: { type: 'select' }, options: ['pill', 'tag', 'none'] },
     bgColor: { control: { type: 'color' } },
     bgIcon: { table: { disable: true } },
-    blockVariant: { control: { type: 'select' }, options: blockVariantValues },
-    boxVariant: { control: { type: 'select' }, options: boxVariantValues },
-    border: { control: { type: 'select' }, options: borderValues },
+    blockVariant: { control: { type: 'select' }, options: preset.values('blockVariant') },
+    boxVariant: { control: { type: 'select' }, options: preset.values('boxVariant') },
+    border: { control: { type: 'select' }, options: preset.values('border') },
     btnLabel: { control: { type: 'text' } },
     buttonsItems: { control: { type: 'object' } },
     chart: { control: { type: 'object' } },
@@ -167,7 +148,7 @@ export const args = {
     children: { control: { type: 'text' } },
     classes: { control: { type: 'object' } },
     code: { control: { type: 'number' } },
-    color: { control: { type: 'select' }, options: boxColorValues },
+    color: { control: { type: 'select' }, options: preset.values('boxColor') },
     columns: { control: { type: 'object' } },
     comments: { control: { type: 'number' } },
     content: { control: { type: 'text' } },
@@ -181,13 +162,13 @@ export const args = {
     error: { control: { type: 'boolean' } },
     errorText: { control: { type: 'text' } },
     fieldType: { control: { type: 'select' }, options: ['text', 'email', 'password'] },
-    fieldVariant: { control: { type: 'select' }, options: fieldVariantValues },
+    fieldVariant: { control: { type: 'select' }, options: preset.values('fieldVariant') },
     fieldValue: { control: { type: 'text' } },
     rows: { control: { type: 'number' } },
     form: { control: { type: 'object' } },
     icon: { table: { disable: true } },
-    corner: { control: { type: 'select' }, options: cornerValues },
-    labelPlacement: { control: { type: 'select' }, options: labelPlacementValues },
+    corner: { control: { type: 'select' }, options: preset.values('corner') },
+    labelPlacement: { control: { type: 'select' }, options: preset.values('labelPlacement') },
     iconCorner: {
         control: { type: 'select' },
         options: ['settings', 'query_builder', 'notifications_none_icon', 'none'],
@@ -205,34 +186,34 @@ export const args = {
     menu: { control: { type: 'object' } },
     min: { control: { type: 'number' } },
     max: { control: { type: 'number' } },
-    padding: { control: { type: 'select' }, options: paddingValues },
-    margin: { control: { type: 'select' }, options: marginValues },
-    elevation: { control: { type: 'select' }, options: elevationValues },
+    padding: { control: { type: 'select' }, options: preset.values('padding') },
+    margin: { control: { type: 'select' }, options: preset.values('margin') },
+    elevation: { control: { type: 'select' }, options: preset.values('elevation') },
     paginationVariant: { control: { type: 'select' }, options: ['text', 'outlined'] },
     pill: { control: { type: 'object' } },
-    position: { control: { type: 'select' }, options: alignmentValues },
+    position: { control: { type: 'select' }, options: preset.values('alignment') },
     price: { control: { type: 'text' } },
     progress: { control: { type: 'number' } },
-    progressVariant: { control: { type: 'select' }, options: progressVariantValues },
-    ratingVariant: { control: { type: 'select' }, options: ratingVariantValues },
+    progressVariant: { control: { type: 'select' }, options: preset.values('progressVariant') },
+    ratingVariant: { control: { type: 'select' }, options: preset.values('ratingVariant') },
     ribbon: { control: { type: 'select' }, options: ['top-left', 'top-right', 'bottom-left', 'bottom-right'] },
     rowsPerPage: { control: { type: 'number' } },
     selection: { control: { type: 'boolean' } },
     series: { control: { type: 'object' } },
-    shape: { control: { type: 'select' }, options: shapeValues },
-    avatarSize: { control: { type: 'select' }, options: avatarSizeValues },
+    shape: { control: { type: 'select' }, options: preset.values('shape') },
+    avatarSize: { control: { type: 'select' }, options: preset.values('avatarSize') },
     size: { control: { type: 'select' }, options: ['xs', 'sm', 'md', 'lg', 'xl'] },
     target: { control: { type: 'text' } },
-    textSize: { control: { type: 'select' }, options: textSizeValues },
-    spinnerVariant: { control: { type: 'select' }, options: spinnerVariantValues },
-    spinnerSize: { control: { type: 'select' }, options: spinnerSizeValues },
-    spinnerColor: { control: { type: 'select' }, options: spinnerColorValues },
-    status: { control: { type: 'select' }, options: statusValues },
+    textSize: { control: { type: 'select' }, options: preset.values('textSize') },
+    spinnerVariant: { control: { type: 'select' }, options: preset.values('spinnerVariant') },
+    spinnerSize: { control: { type: 'select' }, options: preset.values('spinnerSize') },
+    spinnerColor: { control: { type: 'select' }, options: preset.values('spinnerColor') },
+    status: { control: { type: 'select' }, options: preset.values('status') },
     steps: { control: { type: 'object' } },
     striped: { control: { type: 'boolean' } },
     tag: { control: { type: 'object' } },
     textValue: { control: { type: 'text' } },
-    textVariant: { control: { type: 'select' }, options: textVariantValues },
+    textVariant: { control: { type: 'select' }, options: preset.get('textVariant').styles },
     toolbar: { control: { type: 'object' } },
     toRight: { control: { type: 'boolean' } },
     unit: { control: { type: 'select' }, options: [undefined, '$', '€', '£', 'M'] },

@@ -32,8 +32,8 @@ import shapeClass from '../mappings/shapes';
 import gridColsClass from '../mappings/grid-cols';
 import gapClass from '../mappings/gaps';
 import colSpanClass, { col_span } from '../mappings/col-spans';
-import bgClass from '../utils/bgClass';
-import boxClass from '../utils/boxClass';
+import bgClass from '../mappings/bgs';
+import boxClass from '../mappings/boxs';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';
 import { AsWrapper } from '../as';
 import {

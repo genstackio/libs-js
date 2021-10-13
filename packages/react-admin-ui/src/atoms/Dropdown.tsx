@@ -1,8 +1,8 @@
 import { useCallback, useState, ChangeEvent, useMemo } from 'react';
 import clsx from 'clsx';
 import Div from './Div';
-import buttonClass from '../utils/buttonClass';
-import textClass from '../utils/textClass';
+import buttonClass from '../mappings/buttons';
+import boxTextClass from '../mappings/box-texts';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import { makeStyles } from '@material-ui/core/styles';
@@ -31,7 +31,7 @@ export function Dropdown({ className, color, items = [], variant }: DropdownProp
     const inputProps = useMemo(
         () => ({
             classes: {
-                icon: textClass({ color, variant }),
+                icon: boxTextClass({ color, variant }),
                 root: 'p-2',
             },
         }),

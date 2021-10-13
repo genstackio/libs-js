@@ -6,7 +6,7 @@ import Icon from '../atoms/Icon';
 import Button from '../atoms/Button';
 import Clickable from '../atoms/Clickable';
 import Expandable from './Expandable';
-import boxClass from '../utils/boxClass';
+import boxClass from '../mappings/boxs';
 import { children } from '../types';
 import { AsBoxWrapper } from '../as';
 import { WithItemsOfChoiceButton } from '../withs';

@@ -1,24 +1,4 @@
-export const headingTextVariants = {
-    none: { title: 'title1', subtitle: 'subtitle' },
-    section: { title: 'section', subtitle: 'subsection' },
-    xsection: { title: 'section', subtitle: 'xsmall' },
-    ctasection: { title: 'title3', subtitle: 'title3' },
-    small: { title: 'title6', subtitle: 'body' },
-    xxsmall: { title: 'title6', subtitle: 'overline' },
-    xxsmall2: { title: 'title6', subtitle: 'title3' },
-    xxsmall3: { title: 'title6', subtitle: 'subtitle' },
-    xsmall: { title: 'subtitle', subtitle: 'xsmall' },
-    smmd: { title: 'title5', subtitle: 'overline' },
-    smmd2: { title: 'title5', subtitle: 'subtitle' },
-    medium: { title: 'title3', subtitle: 'subtitle' },
-    medium2: { title: 'title3', subtitle: 'subtitle', description: 'body' },
-    medium3: { title: 'body', subtitle: 'title4' },
-    large: { title: 'title2', subtitle: 'title6' },
-    xlarge: { title: 'title1', subtitle: 'title5' },
-    underlined: { title: 'underline', subtitle: 'small' },
-};
-
-export const headingTextVariantValues = Object.keys(headingTextVariants);
+import preset from "../preset";
 
 export type heading_text_variant =
     | 'none'
@@ -39,9 +19,6 @@ export type heading_text_variant =
     | 'xlarge'
     | 'underlined';
 
-export const defaultHeadingTextVariant = 'none';
-
-export const headingTextVariantDescription = (variant?: heading_text_variant) =>
-    headingTextVariants[variant || 'none'] || headingTextVariants['none'];
+export const headingTextVariantDescription = preset.xvalues<heading_text_variant>('headingTextVariant');
 
 export default headingTextVariantDescription;
