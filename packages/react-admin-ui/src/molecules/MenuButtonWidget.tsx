@@ -2,8 +2,8 @@ import { useCallback } from 'react';
 import clsx from 'clsx';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
-import textClass from '../utils/textClass';
-import boxClass from '../utils/boxClass';
+import boxTextClass from '../mappings/box-texts';
+import boxClass from '../mappings/boxs';
 import { AsComponent } from '../as';
 import { WithColorOfBox, WithItemsOfMenuButton } from '../withs';
 
@@ -29,7 +29,7 @@ export function MenuButtonWidget({ className, items = [], color }: MenuButtonWid
                     key={index}
                     onClick={handleClick(target)}
                     className={clsx(
-                        textClass({ color: color, variant: 'light', hoverable: true }),
+                        boxTextClass({ color: color, variant: 'light', hoverable: true }),
                         'flex space-x-2 py-2 px-4 rounded-md cursor-pointer',
                     )}
                 >

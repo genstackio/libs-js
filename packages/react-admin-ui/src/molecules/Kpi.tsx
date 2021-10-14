@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import Icon from '../atoms/Icon';
 import Text from '../atoms/Text';
 import Div from '../atoms/Div';
-import boxClass from '../utils/boxClass';
+import boxClass from '../mappings/boxs';
 import { AsComponent } from '../as';
 import { WithColorOfBox, WithIcon, WithQuantity, WithName } from '../withs';
 

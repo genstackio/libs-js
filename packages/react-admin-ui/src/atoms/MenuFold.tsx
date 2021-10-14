@@ -7,7 +7,7 @@ import Badge from './Badge';
 import Block from './Block';
 import Icon from './Icon';
 import Text from './Text';
-import textClass from '../utils/textClass';
+import boxTextClass from '../mappings/box-texts';
 import useToggle from '../hooks/useToggle';
 import { AsComponent } from '../as';
 import {
@@ -62,7 +62,7 @@ export function MenuFold({ active, badges, className, color, icon, label, items 
                         onClick={target}
                         className={clsx(
                             'cursor-pointer mx-6 px-6 py-2 flex flex-col',
-                            textClass({ color: color, variant: variant, hoverable: true }),
+                            boxTextClass({ color: color, variant: variant, hoverable: true }),
                         )}
                     >
                         - {label}

@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import Div from './Div';
 import Icon from './Icon';
 import { flag, ribbon_position } from '../types';
-import boxClass from '../utils/boxClass';
+import boxClass from '../mappings/boxs';
 import { AsWrapper } from '../as';
 import { WithColorOfBox, WithText } from '../withs';
 

@@ -3,7 +3,7 @@ import Container from './Container';
 import BlockHeader, { BlockHeaderProps } from './BlockHeader';
 import BlockFooter, { BlockFooterProps } from './BlockFooter';
 import BlockContent, { BlockContentProps } from './BlockContent';
-import boxClass from '../utils/boxClass';
+import boxClass from '../mappings/boxs';
 import { class_name } from '../types';
 import elevationClass from '../mappings/elevations';
 import hoverAnimationClass from '../mappings/hover-animations';

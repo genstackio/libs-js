@@ -5,7 +5,6 @@ import Row from '../Row';
 import useRating from '../../hooks/useRating';
 import MuiRating from '@material-ui/lab/Rating';
 import { class_name } from '../../types';
-import { defaultLabelPlacement } from '../../mappings/label-placements';
 import { AsComponent } from '../../as';
 import {
     WithColorOfBox,
@@ -19,20 +18,13 @@ import {
     WithMax,
     WithValuesOfRating,
 } from '../../withs';
-
-const labelPlacements = {
-    left: 'flex-row-reverse space-x-2',
-    right: 'space-x-2',
-    top: 'flex-col-reverse space-y-2',
-    bottom: 'flex-col space-y-2',
-    none: '',
-};
+import labelPlacementClass from "../../mappings/label-placements";
 
 export function BaseRating(props: BaseRatingProps) {
     const {
         className,
         reverse = false,
-        labelPlacement = defaultLabelPlacement,
+        labelPlacement,
         container,
         labelProps = {},
         ratingProps = {},
@@ -54,7 +46,7 @@ export function BaseRating(props: BaseRatingProps) {
     } = useRating(props, { reverse });
 
     return (
-        <Row vcenter responsive={false} className={clsx(labelPlacements[labelPlacement || ''], className)}>
+        <Row vcenter responsive={false} className={clsx(labelPlacementClass(labelPlacement), className)}>
             <MuiRating
                 classes={classes}
                 defaultValue={defaultValue}

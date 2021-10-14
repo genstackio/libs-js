@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import Image from './Image';
 import Clickable from './Clickable';
 import MuiIcon from '@material-ui/core/Icon';
-import textSizeClass from '../utils/textSizeClass';
+import textSizeClass from '../mappings/text-sizes';
 import Loadable from '@loadable/component';
 import Badge from '@material-ui/core/Badge';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -42,7 +42,7 @@ export function Icon({ bold = false, color, count = 0, disabled, icon, onClick, 
                 const TheIcon = Loadable(() => import(`../images/icons/${name}`).catch(() => () => <div />));
                 content = <TheIcon {...props} />;
             } else {
-                const iconColor = mapIconColor(color);
+                const iconColor = mapIconColor(color) as any;
                 if ('fa-' === icon.slice(0, 3)) {
                     let xx = icon.slice(3).split(/--/g) as any;
                     xx.length === 1 && (xx = xx[0]);
@@ -50,7 +50,7 @@ export function Icon({ bold = false, color, count = 0, disabled, icon, onClick, 
                         <FontAwesomeIcon
                             icon={xx}
                             className={clsx(className, bold && 'font-bold', disabled && 'text-disabled')}
-                            {...(size ? { size: mapFaSize(size) } : {})}
+                            {...(size ? { size: mapFaSize(size) as any } : {})}
                         />
                     );
                     break;
@@ -61,7 +61,7 @@ export function Icon({ bold = false, color, count = 0, disabled, icon, onClick, 
                             color={iconColor}
                             {...props}
                             className={clsx(
-                                textSizeClass({ size }),
+                                textSizeClass({ size } as any),
                                 bold && 'font-bold',
                                 disabled && 'text-disabled',
                                 className,

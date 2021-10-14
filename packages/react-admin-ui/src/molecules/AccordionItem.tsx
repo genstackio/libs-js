@@ -9,8 +9,8 @@ import { withStyles } from '@material-ui/core/styles';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
-import textClass from '../utils/textClass';
-import buttonClass from '../utils/buttonClass';
+import boxTextClass from '../mappings/box-texts';
+import buttonClass from '../mappings/buttons';
 import {
     accordionCornerClass,
     accordionDetailsCornerClass,
@@ -88,7 +88,7 @@ export function AccordionItem({
         >
             <StyledAccordionSummary
                 aria-controls={`panel${index}-content`}
-                expandIcon={<Icon className={textClass(box)} icon={expandIcon} />}
+                expandIcon={<Icon className={boxTextClass(box)} icon={expandIcon} />}
                 id={`panel${index}-header`}
                 className={clsx(
                     accordionSummaryCornerClass(corner, { active }),
@@ -116,7 +116,7 @@ export function AccordionItem({
                 {Array.isArray(content) && (
                     <Column spaced={4}>
                         {(content as any[]).map(({ label, target }, index) => (
-                            <Clickable key={index} className={textClass(box)} onClick={target}>
+                            <Clickable key={index} className={boxTextClass(box)} onClick={target}>
                                 - {label}
                             </Clickable>
                         ))}

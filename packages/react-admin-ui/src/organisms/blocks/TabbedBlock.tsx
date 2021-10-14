@@ -4,7 +4,7 @@ import TabPanel from '../../molecules/TabPanel';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import AppBar from '@material-ui/core/AppBar';
-import bgClass from '../../utils/bgClass';
+import bgClass from '../../mappings/bgs';
 import useBlock from '../../hooks/useBlock';
 import { WithItemsOfTabs } from '../../withs';
 

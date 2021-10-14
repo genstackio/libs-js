@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import boxClass from '../utils/boxClass';
+import boxClass from '../mappings/boxs';
 import dividerSizeClass from '../mappings/divider-sizes';
 import useBox from '../hooks/useBox';
 import { AsBox } from '../as';

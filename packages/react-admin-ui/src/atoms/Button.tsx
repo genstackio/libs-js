@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import clsx from 'clsx';
 import Icon from './Icon';
-import buttonClass from '../utils/buttonClass';
+import buttonClass from '../mappings/buttons';
 import { class_name, flag } from '../types';
 import { Spinner } from './Spinner';
 import { BoxProvider } from '@genstackio/react-contexts/lib/contexts/BoxContext';

@@ -7,7 +7,7 @@ import Row from './Row';
 import FlagIcon from './FlagIcon';
 import Popper from '@material-ui/core/Popper';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import bgClass from '../utils/bgClass';
+import bgClass from '../mappings/bgs';
 import shortenLocale from '../utils/shortenLocale';
 import { AsComponent } from '../as';
 import { WithColorOfBox, WithLocales } from '../withs';

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import MuiSlider from '@material-ui/core/Slider';
-import boxClass from '../utils/boxClass';
+import boxClass from '../mappings/boxs';
 import { ChangeEvent } from 'react';
 import { WithColorOfBox, WithDefaultValueAsNumber, WithMax, WithMin, WithValueAsNumber } from '../withs';
 import { AsComponent } from '../as';
