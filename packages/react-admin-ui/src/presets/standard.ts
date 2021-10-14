@@ -838,7 +838,7 @@ const preset = {
         },
     },
     boxVariant: {
-        default: 'fillex',
+        default: 'filled',
         styles: {
             filled: '',
             outlined: '',

@@ -15,7 +15,6 @@ import themes from './configs/themes';
 import { IconsProvider } from '@genstackio/react-contexts/lib/IconsProvider';
 import icons from './configs/icons';
 import { DarkModeProvider } from '@genstackio/react-contexts/lib/contexts/DarkModeContext';
-import preset from '../src/preset';
 
 const translationNames = Object.keys(translations);
 translationNames.sort();
