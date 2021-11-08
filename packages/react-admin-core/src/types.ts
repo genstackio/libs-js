@@ -6,6 +6,7 @@ export type route = {
     exact?: boolean;
     routes?: route[];
     component?: any;
+    requiredRoles?: string[];
 };
 
 export type user_context_value = { user: undefined | { id: string; email: string }; setUser: Function };

@@ -10,6 +10,10 @@ function formatScreenComponentName(n: string) {
         .join('')}`;
 }
 
+export const isUserHavingRole = (user, role: string[] = []) =>
+    !role.length ? true : (!!role.find(x => (user.permissions || []).includes(x)))
+;
+
 export function Route({
     user = undefined,
     secured = true,
@@ -18,8 +22,15 @@ export function Route({
     exact = true,
     component = undefined,
     screen: screenName,
+    requiredRoles = undefined,
 }: route) {
-    screenName = secured && !user ? 'login' : screenName;
+    if (secured) {
+        if (!user) {
+            screenName = 'login';
+        } else if (!isUserHavingRole(user, requiredRoles)) {
+            screenName = 'denied';
+        }
+    }
     const importer = useImporter();
     const Component = useMemo(
         () =>

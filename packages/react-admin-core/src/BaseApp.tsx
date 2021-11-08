@@ -22,6 +22,7 @@ export function BaseApp({
     locales = ['en-US'],
     defaultLocale = undefined,
     fallbackLocale = undefined,
+    requiredRoles = undefined,
     ...props
 }: BaseAppProps) {
     defaultLocale = defaultLocale || locales[0];
@@ -76,7 +77,7 @@ export function BaseApp({
                 <Suspense fallback={<LoadingScreen />}>
                     <Switch>
                         {routes.map((route, i) => (
-                            <Route key={i} {...route} user={user.user} />
+                            <Route key={i} {...route} requiredRoles={route['requiredRoles'] || requiredRoles} user={user.user} />
                         ))}
                     </Switch>
                 </Suspense>

@@ -43,7 +43,7 @@ function ThemeProvider({ value, children }: any) {
 
 export function useApp({
     importer,
-    app: { prefix, endpoint, locales, defaultLocale, fallbackLocale, features = {} },
+    app: { prefix, endpoint, locales, defaultLocale, fallbackLocale, features = {}, requiredRoles },
     routes = [],
     translations = {},
     theme: { mui = {}, tailwind = {}, theme = undefined } = {},
@@ -86,6 +86,7 @@ export function useApp({
             notifications: features.notifications ? { notifications: [] } : undefined,
             favorites: features.favorites ? { favorites: [] } : undefined,
             icons,
+            requiredRoles,
         }),
         [
             mui,
@@ -100,6 +101,7 @@ export function useApp({
             translations,
             queries,
             icons,
+            requiredRoles,
         ],
     );
 }
