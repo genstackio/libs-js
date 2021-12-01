@@ -10,22 +10,22 @@ export function EditOrganizationAction({
     id,
     mutationName = 'UPDATE_ORGANIZATION',
     onSuccess,
-    prepare,
+    prepare: rawPrepare,
     queryName = 'GET_ORGANIZATION',
     spinnerComponent,
     ...props
 }: EditOrganizationActionProps) {
-    prepare = useCallback(
+    const prepare = useCallback(
         (data: any) =>
-            prepare
-                ? prepare(data)
+            rawPrepare
+                ? rawPrepare(data)
                 : ((data: any) => ({
                       id,
                       data: {
                           name: data.name,
                       },
                   }))(data),
-        [prepare, id],
+        [rawPrepare, id],
     );
     const SpinnerComponent = spinnerComponent || Spinner;
     const { data, props: someProps } = useUpdateAction({

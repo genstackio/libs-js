@@ -10,15 +10,15 @@ export function EditCurrentUserAction({
     id,
     mutationName = 'UPDATE_USER',
     onSuccess,
-    prepare,
+    prepare: rawPrepare,
     spinnerComponent,
     queryName = 'GET_USER',
     ...props
 }: EditCurrentUserActionProps) {
-    prepare = useCallback(
+    const prepare = useCallback(
         (data: any) =>
-            prepare
-                ? prepare(data)
+            rawPrepare
+                ? rawPrepare(data)
                 : ((data: any) => ({
                       id,
                       data: {
@@ -27,7 +27,7 @@ export function EditCurrentUserAction({
                           email: data.email,
                       },
                   }))(data),
-        [prepare, id],
+        [rawPrepare, id],
     );
     const SpinnerComponent = spinnerComponent || Spinner;
     const { data, props: someProps } = useUpdateAction({
