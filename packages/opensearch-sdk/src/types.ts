@@ -1,3 +1,4 @@
+export {Request, Response} from 'cross-fetch';
 export type fetch_with_request = (request: Request) => Promise<Response>;
 export type fetch_basic = (url: string, options: any) => Promise<Response>;
 export type fetch = fetch_with_request|fetch_basic;

@@ -6,7 +6,8 @@ import {
     response_listener,
     fetch_with_request,
     base_input,
-    request_authorization_provider
+    request_authorization_provider,
+    Request,
 } from './types';
 
 const debugOpenSearchSdk = debug('opensearch-sdk');
