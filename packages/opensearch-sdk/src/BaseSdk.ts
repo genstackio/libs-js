@@ -58,7 +58,7 @@ export abstract class BaseSdk {
     }
     async request(path: string, method: string, input: any|undefined = {}, headers: any|undefined = {}) {
         const {body = undefined, queryString = undefined} = this.parseInput(input);
-        return this.http(`/${path}${queryString}`, method, body, headers)
+        return this.http(`/${path}${queryString || ''}`, method, body, headers)
     }
     async requestIndex(name: string, path: string, method: string, input: any|undefined = {}, headers: any|undefined = {}) {
         return this.request(`${name}${path ? '/' : ''}${path || ''}`, method, input, headers);
