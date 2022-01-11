@@ -2,7 +2,7 @@ import {fetch, request_authorization_provider, request_listener, response_listen
 import {Sdk} from './Sdk';
 
 export * from './Sdk';
-
+export * from './types';
 // noinspection JSUnusedGlobalSymbols
 export const createSdk = (endpoint: string, localFetch: fetch|undefined = undefined, authorizationProvider?: request_authorization_provider, requestListeners: request_listener[] = [], responseListeners: response_listener[] = []) => {
     let globalFetch = require('cross-fetch');
