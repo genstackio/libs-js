@@ -21,7 +21,7 @@ function decodeToken(token: string): auth_data {
     return decodeJwt(token) as auth_data;
 }
 
-export async function factory(createAccessToken: () => Promise<tokens>, refreshAccessToken: (tokens: tokens) => Promise<tokens>) {
+export function factory(createAccessToken: () => Promise<tokens>, refreshAccessToken: (tokens: tokens) => Promise<tokens>) {
     const ctx: tokens = {accessToken: undefined, refreshToken: undefined};
     const setTokens = ({accessToken, refreshToken}: tokens) => {
         ctx.accessToken = accessToken;
