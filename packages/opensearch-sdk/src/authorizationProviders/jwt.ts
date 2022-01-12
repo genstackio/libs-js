@@ -1,15 +1,16 @@
 import {auth_data, tokens} from "../types";
 import decodeJwt from 'jwt-decode';
 
-function isAccessTokenValid({accessToken}: tokens): boolean {
+function isAccessTokenValid({accessToken}: tokens, minExpirationDelay: number = 2): boolean {
     if (!accessToken) return false;
-    return !isTokenExpired(accessToken);
+    return !isTokenExpired(accessToken, minExpirationDelay);
 }
-
-function isIdentitifed({accessToken}: tokens): boolean {
+function isIdentified({accessToken}: tokens): boolean {
     return !!accessToken;
 }
-
+function decodeToken(token: string): auth_data {
+    return decodeJwt(token) as auth_data;
+}
 function isTokenExpired(token: string|undefined, minExpirationDelay: number = 2) {
     if (!token) return true;
     const decodedToken = decodeToken(token);
@@ -17,22 +18,12 @@ function isTokenExpired(token: string|undefined, minExpirationDelay: number = 2)
     return ((decodedToken || {}).exp - now) < ((minExpirationDelay as number) || 1);
 }
 
-function decodeToken(token: string): auth_data {
-    return decodeJwt(token) as auth_data;
-}
-
-export function factory(createAccessToken: () => Promise<tokens>, refreshAccessToken: (tokens: tokens) => Promise<tokens>) {
+export function factory(createAccessToken: () => Promise<tokens>, refreshAccessToken: (tokens: tokens) => Promise<tokens>, minExpirationDelay: number = 2) {
     const ctx: tokens = {accessToken: undefined, refreshToken: undefined};
-    const setTokens = ({accessToken, refreshToken}: tokens) => {
-        ctx.accessToken = accessToken;
-        ctx.refreshToken = refreshToken;
-    }
+    const setTokens = (tokens: tokens) => (Object.assign as any)(ctx, tokens);
     return async () => {
-        if (!isIdentitifed(ctx)) {
-            setTokens(await createAccessToken());
-        }
-        if (isAccessTokenValid(ctx)) return;
-        setTokens(await refreshAccessToken(ctx));
+        if (!isIdentified(ctx)) setTokens(await createAccessToken());
+        if (!isAccessTokenValid(ctx, minExpirationDelay)) setTokens(await refreshAccessToken(ctx));
         return `Bearer ${ctx.accessToken}`;
     };
 }
