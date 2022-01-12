@@ -44,7 +44,7 @@ import {
     SearchInput,
     SearchResponse,
     ShrinkIndexInput,
-    ShrinkIndexResponse,
+    ShrinkIndexResponse, SqlInput, SqlResponse,
     update_query,
     UpdateIndexDocumentInput,
     UpdateIndexDocumentResponse,
@@ -55,6 +55,9 @@ import {
 } from "./types";
 
 export class Sdk extends BaseSdk {
+    async sql(query: string, def?:SqlInput): Promise<SqlResponse> {
+        return this.request('_plugins/_sql', 'POST', {query, ...def});
+    }
     async health(def?: HealthInput): Promise<HealthResponse> {
         return this.request('_cluster/health', 'GET', def)
     }
@@ -139,6 +142,27 @@ export class Sdk extends BaseSdk {
     // noinspection JSUnusedGlobalSymbols
     async getTask(id: string, def?: GetTaskInput): Promise<GetTaskResponse> {
         return this.request(`_tasks/${id}`, 'GET', def);
+    }
+    async searchIndexPage(name: string, query?: any, offset?: number, limit: number = 50, def?: Omit<SearchInput, 'query'>, sort?: string) {
+        const response = await this.searchIndex(name, {query, from: offset, size: limit, ...def, urlParams: {...(sort ? {sort} : {}), track_total_hits: true, ...(def?.urlParams || {})}});
+        const nextHitIndex = (offset ? offset : 0) + response.hits.hits.length;
+        const hasMoreHits = nextHitIndex < response.hits.total.value;
+        return {
+            cursor: hasMoreHits ? String(nextHitIndex) : undefined,
+            items: response.hits.hits.map(item => item._source),
+            count: response.hits.total.value,
+        };
+    }
+    protected async findAllPages<T = any>(pageFetcher: (cursor: string) => Promise<{items: T[], cursor?: string, count?: number}>): Promise<T[]> {
+        let cursor: any = undefined;
+        let items: T[] = [];
+        let page: {items: any[], cursor?: string, count?: number} | undefined = undefined;
+        do {
+            page = await pageFetcher(cursor);
+            items = [...items, ...(page!.items || [])];
+            cursor = page!.cursor;
+        } while(!!cursor);
+        return items as T[];
     }
 }
 

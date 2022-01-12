@@ -3,6 +3,19 @@ export type fetch_with_request = (request: Request) => Promise<Response>;
 export type fetch_basic = (url: string, options: any) => Promise<Response>;
 export type fetch = fetch_with_request|fetch_basic;
 
+export type tokens = {
+    accessToken?: string;
+    refreshToken?: string;
+};
+
+export type auth_data = {
+    exp: number;
+    id: string;
+    permissions: string[];
+    scope: string;
+    iat: number;
+};
+
 export type request_authorization_provider = ((request: Request) => Promise<undefined|string|{[key: string]: any}>)
     | (() => Promise<undefined|string|{[key: string]: any}>)
 ;
@@ -71,6 +84,9 @@ export type CreateIndexInput = {
 export type DeleteIndexInput = {
     urlParams?: any;
 };
+export type SqlInput = {
+    urlParams?: any;
+}
 export type GetIndexInput = {
     urlParams?: any;
 };
@@ -210,6 +226,14 @@ export type CountDocumentsResponse = count_response;
 export type CountIndexDocumentsResponse = count_response;
 export type GetTasksResponse = tasks_response;
 export type GetTaskResponse = tasks_response;
+export type SqlResponse = {
+    schema: schema_item[];
+    datarows: sql_response_datarow[];
+    total: number;
+    size: number;
+    status: number;
+};
+
 export type tasks_response = {
     nodes: {
         [key: string]: {
@@ -332,6 +356,12 @@ export type health_response = {
     task_max_waiting_in_queue_millis : number,
     active_shards_percent_as_number : number,
 };
+export type schema_item = {
+    name: string;
+    type: string;
+};
+export type sql_response_datarow = any[];
+
 export type script = {
     source: string,
     lang?: string,
