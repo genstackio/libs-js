@@ -75,28 +75,27 @@ export abstract class BaseSdk {
         }
     }
     async http(uri: string = '/', method: string = 'GET', body: any|undefined = undefined, headers: any|undefined = {}) {
-        const request = new Request(
-            `${this.endpoint}${uri}`,
-            {
-                method,
-                headers: {
-                    'Content-Type': 'application/json;charset=utf-8',
-                    ...headers,
-                },
-                body: body ? (('string' === typeof body) ? body : JSON.stringify(body)) : undefined,
-            }
-        );
+        const url = `${this.endpoint}${uri}`;
+        const initOptions = {
+            method,
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8',
+                ...headers,
+            },
+            body: body ? (('string' === typeof body) ? body : JSON.stringify(body)) : undefined,
+        };
+        const request = new Request(url, initOptions);
         await this.requestListeners.reduce(async (acc, r) => {
             await acc;
             return r(request);
         }, Promise.resolve())
-        debugOpenSearchSdkHttp('request %j', request);
+        debugOpenSearchSdkHttp('request %j', {url, initOptions});
         const response = await (this.fetch as fetch_with_request)(request);
         await this.responseListeners.reduce(async (acc, r) => {
             await acc;
             return r(response);
         }, Promise.resolve())
-        debugOpenSearchSdkHttp('response %j', request);
+        debugOpenSearchSdkHttp('response %j', response);
         if (!response.ok) {
             throw new Error(`Bad response from open search api: ${response.status}`);
         }
