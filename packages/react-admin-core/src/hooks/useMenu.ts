@@ -20,7 +20,15 @@ export function useMenu(
         (item) => {
             'string' === typeof item['label'] && (item['label'] = t(item['label']));
             if ('item' === item['type']) {
-                item['active'] = location.pathname === item['target'];
+                if ('function' === typeof item['active']) {
+                    item['active'] = (item['active'] as Function)(location.pathname);
+                } else {
+                    if (item['activePrefix']) {
+                        item['active'] = item['activePrefix'] === (location.pathname || '').slice(0, item['activePrefix'].length);
+                    } else {
+                        item['active'] = location.pathname === item['target'];
+                    }
+                }
             }
             if ('string' === typeof item['target']) {
                 const target = item['target'];

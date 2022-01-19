@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 import { ComponentType, ReactNode } from 'react';
 import { shape } from './mappings/shapes';
 import { status } from './mappings/statuses';
@@ -76,7 +78,9 @@ export type chart_serie = number[];
 export type chart_series = chart_serie[];
 export type avatar_item = { image?: image; name: string; shape?: shape; size?: size; status?: status };
 export type summary_item = { color: box_color; unit?: string; value?: string; percentage: number; icon?: icon };
-export type breadcrumb_item = { label?: rich_text; target?: target };
+export type breadcrumb_item = breadcrumb_item_adhoc | breadcrumb_item_function;
+export type breadcrumb_item_adhoc = { label?: rich_text; target?: target };
+export type breadcrumb_item_function = (item: any) => ({ label?: rich_text; target?: target });
 export type list_column = {
     id: string;
     label?: rich_text;

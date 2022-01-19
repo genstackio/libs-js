@@ -25,6 +25,12 @@ export function SelectField({ className, onChange: parentOnChange, values = [], 
                 name={name}
                 render={({ field: { ref, value, onChange, ...field } }: any) => (
                     <Select
+                        {...(('undefined' !== typeof document) ? {menuPortalTarget: document.body} : {})}
+                        styles={{
+                            // Fixes the overlapping problem of the component
+                            menuPortal: (provided: any) => ({ ...provided, zIndex: 19999 }),
+                            menu: (provided: any) => ({ ...provided, zIndex: 19999 }),
+                        }}
                         {...field}
                         inputRef={ref}
                         isDisabled={disabled}

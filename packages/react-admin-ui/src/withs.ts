@@ -28,7 +28,6 @@ import {
     accordion_item,
     avatar_item,
     box_list_item,
-    breadcrumb_item,
     action_item,
     choice_button_item,
     content_item_mosaic_item,
@@ -57,7 +56,7 @@ import {
     push_item,
     items_section_layouts,
     badge_variant,
-    figures_chart_item,
+    figures_chart_item, breadcrumb_item_adhoc,
 } from './types';
 import {
     padding,
@@ -269,7 +268,7 @@ export interface WithItemsOfFaq {
     items?: faq_item[];
 }
 export interface WithItemsOfBreadcrumb {
-    items?: breadcrumb_item[];
+    items?: breadcrumb_item_adhoc[];
 }
 export interface WithItemsOfAccordion {
     items?: accordion_item[];
