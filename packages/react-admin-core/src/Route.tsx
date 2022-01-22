@@ -2,6 +2,7 @@ import { Route as BaseRoute } from 'react-router-dom';
 import { route } from './types';
 import { useCallback, useMemo } from 'react';
 import { useImporter } from '@genstackio/react-contexts';
+import Routes from "./Routes";
 
 function formatScreenComponentName(n: string) {
     return `${n
@@ -25,6 +26,7 @@ export function Route({
     component = undefined,
     screen: screenName,
     requiredRoles = undefined,
+    loadingComponent = undefined,
 }: route) {
     if (secured) {
         if (!user) {
@@ -43,7 +45,15 @@ export function Route({
     const render = useCallback(
         (props: any) => (
             // pass the sub-routes down to keep nesting
-            <Component {...props} routes={routes} />
+            <Component {...props}>
+                {routes && routes.length && (
+                    <Routes loadingComponent={loadingComponent}>
+                        {(routes || []).map((route, i) => (
+                            <Route key={i} {...route} requiredRoles={route['requiredRoles'] || requiredRoles} user={user} loadingComponent={loadingComponent} />
+                        ))}
+                    </Routes>
+                )}
+            </Component>
         ),
         [routes, Component],
     );

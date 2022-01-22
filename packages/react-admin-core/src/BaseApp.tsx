@@ -1,12 +1,12 @@
-import { ComponentType, Suspense, useMemo } from 'react';
-import Route from './Route';
-import DefaultLoadingScreen from './screens/DefaultLoadingScreen';
+import { ComponentType, useMemo } from 'react';
 import DefaultErrorScreen from './screens/DefaultErrorScreen';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { route } from './types';
 import { AppProvider, importer_context_params, useAppContext } from '@genstackio/react-contexts';
 import coreTranslations from './configs/translations';
 import adminUiTranslations from '@genstackio/react-admin-ui/lib/configs/translations';
+import Routes from "./Routes";
+import Route from "./Route";
 
 // warning: we create default values (objects) here to avoid react re-rendering with always-different-objects
 const defaultTranslations = {};
@@ -22,7 +22,7 @@ export function BaseApp({
     prefix = 'app',
     routes = defaultRoutes,
     importer,
-    loadingComponent: LoadingComponent = undefined,
+    loadingComponent = undefined,
     translations = undefined,
     queries = defaultQueries,
     callbacks = defaultCallbacks,
@@ -38,7 +38,6 @@ export function BaseApp({
     translations = translations || defaultTranslations;
     defaultLocale = defaultLocale || locales[0];
     fallbackLocale = fallbackLocale || locales[0];
-    const LoadingScreen = LoadingComponent || DefaultLoadingScreen;
     const computedTranslations = useMemo(
         () => [...(Array.isArray(translations) ? translations : [translations]), coreTranslations, adminUiTranslations],
         [translations],
@@ -85,13 +84,11 @@ export function BaseApp({
             {...props}
         >
             <Router>
-                <Suspense fallback={<LoadingScreen />}>
-                    <Switch>
-                        {routes.map((route, i) => (
-                            <Route key={i} {...route} requiredRoles={route['requiredRoles'] || requiredRoles} user={user.user} />
-                        ))}
-                    </Switch>
-                </Suspense>
+                <Routes loadingComponent={loadingComponent}>
+                    {(routes || []).map((route, i) => (
+                        <Route key={i} {...route} requiredRoles={route['requiredRoles'] || requiredRoles} user={user?.user} loadingComponent={loadingComponent} />
+                    ))}
+                </Routes>
             </Router>
         </AppProvider>
     );
