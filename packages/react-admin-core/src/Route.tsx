@@ -49,13 +49,13 @@ export function Route({
                 {routes && !!routes.length && (
                     <Routes loadingComponent={loadingComponent}>
                         {(routes || []).map((route, i) => (
-                            <Route key={i} {...route} requiredRoles={route['requiredRoles'] || requiredRoles} user={user} loadingComponent={loadingComponent} />
+                            <Route key={i} loadingComponent={loadingComponent} {...route} requiredRoles={route['requiredRoles'] || requiredRoles} user={user} path={`${path}/${route.path || ''}`} />
                         ))}
                     </Routes>
                 )}
             </Component>
         ),
-        [routes, Component, loadingComponent, user],
+        [routes, Component, loadingComponent, user, path],
     );
     return <BaseRoute {...(path ? { path } : {})} {...('boolean' === typeof exact ? { exact } : {})} render={render} />;
 }
