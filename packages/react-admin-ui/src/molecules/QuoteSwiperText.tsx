@@ -9,7 +9,7 @@ import { WithItems, WithText, WithTitle } from '../withs';
 
 SwiperCore.use([EffectFade]);
 
-export function QuoteSwiperText({ className, controller, onSwiper, items = [], ...props }: QuoteSwiperTextProps) {
+export function QuoteSwiperText({ className, controller, onSwiper, items = undefined, ...props }: QuoteSwiperTextProps) {
     const params: any = useMemo(
         () => ({
             loop: true,
@@ -41,7 +41,7 @@ export function QuoteSwiperText({ className, controller, onSwiper, items = [], .
     );
 }
 
-export interface QuoteSwiperTextProps extends AsComponent, WithItems, WithTitle, WithItems, WithText {
+export interface QuoteSwiperTextProps extends AsComponent, WithTitle, WithItems, WithText {
     controller?: any;
     onSwiper?: Function;
 }

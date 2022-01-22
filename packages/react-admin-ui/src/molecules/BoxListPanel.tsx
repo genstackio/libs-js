@@ -2,7 +2,9 @@ import BoxList, { BoxListProps } from './BoxList';
 import Column from '../atoms/Column';
 import BoxHeader, { BoxHeaderProps } from './BoxHeader';
 
-export function BoxListPanel({ items = [], onAddClick, title, ...props }: BoxListPanelProps) {
+const defaultItems = [];
+
+export function BoxListPanel({ items = defaultItems, onAddClick, title, ...props }: BoxListPanelProps) {
     return (
         <Column>
             <BoxHeader onAddClick={onAddClick} title={title} {...props} />

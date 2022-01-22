@@ -1,10 +1,12 @@
 import { useCallback, useState } from 'react';
 import range from '../utils/range';
 
+const defaultValues = [];
+
 // noinspection JSUnusedLocalSymbols
 export function useRating(props, { reverse = false }: { reverse?: boolean } = {}) {
     const { min, max, labelPlacement, onChange, onHover, value, defaultValue } = props;
-    let { values = [] } = props;
+    let { values = defaultValues } = props;
 
     const readOnly = !!value;
     values = values && values.length ? values : range(min, max).map((i) => ({ value: i, label: i }));

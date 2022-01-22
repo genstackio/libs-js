@@ -10,7 +10,9 @@ import useBlock from '../../hooks/useBlock';
 import { AsComponent } from '../../as';
 import { WithBox, WithDescription, WithItems, WithTitle } from '../../withs';
 
-export function IconedItemsSection({ className, description, items = [], title, ...props }: IconedItemsSectionProps) {
+const defaultItems = [];
+
+export function IconedItemsSection({ className, description, items = defaultItems, title, ...props }: IconedItemsSectionProps) {
     const [bProps] = useBlock(props);
 
     return (

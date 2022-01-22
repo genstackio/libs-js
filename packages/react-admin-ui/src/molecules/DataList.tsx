@@ -23,8 +23,10 @@ function DefaultEndComponent() {
     return <>{t('data_list_no_more_items')}</>;
 }
 
-function mapItems(items: any[] = [], component: ComponentType<any> | undefined = undefined) {
-    return items.map((item) => {
+const defaultItems = [];
+
+function mapItems(items: any[] = defaultItems, component: ComponentType<any> | undefined = undefined) {
+    return (items || []).map((item) => {
         const Comp = item.component || component || DefaultItemComponent;
         return {
             text: <Comp {...item} />,
@@ -36,7 +38,7 @@ function mapItems(items: any[] = [], component: ComponentType<any> | undefined =
 export function DataList({
     className,
     h = '3xl',
-    items = [],
+    items = undefined,
     component,
     loadingComponent,
     endComponent,

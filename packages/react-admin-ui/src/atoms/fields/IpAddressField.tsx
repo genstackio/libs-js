@@ -2,11 +2,11 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import TextField, { TextFieldProps } from './TextField';
 
-export function IpAddressField({ options = {}, ...props }: IpAddressFieldProps) {
+export function IpAddressField({ options = undefined, ...props }: IpAddressFieldProps) {
     const { t } = useTranslation();
     options = useMemo(
         () => ({
-            ...options,
+            ...(options || {}),
             pattern: {
                 value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/i,
                 message: t('constraints_ip_address'),
@@ -14,7 +14,7 @@ export function IpAddressField({ options = {}, ...props }: IpAddressFieldProps) 
             minLength: 7,
             maxLength: 15,
         }),
-        [options],
+        [options, t],
     );
 
     return <TextField kind={'ipAddress'} {...props} options={options} />;

@@ -1,5 +1,7 @@
 import useQueryApi from './useQueryApi';
 
-export const useUserGetCurrentApi = (options: any = {}) => useQueryApi('GET_CURRENT_USER', options);
+const defaultOptions = {};
+
+export const useUserGetCurrentApi = (options: any = defaultOptions) => useQueryApi('GET_CURRENT_USER', options);
 
 export default useUserGetCurrentApi;

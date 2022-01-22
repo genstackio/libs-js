@@ -2,11 +2,11 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import TextField, { TextFieldProps } from './TextField';
 
-export function EmailField({ options = {}, ...props }: EmailFieldProps) {
+export function EmailField({ options = undefined, ...props }: EmailFieldProps) {
     const { t } = useTranslation();
     options = useMemo(
         () => ({
-            ...options,
+            ...(options || {}),
             pattern: {
                 value: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i,
                 message: t('constraints_email'),
@@ -14,7 +14,7 @@ export function EmailField({ options = {}, ...props }: EmailFieldProps) {
             minLength: 3,
             maxLength: 255,
         }),
-        [options],
+        [options, t],
     );
 
     return <TextField kind={'email'} type={'email'} {...props} options={options} />;

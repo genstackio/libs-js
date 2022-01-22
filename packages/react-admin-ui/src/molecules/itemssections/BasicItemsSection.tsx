@@ -5,7 +5,9 @@ import HeadingText from '../../atoms/HeadingText';
 import { AsComponent } from '../../as';
 import { WithColorOfText, WithDescription, WithItems, WithTitle } from '../../withs';
 
-export function BasicItemsSection({ className, color, description, items = [], title }: BasicItemsSectionProps) {
+const defaultItems = [];
+
+export function BasicItemsSection({ className, color, description, items = defaultItems, title }: BasicItemsSectionProps) {
     return (
         <Column grid={3} px={'_xl'} py={'hl'} className={className}>
             <HeadingText center span={1} color={color} description={description} title={title} variant={'medium2'} />

@@ -3,7 +3,9 @@ import Block from '../atoms/Block';
 import Div from '../atoms/Div';
 import { WithBox, WithItems, WithMargin } from '../withs';
 
-export function BigInfos({ items = [], color, variant, m }: BigInfosProps) {
+const defaultItems = [];
+
+export function BigInfos({ items = defaultItems, color, variant, m }: BigInfosProps) {
     return (
         <Block elevation={variant === 'contained' ? 0 : 4} color={color} variant={variant} p={'none'} m={m}>
             <Div flex flex1 grid={items.length} center>

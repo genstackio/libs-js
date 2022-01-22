@@ -11,7 +11,9 @@ import {
     WithCornerOfAccordion,
 } from '../withs';
 
-export function Accordion({ className, expandIcon, items = [], ...props }: AccordionProps) {
+const defaultItems = [];
+
+export function Accordion({ className, expandIcon, items = defaultItems, ...props }: AccordionProps) {
     const [expanded, setExpanded] = useState<number | false>(false);
     const handleChange = useCallback(
         (panel: number) => (event: ChangeEvent, newExpanded: boolean) => {

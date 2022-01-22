@@ -10,7 +10,7 @@ export function useList(name: string, factory: (name: string, ctx: list_ctx) => 
     const history = useHistory();
     const { t } = useTranslation();
 
-    return useMemo(() => forcedList || factory(name, { t, user, history }), [factory, name, t, user, forcedList]);
+    return useMemo(() => forcedList || factory(name, { t, user, history }), [history, factory, name, t, user, forcedList]);
 }
 
 export default useList;

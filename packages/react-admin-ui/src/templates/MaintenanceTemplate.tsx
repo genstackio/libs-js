@@ -10,8 +10,10 @@ import { target } from '../types';
 import { AsBox } from '../as';
 import { WithDescription, WithTitle } from '../withs';
 
+const defaultActions = [];
+
 export function MaintenanceTemplate({
-    actions = [],
+    actions = defaultActions,
     className,
     color = 'primary',
     description,

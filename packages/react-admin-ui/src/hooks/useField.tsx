@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next';
 import Icon from '../atoms/Icon';
 import { WithAny, WithDefaultValues, WithLabel, WithOptions } from '../withs';
 
+const defaultDefaults = {};
+
 // noinspection JSUnusedLocalSymbols
 export function useField(
     {
@@ -23,10 +25,10 @@ export function useField(
         helper,
         type,
         placeholder,
-        errors = {},
+        errors = undefined,
         defaultValue = undefined,
-        defaultValues = {},
-        options = {},
+        defaultValues = undefined,
+        options = undefined,
         label,
         /* eslint @typescript-eslint/no-empty-function: 0 */
         register = (name: string, options: any) => {},
@@ -36,7 +38,7 @@ export function useField(
         classes,
         ...extra
     }: field_def_params,
-    defaults: { name?: string; kind?: string } = {},
+    defaults: { name?: string; kind?: string } = defaultDefaults,
 ) {
     const { t } = useTranslation();
     type = (type || 'text') as string;
@@ -44,7 +46,7 @@ export function useField(
     name = (name || defaults.name || kind) as string;
     options = useMemo(
         () => ({
-            ...options,
+            ...(options || {}),
             required,
         }),
         [options, required],
@@ -65,10 +67,10 @@ export function useField(
             : placeholder
         : t([`field_${name.toLowerCase()}_placeholder`, `field_${kind.toLowerCase()}_placeholder`, '']);
 
-    const errorData = errors[name] || errors['all'];
+    const errorData = errors ? (errors[name] || errors['all']) : undefined;
     const error = errorData ? errorData.message || t(['constraints_required']) : undefined;
     const enrichedRegister = (extraOptions = {}) => register(name, { ...options, ...extraOptions });
-    defaultValue = undefined !== defaultValue ? defaultValue : defaultValues[name];
+    defaultValue = (undefined !== defaultValue) ? defaultValue : (defaultValues ? defaultValues[name] : undefined);
 
     prependIcon = prependIcon ? <Icon icon={prependIcon} /> : undefined;
     appendIcon = appendIcon ? <Icon icon={appendIcon} /> : undefined;

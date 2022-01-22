@@ -10,6 +10,8 @@ import { flag } from '../types';
 import { AsComponent } from '../as';
 import { WithColorOfBox, WithDescription, WithImage, WithLabel, WithItemsOfMenuButton } from '../withs';
 
+const defaultItems = [];
+
 export function MenuButton({
     avatar = false,
     className,
@@ -17,7 +19,7 @@ export function MenuButton({
     description,
     image,
     label,
-    items = [],
+    items = defaultItems,
 }: MenuButtonProps) {
     return (
         <Expandable

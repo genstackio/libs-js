@@ -25,10 +25,12 @@ import {
 } from '../withs';
 import marginClass from '../mappings/margins';
 
+const defaultButtons = [];
+
 export function Block({
     active = false,
     btnLabel,
-    buttons = [],
+    buttons = defaultButtons,
     children,
     className,
     color = 'clear',

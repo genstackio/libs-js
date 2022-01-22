@@ -8,8 +8,11 @@ import BaseForm from '../molecules/forms/BaseForm';
 import { box_color } from '../mappings/box-colors';
 import { class_name } from '../types';
 
+const defaultDefaultValues = {};
+const defaultErrors = {};
+
 export function useForm(
-    { defaultValues = {}, submitting = false, errors = {}, color = 'primary', ...props },
+    { defaultValues = defaultDefaultValues, submitting = false, errors = defaultErrors, color = 'primary', ...props },
     name: string | undefined = undefined,
 ) {
     const rhf = useRhfForm({ defaultValues });
@@ -26,7 +29,7 @@ export function useForm(
 
     const form = useMemo(
         () => ({ rhf, ...props, errors: field.errors, color: color as box_color }),
-        [rhf, props, field, color],
+        [rhf, props, field.errors, color],
     );
 
     const tf = useCallback(

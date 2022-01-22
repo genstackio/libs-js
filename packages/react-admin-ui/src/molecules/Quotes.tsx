@@ -9,7 +9,9 @@ import QuoteSwiper from './QuoteSwiper';
 import { AsComponent } from '../as';
 import { WithButtonEndIcon, WithButtonIcon, WithButtonLabel, WithButtonTarget, WithItems, WithTitle } from '../withs';
 
-export function Quotes({ btnEndIcon, btnIcon, btnLabel, btnTarget, className, items = [], title }: QuotesProps) {
+const defaultItems = [];
+
+export function Quotes({ btnEndIcon, btnIcon, btnLabel, btnTarget, className, items = defaultItems, title }: QuotesProps) {
     if (!items.length) return null;
 
     return (

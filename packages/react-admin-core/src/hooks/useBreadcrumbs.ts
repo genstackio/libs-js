@@ -17,7 +17,7 @@ export function useBreadcrumbs(
 
     return useMemo(
         () => forcedBreadcrumbs || factory(name, { t, user, history, id }),
-        [factory, name, t, user, id, forcedBreadcrumbs],
+        [factory, name, t, user, id, history, forcedBreadcrumbs],
     );
 }
 

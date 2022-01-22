@@ -11,7 +11,9 @@ import useBox from '../hooks/useBox';
 import Link from '@material-ui/core/Link';
 import { WithDescription, WithLogo } from '../withs';
 
-export function Footer({ contact, copyright, description, links = [], logo, ...props }: FooterProps) {
+const defaultLinks = [];
+
+export function Footer({ contact, copyright, description, links = defaultLinks, logo, ...props }: FooterProps) {
     const { t } = useTranslation();
     const [box, rest] = useBox(props, { color: 'dark', variant: 'contained' });
 

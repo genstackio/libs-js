@@ -5,7 +5,9 @@ import Push from '../molecules/Push';
 import { AsBox } from '../as';
 import { WithItemsOfPush } from '../withs';
 
-export function PushSmall({ className, color, items = [], variant = 'filled' }: PushSmallProps) {
+const defaultItems = [];
+
+export function PushSmall({ className, color, items = defaultItems, variant = 'filled' }: PushSmallProps) {
     if (!items.length) return null;
 
     return (

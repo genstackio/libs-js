@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 import TextField, { TextFieldProps } from './TextField';
 
-export function ZipCodeField({ options = {}, ...props }: ZipCodeFieldProps) {
+export function ZipCodeField({ options = undefined, ...props }: ZipCodeFieldProps) {
     options = useMemo(
         () => ({
-            ...options,
+            ...(options || {}),
         }),
         [options],
     );

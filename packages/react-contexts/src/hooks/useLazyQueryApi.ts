@@ -1,6 +1,8 @@
 import useApi from './useApi';
 
-export const useLazyQueryApi = (name: string, options: any = {}) => {
+const defaultOptions = {};
+
+export const useLazyQueryApi = (name: string, options: any = defaultOptions) => {
     const { getQuery, useLazyQuery } = useApi();
     return useLazyQuery(getQuery(name, options), options);
 };

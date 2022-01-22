@@ -58,12 +58,15 @@ const defaultOptions: ApexOptions = {
     ],
 };
 
+const defaultLabels = [];
+const defaultSeries = [];
+
 export function RadarChart({
     className,
     color = 'primary',
     isMenu = true,
-    labels = [],
-    series = [],
+    labels = defaultLabels,
+    series = defaultSeries,
     variant = 'filled',
 }: RadarChartProps) {
     const options = useMemo(() => {

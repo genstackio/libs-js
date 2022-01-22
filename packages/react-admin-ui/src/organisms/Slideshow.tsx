@@ -29,7 +29,9 @@ const swiperProps: any = {
     },
 };
 
-export function Slideshow({ image, text, title, slides = [], subtitle, ...props }: SlideshowProps) {
+const defaultSlides = [];
+
+export function Slideshow({ image, text, title, slides = defaultSlides, subtitle, ...props }: SlideshowProps) {
     const [bProps] = useBlock(props, { color: 'primary', variant: 'contained', image });
     const [activeSlide, setActiveSlide] = useState<any>(null);
 

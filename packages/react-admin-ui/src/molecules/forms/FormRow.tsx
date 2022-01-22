@@ -3,7 +3,9 @@ import Items from '../../atoms/Items';
 import FormItem from './FormItem';
 import { WithItemsOfFormRow } from '../../withs';
 
-export function FormRow({ items = [] }: FormRowProps) {
+const defaultItems = [];
+
+export function FormRow({ items = defaultItems }: FormRowProps) {
     return (
         <Row inline py={'sm'} spaced={30} className={'leading-tight focus:outline-none focus:shadow-outline'}>
             <Items component={FormItem} itemProp={'definition'} items={items} className={'flex-1'} />

@@ -35,7 +35,9 @@ const useStyles = makeStyles({
     },
 });
 
-export function QuoteSwiper({ items = [] }: QuoteSwiperProps) {
+const defaultItems = [];
+
+export function QuoteSwiper({ items = defaultItems }: QuoteSwiperProps) {
     const classes = useStyles();
     const [carouselText, setCarouselText] = useState(undefined);
     const [carouselImage, setCarouselImage] = useState(undefined);

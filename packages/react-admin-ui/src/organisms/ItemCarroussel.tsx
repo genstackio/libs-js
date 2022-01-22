@@ -14,7 +14,9 @@ import { WithItems, WithTitle } from '../withs';
 
 SwiperCore.use([A11y]);
 
-export function ItemCarroussel({ className, items = [], title }: ItemCarrousselProps) {
+const defaultItems = [];
+
+export function ItemCarroussel({ className, items = defaultItems, title }: ItemCarrousselProps) {
     const theme = useTheme();
     const isTablet = useMediaQuery(theme.breakpoints.only('md'));
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));

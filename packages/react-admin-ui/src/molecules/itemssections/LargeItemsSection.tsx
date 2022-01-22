@@ -8,7 +8,9 @@ import { box_color } from '../../mappings/box-colors';
 import { AsComponent } from '../../as';
 import { WithColorOfText, WithDescription, WithItems, WithTitle } from '../../withs';
 
-export function LargeItemsSection({ className, color, description, items = [], title }: LargeItemsSectionProps) {
+const defaultItems = [];
+
+export function LargeItemsSection({ className, color, description, items = defaultItems, title }: LargeItemsSectionProps) {
     return (
         <Column px={'_xl'} className={clsx('sm:py-14 py-6', className)}>
             <HeadingText center description={description} title={title} variant={'medium2'} />

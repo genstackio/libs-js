@@ -8,11 +8,13 @@ import ShareIcons from '../ShareIcons';
 import { AsComponent } from '../../as';
 import { WithBox, WithDescription, WithItems, WithTitle } from '../../withs';
 
+const defaultItems = [];
+
 export function FramedItemsSection({
     className,
     color,
     description,
-    items = [],
+    items = defaultItems,
     title,
     variant,
 }: FramedItemsSectionProps) {

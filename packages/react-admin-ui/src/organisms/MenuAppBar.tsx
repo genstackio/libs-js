@@ -6,7 +6,9 @@ import { target } from '../types';
 import { AsComponent } from '../as';
 import { WithColorOfBox, WithLogo } from '../withs';
 
-export function MenuAppBar({ className, color, logo, menuItems = [], onLoginClick }: MenuAppBarProps) {
+const defaultMenuItems = [];
+
+export function MenuAppBar({ className, color, logo, menuItems = defaultMenuItems, onLoginClick }: MenuAppBarProps) {
     const { t } = useTranslation();
 
     return (

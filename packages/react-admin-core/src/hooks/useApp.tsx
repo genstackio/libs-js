@@ -41,14 +41,24 @@ function ThemeProvider({ value, children }: any) {
     return children;
 }
 
+// warning: we create default values (objects) here to avoid react re-rendering with always-different-objects
+const defaultFeatures = {};
+const defaultMui = {};
+const defaultTailwind = {};
+const defaultQueries = {};
+const defaultRoutes = [];
+const defaultTranslations = {};
+const defaultIcons = {};
+const defaultTheme = {};
+
 export function useApp({
     importer,
-    app: { prefix, endpoint, locales, defaultLocale, fallbackLocale, features = {}, requiredRoles },
-    routes = [],
-    translations = {},
-    theme: { mui = {}, tailwind = {}, theme = undefined } = {},
-    queries = {},
-    icons = {},
+    app: { prefix, endpoint, locales, defaultLocale, fallbackLocale, features, requiredRoles },
+    routes = undefined,
+    translations = undefined,
+    theme: { mui = undefined, tailwind = undefined, theme = undefined } = defaultTheme,
+    queries = undefined,
+    icons = undefined,
 }: {
     importer: importer_function;
     app: any;
@@ -58,6 +68,14 @@ export function useApp({
     queries?: any;
     icons?: { fa?: any[] };
 }) {
+    translations = translations || defaultTranslations;
+    routes = routes || defaultRoutes;
+    queries = queries || defaultQueries;
+    mui = mui || defaultMui;
+    features = features || defaultFeatures;
+    tailwind = tailwind || defaultTailwind;
+    icons = icons || defaultIcons;
+
     return useMemo(
         () => ({
             prefix,
@@ -102,6 +120,7 @@ export function useApp({
             queries,
             icons,
             requiredRoles,
+            features,
         ],
     );
 }

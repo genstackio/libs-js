@@ -18,7 +18,9 @@ const useStyles = makeStyles({
     },
 });
 
-export function Dropdown({ className, color, items = [], variant }: DropdownProps) {
+const defaultItems = [];
+
+export function Dropdown({ className, color, items = defaultItems, variant }: DropdownProps) {
     const classes = useStyles();
     const [value, setValue] = useState<string | number | undefined>(items[0]?.name);
     const [open, handleOpen, handleClose] = useActivator(false);

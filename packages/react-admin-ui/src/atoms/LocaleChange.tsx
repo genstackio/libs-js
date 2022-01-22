@@ -12,7 +12,9 @@ import shortenLocale from '../utils/shortenLocale';
 import { AsComponent } from '../as';
 import { WithColorOfBox, WithLocales } from '../withs';
 
-export function LocaleChange({ className, color = 'primary', locales = [] }: LocaleChangeProps) {
+const defaultLocales = [];
+
+export function LocaleChange({ className, color = 'primary', locales = defaultLocales }: LocaleChangeProps) {
     const { i18n } = useTranslation() as any;
     const [opened, setOpened] = useState(false);
     const onLocaleChange = useCallback(

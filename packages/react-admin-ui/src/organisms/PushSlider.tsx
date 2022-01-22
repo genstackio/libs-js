@@ -9,7 +9,9 @@ SwiperCore.use([Pagination]);
 
 const pagination = { clickable: true };
 
-export function PushSlider({ className, items = [] }: PushSliderProps) {
+const defaultItems = [];
+
+export function PushSlider({ className, items = defaultItems }: PushSliderProps) {
     return (
         <Row className={className}>
             <Swiper pagination={pagination}>

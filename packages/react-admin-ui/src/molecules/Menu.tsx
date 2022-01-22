@@ -7,7 +7,9 @@ import boxColorClass from '../mappings/box-colors';
 import { AsBox } from '../as';
 import { WithItemsOfMenu } from '../withs';
 
-export function Menu({ className, color = 'primary', items = [], variant = 'contained' }: MenuProps) {
+const defaultItems = [];
+
+export function Menu({ className, color = 'primary', items = defaultItems, variant = 'contained' }: MenuProps) {
     return (
         <div className={clsx(boxColorClass('clear'), className)}>
             {items.map(({ type, ...item }, index) => (

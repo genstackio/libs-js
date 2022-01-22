@@ -41,7 +41,7 @@ export function useMenu(
 
     return useMemo(
         () => forcedMenu || factory(name, { t, user, history }).map(itemMapper),
-        [itemMapper, factory, name, t, user, forcedMenu],
+        [itemMapper, factory, name, t, user, history, forcedMenu],
     );
 }
 

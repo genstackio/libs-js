@@ -4,7 +4,9 @@ import ButtonsGroupItem from './ButtonsGroupItem';
 import { AsComponent } from '../as';
 import { WithItemsOfAction } from '../withs';
 
-export function ButtonsGroup({ className, items = [] }: ButtonsGroupProps) {
+const defaultItems = [];
+
+export function ButtonsGroup({ className, items = defaultItems }: ButtonsGroupProps) {
     return (
         <Items
             component={ButtonsGroupItem}

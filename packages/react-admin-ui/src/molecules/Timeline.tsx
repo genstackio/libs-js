@@ -4,7 +4,9 @@ import MuiTimeline from '@material-ui/lab/Timeline';
 import { AsComponent } from '../as';
 import { WithItemsOfTimeline } from '../withs';
 
-export function Timeline({ className, items = [] }: TimelineProps) {
+const defaultItems = [];
+
+export function Timeline({ className, items = defaultItems }: TimelineProps) {
     return (
         <MuiTimeline align={'left'} className={className}>
             <Items component={TimelineItem} items={items} />

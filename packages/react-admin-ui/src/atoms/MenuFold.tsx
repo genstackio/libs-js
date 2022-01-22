@@ -20,7 +20,9 @@ import {
     WithVariantOfMenu,
 } from '../withs';
 
-export function MenuFold({ active, badges, className, color, icon, label, items = [], variant }: MenuFoldProps) {
+const defaultItems = [];
+
+export function MenuFold({ active, badges, className, color, icon, label, items = defaultItems, variant }: MenuFoldProps) {
     const [open, toggle] = useToggle(active || false);
 
     return (

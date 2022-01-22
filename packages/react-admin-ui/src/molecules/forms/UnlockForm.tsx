@@ -11,10 +11,12 @@ import { flag, target } from '../../types';
 import useForm from '../../hooks/useForm';
 import { WithLocales } from '../../withs';
 
+const defaultLocales = [];
+
 export function UnlockForm({
     children,
     className,
-    locales = [],
+    locales = defaultLocales,
     onForgotPasswordClick,
     onRegisterClick,
     rememberMe = false,

@@ -8,23 +8,34 @@ import { AppProvider, importer_context_params, useAppContext } from '@genstackio
 import coreTranslations from './configs/translations';
 import adminUiTranslations from '@genstackio/react-admin-ui/lib/configs/translations';
 
+// warning: we create default values (objects) here to avoid react re-rendering with always-different-objects
+const defaultTranslations = {};
+const defaultRoutes = [];
+const defaultQueries = {};
+const defaultCallbacks = {};
+const defaultApiOptions = {};
+const defaultThemes = {};
+const defaultTheme = {};
+const defaultLocales = ['en-US'];
+
 export function BaseApp({
     prefix = 'app',
-    routes = [],
+    routes = defaultRoutes,
     importer,
     loadingComponent: LoadingComponent = undefined,
-    translations = {},
-    queries = {},
-    callbacks = {},
-    apiOptions = {},
-    themes = {},
-    theme = {},
-    locales = ['en-US'],
+    translations = undefined,
+    queries = defaultQueries,
+    callbacks = defaultCallbacks,
+    apiOptions = defaultApiOptions,
+    themes = defaultThemes,
+    theme = defaultTheme,
+    locales = defaultLocales,
     defaultLocale = undefined,
     fallbackLocale = undefined,
     requiredRoles = undefined,
     ...props
 }: BaseAppProps) {
+    translations = translations || defaultTranslations;
     defaultLocale = defaultLocale || locales[0];
     fallbackLocale = fallbackLocale || locales[0];
     const LoadingScreen = LoadingComponent || DefaultLoadingScreen;
@@ -105,4 +116,5 @@ export interface BaseAppProps {
     [key: string]: any;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default BaseApp;

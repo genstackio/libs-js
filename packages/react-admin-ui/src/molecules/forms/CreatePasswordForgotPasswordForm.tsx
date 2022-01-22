@@ -11,11 +11,13 @@ import { flag } from '../../types';
 import { AsComponent } from '../../as';
 import { WithColorOfBox, WithDefaultValues, WithOnSubmit } from '../../withs';
 
+const defaultDefaultValues = {};
+
 export function CreatePasswordForgotPasswordForm({
     className,
     color,
     confirm = false,
-    defaultValues = {},
+    defaultValues = defaultDefaultValues,
     onSubmit,
     rememberMe = false,
 }: CreatePasswordForgotPasswordFormProps) {

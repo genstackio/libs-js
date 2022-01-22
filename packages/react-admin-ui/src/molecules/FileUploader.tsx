@@ -34,7 +34,7 @@ export function FileUploader({
 }: FileUploaderProps) {
     const [bProps] = useBlock(props);
     dropzoneStyle = null === dropzoneStyle ? undefined : dropzoneStyle || defaultDropzoneStyle;
-    const getUploadParams = useCallback(() => ({ url: url }), []);
+    const getUploadParams = useCallback(() => ({ url: url }), [url]);
     const handleChangeStatus = useCallback(
         ({ meta, file }, status) => {
             switch (status) {

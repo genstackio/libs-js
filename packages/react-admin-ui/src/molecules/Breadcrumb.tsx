@@ -26,7 +26,9 @@ const useStyles = makeStyles({
     },
 });
 
-export function Breadcrumb({ className, color = 'primary', items = [], toRight = false }: BreadcrumbProps) {
+const defaultItems = [];
+
+export function Breadcrumb({ className, color = 'primary', items = defaultItems, toRight = false }: BreadcrumbProps) {
     const classes = useStyles();
     const breadcrumbItems = items.slice(0, items.length - 1);
     const lastItem = items.slice(items.length - 1)[0];

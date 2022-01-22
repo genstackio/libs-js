@@ -5,7 +5,9 @@ import AppWallItem from '../atoms/AppWallItem';
 import { AsComponent } from '../as';
 import { WithImage, WithCorner, WithItems } from '../withs';
 
-export function AppWall({ className, items = [] }: AppWallProps) {
+const defaultItems = [];
+
+export function AppWall({ className, items = defaultItems }: AppWallProps) {
     return (
         <Div grid={64} className={clsx('place-items-center gap-x-5 gap-y-11', className)}>
             <Items component={AppWallItem} items={items} />

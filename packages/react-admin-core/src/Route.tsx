@@ -14,10 +14,12 @@ export const isUserHavingRole = (user, role: string[] = []) =>
     !role.length ? true : (!!role.find(x => (user.permissions || []).includes(x)))
 ;
 
+const defaultRoutes = [];
+
 export function Route({
     user = undefined,
     secured = true,
-    routes = [],
+    routes = defaultRoutes,
     path,
     exact = true,
     component = undefined,

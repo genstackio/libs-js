@@ -16,9 +16,33 @@ import fetch from 'isomorphic-fetch';
 import mergeCartItems from '../utils/mergeCartItems';
 import i18nFactory from '../utils/i18nFactory';
 
+const navigationProviderValue: any = {
+    InternalLink: MuiLink,
+    ExternalLink: MuiLink,
+};
+
 function defaultStorageKeyFactory(key: string) {
     return `x_${key}`;
 }
+
+const defaultApiOptions = {};
+
+const storage: storage|undefined = (() => {
+    const s = 'undefined' === typeof localStorage ? undefined : localStorage;
+    if (!s) return undefined;
+    return {
+        setItem: (key: string, value: any) => {
+            if (!value) return s.removeItem(key);
+            return s.setItem(key, JSON.stringify(value));
+        },
+        getItem: (key: string) => {
+            const v = s.getItem(key);
+            return v && 'undefined' !== v ? JSON.parse(v) : undefined;
+        },
+        hasItem: (key: string) => s.hasItem(key),
+        removeItem: (key: string) => s.removeItem(key),
+    };
+})();
 
 export function useAppContext({
     storageKeyFactory = defaultStorageKeyFactory,
@@ -26,7 +50,7 @@ export function useAppContext({
     theme,
     queries,
     callbacks,
-    apiOptions = {},
+    apiOptions = undefined,
     translations,
     locales,
     defaultLocale = 'en-US',
@@ -34,23 +58,8 @@ export function useAppContext({
     getImage,
     fullscreen,
 }: app_context_params) {
+    apiOptions = apiOptions || defaultApiOptions;
     const { themeName = 'default' } = {};
-    const storage = useMemo<storage | undefined>(() => {
-        const s = 'undefined' === typeof localStorage ? undefined : localStorage;
-        if (!s) return undefined;
-        return {
-            setItem: (key: string, value: any) => {
-                if (!value) return s.removeItem(key);
-                return s.setItem(key, JSON.stringify(value));
-            },
-            getItem: (key: string) => {
-                const v = s.getItem(key);
-                return v && 'undefined' !== v ? JSON.parse(v) : undefined;
-            },
-            hasItem: (key: string) => s.hasItem(key),
-            removeItem: (key: string) => s.removeItem(key),
-        };
-    }, []);
     const fetchUserFromLocalStorage = useCallback(() => storage?.getItem(storageKeyFactory('user')), [storage]);
     const fetchCartFromLocalStorage = useCallback(() => storage?.getItem(storageKeyFactory('cart')), [storage]);
     const fetchLocaleFromLocalStorage = useCallback(() => storage?.getItem(storageKeyFactory('locale')), [storage]);
@@ -99,13 +108,13 @@ export function useAppContext({
             : {};
     }, [fetchUserFromLocalStorage]) as any;
 
-    const api: any = { client: undefined };
+    const api: any = useState(() => ({ client: undefined }));
 
-    apiOptions = {
+    const localApiOptions = useMemo(() => ({
         uri: process.env.GRAPHQL_API_ENDPOINT || process.env.REACT_APP_API_ENDPOINT,
         timeout: 5000,
         ...apiOptions,
-    };
+    }), [apiOptions]);
 
     const getQuery = useCallback(
         (name: string) => {
@@ -126,7 +135,7 @@ export function useAppContext({
         const r = await api.client!.query({ query: getQuery('GET_CURRENT_USER') });
         if (!r || !r.data || !r.data.getCurrentUser) throw new Error('Unable to retrieve current user');
         await enrichedSetUser({ ...fetchUserFromLocalStorage(), ...r.data.getCurrentUser });
-    }, [api, enrichedSetUser, fetchUserFromLocalStorage]) as any;
+    }, [api, getQuery, enrichedSetUser, fetchUserFromLocalStorage]) as any;
 
     const setCurrentTokens = useCallback(
         async (tokens: any) => {
@@ -147,7 +156,7 @@ export function useAppContext({
         useMutation: Function;
         useQuery: Function;
         useLazyQuery: Function;
-    }>(() => ({ getQuery, getCallbacks, useMutation, useQuery, useLazyQuery }), []);
+    }>(() => ({ getQuery, getCallbacks, useMutation, useQuery, useLazyQuery }), [getQuery, getCallbacks]);
     const cartProviderValue: any = useMemo<{ cart: cart | undefined; setCart: Function; resetCart: Function }>(
         () => ({ cart: fetchCartFromLocalStorage(), setCart: enrichedSetCart, resetCart }),
         [cart, enrichedSetCart, resetCart],
@@ -163,13 +172,6 @@ export function useAppContext({
         }),
         [fetchUserFromLocalStorage, user, enrichedSetUser, setCurrentTokens, getCurrentTokens, onLogout, refreshUser],
     );
-    const navigationProviderValue: any = useMemo(
-        () => ({
-            InternalLink: MuiLink,
-            ExternalLink: MuiLink,
-        }),
-        [MuiLink],
-    );
 
     const refreshTokens = useCallback(async (refreshToken: string, client: { mutate: Function }) => {
         const r = await client.mutate({ mutation: getQuery('REFRESH_LOGIN'), variables: { data: { refreshToken } } });
@@ -178,7 +180,7 @@ export function useAppContext({
             token: r.data.refreshAuthToken.token,
             refreshToken: r.data.refreshAuthToken.refreshToken,
         };
-    }, []);
+    }, [getQuery]);
 
     api.client = useMemo(() => {
         return createClient({
@@ -188,9 +190,9 @@ export function useAppContext({
             refreshTokens,
             onLogout,
             onAuthError: onLogout,
-            ...apiOptions,
+            ...localApiOptions,
         });
-    }, [getCurrentTokens, setCurrentTokens, refreshTokens, onLogout]);
+    }, [localApiOptions, getCurrentTokens, setCurrentTokens, refreshTokens, onLogout]);
 
     const themeFactory = useCallback(
         (old: any = {}) => ({
@@ -202,7 +204,7 @@ export function useAppContext({
 
     const i18n = useMemo(() => {
         return i18nFactory({ lng: formatLng(locale), resources: translations });
-    }, [i18nFactory, locale, translations]);
+    }, [locale, translations]);
 
     const localesProviderValue: locales_context_value = useMemo(
         () => ({
@@ -215,10 +217,10 @@ export function useAppContext({
     // noinspection JSUnusedLocalSymbols
     const imagesProviderValue: images_context_value = useMemo(
         () => ({ get: getImage || ((key: string) => undefined) }),
-        [locales, defaultLocale, fallbackLocale],
+        [getImage],
     );
 
-    return {
+    return useMemo(() => ({
         client: api.client,
         i18n,
         baseTheme: theme,
@@ -233,7 +235,7 @@ export function useAppContext({
         images: imagesProviderValue,
         themes,
         fullscreen,
-    };
+    }), [api.client, i18n, theme, themeFactory, storage, locale, userProviderValue, cartProviderValue, navigationProviderValue, localesProviderValue, imagesProviderValue, themes, fullscreen]);
 }
 
 export default useAppContext;

@@ -6,7 +6,9 @@ import Items from '../../atoms/Items';
 import useBlock from '../../hooks/useBlock';
 import { WithIcon, WithItems } from '../../withs';
 
-export function PeriodFigureBlock({ icon, items = [], ...props }: PeriodFigureBlockProps) {
+const defaultItems = [];
+
+export function PeriodFigureBlock({ icon, items = defaultItems, ...props }: PeriodFigureBlockProps) {
     const [bProps] = useBlock(props, { p: 'xs' });
 
     return (

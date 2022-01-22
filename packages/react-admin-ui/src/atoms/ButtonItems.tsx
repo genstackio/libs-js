@@ -3,7 +3,9 @@ import Button from './Button';
 import { AsComponent } from '../as';
 import { WithItemsOfButtonItems } from '../withs';
 
-export function ButtonItems({ className, items = [] }: ButtonItemsProps) {
+const defaultItems = [];
+
+export function ButtonItems({ className, items = defaultItems }: ButtonItemsProps) {
     return <Items component={Button} container containerClassName={className} items={items} className={'mr-2'} />;
 }
 

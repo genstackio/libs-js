@@ -106,4 +106,5 @@ export interface AppProviderProps {
     children?: ReactNode;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default AppProvider;

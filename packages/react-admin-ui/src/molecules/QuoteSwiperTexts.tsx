@@ -10,7 +10,7 @@ import { WithItems } from '../withs';
 
 SwiperCore.use([EffectFade]);
 
-export function QuoteSwiperTexts({ className, controller, items = [], onSwiper }: QuoteSwiperTextsProps) {
+export function QuoteSwiperTexts({ className, controller, items = undefined, onSwiper }: QuoteSwiperTextsProps) {
     const params: any = useMemo(
         () => ({
             loop: true,

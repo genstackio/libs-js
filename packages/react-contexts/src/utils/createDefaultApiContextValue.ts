@@ -7,10 +7,12 @@ type lazyQueryInfos = { called: boolean; loading: boolean; data: any; error: any
 // noinspection JSUnusedLocalSymbols
 const gql = (x) => undefined;
 
+const defaultOptions = {};
+
 // noinspection JSUnusedLocalSymbols
 const createUseQuery =
     (mocks = []) =>
-    (query: any, options: any = {}) => {
+    (query: any, options: any = defaultOptions) => {
         const [infos, setInfos] = useState<queryInfos & { mockCounter: number }>({
             mockCounter: 0,
             called: true,

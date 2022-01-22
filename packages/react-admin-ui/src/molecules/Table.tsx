@@ -49,14 +49,17 @@ const useStyles = makeStyles({
     }),
 });
 
+const defaultColumns = [];
+const defaultItems = [];
+
 export function Table({
     cellClassName,
     className,
     color,
     columnHeaderClassName,
-    columns = [],
+    columns = defaultColumns,
     defaultRowsPerPage = 50,
-    items = [],
+    items = defaultItems,
     loading = false,
     onPageChange,
     rootClassName,
@@ -88,7 +91,7 @@ export function Table({
         },
         [onPageChange],
     );
-    const formattedCols: GridColDef[] = columns.reduce(
+    const formattedCols: GridColDef[] = (columns || []).reduce(
         (acc, col) => [
             ...acc,
             {

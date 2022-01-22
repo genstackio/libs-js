@@ -6,7 +6,9 @@ import gridColsClass from '../mappings/grid-cols';
 import { AsComponent } from '../as';
 import { WithTitle, WithIcon, WithButton, WithItemsOfGallery } from '../withs';
 
-export function Gallery({ btnColor, btnLabel, btnType, className, icon, items = [], title }: GalleryProps) {
+const defaultItems = [];
+
+export function Gallery({ btnColor, btnLabel, btnType, className, icon, items = defaultItems, title }: GalleryProps) {
     return (
         <>
             <BlockHeader

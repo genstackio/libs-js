@@ -9,11 +9,13 @@ import { box_color } from '../../mappings/box-colors';
 import { AsComponent } from '../../as';
 import { WithColorOfText, WithDescription, WithItems, WithTitle } from '../../withs';
 
+const defaultItems = [];
+
 export function VerticalSummaryItemsSection({
     className,
     color,
     description,
-    items = [],
+    items = defaultItems,
     title,
 }: VerticalSummaryItemsSectionProps) {
     return (

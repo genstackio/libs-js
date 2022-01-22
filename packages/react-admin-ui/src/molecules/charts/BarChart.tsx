@@ -3,6 +3,7 @@ import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
 import { AsComponent } from '../../as';
 import { WithBox, WithLabels, WithSeries } from '../../withs';
+import {useMemo} from "react";
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 const defaultOptions: ApexOptions = {
@@ -69,13 +70,15 @@ const defaultOptions: ApexOptions = {
     ],
 };
 
-export function BarChart({ className, color = 'primary', labels, series = [], variant = 'filled' }: BarChartProps) {
+const defaultSeries = [];
+
+export function BarChart({ className, color = 'primary', labels, series = defaultSeries, variant = 'filled' }: BarChartProps) {
     const col = `${variant}_${color}`;
-    const options = { ...defaultOptions, colors: tailwindChartColors[col], labels: labels };
-    const newData: { data: number[] }[] = series.reduce((acc, data) => {
-        acc.push({ data: data });
+    const options = useMemo(() => ({ ...defaultOptions, colors: tailwindChartColors[col], labels: labels }), [defaultOptions, tailwindChartColors, labels]);
+    const newData: { data: number[] }[] = useMemo(() => series.reduce((acc, data) => {
+        acc.push({ data: data } as any);
         return acc;
-    }, [] as { data: number[] }[]);
+    }, [] as { data: number[] }[]), [series]);
 
     return <Chart height={'250px'} options={options} series={newData} type={'bar'} className={className} />;
 }

@@ -10,7 +10,7 @@ import { WithItems } from '../withs';
 export function QuoteSwiperImages({
     className,
     controller,
-    items = [],
+    items = undefined,
     onSwiper,
     navLeftController,
     navRightController,
@@ -18,7 +18,7 @@ export function QuoteSwiperImages({
     const params: any = useMemo(
         () => ({
             loop: true,
-            slidesPerView: items.length > 5 ? 5 : 3,
+            slidesPerView: (items ? items.length : 0) > 5 ? 5 : 3,
             loopAdditionalSlides: 5,
             centeredSlides: true,
             initialSlide: 0,
@@ -33,7 +33,7 @@ export function QuoteSwiperImages({
             },
             onSwiper: onSwiper,
         }),
-        [items.length, controller, onSwiper, navLeftController, navRightController],
+        [items?.length, controller, onSwiper, navLeftController, navRightController],
     );
 
     return (

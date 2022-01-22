@@ -2,11 +2,11 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import TextField, { TextFieldProps } from './TextField';
 
-export function PhoneField({ options = {}, ...props }: PhoneFieldProps) {
+export function PhoneField({ options = undefined, ...props }: PhoneFieldProps) {
     const { t } = useTranslation();
     options = useMemo(
         () => ({
-            ...options,
+            ...(options || {}),
             pattern: {
                 value: /^[+]*[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/,
                 message: t('constraints_phone'),
@@ -14,7 +14,7 @@ export function PhoneField({ options = {}, ...props }: PhoneFieldProps) {
             minLength: { value: 3, message: t('constraints_not_enough_digit', { min: 3 }) },
             maxLength: { value: 20, message: t('constraints_too_much_digit', { max: 20 }) },
         }),
-        [options],
+        [options, t],
     );
 
     return <TextField kind={'phone'} type={'tel'} {...props} options={options} />;

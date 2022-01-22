@@ -3,7 +3,9 @@ import ButtonItems from './ButtonItems';
 import useBox from '../hooks/useBox';
 import { class_name } from '../types';
 
-export function BlockFooter({ buttons = [], buttonsClassName, children, ...props }: BlockFooterProps) {
+const defaultButtons = [];
+
+export function BlockFooter({ buttons = defaultButtons, buttonsClassName, children, ...props }: BlockFooterProps) {
     const [box, rest] = useBox(props, { b: 'xs-t', color: 'primary', variant: 'filled', p: 'sl' });
 
     if (!children && !buttons.length) return null;

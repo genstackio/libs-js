@@ -4,12 +4,14 @@ import { icon_variant } from '../types';
 import { AsBox } from '../as';
 import { WithIcon, WithItemsOfCorner, WithText } from '../withs';
 
+const defaultItems = [];
+
 export function CornerItem({
     className,
     color,
     icon,
     iconCorner,
-    items = [],
+    items = defaultItems,
     text,
     variant,
     ...props

@@ -8,7 +8,10 @@ import bgClass from '../../mappings/bgs';
 import useBlock from '../../hooks/useBlock';
 import { WithItemsOfTabs } from '../../withs';
 
-export function TabbedBlock({ items = [], tabProps = {}, ...props }: TabbedBlockProps) {
+const defaultItems = [];
+const defaultTabProps = {};
+
+export function TabbedBlock({ items = defaultItems, tabProps = defaultTabProps, ...props }: TabbedBlockProps) {
     const [bProps] = useBlock(props, { p: 'none' });
     const [value, setValue] = useState(0);
     const handleChange = useCallback((event: ChangeEvent, newValue: number) => setValue(newValue), [setValue]);

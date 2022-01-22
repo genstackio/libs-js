@@ -56,11 +56,13 @@ const defaultOptions: ApexOptions = {
     },
 };
 
+const defaultSeries = [];
+
 export function ProgressChart({
     className,
     color = 'primary',
     progress,
-    series = [],
+    series = defaultSeries,
     title,
     unit,
     value,

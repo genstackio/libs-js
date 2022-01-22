@@ -12,10 +12,12 @@ import useForm from '../../hooks/useForm';
 import { flag, target } from '../../types';
 import { WithLocales } from '../../withs';
 
+const defaultLocales = [];
+
 export function LoginForm({
     children,
     className,
-    locales = [],
+    locales = defaultLocales,
     onForgotPasswordClick,
     onRegisterClick,
     rememberMe = false,

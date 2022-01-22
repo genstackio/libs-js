@@ -24,7 +24,9 @@ const defaultOptions: ApexOptions = {
     },
 };
 
-export function TreeMapChart({ className, color, values = [] }: TreeMapChartProps) {
+const defaultValues = [];
+
+export function TreeMapChart({ className, color, values = defaultValues }: TreeMapChartProps) {
     const options = useMemo(
         () => ({
             ...defaultOptions,

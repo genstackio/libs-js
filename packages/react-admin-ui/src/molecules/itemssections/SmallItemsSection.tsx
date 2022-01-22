@@ -6,7 +6,9 @@ import HeadingText from '../../atoms/HeadingText';
 import { AsComponent } from '../../as';
 import { WithColorOfText, WithDescription, WithItems, WithTitle } from '../../withs';
 
-export function SmallItemsSection({ className, color, description, items = [], title }: SmallItemsSectionProps) {
+const defaultItems = [];
+
+export function SmallItemsSection({ className, color, description, items = defaultItems, title }: SmallItemsSectionProps) {
     return (
         <Column className={clsx('py-14 px-6 sm:px-8', className)}>
             <HeadingText center color={color} description={description} title={title} variant={'medium2'} />

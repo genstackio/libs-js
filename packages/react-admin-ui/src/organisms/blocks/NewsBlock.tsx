@@ -7,7 +7,9 @@ import useButtons from '../../hooks/useButtons';
 import useItems from '../../hooks/useItems';
 import { WithButtons, WithDropdownItems, WithItemsOfNews } from '../../withs';
 
-export function NewsBlock({ items = [], title, ...props }: NewsBlockProps) {
+const defaultItems = [];
+
+export function NewsBlock({ items = defaultItems, title, ...props }: NewsBlockProps) {
     const [bProps, rest2] = useBlock(props, { p: 'none', title });
     const [itProps, rest] = useItems(rest2, NewsBlockItem);
     const [btProps] = useButtons(rest, { btnColor: props.color, className: 'flex justify-center mt-2 sm:mt-4' });

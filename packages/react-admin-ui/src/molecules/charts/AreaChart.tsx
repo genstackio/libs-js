@@ -3,6 +3,7 @@ import { ApexOptions } from 'apexcharts';
 import tailwindConfig from '../../../tailwind.config';
 import { AsComponent } from '../../as';
 import { WithBox, WithSeries } from '../../withs';
+import {useMemo} from "react";
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 const defaultOptions: ApexOptions = {
@@ -43,13 +44,15 @@ const defaultOptions: ApexOptions = {
     },
 };
 
-export function AreaChart({ className, color = 'primary', series = [], variant = 'filled' }: AreaChartProps) {
+const defaultSeries = [];
+
+export function AreaChart({ className, color = 'primary', series = defaultSeries, variant = 'filled' }: AreaChartProps) {
     const col = `${variant}_${color}`;
-    const options = { ...defaultOptions, colors: tailwindChartColors[col] };
-    const newData: { data: number[] }[] = series.reduce((acc: any[], data) => {
+    const options = useMemo(() => ({ ...defaultOptions, colors: tailwindChartColors[col] }), [defaultOptions, tailwindChartColors]);
+    const newData: { data: number[] }[] = useMemo(() => series.reduce((acc: any[], data) => {
         acc.push({ data: data });
         return acc;
-    }, [] as { data: number[] }[]);
+    }, [] as { data: number[] }[]), [series]);
 
     return <Chart height={'250px'} options={options} series={newData} type={'area'} className={className} />;
 }

@@ -4,7 +4,9 @@ import boxClass from '../mappings/boxs';
 import { AsComponent } from '../as';
 import { WithBadge, WithColorOfBox, WithItemsOfList } from '../withs';
 
-export function List({ badge: globalBadge, className, color: globalColor = 'clear', items = [] }: ListProps) {
+const defaultItems = [];
+
+export function List({ badge: globalBadge, className, color: globalColor = 'clear', items = defaultItems }: ListProps) {
     return (
         <ul className={clsx('px-0', className)}>
             {items.map(({ color, text, badge }, index) => (

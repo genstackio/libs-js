@@ -4,7 +4,9 @@ import { FiguresChartItem } from '../../atoms/FiguresChartItem';
 import { AsComponent } from '../../as';
 import { WithItemsOfFiguresChart } from '../../withs';
 
-export function FiguresChart({ className, items = [] }: FiguresChartProps) {
+const defaultItems = [];
+
+export function FiguresChart({ className, items = defaultItems }: FiguresChartProps) {
     return (
         <Items
             container

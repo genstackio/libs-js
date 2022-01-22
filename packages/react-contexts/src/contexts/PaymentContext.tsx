@@ -34,7 +34,7 @@ export function PaymentProvider({ stripe = undefined, locale = 'fr-fr', children
             ],
             locale: (locale || 'fr-fr').substr(0, 2) || 'fr',
         }),
-        [],
+        [locale],
     );
     return (
         <InternalPaymentProvider value={value}>

@@ -46,9 +46,12 @@ const convertError: action_converterror_callback = (error, ctx) => {
 };
 const formatError: action_formaterror_callback = (error) => error;
 
-export function useAction(name: string, options: any = {}) {
+const defaultOptions = {};
+const defaultCallbacks = {};
+
+export function useAction(name: string, options: any = defaultOptions) {
     const { t } = useTranslation();
-    const [execute, { loading, error, ...infos }, callbacks = {}] = useMutationApi(name, options);
+    const [execute, { loading, error, ...infos }, callbacks = defaultCallbacks] = useMutationApi(name, options);
     const {
         preExecuteCb,
         postExecuteCb,
@@ -71,7 +74,17 @@ export function useAction(name: string, options: any = {}) {
             convertErrorCb: options.convertError || callbacks['convertError'] || convertError,
             formatErrorCb: options.formatError || callbacks['formatError'] || formatError,
         }),
-        [],
+        [
+            options.preExecute, callbacks['preExecute'],
+            options.postExecute, callbacks['postExecute'],
+            options.prepare, callbacks['prepare'],
+            options.convert, callbacks['convert'],
+            options.processError, callbacks['processError'],
+            options.notify, callbacks['notify'],
+            options.onSuccess, callbacks['onSuccess'],
+            options.convertError, callbacks['convertError'],
+            options.formatError, callbacks['formatError'],
+        ],
     );
     const ctx = useMemo(() => ({ name, options, t }), [name, options, t]);
     const onSubmit = useCallback(

@@ -5,7 +5,9 @@ import SummariesItem from '../atoms/SummariesItem';
 import { AsComponent } from '../as';
 import { WithItemsOfSummaries } from '../withs';
 
-export function Summaries({ className, items = [] }: SummariesProps) {
+const defaultItems = [];
+
+export function Summaries({ className, items = defaultItems }: SummariesProps) {
     if (!items.length) return null;
 
     return (

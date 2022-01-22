@@ -5,6 +5,9 @@ import { class_name, flag } from '../types';
 import applyMap from '../utils/applyMap';
 import { WithAny, WithComponent, WithItems } from '../withs';
 
+const defaultItems = [];
+const defaultMap = {};
+
 export function Items({
     className,
     component: Component,
@@ -13,8 +16,8 @@ export function Items({
     containerProps,
     current,
     itemProp = undefined,
-    items = [],
-    map = {},
+    items = defaultItems,
+    map = defaultMap,
     onChangeFactory,
     propsFactory,
     ...props

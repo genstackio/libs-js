@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 import TextField, { TextFieldProps } from './TextField';
 
-export function CodeField({ options = {}, ...props }: CodeFieldProps) {
+export function CodeField({ options = undefined, ...props }: CodeFieldProps) {
     options = useMemo(
         () => ({
-            ...options,
+            ...(options || {}),
         }),
         [options],
     );

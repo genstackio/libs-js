@@ -5,7 +5,9 @@ import Cell from '../atoms/Cell';
 import { action_item } from '../types';
 import { AsWrapper } from '../as';
 
-export function BodyMainBar({ actions = [], children, className }: BodyMainBarProps) {
+const defaultActions = [];
+
+export function BodyMainBar({ actions = defaultActions, children, className }: BodyMainBarProps) {
     return (
         <Row center responsive={false} spaced wrap className={className}>
             <Cell>{children}</Cell>

@@ -7,7 +7,9 @@ import boxClass from '../mappings/boxs';
 import { AsComponent } from '../as';
 import { WithColorOfBox, WithItemsOfMenuButton } from '../withs';
 
-export function MenuButtonWidget({ className, items = [], color }: MenuButtonWidgetProps) {
+const defaultItems = [];
+
+export function MenuButtonWidget({ className, items = defaultItems, color }: MenuButtonWidgetProps) {
     const handleClick = useCallback(
         (target) => () => {
             'function' === typeof target && target();

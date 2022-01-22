@@ -3,7 +3,9 @@ import Breadcrumb from '../molecules/Breadcrumb';
 import { AsComponent } from '../as';
 import { WithColorOfBox, WithItemsOfScreenHeader } from '../withs';
 
-export function ScreenHeader({ className, color = 'primary', items = [] }: ScreenHeaderProps) {
+const defaultItems = [];
+
+export function ScreenHeader({ className, color = 'primary', items = defaultItems }: ScreenHeaderProps) {
     const title = items.slice(items.length - 1)[0].label;
 
     return (

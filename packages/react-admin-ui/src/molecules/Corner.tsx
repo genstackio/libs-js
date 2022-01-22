@@ -4,7 +4,9 @@ import { icon_variant } from '../types';
 import { AsBox } from '../as';
 import { WithItemsOfCorner, WithText } from '../withs';
 
-export function Corner({ className, color, items = [], variant }: CornerProps) {
+const defaultItems = [];
+
+export function Corner({ className, color, items = defaultItems, variant }: CornerProps) {
     return <Items color={color} component={CornerItem} items={items} variant={variant} className={className} />;
 }
 

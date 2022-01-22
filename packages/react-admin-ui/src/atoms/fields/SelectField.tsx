@@ -5,7 +5,9 @@ import FieldSet from '../FieldSet';
 import useField from '../../hooks/useField';
 import { AsChoiceField } from '../../as';
 
-export function SelectField({ className, onChange: parentOnChange, values = [], ...props }: SelectFieldProps) {
+const defaultValues = [];
+
+export function SelectField({ className, onChange: parentOnChange, values = defaultValues, ...props }: SelectFieldProps) {
     const { name, label, error, helper, disabled, placeholder, options, defaultValue, extra, control } =
         useField(props);
 

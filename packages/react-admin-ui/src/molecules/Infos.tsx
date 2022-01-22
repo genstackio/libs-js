@@ -6,7 +6,9 @@ import useBlock from '../hooks/useBlock';
 import { AsComponent } from '../as';
 import { WithItemsOfInfos, WithColorOfText, WithTitle } from '../withs';
 
-export function Infos({ items = [], title, ...props }: InfosProps) {
+const defaultItems = [];
+
+export function Infos({ items = defaultItems, title, ...props }: InfosProps) {
     const [bProps] = useBlock(props, { color: 'primary' });
 
     return (

@@ -11,11 +11,11 @@ import { children } from '../types';
 import { AsBoxWrapper } from '../as';
 import { WithItemsOfChoiceButton } from '../withs';
 
-export function ChoiceButton({ children, className, color, expandedChildren, items = [] }: ChoiceButtonProps) {
+export function ChoiceButton({ children, className, color, expandedChildren, items = undefined }: ChoiceButtonProps) {
     const expandedSubChildren = useMemo(
         () => (
             <Div full className={'shadow-lg'}>
-                {items.map(({ label, active, target }, index) => (
+                {(items || []).map(({ label, active, target }, index) => (
                     <Clickable
                         key={index}
                         onClick={target}
@@ -29,7 +29,7 @@ export function ChoiceButton({ children, className, color, expandedChildren, ite
                 ))}
             </Div>
         ),
-        [color],
+        [items, color],
     );
 
     return (

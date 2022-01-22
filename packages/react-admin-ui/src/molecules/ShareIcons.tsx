@@ -4,7 +4,9 @@ import ShareIcon from './ShareIcon';
 import { AsBox } from '../as';
 import { WithItemsOfShareIcons } from '../withs';
 
-export function ShareIcons({ className, items = [], ...props }: ShareIconsProps) {
+const defaultItems = [];
+
+export function ShareIcons({ className, items = defaultItems, ...props }: ShareIconsProps) {
     if (!items.length) return null;
 
     return (

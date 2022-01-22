@@ -1,6 +1,8 @@
 import useApi from './useApi';
 
-export const useQueryApi = (name: string, options: any = {}) => {
+const defaultOptions = {};
+
+export const useQueryApi = (name: string, options: any = defaultOptions) => {
     const { getQuery, useQuery } = useApi();
     return useQuery(getQuery(name, options), options);
 };

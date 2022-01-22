@@ -6,7 +6,9 @@ import ContentItemMosaic from './ContentItemMosaic';
 import { AsComponent } from '../as';
 import { WithTitle, WithColorOfBox, WithItemsOfContentItemsMosaic } from '../withs';
 
-export function ContentItemsMosaic({ className, color, items = [], title }: ContentItemsMosaicProps) {
+const defaultItems = [];
+
+export function ContentItemsMosaic({ className, color, items = defaultItems, title }: ContentItemsMosaicProps) {
     return (
         <Column className={className}>
             <Text color={color} text={title} variant={'title3'} />

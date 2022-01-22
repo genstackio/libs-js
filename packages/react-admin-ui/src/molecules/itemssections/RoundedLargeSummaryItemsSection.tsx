@@ -8,12 +8,14 @@ import { box_color } from '../../mappings/box-colors';
 import { AsComponent } from '../../as';
 import { WithColorOfText, WithDescription, WithItems, WithTitle } from '../../withs';
 
+const defaultItems = [];
+
 export function RoundedLargeSummaryItemsSection({
     className,
     color,
     description,
     title,
-    items = [],
+    items = defaultItems,
 }: RoundedLargeSummaryItemsSectionProps) {
     return (
         <Column px={'_xl'} className={clsx('py-6 sm:py-14', className)}>

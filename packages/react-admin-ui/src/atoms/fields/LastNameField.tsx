@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 import TextField, { TextFieldProps } from './TextField';
 
-export function LastNameField({ options = {}, ...props }: LastNameFieldProps) {
+export function LastNameField({ options = undefined, ...props }: LastNameFieldProps) {
     options = useMemo(
         () => ({
-            ...options,
+            ...(options || {}),
         }),
         [options],
     );

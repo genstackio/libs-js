@@ -2,11 +2,11 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import TextField, { TextFieldProps } from './TextField';
 
-export function UrlField({ options = {}, ...props }: UrlFieldProps) {
+export function UrlField({ options = undefined, ...props }: UrlFieldProps) {
     const { t } = useTranslation();
     options = useMemo(
         () => ({
-            ...options,
+            ...(options || {}),
             pattern: {
                 value: /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/,
                 message: t('constraints_url'),
@@ -14,7 +14,7 @@ export function UrlField({ options = {}, ...props }: UrlFieldProps) {
             minLength: 3,
             maxLength: 255,
         }),
-        [options],
+        [options, t],
     );
 
     return <TextField kind={'url'} type={'url'} {...props} options={options} />;

@@ -8,7 +8,9 @@ import { action_item } from '../types';
 import { AsWrapper } from '../as';
 import { WithOpened, WithTitle } from '../withs';
 
-export function Modal({ buttonsItems = [], children, className, onClose, opened = false, title }: ModalProps) {
+const defaultButtonsItems = [];
+
+export function Modal({ buttonsItems = defaultButtonsItems, children, className, onClose, opened = false, title }: ModalProps) {
     return (
         <MuiModal open={opened} className={clsx('flex justify-center items-center', className)}>
             <Div b={'xs'} full className={'bg-clear border-disabled rounded-md sm:w-8/12'}>

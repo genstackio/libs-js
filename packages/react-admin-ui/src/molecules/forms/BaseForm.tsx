@@ -18,11 +18,13 @@ import {
     WithErrors,
 } from '../../withs';
 
+const defaultErrors = {};
+
 export function BaseForm({
     children,
     className,
     color,
-    errors = {},
+    errors = defaultErrors,
     footer,
     header,
     onSubmit,
