@@ -46,7 +46,7 @@ export function Route({
         (props: any) => (
             // pass the sub-routes down to keep nesting
             <Component {...props}>
-                {routes && routes.length && (
+                {routes && !!routes.length && (
                     <Routes loadingComponent={loadingComponent}>
                         {(routes || []).map((route, i) => (
                             <Route key={i} {...route} requiredRoles={route['requiredRoles'] || requiredRoles} user={user} loadingComponent={loadingComponent} />
@@ -55,7 +55,7 @@ export function Route({
                 )}
             </Component>
         ),
-        [routes, Component],
+        [routes, Component, loadingComponent, user],
     );
     return <BaseRoute {...(path ? { path } : {})} {...('boolean' === typeof exact ? { exact } : {})} render={render} />;
 }
