@@ -49,7 +49,7 @@ export function Route({
                 {routes && !!routes.length && (
                     <Routes loadingComponent={loadingComponent}>
                         {(routes || []).map((route, i) => (
-                            <Route key={i} loadingComponent={loadingComponent} {...route} requiredRoles={route['requiredRoles'] || requiredRoles} user={user} path={`${path}/${route.path || ''}`} />
+                            <Route key={i} loadingComponent={loadingComponent} {...route} requiredRoles={route['requiredRoles'] || requiredRoles} user={user} path={`${path}${route.path || ''}`} />
                         ))}
                     </Routes>
                 )}
