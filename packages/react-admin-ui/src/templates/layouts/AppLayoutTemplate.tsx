@@ -38,7 +38,7 @@ export function AppLayoutTemplate({
                     show ? 'translate-x-0' : '-translate-x-full',
                 )}
             >
-                <Div center flex p={'sm'} className={'h-xxl shadow-toolbar'} onClick={onLogoClick}>
+                <Div center flex p={'md'} className={'h-xxl shadow-toolbar'} onClick={onLogoClick}>
                     <Image className={'flex-1'} {...logo} />
                 </Div>
                 {menu && <Menu items={menu} {...props} />}

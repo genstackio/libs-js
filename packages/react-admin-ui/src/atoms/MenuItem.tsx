@@ -41,7 +41,7 @@ export function MenuItem({
             onClick={target}
             p={'md'}
             variant={'light' === variant ? 'filled' : variant}
-            className={clsx('transition duration-500', marginClass(m), className)}
+            className={clsx('', marginClass(m), className)}
         >
             <Row center responsive={false} spaced={4}>
                 {icon && (
