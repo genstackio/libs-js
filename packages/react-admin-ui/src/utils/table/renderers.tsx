@@ -38,3 +38,5 @@ export const tag = col => (params: GridCellParams) => (
     <Tag text={colval(params, col) as string}/>
 );
 export const custom = col => (params: GridCellParams) => col.render!(params.getValue(params.id, col.id), params);
+
+export const unknown = () => undefined;

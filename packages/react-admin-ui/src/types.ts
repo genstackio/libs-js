@@ -285,4 +285,4 @@ export type preset = {
 };
 
 export type table_column_formatter = (v: any, params: GridCellParams) => any;
-export type table_column_renderer = (col: any) => (params: GridCellParams) => any;
+export type table_column_renderer = ((col: any) => (params: GridCellParams) => any) | ((col: any) => undefined);
