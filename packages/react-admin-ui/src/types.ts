@@ -8,7 +8,7 @@ import { box_variant } from './mappings/box-variants';
 import { text_size } from './mappings/text-sizes';
 import { share_icon_type } from './mappings/share-icon-types';
 import { ApexOptions } from 'apexcharts';
-import {GridCellParams} from "@material-ui/data-grid";
+import {GridCellParams, GridColDef} from "@material-ui/data-grid";
 
 export { corner } from './mappings/corners';
 export { alignment } from './mappings/alignments';
@@ -111,7 +111,7 @@ export type action_item = {
     variant?: box_variant;
     disabled?: flag;
 };
-export type table_column = { id: string; format?: any; label?: string; width?: number; render?: Function };
+export type table_column = { id: string; format?: any; label?: string; width?: number; render?: Function; gridColDef?: GridColDef };
 export type table_row = any;
 export type timeline_item = { color: box_color; description: rich_text; title: rich_text };
 export type screen_header_item = { label?: rich_text; target?: target };

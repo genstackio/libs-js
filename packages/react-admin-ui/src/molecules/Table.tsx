@@ -52,6 +52,7 @@ const useStyles = makeStyles({
 
 const defaultColumns = [];
 const defaultItems = [];
+const defaultRowsPerPageOptions = [10, 20, 50, 100];
 
 export function Table({
     cellClassName,
@@ -106,6 +107,7 @@ export function Table({
                 width: col.width || 150,
                 valueFormatter: convertFormat(col, formatters),
                 renderCell: renderCell(col, renderers),
+                ...(col['gridColDef'] || {}),
             },
         ],
         [] as GridColDef[],
@@ -136,8 +138,9 @@ export function Table({
             rowHeight={rowHeight}
             rowCount={total}
             rows={items}
-            rowsPerPageOptions={[5, 10, 20, 50, 100, 200]}
+            rowsPerPageOptions={defaultRowsPerPageOptions}
             className={className}
+
             {...props}
         />
     );
