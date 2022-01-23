@@ -151,13 +151,13 @@ function renderCell(col, renderMap) {
     return (renderMap[mode] || renderMap['unknown'])(col);
 }
 function convertFormat(col, formatMap) {
-    const format = col.format;
+    let format = col.format;
     if (!format) return undefined;
     if ('string' === typeof format) {
-        return formatMap[format] || formatMap['unknown'];
+        format = formatMap[format] || formatMap['unknown'];
     }
-    if ('function' === typeof col.format) {
-        return (params: GridValueFormatterParams) => col.format!(params.getValue(params.id, col.id), params);
+    if ('function' === typeof format) {
+        return (params: GridValueFormatterParams) => format!(params.getValue(params.id, col.id), params, col);
     }
     return undefined;
 }
