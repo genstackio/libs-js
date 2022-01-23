@@ -1,13 +1,14 @@
 import { useCallback, useMemo, useState } from 'react';
 import clsx from 'clsx';
-import Badge from '../atoms/Badge';
-import { DataGrid, DataGridProps, GridCellParams, GridColDef, GridValueFormatterParams } from '@material-ui/data-grid';
+import { DataGrid, DataGridProps, GridColDef, GridValueFormatterParams } from '@material-ui/data-grid';
 import { makeStyles } from '@material-ui/core/styles';
 import tailwindConfig from '../../tailwind.config';
 import useTableTranslation from '../utils/useTableTranslation';
-import { class_name, flag } from '../types';
+import {class_name, flag, table_column_formatter, table_column_renderer} from '../types';
 import { AsComponent } from '../as';
 import { WithColorOfBox, WithItemsOfTable, WithColumnsOfTable } from '../withs';
+import * as defaultFormatters from '../utils/table/formatters';
+import * as defaultRenderers from '../utils/table/renderers';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 const tailwindTextColors = tailwindConfig.theme.extend.textColors;
@@ -68,8 +69,12 @@ export function Table({
     selection = false,
     striped,
     total,
+    formatters,
+    renderers,
     ...props
 }: TableProps) {
+    formatters = useMemo(() => ({...defaultFormatters, ...(formatters || {})}), [formatters]);
+    renderers = useMemo(() => ({...defaultRenderers, ...(renderers || {})}), [renderers]);
     let classes = useStyles({ color, striped } as any);
     classes = useMemo(() => {
         classes['root'] = clsx(classes['root'], rootClassName);
@@ -99,23 +104,8 @@ export function Table({
                 flex: 1,
                 headerName: col.label,
                 width: col.width || 150,
-                valueFormatter:
-                    'function' === typeof col.format
-                        ? (params: GridValueFormatterParams) => col.format!(params.getValue(params.id, col.id))
-                        : undefined,
-                renderCell:
-                    'string' === typeof col.format && 'badge' === col.format
-                        ? (params: GridCellParams) => (
-                              <Badge
-                                  text={(params.getValue(params.id, col.id) as string) || ''}
-                                  type={'pill'}
-                                  variant={'contained'}
-                                  color={'light'}
-                              />
-                          )
-                        : col.render
-                        ? (params: GridCellParams) => col.render!(params.getValue(params.id, col.id), params)
-                        : undefined,
+                valueFormatter: convertFormat(col, formatters),
+                renderCell: renderCell(col, renderers),
             },
         ],
         [] as GridColDef[],
@@ -153,6 +143,25 @@ export function Table({
     );
 }
 
+function renderCell(col, renderMap) {
+    if (!!col.render && 'function' === typeof col.render) return renderMap['custom'](col);
+    let mode = 'unknown';
+    if (!!col.format && 'string' === typeof col.render) mode = col.format;
+    if (!!col.render && 'string' === typeof col.render) mode = col.render;
+    return (renderMap[mode] || renderMap['unknown'])(col);
+}
+function convertFormat(col, formatMap) {
+    const format = col.format;
+    if (!format) return undefined;
+    if ('string' === typeof format) {
+        return formatMap[format] || formatMap['unknown'];
+    }
+    if ('function' === typeof col.format) {
+        return (params: GridValueFormatterParams) => col.format!(params.getValue(params.id, col.id), params);
+    }
+    return undefined;
+}
+
 export interface TableProps
     extends AsComponent,
         Omit<DataGridProps, 'columns' | 'onPageChange' | 'rows'>,
@@ -171,6 +180,8 @@ export interface TableProps
     rowClassName?: class_name;
     columnHeaderClassName?: class_name;
     cellClassName?: class_name;
+    formatters?: {[key: string]: table_column_formatter};
+    renderers?: {[key: string]: table_column_renderer};
 }
 
 // noinspection JSUnusedGlobalSymbols

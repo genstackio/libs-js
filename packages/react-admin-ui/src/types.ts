@@ -8,6 +8,7 @@ import { box_variant } from './mappings/box-variants';
 import { text_size } from './mappings/text-sizes';
 import { share_icon_type } from './mappings/share-icon-types';
 import { ApexOptions } from 'apexcharts';
+import {GridCellParams} from "@material-ui/data-grid";
 
 export { corner } from './mappings/corners';
 export { alignment } from './mappings/alignments';
@@ -283,3 +284,5 @@ export type preset = {
     load: (config: any) => preset;
 };
 
+export type table_column_formatter = (v: any, params: GridCellParams) => any;
+export type table_column_renderer = (col: any) => (params: GridCellParams) => any;
