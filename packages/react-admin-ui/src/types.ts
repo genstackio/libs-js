@@ -82,7 +82,7 @@ export type summary_item = { color: box_color; unit?: string; value?: string; pe
 export type breadcrumb_item = breadcrumb_item_adhoc | breadcrumb_item_function;
 export type breadcrumb_item_adhoc = { label?: rich_text; target?: target };
 export type breadcrumb_item_function = (item: any) => ({ label?: rich_text; target?: target });
-export type list_column = {
+export type list_column = Partial<GridColDef> & {
     id: string;
     label?: rich_text;
     render?: Function;
@@ -111,7 +111,7 @@ export type action_item = {
     variant?: box_variant;
     disabled?: flag;
 };
-export type table_column = { id: string; format?: any; label?: string; width?: number; render?: Function; gridColDef?: GridColDef };
+export type table_column = Partial<GridColDef> & { id: string; format?: any; label?: string; width?: number; render?: Function; };
 export type table_row = any;
 export type timeline_item = { color: box_color; description: rich_text; title: rich_text };
 export type screen_header_item = { label?: rich_text; target?: target };

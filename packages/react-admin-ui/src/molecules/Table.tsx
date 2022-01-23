@@ -98,19 +98,21 @@ export function Table({
         [onPageChange],
     );
     const formattedCols: GridColDef[] = (columns || []).reduce(
-        (acc, col) => [
-            ...acc,
-            {
-                field: col.id,
-                flex: 1,
-                headerName: col.label,
-                width: col.width || 150,
-                valueFormatter: convertFormat(col, formatters),
-                renderCell: renderCell(col, renderers),
-                ...(col['gridColDef'] || {}),
-            },
-        ],
-        [] as GridColDef[],
+        (acc, col) => {
+            const {id, label, width, format, render, ...rest} = col;
+            return [
+                ...acc,
+                {
+                    field: id,
+                    flex: 1,
+                    headerName: label,
+                    width: width || 150,
+                    valueFormatter: convertFormat(col, formatters),
+                    renderCell: renderCell(col, renderers),
+                    ...rest,
+                },
+            ];
+        }, [] as GridColDef[],
     );
     const { localeText, pagination } = useTableTranslation();
     const componentsProps = useMemo(
