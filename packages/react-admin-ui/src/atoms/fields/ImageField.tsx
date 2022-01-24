@@ -28,7 +28,7 @@ export function ImageField({ className, onChange, getUploadParams, value, ...pro
         onChange && onChange(undefined);
     }, [onChange]);
     return (
-        <Div className={clsx(classes?.root, className)}>
+        <Div mb={'sm'} className={clsx(classes?.root, className)}>
             <FieldLabel name={name} label={label} options={options} className={classes?.label} />
             {!!value && !!value.url && (
                 <Div>

@@ -64,7 +64,7 @@ export function FileUploader({
     );
 
     return (
-        <Column b={'xs'} className={clsx('bg-clear cursor-pointer hover:bg-info', className)}>
+        <Column b={'xs'} className={clsx('bg-clear cursor-pointer hover:bg-light', className)}>
             <Dropzone
                 getUploadParams={getUploadParams as any}
                 onChangeStatus={handleChangeStatus as any}
