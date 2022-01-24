@@ -1,13 +1,11 @@
 import { useCallback } from 'react';
 import Dropzone from 'react-dropzone-uploader/dist/react-dropzone-uploader';
-import Block from '../atoms/Block';
 import Column from '../atoms/Column';
-import useBlock from '../hooks/useBlock';
 import { rich_text } from '../types';
 import { AsBox } from '../as';
 import { WithOnSubmit, WithPlaceholder, WithTitle } from '../withs';
 
-const defaultDropzoneStyle = {
+const defaultStyles = {
     dropzone: {
         minHeight: 200,
         maxHeight: 250,
@@ -20,7 +18,7 @@ const defaultDropzoneStyle = {
 
 export function FileUploader({
     accept,
-    dropzoneStyle = undefined,
+    styles = defaultStyles,
     className,
     nonEmptyPlaceholder,
     onFileAbort,
@@ -29,15 +27,21 @@ export function FileUploader({
     onSubmit,
     placeholder,
     submitLabel,
+    autoUpload = false,
+    getUploadParams,
     url,
     ...props
 }: FileUploaderProps) {
-    const [bProps] = useBlock(props);
-    dropzoneStyle = null === dropzoneStyle ? undefined : dropzoneStyle || defaultDropzoneStyle;
-    const getUploadParams = useCallback(() => ({ url: url }), [url]);
+    getUploadParams = getUploadParams || useCallback(() => ({ url: url }), [url]);
     const handleChangeStatus = useCallback(
-        ({ meta, file }, status) => {
+        ({ meta, file, remove }, status) => {
             switch (status) {
+                case 'headers_received':
+                    if (autoUpload) {
+                        remove();
+                        onFileUpload && onFileUpload(meta);
+                    }
+                    break;
                 case 'done':
                     onFileUpload && onFileUpload(meta);
                     break;
@@ -45,11 +49,14 @@ export function FileUploader({
                     onFileRemove && onFileRemove(meta);
                     break;
                 case 'aborted':
+                    if (autoUpload) {
+                        remove();
+                    }
                     onFileAbort && onFileAbort(meta);
                     break;
             }
         },
-        [onFileUpload, onFileRemove, onFileAbort],
+        [onFileUpload, onFileRemove, onFileAbort, autoUpload],
     );
     const handleSubmit = useCallback(
         ({ meta }, allFiles) => {
@@ -62,40 +69,41 @@ export function FileUploader({
     return (
         <>
             <div id={'toast'} />
-            <Block {...bProps}>
-                <Column
-                    p={'md'}
-                    b={'xs'}
-                    className={
-                        'bg-clear text-info tracking-wide uppercase ' +
-                        'border-info cursor-pointer hover:bg-primary hover:text-clear'
-                    }
-                >
-                    <Dropzone
-                        accept={accept}
-                        getUploadParams={getUploadParams as any}
-                        inputContent={placeholder}
-                        inputWithFilesContent={nonEmptyPlaceholder || placeholder}
-                        onChangeStatus={handleChangeStatus as any}
-                        onSubmit={handleSubmit as any}
-                        styles={dropzoneStyle as any}
-                        submitButtonContent={submitLabel}
-                    />
-                </Column>
-            </Block>
+            <Column
+                p={'md'}
+                b={'xs'}
+                className={
+                    'bg-clear tracking-wide uppercase ' +
+                    'border-info cursor-pointer hover:bg-info'
+                }
+            >
+                <Dropzone
+                    getUploadParams={getUploadParams as any}
+                    onChangeStatus={handleChangeStatus as any}
+                    inputContent={placeholder}
+                    inputWithFilesContent={nonEmptyPlaceholder || placeholder}
+                    onSubmit={handleSubmit as any}
+                    styles={styles}
+                    accept={accept}
+                    submitButtonContent={submitLabel}
+                    {...props}
+                />
+            </Column>
         </>
     );
 }
 
 export interface FileUploaderProps extends AsBox, WithTitle, WithPlaceholder, WithOnSubmit {
     accept?: string;
-    dropzoneStyle?: any | null;
+    styles?: any;
     nonEmptyPlaceholder?: string;
     onFileAbort?: Function;
     onFileRemove?: Function;
     onFileUpload?: Function;
     submitLabel?: rich_text;
     url?: string;
+    getUploadParams?: Function;
+    autoUpload?: boolean;
 }
 
 // noinspection JSUnusedGlobalSymbols

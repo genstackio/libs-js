@@ -54,6 +54,7 @@ export default {
 
             field_privacypolicy_description: 'Politique de confidentialité...',
 
+            field_image_label: "Image",
             field_privacypolicy_label: "J'accepte la politique de confidentialité",
             field_rememberpassword_label: 'Se souvenir de moi',
             field_additionaladdress_label: "Complément d'adresse",
@@ -93,6 +94,7 @@ export default {
             field_gender_label: 'Sexe',
             field_birthdate_label: 'Date de naissance',
 
+            field_image_placeholder: "Cliquez ou glissez/déposer votre image ici",
             field_generic_disabled_placeholder: 'disabled',
             field_generic_required_placeholder: 'required',
             field_ipaddress_placeholder: '192.168.0.1',

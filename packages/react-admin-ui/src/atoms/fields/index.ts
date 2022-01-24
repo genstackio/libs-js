@@ -13,6 +13,7 @@ export * from './FacebookField';
 export * from './FaxField';
 export * from './FirstNameField';
 export * from './GenderField';
+export * from './ImageField';
 export * from './InstagramField';
 export * from './IpAddressField';
 export * from './LastNameField';
