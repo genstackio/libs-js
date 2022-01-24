@@ -7,12 +7,9 @@ import { WithOnSubmit, WithPlaceholder, WithTitle } from '../withs';
 
 const defaultStyles = {
     dropzone: {
-        minHeight: 200,
+        minHeight: 100,
         maxHeight: 250,
         border: 'none',
-    },
-    inputLabel: {
-        color: 'darkblack',
     },
 };
 
@@ -67,29 +64,19 @@ export function FileUploader({
     );
 
     return (
-        <>
-            <div id={'toast'} />
-            <Column
-                p={'md'}
-                b={'xs'}
-                className={
-                    'bg-clear tracking-wide uppercase ' +
-                    'border-info cursor-pointer hover:bg-info'
-                }
-            >
-                <Dropzone
-                    getUploadParams={getUploadParams as any}
-                    onChangeStatus={handleChangeStatus as any}
-                    inputContent={placeholder}
-                    inputWithFilesContent={nonEmptyPlaceholder || placeholder}
-                    onSubmit={handleSubmit as any}
-                    styles={styles}
-                    accept={accept}
-                    submitButtonContent={submitLabel}
-                    {...props}
-                />
-            </Column>
-        </>
+        <Column className={'bg-clear cursor-pointer hover:bg-info'}>
+            <Dropzone
+                getUploadParams={getUploadParams as any}
+                onChangeStatus={handleChangeStatus as any}
+                inputContent={placeholder}
+                inputWithFilesContent={nonEmptyPlaceholder || placeholder}
+                onSubmit={handleSubmit as any}
+                styles={styles}
+                accept={accept}
+                submitButtonContent={submitLabel}
+                {...props}
+            />
+        </Column>
     );
 }
 

@@ -10,8 +10,7 @@ import Button from '../Button';
 import {useCallback} from "react";
 
 const styles = {
-    dropzone: { width: '100%', height: 200 },
-    dropzoneActive: { borderColor: 'green' },
+    dropzone: { width: '100%', minHeight: 100, maxHeight: 250, border: 'none' },
 };
 
 export function ImageField({ className, onChange, getUploadParams, value, ...props }: ImageFieldProps) {
