@@ -4,12 +4,12 @@ import Column from '../atoms/Column';
 import { rich_text } from '../types';
 import { AsBox } from '../as';
 import { WithOnSubmit, WithPlaceholder, WithTitle } from '../withs';
+import clsx from "clsx";
 
 const defaultStyles = {
     dropzone: {
         minHeight: 100,
         maxHeight: 250,
-        border: 'none',
     },
 };
 
@@ -64,7 +64,7 @@ export function FileUploader({
     );
 
     return (
-        <Column className={'bg-clear cursor-pointer hover:bg-info'}>
+        <Column b={'xs'} className={clsx('bg-clear cursor-pointer hover:bg-info', className)}>
             <Dropzone
                 getUploadParams={getUploadParams as any}
                 onChangeStatus={handleChangeStatus as any}

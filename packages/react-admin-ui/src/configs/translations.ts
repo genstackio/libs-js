@@ -21,6 +21,8 @@ export default {
             button_delete_label: 'Supprimer',
             button_cancel_label: 'Annuler',
             button_confirm_label: 'Confirmer',
+            button_clear_label: 'Effacer',
+            button_clear_image_label: "Effacer l'image",
 
             modal_confirm_delete_title: 'Confirmation de la suppression',
             modal_confirm_delete_text: 'Souhaitez-vous vraiment supprimer cet élément ?',

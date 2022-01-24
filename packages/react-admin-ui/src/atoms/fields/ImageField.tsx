@@ -8,12 +8,15 @@ import { AsField } from '../../as';
 import Div from '../Div';
 import Button from '../Button';
 import {useCallback} from "react";
+import clsx from "clsx";
+import {useTranslation} from "react-i18next";
 
 const styles = {
     dropzone: { width: '100%', minHeight: 100, maxHeight: 250, border: 'none' },
 };
 
 export function ImageField({ className, onChange, getUploadParams, value, ...props }: ImageFieldProps) {
+    const {t} = useTranslation();
     const { name, required, label, error, helper, placeholder, disabled, register, options, defaultValue, extra, classes } =
         useField({kind: 'image', ...props});
 
@@ -25,12 +28,12 @@ export function ImageField({ className, onChange, getUploadParams, value, ...pro
         onChange && onChange(undefined);
     }, [onChange]);
     return (
-        <Div mt={'sm'} className={classes?.root}>
+        <Div className={clsx(classes?.root, className)}>
             <FieldLabel name={name} label={label} options={options} className={classes?.label} />
             {!!value && !!value.url && (
-                <Div col>
-                    <Image {...value} />
-                    <Button label={'button_clear_label'} onClick={onClear} />
+                <Div>
+                    <Image className={'w-full'} {...value} />
+                    <Button size={'xs'} color={'danger'} label={t('button_clear_image_label')} onClick={onClear} />
                 </Div>
             )}
             {(!value || !value.url) && (
@@ -49,7 +52,7 @@ export function ImageField({ className, onChange, getUploadParams, value, ...pro
                     required={required}
                     {...register()}
                     {...extra}
-                    className={className}
+                    className={clsx('', classes?.uploader)}
                 />
             )}
             <FieldError error={error} className={classes?.error} />
