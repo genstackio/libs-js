@@ -35,7 +35,6 @@ export function FileUploader({
             switch (status) {
                 case 'headers_received':
                     if (autoUpload) {
-                        remove();
                         onFileUpload && onFileUpload(meta);
                     }
                     break;
