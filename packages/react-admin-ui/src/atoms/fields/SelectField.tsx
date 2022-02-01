@@ -7,7 +7,7 @@ import { AsChoiceField } from '../../as';
 
 const defaultValues = [];
 
-export function SelectField({ className, onChange: parentOnChange, values = defaultValues, ...props }: SelectFieldProps) {
+export function SelectField({ className, onChange: parentOnChange, multiple, values = defaultValues, ...props }: SelectFieldProps) {
     const { name, label, error, helper, disabled, placeholder, options, defaultValue, extra, control } =
         useField(props);
 
@@ -34,6 +34,7 @@ export function SelectField({ className, onChange: parentOnChange, values = defa
                             menu: (provided: any) => ({ ...provided, zIndex: 19999 }),
                         }}
                         {...field}
+                        isMulti={!!multiple}
                         inputRef={ref}
                         isDisabled={disabled}
                         onChange={handleChange(onChange)}
@@ -50,7 +51,9 @@ export function SelectField({ className, onChange: parentOnChange, values = defa
     );
 }
 
-export type SelectFieldProps = AsChoiceField;
+export interface SelectFieldProps extends AsChoiceField {
+    multiple?: boolean;
+}
 
 // noinspection JSUnusedGlobalSymbols
 export default SelectField;
