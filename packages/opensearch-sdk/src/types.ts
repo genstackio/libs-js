@@ -397,5 +397,6 @@ export type index_bulk_action = any;
 export type SortInput = {
     [key: string]: {
         order: string;
+        mode?: string;
     };
-}
+}[];
