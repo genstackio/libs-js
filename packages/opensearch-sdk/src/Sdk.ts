@@ -1,5 +1,6 @@
 import BaseSdk from './BaseSdk';
 import {
+    SortInput,
     bulk_action,
     BulkActionsInput,
     BulkActionsResponse,
@@ -143,7 +144,7 @@ export class Sdk extends BaseSdk {
     async getTask(id: string, def?: GetTaskInput): Promise<GetTaskResponse> {
         return this.request(`_tasks/${id}`, 'GET', def);
     }
-    async searchIndexPage(name: string, query?: any, offset?: number, limit: number = 50, def?: Omit<SearchInput, 'query'>, sort?: string) {
+    async searchIndexPage(name: string, query?: any, offset?: number, limit: number = 50, def?: Omit<SearchInput, 'query' | 'sort'>, sort?: SortInput) {
         const response = await this.searchIndex(name, {query, from: offset, size: limit, ...def, urlParams: {...(sort ? {sort} : {}), track_total_hits: true, ...(def?.urlParams || {})}});
         const nextHitIndex = (offset ? offset : 0) + response.hits.hits.length;
         const hasMoreHits = nextHitIndex < response.hits.total.value;

@@ -49,6 +49,7 @@ export type SearchInput = {
     indices_boost?: any[];
     min_score?: number;
     query?: any;
+    sort?: SortInput;
     seq_no_primary_term?: boolean;
     size?: number;
     _source?: string;
@@ -392,3 +393,9 @@ export type index_document_query = {
 };
 export type bulk_action = any;
 export type index_bulk_action = any;
+
+export type SortInput = {
+    [key: string]: {
+        order: string;
+    };
+}
