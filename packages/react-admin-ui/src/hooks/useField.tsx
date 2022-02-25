@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import {useCallback, useMemo} from 'react';
 import clsx from 'clsx';
 import { icon, register, control, rich_text } from '../types';
 import { useTranslation } from 'react-i18next';
@@ -36,6 +36,8 @@ export function useField(
         field,
         variant,
         classes,
+        valueAs,
+        deps,
         ...extra
     }: field_def_params,
     defaults: { name?: string; kind?: string } = defaultDefaults,
@@ -69,7 +71,24 @@ export function useField(
 
     const errorData = errors ? (errors[name] || errors['all']) : undefined;
     const error = errorData ? errorData.message || t(['constraints_required']) : undefined;
-    const enrichedRegister = (extraOptions = {}) => register(name, { ...options, ...extraOptions });
+    const enrichedRegister = useCallback((extraOptions = {}) => {
+        const computedExtraOptions = {};
+        switch (valueAs) {
+            case 'string': break;
+            case 'number': computedExtraOptions['valueAsNumber'] = true; break;
+            case 'date': computedExtraOptions['valueAsDate'] = true; break;
+            default:
+                if ('function' === typeof valueAs) {
+                    computedExtraOptions['setValueAs'] = valueAs;
+                    break;
+                }
+                break;
+        }
+        if (deps) {
+            computedExtraOptions['deps'] = deps;
+        }
+        return register(name, { ...options, computedExtraOptions, ...extraOptions })
+    }, [register, valueAs, deps, name, options]);
     defaultValue = (undefined !== defaultValue) ? defaultValue : (defaultValues ? defaultValues[name] : undefined);
 
     prependIcon = prependIcon ? <Icon icon={prependIcon} /> : undefined;
@@ -139,6 +158,8 @@ export interface field_def_params extends WithLabel, WithAny, WithOptions, WithD
     control?: control;
     field?: boolean;
     classes?: any;
+    valueAs?: 'string' | 'number' | 'date' | ((value: any) => any);
+    deps?: string|string[];
 }
 
 export default useField;

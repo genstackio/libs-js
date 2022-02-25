@@ -29,7 +29,6 @@ export function TextField(props: TextFieldProps) {
         classes,
     } = useField(props);
     const ctx = useMemo(() => ({ variant, prepend: !!prepend, append: !!append }), [variant, prepend, append]);
-
     return (
         <FieldSet
             error={error}

@@ -9,7 +9,7 @@ export function NumberField({ options = undefined, ...props }: NumberFieldProps)
         [options],
     );
 
-    return <TextField kind={'number'} type={'number'} {...props} />;
+    return <TextField kind={'number'} type={'number'} {...props} valueAs={'number'} />;
 }
 
 export type NumberFieldProps = TextFieldProps;
