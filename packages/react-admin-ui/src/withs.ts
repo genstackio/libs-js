@@ -162,6 +162,12 @@ export interface WithVariantOfRating {
 export interface WithVariantOfField {
     variant?: field_variant;
 }
+export interface WithValueAs {
+    valueAs?: 'string' | 'number' | 'date' | ((value: any) => any);
+}
+export interface WithDeps {
+    deps?: string|string[];
+}
 export interface WithVariantOfHeadingText {
     variant?: heading_text_variant;
 }
