@@ -192,7 +192,7 @@ export type workflow_step = {
 export type upload_context_value = {
     requestUploadInfos: request_upload_infos;
 };
-export type request_upload_infos = (request: {name: string, type: string}) => Promise<upload_infos>;
+export type request_upload_infos = (request: {defaultValues: any, name: string, type: string}) => Promise<upload_infos>;
 export type upload_infos = {
     fields: any;
     meta: {

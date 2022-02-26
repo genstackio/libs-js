@@ -99,7 +99,7 @@ export function useField(
         clsx(className, half && 'w-full sm:w-1/2', threeOf5 && 'w-full sm:w-3/5', twoOf5 && 'w-full sm:w-2/5') ||
         undefined;
 
-    const getUploadParams = useGetUploadParams({name, type: kind})
+    const getUploadParams = useGetUploadParams({defaultValues, name, type: kind})
 
     return useMemo<{
         control: any,
