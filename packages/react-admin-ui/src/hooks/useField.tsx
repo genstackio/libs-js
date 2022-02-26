@@ -87,7 +87,7 @@ export function useField(
         if (deps) {
             computedExtraOptions['deps'] = deps;
         }
-        return register(name, { ...options, computedExtraOptions, ...extraOptions })
+        return register(name, { ...options, ...computedExtraOptions, ...extraOptions })
     }, [register, valueAs, deps, name, options]);
     defaultValue = (undefined !== defaultValue) ? defaultValue : (defaultValues ? defaultValues[name] : undefined);
 
