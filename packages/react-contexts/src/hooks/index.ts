@@ -29,3 +29,4 @@ export * from './useUserError';
 export * from './useUserGetCurrentApi';
 export * from './useUserLogged';
 export * from './useUserTokens';
+export * from './useUserContext';
