@@ -58,7 +58,7 @@ export function Icon({ bold = false, color, count = 0, disabled, icon, onClick, 
                 if (size) {
                     content = (
                         <MuiIcon
-                            color={iconColor}
+                            color={iconColor || undefined}
                             {...props}
                             className={clsx(
                                 textSizeClass({ size } as any),
@@ -73,7 +73,7 @@ export function Icon({ bold = false, color, count = 0, disabled, icon, onClick, 
                     break;
                 }
                 content = (
-                    <MuiIcon color={iconColor} {...props}>
+                    <MuiIcon color={iconColor || undefined} {...props}>
                         {icon}
                     </MuiIcon>
                 );
