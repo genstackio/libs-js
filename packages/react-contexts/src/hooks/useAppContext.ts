@@ -9,7 +9,7 @@ import {
     user_context_value,
     locales_context_value,
     images_context_value,
-    app_context_params,
+    app_context_params, upload_context_value,
 } from '../types';
 import MuiLink from '@material-ui/core/Link';
 import fetch from 'isomorphic-fetch';
@@ -222,6 +222,7 @@ export function useAppContext({
         [getImage],
     );
 
+    const uploadValue = useMemo(() => !!upload ? {requestUploadInfos: upload} : undefined, [upload]) as upload_context_value|undefined;
     return useMemo(() => ({
         client: api.client,
         i18n,
@@ -237,8 +238,8 @@ export function useAppContext({
         images: imagesProviderValue,
         themes,
         fullscreen,
-        upload,
-    }), [upload, api.client, i18n, theme, themeFactory, storage, locale, userProviderValue, cartProviderValue, navigationProviderValue, localesProviderValue, imagesProviderValue, themes, fullscreen]);
+        upload: uploadValue,
+    }), [uploadValue, api.client, i18n, theme, themeFactory, storage, locale, userProviderValue, cartProviderValue, navigationProviderValue, localesProviderValue, imagesProviderValue, themes, fullscreen]);
 }
 
 export default useAppContext;
