@@ -4,6 +4,7 @@ import { icon, register, control, rich_text } from '../types';
 import { useTranslation } from 'react-i18next';
 import Icon from '../atoms/Icon';
 import { WithAny, WithDefaultValues, WithLabel, WithOptions } from '../withs';
+import {useGetUploadParams} from "@genstackio/react-contexts";
 
 const defaultDefaults = {};
 
@@ -98,10 +99,33 @@ export function useField(
         clsx(className, half && 'w-full sm:w-1/2', threeOf5 && 'w-full sm:w-3/5', twoOf5 && 'w-full sm:w-2/5') ||
         undefined;
 
-    return {
+    const getUploadParams = useGetUploadParams({name, type: kind})
+
+    return useMemo<{
+        control: any,
+        className?: string,
+        name: string,
+        label?: any,
+        placeholder?: any,
+        error: any,
+        required?: boolean,
+        helper?: any,
+        options?: any,
+        disabled?: boolean,
+        defaultValue?: any,
+        kind?: string,
+        register: Function,
+        variant?: any,
+        extra?: any,
+        type?: any,
+        getUploadParams?: Function,
+        prepend?: any,
+        append?: any,
+        classes?: any,
+    }>(() => ({
         control,
         className,
-        name,
+        name: name!,
         label,
         placeholder,
         error,
@@ -115,6 +139,7 @@ export function useField(
         variant,
         extra,
         type,
+        getUploadParams,
         prepend:
             prepend && prependIcon ? (
                 <>
@@ -138,7 +163,30 @@ export function useField(
                 appendIcon
             ) : undefined,
         classes,
-    };
+    }), [
+        control,
+        className,
+        name,
+        label,
+        placeholder,
+        error,
+        required,
+        helper,
+        options,
+        disabled,
+        defaultValue,
+        kind,
+        enrichedRegister,
+        variant,
+        extra,
+        type,
+        getUploadParams,
+        prepend,
+        prependIcon,
+        append,
+        appendIcon,
+        classes,
+    ]);
 }
 
 export interface field_def_params extends WithLabel, WithAny, WithOptions, WithDefaultValues {

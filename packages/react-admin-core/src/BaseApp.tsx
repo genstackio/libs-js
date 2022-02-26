@@ -33,6 +33,7 @@ export function BaseApp({
     defaultLocale = undefined,
     fallbackLocale = undefined,
     requiredRoles = undefined,
+    upload = undefined,
     ...props
 }: BaseAppProps) {
     translations = translations || defaultTranslations;
@@ -52,6 +53,7 @@ export function BaseApp({
         storage,
         user,
         locales: computedLocales,
+        upload: uploadValue,
     } = useAppContext({
         storageKeyFactory: (k: string) => `${prefix}_${k}`,
         apiOptions,
@@ -66,6 +68,7 @@ export function BaseApp({
         })),
         defaultLocale,
         fallbackLocale,
+        upload,
     });
     return (
         <AppProvider
@@ -81,6 +84,7 @@ export function BaseApp({
             navigation={navigation}
             importer={importer}
             locales={computedLocales}
+            upload={uploadValue}
             {...props}
         >
             <Router>

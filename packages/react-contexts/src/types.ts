@@ -165,6 +165,7 @@ export type app_context_params = {
     storageKeyFactory?: (k: string) => string;
     themes?: any;
     theme?: any;
+    upload?: upload_context_value;
     queries?: any;
     callbacks?: any;
     translations?: any;
@@ -187,4 +188,15 @@ export type workflow_step = {
     image?: image;
     isDisabled?: Function;
     component: ComponentType<{ onChange: Function; onSubmit: Function; defaultValues?: { [key: string]: any } }>;
+};
+export type upload_context_value = {
+    requestUploadInfos: request_upload_infos;
+};
+export type request_upload_infos = (request: {name: string, type: string}) => Promise<upload_infos>;
+export type upload_infos = {
+    fields: any;
+    meta: {
+        fileUrl: string;
+    };
+    url: string;
 };

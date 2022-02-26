@@ -13,6 +13,7 @@ import { DarkModeProvider } from './contexts/DarkModeContext';
 import { NotificationsProvider } from './contexts/NotificationsContext';
 import { MessagesProvider } from './contexts/MessagesContext';
 import { FavoritesProvider } from './contexts/FavoritesContext';
+import { UploadProvider } from './contexts/UploadContext';
 import {
     dark_mode_context_value,
     favorites_context_value,
@@ -21,7 +22,7 @@ import {
     importer_context_params,
     locales_context_value,
     messages_context_value,
-    notifications_context_value,
+    notifications_context_value, upload_context_value,
 } from './types';
 
 export function AppProvider({
@@ -50,6 +51,7 @@ export function AppProvider({
     messages,
     darkMode,
     icons,
+    upload,
 }: AppProviderProps) {
     let content = children || '';
     icons && IconsProvider && (content = <IconsProvider value={icons}>{content}</IconsProvider>);
@@ -57,6 +59,7 @@ export function AppProvider({
     notifications && (content = <NotificationsProvider value={notifications}>{content}</NotificationsProvider>);
     messages && (content = <MessagesProvider value={messages}>{content}</MessagesProvider>);
     darkMode && (content = <DarkModeProvider value={darkMode}>{content}</DarkModeProvider>);
+    upload && (content = <UploadProvider value={upload}>{content}</UploadProvider>);
     fullscreen &&
         FullscreenProvider &&
         (content = <FullscreenProvider value={fullscreen}>{content}</FullscreenProvider>);
@@ -103,6 +106,7 @@ export interface AppProviderProps {
     notifications?: notifications_context_value;
     favorites?: favorites_context_value;
     darkMode?: dark_mode_context_value;
+    upload?: upload_context_value;
     children?: ReactNode;
 }
 

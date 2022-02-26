@@ -4,7 +4,7 @@ import { ApolloProvider } from '@ohoareau/apollo-client-jwt';
 import { MuiThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { TailwindProvider } from '@genstackio/react-contexts/lib/contexts/TailwindContext';
-import { importer_function } from '@genstackio/react-contexts';
+import {importer_function, request_upload_infos} from '@genstackio/react-contexts';
 import { FullscreenProvider as BaseFullscreenProvider } from '@genstackio/react-contexts/lib/contexts/FullscreenContext';
 import { FullScreen } from 'react-full-screen';
 import IconsProvider from '@genstackio/react-contexts/lib/IconsProvider';
@@ -59,6 +59,7 @@ export function useApp({
     theme: { mui = undefined, tailwind = undefined, theme = undefined } = defaultTheme,
     queries = undefined,
     icons = undefined,
+    uploader = undefined,
 }: {
     importer: importer_function;
     app: any;
@@ -67,6 +68,7 @@ export function useApp({
     translations?: any;
     queries?: any;
     icons?: { fa?: any[] };
+    uploader?: request_upload_infos;
 }) {
     translations = translations || defaultTranslations;
     routes = routes || defaultRoutes;
@@ -105,6 +107,7 @@ export function useApp({
             favorites: features.favorites ? { favorites: [] } : undefined,
             icons,
             requiredRoles,
+            upload: uploader,
         }),
         [
             mui,
@@ -121,6 +124,7 @@ export function useApp({
             icons,
             requiredRoles,
             features,
+            uploader,
         ],
     );
 }

@@ -1,4 +1,5 @@
 export * from './createDefaultApiContextValue';
+export * from './createDefaultUploadContextValue';
 export * from './createDefaultBoxContextValue';
 export * from './createDefaultCartContextValue';
 export * from './createDefaultDarkModeContextValue';

@@ -30,6 +30,7 @@ const defaultApiOptions = {};
 const storage: storage|undefined = (() => {
     const s = 'undefined' === typeof localStorage ? undefined : localStorage;
     if (!s) return undefined;
+    // noinspection JSUnusedGlobalSymbols
     return {
         setItem: (key: string, value: any) => {
             if (!value) return s.removeItem(key);
@@ -57,6 +58,7 @@ export function useAppContext({
     fallbackLocale = 'en-US',
     getImage,
     fullscreen,
+    upload,
 }: app_context_params) {
     apiOptions = apiOptions || defaultApiOptions;
     const { themeName = 'default' } = {};
@@ -235,7 +237,8 @@ export function useAppContext({
         images: imagesProviderValue,
         themes,
         fullscreen,
-    }), [api.client, i18n, theme, themeFactory, storage, locale, userProviderValue, cartProviderValue, navigationProviderValue, localesProviderValue, imagesProviderValue, themes, fullscreen]);
+        upload,
+    }), [upload, api.client, i18n, theme, themeFactory, storage, locale, userProviderValue, cartProviderValue, navigationProviderValue, localesProviderValue, imagesProviderValue, themes, fullscreen]);
 }
 
 export default useAppContext;
