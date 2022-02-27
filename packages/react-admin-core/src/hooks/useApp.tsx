@@ -60,6 +60,7 @@ export function useApp({
     queries = undefined,
     icons = undefined,
     uploader = undefined,
+    apiOptions = undefined,
 }: {
     importer: importer_function;
     app: any;
@@ -69,6 +70,7 @@ export function useApp({
     queries?: any;
     icons?: { fa?: any[] };
     uploader?: request_upload_infos;
+    apiOptions?: any;
 }) {
     translations = translations || defaultTranslations;
     routes = routes || defaultRoutes;
@@ -97,6 +99,7 @@ export function useApp({
             },
             apiOptions: {
                 uri: endpoint,
+                ...apiOptions,
             },
             locales,
             defaultLocale,
@@ -125,6 +128,7 @@ export function useApp({
             requiredRoles,
             features,
             uploader,
+            apiOptions,
         ],
     );
 }
