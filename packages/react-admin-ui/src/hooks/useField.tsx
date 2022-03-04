@@ -8,6 +8,9 @@ import {useGetUploadParams} from "@genstackio/react-contexts";
 
 const defaultDefaults = {};
 
+const defaultSetValueAsBoolean = (value: any) => {
+    return !!value;
+}
 // noinspection JSUnusedLocalSymbols
 export function useField(
     {
@@ -78,6 +81,7 @@ export function useField(
             case 'string': break;
             case 'number': computedExtraOptions['valueAsNumber'] = true; break;
             case 'date': computedExtraOptions['valueAsDate'] = true; break;
+            case 'boolean': computedExtraOptions['setValueAs'] = defaultSetValueAsBoolean; break;
             default:
                 if ('function' === typeof valueAs) {
                     computedExtraOptions['setValueAs'] = valueAs;
@@ -206,7 +210,7 @@ export interface field_def_params extends WithLabel, WithAny, WithOptions, WithD
     control?: control;
     field?: boolean;
     classes?: any;
-    valueAs?: 'string' | 'number' | 'date' | ((value: any) => any);
+    valueAs?: 'string' | 'number' | 'date' | 'boolean' | ((value: any) => any);
     deps?: string|string[];
 }
 
