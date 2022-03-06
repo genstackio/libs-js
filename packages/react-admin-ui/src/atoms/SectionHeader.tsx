@@ -4,9 +4,9 @@ import HeadingText from './HeadingText';
 import useBlock from '../hooks/useBlock';
 import useHeadingText from '../hooks/useHeadingText';
 import { AsBlock } from '../as';
-import { WithHeadingText, WithMargin } from '../withs';
+import {WithHeadingText, WithMargin, WithOnClick} from '../withs';
 
-export function SectionHeader({ children, className, ...props }: SectionHeaderProps) {
+export function SectionHeader({ active = false, children, hoverable, className, ...props }: SectionHeaderProps) {
     const [bProps, rest2] = useBlock(props, { color: 'primary', variant: 'contained', m: 'md', p: 'md' });
     const [htProps, rest, hasContent] = useHeadingText(rest2);
 
@@ -18,7 +18,7 @@ export function SectionHeader({ children, className, ...props }: SectionHeaderPr
             elevation={0}
             {...bProps}
             {...rest}
-            className={clsx('bg-opacity-10', className)}
+            className={clsx('bg-opacity-10', className, hoverable && 'hover:bg-opacity-20', active && 'bg-secondary')}
         >
             <HeadingText color={bProps.color} variant={'xsection'} {...htProps} />
             {children || ''}
@@ -26,7 +26,10 @@ export function SectionHeader({ children, className, ...props }: SectionHeaderPr
     );
 }
 
-export interface SectionHeaderProps extends AsBlock, WithHeadingText, WithMargin {}
+export interface SectionHeaderProps extends AsBlock, WithHeadingText, WithMargin, WithOnClick {
+    hoverable?: boolean;
+    active?: boolean;
+}
 
 // noinspection JSUnusedGlobalSymbols
 export default SectionHeader;
