@@ -7,7 +7,7 @@ import { AsBlock } from '../as';
 import {WithHeadingText, WithMargin, WithOnClick} from '../withs';
 
 export function SectionHeader({ active = false, children, hoverable, className, ...props }: SectionHeaderProps) {
-    const [bProps, rest2] = useBlock(props, { color: 'primary', variant: 'contained', m: 'md', p: 'md' });
+    const [bProps, rest2] = useBlock(props, { color: active ? 'secondary' : 'primary', variant: 'contained', m: 'md', p: 'md' });
     const [htProps, rest, hasContent] = useHeadingText(rest2);
 
     if (!hasContent) return null;
@@ -18,7 +18,7 @@ export function SectionHeader({ active = false, children, hoverable, className, 
             elevation={0}
             {...bProps}
             {...rest}
-            className={clsx('bg-opacity-10', className, hoverable && 'hover:bg-opacity-20', active && 'bg-secondary')}
+            className={clsx('bg-opacity-10', className, hoverable && 'hover:bg-opacity-20')}
         >
             <HeadingText color={bProps.color} variant={'xsection'} {...htProps} />
             {children || ''}
