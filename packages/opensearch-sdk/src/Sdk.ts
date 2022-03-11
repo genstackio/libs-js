@@ -97,10 +97,10 @@ export class Sdk extends BaseSdk {
         return this.booleanRequest(name, 'HEAD', def);
     }
     async bulkActions(actions: bulk_action[] = [], def?: BulkActionsInput): Promise<BulkActionsResponse> {
-        return this.request('_bulk', 'POST', {_rawBody: actions.map(a => JSON.stringify(a)).join("\n"), ...def});
+        return this.request('_bulk', 'POST', {_rawBody: actions.map(a => (undefined === a) ? "" : JSON.stringify(a)).join("\n") + "\n", ...def});
     }
     async indexBulkActions(name: string, actions: index_bulk_action[] = [], def?: IndexBulkActionsInput): Promise<IndexBulkActionsResponse> {
-        return this.requestIndex(name, '_bulk', 'POST', {_rawBody: actions.map(a => JSON.stringify(a)).join("\n"), ...def});
+        return this.requestIndex(name, '_bulk', 'POST', {_rawBody: actions.map(a => (undefined === a) ? "" : JSON.stringify(a)).join("\n") + "\n", ...def});
     }
     // noinspection JSUnusedGlobalSymbols
     async indexDocument(index: string, document: any, id?: string, def?: IndexDocumentInput): Promise<IndexDocumentResponse> {
