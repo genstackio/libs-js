@@ -10,8 +10,8 @@ export function CenteredLayoutTemplate({ children, className, center = true, ima
         <Container
             bgImage={image}
             className={clsx(
-                'bg-cover h-screen py-10 px-0 sm:px-3 flex flex-col justify-start sm:justify-center',
-                center && 'items-center',
+                'bg-cover h-screen py-10 px-0 sm:px-3 flex flex-col justify-start items-center',
+                center && 'sm:justify-center',
                 className,
             )}
         >
