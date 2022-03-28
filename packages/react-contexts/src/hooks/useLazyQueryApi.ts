@@ -4,7 +4,11 @@ const defaultOptions = {};
 
 export const useLazyQueryApi = (name: string, options: any = defaultOptions) => {
     const { getQuery, useLazyQuery } = useApi();
-    return useLazyQuery(getQuery(name, options), options);
+    try {
+        return useLazyQuery(getQuery(name, options), options);
+    } catch (e: any) {
+        return [() => {}, {called: false, data: undefined, loading: false, error: e}];
+    }
 };
 
 export default useLazyQueryApi;
