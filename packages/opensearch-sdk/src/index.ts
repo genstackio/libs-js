@@ -15,5 +15,5 @@ export const createSdk = (endpoint: string, localFetch: fetch|undefined = undefi
         responseListeners,
     })
 };
-
+export * from './OpenSearchResponseError';
 export {default as default} from './Sdk';

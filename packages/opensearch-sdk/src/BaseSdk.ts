@@ -9,6 +9,7 @@ import {
     request_authorization_provider,
     Request,
 } from './types';
+import OpenSearchResponseError from "./OpenSearchResponseError";
 
 const debugOpenSearchSdk = debug('opensearch-sdk');
 const debugOpenSearchSdkHttp = debug('opensearch-sdk:http');
@@ -97,7 +98,7 @@ export abstract class BaseSdk {
         }, Promise.resolve())
         debugOpenSearchSdkHttp('response %j', response);
         if (!response.ok) {
-            throw new Error(`Bad response from open search api: ${response.status}`);
+            throw new OpenSearchResponseError(response, request);
         }
         const r = await response.json();
         debugOpenSearchSdkHttp('result %j', r);
