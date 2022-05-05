@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import TextField, { TextFieldProps } from './TextField';
 
+const classes = {input: 'pt-0 pb-0 pr-0 pl-0'};
+
 export function ColorField({ className, ...props }: ColorFieldProps) {
     return (
         <TextField
@@ -8,7 +10,7 @@ export function ColorField({ className, ...props }: ColorFieldProps) {
             type={'color'}
             {...props}
             className={clsx('x-field-min-h', className)}
-            classes={{ input: 'pt-0 pb-0 pr-0 pl-0' }}
+            classes={classes}
         />
     );
 }
