@@ -1,5 +1,6 @@
 import { a, args, s } from '../../utils';
 import { ColorField } from '../../../src';
+import { useForm } from 'react-hook-form';
 
 export default {
     title: 'Atoms/fields/ColorField',
@@ -19,4 +20,10 @@ export default {
     }),
 };
 
-export const basic = s(ColorField, {});
+
+const Template = (args) => {
+    const { control } = useForm();
+    return <ColorField {...args} control={control} />;
+};
+
+export const basic = s(Template, {});
