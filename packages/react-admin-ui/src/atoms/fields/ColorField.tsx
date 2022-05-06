@@ -10,7 +10,7 @@ import FieldLabel from "../FieldLabel";
 const classes = { input: 'w-14 pt-0 pb-0 pr-0 pl-0' };
 
 export function ColorField({ className, inline = true, ...props }: ColorFieldProps) {
-    const { name, defaultValue, control, label, options, classes: classes2, extra } = useField({ name: 'color', ...props });
+    const { name, defaultValue, control, label, options, classes: classes2, extra } = useField({ name: props.kind ? undefined : 'color', ...props });
     const { t } = useTranslation();
     const [defined, setDefined] = useState(!!defaultValue);
     const handleClick = useCallback(() => {
