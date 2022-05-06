@@ -1,16 +1,17 @@
 import clsx from 'clsx';
 import TextField, { TextFieldProps } from './TextField';
 
-const classes = {input: 'pt-0 pb-0 pr-0 pl-0'};
+const classes = {input: 'w-14 pt-0 pb-0 pr-0 pl-0'};
 
-export function ColorField({ className, ...props }: ColorFieldProps) {
+export function ColorField({ className, inline = true, ...props }: ColorFieldProps) {
     return (
         <TextField
             kind={'color'}
             type={'color'}
             {...props}
-            className={clsx('x-field-min-h', className)}
+            className={clsx('', className)}
             classes={classes}
+            inline={inline}
         />
     );
 }

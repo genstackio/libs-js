@@ -8,7 +8,7 @@ import { flag, icon, rich_text } from '../../types';
 import { fieldVariantClass } from '../../mappings/field-variants';
 import { AsTextField } from '../../as';
 
-export function TextField(props: TextFieldProps) {
+export function TextField({inline, ...props}: TextFieldProps) {
     const {
         className,
         name,
@@ -38,6 +38,7 @@ export function TextField(props: TextFieldProps) {
             options={options}
             className={className}
             classes={classes}
+            inline={inline}
         >
             <Div
                 b={'xs'}
@@ -102,6 +103,7 @@ export interface TextFieldProps extends AsTextField {
     half?: flag;
     threeOf5?: flag;
     twoOf5?: flag;
+    inline?: boolean;
 }
 
 // noinspection JSUnusedGlobalSymbols

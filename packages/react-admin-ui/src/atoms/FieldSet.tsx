@@ -6,12 +6,22 @@ import { AsWrapper } from '../as';
 import { WithClasses, WithError, WithHelper, WithLabel, WithName, WithOptions } from '../withs';
 import clsx from 'clsx';
 
-export function FieldSet({ children, className, error, helper, label, name, options, classes }: FieldSetProps) {
+export function FieldSet({ children, className, error, helper, label, name, options, classes, inline }: FieldSetProps) {
     return (
-        <Div mb={'sm'} className={clsx(className, classes?.root)}>
+        <Div mb={inline ? undefined : 'sm'} className={clsx(className, classes?.root)}>
             <Div className={'focus-within:font-bold'}>
-                <FieldLabel label={label} name={name} options={options} className={classes?.label} />
-                <Div>{children}</Div>
+                {!!inline && (
+                    <Div flex vcenter spaced={2}>
+                        <Div>{children}</Div>
+                        <FieldLabel label={label} name={name} options={options} className={clsx(classes?.label, 'flex-1')} />
+                    </Div>
+                )}
+                {!inline && (
+                    <>
+                        <FieldLabel label={label} name={name} options={options} className={classes?.label} />
+                        <Div>{children}</Div>
+                    </>
+                )}
                 <FieldError error={error} className={classes?.error} />
                 <FieldHelper helper={helper} className={classes?.helper} />
             </Div>
@@ -26,7 +36,9 @@ export interface FieldSetProps
         WithHelper,
         WithError,
         WithOptions,
-        WithClasses {}
+        WithClasses {
+    inline?: boolean;
+}
 
 // noinspection JSUnusedGlobalSymbols
 export default FieldSet;
