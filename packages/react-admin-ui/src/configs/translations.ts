@@ -23,6 +23,8 @@ export default {
             button_confirm_label: 'Confirmer',
             button_clear_label: 'Effacer',
             button_clear_image_label: "Effacer l'image",
+            button_defined_label: 'Définir',
+            button_reset_label: 'Reset',
 
             modal_confirm_delete_title: 'Confirmation de la suppression',
             modal_confirm_delete_text: 'Souhaitez-vous vraiment supprimer cet élément ?',
