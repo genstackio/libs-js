@@ -12,6 +12,9 @@ export default {
         color: args.color,
         variant: args.blockVariant,
     }),
+    parameters: {
+        layout: 'fullscreen',
+    }
 };
 
 export const basic = s(AppLayoutTemplate, {
@@ -78,6 +81,82 @@ export const basic = s(AppLayoutTemplate, {
         },
     ],
     toolbar: <UserToolbar user={{ firstName: 'Alphonse', lastName: 'Daudet', email: 'me@email.com' }} />,
+    children: (
+        <>
+            <p>
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+            </p>
+            <p>
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+            </p>
+            <p>
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+            </p>
+            <p>
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+            </p>
+            <p>
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+            </p>
+            <p>
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+                qkdqsd qdqsmld,qsd qsdqsld qsd qsd qsdqspdqs,dqs dqs dqsdpqs,dqsd qs dqs dqsd qsdpqsod,q sdqs dqsd nqsdqsd
+            </p>
+        </>
+    )
 });
 
 export const withLogoClick = s(AppLayoutTemplate, {

@@ -9,13 +9,14 @@ import Menu from '../../molecules/Menu';
 import boxTextClass from '../../mappings/box-texts';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
-import { menu_item, target } from '../../types';
+import {class_name, menu_item, target} from '../../types';
 import { AsBoxWrapper } from '../../as';
 import { WithLogo } from '../../withs';
 
 export function AppLayoutTemplate({
     children,
     className,
+    childrenClassName,
     logo,
     onLogoClick,
     menu,
@@ -57,7 +58,7 @@ export function AppLayoutTemplate({
                     </Clickable>
                     {toolbar || ''}
                 </Div>
-                <Div p={'md'} className={'h-screen shadow-inside'}>
+                <Div p={'md'} className={clsx('h-screen shadow-inside overflow-scroll', childrenClassName)}>
                     {children}
                 </Div>
             </Cell>
@@ -69,6 +70,7 @@ export interface AppLayoutTemplateProps extends AsBoxWrapper, WithLogo {
     menu?: menu_item[];
     toolbar?: ReactNode;
     onLogoClick?: target;
+    childrenClassName?: class_name;
 }
 
 // noinspection JSUnusedGlobalSymbols
