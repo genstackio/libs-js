@@ -9,6 +9,10 @@ import { WithItemsOfMenu } from '../withs';
 
 const defaultItems = [];
 
+const maxStyles = {
+    maxHeight: 1000,
+};
+
 export function Menu({ className, color = 'primary', items = defaultItems, variant = 'contained' }: MenuProps) {
     const {activeGroup: defaultActiveGroup, groups} = useMemo(() => {
         return items.reduce((acc: any, i: any) => {
@@ -38,7 +42,7 @@ export function Menu({ className, color = 'primary', items = defaultItems, varia
                         {'section' === type && (
                             <>
                                 <SectionHeader active={active} color={color} subtitle={item.description} title={item.label} variant={variant} onClick={handleSectionClick(index) as any} hoverable={!!groupItems.length} />
-                                <div className={clsx('overflow-hidden max-h-0 transition transition-all easy-in-out duration-500', active ? 'max-h-96' : 'max-h-0')}>
+                                <div className={clsx('overflow-y-scroll max-h-0 transition transition-all easy-in-out duration-500', active ? '' : 'max-h-0')} {...(active ? {style: maxStyles} : {})}>
                                     {groupItems.map(({type: subType, ...subItem}: any, index2) => (
                                         <Fragment key={index2}>
                                             {'menu' === subType && <MenuFold color={color} variant={'light'} {...subItem} />}
