@@ -3,9 +3,17 @@ import Div from '../../atoms/Div';
 import Image from '../../atoms/Image';
 import Container from '../../atoms/Container';
 import { AsWrapper } from '../../as';
-import {WithCenter, WithImage, WithLogo} from '../../withs';
+import { WithCenter, WithImage, WithLogo } from '../../withs';
+import { class_name } from '../../types';
 
-export function CenteredLayoutTemplate({ children, className, center = true, image, logo }: CenteredLayoutTemplateProps) {
+export function CenteredLayoutTemplate({
+    children,
+    className,
+    center = true,
+    image,
+    logo,
+    BlockClassName,
+}: CenteredLayoutTemplateProps) {
     return (
         <Container
             bgImage={image}
@@ -20,7 +28,10 @@ export function CenteredLayoutTemplate({ children, className, center = true, ima
                 full
                 mt={'md'}
                 p={'_sl'}
-                className={'max-w-full sm:max-w-md bg-clear rounded-none sm:rounded-lg shadow-block'}
+                className={clsx(
+                    'max-w-full sm:max-w-md bg-clear rounded-none sm:rounded-lg shadow-block',
+                    BlockClassName,
+                )}
             >
                 {children}
             </Div>
@@ -28,7 +39,9 @@ export function CenteredLayoutTemplate({ children, className, center = true, ima
     );
 }
 
-export interface CenteredLayoutTemplateProps extends AsWrapper, WithImage, WithLogo, WithCenter {}
+export interface CenteredLayoutTemplateProps extends AsWrapper, WithImage, WithLogo, WithCenter {
+    BlockClassName?: class_name;
+}
 
 // noinspection JSUnusedGlobalSymbols
 export default CenteredLayoutTemplate;
