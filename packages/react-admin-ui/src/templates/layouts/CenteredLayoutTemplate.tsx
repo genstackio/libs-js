@@ -12,7 +12,7 @@ export function CenteredLayoutTemplate({
     center = true,
     image,
     logo,
-    BlockClassName,
+    blockClassName,
 }: CenteredLayoutTemplateProps) {
     return (
         <Container
@@ -30,7 +30,7 @@ export function CenteredLayoutTemplate({
                 p={'_sl'}
                 className={clsx(
                     'max-w-full sm:max-w-md bg-clear rounded-none sm:rounded-lg shadow-block',
-                    BlockClassName,
+                    blockClassName,
                 )}
             >
                 {children}
@@ -40,7 +40,7 @@ export function CenteredLayoutTemplate({
 }
 
 export interface CenteredLayoutTemplateProps extends AsWrapper, WithImage, WithLogo, WithCenter {
-    BlockClassName?: class_name;
+    blockClassName?: class_name;
 }
 
 // noinspection JSUnusedGlobalSymbols
