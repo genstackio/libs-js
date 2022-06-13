@@ -135,6 +135,8 @@ export function Text({
             return <p {...props} />;
         case 'span':
             return <span {...props} />;
+        case 'pre':
+            return <pre {...props} />;
         default:
         case 'div':
             return <div {...props} />;

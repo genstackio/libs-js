@@ -1,16 +1,19 @@
 import Text from './Text';
 import Row from './Row';
-import { WithLabel, WithValue } from '../withs';
+import {WithLabel, WithMargin, WithValue} from '../withs';
+import InfosItemValue from "./InfosItemValue";
 
-export function InfosItem({ label, value }: InfosItemProps) {
+export function InfosItem({ label, value, type, mt = 'md', ...rest }: InfosItemProps) {
     return (
-        <Row mt={'md'} spaced>
-            <Text disabled text={label} />
-            <Text text={value} />
+        <Row mt={mt} spaced={2} {...rest}>
+            <Text disabled text={label} bold />
+            <InfosItemValue value={value} complexValueComponent={InfosItem} type={type} />
         </Row>
     );
 }
 
-export interface InfosItemProps extends WithLabel, WithValue {}
+export interface InfosItemProps extends WithLabel, WithValue, WithMargin {
+    type?: 'default' | 'progress' | 'alert' | 'badge' | 'panel' | 'pill' | 'rating' | 'rating5' | 'rating10' | 'rating20' | 'rating_squares' | 'rating5_squares' | 'rating10_squares' | 'rating20_squares' | 'spinner' | 'tag' | 'text' | 'code';
+}
 
 export default InfosItem;

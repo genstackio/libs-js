@@ -37,6 +37,7 @@ export * from './FormFooter';
 export * from './Frame';
 export * from './HeadingText';
 export * from './InfosItem';
+export * from './InfosItemValue';
 export * from './Items';
 export * from './LocaleChange';
 export * from './MenuFold';

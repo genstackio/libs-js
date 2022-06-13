@@ -115,7 +115,7 @@ export type table_column = Partial<GridColDef> & { id: string; format?: any; lab
 export type table_row = any;
 export type timeline_item = { color: box_color; description: rich_text; title: rich_text };
 export type screen_header_item = { label?: rich_text; target?: target };
-export type text_component = 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
+export type text_component = 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'pre';
 export type icon = ReactNode;
 export type register = ((name: string, options?: any) => any) | any;
 export type control = Function | any;
