@@ -36,7 +36,9 @@ export function InfosItemValue({value, complexValueComponent: ComplexValueCompon
         case 'rating20_squares':
             return <Rating variant={'squares'}  min={1} max={20} value={value} defaultValue={value} text={value} />;
         case 'progress':
-            return <Progress value={value} />;
+            return <Div w={"xl"} vcenter mt={'sm'}><Progress value={value} />{Math.round(value * 100) / 100}%</Div>;
+        case 'ratio':
+            return <Div w={"xl"} vcenter mt={'sm'}><Progress value={(value >= 0) ? (value * 100) : 0} />{Math.round(value * 10000) / 100}%</Div>;
         case 'spinner':
             return <Spinner />;
         case 'tag':
@@ -51,6 +53,8 @@ export function InfosItemValue({value, complexValueComponent: ComplexValueCompon
                 } catch(e: any) {
                     newValue = value;
                 }
+            } else {
+                newValue = JSON.stringify(value, null, 4);
             }
             return <pre>{newValue}</pre>;
         case 'default':
@@ -101,7 +105,7 @@ export function InfosItemValue({value, complexValueComponent: ComplexValueCompon
 }
 export interface InfosItemValueProps extends WithValue {
     complexValueComponent?: any;
-    type?: 'default' | 'progress' | 'alert' | 'badge' | 'panel' | 'pill' | 'rating' | 'rating5' | 'rating10' | 'rating20' | 'rating_squares' | 'rating5_squares' | 'rating10_squares' | 'rating20_squares' | 'spinner' | 'tag' | 'text' | 'code';
+    type?: 'default' | 'progress' | 'alert' | 'badge' | 'panel' | 'pill' | 'ratio' | 'rating' | 'rating5' | 'rating10' | 'rating20' | 'rating_squares' | 'rating5_squares' | 'rating10_squares' | 'rating20_squares' | 'spinner' | 'tag' | 'text' | 'code';
 }
 
 export default InfosItemValue;

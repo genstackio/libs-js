@@ -61,3 +61,15 @@ export const rating20Type = s(InfosItem, {
     value: 3,
     type: 'rating20',
 });
+
+export const ratioType = s(InfosItem, {
+    label: data.common.property,
+    value: 0.3,
+    type: 'ratio',
+});
+
+export const progressType = s(InfosItem, {
+    label: data.common.property,
+    value: 30,
+    type: 'progress',
+});
