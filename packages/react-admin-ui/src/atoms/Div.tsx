@@ -204,6 +204,15 @@ export function Div({
                 </a>
             );
         }
+        if (('object' === typeof onClick) && !!onClick.href) {
+            return (
+                <a href={onClick.href} {...(onClick.onClick ? {onClick: onClick.onClick as any} : {})}>
+                    <div id={id} className={cls}>
+                        {content}
+                    </div>
+                </a>
+            );
+        }
 
         return (
             <div id={id} onClick={onClick as any} className={cls}>

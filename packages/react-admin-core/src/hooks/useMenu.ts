@@ -32,7 +32,16 @@ export function useMenu(
             }
             if ('string' === typeof item['target']) {
                 const target = item['target'];
-                item['target'] = () => history.push(target);
+                if ('/' === target.slice(0, 1)) {
+                    item['target'] = {
+                        href: target,
+                        onClick: (e: any) => {
+                            !!e && !!e.preventDefault && e.preventDefault();
+                            !!e && !!e.stopPropagation() && e.stopPropagation();
+                            history.push(target)
+                        },
+                    };
+                }
             }
             return item;
         },

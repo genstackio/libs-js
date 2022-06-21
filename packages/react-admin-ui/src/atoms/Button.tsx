@@ -50,6 +50,8 @@ export function Button({
         (event) => {
             'function' === typeof onClick && onClick(event);
             'string' === typeof onClick && (location.href = onClick);
+            ('object' === typeof onClick) && !!onClick.onClick && (onClick.onClick(event));
+            ('object' === typeof onClick) && !!onClick.href && (location.href = onClick.href);
         },
         [onClick],
     );
