@@ -18,7 +18,7 @@ export function Menu({ className, color = 'primary', items = defaultItems, varia
         return items.reduce((acc: any, i: any) => {
             if (i.type === 'section') {
                 acc.groups.push({...i, items: []})
-            } else if (acc.groups.length) {
+            } else if (acc.groups.length && !!acc.groups[acc.groups.length - 1].items) {
                 acc.groups[acc.groups.length - 1].items.push(i);
             } else {
                 acc.groups.push(i);
