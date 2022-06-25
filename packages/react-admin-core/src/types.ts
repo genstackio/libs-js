@@ -3,6 +3,7 @@ export type route = {
     path?: string;
     secured?: boolean;
     screen?: string;
+    screenProps?: any;
     exact?: boolean;
     routes?: route[];
     component?: any;

@@ -25,6 +25,7 @@ export function Route({
     exact = true,
     component = undefined,
     screen: screenName,
+    screenProps = undefined,
     requiredRoles = undefined,
     loadingComponent = undefined,
 }: route) {
@@ -45,7 +46,7 @@ export function Route({
     const render = useCallback(
         (props: any) => (
             // pass the sub-routes down to keep nesting
-            <Component {...props}>
+            <Component {...props} {...(screenProps || {})} screenName={screenName}>
                 {routes && !!routes.length && (
                     <Routes loadingComponent={loadingComponent}>
                         {(routes || []).map((route, i) => (
@@ -55,7 +56,7 @@ export function Route({
                 )}
             </Component>
         ),
-        [routes, Component, loadingComponent, user, path],
+        [routes, Component, loadingComponent, user, path, screenName],
     );
     return <BaseRoute {...(path ? { path } : {})} {...('boolean' === typeof exact ? { exact } : {})} render={render} />;
 }
