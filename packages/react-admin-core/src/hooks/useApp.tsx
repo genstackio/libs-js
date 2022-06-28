@@ -8,6 +8,7 @@ import {importer_function, request_upload_infos} from '@genstackio/react-context
 import { FullscreenProvider as BaseFullscreenProvider } from '@genstackio/react-contexts/lib/contexts/FullscreenContext';
 import { FullScreen } from 'react-full-screen';
 import IconsProvider from '@genstackio/react-contexts/lib/IconsProvider';
+import {ambiance_context_value} from "@genstackio/react-contexts/lib/types";
 
 function GraphqlProvider({ value, children }: any) {
     value && (children = <ApolloProvider client={value}>{children}</ApolloProvider>);
@@ -50,6 +51,7 @@ const defaultRoutes = [];
 const defaultTranslations = {};
 const defaultIcons = {};
 const defaultTheme = {};
+const defaultAmbiance = {};
 
 export function useApp({
     importer,
@@ -61,6 +63,7 @@ export function useApp({
     icons = undefined,
     uploader = undefined,
     apiOptions = undefined,
+    ambiance = undefined,
 }: {
     importer: importer_function;
     app: any;
@@ -71,6 +74,7 @@ export function useApp({
     icons?: { fa?: any[] };
     uploader?: request_upload_infos;
     apiOptions?: any;
+    ambiance?: ambiance_context_value;
 }) {
     translations = translations || defaultTranslations;
     routes = routes || defaultRoutes;
@@ -79,6 +83,7 @@ export function useApp({
     features = features || defaultFeatures;
     tailwind = tailwind || defaultTailwind;
     icons = icons || defaultIcons;
+    ambiance = ambiance || defaultAmbiance;
 
     return useMemo(
         () => ({
@@ -111,6 +116,7 @@ export function useApp({
             icons,
             requiredRoles,
             upload: uploader,
+            ambiance,
         }),
         [
             mui,
@@ -129,6 +135,7 @@ export function useApp({
             features,
             uploader,
             apiOptions,
+            ambiance,
         ],
     );
 }
