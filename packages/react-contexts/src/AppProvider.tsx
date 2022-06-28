@@ -74,7 +74,7 @@ export function AppProvider({
     images && (content = <ImagesProvider value={images}>{content}</ImagesProvider>);
     locales && (content = <LocalesProvider value={locales}>{content}</LocalesProvider>);
     theme && ThemeProvider && (content = <ThemeProvider value={theme}>{content}</ThemeProvider>);
-    ambiance && (content = <AmbianceProvider value={theme}>{content}</AmbianceProvider>);
+    ambiance && (content = <AmbianceProvider value={ambiance}>{content}</AmbianceProvider>);
     translation &&
         TranslationProvider &&
         (content = <TranslationProvider value={translation}>{content}</TranslationProvider>);
