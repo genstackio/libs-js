@@ -7,6 +7,7 @@ import coreTranslations from './configs/translations';
 import adminUiTranslations from '@genstackio/react-admin-ui/lib/configs/translations';
 import Routes from "./Routes";
 import Route from "./Route";
+import {ambiance_context_value} from "@genstackio/react-contexts/lib/types";
 
 // warning: we create default values (objects) here to avoid react re-rendering with always-different-objects
 const defaultTranslations = {};
@@ -54,6 +55,7 @@ export function BaseApp({
         user,
         locales: computedLocales,
         upload: uploadValue,
+        ambiance,
     } = useAppContext({
         storageKeyFactory: (k: string) => `${prefix}_${k}`,
         apiOptions,
@@ -85,6 +87,7 @@ export function BaseApp({
             importer={importer}
             locales={computedLocales}
             upload={uploadValue}
+            ambiance={ambiance}
             {...props}
         >
             <Router>
@@ -108,6 +111,7 @@ export interface BaseAppProps {
     apiOptions?: any;
     themes?: any;
     theme?: any;
+    ambiance?: ambiance_context_value;
     translations?:
         | { [key: string]: { [key: string]: { [key: string]: string } } }
         | { [key: string]: { [key: string]: { [key: string]: string } } }[];

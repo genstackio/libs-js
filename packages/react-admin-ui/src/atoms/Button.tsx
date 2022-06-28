@@ -20,6 +20,7 @@ import {
     WithEndIcon,
     WithLabel,
 } from '../withs';
+import useAmbiance from "@genstackio/react-contexts/lib/hooks/useAmbiance";
 
 export function Button({
     autoFocus = false,
@@ -35,7 +36,7 @@ export function Button({
     confirmKind,
     confirmText,
     confirmTitle,
-    corner = 'rounded-xxsmall',
+    corner = undefined,
     disabled,
     endIcon,
     endIconSize,
@@ -46,6 +47,8 @@ export function Button({
     size = 'md',
     variant = 'contained',
 }: ButtonProps) {
+    const {buttonCorner = 'rounded-xxsmall'} = useAmbiance();
+    corner = (corner || buttonCorner) as any;
     const handleClick = useCallback(
         (event) => {
             'function' === typeof onClick && onClick(event);

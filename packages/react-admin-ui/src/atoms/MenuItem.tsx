@@ -18,6 +18,7 @@ import {
     WithTarget,
     WithVariantOfMenu,
 } from '../withs';
+import useAmbiance from "@genstackio/react-contexts/lib/hooks/useAmbiance";
 
 export function MenuItem({
     active = false,
@@ -30,12 +31,13 @@ export function MenuItem({
     target,
     variant,
 }: MenuItemProps) {
+    const {menuItemCorner = 'rounded-small'} = useAmbiance();
     return (
         <Block
             active={active}
             color={color}
             contentClassName={'flex justify-between items-center space-x-4'}
-            corner={'rounded-small'}
+            corner={menuItemCorner as any}
             elevation={0}
             hoverable
             onClick={target}

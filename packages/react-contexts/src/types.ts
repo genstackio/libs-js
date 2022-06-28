@@ -58,6 +58,17 @@ export type box_context_value = {
     variant: string | undefined;
 };
 
+export type ambiance_context_value = {
+    sectionHeaderCorner?: string;
+    menuItemCorner?: string;
+    menuFoldCorner?: string;
+    buttonCorner?: string;
+    thumbnailCorner?: string;
+    tagCorner?: string;
+    frameCorner?: string;
+    modalCorner?: string;
+};
+
 export type navigation_context_value = {
     InternalLink: ComponentType;
     ExternalLink: ComponentType;
@@ -175,6 +186,7 @@ export type app_context_params = {
     getImage?: image_getter;
     apiOptions?: any;
     fullscreen?: fullscreen_context_value;
+    ambiance?: ambiance_context_value;
 };
 
 export type importer_function = (name: string, key: string) => LazyExoticComponent<ComponentType<any>> | undefined;

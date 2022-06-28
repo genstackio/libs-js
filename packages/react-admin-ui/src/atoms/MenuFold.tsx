@@ -19,10 +19,12 @@ import {
     WithItemsOfMenu,
     WithVariantOfMenu,
 } from '../withs';
+import useAmbiance from "@genstackio/react-contexts/lib/hooks/useAmbiance";
 
 const defaultItems = [];
 
 export function MenuFold({ active, badges, className, color, icon, label, items = defaultItems, variant }: MenuFoldProps) {
+    const {menuFoldCorner = 'rounded-small'} = useAmbiance();
     const [open, toggle] = useToggle(active || false);
 
     return (
@@ -31,7 +33,7 @@ export function MenuFold({ active, badges, className, color, icon, label, items 
                 active={active}
                 color={color}
                 contentClassName={'flex justify-between'}
-                corner={'rounded-small'}
+                corner={menuFoldCorner as any}
                 elevation={0}
                 hoverable
                 onClick={toggle}

@@ -5,8 +5,10 @@ import useBlock from '../hooks/useBlock';
 import useHeadingText from '../hooks/useHeadingText';
 import { AsBlock } from '../as';
 import {WithHeadingText, WithMargin, WithOnClick} from '../withs';
+import useAmbiance from "@genstackio/react-contexts/lib/hooks/useAmbiance";
 
 export function SectionHeader({ active = false, children, hoverable, className, ...props }: SectionHeaderProps) {
+    const {sectionHeaderCorner = 'rounded-small'} = useAmbiance();
     const [bProps, rest2] = useBlock(props, { color: active ? 'secondary' : 'primary', variant: 'contained', m: 'md', p: 'md' });
     const [htProps, rest, hasContent] = useHeadingText(rest2);
 
@@ -14,7 +16,7 @@ export function SectionHeader({ active = false, children, hoverable, className, 
 
     return (
         <Block
-            corner={'rounded-small'}
+            corner={sectionHeaderCorner as any}
             elevation={0}
             {...bProps}
             {...rest}

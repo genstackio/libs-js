@@ -14,6 +14,7 @@ import { NotificationsProvider } from './contexts/NotificationsContext';
 import { MessagesProvider } from './contexts/MessagesContext';
 import { FavoritesProvider } from './contexts/FavoritesContext';
 import { UploadProvider } from './contexts/UploadContext';
+import { AmbianceProvider } from './contexts/AmbianceContext';
 import {
     dark_mode_context_value,
     favorites_context_value,
@@ -22,7 +23,7 @@ import {
     importer_context_params,
     locales_context_value,
     messages_context_value,
-    notifications_context_value, upload_context_value,
+    notifications_context_value, upload_context_value, ambiance_context_value,
 } from './types';
 
 export function AppProvider({
@@ -52,6 +53,7 @@ export function AppProvider({
     darkMode,
     icons,
     upload,
+    ambiance,
 }: AppProviderProps) {
     let content = children || '';
     icons && IconsProvider && (content = <IconsProvider value={icons}>{content}</IconsProvider>);
@@ -72,6 +74,7 @@ export function AppProvider({
     images && (content = <ImagesProvider value={images}>{content}</ImagesProvider>);
     locales && (content = <LocalesProvider value={locales}>{content}</LocalesProvider>);
     theme && ThemeProvider && (content = <ThemeProvider value={theme}>{content}</ThemeProvider>);
+    ambiance && (content = <AmbianceProvider value={theme}>{content}</AmbianceProvider>);
     translation &&
         TranslationProvider &&
         (content = <TranslationProvider value={translation}>{content}</TranslationProvider>);
@@ -108,6 +111,7 @@ export interface AppProviderProps {
     darkMode?: dark_mode_context_value;
     upload?: upload_context_value;
     children?: ReactNode;
+    ambiance?: ambiance_context_value;
 }
 
 // noinspection JSUnusedGlobalSymbols

@@ -16,6 +16,8 @@ import { IconsProvider } from '@genstackio/react-contexts/lib/IconsProvider';
 import icons from './configs/icons';
 import { DarkModeProvider } from '@genstackio/react-contexts/lib/contexts/DarkModeContext';
 import preset from '@genstackio/react-admin-ui/lib/preset';
+import {AmbianceProvider} from "@genstackio/react-contexts/lib/contexts/AmbianceContext";
+import {ambiance_context_value} from "@genstackio/react-contexts/lib/types";
 
 const translationNames = Object.keys(translations);
 translationNames.sort();
@@ -67,17 +69,23 @@ function Provider(args) {
         [setDarkMode],
     );
     const darkModeValue = { darkMode, setDarkMode: handleSetDarkMode };
+
+    const ambiance: ambiance_context_value = useMemo(() => ({
+    }), []);
+
     return (
         <FullScreen handle={handle}>
             <FullscreenProvider value={handle}>
                 <ApiProvider value={apiProviderValue}>
                     <LocalesProvider value={locales}>
                         <StylesProvider injectFirst>
-                            <I18nextProvider i18n={i18n}>
-                                <IconsProvider value={iconsProviderValue}>
-                                    <DarkModeProvider value={darkModeValue}>{args.children}</DarkModeProvider>
-                                </IconsProvider>
-                            </I18nextProvider>
+                            <AmbianceProvider value={ambiance}>
+                                <I18nextProvider i18n={i18n}>
+                                    <IconsProvider value={iconsProviderValue}>
+                                        <DarkModeProvider value={darkModeValue}>{args.children}</DarkModeProvider>
+                                    </IconsProvider>
+                                </I18nextProvider>
+                            </AmbianceProvider>
                         </StylesProvider>
                     </LocalesProvider>
                 </ApiProvider>
