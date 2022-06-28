@@ -35,6 +35,7 @@ export function BaseApp({
     fallbackLocale = undefined,
     requiredRoles = undefined,
     upload = undefined,
+    ambiance = undefined,
     ...props
 }: BaseAppProps) {
     translations = translations || defaultTranslations;
@@ -55,7 +56,7 @@ export function BaseApp({
         user,
         locales: computedLocales,
         upload: uploadValue,
-        ambiance,
+        ambiance: ambianceValue,
     } = useAppContext({
         storageKeyFactory: (k: string) => `${prefix}_${k}`,
         apiOptions,
@@ -71,6 +72,7 @@ export function BaseApp({
         defaultLocale,
         fallbackLocale,
         upload,
+        ambiance,
     });
     return (
         <AppProvider
@@ -87,7 +89,7 @@ export function BaseApp({
             importer={importer}
             locales={computedLocales}
             upload={uploadValue}
-            ambiance={ambiance}
+            ambiance={ambianceValue}
             {...props}
         >
             <Router>

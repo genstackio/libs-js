@@ -84,7 +84,6 @@ export function useApp({
     tailwind = tailwind || defaultTailwind;
     icons = icons || defaultIcons;
     ambiance = ambiance || defaultAmbiance;
-
     return useMemo(
         () => ({
             prefix,
