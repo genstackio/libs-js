@@ -30,7 +30,7 @@ const defaultLocales = ['en-US'];
 const defaultImporters = {
     layout: ({path}: {path: string}) => Loadable(() => import(`@genstackio/react-admin-core/lib/layouts/${path}Layout`)),
     screen: ({path}: {path: string}) => Loadable(() => import(`@genstackio/react-admin-core/lib/screens/${path}Screen`)),
-    form: ({path}: {path: string}) => Loadable(() => import(`@genstackio/react-admin-ui/lib/molecules/forms/${path}Form`)),
+    form: ({path}: {path: string}) => Loadable(() => import(`@genstackio/react-admin-core/lib/forms/${path}Form`)),
     action: ({path}: {path: string}) => Loadable(() => import(`@genstackio/react-admin-core/lib/actions/${path}Action`)),
     form_field: ({path}: {path: string}) => Loadable(() => import(`@genstackio/react-admin-ui/lib/atoms/fields/${path}Field`)),
     content: ({path}: {path: string}) => Loadable(() => import(`@genstackio/react-admin-ui/lib/contents/${path}Content`)),
