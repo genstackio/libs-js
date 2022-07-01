@@ -189,8 +189,18 @@ export type app_context_params = {
     ambiance?: ambiance_context_value;
 };
 
+export type app_importer_function = ({path, name}: {path: string, name: string}) => LazyExoticComponent<ComponentType<any>> | undefined;
+export type importers = {[key: string]: [app_importer_function, string[]]};
 export type importer_function = (name: string, key: string) => LazyExoticComponent<ComponentType<any>> | undefined;
 export type importer_context_params = undefined | importer_function;
+
+export type logos_context_value = {
+    logo?: image;
+    logoFull?: image;
+}
+export type breadcrumbs_factory_context_value = (name: string, ctx: any) => any[];
+export type menus_factory_context_value = (name: string, ctx: any) => any[];
+export type list_factory_context_value = (name: string, ctx: any) => any;
 
 export type workflow_step = {
     id: string;

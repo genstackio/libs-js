@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import {ReactNode, useMemo} from 'react';
 import ErrorBoundary from './ErrorBoundary';
 import { StorageProvider } from './contexts/StorageContext';
 import { LocationProvider } from './contexts/LocationContext';
@@ -15,6 +15,10 @@ import { MessagesProvider } from './contexts/MessagesContext';
 import { FavoritesProvider } from './contexts/FavoritesContext';
 import { UploadProvider } from './contexts/UploadContext';
 import { AmbianceProvider } from './contexts/AmbianceContext';
+import { LogosProvider } from './contexts/LogosContext';
+import { MenusFactoryProvider } from './contexts/MenusFactoryContext';
+import { ListFactoryProvider } from './contexts/ListFactoryContext';
+import { BreadcrumbsFactoryProvider } from './contexts/BreadcrumbsFactoryContext';
 import {
     dark_mode_context_value,
     favorites_context_value,
@@ -23,7 +27,12 @@ import {
     importer_context_params,
     locales_context_value,
     messages_context_value,
-    notifications_context_value, upload_context_value, ambiance_context_value,
+    notifications_context_value,
+    upload_context_value,
+    ambiance_context_value,
+    importers,
+    logos_context_value,
+    menus_factory_context_value, list_factory_context_value, breadcrumbs_factory_context_value,
 } from './types';
 
 export function AppProvider({
@@ -46,6 +55,7 @@ export function AppProvider({
     navigation,
     children,
     importer,
+    importers,
     fullscreen,
     favorites,
     notifications,
@@ -54,8 +64,14 @@ export function AppProvider({
     icons,
     upload,
     ambiance,
+    importerBuilder,
+    logos,
+    menus,
+    lists,
+    breadcrumbs,
 }: AppProviderProps) {
     let content = children || '';
+    const finalImporter = useMemo(() => importerBuilder(importer, importers), [importer, importers]);
     icons && IconsProvider && (content = <IconsProvider value={icons}>{content}</IconsProvider>);
     favorites && (content = <FavoritesProvider value={favorites}>{content}</FavoritesProvider>);
     notifications && (content = <NotificationsProvider value={notifications}>{content}</NotificationsProvider>);
@@ -65,7 +81,7 @@ export function AppProvider({
     fullscreen &&
         FullscreenProvider &&
         (content = <FullscreenProvider value={fullscreen}>{content}</FullscreenProvider>);
-    importer && (content = <ImporterProvider value={importer}>{content}</ImporterProvider>);
+    finalImporter && (content = <ImporterProvider value={finalImporter}>{content}</ImporterProvider>);
     navigation && (content = <NavigationProvider value={navigation}>{content}</NavigationProvider>);
     user && (content = <UserProvider value={user}>{content}</UserProvider>);
     cart && (content = <CartProvider value={cart}>{content}</CartProvider>);
@@ -80,6 +96,10 @@ export function AppProvider({
         (content = <TranslationProvider value={translation}>{content}</TranslationProvider>);
     location && (content = <LocationProvider value={location}>{content}</LocationProvider>);
     storage && (content = <StorageProvider value={storage}>{content}</StorageProvider>);
+    logos && (content = <LogosProvider value={logos}>{content}</LogosProvider>);
+    menus && (content = <MenusFactoryProvider value={menus}>{content}</MenusFactoryProvider>);
+    lists && (content = <ListFactoryProvider value={lists}>{content}</ListFactoryProvider>);
+    breadcrumbs && (content = <BreadcrumbsFactoryProvider value={breadcrumbs}>{content}</BreadcrumbsFactoryProvider>);
 
     return <ErrorBoundary component={error}>{content}</ErrorBoundary>;
 }
@@ -103,6 +123,7 @@ export interface AppProviderProps {
     user: any;
     navigation: any;
     importer?: importer_context_params;
+    importers?: importers;
     fullscreen?: any;
     icons?: icons_context_value;
     messages?: messages_context_value;
@@ -112,6 +133,11 @@ export interface AppProviderProps {
     upload?: upload_context_value;
     children?: ReactNode;
     ambiance?: ambiance_context_value;
+    logos?: logos_context_value;
+    menus?: menus_factory_context_value;
+    lists?: list_factory_context_value;
+    breadcrumbs?: breadcrumbs_factory_context_value;
+    importerBuilder: (importer: importer_context_params, importers?: importers) => importer_context_params;
 }
 
 // noinspection JSUnusedGlobalSymbols

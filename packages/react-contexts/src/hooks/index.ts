@@ -31,3 +31,7 @@ export * from './useUserGetCurrentApi';
 export * from './useUserLogged';
 export * from './useUserTokens';
 export * from './useUserContext';
+export * from './useLogos';
+export * from './useBreadcrumbsFactory';
+export * from './useMenusFactory';
+export * from './useListFactory';

@@ -4,7 +4,7 @@ import { ApolloProvider } from '@ohoareau/apollo-client-jwt';
 import { MuiThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { TailwindProvider } from '@genstackio/react-contexts/lib/contexts/TailwindContext';
-import {importer_function, request_upload_infos} from '@genstackio/react-contexts';
+import {importer_function, importers, request_upload_infos} from '@genstackio/react-contexts';
 import { FullscreenProvider as BaseFullscreenProvider } from '@genstackio/react-contexts/lib/contexts/FullscreenContext';
 import { FullScreen } from 'react-full-screen';
 import IconsProvider from '@genstackio/react-contexts/lib/IconsProvider';
@@ -55,6 +55,7 @@ const defaultAmbiance = {};
 
 export function useApp({
     importer,
+    importers,
     app: { prefix, endpoint, locales, defaultLocale, fallbackLocale, features, requiredRoles },
     routes = undefined,
     translations = undefined,
@@ -66,6 +67,7 @@ export function useApp({
     ambiance = undefined,
 }: {
     importer: importer_function;
+    importers: importers;
     app: any;
     theme?: any;
     routes?: any[];
@@ -88,6 +90,7 @@ export function useApp({
         () => ({
             prefix,
             importer,
+            importers,
             translations,
             queries,
             graphqlProvider: GraphqlProvider,
@@ -135,6 +138,8 @@ export function useApp({
             uploader,
             apiOptions,
             ambiance,
+            importer,
+            importers,
         ],
     );
 }

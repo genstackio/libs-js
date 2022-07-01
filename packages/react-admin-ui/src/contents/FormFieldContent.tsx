@@ -1,14 +1,12 @@
-import useImporter from "@genstackio/react-contexts/lib/hooks/useImporter";
+import useComponent from "@genstackio/react-contexts/lib/hooks/useComponent";
 
-export function FormFieldContent({components, name, required = false, disabled = false, autoFocus = false, options: {field} = {}}: FormFieldContentProps) {
-    const importer = useImporter();
-    const Comp = (components || {})[`form_field_${name || ''}`] || (importer ? importer('form_field', name) : (() => null));
+export function FormFieldContent({name, required = false, disabled = false, autoFocus = false, options: {field} = {}}: FormFieldContentProps) {
+    const Component = useComponent('form_field', name);
 
-    return <Comp {...field} autoFocus={autoFocus} disabled={disabled} required={required} />;
+    return <Component {...field} autoFocus={autoFocus} disabled={disabled} required={required} />;
 }
 
 export interface FormFieldContentProps {
-    components?: {[key: string]: any};
     name: string;
     required?: boolean;
     autoFocus?: boolean;

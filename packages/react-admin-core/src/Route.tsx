@@ -1,15 +1,8 @@
 import { Route as BaseRoute } from 'react-router-dom';
 import { route } from './types';
-import { useCallback, useMemo } from 'react';
-import { useImporter } from '@genstackio/react-contexts';
+import { useCallback } from 'react';
 import Routes from "./Routes";
-
-function formatScreenComponentName(n: string) {
-    return `${n
-        .split(/_/g)
-        .map((x) => `${x.slice(0, 1).toUpperCase()}${x.slice(1)}`)
-        .join('')}`;
-}
+import useComponent from "@genstackio/react-contexts/lib/hooks/useComponent";
 
 export const isUserHavingRole = (user, role: string[] = []) =>
     !role.length ? true : (!!role.find(x => (user.permissions || []).includes(x)))
@@ -36,13 +29,7 @@ export function Route({
             screenName = 'denied';
         }
     }
-    const importer = useImporter();
-    const Component = useMemo(
-        () =>
-            component ||
-            (screenName && importer ? importer('screen', formatScreenComponentName(screenName)) : () => null),
-        [screenName, importer, component],
-    );
+    const Component = useComponent('screen', screenName, component, !!screenName);
     const render = useCallback(
         (props: any) => (
             // pass the sub-routes down to keep nesting

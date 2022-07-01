@@ -1,9 +1,7 @@
-import useImporter from "@genstackio/react-contexts/lib/hooks/useImporter";
+import useComponent from "@genstackio/react-contexts/lib/hooks/useComponent";
 
 export function Content(props: ContentProps) {
-    const importer = useImporter();
-
-    const Component = (importer ? importer('content', props.type || 'default') : undefined) || (() => null);
+    const Component = useComponent('content', props.type);
 
     return <Component {...props} />;
 }

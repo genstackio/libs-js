@@ -2,12 +2,20 @@ import { ComponentType, useMemo } from 'react';
 import DefaultErrorScreen from './screens/DefaultErrorScreen';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { route } from './types';
-import { AppProvider, importer_context_params, useAppContext } from '@genstackio/react-contexts';
+import {
+    app_importer_function,
+    AppProvider,
+    importer_context_params,
+    useAppContext,
+    importers,
+    logos_context_value
+} from '@genstackio/react-contexts';
 import coreTranslations from './configs/translations';
 import adminUiTranslations from '@genstackio/react-admin-ui/lib/configs/translations';
 import Routes from "./Routes";
 import Route from "./Route";
 import {ambiance_context_value} from "@genstackio/react-contexts/lib/types";
+import Loadable from "@loadable/component";
 
 // warning: we create default values (objects) here to avoid react re-rendering with always-different-objects
 const defaultTranslations = {};
@@ -19,10 +27,61 @@ const defaultThemes = {};
 const defaultTheme = {};
 const defaultLocales = ['en-US'];
 
+const defaultImporters = {
+    screen: ({path}: {path: string}) => Loadable(() => import(`@genstackio/react-admin-core/lib/screens/${path}Screen`)),
+    form: ({path}: {path: string}) => Loadable(() => import(`@genstackio/react-admin-ui/lib/molecules/forms/${path}Form`)),
+    action: ({path}: {path: string}) => Loadable(() => import(`@genstackio/react-admin-core/lib/actions/${path}Action`)),
+    form_field: ({path}: {path: string}) => Loadable(() => import(`@genstackio/react-admin-ui/lib/atoms/fields/${path}Field`)),
+    content: ({path}: {path: string}) => Loadable(() => import(`@genstackio/react-admin-ui/lib/contents/${path}Content`)),
+    screen_template: ({path}: {path: string}) => Loadable(() => import(`@genstackio/react-admin-core/lib/templates/screens/${path}ScreenTemplate`)),
+};
+
+function pathize(name: string) {
+    let [a, b] = name.split(/\//g);
+    name = `${a.slice(0, 1).toUpperCase()}${a.slice(1)}`;
+    if (b) {
+        a = `${a.slice(0, 1).toLowerCase()}${a.slice(1)}`;
+        b = `${b.slice(0, 1).toUpperCase()}${b.slice(1)}`;
+        name = `${a}/${b}`;
+    }
+    return name.split(/_/g).map((s: string, index: number) => {
+        if (0 === index) return s;
+        return `${s.slice(0, 1).toUpperCase()}${s.slice(1)}`;
+    }).join('');
+}
+
+function buildImporter(importer?: importer_context_params, importers?: importers) {
+    if (!importer) {
+        if (!importers) return (name: string, key: string) => {
+            const y = {name, path: pathize(name)};
+            const x2: app_importer_function = (defaultImporters as any)[key];
+            if (x2) return x2(y);
+            return undefined;
+        };
+        return (name: string, key: string) => {
+            const y = {name, path: pathize(name)};
+            const [x, names]: [app_importer_function, string[]] = (importers as any)[key];
+            if ((names.includes(name) || names.includes('*')) && x) return Loadable(() => x(y));
+            const x2: app_importer_function = (defaultImporters as any)[key];
+            if (x2) return x2(y);
+            return undefined;
+        }
+    } else if (!importers) {
+        return importer;
+    }
+    return (name: string, key: string) => {
+        const y = {name, path: pathize(name)};
+        const [x, names]: [app_importer_function, string[]] = (importers as any)[key];
+        if ((names.includes(name) || names.includes('*')) && x) return Loadable(() => x(y));
+        return importer;
+    }
+}
+
 export function BaseApp({
     prefix = 'app',
     routes = defaultRoutes,
     importer,
+    importers,
     loadingComponent = undefined,
     translations = undefined,
     queries = defaultQueries,
@@ -36,6 +95,7 @@ export function BaseApp({
     requiredRoles = undefined,
     upload = undefined,
     ambiance = undefined,
+    logos = undefined,
     ...props
 }: BaseAppProps) {
     translations = translations || defaultTranslations;
@@ -87,9 +147,12 @@ export function BaseApp({
             graphql={client}
             navigation={navigation}
             importer={importer}
+            importers={importers}
             locales={computedLocales}
             upload={uploadValue}
             ambiance={ambianceValue}
+            importerBuilder={buildImporter}
+            logos={logos}
             {...props}
         >
             <Router>
@@ -114,6 +177,7 @@ export interface BaseAppProps {
     themes?: any;
     theme?: any;
     ambiance?: ambiance_context_value;
+    logos?: logos_context_value;
     translations?:
         | { [key: string]: { [key: string]: { [key: string]: string } } }
         | { [key: string]: { [key: string]: { [key: string]: string } } }[];
