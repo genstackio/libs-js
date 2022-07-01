@@ -60,8 +60,11 @@ function buildImporter(importer?: importer_context_params, importers?: importers
         };
         return (name: string, key: string) => {
             const y = {name, path: pathize(name)};
-            const [x, names]: [app_importer_function, string[]] = (importers as any)[key];
-            if ((names.includes(name) || names.includes('*')) && x) return Loadable(() => x(y));
+            const zz = (importers as any)[key] || [undefined, []];
+            if (!!zz && Array.isArray(zz) && (zz.length >= 1)) {
+                const [x, names = []]: [app_importer_function, string[]] = zz as [any, any];
+                if ((names.includes(name) || names.includes('*')) && x) return Loadable(() => x(y));
+            }
             const x2: app_importer_function = (defaultImporters as any)[key];
             if (x2) return x2(y);
             return undefined;
@@ -71,8 +74,11 @@ function buildImporter(importer?: importer_context_params, importers?: importers
     }
     return (name: string, key: string) => {
         const y = {name, path: pathize(name)};
-        const [x, names]: [app_importer_function, string[]] = (importers as any)[key];
-        if ((names.includes(name) || names.includes('*')) && x) return Loadable(() => x(y));
+        const zz = (importers as any)[key] || [undefined, []];
+        if (!!zz && Array.isArray(zz) && (zz.length >= 1)) {
+            const [x, names = []]: [app_importer_function, string[]] = zz as [any, any];
+            if ((names.includes(name) || names.includes('*')) && x) return Loadable(() => x(y));
+        }
         return importer;
     }
 }
