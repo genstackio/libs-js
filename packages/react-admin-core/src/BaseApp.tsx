@@ -102,7 +102,6 @@ export function BaseApp({
     requiredRoles = undefined,
     upload = undefined,
     ambiance = undefined,
-    logos = undefined,
     ...props
 }: BaseAppProps) {
     translations = translations || defaultTranslations;
@@ -159,7 +158,6 @@ export function BaseApp({
             upload={uploadValue}
             ambiance={ambianceValue}
             importerBuilder={buildImporter}
-            logos={logos}
             {...props}
         >
             <Router>

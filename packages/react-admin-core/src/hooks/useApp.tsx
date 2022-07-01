@@ -11,7 +11,7 @@ import {
     importer_function,
     importers,
     menus_factory_context_value,
-    request_upload_infos
+    request_upload_infos, logos_context_value
 } from "@genstackio/react-contexts/lib/types";
 import { FullscreenProvider as BaseFullscreenProvider } from '@genstackio/react-contexts/lib/contexts/FullscreenContext';
 import { FullScreen } from 'react-full-screen';
@@ -72,6 +72,10 @@ export function useApp({
     uploader = undefined,
     apiOptions = undefined,
     ambiance = undefined,
+    menus = undefined,
+    lists = undefined,
+    breadcrumbs = undefined,
+    logos = undefined,
 }: {
     importer?: importer_function;
     importers?: importers;
@@ -87,6 +91,7 @@ export function useApp({
     menus?: menus_factory_context_value;
     lists?: list_factory_context_value;
     breadcrumbs?: breadcrumbs_factory_context_value;
+    logos?: logos_context_value;
 }) {
     translations = translations || defaultTranslations;
     routes = routes || defaultRoutes;
@@ -129,6 +134,10 @@ export function useApp({
             requiredRoles,
             upload: uploader,
             ambiance,
+            menus,
+            lists,
+            breadcrumbs,
+            logos,
         }),
         [
             mui,
@@ -150,6 +159,10 @@ export function useApp({
             ambiance,
             importer,
             importers,
+            menus,
+            lists,
+            breadcrumbs,
+            logos,
         ],
     );
 }
