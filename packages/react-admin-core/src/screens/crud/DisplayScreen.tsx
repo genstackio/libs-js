@@ -35,12 +35,12 @@ export function DisplayScreen({name, plural, display: {toolbar = false, body = f
     const toolbarComponent = useComponent('toolbar', name, undefined, toolbar);
 
     const tabsList = useMemo(() => tabs ? (tabs || []).map((tt: {name: string}) => {
-        const Comp = (importer ? importer('tabs', `${name}/${tt.name}`) : undefined) || (() => null);
+        const Comp = (importer ? importer( `${name}/${tt.name}`, 'tabs') : undefined) || (() => null);
         return {title: t(`tab_${name}_${tt.name}_title`), component: Comp};
     }) : undefined, [tabs, name, t, importer]);
 
     const children = useCallback(() => body ? (pprops: {doc: any}) => {
-        const Comp = (importer ? importer('body', name) : undefined) || (() => null);
+        const Comp = (importer ? importer(name, 'body') : undefined) || (() => null);
         return <Comp {...pprops} properties={properties} id={id}/>;
     } : undefined, [name, body, properties, id, importer]);
 
