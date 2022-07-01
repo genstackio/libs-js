@@ -49,7 +49,7 @@ export function useMenu(
     );
 
     return useMemo(
-        () => forcedMenu || factory(name, { t, user, history }).map(itemMapper),
+        () => forcedMenu || (factory(name, { t, user, history }) || []).map(itemMapper),
         [itemMapper, factory, name, t, user, history, forcedMenu],
     );
 }
