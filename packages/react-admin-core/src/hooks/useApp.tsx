@@ -4,11 +4,18 @@ import { ApolloProvider } from '@ohoareau/apollo-client-jwt';
 import { MuiThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { TailwindProvider } from '@genstackio/react-contexts/lib/contexts/TailwindContext';
-import {importer_function, importers, request_upload_infos} from '@genstackio/react-contexts';
+import {
+    ambiance_context_value,
+    breadcrumbs_factory_context_value,
+    list_factory_context_value,
+    importer_function,
+    importers,
+    menus_factory_context_value,
+    request_upload_infos
+} from "@genstackio/react-contexts/lib/types";
 import { FullscreenProvider as BaseFullscreenProvider } from '@genstackio/react-contexts/lib/contexts/FullscreenContext';
 import { FullScreen } from 'react-full-screen';
 import IconsProvider from '@genstackio/react-contexts/lib/IconsProvider';
-import {ambiance_context_value} from "@genstackio/react-contexts/lib/types";
 
 function GraphqlProvider({ value, children }: any) {
     value && (children = <ApolloProvider client={value}>{children}</ApolloProvider>);
@@ -66,8 +73,8 @@ export function useApp({
     apiOptions = undefined,
     ambiance = undefined,
 }: {
-    importer: importer_function;
-    importers: importers;
+    importer?: importer_function;
+    importers?: importers;
     app: any;
     theme?: any;
     routes?: any[];
@@ -77,6 +84,9 @@ export function useApp({
     uploader?: request_upload_infos;
     apiOptions?: any;
     ambiance?: ambiance_context_value;
+    menus?: menus_factory_context_value;
+    lists?: list_factory_context_value;
+    breadcrumbs?: breadcrumbs_factory_context_value;
 }) {
     translations = translations || defaultTranslations;
     routes = routes || defaultRoutes;
