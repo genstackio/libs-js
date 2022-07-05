@@ -58,6 +58,17 @@ export type box_context_value = {
     variant: string | undefined;
 };
 
+export type fields_context_value = {
+    [key: string]: field_context_value_field;
+};
+
+export type field_context_value_field = {
+    type?: string;
+    label?: string;
+    placeholder?: string;
+    helper?: string;
+};
+
 export type ambiance_context_value = {
     sectionHeaderCorner?: string;
     menuItemCorner?: string;
@@ -186,7 +197,6 @@ export type app_context_params = {
     getImage?: image_getter;
     apiOptions?: any;
     fullscreen?: fullscreen_context_value;
-    ambiance?: ambiance_context_value;
 };
 
 export type app_importer_function = ({path, name}: {path: string, name: string}) => Promise<any> | undefined;

@@ -1,9 +1,15 @@
-import useComponent from "@genstackio/react-contexts/lib/hooks/useComponent";
+import Field from "../atoms/Field";
 
-export function FormFieldContent({name, required = false, disabled = false, autoFocus = false, options: {field} = {}}: FormFieldContentProps) {
-    const Component = useComponent('form_field', name);
+export function FormFieldContent({name, required = undefined, disabled = undefined, autoFocus = undefined, options: {field} = {}}: FormFieldContentProps) {
 
-    return <Component {...field} autoFocus={autoFocus} disabled={disabled} required={required} />;
+    return (
+        <Field name={name}
+               {...field}
+               {...((undefined !== autoFocus) ? {autoFocus} : {})}
+               {...((undefined !== disabled) ? {disabled} : {})}
+               {...((undefined !== required) ? {required} : {})}
+        />
+    );
 }
 
 export interface FormFieldContentProps {

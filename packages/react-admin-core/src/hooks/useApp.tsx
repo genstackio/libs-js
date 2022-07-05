@@ -11,7 +11,7 @@ import {
     importer_function,
     importers,
     menus_factory_context_value,
-    request_upload_infos, logos_context_value
+    request_upload_infos, logos_context_value, fields_context_value
 } from "@genstackio/react-contexts/lib/types";
 import { FullscreenProvider as BaseFullscreenProvider } from '@genstackio/react-contexts/lib/contexts/FullscreenContext';
 import { FullScreen } from 'react-full-screen';
@@ -59,6 +59,7 @@ const defaultTranslations = {};
 const defaultIcons = {};
 const defaultTheme = {};
 const defaultAmbiance = {};
+const defaultFields = {};
 
 export function useApp({
     importer,
@@ -72,6 +73,7 @@ export function useApp({
     uploader = undefined,
     apiOptions = undefined,
     ambiance = undefined,
+    fields = undefined,
     menus = undefined,
     lists = undefined,
     breadcrumbs = undefined,
@@ -88,6 +90,7 @@ export function useApp({
     uploader?: request_upload_infos;
     apiOptions?: any;
     ambiance?: ambiance_context_value;
+    fields?: fields_context_value;
     menus?: menus_factory_context_value;
     lists?: list_factory_context_value;
     breadcrumbs?: breadcrumbs_factory_context_value;
@@ -101,6 +104,7 @@ export function useApp({
     tailwind = tailwind || defaultTailwind;
     icons = icons || defaultIcons;
     ambiance = ambiance || defaultAmbiance;
+    fields = fields || defaultFields;
     return useMemo(
         () => ({
             prefix,
@@ -134,6 +138,7 @@ export function useApp({
             requiredRoles,
             upload: uploader,
             ambiance,
+            fields,
             menus,
             lists,
             breadcrumbs,
@@ -157,6 +162,7 @@ export function useApp({
             uploader,
             apiOptions,
             ambiance,
+            fields,
             importer,
             importers,
             menus,

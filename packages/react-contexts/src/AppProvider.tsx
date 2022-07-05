@@ -15,6 +15,7 @@ import { MessagesProvider } from './contexts/MessagesContext';
 import { FavoritesProvider } from './contexts/FavoritesContext';
 import { UploadProvider } from './contexts/UploadContext';
 import { AmbianceProvider } from './contexts/AmbianceContext';
+import { FieldsProvider } from './contexts/FieldsContext';
 import { LogosProvider } from './contexts/LogosContext';
 import { MenusFactoryProvider } from './contexts/MenusFactoryContext';
 import { ListFactoryProvider } from './contexts/ListFactoryContext';
@@ -32,7 +33,10 @@ import {
     ambiance_context_value,
     importers,
     logos_context_value,
-    menus_factory_context_value, list_factory_context_value, breadcrumbs_factory_context_value,
+    menus_factory_context_value,
+    list_factory_context_value,
+    breadcrumbs_factory_context_value,
+    fields_context_value,
 } from './types';
 
 export function AppProvider({
@@ -64,6 +68,7 @@ export function AppProvider({
     icons,
     upload,
     ambiance,
+    fields,
     importerBuilder,
     logos,
     menus,
@@ -91,6 +96,7 @@ export function AppProvider({
     locales && (content = <LocalesProvider value={locales}>{content}</LocalesProvider>);
     theme && ThemeProvider && (content = <ThemeProvider value={theme}>{content}</ThemeProvider>);
     ambiance && (content = <AmbianceProvider value={ambiance}>{content}</AmbianceProvider>);
+    fields && (content = <FieldsProvider value={fields}>{content}</FieldsProvider>);
     translation &&
         TranslationProvider &&
         (content = <TranslationProvider value={translation}>{content}</TranslationProvider>);
@@ -133,6 +139,7 @@ export interface AppProviderProps {
     upload?: upload_context_value;
     children?: ReactNode;
     ambiance?: ambiance_context_value;
+    fields?: fields_context_value;
     logos?: logos_context_value;
     menus?: menus_factory_context_value;
     lists?: list_factory_context_value;

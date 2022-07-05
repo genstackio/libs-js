@@ -34,6 +34,7 @@ export * from './FlagIcon';
 export * from './Form';
 export * from './FormHeader';
 export * from './FormFooter';
+export * from './Field';
 export * from './Frame';
 export * from './HeadingText';
 export * from './InfosItem';

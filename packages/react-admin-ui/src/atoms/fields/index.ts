@@ -119,6 +119,7 @@ export * from './StatusField';
 export * from './StreetField';
 export * from './SubjectField';
 export * from './SwitchField';
+export * from './TagsField';
 export * from './TabletImageField';
 export * from './TextareaField';
 export * from './TextField';
