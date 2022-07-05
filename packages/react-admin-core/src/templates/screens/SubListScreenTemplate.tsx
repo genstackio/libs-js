@@ -20,7 +20,7 @@ import useBreadcrumbsFactory from "@genstackio/react-contexts/lib/hooks/useBread
 
 const rowsPerPageOptions = [10, 20, 50, 100];
 
-function SubListScreenTemplate({ deletable = true, moveable = true, search = false, navigationMode = 'page', deleteQueryName = 'DELETE_{singularName}', parentName, parentSingularName, name, singularName, columns: forcedColumns = undefined, listRoute = '/{parentName}/{parentId}/{name}/page/{pPage}/{pSize}/{pMode}/{pCursors}', displayRoute = '/{name}/{id}', editRoute = '/{name}/{id}/edit', newRoute = '/{singularName}/new', defaultRowsPerPage = 10, onNewClick }: SubListScreenTemplateProps) {
+function SubListScreenTemplate({ searchSwitch = false, deletable = true, moveable = true, search = false, navigationMode = 'page', deleteQueryName = 'DELETE_{singularName}', parentName, parentSingularName, name, singularName, columns: forcedColumns = undefined, listRoute = '/{parentName}/{parentId}/{name}/page/{pPage}/{pSize}/{pMode}/{pCursors}', displayRoute = '/{name}/{id}', editRoute = '/{name}/{id}/edit', newRoute = '/{singularName}/new', defaultRowsPerPage = 10, onNewClick }: SubListScreenTemplateProps) {
     const { t } = useTranslation();
     const history = useHistory();
     const listFactory = useListFactory();
@@ -250,9 +250,9 @@ function SubListScreenTemplate({ deletable = true, moveable = true, search = fal
                 <div className={'flex space-x-4 items-center mb-1'}>
                     {!!onNewClick && <Button onClick={(onNewClick ? onNewClick : (list['globalActions'] || []).includes('add') ? goNew : undefined)} icon={'fa-fas--plus'} variant={'contained'}>{t('button_add_label')}</Button>}
                     {(!!items.length || !loading) && ((page.index > 0) || !!nextCursor) && <Tag variant={"contained"} className={'rounded'} text={`Page ${page.index + 1}`}/>}
-                    <div className={'flex flex-col justify-center -mt-2'}>
+                    {!!searchSwitch && (<div className={'flex flex-col justify-center -mt-2'}>
                         <SwitchField name={'searchMode'} defaultValues={switchDefaultValues} label={'opensearch'} onChange={handleSwitchChange}/>
-                    </div>
+                    </div>)}
                 </div>
             )}
             {!!error && <Alert color={'danger'} className={'mb-2'}>{error.message}</Alert>}
@@ -283,6 +283,7 @@ export interface SubListScreenTemplateProps {
     search?: boolean;
     moveable?: boolean;
     deletable?: boolean;
+    searchSwitch?: boolean;
 }
 
 // noinspection JSUnusedGlobalSymbols
