@@ -63,9 +63,9 @@ function DisplayScreenTemplate({ status = true, toolbarComponent, id, name, info
             {!doc && <Alert color={'warning'}>{t([`screen_${name}_display_doc_empty`, 'screen_generic_display_doc_empty'])}</Alert>}
             {(!!onEditClick || !!onAfterDelete || !!ToolbarComponent) && (
                 <div className={'mb-4 space-x-2 flex items-center'}>
+                    {!!status && !!doc && !!doc.status && <div className={'py-2 px-4 font-semibold rounded-md bg-black text-white'}>{doc.status}</div>}
                     {!!onEditClick && <Button icon={'fa-fas--pen-to-square'} onClick={onEditClick}>{t('button_edit_label')}</Button>}
                     {!!onAfterDelete && <Button icon={'fa-fas--trash'} onClick={handleDeleteClick} variant={'contained'} color={'danger'} confirm confirmKind={'delete'} confirmDanger>{t('button_delete_label')}</Button>}
-                    {!!status && !!doc && !!doc.status && <div className={'py-2 px-4 font-semibold rounded-md bg-black text-white'}>{doc.status}</div>}
                     {!!ToolbarComponent && <ToolbarComponent doc={doc} reload={reload} />}
                 </div>
             )}
