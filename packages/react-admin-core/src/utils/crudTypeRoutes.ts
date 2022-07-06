@@ -5,15 +5,15 @@ export function crudTypeRoutes(name: string, {plural, types, ...def}: {plural?: 
     const singular = name;
     plural = plural || `${name}s`;
     return [
-        {path: `/${plural}/page/:pPage/:pSize/:pMode/:pCursors?`, screen: 'crud/list', screenProps: {name, singular, plural, fullName: `${singular}/${plural}`}},
+        def.list && {path: `/${plural}/page/:pPage/:pSize/:pMode/:pCursors?`, screen: 'crud/list', screenProps: {name, singular, plural, fullName: `${singular}/${plural}`}},
         ...Object.entries(types || {}).reduce((acc, [k, v]: [string, any]) => [
             ...acc,
             ...crudTypeSubtypeRoutes(name, {plural: plural as string, ...def}, k, v)
         ], [] as any[]),
-        {path: `/${plural}/:id/edit`, screen: 'crud/edit', screenProps: {name, singular, plural, ...def, fullName: `${singular}/edit_${singular}`}},
-        {path: `/${singular}/new`, screen: 'crud/new', screenProps: {name, singular, plural, ...def, fullName: `${singular}/create_${singular}`}},
-        {path: `/${plural}/:id`, screen: 'crud/display', screenProps: {name, singular, plural, ...def, fullName: `${singular}/${singular}`}},
-        {path: `/${plural}`, screen: 'crud/list', screenProps: {name, singular, plural, ...def, fullName: `${singular}/${plural}`}},
+        def.edit && {path: `/${plural}/:id/edit`, screen: 'crud/edit', screenProps: {name, singular, plural, ...def, fullName: `${singular}/edit_${singular}`}},
+        def.new && {path: `/${singular}/new`, screen: 'crud/new', screenProps: {name, singular, plural, ...def, fullName: `${singular}/create_${singular}`}},
+        def.display && {path: `/${plural}/:id`, screen: 'crud/display', screenProps: {name, singular, plural, ...def, fullName: `${singular}/${singular}`}},
+        def.list && {path: `/${plural}`, screen: 'crud/list', screenProps: {name, singular, plural, ...def, fullName: `${singular}/${plural}`}},
     ]
 }
 
