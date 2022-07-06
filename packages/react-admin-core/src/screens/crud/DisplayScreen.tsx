@@ -5,6 +5,7 @@ import {useTranslation} from "react-i18next";
 import useImporter from "@genstackio/react-contexts/lib/hooks/useImporter";
 import useComponent from "@genstackio/react-contexts/lib/hooks/useComponent";
 import useBreadcrumbsFactory from "@genstackio/react-contexts/lib/hooks/useBreadcrumbsFactory";
+import Contents from "@genstackio/react-admin-ui/lib/molecules/Contents";
 
 const defaultPollableStatus: string[] = [];
 const defaultTabs: any[] = [];
@@ -40,8 +41,13 @@ export function DisplayScreen({name, plural, display: {props = {}, toolbar = fal
     }) : undefined, [tabs, name, t, importer]);
 
     const children = useCallback(() => body ? (pprops: {doc: any}) => {
-        const Comp = (importer ? importer(name, 'body') : undefined) || (() => null);
-        return <Comp {...pprops} properties={properties} id={id}/>;
+        let localBody: any = body;
+        const options = {type: name, ...pprops, properties, id}
+        if ('boolean' === typeof localBody) {
+            localBody = {content: [{type: 'body', options}]};
+        }
+        localBody = {content: [], ...localBody};
+        return <Contents content={localBody.content} options={options} />;
     } : undefined, [name, body, properties, id, importer]);
 
     const Component = useComponent('screen_template', 'display');
@@ -64,4 +70,5 @@ export interface DisplayScreenProps {
     };
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default DisplayScreen
