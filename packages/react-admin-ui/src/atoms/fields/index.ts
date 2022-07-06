@@ -109,6 +109,7 @@ export * from './RankField';
 export * from './RedditUrlField';
 export * from './RememberPasswordField';
 export * from './RoleField';
+export * from './RoleSelectField';
 export * from './SelectField';
 export * from './ShortNameField';
 export * from './SlugField';
