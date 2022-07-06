@@ -9,7 +9,7 @@ import {useCallback, useEffect, useMemo} from "react";
 import {breadcrumb_item, breadcrumb_item_adhoc} from "@genstackio/react-admin-ui/lib/types";
 import TableBlock from "@genstackio/react-admin-ui/lib/organisms/blocks/TabbedBlock";
 
-function DisplayScreenTemplate({ toolbarComponent, id, name, infoClassName, breadcrumbs = [], onEditClick, onAfterDelete, properties = [], tabs = [], pollInterval = undefined, isPollable = undefined, children }: DisplayScreenTemplateProps) {
+function DisplayScreenTemplate({ status = true, toolbarComponent, id, name, infoClassName, breadcrumbs = [], onEditClick, onAfterDelete, properties = [], tabs = [], pollInterval = undefined, isPollable = undefined, children }: DisplayScreenTemplateProps) {
     const { t } = useTranslation();
     const {data, error, refetch, stopPolling, startPolling} = useQueryApi(`GET_${name.toUpperCase()}`, {
         fetchPolicy: 'cache-and-network',
@@ -65,6 +65,7 @@ function DisplayScreenTemplate({ toolbarComponent, id, name, infoClassName, brea
                 <div className={'mb-4 space-x-2 flex items-center'}>
                     {!!onEditClick && <Button icon={'fa-fas--pen-to-square'} onClick={onEditClick}>{t('button_edit_label')}</Button>}
                     {!!onAfterDelete && <Button icon={'fa-fas--trash'} onClick={handleDeleteClick} variant={'contained'} color={'danger'} confirm confirmKind={'delete'} confirmDanger>{t('button_delete_label')}</Button>}
+                    {!!status && !!doc && !!doc.status && <div className={'py-2 px-4 font-semibold rounded-md bg-black text-white'}>{doc.status}</div>}
                     {!!ToolbarComponent && <ToolbarComponent doc={doc} reload={reload} />}
                 </div>
             )}
@@ -78,6 +79,7 @@ function DisplayScreenTemplate({ toolbarComponent, id, name, infoClassName, brea
 export interface DisplayScreenTemplateProps {
     id: string;
     name: string;
+    status?: boolean;
     breadcrumbs?: breadcrumb_item[];
     properties?: string[];
     onEditClick?: Function;
