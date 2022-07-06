@@ -23,7 +23,7 @@ export function Image({
     size = undefined,
     tablet,
     url,
-}: ImgProps) {
+}: ImageProps) {
     const style = useMemo(
         () => ({ objectFit: objectFit || (contained ? 'contain' : undefined), objectPosition }),
         [objectFit, contained, objectPosition],
@@ -53,7 +53,7 @@ export function Image({
     );
 }
 
-export interface ImgProps extends AsComponent, WithCorner, WithShape, WithSizeOfImage {
+export interface ImageProps extends AsComponent, WithCorner, WithShape, WithSizeOfImage {
     expand?: flag;
     url?: string;
     alt?: string;
