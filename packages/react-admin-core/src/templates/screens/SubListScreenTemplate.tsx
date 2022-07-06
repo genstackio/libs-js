@@ -17,6 +17,7 @@ import {GridPageChangeParams} from '@material-ui/data-grid';
 import ScreenHeader from "@genstackio/react-admin-ui/lib/organisms/ScreenHeader";
 import useBreadcrumbs from "../../hooks/useBreadcrumbs";
 import useBreadcrumbsFactory from "@genstackio/react-contexts/lib/hooks/useBreadcrumbsFactory";
+import clsx from 'clsx';
 
 const rowsPerPageOptions = [10, 20, 50, 100];
 
@@ -113,7 +114,7 @@ function SubListScreenTemplate({ searchSwitch = false, deletable = true, moveabl
         })
         if (list['actions'] && list['actions'].length) {
             xx.push({id: 'actions', flex: 0, width: (list['actions'] || []).length * (50 + (8 - 1.5*(list['actions'] || []).length)), label: t('column_actions_label'), render: (_: any, doc: any) => {
-                    const xxxx = (list['actions'] || []).map((xxx0: any, i: number) => {
+                    const xxxx = ((searchMode ? ((list as any)['opensearchActions'] || list['actions']) : list['actions']) || []).map((xxx0: any, i: number) => {
                         let color: any = undefined;
                         let variant: any = undefined;
                         let onClick: any = undefined;
@@ -247,7 +248,7 @@ function SubListScreenTemplate({ searchSwitch = false, deletable = true, moveabl
         <>
             {!!breadcrumbs.length && <ScreenHeader items={breadcrumbs as breadcrumb_item_adhoc[]} className={'mt-3 mb-5'} />}
             {(!!onNewClick || displayPage) && (
-                <div className={'flex space-x-4 items-center mb-1'}>
+                <div className={clsx('flex space-x-4 items-center', !searchSwitch ? 'mb-5' : 'mb-1')}>
                     {!!onNewClick && <Button onClick={(onNewClick ? onNewClick : (list['globalActions'] || []).includes('add') ? goNew : undefined)} icon={'fa-fas--plus'} variant={'contained'}>{t('button_add_label')}</Button>}
                     {(!!items.length || !loading) && ((page.index > 0) || !!nextCursor) && <Tag variant={"contained"} className={'rounded'} text={`Page ${page.index + 1}`}/>}
                     {!!searchSwitch && (<div className={'flex flex-col justify-center -mt-2'}>

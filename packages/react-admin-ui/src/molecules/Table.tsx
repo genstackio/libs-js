@@ -142,7 +142,6 @@ export function Table({
             rows={items}
             rowsPerPageOptions={defaultRowsPerPageOptions}
             className={className}
-
             {...props}
         />
     );
