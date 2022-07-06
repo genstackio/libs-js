@@ -62,7 +62,7 @@ function DisplayScreenTemplate({ toolbarComponent, id, name, infoClassName, brea
             {!!error && <Alert color={'danger'} className={'mb-2'}>{error.message}</Alert>}
             {!doc && <Alert color={'warning'}>{t([`screen_${name}_display_doc_empty`, 'screen_generic_display_doc_empty'])}</Alert>}
             {(!!onEditClick || !!onAfterDelete || !!ToolbarComponent) && (
-                <div className={'mb-4 space-x-2'}>
+                <div className={'mb-4 space-x-2 flex items-center'}>
                     {!!onEditClick && <Button icon={'fa-fas--pen-to-square'} onClick={onEditClick}>{t('button_edit_label')}</Button>}
                     {!!onAfterDelete && <Button icon={'fa-fas--trash'} onClick={handleDeleteClick} variant={'contained'} color={'danger'} confirm confirmKind={'delete'} confirmDanger>{t('button_delete_label')}</Button>}
                     {!!ToolbarComponent && <ToolbarComponent doc={doc} reload={reload} />}
