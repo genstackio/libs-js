@@ -43,6 +43,7 @@ export * from './FacebookUrlField';
 export * from './FaviconImageField';
 export * from './FaxField';
 export * from './FeaturedField';
+export * from './FeaturesSelectField';
 export * from './FileField';
 export * from './FirstNameField';
 export * from './FlickrUrlField';

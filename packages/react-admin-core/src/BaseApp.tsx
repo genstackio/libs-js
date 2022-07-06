@@ -43,7 +43,6 @@ export function BaseApp({
     fallbackLocale = undefined,
     requiredRoles = undefined,
     upload = undefined,
-    ambiance = undefined,
     ...props
 }: BaseAppProps) {
     translations = translations || defaultTranslations;

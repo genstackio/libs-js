@@ -58,6 +58,7 @@ export default {
 
             field_privacypolicy_description: 'Politique de confidentialité...',
 
+            field_role_label: "Rôle",
             field_image_label: "Image",
             field_privacypolicy_label: "J'accepte la politique de confidentialité",
             field_rememberpassword_label: 'Se souvenir de moi',
