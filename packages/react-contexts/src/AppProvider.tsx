@@ -76,7 +76,7 @@ export function AppProvider({
     breadcrumbs,
 }: AppProviderProps) {
     let content = children || '';
-    const finalImporter = useMemo(() => importerBuilder(importer, importers), [importer, importers]);
+    const finalImporter = useMemo(() => importerBuilder(importer, importers), [importer, importers, importerBuilder]);
     icons && IconsProvider && (content = <IconsProvider value={icons}>{content}</IconsProvider>);
     favorites && (content = <FavoritesProvider value={favorites}>{content}</FavoritesProvider>);
     notifications && (content = <NotificationsProvider value={notifications}>{content}</NotificationsProvider>);

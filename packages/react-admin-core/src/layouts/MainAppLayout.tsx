@@ -8,7 +8,7 @@ import useLogos from "@genstackio/react-contexts/lib/hooks/useLogos";
 export function MainAppLayout({children, ...props}: MainAppLayoutProps) {
     const menusFactory = useMenusFactory();
     const ToolbarComponent = useComponent('toolbar', 'main_app')
-    const toolbarProps = useMemo(() => ({languageEnabled: true, children: ToolbarComponent}), [ToolbarComponent]);
+    const toolbarProps = useMemo(() => ({languageEnabled: true, children: ToolbarComponent ? <ToolbarComponent /> : undefined}), [ToolbarComponent]);
     const menu = useMenu('main', menusFactory);
     const userMenu = useMenu('user', menusFactory);
     const {logoFull} = useLogos();

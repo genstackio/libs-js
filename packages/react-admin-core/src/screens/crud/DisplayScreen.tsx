@@ -35,7 +35,7 @@ export function DisplayScreen({name, plural, display: {props = {}, toolbar = fal
     const toolbarComponent = useComponent('toolbar', name, undefined, toolbar);
 
     const tabsList = useMemo(() => tabs ? (tabs || []).map((tt: {name: string}) => {
-        const Comp = (importer ? importer( `${name}/${tt.name}`, 'tabs') : undefined) || (() => null);
+        const Comp = (importer ? importer( `${name}/${tt.name}`, 'tab') : undefined) || (() => null);
         return {title: t(`tab_${name}_${tt.name}_title`), component: Comp};
     }) : undefined, [tabs, name, t, importer]);
 
