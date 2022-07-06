@@ -79,6 +79,7 @@ function SubListScreenTemplate({ searchSwitch = false, deletable = true, moveabl
             ...fetchSortVariables,
         }
     }) as any;
+
     const handleDelete = useCallback(id => () => {
         const p = deleteDoc({variables: {id}});
         p.then(() => {

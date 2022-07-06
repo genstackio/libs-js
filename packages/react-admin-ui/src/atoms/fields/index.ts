@@ -136,6 +136,7 @@ export * from './TwitterUrlField';
 export * from './TwitterShareImageField';
 export * from './UrlField';
 export * from './TypeField';
+export * from './TypeSelectField';
 export * from './UrlField';
 export * from './UsernameField';
 export * from './VimeoUrlField';
