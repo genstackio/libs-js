@@ -17,6 +17,7 @@ import {GridPageChangeParams} from '@material-ui/data-grid';
 import ScreenHeader from "@genstackio/react-admin-ui/lib/organisms/ScreenHeader";
 import useBreadcrumbs from "../../hooks/useBreadcrumbs";
 import useBreadcrumbsFactory from "@genstackio/react-contexts/lib/hooks/useBreadcrumbsFactory";
+import clsx from 'clsx';
 
 const rowsPerPageOptions = [10, 20, 50, 100];
 
@@ -206,7 +207,7 @@ function ListScreenTemplate({ search = true, searchSwitch = true, navigationMode
         <>
             {!!breadcrumbs.length && <ScreenHeader items={breadcrumbs as breadcrumb_item_adhoc[]} className={'mt-3 mb-5'} />}
             {(!!onNewClick || displayPage) && (
-                <div className={'flex space-x-4 items-center mb-1'}>
+                <div className={clsx('flex space-x-4 items-center', !searchSwitch ? 'mb-3' : 'mb-1')}>
                     {!!onNewClick && <Button onClick={(onNewClick ? onNewClick : (list['globalActions'] || []).includes('add') ? goNew : undefined)} icon={'fa-fas--plus'} variant={'contained'}>{t('button_add_label')}</Button>}
                     {(!!items.length || !loading) && ((page.index > 0) || !!nextCursor) && <Tag variant={"contained"} className={'rounded'} text={`Page ${page.index + 1}`}/>}
                     {!!searchSwitch && (<div className={'flex flex-col justify-center -mt-2'}>
