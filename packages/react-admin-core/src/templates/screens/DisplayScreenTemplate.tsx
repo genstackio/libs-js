@@ -9,7 +9,7 @@ import {useCallback, useEffect, useMemo} from "react";
 import {breadcrumb_item, breadcrumb_item_adhoc} from "@genstackio/react-admin-ui/lib/types";
 import TableBlock from "@genstackio/react-admin-ui/lib/organisms/blocks/TabbedBlock";
 
-function DisplayScreenTemplate({ status = true, toolbarComponent, id, name, infoClassName, breadcrumbs = [], onEditClick, onAfterDelete, properties = [], tabs = [], pollInterval = undefined, isPollable = undefined, children }: DisplayScreenTemplateProps) {
+function DisplayScreenTemplate({ status = true, deletable = true, toolbarComponent, id, name, infoClassName, breadcrumbs = [], onEditClick, onAfterDelete, properties = [], tabs = [], pollInterval = undefined, isPollable = undefined, children }: DisplayScreenTemplateProps) {
     const { t } = useTranslation();
     const {data, error, refetch, stopPolling, startPolling} = useQueryApi(`GET_${name.toUpperCase()}`, {
         fetchPolicy: 'cache-and-network',
@@ -43,7 +43,9 @@ function DisplayScreenTemplate({ status = true, toolbarComponent, id, name, info
     const fetchedProperties: {label: any, value: any}[] = properties.map(key => {
         return {value: doc[key], label: key};
     });
-    const [onDelete] = useMutationApi(`DELETE_${name.toUpperCase()}`, {variables: {
+
+    const conditionalUseMutationApi = (test: boolean) => test ? useMutationApi : (() => [undefined]);
+    const [onDelete] = conditionalUseMutationApi(deletable)(`DELETE_${name.toUpperCase()}`, {variables: {
             id,
         }});
 
@@ -90,6 +92,7 @@ export interface DisplayScreenTemplateProps {
     toolbarComponent?: any;
     pollInterval?: number;
     isPollable?: Function;
+    deletable?: boolean;
 }
 
 export default DisplayScreenTemplate

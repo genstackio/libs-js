@@ -1,9 +1,9 @@
 import useComponent from "@genstackio/react-contexts/lib/hooks/useComponent";
 
-export function ListScreen({singular, plural, list: {search, props = {}} = {}}: ListScreenProps) {
+export function ListScreen({singular, plural, list: {search, deletable, props = {}} = {}}: ListScreenProps) {
     const Component = useComponent('screen_template', 'list');
 
-    return <Component name={plural} singularName={singular} search={search} {...props} />
+    return <Component name={plural} singularName={singular} search={search} deletable={deletable} {...props} />
 }
 
 export interface ListScreenProps {
@@ -12,6 +12,7 @@ export interface ListScreenProps {
     plural: string;
     list?: {
         search?: boolean;
+        deletable?: boolean;
         props?: any;
     };
 }

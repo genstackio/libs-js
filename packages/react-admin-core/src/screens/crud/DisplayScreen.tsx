@@ -11,7 +11,7 @@ const defaultPollableStatus: string[] = [];
 const defaultTabs: any[] = [];
 const defaultProperties: any[] = [];
 
-export function DisplayScreen({name, plural, display: {props = {}, toolbar = false, body = false, properties = defaultProperties, pollInterval = undefined, pollableStatus = defaultPollableStatus, tabs = defaultTabs} = {}}: DisplayScreenProps) {
+export function DisplayScreen({name, plural, display: {deletable, props = {}, toolbar = false, body = false, properties = defaultProperties, pollInterval = undefined, pollableStatus = defaultPollableStatus, tabs = defaultTabs} = {}}: DisplayScreenProps) {
     const {t} = useTranslation();
     const {id} = useParams<{ id: string }>();
     const history = useHistory();
@@ -52,7 +52,7 @@ export function DisplayScreen({name, plural, display: {props = {}, toolbar = fal
 
     const Component = useComponent('screen_template', 'display');
 
-    return <Component id={id} name={name} isPollable={isPollable} pollInterval={pollInterval} toolbarComponent={toolbarComponent} tabs={tabsList} breadcrumbs={breadcrumbs} properties={properties} onEditClick={goEdit} onAfterDelete={onAfterDelete} children={children ? children() : undefined} {...props} />;
+    return <Component id={id} name={name} isPollable={isPollable} pollInterval={pollInterval} toolbarComponent={toolbarComponent} tabs={tabsList} breadcrumbs={breadcrumbs} properties={properties} onEditClick={goEdit} onAfterDelete={onAfterDelete} deletable={deletable} children={children ? children() : undefined} {...props} />;
 }
 
 export interface DisplayScreenProps {
@@ -60,6 +60,7 @@ export interface DisplayScreenProps {
     singular: string;
     plural: string;
     display?: {
+        deletable?: boolean;
         props?: any;
         toolbar?: boolean;
         body?: boolean;
