@@ -9,7 +9,7 @@ import {useCallback, useEffect, useMemo} from "react";
 import {breadcrumb_item, breadcrumb_item_adhoc} from "@genstackio/react-admin-ui/lib/types";
 import TableBlock from "@genstackio/react-admin-ui/lib/organisms/blocks/TabbedBlock";
 
-function DisplayScreenTemplate({ status = true, deletable = true, toolbarComponent, id, name, infoClassName, breadcrumbs = [], onEditClick, onAfterDelete, properties = [], tabs = [], pollInterval = undefined, isPollable = undefined, children }: DisplayScreenTemplateProps) {
+function DisplayScreenTemplate({ status = true, deletable = true, editable = true, toolbarComponent, id, name, infoClassName, breadcrumbs = [], onEditClick, onAfterDelete, properties = [], tabs = [], pollInterval = undefined, isPollable = undefined, children }: DisplayScreenTemplateProps) {
     const { t } = useTranslation();
     const {data, error, refetch, stopPolling, startPolling} = useQueryApi(`GET_${name.toUpperCase()}`, {
         fetchPolicy: 'cache-and-network',
@@ -66,8 +66,8 @@ function DisplayScreenTemplate({ status = true, deletable = true, toolbarCompone
             {(!!onEditClick || !!onAfterDelete || !!ToolbarComponent) && (
                 <div className={'mb-4 space-x-2 flex items-center'}>
                     {!!status && !!doc && !!doc.status && <div className={'py-2 px-4 font-semibold rounded-md bg-black text-white'}>{doc.status}</div>}
-                    {!!onEditClick && <Button icon={'fa-fas--pen-to-square'} onClick={onEditClick}>{t('button_edit_label')}</Button>}
-                    {!!onAfterDelete && <Button icon={'fa-fas--trash'} onClick={handleDeleteClick} variant={'contained'} color={'danger'} confirm confirmKind={'delete'} confirmDanger>{t('button_delete_label')}</Button>}
+                    {!!onEditClick && !!editable && <Button icon={'fa-fas--pen-to-square'} onClick={onEditClick}>{t('button_edit_label')}</Button>}
+                    {!!onAfterDelete && !!deletable && <Button icon={'fa-fas--trash'} onClick={handleDeleteClick} variant={'contained'} color={'danger'} confirm confirmKind={'delete'} confirmDanger>{t('button_delete_label')}</Button>}
                     {!!ToolbarComponent && <ToolbarComponent doc={doc} reload={reload} />}
                 </div>
             )}
@@ -93,6 +93,7 @@ export interface DisplayScreenTemplateProps {
     pollInterval?: number;
     isPollable?: Function;
     deletable?: boolean;
+    editable?: boolean;
 }
 
 export default DisplayScreenTemplate
