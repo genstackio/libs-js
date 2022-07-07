@@ -21,7 +21,7 @@ import clsx from 'clsx';
 
 const rowsPerPageOptions = [10, 20, 50, 100];
 
-function ListScreenTemplate({ search = true, searchSwitch = true, navigationMode = 'page', deleteQueryName = 'DELETE_{singularName}', name, singularName, columns: forcedColumns = undefined, listRoute = '/{name}/page/{pPage}/{pSize}/{pMode}/{pCursors}', listFirstPageRoute = '/{name}', displayRoute = '/{name}/{id}', editRoute = '/{name}/{id}/edit', newRoute = '/{singularName}/new', defaultRowsPerPage = 10, onNewClick }: ListScreenTemplateProps) {
+function ListScreenTemplate({ search = true, searchSwitch = true, deletable = true, navigationMode = 'page', deleteQueryName = 'DELETE_{singularName}', name, singularName, columns: forcedColumns = undefined, listRoute = '/{name}/page/{pPage}/{pSize}/{pMode}/{pCursors}', listFirstPageRoute = '/{name}', displayRoute = '/{name}/{id}', editRoute = '/{name}/{id}/edit', newRoute = '/{singularName}/new', defaultRowsPerPage = 10, onNewClick }: ListScreenTemplateProps) {
     const { t } = useTranslation();
     const history = useHistory();
     const listFactory = useListFactory();
@@ -51,7 +51,8 @@ function ListScreenTemplate({ search = true, searchSwitch = true, navigationMode
         ('undefined' !== typeof window) && url && window.open(url);
     }, []);
 
-    const [deleteDoc] = useMutationApi(deleteQueryName.replace('{name}', name).replace('{singularName}', singularName as string).toUpperCase(), {});
+    const conditionalUseMutationApi = (test: boolean) => test ? useMutationApi : (() => [undefined]);
+    const [deleteDoc] = conditionalUseMutationApi(deletable)(deleteQueryName.replace('{name}', name).replace('{singularName}', singularName as string).toUpperCase(), {});
 
     const cursor = page.currentCursor;
     const fetchSortVariables = useMemo(() => sortModel.length ? {sort: `${sortModel[0].field}:${sortModel[0].sort}`} : {}, [sortModel]);
@@ -240,6 +241,7 @@ export interface ListScreenTemplateProps {
     deleteQueryName?: string;
     search?: boolean;
     searchSwitch?: boolean;
+    deletable?: boolean;
 }
 
 // noinspection JSUnusedGlobalSymbols
