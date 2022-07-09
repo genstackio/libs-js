@@ -1,7 +1,7 @@
 import Table from '@genstackio/react-admin-ui/lib/molecules/Table';
 import Alert from '@genstackio/react-admin-ui/lib/atoms/Alert';
 import useQueryApi from "@genstackio/react-contexts/lib/hooks/useQueryApi";
-import useMutationApi from "@genstackio/react-contexts/lib/hooks/useMutationApi";
+import useConditionalMutationApi from "@genstackio/react-contexts/lib/hooks/useConditionalMutationApi";
 import {useCallback, useEffect, useMemo, useState} from "react";
 import {useTranslation} from "react-i18next";
 import Button from "@genstackio/react-admin-ui/lib/atoms/Button";
@@ -52,16 +52,15 @@ function SubListScreenTemplate({ searchSwitch = false, deletable = true, moveabl
         ('undefined' !== typeof window) && url && window.open(url);
     }, []);
 
-    const conditionalUseMutationApi = (test: boolean) => test ? useMutationApi : (() => [undefined]);
     const moveQueryName = `MOVE_${parentSingularName.toUpperCase()}_${singularName.toUpperCase()}`;
-    const [deleteDoc] = conditionalUseMutationApi(deletable)(deleteQueryName.replace('{name}', name).replace('{singularName}', singularName as string).toUpperCase(), {});
-    const [upDoc] = conditionalUseMutationApi(moveable)(moveQueryName.replace('{parentName}', parentName).replace('{parentId}', parentId).replace('{name}', name).replace('{singularName}', singularName as string).toUpperCase(), {
+    const [deleteDoc] = useConditionalMutationApi(deletable, deleteQueryName.replace('{name}', name).replace('{singularName}', singularName as string).toUpperCase(), {});
+    const [upDoc] = useConditionalMutationApi(moveable, moveQueryName.replace('{parentName}', parentName).replace('{parentId}', parentId).replace('{name}', name).replace('{singularName}', singularName as string).toUpperCase(), {
         variables: {
             parentId: parentId,
             direction: 'up',
         }
     });
-    const [downDoc] = conditionalUseMutationApi(moveable)(moveQueryName.replace('{parentName}', parentName).replace('{parentId}', parentId).replace('{name}', name).replace('{singularName}', singularName as string).toUpperCase(), {
+    const [downDoc] = useConditionalMutationApi(moveable, moveQueryName.replace('{parentName}', parentName).replace('{parentId}', parentId).replace('{name}', name).replace('{singularName}', singularName as string).toUpperCase(), {
         variables: {
             parentId: parentId,
             direction: 'down',

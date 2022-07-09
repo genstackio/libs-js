@@ -4,7 +4,7 @@ import ScreenHeader from '@genstackio/react-admin-ui/lib/organisms/ScreenHeader'
 import Infos from '@genstackio/react-admin-ui/lib/molecules/Infos';
 import { useQueryApi } from "@genstackio/react-contexts";
 import {useTranslation} from "react-i18next";
-import {useMutationApi} from "@genstackio/react-contexts/lib/hooks/useMutationApi";
+import useConditionalMutationApi from "@genstackio/react-contexts/lib/hooks/useConditionalMutationApi";
 import {useCallback, useEffect, useMemo} from "react";
 import {breadcrumb_item, breadcrumb_item_adhoc} from "@genstackio/react-admin-ui/lib/types";
 import TableBlock from "@genstackio/react-admin-ui/lib/organisms/blocks/TabbedBlock";
@@ -44,8 +44,7 @@ function DisplayScreenTemplate({ status = true, deletable = true, editable = tru
         return {value: doc[key], label: key};
     });
 
-    const conditionalUseMutationApi = (test: boolean) => test ? useMutationApi : (() => [undefined]);
-    const [onDelete] = conditionalUseMutationApi(deletable)(`DELETE_${name.toUpperCase()}`, {variables: {
+    const [onDelete] = useConditionalMutationApi(deletable, `DELETE_${name.toUpperCase()}`, {variables: {
             id,
         }});
 

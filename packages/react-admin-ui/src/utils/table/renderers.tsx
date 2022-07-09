@@ -6,6 +6,7 @@ import Image from "../../atoms/Image";
 import Rating from "../../atoms/Rating";
 import Spinner from "../../atoms/Spinner";
 import Tag from "../../atoms/Tag";
+import clsx from "clsx";
 
 function colval(params: GridCellParams, col: any): any {
     return params.getValue(params.id, col.id);
@@ -40,3 +41,33 @@ export const tag = col => (params: GridCellParams) => (
 export const custom = col => (params: GridCellParams) => col.render!(params.getValue(params.id, col.id), params);
 
 export const unknown = () => undefined;
+
+const colorSizes = {
+    xxs: 'w-2 h-2',
+    xs: 'w-4 h-4',
+    sm: 'w-6 h-6',
+    md: 'w-8 h-8',
+    xl: 'w-10 h-10',
+};
+const colorShapes = {
+    circle: 'rounded-full',
+    square: '',
+    'rounded-square': 'rounded-sm',
+};
+
+export const colors = col => (params: GridCellParams) => {
+    const defaultColorShape = 'rounded-square';
+    const defaultColorSize = 'sm';
+    const size = colorSizes[col.colorSize || defaultColorSize] || colorSizes[defaultColorSize];
+    const shape = colorShapes[col.colorShape || defaultColorShape] || colorShapes[defaultColorShape];
+    const colors = (col.colors || []).map((c: string) => params.row[c]).filter((x: any) => !!x).map((c: string, index: number) => {
+        return <div key={index} className={clsx('border', size, shape)} style={{backgroundColor: c}} />;
+    });
+    return (
+        <div className={'p-2'}>
+            <div className={'flex gap-1'}>
+                {colors}
+            </div>
+        </div>
+    );
+}

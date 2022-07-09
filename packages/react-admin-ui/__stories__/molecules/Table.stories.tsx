@@ -149,9 +149,10 @@ export const showcase = s(Table, {
         { id: 'username', label: 'Username' },
         { id: 'role', label: 'Role' },
         { id: 'country', label: 'Country' },
+        { id: 'colors', label: 'Color', render: 'colors', colors: ['color1', 'color2', 'color3'] },
     ],
     items: [
-        { id: '1', firstname: 'Alexander', lastname: 'Orton', username: '@mdorton', role: 'admin', country: 'USA' },
+        { id: '1', firstname: 'Alexander', lastname: 'Orton', username: '@mdorton', role: 'admin', country: 'USA', color1: 'red', color2: 'blue', color3: 'black' },
         { id: '2', firstname: 'John Deo', lastname: 'Deo', username: '@johndeo', role: 'user', country: 'USA' },
         { id: '3', firstname: 'Randy Orton', lastname: 'the Bird', username: '@twitter', role: 'admin', country: 'UK' },
         { id: '4', firstname: 'Randy Mark', lastname: 'Ottandy', username: '@mdothe', role: 'user', country: 'AUS' },
