@@ -40,7 +40,10 @@ export function SelectField({ className, onChange: parentOnChange, multiple, val
                         onChange={handleChange(onChange)}
                         options={values}
                         placeholder={placeholder}
-                        value={values.find((c) =>
+                        value={multiple ? values.filter((c) => {
+                            if (!value || !Array.isArray(value) || !value.length) return false;
+                            return value.includes(c.value);
+                        }) : values.find((c) =>
                             undefined !== value && '' !== value ? c.value === value : c.value === defaultValue,
                         )}
                         {...extra}

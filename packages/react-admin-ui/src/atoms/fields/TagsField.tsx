@@ -9,8 +9,8 @@ export function TagsField({tags = defaultTags, ...props}: TagsFieldProps) {
     const realTags = useMemo(() => {
         const realTags: any[] = [
             ...tags,
-        ].map((x: any) => ({...x, label: t(x.label)}));
-        realTags.sort((a: any, b: any) => a.label > b.label ? 1 : (a.label < b.label ? -1 : 0));
+        ].map((x: any) => ({...x, label: t(x.label || x.value || '?')}));
+        realTags.sort((a: any, b: any) => (a.label || a.value) > (b.label || (b.value)) ? 1 : ((a.label || a.value) < (b.label || b.value) ? -1 : 0));
 
         return realTags;
     }, [tags]);
