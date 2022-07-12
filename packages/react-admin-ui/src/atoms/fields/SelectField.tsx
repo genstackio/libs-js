@@ -13,10 +13,10 @@ export function SelectField({ className, onChange: parentOnChange, multiple, val
 
     const handleChange = useCallback(
         (x) => (val) => {
-            x && x(val.value);
+            x && x(multiple ? (val || []).map((x: any) => x.value) : val.value);
             parentOnChange && parentOnChange({ target: val });
         },
-        [parentOnChange],
+        [parentOnChange, multiple],
     );
 
     return (
