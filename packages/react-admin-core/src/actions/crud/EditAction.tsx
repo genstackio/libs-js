@@ -16,8 +16,8 @@ export function EditAction({name, id, edit = {}, singular, onSuccess, prepare, s
     prepare = useEditActionPrepare(id, prepare, attributes);
     const SpinnerComponent = spinnerComponent || Spinner;
     const localPrepare = useCallback((data: any) => {
-        data = prepare ? prepare(data) : data;
-        return typePrepare ? typePrepare(data) : data;
+        data = typePrepare ? typePrepare(data) : data;
+        return prepare ? prepare(data) : data;
     }, [prepare, typePrepare]);
     const { data, props: someProps } = useUpdateAction({
         id,

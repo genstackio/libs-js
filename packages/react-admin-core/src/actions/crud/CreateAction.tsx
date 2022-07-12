@@ -12,8 +12,8 @@ export function CreateAction({name, singular, new: newInfos = {}, onSuccess, pre
     const mutationName = `CREATE_${singular.toUpperCase()}`;
     prepare = useCreateActionPrepare(prepare, attributes);
     const localPrepare = useCallback((data: any) => {
-        data = prepare ? prepare(data) : data;
-        return typePrepare ? typePrepare(data) : data;
+        data = typePrepare ? typePrepare(data) : data;
+        return prepare ? prepare(data) : data;
     }, [prepare, typePrepare]);
     return <Component {...useAction(mutationName, { onSuccess, prepare: localPrepare })} {...props} name={name} new={newInfos} singular={singular} />;
 }
