@@ -58,6 +58,7 @@ export type SearchInput = {
     timeout?: any;
     version?: boolean;
     urlParams?: any;
+    highlight?: any;
 };
 export type SearchAllIndicesInput = {
     doc_value_fields?: any[];
