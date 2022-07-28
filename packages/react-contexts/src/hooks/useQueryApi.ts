@@ -1,10 +1,2 @@
-import useApi from './useApi';
-
-const defaultOptions = {};
-
-export const useQueryApi = (name: string, options: any = defaultOptions) => {
-    const { getQuery, useQuery } = useApi();
-    return useQuery(getQuery(name, options), options);
-};
-
-export default useQueryApi;
+export * from "@genstackio/react-context-api/lib/hooks/useQueryApi";
+export {default as default} from "@genstackio/react-context-api/lib/hooks/useQueryApi";

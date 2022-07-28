@@ -1,12 +1,2 @@
-import useMutationApi from "./useMutationApi";
-
-const defaultOptions = {};
-
-export const useConditionalMutationApi = (condition: boolean, name: string, options: any = defaultOptions) => {
-    const conditional = (test: boolean) => test ? useMutationApi : (() => [undefined]);
-
-    return conditional(condition)(name, options);
-};
-
-// noinspection JSUnusedGlobalSymbols
-export default useConditionalMutationApi;
+export * from "@genstackio/react-context-api/lib/hooks/useConditionalMutationApi";
+export {default as default} from "@genstackio/react-context-api/lib/hooks/useConditionalMutationApi";

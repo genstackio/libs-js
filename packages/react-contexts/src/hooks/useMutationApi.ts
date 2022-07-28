@@ -1,10 +1,2 @@
-import useApi from './useApi';
-
-const defaultOptions = {};
-
-export const useMutationApi = (name: string, options: any = defaultOptions) => {
-    const { useMutation, getQuery, getCallbacks } = useApi();
-    return [...(useMutation(getQuery(name, options), options) as [Function, any]), getCallbacks(name)];
-};
-
-export default useMutationApi;
+export * from "@genstackio/react-context-api/lib/hooks/useMutationApi";
+export {default as default} from "@genstackio/react-context-api/lib/hooks/useMutationApi";

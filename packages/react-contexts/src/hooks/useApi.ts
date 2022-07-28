@@ -1,8 +1,2 @@
-import { useContext } from 'react';
-import ApiContext from '../contexts/ApiContext';
-
-export const useApi = () => {
-    return useContext(ApiContext);
-};
-
-export default useApi;
+export * from "@genstackio/react-context-api/lib/hooks/useApi";
+export {default as default} from "@genstackio/react-context-api/lib/hooks/useApi";
