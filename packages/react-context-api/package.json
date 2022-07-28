@@ -19,9 +19,6 @@
     "build": "tsc",
     "test": "../../node_modules/.bin/jest -c ../../jest.config.js --rootDir=`pwd`"
   },
-  "dependencies": {
-    "@ohoareau/apollo-client-jwt": "^0.1.5"
-  },
   "peerDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
