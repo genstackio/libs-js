@@ -1,31 +1,70 @@
-import {useCallback} from "react";
+import { useCallback } from 'react';
 import FieldSet from '../FieldSet';
 import useField from '../../hooks/useField';
 import FileUploader from '../../molecules/FileUploader';
 import { AsField } from '../../as';
-import Div from '../Div';
-import Button from '../Button';
-import clsx from "clsx";
-import {useTranslation} from "react-i18next";
+import clsx from 'clsx';
+import { useTranslation } from 'react-i18next';
 import { Controller } from 'react-hook-form';
-
+import { ImageRender, OtherRender, PdfRender } from '../renders';
 const styles = {
     dropzone: { width: '100%', minHeight: 100, maxHeight: 250, border: 'none' },
 };
 
-export function FileField({ className, ...props }: FileFieldProps) {
-    const {t} = useTranslation();
+const mapping = {
+    'application/pdf': 'pdf',
+    'image/png': 'img',
+    'image/jpeg': 'img',
+    'image/jpg': 'img',
+    'image/svg+xml': 'img',
+    pdf: 'pdf',
+    png: 'img',
+    jpeg: 'img',
+    jpg: 'img',
+    svg: 'img',
+};
 
-    const { getUploadParams, name, label, error, helper, disabled, placeholder, options, defaultValue, extra, control, required,  register, classes } =
-        useField({kind: 'image', ...props});
+const getFileTypeFromContentTypeOrFilename = (v) => {
+    return mapping[v?.contentType || getFileNameExtension(v?.url || '')] || 'other';
+};
+const getFileNameExtension = (v: string) => {
+    return v.slice(v.lastIndexOf('.') + 1);
+};
+const fileTypeComponents = {
+    pdf: PdfRender,
+    img: ImageRender,
+    other: OtherRender,
+};
+
+export function FileField({ className, ...props }: FileFieldProps) {
+    const { t } = useTranslation();
+    const {
+        getUploadParams,
+        name,
+        label,
+        error,
+        helper,
+        disabled,
+        placeholder,
+        options,
+        defaultValue,
+        extra,
+        control,
+        required,
+        register,
+        classes,
+    } = useField({ kind: 'image', ...props });
 
     const handleChange = useCallback(
         (x: any) => (val: any) => {
-            const xx = {_previewUrl: val.previewUrl, url: val.fileUrl, name: val.name, contentType: val.type};
+            const xx = { _previewUrl: val.previewUrl, url: val.fileUrl, name: val.name, contentType: val.type };
             x && x(xx);
         },
         [],
     );
+
+    const fileType = getFileTypeFromContentTypeOrFilename(defaultValue);
+    const Comp = fileTypeComponents[fileType || ''];
 
     return (
         <FieldSet error={error} helper={helper} label={label} name={name} options={options} className={className}>
@@ -39,40 +78,32 @@ export function FileField({ className, ...props }: FileFieldProps) {
                         e.preventDefault();
                         onChange && onChange(undefined);
                     };
-                    const url = !!value ? (value._previewUrl || value.url) : undefined;
-                    const name = !!value ? (value.name || 'has-file') : undefined;
+                    const url = !!value ? value._previewUrl || value.url : undefined;
+                    const name = !!value ? value.name || 'has-file' : undefined;
                     const isDirty = !!value && !!value._previewUrl;
                     return (
                         <>
-                        {!!url && (
-                            <Div className={'text-center'}>
-                                {('.pdf' === url.slice(-4)) ? (
-                                    <iframe title={name} className={'border'} src={`${url}#toolbar=1&navpanes=0&scrollbar=0`} width={'100%'} height={400} />
-                                ) : (<p>{name}</p>)}
-                                {isDirty && <p className={'m-4 text-center text-red-500'}>{t('field_file_dirty_label')}</p>}
-                                <Button size={'xs'} color={'danger'} label={t('button_clear_file_label')} onClick={onClear} />
-                            </Div>
-                        )}
-                        {!url && (
-                            <FileUploader
-                                {...field}
-                                autoUpload
-                                maxFile={1}
-                                multiple={false}
-                                canCancel={false}
-                                inputContent={placeholder}
-                                url={undefined}
-                                disabled={disabled}
-                                styles={styles}
-                                name={name}
-                                getUploadParams={getUploadParams}
-                                required={required}
-                                onFileUpload={handleChange(onChange)}
-                                {...register()}
-                                {...extra}
-                                className={clsx('', classes?.uploader)}
-                            />
-                        )}
+                            {!!url && <Comp url={url} name={name} isDirty={isDirty} onClear={onClear} t={t} />}
+                            {!url && (
+                                <FileUploader
+                                    {...field}
+                                    autoUpload
+                                    maxFile={1}
+                                    multiple={false}
+                                    canCancel={false}
+                                    inputContent={placeholder}
+                                    url={undefined}
+                                    disabled={disabled}
+                                    styles={styles}
+                                    name={name}
+                                    getUploadParams={getUploadParams}
+                                    required={required}
+                                    onFileUpload={handleChange(onChange)}
+                                    {...register()}
+                                    {...extra}
+                                    className={clsx('', classes?.uploader)}
+                                />
+                            )}
                         </>
                     );
                 }}
@@ -82,7 +113,7 @@ export function FileField({ className, ...props }: FileFieldProps) {
 }
 
 export interface FileFieldProps extends AsField {
-    value?: {url: string};
+    value?: { url: string };
 }
 
 // noinspection JSUnusedGlobalSymbols
