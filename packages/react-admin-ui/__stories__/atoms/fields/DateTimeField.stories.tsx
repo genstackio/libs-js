@@ -20,5 +20,5 @@ export default {
 };
 
 export const basic = s(DateTimeField, {
-    now: '2020-03-18T21:11:54',
+    defaultValues: { dateTime: '2020-03-18T21:11:54' },
 });

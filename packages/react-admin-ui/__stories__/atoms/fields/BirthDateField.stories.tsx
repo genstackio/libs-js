@@ -20,5 +20,5 @@ export default {
 };
 
 export const basic = s(BirthDateField, {
-    now: '2020-03-18T21:11:54',
+    defaultValues: { birthDate: 1658935660766 },
 });
