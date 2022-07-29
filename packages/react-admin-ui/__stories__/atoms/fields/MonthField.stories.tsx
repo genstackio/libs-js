@@ -20,5 +20,5 @@ export default {
 };
 
 export const basic = s(MonthField, {
-    defaultValues: { month: '2020-03-18T21:11:54' },
+    defaultValues: { month: '2020-03' },
 });

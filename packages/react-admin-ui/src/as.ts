@@ -23,7 +23,7 @@ import {
     WithValue,
     WithValuesOfSelect,
     WithVariantOfBlock,
-    WithVariantOfField, WithValueAs, WithDeps,
+    WithVariantOfField, WithValueAs, WithDeps, WithConvertValue,
 } from './withs';
 
 export type AsComponent = WithClassName;
@@ -50,6 +50,7 @@ export interface AsField
         WithPlaceholder,
         WithVariantOfField,
         WithValueAs,
+        WithConvertValue,
         WithDeps,
         WithKind {}
 

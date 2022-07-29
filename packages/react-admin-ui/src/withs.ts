@@ -165,6 +165,9 @@ export interface WithVariantOfField {
 export interface WithValueAs {
     valueAs?: 'string' | 'number' | 'date' | 'boolean' | ((value: any) => any);
 }
+export interface WithConvertValue {
+    convertValue?: ((value: any) => any);
+}
 export interface WithDeps {
     deps?: string|string[];
 }

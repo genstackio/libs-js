@@ -41,6 +41,7 @@ export function useField(
         variant,
         classes,
         valueAs,
+        convertValue,
         deps,
         ...extra
     }: field_def_params,
@@ -96,6 +97,7 @@ export function useField(
     }, [register, valueAs, deps, name, options]);
     defaultValue = (undefined !== defaultValue) ? defaultValue : (defaultValues ? defaultValues[name] : undefined);
 
+    convertValue && (defaultValue = convertValue(defaultValue));
     prependIcon = prependIcon ? <Icon icon={prependIcon} /> : undefined;
     appendIcon = appendIcon ? <Icon icon={appendIcon} /> : undefined;
 
@@ -211,6 +213,7 @@ export interface field_def_params extends WithLabel, WithAny, WithOptions, WithD
     field?: boolean;
     classes?: any;
     valueAs?: 'string' | 'number' | 'date' | 'boolean' | ((value: any) => any);
+    convertValue?: Function;
     deps?: string|string[];
 }
 
