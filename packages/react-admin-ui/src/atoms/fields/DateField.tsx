@@ -9,11 +9,11 @@ export function DateField({convertValue: originalConvertValue, valueAs: original
         return originalConvertValue ? originalConvertValue(v) : v;
     }, [originalConvertValue, props.type]);
     const valueAs = useCallback((v: any) => {
-        v = convertFromDateInput(v, props.type);
+        v = ('string' === typeof v) ? convertFromDateInput(v, props.type) : v;
         if (originalValueAs) {
             switch (originalValueAs) {
                 case 'date': return new Date(v);
-                case 'number': return 'number' === typeof v ? v : parseInt(v);
+                case 'number': return ('number' === typeof v) ? v : parseInt(v);
                 default:
                     if ('function' === typeof originalValueAs) {
                         return originalValueAs(v);
