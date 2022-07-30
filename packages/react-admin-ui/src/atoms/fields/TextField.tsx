@@ -27,19 +27,42 @@ export function TextField({inline, ...props}: TextFieldProps) {
         extra,
         variant,
         classes,
+        inputProps,
+        fieldsetProps,
     } = useField(props);
     const ctx = useMemo(() => ({ variant, prepend: !!prepend, append: !!append }), [variant, prepend, append]);
+    let finalInputProps = {
+        className: clsx(
+            'z-20 text-sm sm:text-base w-full placeholder-disabled focus:bg-clear ' +
+                'focus:border-indigo-400 focus:outline-none py-2 pr-2 pl-2 focus:ring-4',
+            fieldVariantClass({ ...ctx, type: 'input' }),
+            error && 'border border-danger focus:border-danger ring-red-300',
+            classes?.input,
+        ),
+        defaultValue,
+        disabled,
+        name,
+        placeholder,
+        type,
+        required,
+        ...(type === 'password' ? { autoComplete: 'new-password' } : {}),
+        ...register(),
+        ...extra,
+    };
+    let finalFieldsetProps = {
+        error,
+        helper,
+        label,
+        name,
+        options,
+        className,
+        classes,
+        inline,
+    };
+    inputProps && (finalInputProps = inputProps(finalInputProps));
+    fieldsetProps && (finalFieldsetProps = fieldsetProps(finalFieldsetProps));
     return (
-        <FieldSet
-            error={error}
-            helper={helper}
-            label={label}
-            name={name}
-            options={options}
-            className={className}
-            classes={classes}
-            inline={inline}
-        >
+        <FieldSet {...finalFieldsetProps}>
             <Div
                 b={'xs'}
                 flex
@@ -61,24 +84,7 @@ export function TextField({inline, ...props}: TextFieldProps) {
                         {prepend}
                     </Column>
                 )}
-                <input
-                    className={clsx(
-                        'z-20 text-sm sm:text-base w-full placeholder-disabled focus:bg-clear ' +
-                            'focus:border-indigo-400 focus:outline-none py-2 pr-2 pl-2 focus:ring-4',
-                        fieldVariantClass({ ...ctx, type: 'input' }),
-                        error && 'border border-danger focus:border-danger ring-red-300',
-                        classes?.input,
-                    )}
-                    defaultValue={defaultValue}
-                    disabled={disabled}
-                    name={name}
-                    placeholder={placeholder}
-                    type={type}
-                    required={required}
-                    {...(type === 'password' ? { autoComplete: 'new-password' } : {})}
-                    {...register()}
-                    {...extra}
-                />
+                <input {...finalInputProps} />
                 {append && (
                     <Column
                         b={'sm-l'}

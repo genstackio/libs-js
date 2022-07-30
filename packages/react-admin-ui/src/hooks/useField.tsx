@@ -43,6 +43,8 @@ export function useField(
         valueAs,
         convertValue,
         deps,
+        inputProps,
+        fieldsetProps,
         ...extra
     }: field_def_params,
     defaults: { name?: string; kind?: string } = defaultDefaults,
@@ -128,6 +130,8 @@ export function useField(
         prepend?: any,
         append?: any,
         classes?: any,
+        inputProps?: Function,
+        fieldsetProps?: Function,
     }>(() => ({
         control,
         className,
@@ -169,6 +173,8 @@ export function useField(
                 appendIcon
             ) : undefined,
         classes,
+        inputProps,
+        fieldsetProps,
     }), [
         control,
         className,
@@ -192,6 +198,7 @@ export function useField(
         append,
         appendIcon,
         classes,
+        inputProps,
     ]);
 }
 
@@ -215,6 +222,8 @@ export interface field_def_params extends WithLabel, WithAny, WithOptions, WithD
     valueAs?: 'string' | 'number' | 'date' | 'boolean' | ((value: any) => any);
     convertValue?: Function;
     deps?: string|string[];
+    inputProps?: Function;
+    fieldsetProps?: Function;
 }
 
 export default useField;

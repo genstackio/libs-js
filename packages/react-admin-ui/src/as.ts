@@ -52,7 +52,10 @@ export interface AsField
         WithValueAs,
         WithConvertValue,
         WithDeps,
-        WithKind {}
+        WithKind {
+    inputProps?: Function;
+    fieldsetProps?: Function;
+}
 
 export interface AsFlagField extends AsField, WithDefaultValueAsBoolean {}
 export interface AsTextField extends AsField, WithValue {}
