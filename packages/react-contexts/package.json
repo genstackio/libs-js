@@ -1,6 +1,6 @@
 {
   "name": "@genstackio/react-contexts",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "React Contexts for Genstackio",
   "license": "MIT",
   "main": "lib/index.js",
@@ -20,7 +20,7 @@
     "test": "../../node_modules/.bin/jest -c ../../jest.config.js --rootDir=`pwd`"
   },
   "dependencies": {
-    "@genstackio/react-context-api": "^0.1.0",
+    "@genstackio/react-context-api": "^0.1.1",
     "@ohoareau/apollo-client-jwt": "^0.1.5",
     "i18next": "^20.3.2",
     "isomorphic-fetch": "^3.0.0",
