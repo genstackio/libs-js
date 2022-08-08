@@ -75,7 +75,7 @@ const createUseQuery =
                 }, 1000);
             }).then((x) => x);
         }, [setInfos, infos]);
-        q();
+        infos.loading && q();
         return infos;
     };
 
