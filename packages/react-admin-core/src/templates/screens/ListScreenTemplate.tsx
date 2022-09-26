@@ -104,7 +104,7 @@ function ListScreenTemplate({ search = true, searchSwitch = true, deletable = tr
                                 icon = 'fa-fas--pen-to-square';
                                 break;
                             case 'download':
-                                const pName: undefined|{url: string} = (!doc?.row?.publicFile || !doc?.row?.mainFile) as any || undefined;
+                                const pName: undefined|{url: string} = doc?.row?.publicFile || doc?.row?.mainFile || undefined;
                                 if (!pName || !pName?.url) return null;
                                 onClick = pName!.url;
                                 color = 'dark';
@@ -139,7 +139,6 @@ function ListScreenTemplate({ search = true, searchSwitch = true, deletable = tr
         }
         return xx;
     }, [searchMode, list, t, goDoc, goEdit, handleDelete, singularName, forcedColumns, goPublicPage]);
-
     const key = `${searchMode ? 'search' : 'find'}${name[0].toUpperCase() + name.slice(1)}`;
     const items = ((data || {})[key] || {})['items'] || [];
     const total = searchMode ? ((data || {})[key] || {})['count'] || 0 : undefined;
