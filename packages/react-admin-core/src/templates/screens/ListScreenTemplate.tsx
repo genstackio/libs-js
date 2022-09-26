@@ -104,8 +104,9 @@ function ListScreenTemplate({ search = true, searchSwitch = true, deletable = tr
                                 icon = 'fa-fas--pen-to-square';
                                 break;
                             case 'download':
-                                if (!doc?.row?.publicFile || !doc?.row?.publicFile?.url) return null;
-                                onClick = doc?.row!.publicFile!.url;
+                                const pName: undefined|{url: string} = (!doc?.row?.publicFile || !doc?.row?.mainFile) as any || undefined;
+                                if (!pName || !pName?.url) return null;
+                                onClick = pName!.url;
                                 color = 'dark';
                                 variant = 'contained';
                                 icon = 'fa-fas--download';
