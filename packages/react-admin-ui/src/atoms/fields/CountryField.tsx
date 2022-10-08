@@ -17,6 +17,9 @@ export function CountryField(props: CountryFieldProps) {
         {value: 'CH', label: t('country_ch')},
         {value: 'BE', label: t('country_be')},
         {value: 'RE', label: t('country_re')},
+        {value: 'MQ', label: t('country_mq')},
+        {value: 'GP', label: t('country_gp')},
+        {value: 'DE', label: t('country_de')},
     ];
     countries.sort((a, b) => a.label > b.label ? 1 : (a.label < b.label ? -1 : 0))
 

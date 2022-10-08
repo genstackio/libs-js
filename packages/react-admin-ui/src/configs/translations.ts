@@ -290,6 +290,9 @@ export default {
             country_pt: 'Portugal',
             country_ch: 'Suisse',
             country_re: 'Réunion (Ile de)',
+            country_mq: 'Martinique',
+            country_gp: 'Guadeloupe',
+            country_de: 'Allemagne',
 
             field_id_label: 'ID',
             field_createdat_label: 'Date de création',
@@ -851,6 +854,9 @@ export default {
             country_pt: 'Portogallo',
             country_ch: "Suisse",
             country_re: "Réunion (Ile de)",
+            country_mq: 'Martinique',
+            country_gp: 'Guadeloupe',
+            country_de: 'Allemagne',
 
             field_locale_label: 'Language',
             field_locale_helper: 'Language',
@@ -1162,6 +1168,9 @@ export default {
             country_pt: 'Portugal',
             country_ch: 'Switzerland',
             country_re: 'Réunion (Ile de)',
+            country_mq: 'Martinique',
+            country_gp: 'Guadeloupe',
+            country_de: 'Germany',
 
             field_locale_label: 'Language',
             field_locale_helper: 'Language',
