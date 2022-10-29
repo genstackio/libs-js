@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { ApolloProvider } from '@ohoareau/apollo-client-jwt';
 import { MuiThemeProvider } from '@material-ui/core';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@material-ui/core/styles';
 import { TailwindProvider } from '@genstackio/react-contexts/lib/contexts/TailwindContext';
 import {
     ambiance_context_value,
@@ -119,7 +119,7 @@ export function useApp({
             iconsProvider: IconsProvider,
             routes: routes,
             theme: {
-                mui: createMuiTheme(mui),
+                mui: createTheme(mui),
                 tailwind,
                 theme: theme || undefined,
             },

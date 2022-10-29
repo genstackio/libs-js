@@ -38,7 +38,7 @@
     "peerDependencies": {
         "@genstackio/react-admin-ui": "^0.6.10",
         "@genstackio/react-contexts": "^0.1.5",
-        "@material-ui/core": "^4.11.3",
+        "@material-ui/core": "^4.11.4",
         "@ohoareau/apollo-client-jwt": "^0.1.5",
         "@types/react-router-dom": "^5.1.7",
         "autoprefixer": "^10.2.6",
@@ -57,7 +57,7 @@
         "@babel/preset-typescript": "^7.14.5",
         "@genstackio/react-admin-ui": "^0.17.5",
         "@genstackio/react-contexts": "^0.6.1",
-        "@material-ui/core": "^4.11.3",
+        "@material-ui/core": "^4.11.4",
         "@ohoareau/apollo-client-jwt": "^0.1.5",
         "@ohoareau/svg2comp": "^0.1.2",
         "@storybook/addon-a11y": "^6.3.2",
