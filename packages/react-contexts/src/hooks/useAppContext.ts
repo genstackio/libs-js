@@ -59,7 +59,6 @@ export function useAppContext({
     getImage,
     fullscreen,
     upload,
-    cleanData,
 }: app_context_params) {
     apiOptions = apiOptions || defaultApiOptions;
     const { themeName = 'default' } = {};
@@ -240,8 +239,7 @@ export function useAppContext({
         themes,
         fullscreen,
         upload: uploadValue,
-        cleanData,
-    }), [cleanData, uploadValue, api.client, i18n, theme, themeFactory, storage, locale, userProviderValue, cartProviderValue, navigationProviderValue, localesProviderValue, imagesProviderValue, themes, fullscreen]);
+    }), [uploadValue, api.client, i18n, theme, themeFactory, storage, locale, userProviderValue, cartProviderValue, navigationProviderValue, localesProviderValue, imagesProviderValue, themes, fullscreen]);
 }
 
 export default useAppContext;

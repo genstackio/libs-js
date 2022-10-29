@@ -11,11 +11,12 @@ import {
     importer_function,
     importers,
     menus_factory_context_value,
-    request_upload_infos, logos_context_value, fields_context_value
+    request_upload_infos, logos_context_value, fields_context_value, clean_data_context_value
 } from "@genstackio/react-contexts/lib/types";
 import { FullscreenProvider as BaseFullscreenProvider } from '@genstackio/react-contexts/lib/contexts/FullscreenContext';
 import { FullScreen } from 'react-full-screen';
 import IconsProvider from '@genstackio/react-contexts/lib/IconsProvider';
+import defaultCleanData from "../utils/cleanData";
 
 function GraphqlProvider({ value, children }: any) {
     value && (children = <ApolloProvider client={value}>{children}</ApolloProvider>);
@@ -78,6 +79,7 @@ export function useApp({
     lists = undefined,
     breadcrumbs = undefined,
     logos = undefined,
+    cleanData = undefined,
 }: {
     importer?: importer_function;
     importers?: importers;
@@ -95,6 +97,7 @@ export function useApp({
     lists?: list_factory_context_value;
     breadcrumbs?: breadcrumbs_factory_context_value;
     logos?: logos_context_value;
+    cleanData?: clean_data_context_value;
 }) {
     translations = translations || defaultTranslations;
     routes = routes || defaultRoutes;
@@ -105,6 +108,7 @@ export function useApp({
     icons = icons || defaultIcons;
     ambiance = ambiance || defaultAmbiance;
     fields = fields || defaultFields;
+    cleanData = cleanData || defaultCleanData;
     return useMemo(
         () => ({
             prefix,
@@ -143,8 +147,10 @@ export function useApp({
             lists,
             breadcrumbs,
             logos,
+            cleanData,
         }),
         [
+            cleanData,
             mui,
             theme,
             tailwind,
