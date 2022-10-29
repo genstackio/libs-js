@@ -20,6 +20,7 @@ import { LogosProvider } from './contexts/LogosContext';
 import { MenusFactoryProvider } from './contexts/MenusFactoryContext';
 import { ListFactoryProvider } from './contexts/ListFactoryContext';
 import { BreadcrumbsFactoryProvider } from './contexts/BreadcrumbsFactoryContext';
+import { CleanDataContextProvider } from './contexts/CleanDataContext';
 import {
     dark_mode_context_value,
     favorites_context_value,
@@ -36,7 +37,7 @@ import {
     menus_factory_context_value,
     list_factory_context_value,
     breadcrumbs_factory_context_value,
-    fields_context_value,
+    fields_context_value, clean_data_context_value,
 } from './types';
 
 export function AppProvider({
@@ -74,6 +75,7 @@ export function AppProvider({
     menus,
     lists,
     breadcrumbs,
+    cleanData,
 }: AppProviderProps) {
     let content = children || '';
     const finalImporter = useMemo(() => importerBuilder(importer, importers), [importer, importers, importerBuilder]);
@@ -106,11 +108,13 @@ export function AppProvider({
     menus && (content = <MenusFactoryProvider value={menus}>{content}</MenusFactoryProvider>);
     lists && (content = <ListFactoryProvider value={lists}>{content}</ListFactoryProvider>);
     breadcrumbs && (content = <BreadcrumbsFactoryProvider value={breadcrumbs}>{content}</BreadcrumbsFactoryProvider>);
+    cleanData && (content = <CleanDataContextProvider value={cleanData}>{content}</CleanDataContextProvider>);
 
     return <ErrorBoundary component={error}>{content}</ErrorBoundary>;
 }
 
 export interface AppProviderProps {
+    cleanData?: clean_data_context_value
     themeProvider?: any;
     translationProvider?: any;
     graphqlProvider?: any;

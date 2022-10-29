@@ -7,7 +7,7 @@ import {
     importer_context_params,
     useAppContext,
     logos_context_value,
-    fields_context_value
+    fields_context_value, clean_data_context_value
 } from '@genstackio/react-contexts';
 import coreTranslations from './configs/translations';
 import adminUiTranslations from '@genstackio/react-admin-ui/lib/configs/translations';
@@ -15,6 +15,7 @@ import Routes from "./Routes";
 import Route from "./Route";
 import {ambiance_context_value} from "@genstackio/react-contexts/lib/types";
 import buildImporter from "./utils/buildImporter";
+import defaultCleanData from "./utils/cleanData";
 
 // warning: we create default values (objects) here to avoid react re-rendering with always-different-objects
 const defaultTranslations = {};
@@ -43,6 +44,7 @@ export function BaseApp({
     fallbackLocale = undefined,
     requiredRoles = undefined,
     upload = undefined,
+    cleanData: forcedCleanData = undefined,
     ...props
 }: BaseAppProps) {
     translations = translations || defaultTranslations;
@@ -63,6 +65,7 @@ export function BaseApp({
         user,
         locales: computedLocales,
         upload: uploadValue,
+        cleanData,
     } = useAppContext({
         storageKeyFactory: (k: string) => `${prefix}_${k}`,
         apiOptions,
@@ -78,6 +81,7 @@ export function BaseApp({
         defaultLocale,
         fallbackLocale,
         upload,
+        cleanData: forcedCleanData || defaultCleanData,
     });
     return (
         <AppProvider
@@ -96,6 +100,7 @@ export function BaseApp({
             locales={computedLocales}
             upload={uploadValue}
             importerBuilder={buildImporter}
+            cleanData={cleanData}
             {...props}
         >
             <Router>
@@ -122,6 +127,7 @@ export interface BaseAppProps {
     ambiance?: ambiance_context_value;
     fields?: fields_context_value;
     logos?: logos_context_value;
+    cleanData?: clean_data_context_value;
     translations?:
         | { [key: string]: { [key: string]: { [key: string]: string } } }
         | { [key: string]: { [key: string]: { [key: string]: string } } }[];

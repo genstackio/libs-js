@@ -1,7 +1,8 @@
 import {useCallback} from "react";
-import cleanData from "../utils/cleanData";
+import useCleanData from "@genstackio/react-contexts/lib/hooks/useCleanData";
 
 export function useCreateActionPrepare(forcedPrepare: Function|undefined, keptKeys: string[]) {
+    const cleanData = useCleanData();
     return useCallback(
         (data: any) => forcedPrepare
                 ? forcedPrepare(data)

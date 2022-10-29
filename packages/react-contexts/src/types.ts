@@ -197,6 +197,7 @@ export type app_context_params = {
     getImage?: image_getter;
     apiOptions?: any;
     fullscreen?: fullscreen_context_value;
+    cleanData?: clean_data_context_value;
 };
 
 export type app_importer_function = ({path, name}: {path: string, name: string}) => Promise<any> | undefined;
@@ -233,3 +234,24 @@ export type upload_infos = {
     };
     url: string;
 };
+
+export type dynamic_form_context_value = {
+    definition: dynamic_form;
+};
+
+export type dynamic_form = {
+    [key: string]: dynamic_form_section;
+};
+
+export type dynamic_form_section = {
+    content?: content[];
+}
+
+export type content = {
+    type?: string;
+};
+
+export type clean_data_fn = (raw: any, keptKeys: (string|string[])[], createMode: boolean) => any;
+
+export type clean_data_context_value = clean_data_fn;
+
