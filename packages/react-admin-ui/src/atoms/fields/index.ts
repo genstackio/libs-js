@@ -56,6 +56,7 @@ export * from './InstagramField';
 export * from './InstagramUrlField';
 export * from './IpAddressField';
 export * from './JsField';
+export * from './JsonField';
 export * from './KeyField';
 export * from './KindField';
 export * from './LastNameField';
