@@ -1,6 +1,10 @@
 export function convertValue(v: any) {
-    if (!v) return undefined;
-    if (v && v.available) return v.content;
+    if ((null === v) || (undefined === v)) return undefined;
+    if (v && ('object' === typeof v) && v.available) {
+        return v.content;
+    }
+    if ('string' === typeof v) return v;
+    if ('boolean' === typeof v) return v;
     return undefined;
 }
 

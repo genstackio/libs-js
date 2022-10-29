@@ -85,7 +85,7 @@ export function InfosItemValue({value, complexValueComponent: ComplexValueCompon
                         if (ComplexValueComponent) {
                             return (
                                 <Column>
-                                    {value.map((v, index) => <Div flex><ComplexValueComponent key={index} label={index} value={v} mt={0}/></Div>)}
+                                    {value.map((v, index) => <Div flex key={index}><ComplexValueComponent label={index} value={v} mt={0}/></Div>)}
                                 </Column>
                             );
                         }
@@ -94,7 +94,7 @@ export function InfosItemValue({value, complexValueComponent: ComplexValueCompon
                     if (ComplexValueComponent) {
                         return (
                             <Column>
-                                {Object.entries(value).map(([k, v]) => <Div flex><ComplexValueComponent key={k} label={k} value={v} mt={0}/></Div>)}
+                                {Object.entries(value).map(([k, v]) => <Div flex key={k}><ComplexValueComponent label={k} value={v} mt={0}/></Div>)}
                             </Column>
                         );
                     }

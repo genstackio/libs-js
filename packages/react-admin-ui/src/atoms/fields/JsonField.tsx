@@ -25,8 +25,7 @@ export function JsonField(props: JsonFieldProps) {
                     }
                     return (
                         <MonacoEditor
-                            width="800"
-                            height="300"
+                            height="500"
                             language="json"
                             value={v}
                             onChange={handleOnChange}
