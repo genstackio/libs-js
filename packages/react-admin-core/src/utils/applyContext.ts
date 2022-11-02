@@ -8,6 +8,7 @@ export function applyContext(a: any, b: any) {
     if ('object' === typeof a) {
         return Object.entries(a).reduce((acc, [k, v]) => {
             acc[applyContext(k, b)] = applyContext(v, b);
+            return acc;
         }, {} as any);
     }
     if ('string' !== typeof a) return a;
