@@ -2,6 +2,7 @@ export type gh_options = {
     silentError?: boolean;
     provider?: string;
     logger?: string;
+    mode?: string;
     config?: any;
 };
 

@@ -4,7 +4,7 @@ import * as provider from "./provider";
 
 export function wrap(handler: Function, options: gh_options = {}): (...args: any[]) => Promise<any> {
     init(options);
-    const hn = provider.wrap(handler, options?.config?.mode);
+    const hn = provider.wrap(handler, options?.mode);
     return async function(...args2: any[]) {
         try {
             return await hn(...args2);

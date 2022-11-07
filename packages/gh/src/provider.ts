@@ -4,7 +4,7 @@ import createNoneProvider from './providers/none';
 let adapter: gh_context_provider = createNoneProvider();
 
 export function init(options: any = {}) {
-    adapter = require(`${__dirname}/providers/${options.provider || process.env.GH_PROVIDER || 'console'}`).default(options.config);
+    adapter = require(`${__dirname}/providers/${options.provider || process.env.GH_PROVIDER || 'console'}`).default(options);
 }
 
 export function wrap(handler: Function, mode?: string) {
