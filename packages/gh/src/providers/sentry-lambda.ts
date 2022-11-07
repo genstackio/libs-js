@@ -1,4 +1,4 @@
-import Sentry from "@sentry/serverless";
+import * as Sentry from "@sentry/serverless";
 import {gh_context_provider} from "../types";
 
 export default (config: any = {}): gh_context_provider => {

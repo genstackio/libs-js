@@ -1,4 +1,4 @@
-import Sentry from "@sentry/node";
+import * as Sentry from "@sentry/node";
 import {gh_context_provider} from "../types";
 
 export default (config: any = {}): gh_context_provider => {
