@@ -4,9 +4,10 @@ import * as provider from "./provider";
 import * as enrichers from './enrichers';
 
 export function wrap(handler: Function, options: gh_options = {}): (...args: any[]) => Promise<any> {
-    init(options);
+    const {environment, ...cc} = enrichContext(options);
+    init({...options, ...(environment ? {environment} : {})});
+    provider.addCaptureContext(cc);
     const hn = provider.wrap(handler, options?.mode);
-    enrichContext(options);
     return async function(...args2: any[]) {
         try {
             return await hn(...args2);
@@ -43,11 +44,18 @@ export function init(options: gh_options) {
 
 // noinspection JSUnusedLocalSymbols
 export function enrichContext(options: gh_options) {
-    const cc = {};
-
-    Object.values(enrichers).forEach(enricher => enricher(cc, options));
-
-    if (Object.keys(cc).length) provider.addCaptureContext(cc);
+    const x = Object.values(enrichers).map(enricher => enricher(options)).reduce((acc, cc: any) => {
+        cc.environment && (acc['environment'] = cc.environment);
+        Object.assign(acc['tags'], cc.tags || {});
+        Object.assign(acc['property'], cc.property || {});
+        Object.assign(acc['data'], cc.data || {});
+        return acc;
+    }, {tags: {}, environment: undefined, property: {}, data: {}} as any);
+    !Object.keys(x.tags).length && delete x.tags;
+    !Object.keys(x.property).length && delete x.property;
+    !Object.keys(x.data).length && delete x.data;
+    !x.environment && delete x.environment;
+    return !Object.keys(x).length ? {} : x;
 }
 
 export async function log(level: string, ...args: any[]) {

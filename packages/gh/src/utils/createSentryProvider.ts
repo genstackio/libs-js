@@ -5,6 +5,7 @@ export function createSentryProvider(S: any, config: any = {}, overrides?: any):
     S.init({
         dsn: config.dsn || process.env.SENTRY_DSN,
         tracesSampleRate: config.tracesSampleRate || process.env.SENTRY_TRACES_SAMPLE_RATE || 1.0,
+        ...(config?.environment ? {environment: config.environment} : {}),
     });
     const sharedCaptureContexts: gh_capture_context[] = [];
     const buildCaptureContext = (captureContext?: gh_capture_context) => {
