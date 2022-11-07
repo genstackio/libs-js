@@ -6,7 +6,7 @@ export default (captureContext: gh_capture_context_object, options?: any) => {
     if (process.env.AWS_LAMBDA_FUNCTION_NAME) {
         const iof = process.env.AWS_LAMBDA_FUNCTION_NAME.indexOf('-');
         if (iof >= 0) {
-            const prefix = process.env.AWS_LAMBDA_FUNCTION_NAME.slice(0, iof - 1);
+            const prefix = process.env.AWS_LAMBDA_FUNCTION_NAME.slice(0, iof);
             const suffix = process.env.AWS_LAMBDA_FUNCTION_NAME.slice(iof + 1);
             if (['dev', 'test', 'prepod', 'prod', 'qa', 'demo', 'sandbox'].includes(prefix)) {
                 captureContext.tags['environment'] = prefix;
