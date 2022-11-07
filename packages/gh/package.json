@@ -1,6 +1,6 @@
 {
   "name": "@genstackio/gh",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -21,8 +21,8 @@
   "devDependencies": {
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-typescript": "^7.9.0",
-    "@sentry/serverless": "^7.17.4",
     "@sentry/node": "^7.17.4",
+    "@sentry/serverless": "^7.17.4",
     "babel-loader": "^8.1.0",
     "epsagon": "^1.123.2",
     "source-map-loader": "^0.2.4"
