@@ -6,7 +6,6 @@ export type gh_options = {
     config?: any;
 };
 
-export type gh_context_handler = Function;
 export type gh_context_logger = {
     info: (...args: any[]) => Promise<void>;
     error: (...args: any[]) => Promise<void>;
@@ -16,28 +15,30 @@ export type gh_context_logger = {
 }
 export type gh_context_provider = {
     wrap: (handler: Function, mode?: string) => Function;
+    buildCaptureContext: (captureContext: gh_capture_context) => any;
+    addCaptureContext: (captureContext: gh_capture_context) => void;
     error: (e: Error, ...args: any[]) => Promise<void>;
-    captureError: (e: Error, options: any) => Promise<void>;
-    captureTag: (tag: string, value: any, options: any) => Promise<void>;
-    captureTags: (tags: any, options: any) => Promise<void>;
-    captureMessage: (message: string, options: any) => Promise<void>;
-    captureMessages: (messages: string[], options: any) => Promise<void>;
-    captureUser: (user: any, options: any) => Promise<void>;
-    captureData: (type: string, data: any, options: any) => Promise<void>;
-    captureBulkData: (data: any, options: any) => Promise<void>;
-    captureEvent: (event: any, options: any) => Promise<void>;
+    captureError: (e: Error, captureContext?: gh_capture_context, options?: any) => Promise<void>;
+    captureTag: (tag: string, value: any, captureContext?: gh_capture_context, options?: any) => Promise<void>;
+    captureTags: (tags: any, captureContext?: gh_capture_context, options?: any) => Promise<void>;
+    captureMessage: (message: string, captureContext?: gh_capture_context, options?: any) => Promise<void>;
+    captureMessages: (messages: string[], captureContext?: gh_capture_context, options?: any) => Promise<void>;
+    captureUser: (user: any, captureContext?: gh_capture_context, options?: any) => Promise<void>;
+    captureProperty: (type: string, value: any, captureContext?: gh_capture_context, options?: any) => Promise<void>;
+    captureData: (data: any, captureContext?: gh_capture_context, options?: any) => Promise<void>;
+    captureEvent: (event: any, captureContext?: gh_capture_context, options?: any) => Promise<void>;
 }
 
-export type gh_request_context_handler = gh_context_handler;
-export type gh_request_context_logger = gh_context_logger;
-export type gh_request_context_provider = gh_context_provider;
-
-export type gh_request_context = {
-    event: any;
-    context: any;
-    handler: gh_request_context_handler;
-    provider: gh_request_context_provider;
-    logger: gh_request_context_logger;
-    result?: any;
-    error?: any
-};
+export type gh_capture_context = gh_capture_context_object | gh_capture_context_fn;
+export type gh_capture_context_fn = () => gh_capture_context_object;
+export type gh_capture_context_object = {
+    tag?: [string, any];
+    tags?: {[key: string]: any};
+    user?: any;
+    event?: any;
+    message?: string;
+    messages?: string[];
+    error?: Error;
+    property?: [string, any];
+    data?: any;
+}

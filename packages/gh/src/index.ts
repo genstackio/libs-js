@@ -1,10 +1,12 @@
-import {gh_options} from "./types";
+import {gh_options, gh_capture_context} from "./types";
 import * as logger from './logger';
 import * as provider from "./provider";
+import * as enrichers from './enrichers';
 
 export function wrap(handler: Function, options: gh_options = {}): (...args: any[]) => Promise<any> {
     init(options);
     const hn = provider.wrap(handler, options?.mode);
+    enrichContext(options);
     return async function(...args2: any[]) {
         try {
             return await hn(...args2);
@@ -39,6 +41,15 @@ export function init(options: gh_options) {
     }
 }
 
+// noinspection JSUnusedLocalSymbols
+export function enrichContext(options: gh_options) {
+    const cc = {};
+
+    Object.values(enrichers).forEach(enricher => enricher(cc, options));
+
+    if (Object.keys(cc).length) provider.addCaptureContext(cc);
+}
+
 export async function log(level: string, ...args: any[]) {
     return logger.log(level, ...args);
 }
@@ -59,40 +70,44 @@ export async function debug(...args: any[]) {
     return logger.debug(...args);
 }
 
-export async function captureError(e: Error) {
-    return provider.captureError(e);
+export function addCaptureContext(captureContext: gh_capture_context) {
+    return provider.addCaptureContext(captureContext);
 }
 
-export async function captureMessage(message: string, options?: any) {
-    return provider.captureMessage(message, options);
+export async function captureError(e: Error, captureContext?: gh_capture_context, options?: any) {
+    return provider.captureError(e, captureContext, options);
 }
 
-export async function captureMessages(messages: string[], options?: any) {
-    return provider.captureMessages(messages, options);
+export async function captureMessage(message: string, captureContext?: gh_capture_context, options?: any) {
+    return provider.captureMessage(message, captureContext, options);
 }
 
-export async function captureData(type: string, data?: any, options?: any) {
-    return provider.captureData(type, data, options);
+export async function captureMessages(messages: string[], captureContext?: gh_capture_context, options?: any) {
+    return provider.captureMessages(messages, captureContext, options);
 }
 
-export async function captureBulkData(bulkData?: any, options?: any) {
-    return provider.captureBulkData(bulkData, options);
+export async function captureProperty(type: string, data?: any, captureContext?: gh_capture_context, options?: any) {
+    return provider.captureProperty(type, data, captureContext, options);
 }
 
-export async function captureEvent(event: any, options?: any) {
-    return provider.captureEvent(event, options);
+export async function captureData(bulkData?: any, captureContext?: gh_capture_context, options?: any) {
+    return provider.captureData(bulkData, captureContext, options);
 }
 
-export async function captureTag(tag: string, value?: any, options?: any) {
-    return provider.captureTag(tag, value, options);
+export async function captureEvent(event: any, captureContext?: gh_capture_context, options?: any) {
+    return provider.captureEvent(event, captureContext, options);
 }
 
-export async function captureTags(tags: any, options?: any) {
-    return provider.captureTags(tags, options);
+export async function captureTag(tag: string, value?: any, captureContext?: gh_capture_context, options?: any) {
+    return provider.captureTag(tag, value, captureContext, options);
 }
 
-export async function captureUser(user: any, options?: any) {
-    return provider.captureUser(user, options);
+export async function captureTags(tags: any, captureContext?: gh_capture_context, options?: any) {
+    return provider.captureTags(tags, captureContext, options);
+}
+
+export async function captureUser(user: any, captureContext?: gh_capture_context, options?: any) {
+    return provider.captureUser(user, captureContext, options);
 }
 
 export default wrap;
