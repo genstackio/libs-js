@@ -14,7 +14,9 @@ export type gh_context_logger = {
     log: (level: string, ...args: any[]) => Promise<void>;
 }
 export type gh_context_provider = {
-    error: (e: Error, rctx: gh_request_context) => Promise<void>;
+    wrap: (handler: Function, mode?: string) => Function;
+    error: (e: Error, ...args: any[]) => Promise<void>;
+    captureError: (e: Error, options: any) => Promise<void>;
     captureTag: (tag: string, value: any, options: any) => Promise<void>;
     captureTags: (tags: any, options: any) => Promise<void>;
     captureMessage: (message: string, options: any) => Promise<void>;
@@ -24,11 +26,6 @@ export type gh_context_provider = {
     captureBulkData: (data: any, options: any) => Promise<void>;
     captureEvent: (event: any, options: any) => Promise<void>;
 }
-export type gh_context = {
-    handler: gh_context_handler;
-    logger: gh_context_logger;
-    provider: gh_context_provider;
-};
 
 export type gh_request_context_handler = gh_context_handler;
 export type gh_request_context_logger = gh_context_logger;
