@@ -1,10 +1,22 @@
 import {gh_context_provider, gh_capture_context} from "./types";
 import createNoneProvider from './providers/none';
+import createConsoleProvider from './providers/console';
 
 let adapter: gh_context_provider = createNoneProvider();
 
+const providers: {[key: string]: (config: any) => gh_context_provider} = {}
+
+registerProvider('none', createNoneProvider);
+registerProvider('console', createConsoleProvider);
+
+export function registerProvider(name: string, provider: (config: any) => gh_context_provider) {
+    providers[name] = provider;
+}
+
 export function init(options: any = {}) {
-    adapter = require(`${__dirname}/providers/${options.provider || process.env.GH_PROVIDER || 'console'}`).default(options);
+    const name = options.provider || process.env.GH_PROVIDER || 'console';
+    if (!providers[name]) throw new Error(`Unknown GH provider '${name}'`);
+    adapter = providers[name](options);
 }
 
 export function wrap(handler: Function, mode?: string) {

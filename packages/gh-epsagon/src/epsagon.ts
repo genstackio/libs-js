@@ -1,6 +1,6 @@
 import epsagon from 'epsagon';
-import {gh_context_provider, gh_capture_context} from "../types";
-import buildGenericCaptureContext from "../utils/buildGenericCaptureContext";
+import {gh_context_provider, gh_capture_context} from "@genstackio/gh/lib/types";
+import buildGenericCaptureContext from "@genstackio/gh/lib/utils/buildGenericCaptureContext";
 
 export default (config: any = {}): gh_context_provider => {
     let messageId: number = 1;

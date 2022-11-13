@@ -1,7 +1,15 @@
 import {gh_options, gh_capture_context} from "./types";
 import * as logger from './logger';
 import * as provider from "./provider";
-import * as enrichers from './enrichers';
+
+const enrichers: {[key: string]: any} = {};
+
+export function registerEnricher(name: string, enricher: any) {
+    enrichers[name] = enricher;
+}
+
+export const registerProvider = provider.registerProvider;
+export const registerLogger = logger.registerLogger;
 
 export function wrap(handler: Function, options: gh_options = {}): (...args: any[]) => Promise<any> {
     const {environment, ...cc} = enrichContext(options);

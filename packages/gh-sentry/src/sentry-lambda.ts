@@ -1,6 +1,6 @@
 import * as Sentry from "@sentry/serverless";
-import {gh_context_provider} from "../types";
-import createSentryProvider from "../utils/createSentryProvider";
+import {gh_context_provider} from "@genstackio/gh/lib/types";
+import createSentryProvider from "./utils/createSentryProvider";
 
 export default (config: any = {}): gh_context_provider => createSentryProvider(Sentry.AWSLambda, config, {
     wrap: (handler: Function, mode?: string) => Sentry.AWSLambda.wrapHandler<any, any>(handler as (event: any, context: any) => Promise<any>, {

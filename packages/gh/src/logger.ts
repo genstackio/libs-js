@@ -1,10 +1,22 @@
-import createNoneLogger from './loggers/none';
 import {gh_context_logger} from "./types";
+import createNoneLogger from "./loggers/none";
+import createConsoleLogger from "./loggers/console";
 
 let adapter: gh_context_logger = createNoneLogger();
 
+const loggers: {[key: string]: (config: any) => gh_context_logger} = {}
+
+registerLogger('none', createNoneLogger);
+registerLogger('console', createConsoleLogger);
+
+export function registerLogger(name: string, logger: (config: any) => gh_context_logger) {
+    loggers[name] = logger;
+}
+
 export function init(options: any = {}) {
-    adapter = require(`${__dirname}/loggers/${options?.logger || process.env.GH_LOGGER || 'console'}`).default(options);
+    const name = options?.logger || process.env.GH_LOGGER || 'console';
+    if (!loggers[name]) throw new Error(`Unknown GH logger '${name}'`);
+    adapter = loggers[name](options);
 }
 
 export async function log(level: string, ...args: any[]) {

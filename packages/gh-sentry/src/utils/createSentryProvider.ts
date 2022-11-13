@@ -1,4 +1,4 @@
-import {gh_context_provider, gh_capture_context} from "../types";
+import {gh_context_provider, gh_capture_context} from "@genstackio/gh/lib/types";
 import {Scope} from "@sentry/node";
 
 export function createSentryProvider(S: any, config: any = {}, overrides?: any): gh_context_provider {
