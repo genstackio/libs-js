@@ -145,6 +145,45 @@ describe('execute', () => {
             ],
         });
     });
+    it('returns success and the result if known action type for the step defined as string', async () => {
+        await expect(execute({definition: {
+                steps: [
+                    'set(key=mykey,value=my value)'
+                ]
+            }}, {} as any)).resolves.toEqual({
+            config: {
+                definition: {
+                    steps: [
+                        'set(key=mykey,value=my value)'
+                    ],
+                },
+            },
+            ctx: {
+                mykey: 'my value',
+            },
+            definition: {
+                steps: [
+                    'set(key=mykey,value=my value)'
+                ],
+                tasks: [],
+            },
+            details: {
+                status: 'success',
+            },
+            errors: [
+            ],
+            orders: [
+                {id: expect.any(String), name: undefined, type: 'set', params: {key: 'mykey', value: 'my value'}, required: true},
+            ],
+            parallel: false,
+            params: {},
+            result: {},
+            status: 'success',
+            successes: [
+                [undefined, {id: expect.any(String), name: undefined, type: 'set', params: {key: 'mykey', value: 'my value'}, required: true}],
+            ],
+        });
+    });
     it('returns success and the result after having executed the steps in order', async () => {
         const a = jest.fn();
         const d = jest.fn();

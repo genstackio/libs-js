@@ -27,8 +27,8 @@ export type execution_definition_task = {
 };
 
 export type execution_definition = {
-    steps?: execution_definition_step[];
-    tasks?: execution_definition_task[];
+    steps?: (string|execution_definition_step)[];
+    tasks?: (string|execution_definition_task)[];
 }
 export type execution_order_prepared = {
     id: string;

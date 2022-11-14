@@ -11,6 +11,7 @@ import OrderError from "../errors/OrderError";
 import * as defaultActions from '../actions';
 import {v4 as uuidv4} from 'uuid';
 import {parse} from './config';
+import YAML from 'yaml';
 
 export async function execute(config: config, context: context) {
     const execution = await initExecution(config, context);
@@ -49,16 +50,45 @@ async function initExecution(config: config, context: context): Promise<executio
 
 // noinspection JSUnusedLocalSymbols
 async function buildExecutionOrders(execution: execution, context: context): Promise<[boolean, execution_order[]]> {
-    const sequentialItems: execution_definition_step[] = execution.definition?.steps || [];
-    const parallelItems: execution_definition_task[] = execution.definition?.tasks || [];
+    const sequentialItems: (string|execution_definition_step)[] = execution.definition?.steps || [];
+    const parallelItems: (string|execution_definition_task)[] = execution.definition?.tasks || [];
     const parallel: boolean = !!parallelItems.length
-    const items: (execution_definition_step|execution_definition_task)[] = parallel ? parallelItems : sequentialItems;
+    const items: (string|execution_definition_step|execution_definition_task)[] = parallel ? parallelItems : sequentialItems;
 
-    return [parallel, (await Promise.all(items.map(async (item: execution_definition_step|execution_definition_task) => buildExecutionOrderFromDefinition(item, execution, context)))).filter(x => !!x) as execution_order[]];
+    return [parallel, (await Promise.all(items.map(async (item: string|execution_definition_step|execution_definition_task) => buildExecutionOrderFromDefinition(item, execution, context)))).filter(x => !!x) as execution_order[]];
+}
+
+async function parseItemShortForm(type: string): Promise<{type: string, [key: string]: any}> {
+    const match = type.match(/^([^(]+)\(([^)]*)\)$/);
+    let parsedVars = {};
+    if (!!match && !!match.length) {
+        type = match[1];
+        parsedVars = !!match[1] ? match[2].split(/\s*,\s*/g).reduce((acc, t) => {
+            const [k, v = undefined] = t.split(/\s*=\s*/)
+            if (undefined === v) {
+                acc['default'] = replaceVarValueIfNeeded(k);
+            } else {
+                acc[k] = replaceVarValueIfNeeded(YAML.parse(v || ''));
+            }
+            return acc;
+        }, {}) : {};
+    }
+    return {type, params: parsedVars};
+}
+
+function replaceVarValueIfNeeded(value: any) {
+    if ('string' !== typeof value) return value;
+    switch (value) {
+        case '$now.time': return 'new Date().getTime()';
+        case '$now': return 'new Date()';
+        case '$now.iso': return 'new Date().toISOString()';
+        default: return value;
+    }
 }
 
 // noinspection JSUnusedLocalSymbols
-async function buildExecutionOrderFromDefinition(item: execution_definition_step|execution_definition_task, execution: execution, context: context): Promise<execution_order|undefined> {
+async function buildExecutionOrderFromDefinition(item: string|execution_definition_step|execution_definition_task, execution: execution, context: context): Promise<execution_order|undefined> {
+    item = (('string' === typeof item) ? await parseItemShortForm(item) : item) as execution_definition_step|execution_definition_task;
     if (!item || !item.type) return undefined;
 
     return {
