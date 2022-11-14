@@ -10,6 +10,7 @@ import {
 import OrderError from "../errors/OrderError";
 import * as defaultActions from '../actions';
 import {v4 as uuidv4} from 'uuid';
+import {parse} from './config';
 
 export async function execute(config: config, context: context) {
     const execution = await initExecution(config, context);
@@ -22,10 +23,8 @@ export async function execute(config: config, context: context) {
 
 // noinspection JSUnusedLocalSymbols
 async function initExecution(config: config, context: context): Promise<execution> {
-    let definition: execution_definition = !config?.definition ? {} : (('string' === typeof config.definition) ? JSON.parse(config.definition || '{}') : ('object' === typeof config.definition ? config.definition : {}));
-    const params = !config?.params ? {} : (('string' === typeof config.params) ? JSON.parse(config.params || '{}') : ('object' === typeof config.params ? config.params : {}));
-
-    if (!definition || ('object' !== typeof definition)) definition = {};
+    let definition: execution_definition = await parse(config?.definition, {});
+    const params: any = await parse(config?.params, {});
 
     definition = {
         steps: [],
