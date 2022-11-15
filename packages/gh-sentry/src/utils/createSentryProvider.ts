@@ -39,7 +39,7 @@ export function createSentryProvider(S: any, config: any = {}, overrides?: any):
         buildCaptureContext,
         addCaptureContext: (captureContext: gh_capture_context) => sharedCaptureContexts.push(captureContext),
         error: async (e: Error, ...args: any[]) => {
-            S.captureException(e);
+            S.captureException(e, buildCaptureContext({data: {args}}));
         },
         captureError: async (e: Error, captureContext?: gh_capture_context, options?: any) => {
             S.captureException(e, buildCaptureContext(captureContext));
