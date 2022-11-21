@@ -47,6 +47,28 @@ export type user_context_value = {
     getTokens: () => user_tokens | undefined;
 };
 
+export type login_context_value = {
+    actionProps?: any;
+    formProps?: any;
+    templateProps?: any;
+    actionComponent?: any,
+    formComponent?: any,
+    templateComponent?: any,
+    layout?: string;
+    map?: (response: any) => any,
+    propagate?: (data: any, {setCurrentUserTokens: Function}) => void,
+    succeed?: (data: any, ctx: {onLoginSuccess: (data: any) => void, setCurrentUserTokens: (tokens: any) => void}) => void,
+};
+
+export type register_context_value = {
+    actionProps?: any;
+    formProps?: any;
+    templateProps?: any;
+    actionComponent?: any,
+    formComponent?: any,
+    templateComponent?: any,
+};
+
 export type cart_context_value = {
     cart: cart | undefined;
     setCart: (cart) => any | undefined;

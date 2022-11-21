@@ -39,3 +39,5 @@ export * from './useLogos';
 export * from './useBreadcrumbsFactory';
 export * from './useMenusFactory';
 export * from './useListFactory';
+export * from './useLoginContext';
+export * from './useRegisterContext';

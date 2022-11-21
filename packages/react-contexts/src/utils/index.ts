@@ -26,6 +26,8 @@ export * from './createDefaultBreadcrumbsFactoryContextValue';
 export * from './createDefaultMenusFactoryContextValue';
 export * from './createDefaultListFactoryContextValue';
 export * from './createDefaultFieldsContextValue';
+export * from './createDefaultLoginContextValue';
+export * from './createDefaultRegisterContextValue';
 export * from './formatLng';
 export * from './i18nFactory';
 export * from './mergeCartItems';
