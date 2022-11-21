@@ -10,6 +10,7 @@ const defaultImporters = {
     form_field: ({path}: {path: string}) => Loadable(() => import(`@genstackio/react-admin-ui/lib/atoms/fields/${path}Field`)),
     content: ({path}: {path: string}) => Loadable(() => import(`@genstackio/react-admin-ui/lib/contents/${path}Content`)),
     screen_template: ({path}: {path: string}) => Loadable(() => import(`@genstackio/react-admin-core/lib/templates/screens/${path}ScreenTemplate`)),
+    drawer: ({path}: {path: string}) => Loadable(() => import(`@genstackio/react-admin-core/lib/drawers/${path}Drawer`)),
 };
 
 export function buildImporter(importer?: importer_context_params, importers?: importers) {
