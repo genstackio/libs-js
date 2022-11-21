@@ -18,6 +18,7 @@ const defaultRegisterPropagator = (data: any, {setCurrentUserTokens}: {setCurren
 const layouts = {
     default: RegisterTemplate,
     centered: RegisterTemplate,
+    none: ({form}) => <>{form || false}</>,
 };
 
 const defaultTemplate = layouts.default;

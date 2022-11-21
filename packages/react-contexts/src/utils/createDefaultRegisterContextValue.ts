@@ -7,6 +7,10 @@ export const createDefaultRegisterContextValue = (): register_context_value => (
     actionComponent: undefined,
     formComponent: undefined,
     templateComponent: undefined,
+    layout: undefined,
+    map: undefined,
+    propagate: undefined,
+    succeed: undefined,
 });
 
 export default createDefaultRegisterContextValue;
