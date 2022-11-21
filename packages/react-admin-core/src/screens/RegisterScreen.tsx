@@ -23,7 +23,7 @@ const layouts = {
 
 const defaultTemplate = layouts.default;
 
-export function RegisterScreen({ actionProps: forcedActionProps = defaultActionProps, formProps: forcedFormProps = defaultFormProps, ...props }: RegisterScreenProps) {
+export function RegisterScreen({ actionProps: forcedActionProps = defaultActionProps, formProps: forcedFormProps = defaultFormProps, layout: forcedLayout, templateComponent: forcedTemplateComponent, formComponent: forcedFormComponent, ...props }: RegisterScreenProps) {
     const { setCurrentUserTokens } = useUserTokens();
     const { locales } = useLocales();
     const {
@@ -35,7 +35,7 @@ export function RegisterScreen({ actionProps: forcedActionProps = defaultActionP
         map = undefined,
         propagate = undefined,
         succeed = undefined,
-    } = useRegisterContext({actionProps: forcedActionProps, formProps: forcedFormProps});
+    } = useRegisterContext({layout: forcedLayout, templateComponent: forcedTemplateComponent, formComponent: forcedFormComponent, actionProps: forcedActionProps, formProps: forcedFormProps});
 
     const onRegisterSuccess = useCallback((data: any) => {
         (propagate || defaultRegisterPropagator)(data, {setCurrentUserTokens});
@@ -72,6 +72,9 @@ export function RegisterScreen({ actionProps: forcedActionProps = defaultActionP
 export interface RegisterScreenProps extends RegisterTemplateProps {
     formProps?: any;
     actionProps?: any;
+    formComponent?: any;
+    templateComponent?: any;
+    layout?: string;
 }
 
 export default RegisterScreen;
