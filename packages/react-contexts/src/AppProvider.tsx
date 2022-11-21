@@ -85,6 +85,9 @@ export function AppProvider({
 }: AppProviderProps) {
     let content = children || '';
     const finalImporter = useMemo(() => importerBuilder(importer, importers), [importer, importers, importerBuilder]);
+    login && (content = <LoginContextProvider value={login}>{content}</LoginContextProvider>);
+    register && (content = <RegisterContextProvider value={register}>{content}</RegisterContextProvider>);
+    drawer && (content = <DrawerContextProvider value={drawer}>{content}</DrawerContextProvider>);
     icons && IconsProvider && (content = <IconsProvider value={icons}>{content}</IconsProvider>);
     favorites && (content = <FavoritesProvider value={favorites}>{content}</FavoritesProvider>);
     notifications && (content = <NotificationsProvider value={notifications}>{content}</NotificationsProvider>);
@@ -115,9 +118,6 @@ export function AppProvider({
     lists && (content = <ListFactoryProvider value={lists}>{content}</ListFactoryProvider>);
     breadcrumbs && (content = <BreadcrumbsFactoryProvider value={breadcrumbs}>{content}</BreadcrumbsFactoryProvider>);
     cleanData && (content = <CleanDataContextProvider value={cleanData}>{content}</CleanDataContextProvider>);
-    login && (content = <LoginContextProvider value={login}>{content}</LoginContextProvider>);
-    register && (content = <RegisterContextProvider value={register}>{content}</RegisterContextProvider>);
-    drawer && (content = <DrawerContextProvider value={drawer}>{content}</DrawerContextProvider>);
 
     return <ErrorBoundary component={error}>{content}</ErrorBoundary>;
 }
