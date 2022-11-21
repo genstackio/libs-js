@@ -222,14 +222,14 @@ export function useAppContext({
         [getImage],
     );
     const [drawerState, setDrawerState] = useState<{data: any, opened: boolean, view: string|undefined}>({data: undefined, opened: false, view: undefined});
-    const openDrawer = useCallback((view?: string) => setDrawerState({...drawerState, opened: true, view: view || drawerState.view}), [setDrawerState, drawerState]);
-    const openDrawerWithData = useCallback((data: any|undefined, view?: string) => setDrawerState({...drawerState, data, opened: true, view: view || drawerState.view}), [setDrawerState, drawerState]);
-    const closeDrawer = useCallback(() => setDrawerState({...drawerState, opened: false}), [setDrawerState, drawerState]);
-    const toggleDrawer = useCallback(() => setDrawerState({...drawerState, opened: !drawerState.opened}), [setDrawerState, drawerState]);
-    const setDrawerOpened = useCallback((value: boolean) => setDrawerState({...drawerState, opened: value}), [setDrawerState, drawerState]);
-    const unsetDrawerData = useCallback(() => setDrawerState({...drawerState, data: undefined}), [setDrawerState, drawerState]);
-    const setDrawerData = useCallback((data: any|undefined) => setDrawerState({...drawerState, data}), [setDrawerState, drawerState]);
-    const setDrawerDataAndOpened = useCallback((data: any|undefined, opened: boolean) => setDrawerState({...drawerState, data, opened}), [setDrawerState, drawerState]);
+    const openDrawer = useCallback((view?: string) => setDrawerState({data: drawerState.data, opened: true, view: view || drawerState.view}), [setDrawerState, drawerState.data, drawerState.view]);
+    const openDrawerWithData = useCallback((data: any|undefined, view?: string) => setDrawerState({data, opened: true, view: view || drawerState.view}), [setDrawerState, drawerState.view]);
+    const closeDrawer = useCallback(() => setDrawerState({data: drawerState.data, view: drawerState.view, opened: false}), [setDrawerState, drawerState.data, drawerState.view]);
+    const toggleDrawer = useCallback(() => setDrawerState({data: drawerState.data, view: drawerState.view, opened: !drawerState.opened}), [setDrawerState, drawerState.data, drawerState.view]);
+    const setDrawerOpened = useCallback((value: boolean) => setDrawerState({data: drawerState.data, view: drawerState.view, opened: value}), [setDrawerState, drawerState.data, drawerState.view]);
+    const unsetDrawerData = useCallback(() => setDrawerState({opened: drawerState.opened, view: drawerState.view, data: undefined}), [setDrawerState, drawerState.opened, drawerState.view]);
+    const setDrawerData = useCallback((data: any|undefined) => setDrawerState({opened: drawerState.opened, view: drawerState.view, data}), [setDrawerState, drawerState.opened, drawerState.view]);
+    const setDrawerDataAndOpened = useCallback((data: any|undefined, opened: boolean) => setDrawerState({view: drawerState.view, data, opened}), [setDrawerState, drawerState.view]);
     const getDrawerData = useCallback(() => drawerState.data, [drawerState]);
     const resetDrawer = useCallback(() => setDrawerState({data: undefined, opened: false, view: undefined}), [setDrawerState]);
     const drawerProviderValue: drawer_context_value = useMemo(() => ({

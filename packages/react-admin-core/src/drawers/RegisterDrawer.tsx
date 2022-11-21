@@ -1,12 +1,9 @@
 import RegisterScreen from "../screens/RegisterScreen";
-import DrawerContainer from "../organisms/DrawerContainer";
 
 // noinspection JSUnusedLocalSymbols
 export function RegisterDrawer(props: RegisterDrawerProps) {
     return (
-        <DrawerContainer>
-            <RegisterScreen image={undefined} layout={'none'} />
-        </DrawerContainer>
+        <RegisterScreen image={undefined} layout={'none'} />
     );
 }
 
