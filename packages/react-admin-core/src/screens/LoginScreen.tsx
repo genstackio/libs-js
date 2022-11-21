@@ -25,7 +25,7 @@ const layouts = {
 
 const defaultTemplate = layouts.default;
 
-export function LoginScreen({ onForgotPasswordClick, actionProps: forcedActionProps = defaultActionProps, formProps: forcedFormProps = defaultFormProps, layout: forcedLayout, templateComponent: forcedTemplateComponent, formComponent: forcedFormComponent, ...props }: LoginScreenProps) {
+export function LoginScreen({ onSuccess: forcedOnSuccess = undefined, onForgotPasswordClick, actionProps: forcedActionProps = defaultActionProps, formProps: forcedFormProps = defaultFormProps, layout: forcedLayout, templateComponent: forcedTemplateComponent, formComponent: forcedFormComponent, ...props }: LoginScreenProps) {
     const { setCurrentUserTokens } = useUserTokens();
     const { locales } = useLocales();
     const {
@@ -46,10 +46,11 @@ export function LoginScreen({ onForgotPasswordClick, actionProps: forcedActionPr
     const onSuccess = useCallback(
         (data) => {
             data = (map || defaultLoginResponseMapper)(data);
-            if (succeed) return succeed(data, {setCurrentUserTokens, onLoginSuccess});
-            onLoginSuccess(data);
+            if (succeed) succeed(data, {setCurrentUserTokens, onLoginSuccess});
+            else onLoginSuccess(data);
+            forcedOnSuccess && forcedOnSuccess(data);
         },
-        [succeed, setCurrentUserTokens, map, onLoginSuccess],
+        [forcedOnSuccess, succeed, setCurrentUserTokens, map, onLoginSuccess],
     );
 
     const form = (
@@ -79,6 +80,7 @@ export interface LoginScreenProps extends LoginTemplateProps {
     formComponent?: any;
     templateComponent?: any;
     layout?: string;
+    onSuccess?: Function;
 }
 
 export default LoginScreen;

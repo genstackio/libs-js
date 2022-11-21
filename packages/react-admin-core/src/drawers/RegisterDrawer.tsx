@@ -1,13 +1,14 @@
 import RegisterScreen from "../screens/RegisterScreen";
 
 // noinspection JSUnusedLocalSymbols
-export function RegisterDrawer(props: RegisterDrawerProps) {
+export function RegisterDrawer({onClose}: RegisterDrawerProps) {
     return (
-        <RegisterScreen image={undefined} layout={'none'} />
+        <RegisterScreen image={undefined} layout={'none'} onSuccess={onClose} />
     );
 }
 
 export interface RegisterDrawerProps {
+    onClose: Function;
 }
 
 // noinspection JSUnusedGlobalSymbols

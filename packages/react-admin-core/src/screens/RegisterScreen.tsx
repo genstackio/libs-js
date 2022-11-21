@@ -23,7 +23,7 @@ const layouts = {
 
 const defaultTemplate = layouts.default;
 
-export function RegisterScreen({ actionProps: forcedActionProps = defaultActionProps, formProps: forcedFormProps = defaultFormProps, layout: forcedLayout, templateComponent: forcedTemplateComponent, formComponent: forcedFormComponent, ...props }: RegisterScreenProps) {
+export function RegisterScreen({ onSuccess: forcedOnSuccess = undefined, actionProps: forcedActionProps = defaultActionProps, formProps: forcedFormProps = defaultFormProps, layout: forcedLayout, templateComponent: forcedTemplateComponent, formComponent: forcedFormComponent, ...props }: RegisterScreenProps) {
     const { setCurrentUserTokens } = useUserTokens();
     const { locales } = useLocales();
     const {
@@ -44,10 +44,11 @@ export function RegisterScreen({ actionProps: forcedActionProps = defaultActionP
     const onSuccess = useCallback(
         (data) => {
             data = (map || defaultRegisterResponseMapper)(data);
-            if (succeed) return succeed(data, {setCurrentUserTokens, onRegisterSuccess});
-            onRegisterSuccess(data);
+            if (succeed) succeed(data, {setCurrentUserTokens, onRegisterSuccess});
+            else  onRegisterSuccess(data);
+            forcedOnSuccess && forcedOnSuccess(data);
         },
-        [succeed, setCurrentUserTokens, map, onRegisterSuccess],
+        [succeed, setCurrentUserTokens, map, onRegisterSuccess, forcedOnSuccess],
     );
 
     const form = (
@@ -75,6 +76,7 @@ export interface RegisterScreenProps extends RegisterTemplateProps {
     formComponent?: any;
     templateComponent?: any;
     layout?: string;
+    onSuccess?: Function;
 }
 
 export default RegisterScreen;
