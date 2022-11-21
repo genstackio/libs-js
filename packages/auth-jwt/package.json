@@ -1,6 +1,6 @@
 {
   "name": "@genstackio/auth-jwt",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -22,15 +22,15 @@
     "@ohoareau/errors": "^0.2.0"
   },
   "peerDependencies": {
-    "jsonwebtoken": "^8.5.1",
-    "bcryptjs": "^2.4.3"
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-typescript": "^7.9.0",
     "babel-loader": "^8.1.0",
-    "source-map-loader": "^0.2.4",
+    "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^8.5.1",
-    "bcryptjs": "^2.4.3"
+    "source-map-loader": "^0.2.4"
   }
 }
