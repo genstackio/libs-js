@@ -28,7 +28,7 @@ export function useDrawerProviderValue() {
         setDataAndOpened: setDrawerDataAndOpened,
         view: drawerState.view,
     }), [
-        drawerState, openDrawer, closeDrawer, toggleDrawer, resetDrawer, setDrawerOpened, unsetDrawerData,
+        drawerState.opened, drawerState.data, drawerState.view, openDrawer, closeDrawer, toggleDrawer, resetDrawer, setDrawerOpened, unsetDrawerData,
         setDrawerData, getDrawerData, setDrawerDataAndOpened, openDrawerWithData,
     ]) as drawer_context_value;
 }

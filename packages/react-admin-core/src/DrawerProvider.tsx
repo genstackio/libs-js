@@ -1,10 +1,12 @@
-import {DrawerContextProvider} from "./contexts/DrawerContext";
-import useDrawerProviderValue from "./hooks/useDrawerProviderValue";
+import {DrawerContextProvider} from "@genstackio/react-contexts/lib/contexts/DrawerContext";
+import useDrawerProviderValue from "@genstackio/react-contexts/lib/hooks/useDrawerProviderValue";
+import AppDrawer from "./organisms/AppDrawer";
 
 export function DrawerProvider({children}: DrawerProviderProps) {
     const value = useDrawerProviderValue();
     return (
         <DrawerContextProvider value={value}>
+            <AppDrawer />
             {children || false}
         </DrawerContextProvider>
     )
