@@ -67,6 +67,10 @@ export type register_context_value = {
     actionComponent?: any,
     formComponent?: any,
     templateComponent?: any,
+    layout?: string;
+    map?: (response: any) => any,
+    propagate?: (data: any, {setCurrentUserTokens: Function}) => void,
+    succeed?: (data: any, ctx: {onRegisterSuccess: (data: any) => void, setCurrentUserTokens: (tokens: any) => void}) => void,
 };
 
 export type cart_context_value = {
