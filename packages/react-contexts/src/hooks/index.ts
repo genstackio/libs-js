@@ -41,3 +41,4 @@ export * from './useMenusFactory';
 export * from './useListFactory';
 export * from './useLoginContext';
 export * from './useRegisterContext';
+export * from './useDrawerContext';

@@ -46,8 +46,8 @@ export function RegisterForm({
     return (
         <Form customChildren={children} footer={footer}>
             <Row mb={'md'} py={'sm'} spaced={30} className={'leading-tight focus:outline-none focus:shadow-outline'}>
-                <LastNameField {...field} autoFocus threeOf5 />
-                <FirstNameField {...field} twoOf5 />
+                <LastNameField {...field} autoFocus half />
+                <FirstNameField {...field} half />
             </Row>
             <Div mb={'sm'} className={'text-sm font-bold'}>
                 <Div py={'sm'} className={'leading-tight focus:outline-none focus:shadow-outline'}>

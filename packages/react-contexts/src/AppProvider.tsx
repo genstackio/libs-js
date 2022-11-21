@@ -23,6 +23,7 @@ import { BreadcrumbsFactoryProvider } from './contexts/BreadcrumbsFactoryContext
 import { CleanDataContextProvider } from './contexts/CleanDataContext';
 import { LoginContextProvider } from './contexts/LoginContext';
 import { RegisterContextProvider } from './contexts/RegisterContext';
+import { DrawerContextProvider } from './contexts/DrawerContext';
 import {
     dark_mode_context_value,
     favorites_context_value,
@@ -39,7 +40,7 @@ import {
     menus_factory_context_value,
     list_factory_context_value,
     breadcrumbs_factory_context_value,
-    fields_context_value, clean_data_context_value, login_context_value, register_context_value,
+    fields_context_value, clean_data_context_value, login_context_value, register_context_value, drawer_context_value,
 } from './types';
 
 export function AppProvider({
@@ -80,6 +81,7 @@ export function AppProvider({
     cleanData,
     login,
     register,
+    drawer,
 }: AppProviderProps) {
     let content = children || '';
     const finalImporter = useMemo(() => importerBuilder(importer, importers), [importer, importers, importerBuilder]);
@@ -115,6 +117,7 @@ export function AppProvider({
     cleanData && (content = <CleanDataContextProvider value={cleanData}>{content}</CleanDataContextProvider>);
     login && (content = <LoginContextProvider value={login}>{content}</LoginContextProvider>);
     register && (content = <RegisterContextProvider value={register}>{content}</RegisterContextProvider>);
+    drawer && (content = <DrawerContextProvider value={drawer}>{content}</DrawerContextProvider>);
 
     return <ErrorBoundary component={error}>{content}</ErrorBoundary>;
 }
@@ -157,6 +160,7 @@ export interface AppProviderProps {
     importerBuilder: (importer: importer_context_params, importers?: importers) => importer_context_params;
     login?: login_context_value;
     register?: register_context_value;
+    drawer?: drawer_context_value;
 }
 
 // noinspection JSUnusedGlobalSymbols

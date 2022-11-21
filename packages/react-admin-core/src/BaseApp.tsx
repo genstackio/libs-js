@@ -15,6 +15,7 @@ import Routes from "./Routes";
 import Route from "./Route";
 import {ambiance_context_value} from "@genstackio/react-contexts/lib/types";
 import buildImporter from "./utils/buildImporter";
+import AppDrawer from "./organisms/AppDrawer";
 
 // warning: we create default values (objects) here to avoid react re-rendering with always-different-objects
 const defaultTranslations = {};
@@ -63,6 +64,7 @@ export function BaseApp({
         user,
         locales: computedLocales,
         upload: uploadValue,
+        drawer: drawerValue,
     } = useAppContext({
         storageKeyFactory: (k: string) => `${prefix}_${k}`,
         apiOptions,
@@ -96,8 +98,10 @@ export function BaseApp({
             locales={computedLocales}
             upload={uploadValue}
             importerBuilder={buildImporter}
+            drawer={drawerValue}
             {...props}
         >
+            <AppDrawer />
             <Router>
                 <Routes loadingComponent={loadingComponent}>
                     {(routes || []).map((route, i) => (

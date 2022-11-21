@@ -9,7 +9,7 @@ import {
     user_context_value,
     locales_context_value,
     images_context_value,
-    app_context_params, upload_context_value,
+    app_context_params, upload_context_value, drawer_context_value,
 } from '../types';
 import MuiLink from '@material-ui/core/Link';
 import fetch from 'isomorphic-fetch';
@@ -221,6 +221,35 @@ export function useAppContext({
         () => ({ get: getImage || ((key: string) => undefined) }),
         [getImage],
     );
+    const [drawerState, setDrawerState] = useState<{data: any, opened: boolean, view: string|undefined}>({data: undefined, opened: false, view: undefined});
+    const openDrawer = useCallback((view?: string) => setDrawerState({...drawerState, opened: true, view: view || drawerState.view}), [setDrawerState, drawerState]);
+    const openDrawerWithData = useCallback((data: any|undefined, view?: string) => setDrawerState({...drawerState, data, opened: true, view: view || drawerState.view}), [setDrawerState, drawerState]);
+    const closeDrawer = useCallback(() => setDrawerState({...drawerState, opened: false}), [setDrawerState, drawerState]);
+    const toggleDrawer = useCallback(() => setDrawerState({...drawerState, opened: !drawerState.opened}), [setDrawerState, drawerState]);
+    const setDrawerOpened = useCallback((value: boolean) => setDrawerState({...drawerState, opened: value}), [setDrawerState, drawerState]);
+    const unsetDrawerData = useCallback(() => setDrawerState({...drawerState, data: undefined}), [setDrawerState, drawerState]);
+    const setDrawerData = useCallback((data: any|undefined) => setDrawerState({...drawerState, data}), [setDrawerState, drawerState]);
+    const setDrawerDataAndOpened = useCallback((data: any|undefined, opened: boolean) => setDrawerState({...drawerState, data, opened}), [setDrawerState, drawerState]);
+    const getDrawerData = useCallback(() => drawerState.data, [drawerState]);
+    const resetDrawer = useCallback(() => setDrawerState({data: undefined, opened: false, view: undefined}), [setDrawerState]);
+    const drawerProviderValue: drawer_context_value = useMemo(() => ({
+        opened: drawerState.opened,
+        open: openDrawer,
+        close: closeDrawer,
+        toggle: toggleDrawer,
+        reset: resetDrawer,
+        setOpened: setDrawerOpened,
+        unsetData: unsetDrawerData,
+        setData: setDrawerData,
+        getData: getDrawerData,
+        data: drawerState.data,
+        openWithData: openDrawerWithData,
+        setDataAndOpened: setDrawerDataAndOpened,
+        view: drawerState.view,
+    }), [
+        drawerState, openDrawer, closeDrawer, toggleDrawer, resetDrawer, setDrawerOpened, unsetDrawerData,
+        setDrawerData, getDrawerData, setDrawerDataAndOpened, openDrawerWithData,
+    ]);
 
     const uploadValue = useMemo(() => !!upload ? {requestUploadInfos: upload} : undefined, [upload]) as upload_context_value|undefined;
     return useMemo(() => ({
@@ -239,7 +268,9 @@ export function useAppContext({
         themes,
         fullscreen,
         upload: uploadValue,
-    }), [uploadValue, api.client, i18n, theme, themeFactory, storage, locale, userProviderValue, cartProviderValue, navigationProviderValue, localesProviderValue, imagesProviderValue, themes, fullscreen]);
+        drawer: drawerProviderValue,
+    }), [drawerProviderValue, uploadValue, api.client, i18n, theme, themeFactory, storage, locale, userProviderValue, cartProviderValue, navigationProviderValue, localesProviderValue, imagesProviderValue, themes, fullscreen]);
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default useAppContext;

@@ -28,6 +28,7 @@ export * from './createDefaultListFactoryContextValue';
 export * from './createDefaultFieldsContextValue';
 export * from './createDefaultLoginContextValue';
 export * from './createDefaultRegisterContextValue';
+export * from './createDefaultDrawerContextValue';
 export * from './formatLng';
 export * from './i18nFactory';
 export * from './mergeCartItems';

@@ -60,6 +60,22 @@ export type login_context_value = {
     succeed?: (data: any, ctx: {onLoginSuccess: (data: any) => void, setCurrentUserTokens: (tokens: any) => void}) => void,
 };
 
+export type drawer_context_value = {
+    opened: boolean;
+    setOpened: (state: boolean) => void;
+    toggle: () => void;
+    setData: (data: any|undefined) => void;
+    setDataAndOpened: (data: any|undefined, opened: boolean) => void;
+    getData: () => any|undefined;
+    reset: () => void;
+    unsetData: () => void;
+    close: () => void;
+    open: (view?: string) => void;
+    data: any|undefined,
+    openWithData: (data: any|undefined, view?: string) => void,
+    view: string|undefined,
+};
+
 export type register_context_value = {
     actionProps?: any;
     formProps?: any;

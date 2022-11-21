@@ -17,7 +17,7 @@ import { FullscreenProvider as BaseFullscreenProvider } from '@genstackio/react-
 import { FullScreen } from 'react-full-screen';
 import IconsProvider from '@genstackio/react-contexts/lib/IconsProvider';
 import defaultCleanData from "../utils/cleanData";
-import {login_context_value, register_context_value} from "@genstackio/react-contexts";
+import {drawer_context_value, login_context_value, register_context_value} from "@genstackio/react-contexts";
 
 function GraphqlProvider({ value, children }: any) {
     value && (children = <ApolloProvider client={value}>{children}</ApolloProvider>);
@@ -83,6 +83,7 @@ export function useApp({
     cleanData = undefined,
     login = undefined,
     register = undefined,
+    drawer = undefined,
 }: {
     importer?: importer_function;
     importers?: importers;
@@ -103,6 +104,7 @@ export function useApp({
     cleanData?: clean_data_context_value;
     login?: login_context_value;
     register?: register_context_value;
+    drawer?: drawer_context_value;
 }) {
     translations = translations || defaultTranslations;
     routes = routes || defaultRoutes;
@@ -184,6 +186,7 @@ export function useApp({
             logos,
             login,
             register,
+            drawer,
         ],
     );
 }
