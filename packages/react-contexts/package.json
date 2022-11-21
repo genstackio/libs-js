@@ -1,6 +1,6 @@
 {
   "name": "@genstackio/react-contexts",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "description": "React Contexts for Genstackio",
   "license": "MIT",
   "main": "lib/index.js",
