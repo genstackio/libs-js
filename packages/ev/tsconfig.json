@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react",
+    "rootDir": "./src",
+    "outDir": "./lib",
+    "composite": true,
+    "lib": ["dom", "es2020"]
+  },
+  "target": "es2020",
+  "include": ["./src"]
+}
