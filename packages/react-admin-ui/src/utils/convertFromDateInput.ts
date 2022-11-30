@@ -7,8 +7,8 @@ export function convertFromDateInput(v: any, type: string = 'date') {
         case 'week': return new Date(v).getTime();
         case 'month': return new Date(v).getTime();
         case 'date': return new Date(v).getTime();
-        case 'datetime-local': return new Date(`${v}${currentTimezone}`).getTime();
-        default: return new Date(`${v}${currentTimezone}`).getTime();
+        case 'datetime-local': return new Date(v).getTime() + currentTimezone;
+        default: return new Date(v).getTime() + currentTimezone;
     }
 }
 
