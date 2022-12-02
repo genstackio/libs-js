@@ -21,6 +21,7 @@ export * from './ColorField';
 export * from './CommentField';
 export * from './ComplementField';
 export * from './CompleteCallbackUrlField';
+export * from './ComponentField';
 export * from './CountryField';
 export * from './CssField';
 export * from './CurrencyField';

@@ -12,5 +12,6 @@ export * from './NewsletterForm';
 export * from './OrganizationForm';
 export * from './RegisterForm';
 export * from './SendOtpForgotPasswordForm';
+export * from './ShowcaseForm';
 export * from './UnlockForm';
 export * from './UserProfileForm';

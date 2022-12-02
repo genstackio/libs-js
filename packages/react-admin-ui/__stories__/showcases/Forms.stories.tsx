@@ -1,5 +1,5 @@
 import { s, a } from '../utils';
-import { Block, LoginForm, ForgotPasswordForm, RegisterForm } from '../../src';
+import {Block, LoginForm, ForgotPasswordForm, RegisterForm, ShowcaseForm} from '../../src';
 import { useCallback } from 'react';
 
 export default {
@@ -8,7 +8,16 @@ export default {
     argTypes: a({}),
 };
 
+const showcaseDefaultValues ={
+    dateTime: 1669899681000,
+    date: 1669899681000,
+    flag: true,
+};
+
 export const basic = s(() => {
+    const onShowcaseSubmit = useCallback((data) => {
+        alert(JSON.stringify(data, null, 4));
+    }, []);
     const onLoginSubmit = useCallback((data) => {
         alert(JSON.stringify(data, null, 4));
     }, []);
@@ -19,7 +28,12 @@ export const basic = s(() => {
         alert(JSON.stringify(data, null, 4));
     }, []);
     return (
-        <>
+        <div className={'w-full space-y-2'}>
+            <div className={'flex space-x-2'}>
+                <Block className={'flex-1'} color={'primary'} variant={'outlined'}>
+                    <ShowcaseForm onSubmit={onShowcaseSubmit} defaultValues={showcaseDefaultValues} />
+                </Block>
+            </div>
             <div className={'flex space-x-2'}>
                 <Block className={'flex-1'} color={'primary'} variant={'outlined'}>
                     <LoginForm onSubmit={onLoginSubmit} />
@@ -33,6 +47,6 @@ export const basic = s(() => {
                     <ForgotPasswordForm onSubmit={onForgotPasswordSubmit} />
                 </Block>
             </div>
-        </>
+        </div>
     );
 }, {});

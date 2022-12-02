@@ -1,30 +1,20 @@
-import TextField, { TextFieldProps } from './TextField';
-import {useCallback} from "react";
+import { TextFieldProps } from './TextField';
+import ComponentField from "./ComponentField";
 import convertToDateInput from "../../utils/convertToDateInput";
 import convertFromDateInput from "../../utils/convertFromDateInput";
 
-export function DateField({convertValue: originalConvertValue, valueAs: originalValueAs, ...props}: DateFieldProps) {
-    const convertValue = useCallback((v: any) => {
-        v = convertToDateInput(v, props.type);
-        return originalConvertValue ? originalConvertValue(v) : v;
-    }, [originalConvertValue, props.type]);
-    const valueAs = useCallback((v: any) => {
-        v = ('string' === typeof v) ? convertFromDateInput(v, props.type) : v;
-        if (originalValueAs) {
-            switch (originalValueAs) {
-                case 'date': return new Date(v);
-                case 'number': return ('number' === typeof v) ? v : parseInt(v);
-                default:
-                    if ('function' === typeof originalValueAs) {
-                        return originalValueAs(v);
-                    }
-                    return v;
-            }
-        }
-        return v;
-    }, [originalValueAs, props.type]);
+const DateComponent = React.forwardRef((props: any, ref) => {
+    return <input ref={ref} {...props} />;
+});
+function marshall(v: any, {type}) {
+    return convertToDateInput(v, type)
+}
+function unmarshall(v: any, {type}: any) {
+    return convertFromDateInput(v?.target?.value, type);
+}
 
-    return <TextField kind={'date'} type={'date'} {...props} convertValue={convertValue} valueAs={valueAs} />;
+export function DateField({...props}: DateFieldProps) {
+    return <ComponentField component={DateComponent} kind={'date'} type={'date'} {...props} marshall={marshall} unmarshall={unmarshall} />
 }
 
 export type DateFieldProps = TextFieldProps;
