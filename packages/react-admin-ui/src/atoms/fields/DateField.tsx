@@ -1,9 +1,10 @@
+import { forwardRef } from 'react';
 import { TextFieldProps } from './TextField';
-import ComponentField from "./ComponentField";
-import convertToDateInput from "../../utils/convertToDateInput";
-import convertFromDateInput from "../../utils/convertFromDateInput";
+import ComponentField from './ComponentField';
+import convertToDateInput from '../../utils/convertToDateInput';
+import convertFromDateInput from '../../utils/convertFromDateInput';
 
-const DateComponent = React.forwardRef((props: any, ref) => {
+const DateComponent = forwardRef((props: any, ref) => {
     return <input ref={ref} {...props} />;
 });
 function marshall(v: any, {type}) {
