@@ -3,10 +3,13 @@ export function populateObjectFromPathAndValue(o: any, p: string, v: string) {
     const parts = p.split(/\|\|\|/g);
     const lastPart = parts.pop();
     parts.forEach(x => {
-        if (!oo[x]) oo[x] = {};
-        oo = oo[x];
+        // noinspection JSSuspiciousNameCombination
+        let y: any = x;
+        if (('string' === typeof x) && /^[0-9]+$/.test(x)) y = parseInt(x);
+        if (!oo[y]) oo[y] = {};
+        oo = oo[y];
     })
-    oo[lastPart!] = v;
+    oo[(('string' === typeof lastPart) && /^[0-9]+$/.test(lastPart!)) ? parseInt(lastPart!) : lastPart!] = v;
     return o;
 }
 
