@@ -1,6 +1,6 @@
 {
   "name": "@genstackio/translator",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "deepl-node": "^1.7.2",
-      "html-entities": "^2.3.3"
+    "html-entities": "^2.3.3"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.9.5",
