@@ -19,7 +19,7 @@ export async function executeTranslate(items: translatable_item[], from :string,
     const translatedTexts = await translator(translatableTexts, from , to, config[selectedBackendName] || {});
 
     return translatableMap.reduce((acc, [n, it]: [number, any], i: number) => {
-        acc[n] = {translation: options?.replacer ? options!.replacer(translatedTexts[i]) : translatableTexts[i], item: it};
+        acc[n] = {translation: options?.replacer ? options!.replacer(translatedTexts[i]) : translatedTexts[i], item: it};
         return acc;
     }, [] as any[]);
 }
