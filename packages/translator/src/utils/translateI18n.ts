@@ -4,10 +4,10 @@ import computeTranslatableKeys from "./computeTranslatableKeys";
 import mergeTranslatedKeysIntoLocaleKeys from "./mergeTranslatedKeysIntoLocaleKeys";
 import {deepSort} from "@genstackio/deep";
 
-export async function translateI18n(data: any, refData: any, sourceLocale, targetLocale, options?: any, config?: any) {
+export async function translateI18n(data: any, refData: any, sourceLocale, targetLocale, config?: any, options?: any) {
     !!options?.clean && (data = await cleanKeysComparedToReference(data, refData));
     const translatableKeys = await computeTranslatableKeys(refData, data);
-    const translatedKeys = await translateData(translatableKeys, sourceLocale, targetLocale, config);
+    const translatedKeys = await translateData(translatableKeys, sourceLocale, targetLocale, config, {replacer: options?.replacer});
 
     let result = await mergeTranslatedKeysIntoLocaleKeys(translatedKeys, data);
 

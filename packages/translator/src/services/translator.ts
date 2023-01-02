@@ -1,7 +1,7 @@
 import translators from '../translators';
 import {translatable_item} from "../types";
 
-export async function executeTranslate(items: translatable_item[], from :string, to: string, config: any) {
+export async function executeTranslate(items: translatable_item[], from :string, to: string, config: any, options?: {replacer?: Function}) {
     if (!items.length) return [];
     const selectedBackendName = Object.keys(config).find(k => !!translators[k]);
     if (!selectedBackendName) throw new Error(`No backend selected for translation (missing config?)`);
@@ -19,7 +19,7 @@ export async function executeTranslate(items: translatable_item[], from :string,
     const translatedTexts = await translator(translatableTexts, from , to, config[selectedBackendName] || {});
 
     return translatableMap.reduce((acc, [n, it]: [number, any], i: number) => {
-        acc[n] = {translation: translatedTexts[i], item: it};
+        acc[n] = {translation: options?.replacer ? options!.replacer(translatedTexts[i]) : translatableTexts[i], item: it};
         return acc;
     }, [] as any[]);
 }

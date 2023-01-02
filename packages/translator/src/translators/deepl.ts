@@ -48,7 +48,7 @@ async function translate(texts: string[], from: string, to: string, config: any)
         texts.map(mapTextToTranslatableText),
         mapSourceLocale(from, sl),
         mapTargetLocale(to, tl),
-        {tagHandling: 'xml', ignoreTags: ['X']}
+        {tagHandling: 'xml', ignoreTags: ['X', 'X1', 'X2', 'X3', 'X4', 'X5']}
     )).map(x => mapTextToTranslatedText(x.text));
 }
 
