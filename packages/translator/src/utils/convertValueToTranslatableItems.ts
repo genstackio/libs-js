@@ -4,13 +4,10 @@ export function convertValueToTranslatableItems(v: any, k: string, acc: any) {
             acc.push({text: v, path: k});
             return acc;
         case 'number':
-            acc.push({text: String(v), path: k});
             return acc;
         case 'boolean':
-            acc.push({text: v ? 'true' : 'false', path: k});
             return acc;
         case 'undefined':
-            acc.push({text: '', path: k});
             return acc;
         case 'object':
             if (Array.isArray(v)) {
