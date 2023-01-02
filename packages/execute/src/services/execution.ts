@@ -126,6 +126,7 @@ async function processExecutionOrder(order: execution_order, execution: executio
 }
 
 async function processParallelExecution(execution: execution, context: context): Promise<void> {
+    // @ts-ignore
     return populateExecutionFromReports(await Promise.allSettled(execution.orders.map(async (order: execution_order) => {
         return processExecutionOrder(order, execution, context);
     })), execution, context);
