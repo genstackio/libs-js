@@ -1,5 +1,6 @@
 import translators from '../translators';
 import {translatable_item} from "../types";
+import cleanBackString from "../utils/cleanBackString";
 
 export async function executeTranslate(items: translatable_item[], from :string, to: string, config: any, options?: {replacer?: Function}) {
     if (!items.length) return [];
@@ -18,8 +19,14 @@ export async function executeTranslate(items: translatable_item[], from :string,
 
     const translatedTexts = await translator(translatableTexts, from , to, config[selectedBackendName] || {});
 
+    const replacer = (s: string) => {
+        s = cleanBackString(s);
+        options?.replacer && (s = options?.replacer(s));
+        return s;
+    };
+
     return translatableMap.reduce((acc, [n, it]: [number, any], i: number) => {
-        acc[n] = {translation: options?.replacer ? options!.replacer(translatedTexts[i]) : translatedTexts[i], item: it};
+        acc[n] = {translation: replacer(translatedTexts[i]), item: it};
         return acc;
     }, [] as any[]);
 }
