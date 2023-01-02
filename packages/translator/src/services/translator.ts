@@ -1,15 +1,24 @@
-import translators from '../translators';
 import {translatable_item} from "../types";
 import cleanBackString from "../utils/cleanBackString";
 
+const defaultBackendName = 'deepl';
+
 export async function executeTranslate(items: translatable_item[], from :string, to: string, config: any, options?: {replacer?: Function}) {
     if (!items.length) return [];
-    const selectedBackendName = Object.keys(config).find(k => !!translators[k]);
-    if (!selectedBackendName) throw new Error(`No backend selected for translation (missing config?)`);
 
-    const translator = translators[selectedBackendName];
+    let selectedBackendName: string|undefined;
+    if (from === to) selectedBackendName = 'mirror';
+    else {
+        selectedBackendName = defaultBackendName;
+        if (!selectedBackendName) throw new Error(`No backend selected for translation (missing config?)`);
+    }
 
-    if (!translator) throw new Error(`No translator for backend '${selectedBackendName}'`);
+    let translator: any;
+    try {
+        translator = require(`${__dirname}/../translators/${selectedBackendName.replace(/[^a-z0-9_]+/g, '')}`).default;
+    } catch (e: any) {
+        throw new Error(`No translator for backend '${selectedBackendName}'`);
+    }
 
     const [translatableMap, translatableTexts] = items.reduce((acc, item, index: number) => {
         acc[0].push([index, item]);
@@ -17,7 +26,7 @@ export async function executeTranslate(items: translatable_item[], from :string,
         return acc;
     }, [[], []] as [[number, translatable_item][], string[]]);
 
-    const translatedTexts = await translator(translatableTexts, from , to, config[selectedBackendName] || {});
+    const translatedTexts = await translator(translatableTexts, from , to, (config || {})[selectedBackendName] || {});
 
     const replacer = (s: string) => {
         s = cleanBackString(s);
