@@ -88,7 +88,7 @@ export class TranslatorService extends AbstractTranslatorService {
     async listLocales(config: any): Promise<Record<string, {sourceLocales: string[], targetLocales: string[]}>> {
         return Object.entries(this.plugins).reduce(async (acc, [name, {plugin}]) => {
             const localAcc = await acc;
-            const [,,sl, tl] = plugin.getTranslator ? await plugin.getTranslator(config) : [undefined, undefined];
+            const [,,sl, tl] = plugin.getTranslator ? await plugin.getTranslator((config || {})[name] || {}) : [undefined, undefined];
             localAcc[name] = {
                 sourceLocales: Object.keys(sl || {}),
                 targetLocales: Object.keys(tl || {}),
