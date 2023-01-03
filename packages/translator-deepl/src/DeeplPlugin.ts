@@ -36,7 +36,7 @@ export class DeeplPlugin extends AbstractTranslatorPlugin<deepl.Translator, Sour
     }
     mapTranslatedTextToText(t: TextResult) {
         return decode(
-            t.text.replace(/(<X>([a-z0-9_]+)<\/X>)/gi, (match, p1, p2) => `{{${p2}}}`),
+            (t.text || '').replace(/(<X>([a-z0-9_]+)<\/X>)/gi, (match, p1, p2) => `{{${p2}}}`),
             {level: 'xml'}
         );
     }

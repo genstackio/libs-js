@@ -21,7 +21,7 @@ export class AmazonTranslatePlugin extends AbstractTranslatorPlugin<AWS.Translat
     async translate(t: AWS.Translate, texts: string[], sourceLocale: any, targetLocale: any, options: Record<string, any> | undefined): Promise<any[]> {
         const reports = await Promise.allSettled(texts.map(async (text: string) => this.translateText(t, text, sourceLocale, targetLocale, options)));
 
-        const {texts: translatedTexts /*, errors*/} = reports.reduce((acc, r: any, index: number) => {
+        const {texts: translatedTexts, errors} = reports.reduce((acc, r: any, index: number) => {
             if (r.status === 'fulfilled') {
                 acc.texts.push(r.value);
             } else {
@@ -31,7 +31,9 @@ export class AmazonTranslatePlugin extends AbstractTranslatorPlugin<AWS.Translat
             return acc;
         }, {texts: [], errors: []} as {texts: any[], errors: [number, Error][]});
 
-        // @todo process errors
+        errors.forEach(error => {
+            console.error(`ERROR [amazontranslate] ${texts[error[0]]} => ${error[1].message}`);
+        });
 
         return translatedTexts;
     }
@@ -48,7 +50,7 @@ export class AmazonTranslatePlugin extends AbstractTranslatorPlugin<AWS.Translat
     }
     mapTranslatedTextToText(t: any) {
         return decode(
-            t.TranslatedText.replace(/(<span translate=no>([a-z0-9_]+)<\/span>)/gi, (match, p1, p2) => `{{${p2}}}`),
+            (t.TranslatedText || '').replace(/(<span translate=no>([a-z0-9_]+)<\/span>)/gi, (match, p1, p2) => `{{${p2}}}`),
             {level: 'xml'}
         );
     }
