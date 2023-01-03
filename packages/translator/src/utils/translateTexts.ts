@@ -1,18 +1,7 @@
-import {executeTranslate} from "../services/translator";
-import convertTranslatedItemsToData from "./convertTranslatedItemsToData";
-import convertDataToTranslatableItems from "./convertDataToTranslatableItems";
+import singleton from "../singleton";
 
 export async function translateTexts(texts: string[], sourceLocale, targetLocale, config?: any, options?: any) {
-    return (await convertTranslatedItemsToData(
-        await executeTranslate(
-            convertDataToTranslatableItems({texts}),
-            sourceLocale,
-            targetLocale,
-            config,
-            options
-        )
-    ))['texts'];
+    return singleton.translateTexts(texts, sourceLocale, targetLocale, config, options);
 }
 
-// noinspection JSUnusedGlobalSymbols
 export default translateTexts;

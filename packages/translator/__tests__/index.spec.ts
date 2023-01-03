@@ -1,9 +1,11 @@
-import {translateData} from "../src";
+import {TranslatorService} from "../src";
+import MirrorPlugin from "../src/plugins/MirrorPlugin";
 
 describe('translateData', () => {
     [
         [
             'mirror',
+            [['mirror', new MirrorPlugin()]],
             {
             "content": {
                 "keys": [
@@ -26,8 +28,10 @@ describe('translateData', () => {
         },
         ]
     ].forEach(
-        ([name, data, sourceLocale, targetLocale, expected]: any) => it(name, async () => {
-            await expect(translateData(data, sourceLocale, targetLocale)).resolves.toEqual(expected);
+        ([name, plugins, data, sourceLocale, targetLocale, expected]: any) => it(name, async () => {
+            const t = new TranslatorService();
+            plugins.forEach(([name, p]) => t.registerPlugin(name, p));
+            await expect(t.translateData(data, sourceLocale, targetLocale)).resolves.toEqual(expected);
         })
     )
 });

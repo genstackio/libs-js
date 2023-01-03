@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+
+const {registerPlugin, translateText} = require(`${__dirname}/../lib/index.js`);
+
+function parsePriority(p) {
+    if (!p) return undefined;
+    return p.split(/\//g).reduce((acc, to) => {
+        const [key, value = ""] = to.split(/=/);
+        acc[key] = parseInt(value);
+        return acc;
+    }, {});
+}
+
+async function main() {
+    const [,, sourceLocale, targetLocale, pluginNames, text] = process.argv;
+
+    pluginNames.split(/,/g).forEach(pluginDsl => {
+        const [pluginName, pluginPriority = undefined] = pluginDsl.split(':');
+        const pluginClass = new (require(-1 === pluginName.indexOf('/') ? `@genstackio/translator-${pluginName}` : pluginName).default)();
+        if (!pluginClass) throw new Error(`Unknown plugin '${pluginName}'`);
+        registerPlugin(pluginName, pluginClass, parsePriority(pluginPriority));
+    });
+
+    return translateText(text, sourceLocale, targetLocale);
+}
+
+main().then(text => {
+    console.log(text);
+}).catch(e => {
+    console.error(e.message);
+    console.error('');
+    console.error(e.stack);
+    process.exit(1);
+});
