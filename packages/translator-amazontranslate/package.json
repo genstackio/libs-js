@@ -20,7 +20,8 @@
   },
   "dependencies": {
     "@genstackio/translator": "^0.5.3",
-    "html-entities": "^2.3.3"
+    "html-entities": "^2.3.3",
+    "@ohoareau/array": "^0.1.1"
   },
   "peerDependencies": {
     "aws-sdk": "^2.1286.0"

@@ -19,6 +19,13 @@ export class AmazonTranslatePlugin extends AbstractTranslatorPlugin<AWS.Translat
         return items.Languages?.reduce((acc, l) => Object.assign(acc, {[l.LanguageCode]: true}), {} as Record<string, true>) || {} as Record<string, true>;
     }
     async translate(t: AWS.Translate, texts: string[], sourceLocale: any, targetLocale: any, options: Record<string, any> | undefined): Promise<any[]> {
+        const joinedText = texts.join('<div translate=no>LINE</div>');
+
+        if (joinedText.length <= 9900) {
+            const x = await this.translateText(t, joinedText, sourceLocale, targetLocale, options);
+            return (x.TranslatedText || '').split(/<div translate=no>LINE<\/div>/).map(xx => ({TranslatedText: xx}));
+        }
+
         const reports = await Promise.allSettled(texts.map(async (text: string) => this.translateText(t, text, sourceLocale, targetLocale, options)));
 
         const {texts: translatedTexts, errors} = reports.reduce((acc, r: any, index: number) => {
@@ -38,6 +45,7 @@ export class AmazonTranslatePlugin extends AbstractTranslatorPlugin<AWS.Translat
         return translatedTexts;
     }
     async translateText(t: AWS.Translate, text: string, sourceLocale: any, targetLocale: any, options: Record<string, any> | undefined): Promise<any> {
+        t.startTextTranslationJob()
         return t.translateText({
             ...options,
             SourceLanguageCode: sourceLocale as LanguageCodeString,
