@@ -1,6 +1,6 @@
 {
   "name": "@genstackio/translator-amazontranslate",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -20,8 +20,8 @@
   },
   "dependencies": {
     "@genstackio/translator": "^0.5.3",
-    "html-entities": "^2.3.3",
-    "@ohoareau/array": "^0.1.1"
+    "@ohoareau/array": "^0.1.1",
+    "html-entities": "^2.3.3"
   },
   "peerDependencies": {
     "aws-sdk": "^2.1286.0"
