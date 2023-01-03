@@ -2,6 +2,8 @@ import ITranslatorService from "./ITranslatorService";
 import ITranslatorPlugin from "./ITranslatorPlugin";
 
 export abstract class AbstractTranslatorService implements ITranslatorService {
+    abstract describePlugins(config: any): Promise<Record<string, {name: string, sourceLocales: string[], targetLocales: string[], priority: Record<string, number>}>>;
+    abstract listLocales(config: any): Promise<Record<string, {sourceLocales: string[], targetLocales: string[]}>>;
     abstract translateI18n<T = any>(data: T, refData: T, sourceLocale, targetLocale, config?: any, options?: any): Promise<T>;
     abstract translateData<T = any>(data: T, sourceLocale, targetLocale, config?: any, options?: { replacer?: Function; mergeBack?: boolean }): Promise<T>;
     abstract translateText(text: string, sourceLocale, targetLocale, config?: any, options?: any): Promise<string>;

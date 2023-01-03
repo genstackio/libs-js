@@ -72,6 +72,30 @@ export class TranslatorService extends AbstractTranslatorService {
 
         return this.executeTranslateOnPlugin(selectedPluginName || '', request);
     }
+    async describePlugins(config: any): Promise<Record<string, {name: string, sourceLocales: string[], targetLocales: string[], priority: Record<string, number>}>> {
+        return Object.entries(this.plugins).reduce(async (acc, [name, {plugin, priority}]) => {
+            const localAcc = await acc;
+            const [,,sl, tl] = plugin.getTranslator ? await plugin.getTranslator(config) : [undefined, undefined];
+            localAcc[name] = {
+                name,
+                sourceLocales: Object.keys(sl || {}),
+                targetLocales: Object.keys(tl || {}),
+                priority,
+            }
+            return localAcc;
+        }, Promise.resolve({}));
+    }
+    async listLocales(config: any): Promise<Record<string, {sourceLocales: string[], targetLocales: string[]}>> {
+        return Object.entries(this.plugins).reduce(async (acc, [name, {plugin}]) => {
+            const localAcc = await acc;
+            const [,,sl, tl] = plugin.getTranslator ? await plugin.getTranslator(config) : [undefined, undefined];
+            localAcc[name] = {
+                sourceLocales: Object.keys(sl || {}),
+                targetLocales: Object.keys(tl || {}),
+            }
+            return localAcc;
+        }, Promise.resolve({}));
+    }
     protected async executeTranslateOnPlugin(selectedPluginName: string, {items, sourceLocale, targetLocale, config, options}: translation_request) {
         const {plugin} = this.plugins[selectedPluginName || ''] || {};
 
