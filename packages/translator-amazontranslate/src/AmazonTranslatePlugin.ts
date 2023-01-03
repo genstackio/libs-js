@@ -1,6 +1,7 @@
 import AWS from 'aws-sdk';
 import {AbstractTranslatorPlugin} from "@genstackio/translator";
 import {LanguageCodeString} from "aws-sdk/clients/translate";
+import {decode} from "html-entities";
 
 export class AmazonTranslatePlugin extends AbstractTranslatorPlugin<AWS.Translate> {
     protected async createTranslator(config: any): Promise<AWS.Translate> {
@@ -42,8 +43,14 @@ export class AmazonTranslatePlugin extends AbstractTranslatorPlugin<AWS.Translat
             Text: text,
         }).promise();
     }
-    mapTranslatedTextToText(t: any): string {
-        return t.TranslatedText;
+    mapTextToTranslatableText(t: string) {
+        return t.replace(/(\{\{([a-z0-9_]+)}})/gi, (match, p1, p2) => `<span translate=no>${p2}</span>`);
+    }
+    mapTranslatedTextToText(t: any) {
+        return decode(
+            t.TranslatedText.replace(/(<span translate=no>([a-z0-9_]+)<\/span>)/gi, (match, p1, p2) => `{{${p2}}}`),
+            {level: 'xml'}
+        );
     }
 }
 
