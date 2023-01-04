@@ -19,30 +19,30 @@ export class AmazonTranslatePlugin extends AbstractTranslatorPlugin<AWS.Translat
         return items.Languages?.reduce((acc, l) => Object.assign(acc, {[l.LanguageCode]: true}), {} as Record<string, true>) || {} as Record<string, true>;
     }
     async translate(t: AWS.Translate, texts: string[], sourceLocale: any, targetLocale: any, options: Record<string, any> | undefined): Promise<any[]> {
-        const joinedText = texts.join('<div translate=no>LINE</div>');
+        let oldTexts = [...texts];
+        let newTexts: {TranslatedText}[] = [];
 
-        if (joinedText.length <= 9900) {
-            const x = await this.translateText(t, joinedText, sourceLocale, targetLocale, options);
-            return (x.TranslatedText || '').split(/<div translate=no>LINE<\/div>/).map(xx => ({TranslatedText: xx}));
+        let joinedText: string = '';
+
+        while(oldTexts.length) {
+            joinedText = '';
+            let i = 0;
+            while((joinedText.length < 9900) && oldTexts.length) {
+                joinedText = `${joinedText || ''}${joinedText ? '<div translate=no>LINE</div>' : ''}${oldTexts.shift()}`;
+                i++;
+            }
+            try {
+                const x = await this.translateText(t, joinedText, sourceLocale, targetLocale, options);
+                newTexts = [...newTexts, ...(x.TranslatedText || '').split(/<div translate=no>LINE<\/div>/).map(xx => ({TranslatedText: xx}))];
+            } catch (e: any) {
+                console.error(`ERROR [amazontranslate] ${e.message}`);
+                for (let j = 0; j < i; j++) {
+                    newTexts.push({TranslatedText: ''});
+                }
+            }
         }
 
-        const reports = await Promise.allSettled(texts.map(async (text: string) => this.translateText(t, text, sourceLocale, targetLocale, options)));
-
-        const {texts: translatedTexts, errors} = reports.reduce((acc, r: any, index: number) => {
-            if (r.status === 'fulfilled') {
-                acc.texts.push(r.value);
-            } else {
-                acc.texts.push('');
-                acc.errors.push([index, r.reason]);
-            }
-            return acc;
-        }, {texts: [], errors: []} as {texts: any[], errors: [number, Error][]});
-
-        errors.forEach(error => {
-            console.error(`ERROR [amazontranslate] ${texts[error[0]]} => ${error[1].message}`);
-        });
-
-        return translatedTexts;
+        return newTexts;
     }
     async translateText(t: AWS.Translate, text: string, sourceLocale: any, targetLocale: any, options: Record<string, any> | undefined): Promise<any> {
         t.startTextTranslationJob()
