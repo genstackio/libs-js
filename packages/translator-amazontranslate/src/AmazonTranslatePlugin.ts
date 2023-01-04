@@ -27,7 +27,7 @@ export class AmazonTranslatePlugin extends AbstractTranslatorPlugin<AWS.Translat
         while(oldTexts.length) {
             joinedText = '';
             let i = 0;
-            while((joinedText.length < 9900) && oldTexts.length) {
+            while(oldTexts.length && ((joinedText.length + oldTexts[0].length) < 9900)) {
                 joinedText = `${joinedText || ''}${joinedText ? '<div translate=no>LINE</div>' : ''}${oldTexts.shift()}`;
                 i++;
             }
