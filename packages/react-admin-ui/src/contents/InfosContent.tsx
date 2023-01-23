@@ -1,12 +1,9 @@
-import Infos, {InfosProps} from "../molecules/Infos";
+import Infos, { InfosProps } from '../molecules/Infos';
 
 export function InfosContent(props: InfosContentProps) {
-    return (
-        <Infos {...props} />
-    );
+    return <Infos {...props} />;
 }
 
-export interface InfosContentProps extends InfosProps {
-}
+export type InfosContentProps = InfosProps;
 
 export default InfosContent;

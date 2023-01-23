@@ -1,10 +1,9 @@
-import TextField, {TextFieldProps} from "./TextField";
+import TextField, { TextFieldProps } from './TextField';
 
 export function DomainField(props: DomainFieldProps) {
-    return <TextField kind={'domain'} {...props} />
+    return <TextField kind={'domain'} {...props} />;
 }
 
-export interface DomainFieldProps extends TextFieldProps {
-}
+export type DomainFieldProps = TextFieldProps;
 
 export default DomainField;

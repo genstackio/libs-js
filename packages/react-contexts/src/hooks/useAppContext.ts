@@ -9,13 +9,14 @@ import {
     user_context_value,
     locales_context_value,
     images_context_value,
-    app_context_params, upload_context_value,
+    app_context_params,
+    upload_context_value,
 } from '../types';
 import MuiLink from '@material-ui/core/Link';
 import fetch from 'isomorphic-fetch';
 import mergeCartItems from '../utils/mergeCartItems';
 import i18nFactory from '../utils/i18nFactory';
-import useDrawerProviderValue from "./useDrawerProviderValue";
+import useDrawerProviderValue from './useDrawerProviderValue';
 
 const navigationProviderValue: any = {
     InternalLink: MuiLink,
@@ -28,7 +29,7 @@ function defaultStorageKeyFactory(key: string) {
 
 const defaultApiOptions = {};
 
-const storage: storage|undefined = (() => {
+const storage: storage | undefined = (() => {
     const s = 'undefined' === typeof localStorage ? undefined : localStorage;
     if (!s) return undefined;
     // noinspection JSUnusedGlobalSymbols
@@ -113,11 +114,14 @@ export function useAppContext({
 
     const api: any = useState(() => ({ client: undefined }));
 
-    const localApiOptions = useMemo(() => ({
-        uri: process.env.GRAPHQL_API_ENDPOINT || process.env.REACT_APP_API_ENDPOINT,
-        timeout: 5000,
-        ...apiOptions,
-    }), [apiOptions]);
+    const localApiOptions = useMemo(
+        () => ({
+            uri: process.env.GRAPHQL_API_ENDPOINT || process.env.REACT_APP_API_ENDPOINT,
+            timeout: 5000,
+            ...apiOptions,
+        }),
+        [apiOptions],
+    );
 
     const getQuery = useCallback(
         (name: string) => {
@@ -176,14 +180,20 @@ export function useAppContext({
         [fetchUserFromLocalStorage, user, enrichedSetUser, setCurrentTokens, getCurrentTokens, onLogout, refreshUser],
     );
 
-    const refreshTokens = useCallback(async (refreshToken: string, client: { mutate: Function }) => {
-        const r = await client.mutate({ mutation: getQuery('REFRESH_LOGIN'), variables: { data: { refreshToken } } });
-        if (!r || !r.data || !r.data.refreshAuthToken) throw new Error('Unable to refresh auth token');
-        return {
-            token: r.data.refreshAuthToken.token,
-            refreshToken: r.data.refreshAuthToken.refreshToken,
-        };
-    }, [getQuery]);
+    const refreshTokens = useCallback(
+        async (refreshToken: string, client: { mutate: Function }) => {
+            const r = await client.mutate({
+                mutation: getQuery('REFRESH_LOGIN'),
+                variables: { data: { refreshToken } },
+            });
+            if (!r || !r.data || !r.data.refreshAuthToken) throw new Error('Unable to refresh auth token');
+            return {
+                token: r.data.refreshAuthToken.token,
+                refreshToken: r.data.refreshAuthToken.refreshToken,
+            };
+        },
+        [getQuery],
+    );
 
     api.client = useMemo(() => {
         return createClient({
@@ -224,25 +234,46 @@ export function useAppContext({
     );
     const drawerProviderValue = useDrawerProviderValue();
 
-    const uploadValue = useMemo(() => !!upload ? {requestUploadInfos: upload} : undefined, [upload]) as upload_context_value|undefined;
-    return useMemo(() => ({
-        client: api.client,
-        i18n,
-        baseTheme: theme,
-        pageTheme: themeFactory,
-        storage,
-        locale,
-        user: userProviderValue,
-        api: apiProviderValue,
-        cart: cartProviderValue,
-        navigation: navigationProviderValue,
-        locales: localesProviderValue,
-        images: imagesProviderValue,
-        themes,
-        fullscreen,
-        upload: uploadValue,
-        drawer: drawerProviderValue,
-    }), [drawerProviderValue, uploadValue, api.client, i18n, theme, themeFactory, storage, locale, userProviderValue, cartProviderValue, navigationProviderValue, localesProviderValue, imagesProviderValue, themes, fullscreen]);
+    const uploadValue = useMemo(() => (!!upload ? { requestUploadInfos: upload } : undefined), [upload]) as
+        | upload_context_value
+        | undefined;
+    return useMemo(
+        () => ({
+            client: api.client,
+            i18n,
+            baseTheme: theme,
+            pageTheme: themeFactory,
+            storage,
+            locale,
+            user: userProviderValue,
+            api: apiProviderValue,
+            cart: cartProviderValue,
+            navigation: navigationProviderValue,
+            locales: localesProviderValue,
+            images: imagesProviderValue,
+            themes,
+            fullscreen,
+            upload: uploadValue,
+            drawer: drawerProviderValue,
+        }),
+        [
+            drawerProviderValue,
+            uploadValue,
+            api.client,
+            i18n,
+            theme,
+            themeFactory,
+            storage,
+            locale,
+            userProviderValue,
+            cartProviderValue,
+            navigationProviderValue,
+            localesProviderValue,
+            imagesProviderValue,
+            themes,
+            fullscreen,
+        ],
+    );
 }
 
 // noinspection JSUnusedGlobalSymbols

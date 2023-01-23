@@ -3,10 +3,10 @@ import Icon from './Icon';
 import useBox from '../hooks/useBox';
 import { AsBoxWrapper } from '../as';
 import { WithSize, WithIcon } from '../withs';
-import useAmbiance from "@genstackio/react-contexts/lib/hooks/useAmbiance";
+import useAmbiance from '@genstackio/react-contexts/lib/hooks/useAmbiance';
 
 export function Frame({ children, className, icon, iconSize, ...props }: FrameProps) {
-    const {frameCorner = 'rounded-xsmall'} = useAmbiance();
+    const { frameCorner = 'rounded-xsmall' } = useAmbiance();
     const [box, rest] = useBox(props, { color: 'clear', variant: 'outlined' });
 
     return (

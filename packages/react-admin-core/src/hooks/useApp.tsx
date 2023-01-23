@@ -11,13 +11,16 @@ import {
     importer_function,
     importers,
     menus_factory_context_value,
-    request_upload_infos, logos_context_value, fields_context_value, clean_data_context_value
-} from "@genstackio/react-contexts/lib/types";
+    request_upload_infos,
+    logos_context_value,
+    fields_context_value,
+    clean_data_context_value,
+} from '@genstackio/react-contexts/lib/types';
 import { FullscreenProvider as BaseFullscreenProvider } from '@genstackio/react-contexts/lib/contexts/FullscreenContext';
 import { FullScreen } from 'react-full-screen';
 import IconsProvider from '@genstackio/react-contexts/lib/IconsProvider';
-import defaultCleanData from "../utils/cleanData";
-import {drawer_context_value, login_context_value, register_context_value} from "@genstackio/react-contexts";
+import defaultCleanData from '../utils/cleanData';
+import { drawer_context_value, login_context_value, register_context_value } from '@genstackio/react-contexts';
 
 function GraphqlProvider({ value, children }: any) {
     value && (children = <ApolloProvider client={value}>{children}</ApolloProvider>);

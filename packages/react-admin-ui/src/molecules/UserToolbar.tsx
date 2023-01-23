@@ -34,7 +34,10 @@ export function UserToolbar({
     userMenu = undefined,
 }: UserToolbarProps) {
     const { t } = useTranslation();
-    const items = useMemo(() => [...(userMenu || []), { target: onLogout, label: t('button_logout_label') }], [t, userMenu, onLogout]);
+    const items = useMemo(
+        () => [...(userMenu || []), { target: onLogout, label: t('button_logout_label') }],
+        [t, userMenu, onLogout],
+    );
     const userName = useMemo(() => `${user!.firstName} ${user!.lastName}`, [user]);
     const userEmail = useMemo(() => user!.email, [user]);
     const userThumbnail = useMemo(

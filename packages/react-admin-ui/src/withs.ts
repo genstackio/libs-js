@@ -56,7 +56,8 @@ import {
     push_item,
     items_section_layouts,
     badge_variant,
-    figures_chart_item, breadcrumb_item_adhoc,
+    figures_chart_item,
+    breadcrumb_item_adhoc,
 } from './types';
 import {
     padding,
@@ -166,10 +167,10 @@ export interface WithValueAs {
     valueAs?: 'string' | 'number' | 'date' | 'boolean' | ((value: any) => any);
 }
 export interface WithConvertValue {
-    convertValue?: ((value: any) => any);
+    convertValue?: (value: any) => any;
 }
 export interface WithDeps {
-    deps?: string|string[];
+    deps?: string | string[];
 }
 export interface WithVariantOfHeadingText {
     variant?: heading_text_variant;

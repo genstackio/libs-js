@@ -1,4 +1,4 @@
-import {deepClone} from "@genstackio/deep";
+import { deepClone } from '@genstackio/deep';
 
 export async function mergeTranslatedKeysIntoLocaleKeys(translatedKeys, localeKeys) {
     return Object.entries(translatedKeys).reduce((acc, [k, v]: [string, any]) => {

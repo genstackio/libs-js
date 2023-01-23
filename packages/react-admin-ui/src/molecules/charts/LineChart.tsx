@@ -4,7 +4,7 @@ import tailwindConfig from '../../../tailwind.config';
 import Text from '../../atoms/Text';
 import { AsComponent } from '../../as';
 import { WithBox, WithLabels, WithSeries, WithTitle } from '../../withs';
-import {useMemo} from "react";
+import { useMemo } from 'react';
 
 const tailwindChartColors = tailwindConfig.theme.extend.chartColors;
 const defaultOptions: ApexOptions = {
@@ -34,7 +34,10 @@ export function LineChart({
     variant = 'filled',
 }: LineChartProps) {
     const col = `${variant}_${color}`;
-    const options = useMemo(() => ({ ...defaultOptions, labels: labels, colors: tailwindChartColors[col] }), [defaultOptions, labels, tailwindChartColors]);
+    const options = useMemo(
+        () => ({ ...defaultOptions, labels: labels, colors: tailwindChartColors[col] }),
+        [defaultOptions, labels, tailwindChartColors],
+    );
     const datas: any = [];
     series.forEach((data) => {
         datas.push({ data });

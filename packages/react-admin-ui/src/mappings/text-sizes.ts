@@ -1,4 +1,4 @@
-import preset from "../preset";
+import preset from '../preset';
 
 export type text_size =
     | 'xs'
@@ -14,8 +14,7 @@ export type text_size =
     | '6xl'
     | '7xl'
     | '8xl'
-    | '9xl'
-;
+    | '9xl';
 
 export const textSizeClass = preset.xclasses<text_size>('textSize');
 

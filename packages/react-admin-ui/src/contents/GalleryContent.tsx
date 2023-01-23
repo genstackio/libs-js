@@ -1,12 +1,9 @@
-import Gallery, {GalleryProps} from "../molecules/Gallery";
+import Gallery, { GalleryProps } from '../molecules/Gallery';
 
 export function GalleryContent(props: GalleryContentProps) {
-    return (
-        <Gallery {...props} />
-    );
+    return <Gallery {...props} />;
 }
 
-export interface GalleryContentProps extends GalleryProps {
-}
+export type GalleryContentProps = GalleryProps;
 
 export default GalleryContent;

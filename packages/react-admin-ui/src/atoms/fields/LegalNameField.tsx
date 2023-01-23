@@ -1,11 +1,10 @@
-import TextField, {TextFieldProps} from "./TextField";
+import TextField, { TextFieldProps } from './TextField';
 
 export function LegalNameField(props: LegalNameFieldProps) {
-    return <TextField kind={'legalName'} {...props} />
+    return <TextField kind={'legalName'} {...props} />;
 }
 
-export interface LegalNameFieldProps extends TextFieldProps {
-}
+export type LegalNameFieldProps = TextFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default LegalNameField;

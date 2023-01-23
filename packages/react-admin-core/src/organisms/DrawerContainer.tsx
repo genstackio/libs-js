@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import clsx from 'clsx';
 
 const sizes = {
     xs: 'w-screen sm:w-[200px] md:w-[300px] lg:w-[400px]',
@@ -8,7 +8,7 @@ const sizes = {
     xl: 'w-screen sm:w-[500px] md:w-[700px] lg:w-[900px]',
 };
 
-export function DrawerContainer({children, className, size = 'md'}: DrawerContainerProps) {
+export function DrawerContainer({ children, className, size = 'md' }: DrawerContainerProps) {
     return (
         <div className={clsx(sizes[size || 'md'] || sizes['md'], 'p-4 flex flex-col', className)}>
             {children || false}

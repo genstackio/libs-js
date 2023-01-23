@@ -1,1 +1,1 @@
-export {default as default} from './DeeplPlugin';
+export { default as default } from './DeeplPlugin';

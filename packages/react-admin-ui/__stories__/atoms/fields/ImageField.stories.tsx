@@ -1,6 +1,6 @@
 import { args, s, a } from '../../utils';
 import { ImageField } from '../../../src';
-import {useCallback, useState} from "react";
+import { useCallback, useState } from 'react';
 
 export default {
     title: 'Atoms/fields/ImageField',
@@ -20,16 +20,20 @@ export default {
     }),
 };
 
-export const basic = s(props => {
-    const [value, setValue] = useState<undefined|{url: string}>(undefined);
-    const onChange = useCallback((v: any) => {
-        setValue(v);
-    }, [setValue]);
-    return (
-        <ImageField {...props} onChange={onChange} value={value} />
-    );
-}, {
-    getUploadParams: () => {
-        return { url: 'https://httpbin.org/post' }
-    }
-});
+export const basic = s(
+    (props) => {
+        const [value, setValue] = useState<undefined | { url: string }>(undefined);
+        const onChange = useCallback(
+            (v: any) => {
+                setValue(v);
+            },
+            [setValue],
+        );
+        return <ImageField {...props} onChange={onChange} value={value} />;
+    },
+    {
+        getUploadParams: () => {
+            return { url: 'https://httpbin.org/post' };
+        },
+    },
+);

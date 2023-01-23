@@ -1,4 +1,4 @@
-import {useCallback} from "react";
+import { useCallback } from 'react';
 import Image from '../Image';
 import FieldSet from '../FieldSet';
 import useField from '../../hooks/useField';
@@ -6,8 +6,8 @@ import FileUploader from '../../molecules/FileUploader';
 import { AsField } from '../../as';
 import Div from '../Div';
 import Button from '../Button';
-import clsx from "clsx";
-import {useTranslation} from "react-i18next";
+import clsx from 'clsx';
+import { useTranslation } from 'react-i18next';
 import { Controller } from 'react-hook-form';
 
 const styles = {
@@ -15,14 +15,28 @@ const styles = {
 };
 
 export function ImageUploadField({ className, ...props }: ImageUploadFieldProps) {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
 
-    const { getUploadParams, name, label, error, helper, disabled, placeholder, options, defaultValue, extra, control, required,  register, classes } =
-        useField({kind: 'image', ...props});
+    const {
+        getUploadParams,
+        name,
+        label,
+        error,
+        helper,
+        disabled,
+        placeholder,
+        options,
+        defaultValue,
+        extra,
+        control,
+        required,
+        register,
+        classes,
+    } = useField({ kind: 'image', ...props });
 
     const handleChange = useCallback(
         (x: any) => (val: any) => {
-            const xx = {_previewUrl: val.previewUrl, url: val.fileUrl, name: val.name, contentType: val.type};
+            const xx = { _previewUrl: val.previewUrl, url: val.fileUrl, name: val.name, contentType: val.type };
             x && x(xx);
         },
         [],
@@ -40,37 +54,44 @@ export function ImageUploadField({ className, ...props }: ImageUploadFieldProps)
                         e.preventDefault();
                         onChange && onChange(undefined);
                     };
-                    const url = !!value ? (value._previewUrl || value.url) : undefined;
+                    const url = !!value ? value._previewUrl || value.url : undefined;
                     const isDirty = !!value && !!value._previewUrl;
                     return (
                         <>
-                        {!!url && (
-                            <Div className={'text-center'}>
-                                <Image className={'w-full max-h-36'} url={url} objectFit={'contain'} />
-                                {isDirty && <p className={'m-4 text-center text-red-500'}>{t('field_image_dirty_label')}</p>}
-                                <Button size={'xs'} color={'danger'} label={t('button_clear_image_label')} onClick={onClear} />
-                            </Div>
-                        )}
-                        {!url && (
-                            <FileUploader
-                                {...field}
-                                autoUpload
-                                maxFile={1}
-                                multiple={false}
-                                canCancel={false}
-                                inputContent={placeholder}
-                                url={undefined}
-                                disabled={disabled}
-                                styles={styles}
-                                name={name}
-                                getUploadParams={getUploadParams}
-                                required={required}
-                                onFileUpload={handleChange(onChange)}
-                                {...register()}
-                                {...extra}
-                                className={clsx('', classes?.uploader)}
-                            />
-                        )}
+                            {!!url && (
+                                <Div className={'text-center'}>
+                                    <Image className={'w-full max-h-36'} url={url} objectFit={'contain'} />
+                                    {isDirty && (
+                                        <p className={'m-4 text-center text-red-500'}>{t('field_image_dirty_label')}</p>
+                                    )}
+                                    <Button
+                                        size={'xs'}
+                                        color={'danger'}
+                                        label={t('button_clear_image_label')}
+                                        onClick={onClear}
+                                    />
+                                </Div>
+                            )}
+                            {!url && (
+                                <FileUploader
+                                    {...field}
+                                    autoUpload
+                                    maxFile={1}
+                                    multiple={false}
+                                    canCancel={false}
+                                    inputContent={placeholder}
+                                    url={undefined}
+                                    disabled={disabled}
+                                    styles={styles}
+                                    name={name}
+                                    getUploadParams={getUploadParams}
+                                    required={required}
+                                    onFileUpload={handleChange(onChange)}
+                                    {...register()}
+                                    {...extra}
+                                    className={clsx('', classes?.uploader)}
+                                />
+                            )}
                         </>
                     );
                 }}
@@ -80,7 +101,7 @@ export function ImageUploadField({ className, ...props }: ImageUploadFieldProps)
 }
 
 export interface ImageUploadFieldProps extends AsField {
-    value?: {url: string};
+    value?: { url: string };
 }
 
 // noinspection JSUnusedGlobalSymbols

@@ -4,7 +4,7 @@ import Column from '../atoms/Column';
 import { rich_text } from '../types';
 import { AsBox } from '../as';
 import { WithOnSubmit, WithPlaceholder, WithTitle } from '../withs';
-import clsx from "clsx";
+import clsx from 'clsx';
 
 const defaultStyles = {
     dropzone: {

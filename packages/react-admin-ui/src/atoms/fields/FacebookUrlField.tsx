@@ -1,11 +1,10 @@
-import UrlField, {UrlFieldProps} from "./UrlField";
+import UrlField, { UrlFieldProps } from './UrlField';
 
 export function FacebookUrlField(props: FacebookUrlFieldProps) {
-    return <UrlField kind={'facebookUrl'} {...props} />
+    return <UrlField kind={'facebookUrl'} {...props} />;
 }
 
-export interface FacebookUrlFieldProps extends UrlFieldProps {
-}
+export type FacebookUrlFieldProps = UrlFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default FacebookUrlField;

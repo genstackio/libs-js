@@ -18,7 +18,7 @@ import {
     WithMax,
     WithValuesOfRating,
 } from '../../withs';
-import labelPlacementClass from "../../mappings/label-placements";
+import labelPlacementClass from '../../mappings/label-placements';
 
 export function BaseRating(props: BaseRatingProps) {
     const {

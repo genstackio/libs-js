@@ -1,4 +1,4 @@
-import execute, {OrderError} from '../src';
+import execute, { OrderError } from '../src';
 
 describe('execute', () => {
     it('returns success if no definition', async () => {
@@ -22,7 +22,7 @@ describe('execute', () => {
         });
     });
     it('returns success if empty definition', async () => {
-        await expect(execute({definition: undefined}, {} as any)).resolves.toEqual({
+        await expect(execute({ definition: undefined }, {} as any)).resolves.toEqual({
             config: {},
             ctx: {},
             definition: {
@@ -42,7 +42,7 @@ describe('execute', () => {
         });
     });
     it('returns success if definition with no steps and no tasks', async () => {
-        await expect(execute({definition: {}}, {} as any)).resolves.toEqual({
+        await expect(execute({ definition: {} }, {} as any)).resolves.toEqual({
             config: {
                 definition: {},
             },
@@ -64,23 +64,24 @@ describe('execute', () => {
         });
     });
     it('returns failure if unknown action type for the step', async () => {
-        await expect(execute({definition: {
-                steps: [
-                    {type: 'unknown'}
-                ]
-            }}, {} as any)).resolves.toEqual({
+        await expect(
+            execute(
+                {
+                    definition: {
+                        steps: [{ type: 'unknown' }],
+                    },
+                },
+                {} as any,
+            ),
+        ).resolves.toEqual({
             config: {
                 definition: {
-                    steps: [
-                        {type: 'unknown'},
-                    ],
+                    steps: [{ type: 'unknown' }],
                 },
             },
             ctx: {},
             definition: {
-                steps: [
-                    {type: 'unknown'},
-                ],
+                steps: [{ type: 'unknown' }],
                 tasks: [],
             },
             details: {
@@ -91,14 +92,12 @@ describe('execute', () => {
             },
             errors: [
                 new OrderError(
-                    {id: '', name: undefined, type: 'unknown', params: {}, required: true},
-                    {id: '', name: undefined, type: 'unknown', params: {}, required: true},
-                    new Error("Unknown order action type 'unknown'")
+                    { id: '', name: undefined, type: 'unknown', params: {}, required: true },
+                    { id: '', name: undefined, type: 'unknown', params: {}, required: true },
+                    new Error("Unknown order action type 'unknown'"),
                 ),
             ],
-            orders: [
-                {id: expect.any(String), name: undefined, type: 'unknown', params: {}, required: true},
-            ],
+            orders: [{ id: expect.any(String), name: undefined, type: 'unknown', params: {}, required: true }],
             parallel: false,
             params: {},
             result: {},
@@ -107,80 +106,110 @@ describe('execute', () => {
         });
     });
     it('returns success and the result if known action type for the step', async () => {
-        await expect(execute({definition: {
-                steps: [
-                    {type: 'set', params: {key: 'mykey', value: 'my value'}}
-                ]
-            }}, {} as any)).resolves.toEqual({
+        await expect(
+            execute(
+                {
+                    definition: {
+                        steps: [{ type: 'set', params: { key: 'mykey', value: 'my value' } }],
+                    },
+                },
+                {} as any,
+            ),
+        ).resolves.toEqual({
             config: {
                 definition: {
-                    steps: [
-                        {type: 'set', params: {key: 'mykey', value: 'my value'}},
-                    ],
+                    steps: [{ type: 'set', params: { key: 'mykey', value: 'my value' } }],
                 },
             },
             ctx: {
                 mykey: 'my value',
             },
             definition: {
-                steps: [
-                    {type: 'set', params: {key: 'mykey', value: 'my value'}},
-                ],
+                steps: [{ type: 'set', params: { key: 'mykey', value: 'my value' } }],
                 tasks: [],
             },
             details: {
                 status: 'success',
             },
-            errors: [
-            ],
+            errors: [],
             orders: [
-                {id: expect.any(String), name: undefined, type: 'set', params: {key: 'mykey', value: 'my value'}, required: true},
+                {
+                    id: expect.any(String),
+                    name: undefined,
+                    type: 'set',
+                    params: { key: 'mykey', value: 'my value' },
+                    required: true,
+                },
             ],
             parallel: false,
             params: {},
             result: {},
             status: 'success',
             successes: [
-                [undefined, {id: expect.any(String), name: undefined, type: 'set', params: {key: 'mykey', value: 'my value'}, required: true}],
+                [
+                    undefined,
+                    {
+                        id: expect.any(String),
+                        name: undefined,
+                        type: 'set',
+                        params: { key: 'mykey', value: 'my value' },
+                        required: true,
+                    },
+                ],
             ],
         });
     });
     it('returns success and the result if known action type for the step defined as string', async () => {
-        await expect(execute({definition: {
-                steps: [
-                    'set(key=mykey,value=my value)'
-                ]
-            }}, {} as any)).resolves.toEqual({
+        await expect(
+            execute(
+                {
+                    definition: {
+                        steps: ['set(key=mykey,value=my value)'],
+                    },
+                },
+                {} as any,
+            ),
+        ).resolves.toEqual({
             config: {
                 definition: {
-                    steps: [
-                        'set(key=mykey,value=my value)'
-                    ],
+                    steps: ['set(key=mykey,value=my value)'],
                 },
             },
             ctx: {
                 mykey: 'my value',
             },
             definition: {
-                steps: [
-                    'set(key=mykey,value=my value)'
-                ],
+                steps: ['set(key=mykey,value=my value)'],
                 tasks: [],
             },
             details: {
                 status: 'success',
             },
-            errors: [
-            ],
+            errors: [],
             orders: [
-                {id: expect.any(String), name: undefined, type: 'set', params: {key: 'mykey', value: 'my value'}, required: true},
+                {
+                    id: expect.any(String),
+                    name: undefined,
+                    type: 'set',
+                    params: { key: 'mykey', value: 'my value' },
+                    required: true,
+                },
             ],
             parallel: false,
             params: {},
             result: {},
             status: 'success',
             successes: [
-                [undefined, {id: expect.any(String), name: undefined, type: 'set', params: {key: 'mykey', value: 'my value'}, required: true}],
+                [
+                    undefined,
+                    {
+                        id: expect.any(String),
+                        name: undefined,
+                        type: 'set',
+                        params: { key: 'mykey', value: 'my value' },
+                        required: true,
+                    },
+                ],
             ],
         });
     });
@@ -220,21 +249,20 @@ describe('execute', () => {
                 fromAandC: 'c',
                 fromDandC: 'c',
             };
-        })
-        await expect(execute({definition: {
-                steps: [
-                    {type: 'a'},
-                    {type: 'c'},
-                    {type: 'd'},
-                ]
-            }}, {actions: {a, d, c}} as any)).resolves.toEqual({
+        });
+        await expect(
+            execute(
+                {
+                    definition: {
+                        steps: [{ type: 'a' }, { type: 'c' }, { type: 'd' }],
+                    },
+                },
+                { actions: { a, d, c } } as any,
+            ),
+        ).resolves.toEqual({
             config: {
                 definition: {
-                    steps: [
-                        {type: 'a'},
-                        {type: 'c'},
-                        {type: 'd'},
-                    ],
+                    steps: [{ type: 'a' }, { type: 'c' }, { type: 'd' }],
                 },
             },
             ctx: {
@@ -246,22 +274,17 @@ describe('execute', () => {
                 setFromDandC: 'd',
             },
             definition: {
-                steps: [
-                    {type: 'a'},
-                    {type: 'c'},
-                    {type: 'd'},
-                ],
+                steps: [{ type: 'a' }, { type: 'c' }, { type: 'd' }],
                 tasks: [],
             },
             details: {
                 status: 'success',
             },
-            errors: [
-            ],
+            errors: [],
             orders: [
-                {id: expect.any(String), name: undefined, type: 'a', params: {}, required: true},
-                {id: expect.any(String), name: undefined, type: 'c', params: {}, required: true},
-                {id: expect.any(String), name: undefined, type: 'd', params: {}, required: true},
+                { id: expect.any(String), name: undefined, type: 'a', params: {}, required: true },
+                { id: expect.any(String), name: undefined, type: 'c', params: {}, required: true },
+                { id: expect.any(String), name: undefined, type: 'd', params: {}, required: true },
             ],
             parallel: false,
             params: {},
@@ -275,10 +298,19 @@ describe('execute', () => {
             },
             status: 'success',
             successes: [
-                [{fromA: 'a', fromAandD: 'a', fromAandC: 'a'}, {id: expect.any(String), name: undefined, type: 'a', params: {}, required: true}],
-                [{fromC: 'c', fromAandC: 'c', fromDandC: 'c'}, {id: expect.any(String), name: undefined, type: 'c', params: {}, required: true}],
-                [{fromD: 'd', fromAandD: 'd', fromDandC: 'd'}, {id: expect.any(String), name: undefined, type: 'd', params: {}, required: true}],
+                [
+                    { fromA: 'a', fromAandD: 'a', fromAandC: 'a' },
+                    { id: expect.any(String), name: undefined, type: 'a', params: {}, required: true },
+                ],
+                [
+                    { fromC: 'c', fromAandC: 'c', fromDandC: 'c' },
+                    { id: expect.any(String), name: undefined, type: 'c', params: {}, required: true },
+                ],
+                [
+                    { fromD: 'd', fromAandD: 'd', fromDandC: 'd' },
+                    { id: expect.any(String), name: undefined, type: 'd', params: {}, required: true },
+                ],
             ],
         });
     });
-})
+});

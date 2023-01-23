@@ -1,5 +1,5 @@
 import { s, a } from '../utils';
-import {Block, LoginForm, ForgotPasswordForm, RegisterForm, ShowcaseForm} from '../../src';
+import { Block, LoginForm, ForgotPasswordForm, RegisterForm, ShowcaseForm } from '../../src';
 import { useCallback } from 'react';
 
 export default {
@@ -8,7 +8,7 @@ export default {
     argTypes: a({}),
 };
 
-const showcaseDefaultValues ={
+const showcaseDefaultValues = {
     dateTime: 1669899681000,
     date: 1669899681000,
     flag: true,

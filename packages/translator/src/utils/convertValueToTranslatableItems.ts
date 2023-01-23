@@ -1,7 +1,7 @@
 export function convertValueToTranslatableItems(v: any, k: string, acc: any) {
     switch (typeof v) {
         case 'string':
-            acc.push({text: v, path: k});
+            acc.push({ text: v, path: k });
             return acc;
         case 'number':
             return acc;

@@ -1,7 +1,7 @@
-export {Request, Response} from 'cross-fetch';
+export { Request, Response } from 'cross-fetch';
 export type fetch_with_request = (request: Request) => Promise<Response>;
 export type fetch_basic = (url: string, options: any) => Promise<Response>;
-export type fetch = fetch_with_request|fetch_basic;
+export type fetch = fetch_with_request | fetch_basic;
 
 export type tokens = {
     accessToken?: string;
@@ -16,9 +16,9 @@ export type auth_data = {
     iat: number;
 };
 
-export type request_authorization_provider = ((request: Request) => Promise<undefined|string|{[key: string]: any}>)
-    | (() => Promise<undefined|string|{[key: string]: any}>)
-;
+export type request_authorization_provider =
+    | ((request: Request) => Promise<undefined | string | { [key: string]: any }>)
+    | (() => Promise<undefined | string | { [key: string]: any }>);
 
 export type sdk_config = {
     endpoint: string;
@@ -37,10 +37,10 @@ export type response_listener = (response: Response) => Promise<void>;
 
 export type HealthInput = {
     urlParams?: any;
-}
+};
 export type IndexHealthInput = {
     urlParams?: any;
-}
+};
 export type SearchInput = {
     doc_value_fields?: any[];
     fields?: any[];
@@ -88,7 +88,7 @@ export type DeleteIndexInput = {
 };
 export type SqlInput = {
     urlParams?: any;
-}
+};
 export type GetIndexInput = {
     urlParams?: any;
 };
@@ -102,11 +102,11 @@ export type ShrinkIndexInput = {
     urlParams?: any;
 };
 export type UpdateIndexMappingsInput = {
-    properties:{
+    properties: {
         [key: string]: {
-            type: string
-        },
-    }
+            type: string;
+        };
+    };
     urlParams?: any;
 };
 export type IndexDocumentInput = {
@@ -122,13 +122,13 @@ export type UpdateIndexDocumentInput = {
     doc?: any;
     script?: script;
     urlParams?: any;
-}
+};
 export type DeleteIndexDocumentInput = {
     urlParams?: any;
-}
+};
 export type ReindexInput = {
     urlParams?: any;
-}
+};
 export type UpdateIndexDocumentsByQueryInput = {
     urlParams?: any;
 };
@@ -137,16 +137,16 @@ export type DeleteIndexDocumentsByQueryInput = {
 };
 export type GetDocumentsInput = {
     urlParams?: any;
-}
+};
 export type GetIndexDocumentsInput = {
     urlParams?: any;
-}
+};
 export type BulkActionsInput = {
     urlParams?: any;
-}
+};
 export type IndexBulkActionsInput = {
     urlParams?: any;
-}
+};
 export type CountIndexDocumentsInput = {
     urlParams?: any;
 };
@@ -184,17 +184,17 @@ export type GetIndexResponse = {
                     created: string;
                 };
                 provided_name: string;
-            }
-        }
-    }
+            };
+        };
+    };
 };
 export type CloseIndexResponse = {
-    acknowledged: boolean,
-    shards_acknowledged?: boolean,
+    acknowledged: boolean;
+    shards_acknowledged?: boolean;
     indices?: {
         [key: string]: {
             closed: boolean;
-        }
+        };
     };
 };
 export type ShrinkIndexResponse = command_response;
@@ -210,14 +210,14 @@ export type GetIndexDocumentsResponse = {
     docs: document_response[];
 };
 export type BulkActionsResponse = {
-    took: number,
-    errors: boolean,
-    items: bulk_action_response_item[],
+    took: number;
+    errors: boolean;
+    items: bulk_action_response_item[];
 };
 export type IndexBulkActionsResponse = {
-    took: number,
-    errors: boolean,
-    items: index_bulk_action_response_item[],
+    took: number;
+    errors: boolean;
+    items: index_bulk_action_response_item[];
 };
 export type bulk_action_response_item = any;
 export type index_bulk_action_response_item = any;
@@ -239,124 +239,124 @@ export type SqlResponse = {
 export type tasks_response = {
     nodes: {
         [key: string]: {
-            name: string,
-            transport_address: string,
-            host: string,
-            ip: string,
-            roles: string[],
+            name: string;
+            transport_address: string;
+            host: string;
+            ip: string;
+            roles: string[];
             tasks: {
                 [key: string]: {
-                    node: string,
-                    id: number,
-                    type: string,
-                    action: string,
-                    start_time_in_millis: number,
-                    running_time_in_nanos: number,
-                    cancellable: boolean,
-                    parent_task_id: string,
+                    node: string;
+                    id: number;
+                    type: string;
+                    action: string;
+                    start_time_in_millis: number;
+                    running_time_in_nanos: number;
+                    cancellable: boolean;
+                    parent_task_id: string;
                     headers: {
-                        [key: string]: string,
-                    },
-                },
-            }
-        }
-    }
-}
+                        [key: string]: string;
+                    };
+                };
+            };
+        };
+    };
+};
 export type count_response = {
-    count : number,
+    count: number;
     _shards?: {
-        total : number,
-        successful : number,
-        skipped : number,
-        failed : number,
-    }
-}
+        total: number;
+        successful: number;
+        skipped: number;
+        failed: number;
+    };
+};
 export type command_response = {
     acknowledged: boolean;
 };
 export type index_command_response = {
-    took: number,
-    timed_out: boolean,
-    total: number,
-    updated: number,
-    created: number,
-    deleted: number,
-    batches: number,
-    version_conflicts: number,
-    noops: number,
+    took: number;
+    timed_out: boolean;
+    total: number;
+    updated: number;
+    created: number;
+    deleted: number;
+    batches: number;
+    version_conflicts: number;
+    noops: number;
     retries?: {
-        bulk: number,
-        search: number,
-    },
-    throttled_millis: number,
-    requests_per_second: number,
-    throttled_until_millis: number,
-    failures?: any[]
+        bulk: number;
+        search: number;
+    };
+    throttled_millis: number;
+    requests_per_second: number;
+    throttled_until_millis: number;
+    failures?: any[];
 };
 export type document_response = {
-    _index: string,
-    _type: string,
-    _id: string,
-    _version: number,
-    _seq_no: number,
-    _primary_term: number,
-    found: boolean,
-    _source: any,
+    _index: string;
+    _type: string;
+    _id: string;
+    _version: number;
+    _seq_no: number;
+    _primary_term: number;
+    found: boolean;
+    _source: any;
 };
 export type document_command_response = {
-    _index: string,
-    _type: string,
-    _id: string,
-    _version: number,
-    result: string,
+    _index: string;
+    _type: string;
+    _id: string;
+    _version: number;
+    result: string;
     _shards?: {
-        total: number,
-        successful: number,
-        failed: number
-    },
-    _seq_no: number,
-    _primary_term: number,
+        total: number;
+        successful: number;
+        failed: number;
+    };
+    _seq_no: number;
+    _primary_term: number;
 };
 export type search_response = {
-    took: number,
-    timed_out: boolean,
+    took: number;
+    timed_out: boolean;
     _shards?: {
-        total: number,
-        successful: number,
-        skipped: number,
-        failed: number,
-    },
+        total: number;
+        successful: number;
+        skipped: number;
+        failed: number;
+    };
     hits: {
         total: {
-            value: number,
+            value: number;
             relation: string;
-        },
-        max_score: number,
+        };
+        max_score: number;
         hits: {
-            _index: string,
-            _type: string,
-            _id: string,
-            _score: number,
-            _source: any,
-        }[],
-    }
+            _index: string;
+            _type: string;
+            _id: string;
+            _score: number;
+            _source: any;
+        }[];
+    };
 };
 export type health_response = {
-    cluster_name: string,
-    status: string,
-    timed_out : boolean,
-    number_of_nodes : number,
-    number_of_data_nodes : number,
-    active_primary_shards : number,
-    active_shards : number,
-    relocating_shards : number,
-    initializing_shards : number,
-    unassigned_shards : number,
-    delayed_unassigned_shards : number,
-    number_of_pending_tasks : number,
-    number_of_in_flight_fetch : number,
-    task_max_waiting_in_queue_millis : number,
-    active_shards_percent_as_number : number,
+    cluster_name: string;
+    status: string;
+    timed_out: boolean;
+    number_of_nodes: number;
+    number_of_data_nodes: number;
+    active_primary_shards: number;
+    active_shards: number;
+    relocating_shards: number;
+    initializing_shards: number;
+    unassigned_shards: number;
+    delayed_unassigned_shards: number;
+    number_of_pending_tasks: number;
+    number_of_in_flight_fetch: number;
+    task_max_waiting_in_queue_millis: number;
+    active_shards_percent_as_number: number;
 };
 export type schema_item = {
     name: string;
@@ -365,9 +365,9 @@ export type schema_item = {
 export type sql_response_datarow = any[];
 
 export type script = {
-    source: string,
-    lang?: string,
-    params?: any,
+    source: string;
+    lang?: string;
+    params?: any;
 };
 export type update_query = {
     term: any;
@@ -382,7 +382,7 @@ export type document_query = {
     _source?: {
         include?: string[];
         exclude?: string[];
-    }
+    };
 };
 export type index_document_query = {
     _id: string;
@@ -390,7 +390,7 @@ export type index_document_query = {
     _source?: {
         include?: string[];
         exclude?: string[];
-    }
+    };
 };
 export type bulk_action = any;
 export type index_bulk_action = any;

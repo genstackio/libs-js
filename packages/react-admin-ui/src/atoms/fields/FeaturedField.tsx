@@ -1,11 +1,10 @@
-import SwitchField, {SwitchFieldProps} from "./SwitchField";
+import SwitchField, { SwitchFieldProps } from './SwitchField';
 
 export function FeaturedField(props: FeaturedFieldProps) {
-    return <SwitchField kind={'featured'} {...props} />
+    return <SwitchField kind={'featured'} {...props} />;
 }
 
-export interface FeaturedFieldProps extends SwitchFieldProps {
-}
+export type FeaturedFieldProps = SwitchFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default FeaturedField;

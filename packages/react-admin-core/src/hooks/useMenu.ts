@@ -24,7 +24,8 @@ export function useMenu(
                     item['active'] = (item['active'] as Function)(location.pathname);
                 } else {
                     if (item['activePrefix']) {
-                        item['active'] = item['activePrefix'] === (location.pathname || '').slice(0, item['activePrefix'].length);
+                        item['active'] =
+                            item['activePrefix'] === (location.pathname || '').slice(0, item['activePrefix'].length);
                     } else {
                         item['active'] = location.pathname === item['target'];
                     }
@@ -38,7 +39,7 @@ export function useMenu(
                         onClick: (e: any) => {
                             !!e && !!e.preventDefault && e.preventDefault();
                             !!e && !!e.stopPropagation() && e.stopPropagation();
-                            history.push(target)
+                            history.push(target);
                         },
                     };
                 }

@@ -1,7 +1,7 @@
 export function prepareContent(def: any) {
     if (Array.isArray(def)) {
         const [type, content] = def;
-        return {type, content};
+        return { type, content };
     }
     if ('string' === typeof def) {
         let autoFocus = false;
@@ -12,7 +12,7 @@ export function prepareContent(def: any) {
         if ('$' === def.slice(0, 1)) {
             let required = false;
             def = def.slice(1);
-            if ('submit' === def) return {type: 'form_submit'};
+            if ('submit' === def) return { type: 'form_submit' };
             if ('!' === def.slice(-1)) {
                 required = true;
                 def = def.slice(0, -1);
@@ -22,9 +22,9 @@ export function prepareContent(def: any) {
                 disabled = true;
                 def = def.slice(0, -9);
             }
-            return {type: 'form_field', name: def, required, autoFocus, disabled}
+            return { type: 'form_field', name: def, required, autoFocus, disabled };
         }
-        return {type: 'unknown', name: def, autoFocus}
+        return { type: 'unknown', name: def, autoFocus };
     }
     return def;
 }

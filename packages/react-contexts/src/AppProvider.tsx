@@ -1,4 +1,4 @@
-import {ReactNode, useMemo} from 'react';
+import { ReactNode, useMemo } from 'react';
 import ErrorBoundary from './ErrorBoundary';
 import { StorageProvider } from './contexts/StorageContext';
 import { LocationProvider } from './contexts/LocationContext';
@@ -40,7 +40,11 @@ import {
     menus_factory_context_value,
     list_factory_context_value,
     breadcrumbs_factory_context_value,
-    fields_context_value, clean_data_context_value, login_context_value, register_context_value, drawer_context_value,
+    fields_context_value,
+    clean_data_context_value,
+    login_context_value,
+    register_context_value,
+    drawer_context_value,
 } from './types';
 
 export function AppProvider({
@@ -123,7 +127,7 @@ export function AppProvider({
 }
 
 export interface AppProviderProps {
-    cleanData?: clean_data_context_value
+    cleanData?: clean_data_context_value;
     themeProvider?: any;
     translationProvider?: any;
     graphqlProvider?: any;

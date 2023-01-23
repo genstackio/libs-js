@@ -1,17 +1,20 @@
-import ITranslatorPlugin from "./ITranslatorPlugin";
+import ITranslatorPlugin from './ITranslatorPlugin';
 
-export abstract class AbstractTranslatorPlugin<T = any, U = any, V = any, W = any, X = any> implements ITranslatorPlugin<T, U, V, W, X> {
+export abstract class AbstractTranslatorPlugin<T = any, U = any, V = any, W = any, X = any>
+    implements ITranslatorPlugin<T, U, V, W, X>
+{
     protected readonly translators: Record<string, T> = {};
     protected readonly sourceLanguages: Record<string, Record<string, any>> = {};
     protected readonly targetLanguages: Record<string, Record<string, any>> = {};
     protected readonly optionsMap: Record<string, Record<string, any>> = {};
-    protected readonly caches: Record<string, [T, Record<string, true>, Record<string, true>, Record<string, any>]> = {};
+    protected readonly caches: Record<string, [T, Record<string, true>, Record<string, true>, Record<string, any>]> =
+        {};
     // noinspection JSUnusedLocalSymbols
     protected getKeyFromConfig(config: any) {
         return 'default';
     }
     // noinspection JSUnusedLocalSymbols
-    protected async createTranslator(config: any): Promise<T|undefined> {
+    protected async createTranslator(config: any): Promise<T | undefined> {
         return {} as any as T;
     }
     // noinspection JSUnusedLocalSymbols
@@ -34,7 +37,12 @@ export abstract class AbstractTranslatorPlugin<T = any, U = any, V = any, W = an
             this.targetLanguages[key] = await this.createTargetLanguages(config, t);
             this.optionsMap[key] = await this.createOptions(config, t);
             this.translators[key] = t as any as T;
-            this.caches[key] = [this.translators[key], this.sourceLanguages[key], this.targetLanguages[key], this.optionsMap[key]];
+            this.caches[key] = [
+                this.translators[key],
+                this.sourceLanguages[key],
+                this.targetLanguages[key],
+                this.optionsMap[key],
+            ];
         }
         return this.caches[key];
     }
@@ -44,7 +52,13 @@ export abstract class AbstractTranslatorPlugin<T = any, U = any, V = any, W = an
     mapTranslatedTextToText(t: X) {
         return t as any as string;
     }
-    abstract translate(t: T, texts: string[], sourceLocale: U, targetLocale: V, options: Record<string, any>): Promise<X[]>;
+    abstract translate(
+        t: T,
+        texts: string[],
+        sourceLocale: U,
+        targetLocale: V,
+        options: Record<string, any>,
+    ): Promise<X[]>;
     mapSourceLocale(locale: string, sl: Record<string, true>): U {
         const l = locale.replace('_', '-');
         if (sl[l]) return l as any as U;

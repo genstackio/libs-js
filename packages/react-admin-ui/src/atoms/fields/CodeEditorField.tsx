@@ -1,13 +1,21 @@
 import MonacoEditor from 'react-monaco-editor';
-import {Controller} from 'react-hook-form';
-import useField from "../../hooks/useField";
-import FieldSet from "../FieldSet";
-import {AsTextField} from "../../as";
-import {useMemo} from "react";
-import convertValue from "../../utils/convertValue";
+import { Controller } from 'react-hook-form';
+import useField from '../../hooks/useField';
+import FieldSet from '../FieldSet';
+import { AsTextField } from '../../as';
+import { useMemo } from 'react';
+import convertValue from '../../utils/convertValue';
 
-export function CodeEditorField({language = 'json', width = undefined, height = 500, ...props}: CodeEditorFieldProps) {
-    const { className, required, defaultValue, name, error, disabled, options, control, label, helper } = useField({kind: 'codeeditor', ...props});
+export function CodeEditorField({
+    language = 'json',
+    width = undefined,
+    height = 500,
+    ...props
+}: CodeEditorFieldProps) {
+    const { className, required, defaultValue, name, error, disabled, options, control, label, helper } = useField({
+        kind: 'codeeditor',
+        ...props,
+    });
     const transformedDefaultValue = useMemo(() => {
         return convertValue(defaultValue);
     }, [defaultValue]);
@@ -20,9 +28,11 @@ export function CodeEditorField({language = 'json', width = undefined, height = 
                 rules={{ required }}
                 render={(props: any) => {
                     const v = convertValue((props.field || {}).value);
-                    const handleOnChange = disabled ? undefined : (e: any) => {
-                        return props.field.onChange({target: {name: name, value: {content: e}}});
-                    }
+                    const handleOnChange = disabled
+                        ? undefined
+                        : (e: any) => {
+                              return props.field.onChange({ target: { name: name, value: { content: e } } });
+                          };
                     return (
                         <MonacoEditor
                             height={height}

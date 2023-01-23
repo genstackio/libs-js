@@ -7,12 +7,19 @@ import MuiModal from '@material-ui/core/Modal';
 import { action_item } from '../types';
 import { AsWrapper } from '../as';
 import { WithOpened, WithTitle } from '../withs';
-import useAmbiance from "@genstackio/react-contexts/lib/hooks/useAmbiance";
+import useAmbiance from '@genstackio/react-contexts/lib/hooks/useAmbiance';
 
 const defaultButtonsItems = [];
 
-export function Modal({ buttonsItems = defaultButtonsItems, children, className, onClose, opened = false, title }: ModalProps) {
-    const {modalCorner = 'rounded-md'} = useAmbiance();
+export function Modal({
+    buttonsItems = defaultButtonsItems,
+    children,
+    className,
+    onClose,
+    opened = false,
+    title,
+}: ModalProps) {
+    const { modalCorner = 'rounded-md' } = useAmbiance();
     return (
         <MuiModal open={opened} className={clsx('flex justify-center items-center', className)}>
             <Div b={'xs'} full className={clsx('bg-clear border-disabled sm:w-8/12', modalCorner)}>

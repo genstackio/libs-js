@@ -19,12 +19,21 @@ import {
     WithItemsOfMenu,
     WithVariantOfMenu,
 } from '../withs';
-import useAmbiance from "@genstackio/react-contexts/lib/hooks/useAmbiance";
+import useAmbiance from '@genstackio/react-contexts/lib/hooks/useAmbiance';
 
 const defaultItems = [];
 
-export function MenuFold({ active, badges, className, color, icon, label, items = defaultItems, variant }: MenuFoldProps) {
-    const {menuFoldCorner = 'rounded-small'} = useAmbiance();
+export function MenuFold({
+    active,
+    badges,
+    className,
+    color,
+    icon,
+    label,
+    items = defaultItems,
+    variant,
+}: MenuFoldProps) {
+    const { menuFoldCorner = 'rounded-small' } = useAmbiance();
     const [open, toggle] = useToggle(active || false);
 
     return (

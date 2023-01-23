@@ -10,7 +10,13 @@ import { WithColorOfText, WithDescription, WithItems, WithTitle } from '../../wi
 
 const defaultItems = [];
 
-export function SummaryItemsSection({ className, color, description, items = defaultItems, title }: SummaryItemsSectionProps) {
+export function SummaryItemsSection({
+    className,
+    color,
+    description,
+    items = defaultItems,
+    title,
+}: SummaryItemsSectionProps) {
     return (
         <Row grid={3} className={clsx('sm:py-14 sm:px-8 py-6 px-4 sm:gap-x-10 gap-x-0', className)}>
             <HeadingText center description={description} span={1} title={title} variant={'medium2'} />

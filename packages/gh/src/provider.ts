@@ -1,10 +1,10 @@
-import {gh_context_provider, gh_capture_context} from "./types";
+import { gh_context_provider, gh_capture_context } from './types';
 import createNoneProvider from './providers/none';
 import createConsoleProvider from './providers/console';
 
 let adapter: gh_context_provider = createNoneProvider();
 
-const providers: {[key: string]: (config: any) => gh_context_provider} = {}
+const providers: { [key: string]: (config: any) => gh_context_provider } = {};
 
 registerProvider('none', createNoneProvider);
 registerProvider('console', createConsoleProvider);

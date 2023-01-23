@@ -1,11 +1,11 @@
-import {execution_order, execution_order_prepared} from "../types";
+import { execution_order, execution_order_prepared } from '../types';
 
 export class OrderError extends Error {
     protected readonly error: Error;
     protected readonly order: execution_order;
-    protected readonly preparedOrder: execution_order_prepared|undefined;
+    protected readonly preparedOrder: execution_order_prepared | undefined;
 
-    public constructor(order: execution_order, preparedOrder: execution_order_prepared|undefined, e: Error) {
+    public constructor(order: execution_order, preparedOrder: execution_order_prepared | undefined, e: Error) {
         super(`Order error: ${e.message}`);
         this.error = e;
         this.order = order;
@@ -22,7 +22,7 @@ export class OrderError extends Error {
     }
     public toJSON() {
         return {
-            error: {name: this.error.name, message: this.error, stack: this.error.stack},
+            error: { name: this.error.name, message: this.error, stack: this.error.stack },
             order: this.order,
             preparedOrder: this.preparedOrder,
         };

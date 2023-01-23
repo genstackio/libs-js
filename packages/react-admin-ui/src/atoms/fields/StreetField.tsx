@@ -1,10 +1,9 @@
-import TextField, {TextFieldProps} from "./TextField";
+import TextField, { TextFieldProps } from './TextField';
 
 export function StreetField(props: StreetFieldProps) {
     return <TextField kind={'street'} {...props} />;
 }
 
-export interface StreetFieldProps extends TextFieldProps {
-}
+export type StreetFieldProps = TextFieldProps;
 
 export default StreetField;

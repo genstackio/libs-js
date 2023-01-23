@@ -51,42 +51,48 @@ export type login_context_value = {
     actionProps?: any;
     formProps?: any;
     templateProps?: any;
-    actionComponent?: any,
-    formComponent?: any,
-    templateComponent?: any,
+    actionComponent?: any;
+    formComponent?: any;
+    templateComponent?: any;
     layout?: string;
-    map?: (response: any) => any,
-    propagate?: (data: any, {setCurrentUserTokens: Function}) => void,
-    succeed?: (data: any, ctx: {onLoginSuccess: (data: any) => void, setCurrentUserTokens: (tokens: any) => void}) => void,
+    map?: (response: any) => any;
+    propagate?: (data: any, { setCurrentUserTokens: Function }) => void;
+    succeed?: (
+        data: any,
+        ctx: { onLoginSuccess: (data: any) => void; setCurrentUserTokens: (tokens: any) => void },
+    ) => void;
 };
 
 export type drawer_context_value = {
     opened: boolean;
     setOpened: (state: boolean) => void;
     toggle: () => void;
-    setData: (data: any|undefined) => void;
-    setDataAndOpened: (data: any|undefined, opened: boolean) => void;
-    getData: () => any|undefined;
+    setData: (data: any | undefined) => void;
+    setDataAndOpened: (data: any | undefined, opened: boolean) => void;
+    getData: () => any | undefined;
     reset: () => void;
     unsetData: () => void;
     close: () => void;
     open: (view?: string) => void;
-    data: any|undefined,
-    openWithData: (data: any|undefined, view?: string) => void,
-    view: string|undefined,
+    data: any | undefined;
+    openWithData: (data: any | undefined, view?: string) => void;
+    view: string | undefined;
 };
 
 export type register_context_value = {
     actionProps?: any;
     formProps?: any;
     templateProps?: any;
-    actionComponent?: any,
-    formComponent?: any,
-    templateComponent?: any,
+    actionComponent?: any;
+    formComponent?: any;
+    templateComponent?: any;
     layout?: string;
-    map?: (response: any) => any,
-    propagate?: (data: any, {setCurrentUserTokens: Function}) => void,
-    succeed?: (data: any, ctx: {onRegisterSuccess: (data: any) => void, setCurrentUserTokens: (tokens: any) => void}) => void,
+    map?: (response: any) => any;
+    propagate?: (data: any, { setCurrentUserTokens: Function }) => void;
+    succeed?: (
+        data: any,
+        ctx: { onRegisterSuccess: (data: any) => void; setCurrentUserTokens: (tokens: any) => void },
+    ) => void;
 };
 
 export type cart_context_value = {
@@ -242,15 +248,15 @@ export type app_context_params = {
     cleanData?: clean_data_context_value;
 };
 
-export type app_importer_function = ({path, name}: {path: string, name: string}) => Promise<any> | undefined;
-export type importers = {[key: string]: [app_importer_function, string[]]};
+export type app_importer_function = ({ path, name }: { path: string; name: string }) => Promise<any> | undefined;
+export type importers = { [key: string]: [app_importer_function, string[]] };
 export type importer_function = (name: string, key: string) => LazyExoticComponent<ComponentType<any>> | undefined;
 export type importer_context_params = undefined | importer_function;
 
 export type logos_context_value = {
     logo?: image;
     logoFull?: image;
-}
+};
 export type breadcrumbs_factory_context_value = (name: string, ctx: any) => any[];
 export type menus_factory_context_value = (name: string, ctx: any) => any[];
 export type list_factory_context_value = (name: string, ctx: any) => any;
@@ -268,7 +274,10 @@ export type workflow_step = {
 export type upload_context_value = {
     requestUploadInfos: request_upload_infos;
 };
-export type request_upload_infos = (request: {defaultValues: any, name: string, type: string}, userContext: user_context_value) => Promise<upload_infos>;
+export type request_upload_infos = (
+    request: { defaultValues: any; name: string; type: string },
+    userContext: user_context_value,
+) => Promise<upload_infos>;
 export type upload_infos = {
     fields: any;
     meta: {
@@ -287,13 +296,12 @@ export type dynamic_form = {
 
 export type dynamic_form_section = {
     content?: content[];
-}
+};
 
 export type content = {
     type?: string;
 };
 
-export type clean_data_fn = (raw: any, keptKeys: (string|string[])[], createMode: boolean) => any;
+export type clean_data_fn = (raw: any, keptKeys: (string | string[])[], createMode: boolean) => any;
 
 export type clean_data_context_value = clean_data_fn;
-

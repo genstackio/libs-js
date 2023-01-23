@@ -1,11 +1,10 @@
-import TextField, {TextFieldProps} from "./TextField";
+import TextField, { TextFieldProps } from './TextField';
 
 export function MainQuoteTitleField(props: MainQuoteTitleFieldProps) {
-    return <TextField kind={'mainQuoteTitle'} {...props} />
+    return <TextField kind={'mainQuoteTitle'} {...props} />;
 }
 
-export interface MainQuoteTitleFieldProps extends TextFieldProps {
-}
+export type MainQuoteTitleFieldProps = TextFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default MainQuoteTitleField;

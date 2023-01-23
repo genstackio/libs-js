@@ -1,7 +1,7 @@
-import {gh_context_logger} from "../types";
+import { gh_context_logger } from '../types';
 
 async function log(level: string, ...args: any[]) {
-    console[level] && console[level](...args.map(a => ('object' === typeof a) ? JSON.stringify(a, null, 4) : a));
+    console[level] && console[level](...args.map((a) => ('object' === typeof a ? JSON.stringify(a, null, 4) : a)));
 }
 async function error(...args: any[]) {
     return log('error', ...args);
@@ -18,7 +18,11 @@ async function debug(...args: any[]) {
 
 function createLogger(): gh_context_logger {
     return {
-        log, error, info, warn, debug,
+        log,
+        error,
+        info,
+        warn,
+        debug,
     };
 }
 

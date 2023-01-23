@@ -20,7 +20,7 @@ import {
     WithEndIcon,
     WithLabel,
 } from '../withs';
-import useAmbiance from "@genstackio/react-contexts/lib/hooks/useAmbiance";
+import useAmbiance from '@genstackio/react-contexts/lib/hooks/useAmbiance';
 
 export function Button({
     autoFocus = false,
@@ -47,14 +47,14 @@ export function Button({
     size = 'md',
     variant = 'contained',
 }: ButtonProps) {
-    const {buttonCorner = 'rounded-xxsmall'} = useAmbiance();
+    const { buttonCorner = 'rounded-xxsmall' } = useAmbiance();
     corner = (corner || buttonCorner) as any;
     const handleClick = useCallback(
         (event) => {
             'function' === typeof onClick && onClick(event);
             'string' === typeof onClick && (location.href = onClick);
-            ('object' === typeof onClick) && !!onClick.onClick && (onClick.onClick(event));
-            ('object' === typeof onClick) && !!onClick.href && (location.href = onClick.href);
+            'object' === typeof onClick && !!onClick.onClick && onClick.onClick(event);
+            'object' === typeof onClick && !!onClick.href && (location.href = onClick.href);
         },
         [onClick],
     );

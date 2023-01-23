@@ -1,4 +1,4 @@
-import TranslatorService from "./TranslatorService";
+import TranslatorService from './TranslatorService';
 
 const singleton = new TranslatorService();
 

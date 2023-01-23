@@ -1,5 +1,5 @@
 export default async (params: any, ctx: any) => {
-    const o = {[params['key'] || 'value']: ('undefined' !== params['value']) ? params['value'] : true};
+    const o = { [params['key'] || 'value']: 'undefined' !== params['value'] ? params['value'] : true };
 
     switch (params['target']) {
         case 'result':
@@ -9,4 +9,4 @@ export default async (params: any, ctx: any) => {
             Object.assign(ctx, o);
             return;
     }
-}
+};

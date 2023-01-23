@@ -1,14 +1,12 @@
-import {ComponentType, Suspense} from "react";
-import {Switch} from "react-router-dom";
-import DefaultLoadingScreen from "./screens/DefaultLoadingScreen";
+import { ComponentType, Suspense } from 'react';
+import { Switch } from 'react-router-dom';
+import DefaultLoadingScreen from './screens/DefaultLoadingScreen';
 
-export function Routes({children, loadingComponent}: RoutesProps) {
+export function Routes({ children, loadingComponent }: RoutesProps) {
     const LoadingScreen = loadingComponent || DefaultLoadingScreen;
     return (
         <Suspense fallback={<LoadingScreen />}>
-            <Switch>
-                {children}
-            </Switch>
+            <Switch>{children}</Switch>
         </Suspense>
     );
 }

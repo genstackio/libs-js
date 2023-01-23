@@ -20,7 +20,6 @@ export default {
     }),
 };
 
-
 const Template = (args) => {
     const { control } = useForm();
     return <ColorField {...args} control={control} />;

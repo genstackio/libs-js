@@ -5,12 +5,20 @@ import Button from '../Button';
 import { useTranslation } from 'react-i18next';
 import { Controller } from 'react-hook-form';
 import useField from '../../hooks/useField';
-import FieldLabel from "../FieldLabel";
+import FieldLabel from '../FieldLabel';
 
 const classes = { input: 'w-14 pt-0 pb-0 pr-0 pl-0' };
 
 export function ColorField({ className, inline = true, ...props }: ColorFieldProps) {
-    const { name, defaultValue, control, label, options, classes: classes2, extra } = useField({ name: props.kind ? undefined : 'color', ...props });
+    const {
+        name,
+        defaultValue,
+        control,
+        label,
+        options,
+        classes: classes2,
+        extra,
+    } = useField({ name: props.kind ? undefined : 'color', ...props });
     const { t } = useTranslation();
     const [defined, setDefined] = useState(!!defaultValue);
     const handleClick = useCallback(() => {
@@ -40,7 +48,12 @@ export function ColorField({ className, inline = true, ...props }: ColorFieldPro
                         <Button onClick={handleClick} size={'xs'}>
                             {t('button_defined_label')}
                         </Button>
-                        <FieldLabel label={label} name={name} options={options} className={clsx(classes2?.label, 'flex-1')} />
+                        <FieldLabel
+                            label={label}
+                            name={name}
+                            options={options}
+                            className={clsx(classes2?.label, 'flex-1')}
+                        />
                     </div>
                 ) : (
                     <div className={'flex items-center space-x-4'}>

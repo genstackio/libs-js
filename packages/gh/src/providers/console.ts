@@ -1,12 +1,13 @@
-import {gh_context_provider, gh_capture_context} from "../types";
-import buildGenericCaptureContext from "../utils/buildGenericCaptureContext";
+import { gh_context_provider, gh_capture_context } from '../types';
+import buildGenericCaptureContext from '../utils/buildGenericCaptureContext';
 
 // noinspection JSUnusedLocalSymbols
 export default (config: any = {}): gh_context_provider => {
     const sharedCaptureContexts: gh_capture_context[] = [];
-    return ({
+    return {
         wrap: (handler: Function, mode?: string) => handler,
-        buildCaptureContext: (captureContext?: gh_capture_context) => buildGenericCaptureContext([...sharedCaptureContexts, captureContext || {}]),
+        buildCaptureContext: (captureContext?: gh_capture_context) =>
+            buildGenericCaptureContext([...sharedCaptureContexts, captureContext || {}]),
         addCaptureContext: (captureContext: gh_capture_context) => sharedCaptureContexts.push(captureContext),
         error: async (e: Error, ...args: any[]) => {
             console.error(JSON.stringify(e, null, 4));
@@ -18,7 +19,7 @@ export default (config: any = {}): gh_context_provider => {
             console.log('message', message, JSON.stringify(captureContext, null, 4));
         },
         captureMessages: async (messages: string[], captureContext?: gh_capture_context, options?: any) => {
-            messages.forEach(message => {
+            messages.forEach((message) => {
                 console.log('message', message, JSON.stringify(captureContext, null, 4));
             });
         },
@@ -44,5 +45,5 @@ export default (config: any = {}): gh_context_provider => {
         captureUser: async (user: any, captureContext?: gh_capture_context, options?: any) => {
             console.log('user', JSON.stringify(user, null, 4), JSON.stringify(captureContext, null, 4));
         },
-    });
-}
+    };
+};

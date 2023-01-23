@@ -1,6 +1,6 @@
 // noinspection JSUnusedLocalSymbols
 export default (options?: any) => {
-    const cc: any = {tags: {}, environment: undefined};
+    const cc: any = { tags: {}, environment: undefined };
     if (process.env.AWS_LAMBDA_FUNCTION_NAME) {
         const iof = process.env.AWS_LAMBDA_FUNCTION_NAME.indexOf('-');
         if (iof >= 0) {
@@ -13,9 +13,9 @@ export default (options?: any) => {
             }
         }
     }
-    (process.env.CORE_SDK_ENV) && (cc.tags['core_sdk_env'] = process.env.CORE_SDK_ENV);
-    (process.env.SEARCH_SDK_ENV) && (cc.tags['search_sdk_env'] = process.env.SEARCH_SDK_ENV);
-    (process.env.PLATFORM_ENV) && (cc.tags['platform_env'] = process.env.PLATFORM_ENV);
+    process.env.CORE_SDK_ENV && (cc.tags['core_sdk_env'] = process.env.CORE_SDK_ENV);
+    process.env.SEARCH_SDK_ENV && (cc.tags['search_sdk_env'] = process.env.SEARCH_SDK_ENV);
+    process.env.PLATFORM_ENV && (cc.tags['platform_env'] = process.env.PLATFORM_ENV);
 
     return cc;
-}
+};

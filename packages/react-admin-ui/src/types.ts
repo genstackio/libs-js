@@ -8,7 +8,7 @@ import { box_variant } from './mappings/box-variants';
 import { text_size } from './mappings/text-sizes';
 import { share_icon_type } from './mappings/share-icon-types';
 import { ApexOptions } from 'apexcharts';
-import {GridCellParams, GridColDef} from "@material-ui/data-grid";
+import { GridCellParams, GridColDef } from '@material-ui/data-grid';
 
 export { corner } from './mappings/corners';
 export { alignment } from './mappings/alignments';
@@ -37,7 +37,7 @@ export type ribbon_position = 'top-left' | 'top-right' | 'bottom-left' | 'bottom
 export type size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type space_variant = 'horizontal' | 'vertical' | 'default';
 export type tag = { text?: string; color?: box_color; variant?: box_variant; icon?: icon };
-export type target = string | Function | {href: string, onClick: Function};
+export type target = string | Function | { href: string; onClick: Function };
 export type variant = string;
 export type color = string;
 export type classes = { [key: string]: string };
@@ -81,7 +81,7 @@ export type avatar_item = { image?: image; name: string; shape?: shape; size?: s
 export type summary_item = { color: box_color; unit?: string; value?: string; percentage: number; icon?: icon };
 export type breadcrumb_item = breadcrumb_item_adhoc | breadcrumb_item_function;
 export type breadcrumb_item_adhoc = { label?: rich_text; target?: target };
-export type breadcrumb_item_function = (item: any) => ({ label?: rich_text; target?: target });
+export type breadcrumb_item_function = (item: any) => { label?: rich_text; target?: target };
 export type list_column = Partial<GridColDef> & {
     id: string;
     label?: rich_text;
@@ -111,7 +111,13 @@ export type action_item = {
     variant?: box_variant;
     disabled?: flag;
 };
-export type table_column = Partial<GridColDef> & { id: string; format?: any; label?: string; width?: number; render?: Function; };
+export type table_column = Partial<GridColDef> & {
+    id: string;
+    format?: any;
+    label?: string;
+    width?: number;
+    render?: Function;
+};
 export type table_row = any;
 export type timeline_item = { color: box_color; description: rich_text; title: rich_text };
 export type screen_header_item = { label?: rich_text; target?: target };
@@ -275,12 +281,18 @@ export type preset = {
     override: (key: string, value: any) => preset;
     overrides: (overrides: { [key: string]: any }) => preset;
     classes: (key: string, v: any, e?: any, d?: string) => string | undefined;
-    pclasses: (key: string, keys?: string[]) => (params: clsxm_params, keys?: string[] | undefined) => string | undefined;
+    pclasses: (
+        key: string,
+        keys?: string[],
+    ) => (params: clsxm_params, keys?: string[] | undefined) => string | undefined;
     xclasses: <T = any, U = string | undefined>(key: string) => (v: T | undefined, e?: any) => U;
     xvalues: <T = any, U = any>(key: string) => (v: T | undefined, e?: any) => U;
     values: (key: string) => string[];
     combine: (...args: ((clsxm_params) => string | undefined)[]) => (clsxm_params) => string | undefined;
-    customCombine: (parametrize: (clsxm_params) => clsxm_params, ...args: ((clsxm_params) => string | undefined)[]) => (clsxm_params) => string | undefined;
+    customCombine: (
+        parametrize: (clsxm_params) => clsxm_params,
+        ...args: ((clsxm_params) => string | undefined)[]
+    ) => (clsxm_params) => string | undefined;
     load: (config: any) => preset;
 };
 

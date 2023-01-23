@@ -1,6 +1,6 @@
 export function mergeBack(a: any, b: any) {
     if (!!a && 'object' !== typeof a) return a;
-    if (!b || ('object' !== typeof b)) {
+    if (!b || 'object' !== typeof b) {
         if ('undefined' === typeof a) return b;
         return a;
     }

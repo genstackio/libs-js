@@ -1,5 +1,5 @@
 import { box_color } from './box-colors';
-import preset from "../preset";
+import preset from '../preset';
 
 export type text_color = box_color | 'inherit';
 

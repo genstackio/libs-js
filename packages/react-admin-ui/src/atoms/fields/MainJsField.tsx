@@ -1,10 +1,9 @@
-import JsField, {JsFieldProps} from "./JsField";
+import JsField, { JsFieldProps } from './JsField';
 
 export function MainJsField(props: MainJsFieldProps) {
-    return <JsField kind={'mainJs'} {...props} />
+    return <JsField kind={'mainJs'} {...props} />;
 }
 
-export interface MainJsFieldProps extends JsFieldProps {
-}
+export type MainJsFieldProps = JsFieldProps;
 
 export default MainJsField;

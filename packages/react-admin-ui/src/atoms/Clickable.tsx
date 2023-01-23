@@ -41,8 +41,8 @@ export function Clickable({
         content = children || null;
         return onClickAway ? <ClickAwayListener onClickAway={onClickAway}>{content}</ClickAwayListener> : content;
     }
-    let realOnClick: Function|undefined = undefined;
-    if (('object' === typeof onClick) && !!onClick.href) {
+    let realOnClick: Function | undefined = undefined;
+    if ('object' === typeof onClick && !!onClick.href) {
         if (onClick.onClick) {
             realOnClick = onClick.onClick;
         }
@@ -50,7 +50,12 @@ export function Clickable({
     }
     if ('string' === typeof onClick) {
         content = (
-            <a href={onClick as string} style={style} className={className} {...(realOnClick ? {onClick: realOnClick as any} : {})}>
+            <a
+                href={onClick as string}
+                style={style}
+                className={className}
+                {...(realOnClick ? { onClick: realOnClick as any } : {})}
+            >
                 {children || ''}
             </a>
         );

@@ -1,11 +1,10 @@
-import UrlField, {UrlFieldProps} from "./UrlField";
+import UrlField, { UrlFieldProps } from './UrlField';
 
 export function ErrorCallbackUrlField(props: ErrorCallbackUrlFieldProps) {
-    return <UrlField kind={'errorCallbackUrl'} {...props} />
+    return <UrlField kind={'errorCallbackUrl'} {...props} />;
 }
 
-export interface ErrorCallbackUrlFieldProps extends UrlFieldProps {
-}
+export type ErrorCallbackUrlFieldProps = UrlFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default ErrorCallbackUrlField;

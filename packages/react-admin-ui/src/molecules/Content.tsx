@@ -1,4 +1,4 @@
-import useComponent from "@genstackio/react-contexts/lib/hooks/useComponent";
+import useComponent from '@genstackio/react-contexts/lib/hooks/useComponent';
 
 export function Content(props: ContentProps) {
     const Component = useComponent('content', props.type);
@@ -9,7 +9,7 @@ export function Content(props: ContentProps) {
 export interface ContentProps {
     type?: string;
     content?: any[];
-    options?: {[key: string]: any};
+    options?: { [key: string]: any };
 }
 
 export default Content;

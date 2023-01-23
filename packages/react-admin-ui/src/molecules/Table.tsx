@@ -4,7 +4,7 @@ import { DataGrid, DataGridProps, GridColDef, GridValueFormatterParams } from '@
 import { makeStyles } from '@material-ui/core/styles';
 import tailwindConfig from '../../tailwind.config';
 import useTableTranslation from '../utils/useTableTranslation';
-import {class_name, flag, table_column_formatter, table_column_renderer} from '../types';
+import { class_name, flag, table_column_formatter, table_column_renderer } from '../types';
 import { AsComponent } from '../as';
 import { WithColorOfBox, WithItemsOfTable, WithColumnsOfTable } from '../withs';
 import * as defaultFormatters from '../utils/table/formatters';
@@ -74,8 +74,8 @@ export function Table({
     renderers,
     ...props
 }: TableProps) {
-    formatters = useMemo(() => ({...defaultFormatters, ...(formatters || {})}), [formatters]);
-    renderers = useMemo(() => ({...defaultRenderers, ...(renderers || {})}), [renderers]);
+    formatters = useMemo(() => ({ ...defaultFormatters, ...(formatters || {}) }), [formatters]);
+    renderers = useMemo(() => ({ ...defaultRenderers, ...(renderers || {}) }), [renderers]);
     let classes = useStyles({ color, striped } as any);
     classes = useMemo(() => {
         classes['root'] = clsx(classes['root'], rootClassName);
@@ -97,23 +97,21 @@ export function Table({
         },
         [onPageChange],
     );
-    const formattedCols: GridColDef[] = (columns || []).reduce(
-        (acc, col) => {
-            const {id, label, width, format, render, ...rest} = col;
-            return [
-                ...acc,
-                {
-                    field: id,
-                    flex: 1,
-                    headerName: label,
-                    width: width || 150,
-                    valueFormatter: convertFormat(col, formatters),
-                    renderCell: renderCell(col, renderers),
-                    ...rest,
-                },
-            ];
-        }, [] as GridColDef[],
-    );
+    const formattedCols: GridColDef[] = (columns || []).reduce((acc, col) => {
+        const { id, label, width, format, render, ...rest } = col;
+        return [
+            ...acc,
+            {
+                field: id,
+                flex: 1,
+                headerName: label,
+                width: width || 150,
+                valueFormatter: convertFormat(col, formatters),
+                renderCell: renderCell(col, renderers),
+                ...rest,
+            },
+        ];
+    }, [] as GridColDef[]);
     const { localeText, pagination } = useTableTranslation();
     const componentsProps = useMemo(
         () => ({
@@ -184,8 +182,8 @@ export interface TableProps
     rowClassName?: class_name;
     columnHeaderClassName?: class_name;
     cellClassName?: class_name;
-    formatters?: {[key: string]: table_column_formatter};
-    renderers?: {[key: string]: table_column_renderer};
+    formatters?: { [key: string]: table_column_formatter };
+    renderers?: { [key: string]: table_column_renderer };
 }
 
 // noinspection JSUnusedGlobalSymbols

@@ -1,4 +1,4 @@
-import preset from "../preset";
+import preset from '../preset';
 
 export type width = number | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
 

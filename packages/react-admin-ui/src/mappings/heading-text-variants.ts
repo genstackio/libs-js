@@ -1,4 +1,4 @@
-import preset from "../preset";
+import preset from '../preset';
 
 export type heading_text_variant =
     | 'none'

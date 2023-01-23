@@ -3,10 +3,10 @@ import Image from './Image';
 import thumbnailSizeClass from '../mappings/thumbnail-sizes';
 import { AsComponent } from '../as';
 import { WithCorner, WithImage, WithSizeOfThumbnail } from '../withs';
-import useAmbiance from "@genstackio/react-contexts/lib/hooks/useAmbiance";
+import useAmbiance from '@genstackio/react-contexts/lib/hooks/useAmbiance';
 
 export function Thumbnail({ className, corner = undefined, image, size }: ThumbnailProps) {
-    const {thumbnailCorner = 'rounded-xsmall'} = useAmbiance();
+    const { thumbnailCorner = 'rounded-xsmall' } = useAmbiance();
     corner = (corner || thumbnailCorner) as any;
     return (
         <Div inline className={className}>

@@ -1,4 +1,4 @@
-import preset from "../preset";
+import preset from '../preset';
 
 export type divider_size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'default';
 

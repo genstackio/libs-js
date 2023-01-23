@@ -1,11 +1,10 @@
-import UrlField, {UrlFieldProps} from "./UrlField";
+import UrlField, { UrlFieldProps } from './UrlField';
 
 export function VimeoUrlField(props: VimeoUrlFieldProps) {
-    return <UrlField kind={'vimeoUrl'} {...props} />
+    return <UrlField kind={'vimeoUrl'} {...props} />;
 }
 
-export interface VimeoUrlFieldProps extends UrlFieldProps {
-}
+export type VimeoUrlFieldProps = UrlFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default VimeoUrlField;

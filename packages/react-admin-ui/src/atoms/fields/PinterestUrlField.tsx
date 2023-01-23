@@ -1,11 +1,10 @@
-import UrlField, {UrlFieldProps} from "./UrlField";
+import UrlField, { UrlFieldProps } from './UrlField';
 
 export function PinterestUrlField(props: PinterestUrlFieldProps) {
-    return <UrlField kind={'pinterestUrl'} {...props} />
+    return <UrlField kind={'pinterestUrl'} {...props} />;
 }
 
-export interface PinterestUrlFieldProps extends UrlFieldProps {
-}
+export type PinterestUrlFieldProps = UrlFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default PinterestUrlField;

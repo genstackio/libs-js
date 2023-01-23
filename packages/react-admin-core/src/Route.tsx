@@ -1,12 +1,11 @@
 import { Route as BaseRoute } from 'react-router-dom';
 import { route } from './types';
 import { useCallback } from 'react';
-import Routes from "./Routes";
-import useComponent from "@genstackio/react-contexts/lib/hooks/useComponent";
+import Routes from './Routes';
+import useComponent from '@genstackio/react-contexts/lib/hooks/useComponent';
 
 export const isUserHavingRole = (user, role: string[] = []) =>
-    !role.length ? true : (!!role.find(x => (user.permissions || []).includes(x)))
-;
+    !role.length ? true : !!role.find((x) => (user.permissions || []).includes(x));
 
 const defaultRoutes = [];
 
@@ -37,7 +36,14 @@ export function Route({
                 {routes && !!routes.length && (
                     <Routes loadingComponent={loadingComponent}>
                         {(routes || []).map((route, i) => (
-                            <Route key={i} loadingComponent={loadingComponent} {...route} requiredRoles={route['requiredRoles'] || requiredRoles} user={user} path={`${path}${route.path || ''}`.replace(/[\/]+/g, '/')} />
+                            <Route
+                                key={i}
+                                loadingComponent={loadingComponent}
+                                {...route}
+                                requiredRoles={route['requiredRoles'] || requiredRoles}
+                                user={user}
+                                path={`${path}${route.path || ''}`.replace(/[\/]+/g, '/')}
+                            />
                         ))}
                     </Routes>
                 )}

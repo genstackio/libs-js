@@ -1,10 +1,10 @@
-import {gh_context_logger} from "./types";
-import createNoneLogger from "./loggers/none";
-import createConsoleLogger from "./loggers/console";
+import { gh_context_logger } from './types';
+import createNoneLogger from './loggers/none';
+import createConsoleLogger from './loggers/console';
 
 let adapter: gh_context_logger = createNoneLogger();
 
-const loggers: {[key: string]: (config: any) => gh_context_logger} = {}
+const loggers: { [key: string]: (config: any) => gh_context_logger } = {};
 
 registerLogger('none', createNoneLogger);
 registerLogger('console', createConsoleLogger);
@@ -38,6 +38,5 @@ export async function warn(...args: any[]) {
 export async function debug(...args: any[]) {
     return adapter.debug(...args);
 }
-
 
 export default init;

@@ -13,7 +13,12 @@ export function FieldSet({ children, className, error, helper, label, name, opti
                 {!!inline && (
                     <Div flex vcenter spaced={2}>
                         <Div>{children}</Div>
-                        <FieldLabel label={label} name={name} options={options} className={clsx(classes?.label, 'flex-1')} />
+                        <FieldLabel
+                            label={label}
+                            name={name}
+                            options={options}
+                            className={clsx(classes?.label, 'flex-1')}
+                        />
                     </Div>
                 )}
                 {!inline && (

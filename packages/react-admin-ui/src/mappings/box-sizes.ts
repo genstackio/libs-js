@@ -1,4 +1,4 @@
-import preset from "../preset";
+import preset from '../preset';
 
 export type box_size =
     | 'none'
@@ -31,8 +31,7 @@ export type box_size =
     | 'xl-h'
     | '_xl'
     | '_xl-w'
-    | '_xl-h'
-;
+    | '_xl-h';
 
 export const boxSizeClass = preset.xclasses<box_size>('boxSize');
 

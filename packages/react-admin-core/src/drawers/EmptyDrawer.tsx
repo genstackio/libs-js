@@ -1,12 +1,9 @@
 // noinspection JSUnusedLocalSymbols
 export function EmptyDrawer(props: EmptyDrawerProps) {
-    return (
-        <></>
-    );
+    return <></>;
 }
 
-export interface EmptyDrawerProps {
-}
+export interface EmptyDrawerProps {}
 
 // noinspection JSUnusedGlobalSymbols
 export default EmptyDrawer;

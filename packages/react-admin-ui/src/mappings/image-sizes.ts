@@ -1,4 +1,4 @@
-import preset from "../preset";
+import preset from '../preset';
 
 export type image_size = 'none' | 'lg' | 'lg-w' | 'lg-h' | 'xl' | 'xl-w' | 'xl-h';
 

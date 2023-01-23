@@ -1,12 +1,9 @@
-import Table, {TableProps} from "../molecules/Table";
+import Table, { TableProps } from '../molecules/Table';
 
 export function TableContent(props: TableContentProps) {
-    return (
-        <Table {...props} />
-    );
+    return <Table {...props} />;
 }
 
-export interface TableContentProps extends TableProps {
-}
+export type TableContentProps = TableProps;
 
 export default TableContent;

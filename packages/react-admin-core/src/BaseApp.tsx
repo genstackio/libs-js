@@ -11,11 +11,11 @@ import {
 } from '@genstackio/react-contexts';
 import coreTranslations from './configs/translations';
 import adminUiTranslations from '@genstackio/react-admin-ui/lib/configs/translations';
-import Routes from "./Routes";
-import Route from "./Route";
-import {ambiance_context_value} from "@genstackio/react-contexts/lib/types";
-import buildImporter from "./utils/buildImporter";
-import AppDrawer from "./organisms/AppDrawer";
+import Routes from './Routes';
+import Route from './Route';
+import { ambiance_context_value } from '@genstackio/react-contexts/lib/types';
+import buildImporter from './utils/buildImporter';
+import AppDrawer from './organisms/AppDrawer';
 
 // warning: we create default values (objects) here to avoid react re-rendering with always-different-objects
 const defaultTranslations = {};
@@ -105,7 +105,13 @@ export function BaseApp({
             <Router>
                 <Routes loadingComponent={loadingComponent}>
                     {(routes || []).map((route, i) => (
-                        <Route key={i} {...route} requiredRoles={route['requiredRoles'] || requiredRoles} user={user?.user} loadingComponent={loadingComponent} />
+                        <Route
+                            key={i}
+                            {...route}
+                            requiredRoles={route['requiredRoles'] || requiredRoles}
+                            user={user?.user}
+                            loadingComponent={loadingComponent}
+                        />
                     ))}
                 </Routes>
             </Router>

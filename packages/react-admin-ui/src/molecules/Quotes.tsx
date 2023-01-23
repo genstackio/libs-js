@@ -11,7 +11,15 @@ import { WithButtonEndIcon, WithButtonIcon, WithButtonLabel, WithButtonTarget, W
 
 const defaultItems = [];
 
-export function Quotes({ btnEndIcon, btnIcon, btnLabel, btnTarget, className, items = defaultItems, title }: QuotesProps) {
+export function Quotes({
+    btnEndIcon,
+    btnIcon,
+    btnLabel,
+    btnTarget,
+    className,
+    items = defaultItems,
+    title,
+}: QuotesProps) {
     if (!items.length) return null;
 
     return (

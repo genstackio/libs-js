@@ -8,7 +8,7 @@ import { flag, icon, rich_text } from '../../types';
 import { fieldVariantClass } from '../../mappings/field-variants';
 import { AsTextField } from '../../as';
 
-export function TextField({inline, ...props}: TextFieldProps) {
+export function TextField({ inline, ...props }: TextFieldProps) {
     const {
         className,
         name,

@@ -1,11 +1,10 @@
-import EmailField, {EmailFieldProps} from "./EmailField";
+import EmailField, { EmailFieldProps } from './EmailField';
 
 export function PublicEmailField(props: PublicEmailFieldProps) {
-    return <EmailField kind={'publicEmail'} {...props} />
+    return <EmailField kind={'publicEmail'} {...props} />;
 }
 
-export interface PublicEmailFieldProps extends EmailFieldProps {
-}
+export type PublicEmailFieldProps = EmailFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default PublicEmailField;

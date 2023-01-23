@@ -1,4 +1,4 @@
-export function cleanContentKeyValue(v: Record<string, any>|undefined, key: string) {
+export function cleanContentKeyValue(v: Record<string, any> | undefined, key: string) {
     if (!v || !v[key]) return;
     if ('object' !== typeof v[key]) {
         delete v[key];

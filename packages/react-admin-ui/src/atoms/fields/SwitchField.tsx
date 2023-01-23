@@ -56,7 +56,7 @@ const useStyles = makeStyles({
 export function SwitchField({ className, onChange, ...props }: SwitchFieldProps) {
     const muiClasses = useStyles(props);
     const { name, required, label, error, helper, disabled, register, options, defaultValue, extra, classes } =
-        useField({valueAs: 'boolean', ...props});
+        useField({ valueAs: 'boolean', ...props });
 
     return (
         <Div mt={'sm'} className={classes?.root}>

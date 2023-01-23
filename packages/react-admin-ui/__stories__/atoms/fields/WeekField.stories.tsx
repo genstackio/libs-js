@@ -22,5 +22,5 @@ export default {
 export const basic = s(WeekField, {
     defaultValues: {
         week: new Date().getTime(),
-    }
+    },
 });

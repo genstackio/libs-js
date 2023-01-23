@@ -1,16 +1,16 @@
 // noinspection JSUnusedGlobalSymbols
 
-import {gh_capture_context} from "../types";
+import { gh_capture_context } from '../types';
 
 export function buildGenericCaptureContext(captureContexts?: gh_capture_context[]) {
     const scope = {};
-    (captureContexts || []).forEach(cc => {
+    (captureContexts || []).forEach((cc) => {
         populateGenericScopeFromCaptureContext(scope, cc);
     });
     return scope;
 }
 const populateGenericScopeFromCaptureContext = (scope: any, captureContext?: gh_capture_context) => {
-    const cco = !captureContext ? {} : (('function' === typeof captureContext) ? captureContext() : captureContext);
+    const cco = !captureContext ? {} : 'function' === typeof captureContext ? captureContext() : captureContext;
     Object.entries(cco).forEach(([k, v]) => {
         switch (k) {
             case 'error':
@@ -33,7 +33,7 @@ const populateGenericScopeFromCaptureContext = (scope: any, captureContext?: gh_
                 break;
             case 'tag':
                 scope['tags'] = scope['tags'] || {};
-                Object.assign(scope['tags'], {[v[0]]: v[1]});
+                Object.assign(scope['tags'], { [v[0]]: v[1] });
                 break;
             case 'tags':
                 scope['tags'] = scope['tags'] || {};
@@ -42,10 +42,11 @@ const populateGenericScopeFromCaptureContext = (scope: any, captureContext?: gh_
             case 'user':
                 scope['user'] = v;
                 break;
-            default: /* ignore */ break;
+            default:
+                /* ignore */ break;
         }
     });
     return scope;
-}
+};
 
 export default buildGenericCaptureContext;

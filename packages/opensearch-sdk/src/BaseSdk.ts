@@ -9,7 +9,7 @@ import {
     request_authorization_provider,
     Request,
 } from './types';
-import OpenSearchResponseError from "./OpenSearchResponseError";
+import OpenSearchResponseError from './OpenSearchResponseError';
 
 const debugOpenSearchSdk = debug('opensearch-sdk');
 const debugOpenSearchSdkHttp = debug('opensearch-sdk:http');
@@ -19,8 +19,8 @@ export abstract class BaseSdk {
     private readonly fetch: fetch;
     private readonly requestListeners: request_listener[];
     private readonly responseListeners: response_listener[];
-    private authorizationProvider: undefined|request_authorization_provider;
-    constructor({endpoint, fetch, authorizationProvider, requestListeners = [], responseListeners = []}: sdk_config) {
+    private authorizationProvider: undefined | request_authorization_provider;
+    constructor({ endpoint, fetch, authorizationProvider, requestListeners = [], responseListeners = [] }: sdk_config) {
         this.endpoint = endpoint;
         this.requestListeners = [...requestListeners];
         this.responseListeners = [...responseListeners];
@@ -39,35 +39,53 @@ export abstract class BaseSdk {
     setAuthorizationProvider(provider: request_authorization_provider) {
         if (!!this.authorizationProvider) throw new Error(`Authorization provider already set`);
         this.authorizationProvider = provider;
-        return this.addRequestListener(this.createRequestListenerFromAuthorizationProvider(provider))
+        return this.addRequestListener(this.createRequestListenerFromAuthorizationProvider(provider));
     }
     protected createRequestListenerFromAuthorizationProvider(provider: request_authorization_provider) {
         return async (request: Request): Promise<void> => {
             const value: any = await provider(request);
             if (!value) return;
-            const headers: {[key: string]: any} = {};
+            const headers: { [key: string]: any } = {};
             if ('string' === typeof value) headers['Authorization'] = value;
             else (Object.assign as Function)(headers, value as any);
             Object.entries(headers).forEach(([k, v]) => request.headers.set(k, v));
-        }
-    }
-    protected parseInput({urlParams = undefined, ...rest}: base_input = {}) {
-        return {
-            body: (rest && !!Object.keys(rest).length) ? (rest._rawBody || rest) : undefined,
-            queryString: urlParams ? Object.entries(urlParams).reduce((acc, [k, v]) => `${acc || ''}${acc ? '&' : ''}${k}=${encodeURIComponent(String(v))}`, '') : undefined
         };
     }
-    async request(path: string, method: string, input: any|undefined = {}, headers: any|undefined = {}) {
-        const {body = undefined, queryString = undefined} = this.parseInput(input);
-        return this.http(`/${path}${queryString ? '?' : ''}${queryString || ''}`, method, body, headers)
+    protected parseInput({ urlParams = undefined, ...rest }: base_input = {}) {
+        return {
+            body: rest && !!Object.keys(rest).length ? rest._rawBody || rest : undefined,
+            queryString: urlParams
+                ? Object.entries(urlParams).reduce(
+                      (acc, [k, v]) => `${acc || ''}${acc ? '&' : ''}${k}=${encodeURIComponent(String(v))}`,
+                      '',
+                  )
+                : undefined,
+        };
     }
-    async requestIndex(name: string, path: string, method: string, input: any|undefined = {}, headers: any|undefined = {}) {
+    async request(path: string, method: string, input: any | undefined = {}, headers: any | undefined = {}) {
+        const { body = undefined, queryString = undefined } = this.parseInput(input);
+        return this.http(`/${path}${queryString ? '?' : ''}${queryString || ''}`, method, body, headers);
+    }
+    async requestIndex(
+        name: string,
+        path: string,
+        method: string,
+        input: any | undefined = {},
+        headers: any | undefined = {},
+    ) {
         return this.request(`${name}${path ? '/' : ''}${path || ''}`, method, input, headers);
     }
-    async requestIndexDocument(index: string, id: string|undefined, path: string, method: string, input: any|undefined = {}, headers: any|undefined = {}) {
+    async requestIndexDocument(
+        index: string,
+        id: string | undefined,
+        path: string,
+        method: string,
+        input: any | undefined = {},
+        headers: any | undefined = {},
+    ) {
         return this.requestIndex(index, `${path}${id ? `/${id}` : ''}`, method, input, headers);
     }
-    async booleanRequest(path: string, method: string, input: any|undefined = {}, headers: any|undefined = {}) {
+    async booleanRequest(path: string, method: string, input: any | undefined = {}, headers: any | undefined = {}) {
         try {
             await this.request(path, method, input, headers);
             return true;
@@ -75,7 +93,7 @@ export abstract class BaseSdk {
             return false;
         }
     }
-    async http(uri: string = '/', method: string = 'GET', body: any|undefined = undefined, headers: any|undefined = {}) {
+    async http(uri = '/', method = 'GET', body: any | undefined = undefined, headers: any | undefined = {}) {
         const url = `${this.endpoint}${uri}`;
         const initOptions = {
             method,
@@ -83,19 +101,19 @@ export abstract class BaseSdk {
                 'Content-Type': 'application/json;charset=utf-8',
                 ...headers,
             },
-            body: body ? (('string' === typeof body) ? body : JSON.stringify(body)) : undefined,
+            body: body ? ('string' === typeof body ? body : JSON.stringify(body)) : undefined,
         };
         const request = new Request(url, initOptions);
         await this.requestListeners.reduce(async (acc, r) => {
             await acc;
             return r(request);
-        }, Promise.resolve())
-        debugOpenSearchSdkHttp('request %j', {url, initOptions});
+        }, Promise.resolve());
+        debugOpenSearchSdkHttp('request %j', { url, initOptions });
         const response = await (this.fetch as fetch_with_request)(request);
         await this.responseListeners.reduce(async (acc, r) => {
             await acc;
             return r(response);
-        }, Promise.resolve())
+        }, Promise.resolve());
         debugOpenSearchSdkHttp('response %j', response);
         if (!response.ok) {
             throw new OpenSearchResponseError(response, request);
