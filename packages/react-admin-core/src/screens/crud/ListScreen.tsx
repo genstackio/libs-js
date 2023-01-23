@@ -6,7 +6,7 @@ export function ListScreen({
     name,
     singular,
     plural,
-    list: { search, deletable, body = false, props = {} } = {},
+    list: { search, deletable, body = false, filters, props = {} } = {},
 }: ListScreenProps) {
     const children = useCallback(
         () =>
@@ -32,6 +32,7 @@ export function ListScreen({
             singularName={singular}
             search={search}
             deletable={deletable}
+            filters={filters}
             children={children ? children() : undefined}
             {...props}
         />
@@ -47,6 +48,7 @@ export interface ListScreenProps {
         deletable?: boolean;
         props?: any;
         body?: boolean;
+        filters?: any;
     };
 }
 
