@@ -29,8 +29,8 @@ export function useListVariables(props: {
     } = useListCommonVariables(props);
     const { items, errorProps, tableProps: tablePropsB, toolbarProps: toolbarPropsB } = useListDocVariables(vars);
 
-    const toolbarProps = useMemo(() => ({ ...toolbarPropsA, toolbarPropsB }), [toolbarPropsA, toolbarPropsB]);
-    const tableProps = useMemo(() => ({ ...tablePropsA, tablePropsB }), [tablePropsA, tablePropsB]);
+    const toolbarProps = useMemo(() => ({ ...toolbarPropsA, ...toolbarPropsB }), [toolbarPropsA, toolbarPropsB]);
+    const tableProps = useMemo(() => ({ ...tablePropsA, ...tablePropsB }), [tablePropsA, tablePropsB]);
 
     return useMemo(
         () => ({ items, breadcrumbsProps, toolbarProps, errorProps, tableProps }),
