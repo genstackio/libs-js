@@ -4,8 +4,10 @@ import Tag from '@genstackio/react-admin-ui/lib/atoms/Tag';
 import SwitchField from '@genstackio/react-admin-ui/lib/atoms/fields/SwitchField';
 import { useTranslation } from 'react-i18next';
 import { MenuItem } from '@genstackio/react-admin-ui';
+import buildListRouteUri from "../utils/buildListRouteUri";
 
 export function ListToolbar({
+    name,
     filterName,
     filters,
     onNewClick,
@@ -19,6 +21,8 @@ export function ListToolbar({
     list,
     switchDefaultValues,
     handleSwitchChange,
+    listRoute,
+    searchMode,
 }: ListToolbarProps) {
     const { t } = useTranslation();
 
@@ -28,13 +32,14 @@ export function ListToolbar({
     return hasFilters || !!onNewClick || displayPage ? (
         <div className={'w-full flex flex-col'}>
             {hasFilters && (
-                <div className={'flex'}>
+                <div className={'flex mb-2'}>
                     {filterNames.map((f) => (
                         <div key={f} className={'flex-1 flex flex-col'}>
                             <MenuItem
+                                m={'none'}
                                 active={f === filterName}
                                 label={t([filters[f]?.label || '', f || ''])}
-                                target={`/bla/${f}`}
+                                target={buildListRouteUri(listRoute, {name, filterName: f, pPage: String(1), pSize: String(page.size), pMode: searchMode ? 'search' : 'default', pCursors: ''})}
                             />
                         </div>
                     ))}
@@ -90,6 +95,9 @@ export interface ListToolbarProps {
     handleSwitchChange?: any;
     filters?: any;
     filterName?: string;
+    listRoute: string;
+    name: string;
+    searchMode: boolean;
 }
 
 // noinspection JSUnusedGlobalSymbols

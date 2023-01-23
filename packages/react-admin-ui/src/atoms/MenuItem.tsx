@@ -14,7 +14,7 @@ import {
     WithColorOfBox,
     WithIcon,
     WithLabel,
-    WithMargin,
+    WithMargin, WithPadding,
     WithTarget,
     WithVariantOfMenu,
 } from '../withs';
@@ -28,6 +28,7 @@ export function MenuItem({
     icon,
     label,
     m = 'md-x',
+    p = 'md',
     target,
     variant,
 }: MenuItemProps) {
@@ -41,7 +42,7 @@ export function MenuItem({
             elevation={0}
             hoverable
             onClick={target}
-            p={'md'}
+            p={p}
             variant={'light' === variant ? 'filled' : variant}
             className={clsx('', marginClass(m), className)}
         >
@@ -67,6 +68,7 @@ export interface MenuItemProps
         WithTarget,
         WithVariantOfMenu,
         WithMargin,
+        WithPadding,
         WithBadges {}
 
 // noinspection JSUnusedGlobalSymbols

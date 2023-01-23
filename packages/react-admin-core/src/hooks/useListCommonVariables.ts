@@ -128,6 +128,8 @@ export function useListCommonVariables({
         [sortModel],
     );
 
+    listRoute = (filterName ? filterListRoute : listRoute) || listRoute;
+
     const breadcrumbs = useBreadcrumbs(name, breadcrumbsFactory, {});
 
     const breadcrumbsProps = useMemo(() => ({ breadcrumbs }), [breadcrumbs]);
@@ -140,8 +142,11 @@ export function useListCommonVariables({
             list,
             filters,
             filterName,
+            listRoute,
+            name,
+            searchMode,
         }),
-        [searchSwitch, onNewClick, page, goNew, list, filters, filterName],
+        [searchSwitch, onNewClick, page, goNew, list, filters, filterName, listRoute, name, searchMode],
     );
     const tableProps = useMemo(
         () => ({
@@ -161,7 +166,6 @@ export function useListCommonVariables({
         filterName ? `${filterName[0].toUpperCase()}${filterName.slice(1)}` : ''
     }${name[0].toUpperCase() + name.slice(1)}`;
 
-    listRoute = (filterName ? filterListRoute : listRoute) || listRoute;
 
     return useMemo(
         () => ({
