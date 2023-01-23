@@ -5,35 +5,29 @@ export function crudTypeFilterRoutes(
     { plural, ...def }: { plural?: string; [key: string]: any },
 ) {
     const parentSingular = parentName;
-    const singular = name;
-    plural = plural || `${name}s`;
     return [
         {
-            path: `/${parentPlural}/filters/:filterName/page/:pPage/:pSize/:pMode/:pCursors?`,
+            path: `/${parentPlural}/filters/${name}/page/:pPage/:pSize/:pMode/:pCursors?`,
             screen: 'crud/list',
             screenProps: {
-                name,
-                singular,
-                plural,
-                parentName,
-                parentSingular,
-                parentPlural,
+                name: parentName,
+                filterName: name,
+                singular: parentSingular,
+                plural: parentPlural,
                 ...def,
-                fullName: `${parentSingular}/${plural}`,
+                fullName: `${parentSingular}/filters/${name}`,
             },
         },
         {
-            path: `/${parentPlural}/filters/:filterName`,
+            path: `/${parentPlural}/filters/${name}`,
             screen: 'crud/list',
             screenProps: {
-                name,
-                singular,
-                plural,
-                parentName,
-                parentSingular,
-                parentPlural,
+                name: parentName,
+                filterName: name,
+                singular: parentSingular,
+                plural: parentPlural,
                 ...def,
-                fullName: `${parentSingular}/${plural}`,
+                fullName: `${parentSingular}/filters/${name}`,
             },
         },
     ];
