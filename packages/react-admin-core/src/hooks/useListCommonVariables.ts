@@ -139,8 +139,10 @@ export function useListCommonVariables({
             page,
             goNew,
             list,
+            filters,
+            filterName,
         }),
-        [searchSwitch, onNewClick, page, goNew, list],
+        [searchSwitch, onNewClick, page, goNew, list, filters, filterName],
     );
     const tableProps = useMemo(
         () => ({

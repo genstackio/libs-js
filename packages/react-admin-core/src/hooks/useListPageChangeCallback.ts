@@ -24,6 +24,7 @@ export function useListPageChangeCallback({
 
     return useCallback(
         ({ page: nextPage }) => {
+            console.log(navigationMode, page, nextPage, listRoute, name, searchMode);
             if ('page' === navigationMode) {
                 let u = '';
                 if (nextPage === 0) {
