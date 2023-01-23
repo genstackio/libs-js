@@ -155,7 +155,7 @@ export function useListCommonVariables({
 
     const queryName =
         forcedQueryName ||
-        `${searchMode ? 'SEARCH' : 'FIND'}_${filterName ? `${filterName}_` : ''}${name.toUpperCase()}`;
+        `${searchMode ? 'SEARCH' : 'FIND'}_${filterName ? `${filterName.toUpperCase()}_` : ''}${name.toUpperCase()}`;
     const key = `${searchMode ? 'search' : 'find'}${
         filterName ? `${filterName[0].toUpperCase()}${filterName.slice(1)}` : ''
     }${name[0].toUpperCase() + name.slice(1)}`;
