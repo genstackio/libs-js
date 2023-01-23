@@ -11,7 +11,7 @@ const defaultFilters = {};
 
 export function useListCommonVariables({
     filters = defaultFilters,
-    filterName,
+    filterName: forcedFilterName,
     name,
     singularName: forcedSingularName,
     navigationMode = 'page',
@@ -61,7 +61,7 @@ export function useListCommonVariables({
         pMode = undefined,
         pCursors = undefined,
     } = useParams<{ pPage?: string; pSize?: string; pMode?: string; pCursors?: string }>();
-    filterName = useMemo(() => filterName || (Object.keys(filters) || {})[0], [filters, filterName]);
+    const filterName = useMemo(() => forcedFilterName || (Object.keys(filters) || {})[0], [filters, forcedFilterName]);
 
     const splitPCursors: string[] = useMemo(() => (pCursors ? pCursors.split(/:/g) : ['']), [pCursors]);
     const [page, setPage] = useState<{

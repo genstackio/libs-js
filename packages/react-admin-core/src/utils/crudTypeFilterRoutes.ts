@@ -10,7 +10,7 @@ export function crudTypeFilterRoutes(
     return [
         {
             path: `/${parentPlural}/filters/${plural}/page/:pPage/:pSize/:pMode/:pCursors?`,
-            screen: 'crud/filterList',
+            screen: 'crud/list',
             screenProps: {
                 name,
                 singular,
@@ -24,7 +24,7 @@ export function crudTypeFilterRoutes(
         },
         {
             path: `/${parentPlural}/filters/${plural}`,
-            screen: 'crud/filterList',
+            screen: 'crud/list',
             screenProps: {
                 name,
                 singular,
