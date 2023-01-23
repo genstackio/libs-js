@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
+import buildListRouteUri from "../utils/buildListRouteUri";
 
 export function useListPageChangeCallback({
     name,
@@ -10,8 +11,10 @@ export function useListPageChangeCallback({
     cursor,
     nextCursor,
     searchMode,
+    filterName,
 }: {
     name: string;
+    filterName?: string;
     listRoute: string;
     navigationMode: string;
     page: any;
@@ -28,32 +31,11 @@ export function useListPageChangeCallback({
             if ('page' === navigationMode) {
                 let u = '';
                 if (nextPage === 0) {
-                    u = listRoute
-                        .replace('{name}', name)
-                        .replace('{pPage}', String(page.index))
-                        .replace('{pSize}', String(page.size))
-                        .replace('{pMode}', searchMode ? 'search' : 'default')
-                        .replace('{pCursors}', '');
+                    u = buildListRouteUri(listRoute, {name, filterName, pPage: String(page.index), pSize: String(page.size), pMode: searchMode ? 'search' : 'default', pCursors: ''});
                 } else if (nextPage > page.index) {
-                    u = listRoute
-                        .replace('{name}', name)
-                        .replace('{pPage}', nextPage + 1)
-                        .replace('{pSize}', String(page.size))
-                        .replace('{pMode}', searchMode ? 'search' : 'default')
-                        .replace(
-                            '{pCursors}',
-                            [...((page.previousCursors as unknown as any) || []), cursor, nextCursor].join(':'),
-                        );
+                    u = buildListRouteUri(listRoute, {name, filterName, pPage: String(nextPage + 1), pSize: String(page.size), pMode: searchMode ? 'search' : 'default', pCursors: [...((page.previousCursors as unknown as any) || []), cursor, nextCursor].join(':')});
                 } else if (nextPage < page.index) {
-                    u = listRoute
-                        .replace('{name}', name)
-                        .replace('{pPage}', nextPage + 1)
-                        .replace('{pSize}', String(page.size))
-                        .replace('{pMode}', searchMode ? 'search' : 'default')
-                        .replace(
-                            '{pCursors}',
-                            [...(page.previousCursors.slice(0, -1) || []), page.previousCursors.slice(-1)[0]].join(':'),
-                        );
+                    u = buildListRouteUri(listRoute, {name, filterName, pPage: String(nextPage + 1), pSize: String(page.size), pMode: searchMode ? 'search' : 'default', pCursors: [...(page.previousCursors.slice(0, -1) || []), page.previousCursors.slice(-1)[0]].join(':')});
                 }
                 u && history.push(u);
                 return;
@@ -86,6 +68,7 @@ export function useListPageChangeCallback({
             setPage,
             page.previousCursors,
             page.index,
+            filterName,
         ],
     );
 }

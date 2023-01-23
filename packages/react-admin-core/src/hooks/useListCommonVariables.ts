@@ -5,6 +5,9 @@ import { useCallback, useMemo, useState } from 'react';
 import useList from './useList';
 import useConditionalMutationApi from '@genstackio/react-context-api/lib/hooks/useConditionalMutationApi';
 import useBreadcrumbs from './useBreadcrumbs';
+import buildDisplayRouteUri from "../utils/buildDisplayRouteUri";
+import buildEditRouteUri from "../utils/buildEditRouteUri";
+import buildNewRouteUri from "../utils/buildNewRouteUri";
 
 const defaultSortModel = [];
 const defaultFilters = {};
@@ -25,6 +28,7 @@ export function useListCommonVariables({
     onNewClick,
     columns,
     listRoute = '/{name}/page/{pPage}/{pSize}/{pMode}/{pCursors}',
+    filterListRoute = '/{name}/filters/{filterName}s/page/{pPage}/{pSize}/{pMode}/{pCursors}',
     listFirstPageRoute = '/{name}',
     searchSwitch = true,
     queryName: forcedQueryName,
@@ -44,6 +48,7 @@ export function useListCommonVariables({
     filterName?: string;
     filters?: any;
     listRoute?: string;
+    filterListRoute?: string;
     columns?: { id: string; format?: any; label?: string; width?: number; render?: Function }[];
     navigationMode?: string;
     listFirstPageRoute?: string;
@@ -85,16 +90,13 @@ export function useListCommonVariables({
     const goDoc = useCallback(
         (id) => {
             history.push(
-                displayRoute
-                    .replace('{name}', name)
-                    .replace('{id}', id)
-                    .replace('{singularName}', singularName as string),
+                buildDisplayRouteUri(displayRoute, {name, id, singularName}),
             );
         },
         [name, history, singularName, displayRoute],
     );
     const goNew = useCallback(() => {
-        history.push(newRoute.replace('{name}', name).replace('{singularName}', singularName as string));
+        history.push(buildNewRouteUri(newRoute, {name, singularName}));
     }, [name, history, singularName, newRoute]);
 
     onNewClick = onNewClick || (list['globalActions'] || []).includes('add') ? goNew : undefined;
@@ -102,10 +104,7 @@ export function useListCommonVariables({
     const goEdit = useCallback(
         (id) => {
             history.push(
-                editRoute
-                    .replace('{name}', name)
-                    .replace('{id}', id)
-                    .replace('{singularName}', singularName as string),
+                buildEditRouteUri(editRoute, {name, id, singularName}),
             );
         },
         [name, history, singularName, editRoute],
@@ -161,6 +160,8 @@ export function useListCommonVariables({
     const key = `${searchMode ? 'search' : 'find'}${
         filterName ? `${filterName[0].toUpperCase()}${filterName.slice(1)}` : ''
     }${name[0].toUpperCase() + name.slice(1)}`;
+
+    listRoute = (filterName ? filterListRoute : listRoute) || listRoute;
 
     return useMemo(
         () => ({
