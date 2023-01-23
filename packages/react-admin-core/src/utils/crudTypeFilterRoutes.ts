@@ -9,7 +9,7 @@ export function crudTypeFilterRoutes(
     plural = plural || `${name}s`;
     return [
         {
-            path: `/${parentPlural}/filters/${plural}/page/:pPage/:pSize/:pMode/:pCursors?`,
+            path: `/${parentPlural}/filters/:filterName/page/:pPage/:pSize/:pMode/:pCursors?`,
             screen: 'crud/list',
             screenProps: {
                 name,
@@ -23,7 +23,7 @@ export function crudTypeFilterRoutes(
             },
         },
         {
-            path: `/${parentPlural}/filters/${plural}`,
+            path: `/${parentPlural}/filters/:filterName`,
             screen: 'crud/list',
             screenProps: {
                 name,

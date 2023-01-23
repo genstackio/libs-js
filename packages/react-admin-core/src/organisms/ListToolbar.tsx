@@ -32,7 +32,7 @@ export function ListToolbar({
     return hasFilters || !!onNewClick || displayPage ? (
         <div className={'w-full flex flex-col'}>
             {hasFilters && (
-                <div className={'flex mb-2'}>
+                <div className={'flex mb-2 space-x-2'}>
                     {filterNames.map((f) => (
                         <div key={f} className={'flex-1 flex flex-col'}>
                             <MenuItem
