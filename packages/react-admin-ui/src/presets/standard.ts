@@ -344,7 +344,7 @@ const preset = {
                 'light-dark': 'hover:text-dark',
                 'light-none': 'hover:text-none',
             },
-        }
+        },
     },
     status: {
         default: 'unknown',
@@ -1610,7 +1610,7 @@ const preset = {
             },
         },
     },
-}
+};
 
 preset['padding'] = {
     default: 'none',
@@ -1640,12 +1640,12 @@ preset['padding'] = {
         _hl: 'p-8 sm:p-16',
         ul: 'p-32',
         _ul: 'p-16 sm:p-32',
-        ...Object.entries(preset.paddingX.styles).reduce((acc, [k, v]) => ({...acc, [`${k}-x`]: v}), {} as any),
-        ...Object.entries(preset.paddingY.styles).reduce((acc, [k, v]) => ({...acc, [`${k}-y`]: v}), {} as any),
-        ...Object.entries(preset.paddingTop.styles).reduce((acc, [k, v]) => ({...acc, [`${k}-t`]: v}), {} as any),
-        ...Object.entries(preset.paddingBottom.styles).reduce((acc, [k, v]) => ({...acc, [`${k}-b`]: v}), {} as any),
-        ...Object.entries(preset.paddingLeft.styles).reduce((acc, [k, v]) => ({...acc, [`${k}-l`]: v}), {} as any),
-        ...Object.entries(preset.paddingRight.styles).reduce((acc, [k, v]) => ({...acc, [`${k}-r`]: v}), {} as any),
+        ...Object.entries(preset.paddingX.styles).reduce((acc, [k, v]) => ({ ...acc, [`${k}-x`]: v }), {} as any),
+        ...Object.entries(preset.paddingY.styles).reduce((acc, [k, v]) => ({ ...acc, [`${k}-y`]: v }), {} as any),
+        ...Object.entries(preset.paddingTop.styles).reduce((acc, [k, v]) => ({ ...acc, [`${k}-t`]: v }), {} as any),
+        ...Object.entries(preset.paddingBottom.styles).reduce((acc, [k, v]) => ({ ...acc, [`${k}-b`]: v }), {} as any),
+        ...Object.entries(preset.paddingLeft.styles).reduce((acc, [k, v]) => ({ ...acc, [`${k}-l`]: v }), {} as any),
+        ...Object.entries(preset.paddingRight.styles).reduce((acc, [k, v]) => ({ ...acc, [`${k}-r`]: v }), {} as any),
     },
 };
 preset['margin'] = {

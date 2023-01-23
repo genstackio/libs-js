@@ -1,10 +1,9 @@
-import TextareaField, {TextareaFieldProps} from "./TextareaField";
+import TextareaField, { TextareaFieldProps } from './TextareaField';
 
 export function PresentationField(props: PresentationFieldProps) {
-    return <TextareaField kind={'presentation'} {...props} />
+    return <TextareaField kind={'presentation'} {...props} />;
 }
 
-export interface PresentationFieldProps extends TextareaFieldProps {
-}
+export type PresentationFieldProps = TextareaFieldProps;
 
 export default PresentationField;

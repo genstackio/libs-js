@@ -1,7 +1,7 @@
-import useComponent from "@genstackio/react-contexts/lib/hooks/useComponent";
+import useComponent from '@genstackio/react-contexts/lib/hooks/useComponent';
 
 export function NewScreen(props: NewScreenProps) {
-    const {plural, singular, new: {action = true, props: extraProps = {}} = {}} = props;
+    const { plural, singular, new: { action = true, props: extraProps = {} } = {} } = props;
     const actionComp = useComponent('action', action ? 'crud/create' : `${singular}/create_${singular}`);
     const Component = useComponent('screen_template', 'create');
     return <Component {...props} action={actionComp} pluralName={plural} {...extraProps} />;
@@ -18,4 +18,4 @@ export interface NewScreenProps {
 }
 
 // noinspection JSUnusedGlobalSymbols
-export default NewScreen
+export default NewScreen;

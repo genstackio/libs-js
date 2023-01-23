@@ -1,9 +1,9 @@
-import {useCallback, useMemo} from 'react';
+import { useCallback, useMemo } from 'react';
 import { LoginTemplateProps } from '@genstackio/react-admin-ui/lib/templates/LoginTemplate';
 import LoginAction from '@genstackio/react-admin-ui/lib/molecules/actions/LoginAction';
-import {useLocales, useLoginContext, useUserTokens} from '@genstackio/react-contexts';
+import { useLocales, useLoginContext, useUserTokens } from '@genstackio/react-contexts';
 import { target } from '@genstackio/react-admin-ui/lib/types';
-import Loadable from "@loadable/component";
+import Loadable from '@loadable/component';
 
 const LoginTemplate = Loadable(() => import('@genstackio/react-admin-ui/lib/templates/LoginTemplate'));
 const Login2Template = Loadable(() => import('@genstackio/react-admin-ui/lib/templates/Login2Template'));
@@ -12,24 +12,35 @@ const defaultActionProps = {};
 const defaultFormProps = {};
 
 const defaultLoginResponseMapper = (response: any) => response?.data?.createAuthToken;
-const defaultLoginPropagator = (data: any, {setCurrentUserTokens}: {setCurrentUserTokens: Function}) => {
+const defaultLoginPropagator = (data: any, { setCurrentUserTokens }: { setCurrentUserTokens: Function }) => {
     setCurrentUserTokens(data);
 };
 
 const layouts = {
     default: LoginTemplate,
-    none: ({form}) => <>{form || false}</>,
+    none: ({ form }) => <>{form || false}</>,
     centered: LoginTemplate,
     fullscreen: Login2Template,
 };
 
 const defaultTemplate = layouts.default;
 
-export function LoginScreen({ onSuccess: forcedOnSuccess = undefined, onForgotPasswordClick, actionProps: forcedActionProps = defaultActionProps, formProps: forcedFormProps = defaultFormProps, layout: forcedLayout, templateComponent: forcedTemplateComponent, formComponent: forcedFormComponent, ...props }: LoginScreenProps) {
+export function LoginScreen({
+    onSuccess: forcedOnSuccess = undefined,
+    onForgotPasswordClick,
+    actionProps: forcedActionProps = defaultActionProps,
+    formProps: forcedFormProps = defaultFormProps,
+    layout: forcedLayout,
+    templateComponent: forcedTemplateComponent,
+    formComponent: forcedFormComponent,
+    ...props
+}: LoginScreenProps) {
     const { setCurrentUserTokens } = useUserTokens();
     const { locales } = useLocales();
     const {
-        actionProps, formProps, templateProps,
+        actionProps,
+        formProps,
+        templateProps,
         actionComponent: ActionComp = LoginAction,
         formComponent = undefined,
         templateComponent = undefined,
@@ -37,16 +48,25 @@ export function LoginScreen({ onSuccess: forcedOnSuccess = undefined, onForgotPa
         map = undefined,
         propagate = undefined,
         succeed = undefined,
-    } = useLoginContext({layout: forcedLayout, templateComponent: forcedTemplateComponent, formComponent: forcedFormComponent, actionProps: forcedActionProps, formProps: forcedFormProps});
+    } = useLoginContext({
+        layout: forcedLayout,
+        templateComponent: forcedTemplateComponent,
+        formComponent: forcedFormComponent,
+        actionProps: forcedActionProps,
+        formProps: forcedFormProps,
+    });
 
-    const onLoginSuccess = useCallback((data: any) => {
-        (propagate || defaultLoginPropagator)(data, {setCurrentUserTokens});
-    }, [propagate, map, setCurrentUserTokens]);
+    const onLoginSuccess = useCallback(
+        (data: any) => {
+            (propagate || defaultLoginPropagator)(data, { setCurrentUserTokens });
+        },
+        [propagate, map, setCurrentUserTokens],
+    );
 
     const onSuccess = useCallback(
         (data) => {
             data = (map || defaultLoginResponseMapper)(data);
-            if (succeed) succeed(data, {setCurrentUserTokens, onLoginSuccess});
+            if (succeed) succeed(data, { setCurrentUserTokens, onLoginSuccess });
             else onLoginSuccess(data);
             forcedOnSuccess && forcedOnSuccess(data);
         },
@@ -55,7 +75,7 @@ export function LoginScreen({ onSuccess: forcedOnSuccess = undefined, onForgotPa
 
     const form = (
         <ActionComp
-            {...(formComponent ? {component: formComponent} : {})}
+            {...(formComponent ? { component: formComponent } : {})}
             {...(formProps || {})}
             onSuccess={onSuccess}
             locales={locales.map((x) => ({ value: x.id, language: x.label }))}

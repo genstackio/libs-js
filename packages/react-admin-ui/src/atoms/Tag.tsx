@@ -4,10 +4,10 @@ import Div from './Div';
 import useBox from '../hooks/useBox';
 import { AsBox } from '../as';
 import { WithIcon, WithText, WithSizeOfText } from '../withs';
-import useAmbiance from "@genstackio/react-contexts/lib/hooks/useAmbiance";
+import useAmbiance from '@genstackio/react-contexts/lib/hooks/useAmbiance';
 
 export function Tag({ className, icon, text, ...props }: TagProps) {
-    const {tagCorner = 'rounded-xsmall'} = useAmbiance();
+    const { tagCorner = 'rounded-xsmall' } = useAmbiance();
     const [box, rest] = useBox(props, { color: 'primary', variant: 'contained' });
 
     return (

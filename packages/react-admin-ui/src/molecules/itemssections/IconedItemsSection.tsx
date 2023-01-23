@@ -12,7 +12,13 @@ import { WithBox, WithDescription, WithItems, WithTitle } from '../../withs';
 
 const defaultItems = [];
 
-export function IconedItemsSection({ className, description, items = defaultItems, title, ...props }: IconedItemsSectionProps) {
+export function IconedItemsSection({
+    className,
+    description,
+    items = defaultItems,
+    title,
+    ...props
+}: IconedItemsSectionProps) {
     const [bProps] = useBlock(props);
 
     return (

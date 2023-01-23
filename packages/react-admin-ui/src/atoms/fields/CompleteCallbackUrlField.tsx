@@ -1,11 +1,10 @@
-import UrlField, {UrlFieldProps} from "./UrlField";
+import UrlField, { UrlFieldProps } from './UrlField';
 
 export function CompleteCallbackUrlField(props: CompleteCallbackUrlFieldProps) {
-    return <UrlField kind={'completeCallbackUrl'} {...props} />
+    return <UrlField kind={'completeCallbackUrl'} {...props} />;
 }
 
-export interface CompleteCallbackUrlFieldProps extends UrlFieldProps {
-}
+export type CompleteCallbackUrlFieldProps = UrlFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default CompleteCallbackUrlField;

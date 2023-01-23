@@ -23,7 +23,10 @@ import {
     WithValue,
     WithValuesOfSelect,
     WithVariantOfBlock,
-    WithVariantOfField, WithValueAs, WithDeps, WithConvertValue,
+    WithVariantOfField,
+    WithValueAs,
+    WithDeps,
+    WithConvertValue,
 } from './withs';
 
 export type AsComponent = WithClassName;

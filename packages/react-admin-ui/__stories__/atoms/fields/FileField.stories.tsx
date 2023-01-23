@@ -22,10 +22,12 @@ export default {
 
 const Template = (args) => {
     const { control } = useForm();
-    const defaultValues = {image: {url: 'http://www.africau.edu/images/default/sample.pdf'}};
+    const defaultValues = { image: { url: 'http://www.africau.edu/images/default/sample.pdf' } };
     return <FileField control={control} defaultValues={defaultValues} {...args} />;
 };
 
 export const basic = s(Template, {});
-export const image = s(Template, {defaultValues: {image: {url: 'https://picsum.photos/200/300.jpg'}}});
-export const pdf = s(Template, {defaultValues: {image: {url: 'http://www.africau.edu/images/default/sample.pdf'}}});
+export const image = s(Template, { defaultValues: { image: { url: 'https://picsum.photos/200/300.jpg' } } });
+export const pdf = s(Template, {
+    defaultValues: { image: { url: 'http://www.africau.edu/images/default/sample.pdf' } },
+});

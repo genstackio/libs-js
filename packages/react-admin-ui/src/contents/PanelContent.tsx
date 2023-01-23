@@ -1,12 +1,9 @@
-import Panel, {PanelProps} from "../atoms/Panel";
+import Panel, { PanelProps } from '../atoms/Panel';
 
 export function PanelContent(props: PanelContentProps) {
-    return (
-        <Panel {...props} />
-    );
+    return <Panel {...props} />;
 }
 
-export interface PanelContentProps extends PanelProps {
-}
+export type PanelContentProps = PanelProps;
 
 export default PanelContent;

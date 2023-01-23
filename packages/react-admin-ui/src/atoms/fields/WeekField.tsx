@@ -1,4 +1,4 @@
-import DateField, {DateFieldProps} from "./DateField";
+import DateField, { DateFieldProps } from './DateField';
 
 export function WeekField({ kind = 'week', type = 'week', ...props }: WeekFieldProps) {
     return <DateField kind={kind} type={type} {...props} />;

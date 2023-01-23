@@ -1,12 +1,9 @@
-import HeadingText, {HeadingTextProps} from "../atoms/HeadingText";
+import HeadingText, { HeadingTextProps } from '../atoms/HeadingText';
 
 export function HeadingTextContent(props: HeadingTextContentProps) {
-    return (
-        <HeadingText {...props} />
-    );
+    return <HeadingText {...props} />;
 }
 
-export interface HeadingTextContentProps extends HeadingTextProps {
-}
+export type HeadingTextContentProps = HeadingTextProps;
 
 export default HeadingTextContent;

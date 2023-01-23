@@ -1,11 +1,10 @@
-import UrlField, {UrlFieldProps} from "./UrlField";
+import UrlField, { UrlFieldProps } from './UrlField';
 
 export function BackgroundVideoUrlField(props: BackgroundVideoUrlFieldProps) {
-    return <UrlField kind={'backgroundVideoUrl'} {...props} />
+    return <UrlField kind={'backgroundVideoUrl'} {...props} />;
 }
 
-export interface BackgroundVideoUrlFieldProps extends UrlFieldProps {
-}
+export type BackgroundVideoUrlFieldProps = UrlFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default BackgroundVideoUrlField;

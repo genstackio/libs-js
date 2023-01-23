@@ -6,10 +6,13 @@ export function pathize(name: string) {
         b = `${b.slice(0, 1).toUpperCase()}${b.slice(1)}`;
         name = `${a}/${b}`;
     }
-    return name.split(/_/g).map((s: string, index: number) => {
-        if (0 === index) return s;
-        return `${s.slice(0, 1).toUpperCase()}${s.slice(1)}`;
-    }).join('');
+    return name
+        .split(/_/g)
+        .map((s: string, index: number) => {
+            if (0 === index) return s;
+            return `${s.slice(0, 1).toUpperCase()}${s.slice(1)}`;
+        })
+        .join('');
 }
 
 export default pathize;

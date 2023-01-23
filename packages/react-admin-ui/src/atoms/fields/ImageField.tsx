@@ -7,21 +7,33 @@ import Image from '../../atoms/Image';
 import { AsField } from '../../as';
 import Div from '../Div';
 import Button from '../Button';
-import {useCallback} from "react";
-import clsx from "clsx";
-import {useTranslation} from "react-i18next";
+import { useCallback } from 'react';
+import clsx from 'clsx';
+import { useTranslation } from 'react-i18next';
 
 const styles = {
     dropzone: { width: '100%', minHeight: 100, maxHeight: 250, border: 'none' },
 };
 
 export function ImageField({ className, onChange, getUploadParams, value, ...props }: ImageFieldProps) {
-    const {t} = useTranslation();
-    const { name, required, label, error, helper, placeholder, disabled, register, options, defaultValue, extra, classes } =
-        useField({kind: 'image', ...props});
+    const { t } = useTranslation();
+    const {
+        name,
+        required,
+        label,
+        error,
+        helper,
+        placeholder,
+        disabled,
+        register,
+        options,
+        defaultValue,
+        extra,
+        classes,
+    } = useField({ kind: 'image', ...props });
 
     const onFileUpload = useCallback((v: any) => {
-        onChange && onChange({url: v.previewUrl});
+        onChange && onChange({ url: v.previewUrl });
     }, []);
 
     const onClear = useCallback(() => {
@@ -63,7 +75,7 @@ export function ImageField({ className, onChange, getUploadParams, value, ...pro
 
 export interface ImageFieldProps extends AsField {
     getUploadParams?: Function;
-    value?: {url: string};
+    value?: { url: string };
 }
 
 // noinspection JSUnusedGlobalSymbols

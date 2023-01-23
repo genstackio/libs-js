@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { args, s, a } from '../utils';
 import { Button } from '../../src';
 import data from '../data';
-import preset from "../../lib/preset";
+import preset from '../../lib/preset';
 
 export default {
     title: 'Atoms/Button',

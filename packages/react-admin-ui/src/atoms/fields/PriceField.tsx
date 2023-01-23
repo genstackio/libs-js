@@ -1,10 +1,9 @@
-import NumberField, {NumberFieldProps} from "./NumberField";
+import NumberField, { NumberFieldProps } from './NumberField';
 
 export function PriceField(props: PriceFieldProps) {
     return <NumberField kind={'price'} {...props} />;
 }
 
-export interface PriceFieldProps extends NumberFieldProps {
-}
+export type PriceFieldProps = NumberFieldProps;
 
 export default PriceField;

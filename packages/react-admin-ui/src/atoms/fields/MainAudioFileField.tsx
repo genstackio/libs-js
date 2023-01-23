@@ -1,11 +1,10 @@
-import FileField, {FileFieldProps} from "./FileField";
+import FileField, { FileFieldProps } from './FileField';
 
 export function MainAudioFileField(props: MainAudioFileFieldProps) {
     return <FileField kind={'mainAudioFile'} {...props} />;
 }
 
-export interface MainAudioFileFieldProps extends FileFieldProps {
-}
+export type MainAudioFileFieldProps = FileFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default MainAudioFileField;

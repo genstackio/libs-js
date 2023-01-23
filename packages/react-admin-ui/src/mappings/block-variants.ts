@@ -1,4 +1,4 @@
-import preset from "../preset";
+import preset from '../preset';
 
 export type block_variant = 'filled' | 'outlined' | 'contained' | 'none' | 'header-contained';
 

@@ -1,11 +1,10 @@
-import UrlField, {UrlFieldProps} from "./UrlField";
+import UrlField, { UrlFieldProps } from './UrlField';
 
 export function LinkedinUrlField(props: LinkedinUrlFieldProps) {
-    return <UrlField kind={'linkedinUrl'} {...props} />
+    return <UrlField kind={'linkedinUrl'} {...props} />;
 }
 
-export interface LinkedinUrlFieldProps extends UrlFieldProps {
-}
+export type LinkedinUrlFieldProps = UrlFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default LinkedinUrlField;

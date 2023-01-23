@@ -7,7 +7,13 @@ import { WithColorOfText, WithDescription, WithItems, WithTitle } from '../../wi
 
 const defaultItems = [];
 
-export function BasicItemsSection({ className, color, description, items = defaultItems, title }: BasicItemsSectionProps) {
+export function BasicItemsSection({
+    className,
+    color,
+    description,
+    items = defaultItems,
+    title,
+}: BasicItemsSectionProps) {
     return (
         <Column grid={3} px={'_xl'} py={'hl'} className={className}>
             <HeadingText center span={1} color={color} description={description} title={title} variant={'medium2'} />

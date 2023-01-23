@@ -1,11 +1,10 @@
-import TextField, {TextFieldProps} from "./TextField";
+import TextField, { TextFieldProps } from './TextField';
 
 export function SubjectField(props: SubjectFieldProps) {
-    return <TextField kind={'subject'} {...props} />
+    return <TextField kind={'subject'} {...props} />;
 }
 
-export interface SubjectFieldProps extends TextFieldProps {
-}
+export type SubjectFieldProps = TextFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default SubjectField;

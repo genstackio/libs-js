@@ -1,4 +1,4 @@
-import preset from "../preset";
+import preset from '../preset';
 
 export type box_color =
     | 'primary'
@@ -12,8 +12,7 @@ export type box_color =
     | 'dark'
     | 'none'
     | 'clear'
-    | 'default'
-;
+    | 'default';
 
 export const boxColorClass = preset.xclasses<box_color>('boxColor');
 

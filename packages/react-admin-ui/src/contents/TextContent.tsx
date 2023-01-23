@@ -1,12 +1,9 @@
-import Text, {TextProps} from "../atoms/Text";
+import Text, { TextProps } from '../atoms/Text';
 
 export function TextContent(props: TextContentProps) {
-    return (
-        <Text {...props} />
-    );
+    return <Text {...props} />;
 }
 
-export interface TextContentProps extends TextProps {
-}
+export type TextContentProps = TextProps;
 
 export default TextContent;

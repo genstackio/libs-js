@@ -1,4 +1,4 @@
-import buildTypeMap from "./buildTypeMap";
+import buildTypeMap from './buildTypeMap';
 
 export function buildLists(types: any) {
     const typeMap = buildTypeMap(types);
@@ -8,14 +8,12 @@ export function buildLists(types: any) {
         if (!x) x = {};
 
         return {
-            columns: [
-                {id: 'id', label: 'column_id_label'},
-            ],
+            columns: [{ id: 'id', label: 'column_id_label' }],
             globalActions: [],
             actions: [],
             ...x,
         };
-    }
+    };
 }
 
 export default buildLists;

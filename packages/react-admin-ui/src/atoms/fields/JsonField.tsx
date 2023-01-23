@@ -1,11 +1,10 @@
-import CodeEditorField, {CodeEditorFieldProps} from "./CodeEditorField";
+import CodeEditorField, { CodeEditorFieldProps } from './CodeEditorField';
 
 export function JsonField(props: JsonFieldProps) {
     return <CodeEditorField kind={'json'} {...props} language={'json'} />;
 }
 
-export interface JsonFieldProps extends Omit<CodeEditorFieldProps, 'language'> {
-}
+export type JsonFieldProps = Omit<CodeEditorFieldProps, 'language'>;
 
 // noinspection JSUnusedGlobalSymbols
 export default JsonField;

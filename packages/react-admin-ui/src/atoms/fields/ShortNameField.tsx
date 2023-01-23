@@ -1,11 +1,10 @@
-import TextField, {TextFieldProps} from "./TextField";
+import TextField, { TextFieldProps } from './TextField';
 
 export function ShortNameField(props: ShortNameFieldProps) {
-    return <TextField kind={'shortName'} {...props} />
+    return <TextField kind={'shortName'} {...props} />;
 }
 
-export interface ShortNameFieldProps extends TextFieldProps {
-}
+export type ShortNameFieldProps = TextFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default ShortNameField;

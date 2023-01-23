@@ -1,11 +1,10 @@
-import UrlField, {UrlFieldProps} from "./UrlField";
+import UrlField, { UrlFieldProps } from './UrlField';
 
 export function BannerVideoUrlField(props: BannerVideoUrlFieldProps) {
-    return <UrlField kind={'bannerVideoUrl'} {...props} />
+    return <UrlField kind={'bannerVideoUrl'} {...props} />;
 }
 
-export interface BannerVideoUrlFieldProps extends UrlFieldProps {
-}
+export type BannerVideoUrlFieldProps = UrlFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default BannerVideoUrlField;

@@ -1,11 +1,10 @@
-import UrlField, {UrlFieldProps} from "./UrlField";
+import UrlField, { UrlFieldProps } from './UrlField';
 
 export function SnapchatUrlField(props: SnapchatUrlFieldProps) {
-    return <UrlField kind={'snapchatUrl'} {...props} />
+    return <UrlField kind={'snapchatUrl'} {...props} />;
 }
 
-export interface SnapchatUrlFieldProps extends UrlFieldProps {
-}
+export type SnapchatUrlFieldProps = UrlFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default SnapchatUrlField;

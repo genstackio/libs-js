@@ -1,12 +1,9 @@
-import Paragraph, {ParagraphProps} from "../molecules/Paragraph";
+import Paragraph, { ParagraphProps } from '../molecules/Paragraph';
 
 export function ParagraphContent(props: ParagraphContentProps) {
-    return (
-        <Paragraph {...props} />
-    );
+    return <Paragraph {...props} />;
 }
 
-export interface ParagraphContentProps extends ParagraphProps {
-}
+export type ParagraphContentProps = ParagraphProps;
 
 export default ParagraphContent;

@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import preset from "../preset";
+import preset from '../preset';
 
 export type spinner_variant =
     | 'dots'
@@ -19,7 +19,12 @@ export const spinnerClass = (
     e: any = {},
 ) =>
     clsx(
-        preset.classes('spinner', `${size}-${variant}`, e, `${preset.get('spinnerSize').default}-${preset.get('spinnerVariant').default}`),
+        preset.classes(
+            'spinner',
+            `${size}-${variant}`,
+            e,
+            `${preset.get('spinnerSize').default}-${preset.get('spinnerVariant').default}`,
+        ),
         preset.classes('colorSpinner', `${color}-${variant}`, e, `primary-${variant}`),
     );
 

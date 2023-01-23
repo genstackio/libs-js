@@ -1,6 +1,6 @@
 import YAML from 'yaml';
 
-export async function parse(raw: string|any, defaultValue?: any) {
+export async function parse(raw: string | any, defaultValue?: any) {
     if (!raw) return defaultValue;
     if ('string' === typeof raw) {
         raw = raw.trim();
@@ -16,7 +16,7 @@ async function parseJsonObject(raw: string, defaultValue?: any) {
     if (!raw) return defaultValue;
     try {
         let x = JSON.parse(raw) || defaultValue;
-        if (!x || ('object' !== typeof x)) x = defaultValue;
+        if (!x || 'object' !== typeof x) x = defaultValue;
         return x;
     } catch (e: any) {
         throw new Error(`Unable to parse JSON [${raw}]: ${e.message}`);
@@ -27,7 +27,7 @@ async function parseYamlObject(raw: string, defaultValue?: any) {
     if (!raw) return defaultValue;
     try {
         let x = YAML.parse(raw) || defaultValue;
-        if (!x || ('object' !== typeof x)) x = defaultValue;
+        if (!x || 'object' !== typeof x) x = defaultValue;
         return x;
     } catch (e: any) {
         throw new Error(`Unable to parse YAML [${raw}]: ${e.message}`);

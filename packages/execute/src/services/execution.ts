@@ -3,14 +3,15 @@ import {
     config,
     execution,
     execution_definition,
-    execution_definition_step, execution_definition_task,
+    execution_definition_step,
+    execution_definition_task,
     execution_order,
-    execution_order_prepared
+    execution_order_prepared,
 } from '../types';
-import OrderError from "../errors/OrderError";
+import OrderError from '../errors/OrderError';
 import * as defaultActions from '../actions';
-import {v4 as uuidv4} from 'uuid';
-import {parse} from './config';
+import { v4 as uuidv4 } from 'uuid';
+import { parse } from './config';
 import YAML from 'yaml';
 
 export async function execute(config: config, context: context) {
@@ -50,45 +51,68 @@ async function initExecution(config: config, context: context): Promise<executio
 
 // noinspection JSUnusedLocalSymbols
 async function buildExecutionOrders(execution: execution, context: context): Promise<[boolean, execution_order[]]> {
-    const sequentialItems: (string|execution_definition_step)[] = execution.definition?.steps || [];
-    const parallelItems: (string|execution_definition_task)[] = execution.definition?.tasks || [];
-    const parallel: boolean = !!parallelItems.length
-    const items: (string|execution_definition_step|execution_definition_task)[] = parallel ? parallelItems : sequentialItems;
+    const sequentialItems: (string | execution_definition_step)[] = execution.definition?.steps || [];
+    const parallelItems: (string | execution_definition_task)[] = execution.definition?.tasks || [];
+    const parallel = !!parallelItems.length;
+    const items: (string | execution_definition_step | execution_definition_task)[] = parallel
+        ? parallelItems
+        : sequentialItems;
 
-    return [parallel, (await Promise.all(items.map(async (item: string|execution_definition_step|execution_definition_task) => buildExecutionOrderFromDefinition(item, execution, context)))).filter(x => !!x) as execution_order[]];
+    return [
+        parallel,
+        (
+            await Promise.all(
+                items.map(async (item: string | execution_definition_step | execution_definition_task) =>
+                    buildExecutionOrderFromDefinition(item, execution, context),
+                ),
+            )
+        ).filter((x) => !!x) as execution_order[],
+    ];
 }
 
-async function parseItemShortForm(type: string): Promise<{type: string, [key: string]: any}> {
+async function parseItemShortForm(type: string): Promise<{ type: string; [key: string]: any }> {
     const match = type.match(/^([^(]+)\(([^)]*)\)$/);
     let parsedVars = {};
     if (!!match && !!match.length) {
         type = match[1];
-        parsedVars = !!match[1] ? match[2].split(/\s*,\s*/g).reduce((acc, t) => {
-            const [k, v = undefined] = t.split(/\s*=\s*/)
-            if (undefined === v) {
-                acc['default'] = replaceVarValueIfNeeded(k);
-            } else {
-                acc[k] = replaceVarValueIfNeeded(YAML.parse(v || ''));
-            }
-            return acc;
-        }, {}) : {};
+        parsedVars = !!match[1]
+            ? match[2].split(/\s*,\s*/g).reduce((acc, t) => {
+                  const [k, v = undefined] = t.split(/\s*=\s*/);
+                  if (undefined === v) {
+                      acc['default'] = replaceVarValueIfNeeded(k);
+                  } else {
+                      acc[k] = replaceVarValueIfNeeded(YAML.parse(v || ''));
+                  }
+                  return acc;
+              }, {})
+            : {};
     }
-    return {type, params: parsedVars};
+    return { type, params: parsedVars };
 }
 
 function replaceVarValueIfNeeded(value: any) {
     if ('string' !== typeof value) return value;
     switch (value) {
-        case '$now.time': return 'new Date().getTime()';
-        case '$now': return 'new Date()';
-        case '$now.iso': return 'new Date().toISOString()';
-        default: return value;
+        case '$now.time':
+            return 'new Date().getTime()';
+        case '$now':
+            return 'new Date()';
+        case '$now.iso':
+            return 'new Date().toISOString()';
+        default:
+            return value;
     }
 }
 
 // noinspection JSUnusedLocalSymbols
-async function buildExecutionOrderFromDefinition(item: string|execution_definition_step|execution_definition_task, execution: execution, context: context): Promise<execution_order|undefined> {
-    item = (('string' === typeof item) ? await parseItemShortForm(item) : item) as execution_definition_step|execution_definition_task;
+async function buildExecutionOrderFromDefinition(
+    item: string | execution_definition_step | execution_definition_task,
+    execution: execution,
+    context: context,
+): Promise<execution_order | undefined> {
+    item = ('string' === typeof item ? await parseItemShortForm(item) : item) as
+        | execution_definition_step
+        | execution_definition_task;
     if (!item || !item.type) return undefined;
 
     return {
@@ -127,18 +151,27 @@ async function processExecutionOrder(order: execution_order, execution: executio
 
 async function processParallelExecution(execution: execution, context: context): Promise<void> {
     // @ts-ignore
-    return populateExecutionFromReports(await Promise.allSettled(execution.orders.map(async (order: execution_order) => {
-        return processExecutionOrder(order, execution, context);
-    })), execution, context);
+    return populateExecutionFromReports(
+        await Promise.allSettled(
+            execution.orders.map(async (order: execution_order) => {
+                return processExecutionOrder(order, execution, context);
+            }),
+        ),
+        execution,
+        context,
+    );
 }
 
 // noinspection JSUnusedLocalSymbols
 async function populateExecutionFromReports(reports: any[], execution: execution, context: context): Promise<void> {
-    const {successes, errors} = reports.reduce((acc, r) => {
-        if (r.status === 'fulfilled') acc.successes.push(r.value as [any, execution_order_prepared]);
-        else acc.errors.push(r.reason);
-        return acc;
-    }, {successes: [] as [any, execution_order_prepared][], errors: [] as OrderError[]});
+    const { successes, errors } = reports.reduce(
+        (acc, r) => {
+            if (r.status === 'fulfilled') acc.successes.push(r.value as [any, execution_order_prepared]);
+            else acc.errors.push(r.reason);
+            return acc;
+        },
+        { successes: [] as [any, execution_order_prepared][], errors: [] as OrderError[] },
+    );
 
     execution.status = 'processed';
     execution.successes = successes;
@@ -146,22 +179,38 @@ async function populateExecutionFromReports(reports: any[], execution: execution
 }
 
 async function processSequentialExecution(execution: execution, context: context): Promise<void> {
-    return populateExecutionFromReports((await execution.orders.reduce(async (acc: Promise<{stopped: boolean, results: any[]}>, order: execution_order) => {
-        const rr = await acc;
-        const {stopped, results: local} = rr;
-        if (stopped) return rr;
-        try {
-            local.push({status: 'fulfilled', value: await processExecutionOrder(order, execution, context)});
-        } catch (e: any) {
-            local.push({status: 'error', reason: e});
-            if (order.required) return {stopped: true, results: local};
-        }
-        return {stopped: false, results: local};
-    }, Promise.resolve({stopped: false, results: [] as any[]}))).results, execution, context);
+    return populateExecutionFromReports(
+        (
+            await execution.orders.reduce(
+                async (acc: Promise<{ stopped: boolean; results: any[] }>, order: execution_order) => {
+                    const rr = await acc;
+                    const { stopped, results: local } = rr;
+                    if (stopped) return rr;
+                    try {
+                        local.push({
+                            status: 'fulfilled',
+                            value: await processExecutionOrder(order, execution, context),
+                        });
+                    } catch (e: any) {
+                        local.push({ status: 'error', reason: e });
+                        if (order.required) return { stopped: true, results: local };
+                    }
+                    return { stopped: false, results: local };
+                },
+                Promise.resolve({ stopped: false, results: [] as any[] }),
+            )
+        ).results,
+        execution,
+        context,
+    );
 }
 
 // noinspection JSUnusedLocalSymbols
-async function prepareExecutionOrder(order: execution_order, execution: execution, context: context): Promise<execution_order_prepared> {
+async function prepareExecutionOrder(
+    order: execution_order,
+    execution: execution,
+    context: context,
+): Promise<execution_order_prepared> {
     return {
         id: order.id,
         type: order.type,
@@ -171,13 +220,18 @@ async function prepareExecutionOrder(order: execution_order, execution: executio
 }
 
 // noinspection JSUnusedLocalSymbols
-async function processExecutionPreparedOrder(preparedOrder: execution_order_prepared, ctx: any, execution: execution, context: context): Promise<any> {
-    const actions = {...defaultActions, ...(context?.actions || {})};
+async function processExecutionPreparedOrder(
+    preparedOrder: execution_order_prepared,
+    ctx: any,
+    execution: execution,
+    context: context,
+): Promise<any> {
+    const actions = { ...defaultActions, ...(context?.actions || {}) };
     if (!actions[preparedOrder?.type]) throw new Error(`Unknown order action type '${preparedOrder?.type}'`);
     const action = actions[preparedOrder!.type];
     if ('function' !== typeof action) throw new Error(`Order action type '${preparedOrder?.type}' is not a function`);
 
-    return action(preparedOrder.params, ctx, {...context, execution});
+    return action(preparedOrder.params, ctx, { ...context, execution });
 }
 
 // noinspection JSUnusedLocalSymbols
@@ -196,7 +250,11 @@ async function reduceExecution(execution: execution, context: context) {
 }
 
 // noinspection JSUnusedLocalSymbols
-async function reduceExecutionResult(successes: [any, execution_order_prepared][], execution: execution, context: context): Promise<any> {
+async function reduceExecutionResult(
+    successes: [any, execution_order_prepared][],
+    execution: execution,
+    context: context,
+): Promise<any> {
     return successes.reduce((acc, s) => {
         Object.assign(acc, s[0] || {});
         return acc;
@@ -205,11 +263,20 @@ async function reduceExecutionResult(successes: [any, execution_order_prepared][
 
 // noinspection JSUnusedLocalSymbols
 async function reduceExecutionDetails(errors: Error[], execution: execution, context: context): Promise<any> {
-    if (!errors || !errors.length) return {status: 'success'};
-    if (1 === errors.length) return {status: 'error', name: errors[0].name, stack: errors[0].stack, message: errors[0].message};
-    return {status: 'error', name: 'Error', message: 'multiple errors', errors: errors.map(e => ({
-            status: 'error', name: e.name, stack: e.stack, message: e.message,
-            ...(e['getOrder'] ? {order: e['getOrder']()} : {}),
-            ...(e['getPreparedOrder'] ? {preparedOrder: e['getPreparedOrder']()} : {}),
-        }))};
+    if (!errors || !errors.length) return { status: 'success' };
+    if (1 === errors.length)
+        return { status: 'error', name: errors[0].name, stack: errors[0].stack, message: errors[0].message };
+    return {
+        status: 'error',
+        name: 'Error',
+        message: 'multiple errors',
+        errors: errors.map((e) => ({
+            status: 'error',
+            name: e.name,
+            stack: e.stack,
+            message: e.message,
+            ...(e['getOrder'] ? { order: e['getOrder']() } : {}),
+            ...(e['getPreparedOrder'] ? { preparedOrder: e['getPreparedOrder']() } : {}),
+        })),
+    };
 }

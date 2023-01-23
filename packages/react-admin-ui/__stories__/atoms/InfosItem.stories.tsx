@@ -32,12 +32,12 @@ export const arrayOfNumberValue = s(InfosItem, {
 });
 export const objectValue = s(InfosItem, {
     label: data.common.property,
-    value: {a: 12, hello: 'World', thisIs: {la: 'Value', and: {the: {other: [1, 45]}}}},
+    value: { a: 12, hello: 'World', thisIs: { la: 'Value', and: { the: { other: [1, 45] } } } },
 });
 
 export const codeType = s(InfosItem, {
     label: data.common.property,
-    value: JSON.stringify({a: 12, hello: 'World', thisIs: {la: 'Value', and: {the: {other: [1, 45]}}}}),
+    value: JSON.stringify({ a: 12, hello: 'World', thisIs: { la: 'Value', and: { the: { other: [1, 45] } } } }),
     type: 'code',
 });
 

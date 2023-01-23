@@ -1,9 +1,5 @@
 export function HomeScreen() {
-    return (
-        <>
-
-        </>
-    );
+    return <></>;
 }
 
-export default HomeScreen
+export default HomeScreen;

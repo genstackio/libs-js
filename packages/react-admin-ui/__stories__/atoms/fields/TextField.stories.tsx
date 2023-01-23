@@ -23,7 +23,7 @@ export default {
 
 export const basic = s(TextField, {});
 
-export const inlined = s(TextField, {inline: true});
+export const inlined = s(TextField, { inline: true });
 
 export const withPrepend = s(
     (args) => (

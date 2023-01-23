@@ -1,12 +1,9 @@
-import Alert, {AlertProps} from "../atoms/Alert";
+import Alert, { AlertProps } from '../atoms/Alert';
 
 export function AlertContent(props: AlertContentProps) {
-    return (
-        <Alert {...props} />
-    );
+    return <Alert {...props} />;
 }
 
-export interface AlertContentProps extends AlertProps {
-}
+export type AlertContentProps = AlertProps;
 
 export default AlertContent;

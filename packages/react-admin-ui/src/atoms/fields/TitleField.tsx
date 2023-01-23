@@ -1,11 +1,10 @@
-import TextField, {TextFieldProps} from "./TextField";
+import TextField, { TextFieldProps } from './TextField';
 
 export function TitleField(props: TitleFieldProps) {
-    return <TextField kind={'title'} {...props} />
+    return <TextField kind={'title'} {...props} />;
 }
 
-export interface TitleFieldProps extends TextFieldProps {
-}
+export type TitleFieldProps = TextFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default TitleField;

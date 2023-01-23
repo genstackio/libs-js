@@ -1,4 +1,4 @@
-import preset from "../preset";
+import preset from '../preset';
 
 export type share_icon_type = 'default' | 'facebook' | 'googleplus' | 'twitter' | 'instagram' | 'rss';
 

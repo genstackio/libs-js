@@ -1,1 +1,1 @@
-export {default as OrderError} from './OrderError';
+export { default as OrderError } from './OrderError';

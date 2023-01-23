@@ -1,4 +1,4 @@
-import preset from "../preset";
+import preset from '../preset';
 
 export type label_placement = 'none' | 'left' | 'top' | 'bottom' | 'right';
 

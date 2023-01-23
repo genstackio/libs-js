@@ -1,11 +1,10 @@
-import UrlField, {UrlFieldProps} from "./UrlField";
+import UrlField, { UrlFieldProps } from './UrlField';
 
 export function TumblrUrlField(props: TumblrUrlFieldProps) {
-    return <UrlField kind={'tumblrUrl'} {...props} />
+    return <UrlField kind={'tumblrUrl'} {...props} />;
 }
 
-export interface TumblrUrlFieldProps extends UrlFieldProps {
-}
+export type TumblrUrlFieldProps = UrlFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default TumblrUrlField;

@@ -1,11 +1,10 @@
-import EmailField, {EmailFieldProps} from "./EmailField";
+import EmailField, { EmailFieldProps } from './EmailField';
 
 export function NotifyEmailField(props: NotifyEmailFieldProps) {
-    return <EmailField kind={'notifyEmail'} {...props} />
+    return <EmailField kind={'notifyEmail'} {...props} />;
 }
 
-export interface NotifyEmailFieldProps extends EmailFieldProps {
-}
+export type NotifyEmailFieldProps = EmailFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default NotifyEmailField;

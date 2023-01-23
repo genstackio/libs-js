@@ -1,12 +1,15 @@
-import {useCallback} from "react";
-import {Drawer as BaseDrawer} from "@material-ui/core";
+import { useCallback } from 'react';
+import { Drawer as BaseDrawer } from '@material-ui/core';
 
-export function Drawer({opened = false, onClose, position = 'right', children}: DrawerProps) {
-    const onCloseDrawer = useCallback((e: any) => {
-        e.stopPropagation();
-        e.preventDefault();
-        onClose && onClose();
-    }, [onClose]);
+export function Drawer({ opened = false, onClose, position = 'right', children }: DrawerProps) {
+    const onCloseDrawer = useCallback(
+        (e: any) => {
+            e.stopPropagation();
+            e.preventDefault();
+            onClose && onClose();
+        },
+        [onClose],
+    );
     return (
         <BaseDrawer open={opened} onClose={onCloseDrawer} anchor={position}>
             {children || false}

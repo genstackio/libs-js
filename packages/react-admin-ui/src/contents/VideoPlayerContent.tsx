@@ -1,12 +1,9 @@
-import VideoPlayer, {VideoPlayerProps} from "../molecules/VideoPlayer";
+import VideoPlayer, { VideoPlayerProps } from '../molecules/VideoPlayer';
 
 export function VideoPlayerContent(props: VideoPlayerContentProps) {
-    return (
-        <VideoPlayer {...props} />
-    );
+    return <VideoPlayer {...props} />;
 }
 
-export interface VideoPlayerContentProps extends VideoPlayerProps {
-}
+export type VideoPlayerContentProps = VideoPlayerProps;
 
 export default VideoPlayerContent;

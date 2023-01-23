@@ -1,4 +1,4 @@
-import preset from "../preset";
+import preset from '../preset';
 
 export type alignment = 'left' | 'center' | 'right' | 'none';
 

@@ -1,12 +1,9 @@
-import Image, {ImageProps} from "../atoms/Image";
+import Image, { ImageProps } from '../atoms/Image';
 
 export function ImageContent(props: ImageContentProps) {
-    return (
-        <Image {...props} />
-    );
+    return <Image {...props} />;
 }
 
-export interface ImageContentProps extends ImageProps {
-}
+export type ImageContentProps = ImageProps;
 
 export default ImageContent;

@@ -1,11 +1,10 @@
-import ImageUploadField, {ImageUploadFieldProps} from "./ImageUploadField";
+import ImageUploadField, { ImageUploadFieldProps } from './ImageUploadField';
 
 export function MainImageField(props: MainImageFieldProps) {
     return <ImageUploadField kind={'mainImage'} {...props} />;
 }
 
-export interface MainImageFieldProps extends ImageUploadFieldProps {
-}
+export type MainImageFieldProps = ImageUploadFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default MainImageField;

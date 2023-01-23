@@ -1,16 +1,16 @@
-import {useCallback, useMemo} from 'react';
+import { useCallback, useMemo } from 'react';
 import clsx from 'clsx';
 import { icon, register, control, rich_text } from '../types';
 import { useTranslation } from 'react-i18next';
 import Icon from '../atoms/Icon';
 import { WithAny, WithDefaultValues, WithLabel, WithOptions } from '../withs';
-import {useGetUploadParams} from "@genstackio/react-contexts";
+import { useGetUploadParams } from '@genstackio/react-contexts';
 
 const defaultDefaults = {};
 
 const defaultSetValueAsBoolean = (value: any) => {
     return !!value;
-}
+};
 // noinspection JSUnusedLocalSymbols
 export function useField(
     {
@@ -76,28 +76,38 @@ export function useField(
             : placeholder
         : t([`field_${name.toLowerCase()}_placeholder`, `field_${kind.toLowerCase()}_placeholder`, '']);
 
-    const errorData = errors ? (errors[name] || errors['all']) : undefined;
+    const errorData = errors ? errors[name] || errors['all'] : undefined;
     const error = errorData ? errorData.message || t(['constraints_required']) : undefined;
-    const enrichedRegister = useCallback((extraOptions = {}) => {
-        const computedExtraOptions = {};
-        switch (valueAs) {
-            case 'string': break;
-            case 'number': computedExtraOptions['valueAsNumber'] = true; break;
-            case 'date': computedExtraOptions['valueAsDate'] = true; break;
-            case 'boolean': computedExtraOptions['setValueAs'] = defaultSetValueAsBoolean; break;
-            default:
-                if ('function' === typeof valueAs) {
-                    computedExtraOptions['setValueAs'] = valueAs;
+    const enrichedRegister = useCallback(
+        (extraOptions = {}) => {
+            const computedExtraOptions = {};
+            switch (valueAs) {
+                case 'string':
                     break;
-                }
-                break;
-        }
-        if (deps) {
-            computedExtraOptions['deps'] = deps;
-        }
-        return register(name, { ...options, ...computedExtraOptions, ...extraOptions })
-    }, [register, valueAs, deps, name, options]);
-    defaultValue = (undefined !== defaultValue) ? defaultValue : (defaultValues ? defaultValues[name] : undefined);
+                case 'number':
+                    computedExtraOptions['valueAsNumber'] = true;
+                    break;
+                case 'date':
+                    computedExtraOptions['valueAsDate'] = true;
+                    break;
+                case 'boolean':
+                    computedExtraOptions['setValueAs'] = defaultSetValueAsBoolean;
+                    break;
+                default:
+                    if ('function' === typeof valueAs) {
+                        computedExtraOptions['setValueAs'] = valueAs;
+                        break;
+                    }
+                    break;
+            }
+            if (deps) {
+                computedExtraOptions['deps'] = deps;
+            }
+            return register(name, { ...options, ...computedExtraOptions, ...extraOptions });
+        },
+        [register, valueAs, deps, name, options],
+    );
+    defaultValue = undefined !== defaultValue ? defaultValue : defaultValues ? defaultValues[name] : undefined;
 
     convertValue && (defaultValue = convertValue(defaultValue));
     prependIcon = prependIcon ? <Icon icon={prependIcon} /> : undefined;
@@ -107,99 +117,102 @@ export function useField(
         clsx(className, half && 'w-full sm:w-1/2', threeOf5 && 'w-full sm:w-3/5', twoOf5 && 'w-full sm:w-2/5') ||
         undefined;
 
-    const getUploadParams = useGetUploadParams({defaultValues, name, type: kind})
+    const getUploadParams = useGetUploadParams({ defaultValues, name, type: kind });
 
     return useMemo<{
-        control: any,
-        className?: string,
-        name: string,
-        label?: any,
-        placeholder?: any,
-        error: any,
-        required?: boolean,
-        helper?: any,
-        options?: any,
-        disabled?: boolean,
-        defaultValue?: any,
-        kind?: string,
-        register: Function,
-        variant?: any,
-        extra?: any,
-        type?: any,
-        getUploadParams?: Function,
-        prepend?: any,
-        append?: any,
-        classes?: any,
-        inputProps?: Function,
-        fieldsetProps?: Function,
-    }>(() => ({
-        control,
-        className,
-        name: name!,
-        label,
-        placeholder,
-        error,
-        required,
-        helper,
-        options,
-        disabled,
-        defaultValue,
-        kind,
-        register: enrichedRegister,
-        variant,
-        extra,
-        type,
-        getUploadParams,
-        prepend:
-            prepend && prependIcon ? (
-                <>
-                    {prepend}
-                    {prependIcon}
-                </>
-            ) : prepend ? (
-                prepend
-            ) : prependIcon ? (
-                prependIcon
-            ) : undefined,
-        append:
-            append && appendIcon ? (
-                <>
-                    {append}
-                    {appendIcon}
-                </>
-            ) : append ? (
-                append
-            ) : appendIcon ? (
-                appendIcon
-            ) : undefined,
-        classes,
-        inputProps,
-        fieldsetProps,
-    }), [
-        control,
-        className,
-        name,
-        label,
-        placeholder,
-        error,
-        required,
-        helper,
-        options,
-        disabled,
-        defaultValue,
-        kind,
-        enrichedRegister,
-        variant,
-        extra,
-        type,
-        getUploadParams,
-        prepend,
-        prependIcon,
-        append,
-        appendIcon,
-        classes,
-        inputProps,
-    ]);
+        control: any;
+        className?: string;
+        name: string;
+        label?: any;
+        placeholder?: any;
+        error: any;
+        required?: boolean;
+        helper?: any;
+        options?: any;
+        disabled?: boolean;
+        defaultValue?: any;
+        kind?: string;
+        register: Function;
+        variant?: any;
+        extra?: any;
+        type?: any;
+        getUploadParams?: Function;
+        prepend?: any;
+        append?: any;
+        classes?: any;
+        inputProps?: Function;
+        fieldsetProps?: Function;
+    }>(
+        () => ({
+            control,
+            className,
+            name: name!,
+            label,
+            placeholder,
+            error,
+            required,
+            helper,
+            options,
+            disabled,
+            defaultValue,
+            kind,
+            register: enrichedRegister,
+            variant,
+            extra,
+            type,
+            getUploadParams,
+            prepend:
+                prepend && prependIcon ? (
+                    <>
+                        {prepend}
+                        {prependIcon}
+                    </>
+                ) : prepend ? (
+                    prepend
+                ) : prependIcon ? (
+                    prependIcon
+                ) : undefined,
+            append:
+                append && appendIcon ? (
+                    <>
+                        {append}
+                        {appendIcon}
+                    </>
+                ) : append ? (
+                    append
+                ) : appendIcon ? (
+                    appendIcon
+                ) : undefined,
+            classes,
+            inputProps,
+            fieldsetProps,
+        }),
+        [
+            control,
+            className,
+            name,
+            label,
+            placeholder,
+            error,
+            required,
+            helper,
+            options,
+            disabled,
+            defaultValue,
+            kind,
+            enrichedRegister,
+            variant,
+            extra,
+            type,
+            getUploadParams,
+            prepend,
+            prependIcon,
+            append,
+            appendIcon,
+            classes,
+            inputProps,
+        ],
+    );
 }
 
 export interface field_def_params extends WithLabel, WithAny, WithOptions, WithDefaultValues {
@@ -221,7 +234,7 @@ export interface field_def_params extends WithLabel, WithAny, WithOptions, WithD
     classes?: any;
     valueAs?: 'string' | 'number' | 'date' | 'boolean' | ((value: any) => any);
     convertValue?: Function;
-    deps?: string|string[];
+    deps?: string | string[];
     inputProps?: Function;
     fieldsetProps?: Function;
 }

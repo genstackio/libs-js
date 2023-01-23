@@ -12,7 +12,7 @@ export function deepMerge(a: any, b: any) {
             return acc;
         }
         if (Array.isArray(a[k])) return acc;
-        if (('object' === typeof a[k]) && ('object' === typeof v)) {
+        if ('object' === typeof a[k] && 'object' === typeof v) {
             a[k] = deepMerge(a[k], v);
         }
         return acc;

@@ -1,4 +1,4 @@
-import preset from "../preset";
+import preset from '../preset';
 
 export type avatar_size = 'xs' | 'xsm' | 'sm' | 'md' | 'lg' | 'xl';
 

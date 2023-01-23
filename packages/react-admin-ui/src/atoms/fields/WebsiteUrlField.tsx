@@ -1,11 +1,10 @@
-import UrlField, {UrlFieldProps} from "./UrlField";
+import UrlField, { UrlFieldProps } from './UrlField';
 
 export function WebsiteUrlField(props: WebsiteUrlFieldProps) {
-    return <UrlField kind={'websiteUrl'} {...props} />
+    return <UrlField kind={'websiteUrl'} {...props} />;
 }
 
-export interface WebsiteUrlFieldProps extends UrlFieldProps {
-}
+export type WebsiteUrlFieldProps = UrlFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default WebsiteUrlField;

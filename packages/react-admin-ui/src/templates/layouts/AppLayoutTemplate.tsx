@@ -9,7 +9,7 @@ import Menu from '../../molecules/Menu';
 import boxTextClass from '../../mappings/box-texts';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
-import {class_name, menu_item, target} from '../../types';
+import { class_name, menu_item, target } from '../../types';
 import { AsBoxWrapper } from '../../as';
 import { WithLogo } from '../../withs';
 

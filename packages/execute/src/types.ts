@@ -1,12 +1,12 @@
 export type action = (params: any, ctx: any) => Promise<any>;
 
-export type config =  {
-    definition?: string|any;
-    params?: string|any;
+export type config = {
+    definition?: string | any;
+    params?: string | any;
 };
 
 export type context = {
-    actions: {[key: string]: action};
+    actions: { [key: string]: action };
     [key: string]: any;
 };
 
@@ -27,9 +27,9 @@ export type execution_definition_task = {
 };
 
 export type execution_definition = {
-    steps?: (string|execution_definition_step)[];
-    tasks?: (string|execution_definition_task)[];
-}
+    steps?: (string | execution_definition_step)[];
+    tasks?: (string | execution_definition_task)[];
+};
 export type execution_order_prepared = {
     id: string;
     name?: string;
@@ -39,7 +39,7 @@ export type execution_order_prepared = {
 };
 
 export type execution = {
-    config: {definition?: string|any, params?: string|any};
+    config: { definition?: string | any; params?: string | any };
     definition: execution_definition;
     params: any;
     status: string;
@@ -59,4 +59,3 @@ export type execution_order = {
     params: any;
     required: boolean;
 };
-

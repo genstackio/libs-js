@@ -1,11 +1,10 @@
-import UrlField, {UrlFieldProps} from "./UrlField";
+import UrlField, { UrlFieldProps } from './UrlField';
 
 export function MainVideoUrlField(props: MainVideoUrlFieldProps) {
-    return <UrlField kind={'mainVideoUrl'} {...props} />
+    return <UrlField kind={'mainVideoUrl'} {...props} />;
 }
 
-export interface MainVideoUrlFieldProps extends UrlFieldProps {
-}
+export type MainVideoUrlFieldProps = UrlFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default MainVideoUrlField;

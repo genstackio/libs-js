@@ -1,10 +1,10 @@
 export class OpenSearchResponseError extends Error {
     protected response: any;
     protected request: any;
-    protected fetchedError: any|undefined;
+    protected fetchedError: any | undefined;
     constructor(response: any, request: any) {
         super(OpenSearchResponseError.buildMessage(response, request));
-        this.response = response
+        this.response = response;
         this.request = request;
     }
     // noinspection JSUnusedLocalSymbols
@@ -12,7 +12,7 @@ export class OpenSearchResponseError extends Error {
         return `Bad response from open search api: ${response.status}`;
     }
     // noinspection JSUnusedGlobalSymbols
-    async getErrorReason(): Promise<string|undefined> {
+    async getErrorReason(): Promise<string | undefined> {
         await this.ensureErrorFetched();
         return this.fetchedError.error?.reason;
     }
@@ -24,19 +24,19 @@ export class OpenSearchResponseError extends Error {
             // unable to retrieve error reason
         }
     }
-    async getErrorRootCause(): Promise<string|undefined> {
+    async getErrorRootCause(): Promise<string | undefined> {
         await this.ensureErrorFetched();
         return this.fetchedError.error?.reason;
     }
-    async getErrorType(): Promise<string|undefined> {
+    async getErrorType(): Promise<string | undefined> {
         await this.ensureErrorFetched();
         return this.fetchedError.error?.type;
     }
-    async getError(): Promise<any|undefined> {
+    async getError(): Promise<any | undefined> {
         await this.ensureErrorFetched();
         return this.fetchedError.error;
     }
-    async getStatus(): Promise<number|undefined> {
+    async getStatus(): Promise<number | undefined> {
         await this.ensureErrorFetched();
         return this.fetchedError.status;
     }

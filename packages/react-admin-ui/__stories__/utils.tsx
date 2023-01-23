@@ -16,8 +16,8 @@ import { IconsProvider } from '@genstackio/react-contexts/lib/IconsProvider';
 import icons from './configs/icons';
 import { DarkModeProvider } from '@genstackio/react-contexts/lib/contexts/DarkModeContext';
 import preset from '@genstackio/react-admin-ui/lib/preset';
-import {AmbianceProvider} from "@genstackio/react-contexts/lib/contexts/AmbianceContext";
-import {ambiance_context_value} from "@genstackio/react-contexts/lib/types";
+import { AmbianceProvider } from '@genstackio/react-contexts/lib/contexts/AmbianceContext';
+import { ambiance_context_value } from '@genstackio/react-contexts/lib/types';
 
 const translationNames = Object.keys(translations);
 translationNames.sort();
@@ -70,8 +70,7 @@ function Provider(args) {
     );
     const darkModeValue = { darkMode, setDarkMode: handleSetDarkMode };
 
-    const ambiance: ambiance_context_value = useMemo(() => ({
-    }), []);
+    const ambiance: ambiance_context_value = useMemo(() => ({}), []);
 
     return (
         <FullScreen handle={handle}>

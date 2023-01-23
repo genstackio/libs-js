@@ -18,7 +18,7 @@ import {
     WithTarget,
     WithVariantOfMenu,
 } from '../withs';
-import useAmbiance from "@genstackio/react-contexts/lib/hooks/useAmbiance";
+import useAmbiance from '@genstackio/react-contexts/lib/hooks/useAmbiance';
 
 export function MenuItem({
     active = false,
@@ -31,7 +31,7 @@ export function MenuItem({
     target,
     variant,
 }: MenuItemProps) {
-    const {menuItemCorner = 'rounded-small'} = useAmbiance();
+    const { menuItemCorner = 'rounded-small' } = useAmbiance();
     return (
         <Block
             active={active}

@@ -1,10 +1,9 @@
-import TextField, {TextFieldProps} from "./TextField";
+import TextField, { TextFieldProps } from './TextField';
 
 export function ExternalReferenceField(props: ExternalReferenceFieldProps) {
     return <TextField kind={'externalReference'} {...props} />;
 }
 
-export interface ExternalReferenceFieldProps extends TextFieldProps {
-}
+export type ExternalReferenceFieldProps = TextFieldProps;
 
 export default ExternalReferenceField;

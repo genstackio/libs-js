@@ -1,7 +1,7 @@
-import Row from "../atoms/Row";
-import Contents from "../molecules/Contents";
+import Row from '../atoms/Row';
+import Contents from '../molecules/Contents';
 
-export function RowContent({content = [], ...rest}: RowContentProps) {
+export function RowContent({ content = [], ...rest }: RowContentProps) {
     return (
         <Row gap={4}>
             <Contents content={content} {...rest} />

@@ -1,11 +1,10 @@
-import CodeEditorField, {CodeEditorFieldProps} from "./CodeEditorField";
+import CodeEditorField, { CodeEditorFieldProps } from './CodeEditorField';
 
 export function YamlField(props: YamlFieldProps) {
-    return <CodeEditorField kind={'yaml'} {...props} language={'yaml'} />
+    return <CodeEditorField kind={'yaml'} {...props} language={'yaml'} />;
 }
 
-export interface YamlFieldProps extends Omit<CodeEditorFieldProps, 'language'> {
-}
+export type YamlFieldProps = Omit<CodeEditorFieldProps, 'language'>;
 
 // noinspection JSUnusedGlobalSymbols
 export default YamlField;

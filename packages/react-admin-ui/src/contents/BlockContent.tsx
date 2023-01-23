@@ -1,9 +1,9 @@
-import Block from "../atoms/Block";
-import Contents from "../molecules/Contents";
+import Block from '../atoms/Block';
+import Contents from '../molecules/Contents';
 
-export function BlockContent({content = [], ...rest}: BlockContentProps) {
+export function BlockContent({ content = [], ...rest }: BlockContentProps) {
     return (
-        <Block corner={"none"} className={'w-full'}>
+        <Block corner={'none'} className={'w-full'}>
             <Contents content={content} {...rest} />
         </Block>
     );

@@ -1,4 +1,4 @@
-import preset from "../preset";
+import preset from '../preset';
 
 export function accordionCornerClass(corner: undefined | accordion_corner, { active = false }: { active?: boolean }) {
     const z = preset.get('accordionCorner');

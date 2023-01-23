@@ -1,8 +1,8 @@
-import {gh_options, gh_capture_context} from "./types";
+import { gh_options, gh_capture_context } from './types';
 import * as logger from './logger';
-import * as provider from "./provider";
+import * as provider from './provider';
 
-const enrichers: {[key: string]: any} = {};
+const enrichers: { [key: string]: any } = {};
 
 export function registerEnricher(name: string, enricher: any) {
     enrichers[name] = enricher;
@@ -12,11 +12,11 @@ export const registerProvider = provider.registerProvider;
 export const registerLogger = logger.registerLogger;
 
 export function wrap(handler: Function, options: gh_options = {}): (...args: any[]) => Promise<any> {
-    const {environment, ...cc} = enrichContext(options);
-    init({...options, ...(environment ? {environment} : {})});
+    const { environment, ...cc } = enrichContext(options);
+    init({ ...options, ...(environment ? { environment } : {}) });
     provider.addCaptureContext(cc);
     const hn = provider.wrap(handler, options?.mode);
-    return async function(...args2: any[]) {
+    return async function (...args2: any[]) {
         try {
             return await hn(...args2);
         } catch (e: any) {
@@ -28,37 +28,46 @@ export function wrap(handler: Function, options: gh_options = {}): (...args: any
                         'Unable to process error via provider:',
                         JSON.stringify(e2, null, 4),
                         'original error was',
-                        JSON.stringify(e, null, 4)
+                        JSON.stringify(e, null, 4),
                     );
                 }
             }
             if (!options.silentError) throw e;
         }
-    }
+    };
 }
 
 export function init(options: gh_options) {
     try {
         logger.init(options);
     } catch (e: any) {
-        throw new Error(`Unable to load gh logger '${options.logger || process.env.GH_LOGGER || 'console'}': ${e.message}`);
+        throw new Error(
+            `Unable to load gh logger '${options.logger || process.env.GH_LOGGER || 'console'}': ${e.message}`,
+        );
     }
     try {
         provider.init(options);
     } catch (e: any) {
-        throw new Error(`Unable to load gh provider '${options.provider || process.env.GH_PROVIDER || 'console'}': ${e.message}`);
+        throw new Error(
+            `Unable to load gh provider '${options.provider || process.env.GH_PROVIDER || 'console'}': ${e.message}`,
+        );
     }
 }
 
 // noinspection JSUnusedLocalSymbols
 export function enrichContext(options: gh_options) {
-    const x = Object.values(enrichers).map(enricher => enricher(options)).reduce((acc, cc: any) => {
-        cc.environment && (acc['environment'] = cc.environment);
-        Object.assign(acc['tags'], cc.tags || {});
-        Object.assign(acc['property'], cc.property || {});
-        Object.assign(acc['data'], cc.data || {});
-        return acc;
-    }, {tags: {}, environment: undefined, property: {}, data: {}} as any);
+    const x = Object.values(enrichers)
+        .map((enricher) => enricher(options))
+        .reduce(
+            (acc, cc: any) => {
+                cc.environment && (acc['environment'] = cc.environment);
+                Object.assign(acc['tags'], cc.tags || {});
+                Object.assign(acc['property'], cc.property || {});
+                Object.assign(acc['data'], cc.data || {});
+                return acc;
+            },
+            { tags: {}, environment: undefined, property: {}, data: {} } as any,
+        );
     !Object.keys(x.tags).length && delete x.tags;
     !Object.keys(x.property).length && delete x.property;
     !Object.keys(x.data).length && delete x.data;

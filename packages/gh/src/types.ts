@@ -12,7 +12,7 @@ export type gh_context_logger = {
     debug: (...args: any[]) => Promise<void>;
     warn: (...args: any[]) => Promise<void>;
     log: (level: string, ...args: any[]) => Promise<void>;
-}
+};
 export type gh_context_provider = {
     wrap: (handler: Function, mode?: string) => Function;
     buildCaptureContext: (captureContext: gh_capture_context) => any;
@@ -27,13 +27,13 @@ export type gh_context_provider = {
     captureProperty: (type: string, value: any, captureContext?: gh_capture_context, options?: any) => Promise<void>;
     captureData: (data: any, captureContext?: gh_capture_context, options?: any) => Promise<void>;
     captureEvent: (event: any, captureContext?: gh_capture_context, options?: any) => Promise<void>;
-}
+};
 
 export type gh_capture_context = gh_capture_context_object | gh_capture_context_fn;
 export type gh_capture_context_fn = () => gh_capture_context_object;
 export type gh_capture_context_object = {
     tag?: [string, any];
-    tags?: {[key: string]: any};
+    tags?: { [key: string]: any };
     user?: any;
     event?: any;
     message?: string;
@@ -41,4 +41,4 @@ export type gh_capture_context_object = {
     error?: Error;
     property?: [string, any];
     data?: any;
-}
+};

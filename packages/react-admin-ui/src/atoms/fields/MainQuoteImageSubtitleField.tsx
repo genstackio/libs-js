@@ -1,11 +1,10 @@
-import TextField, {TextFieldProps} from "./TextField";
+import TextField, { TextFieldProps } from './TextField';
 
 export function MainQuoteImageSubtitleField(props: MainQuoteImageSubtitleFieldProps) {
-    return <TextField kind={'mainQuoteImageSubtitle'} {...props} />
+    return <TextField kind={'mainQuoteImageSubtitle'} {...props} />;
 }
 
-export interface MainQuoteImageSubtitleFieldProps extends TextFieldProps {
-}
+export type MainQuoteImageSubtitleFieldProps = TextFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default MainQuoteImageSubtitleField;

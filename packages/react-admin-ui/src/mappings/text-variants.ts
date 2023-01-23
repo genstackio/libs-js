@@ -1,4 +1,4 @@
-import preset from "../preset";
+import preset from '../preset';
 
 export type text_variant =
     | 'xsmall'
@@ -20,8 +20,7 @@ export type text_variant =
     | 'title5'
     | 'title6'
     | 'title7'
-    | 'underline'
-;
+    | 'underline';
 
 export const textVariantClass = preset.xclasses<text_variant>('textVariant');
 

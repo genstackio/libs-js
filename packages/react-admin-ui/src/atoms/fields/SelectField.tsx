@@ -7,7 +7,13 @@ import { AsChoiceField } from '../../as';
 
 const defaultValues = [];
 
-export function SelectField({ className, onChange: parentOnChange, multiple, values = defaultValues, ...props }: SelectFieldProps) {
+export function SelectField({
+    className,
+    onChange: parentOnChange,
+    multiple,
+    values = defaultValues,
+    ...props
+}: SelectFieldProps) {
     const { name, label, error, helper, disabled, placeholder, options, defaultValue, extra, control } =
         useField(props);
 
@@ -27,7 +33,7 @@ export function SelectField({ className, onChange: parentOnChange, multiple, val
                 name={name}
                 render={({ field: { ref, value, onChange, ...field } }: any) => (
                     <Select
-                        {...(('undefined' !== typeof document) ? {menuPortalTarget: document.body} : {})}
+                        {...('undefined' !== typeof document ? { menuPortalTarget: document.body } : {})}
                         styles={{
                             // Fixes the overlapping problem of the component
                             menuPortal: (provided: any) => ({ ...provided, zIndex: 19999 }),
@@ -40,12 +46,18 @@ export function SelectField({ className, onChange: parentOnChange, multiple, val
                         onChange={handleChange(onChange)}
                         options={values}
                         placeholder={placeholder}
-                        value={multiple ? values.filter((c) => {
-                            if (!value || !Array.isArray(value) || !value.length) return false;
-                            return value.includes(c.value);
-                        }) : values.find((c) =>
-                            undefined !== value && '' !== value ? c.value === value : c.value === defaultValue,
-                        )}
+                        value={
+                            multiple
+                                ? values.filter((c) => {
+                                      if (!value || !Array.isArray(value) || !value.length) return false;
+                                      return value.includes(c.value);
+                                  })
+                                : values.find((c) =>
+                                      undefined !== value && '' !== value
+                                          ? c.value === value
+                                          : c.value === defaultValue,
+                                  )
+                        }
                         {...extra}
                     />
                 )}

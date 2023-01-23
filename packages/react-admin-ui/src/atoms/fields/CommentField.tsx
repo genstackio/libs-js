@@ -1,11 +1,10 @@
-import TextField, {TextFieldProps} from "./TextField";
+import TextField, { TextFieldProps } from './TextField';
 
 export function CommentField(props: CommentFieldProps) {
-    return <TextField kind={'comment'} {...props} />
+    return <TextField kind={'comment'} {...props} />;
 }
 
-export interface CommentFieldProps extends TextFieldProps {
-}
+export type CommentFieldProps = TextFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default CommentField;

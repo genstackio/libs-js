@@ -1,11 +1,10 @@
-import ImageUploadField, {ImageUploadFieldProps} from "./ImageUploadField";
+import ImageUploadField, { ImageUploadFieldProps } from './ImageUploadField';
 
 export function ThumbnailImageField(props: ThumbnailImageFieldProps) {
     return <ImageUploadField kind={'thumbnailImage'} {...props} />;
 }
 
-export interface ThumbnailImageFieldProps extends ImageUploadFieldProps {
-}
+export type ThumbnailImageFieldProps = ImageUploadFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default ThumbnailImageField;

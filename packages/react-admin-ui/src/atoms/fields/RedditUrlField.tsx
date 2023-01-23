@@ -1,11 +1,10 @@
-import UrlField, {UrlFieldProps} from "./UrlField";
+import UrlField, { UrlFieldProps } from './UrlField';
 
 export function RedditUrlField(props: RedditUrlFieldProps) {
-    return <UrlField kind={'redditUrl'} {...props} />
+    return <UrlField kind={'redditUrl'} {...props} />;
 }
 
-export interface RedditUrlFieldProps extends UrlFieldProps {
-}
+export type RedditUrlFieldProps = UrlFieldProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default RedditUrlField;

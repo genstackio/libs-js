@@ -1,4 +1,4 @@
-import ITranslatorPlugin from "./ITranslatorPlugin";
+import ITranslatorPlugin from './ITranslatorPlugin';
 
 export type translatable_item = {
     text: string;
@@ -12,10 +12,10 @@ export type translated_item = {
 
 export type translation_request = {
     items: translatable_item[];
-    sourceLocale :string;
+    sourceLocale: string;
     targetLocale: string;
     config: any;
-    options?: {replacer?: Function};
-}
+    options?: { replacer?: Function };
+};
 
 export type translator_list = [string, ITranslatorPlugin, any[], Record<string, number>][];

@@ -1,12 +1,9 @@
-import Comment, {CommentProps} from "../atoms/Comment";
+import Comment, { CommentProps } from '../atoms/Comment';
 
 export function CommentContent(props: CommentContentProps) {
-    return (
-        <Comment {...props} />
-    );
+    return <Comment {...props} />;
 }
 
-export interface CommentContentProps extends CommentProps {
-}
+export type CommentContentProps = CommentProps;
 
 export default CommentContent;
