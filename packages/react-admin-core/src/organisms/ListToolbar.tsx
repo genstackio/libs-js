@@ -33,7 +33,7 @@ export function ListToolbar({
                         <div key={f} className={'flex-1 flex flex-col'}>
                             <MenuItem
                                 active={f === filterName}
-                                label={t([filters[f]?.label, f])}
+                                label={t([filters[f]?.label || '', f || ''])}
                                 target={`/bla/${f}`}
                             />
                         </div>
