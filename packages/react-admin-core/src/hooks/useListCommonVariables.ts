@@ -28,7 +28,7 @@ export function useListCommonVariables({
     onNewClick,
     columns,
     listRoute = '/{name}/page/{pPage}/{pSize}/{pMode}/{pCursors}',
-    filterListRoute = '/{name}/filters/{filterName}s/page/{pPage}/{pSize}/{pMode}/{pCursors}',
+    filterListRoute = '/{name}/filters/{filterName}/page/{pPage}/{pSize}/{pMode}/{pCursors}',
     listFirstPageRoute = '/{name}',
     searchSwitch = true,
     queryName: forcedQueryName,

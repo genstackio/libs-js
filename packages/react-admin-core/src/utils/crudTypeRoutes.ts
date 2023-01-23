@@ -5,13 +5,11 @@ export function crudTypeRoutes(
     name: string,
     {
         plural,
-        filters,
         types,
         ...def
     }: {
         plural?: string;
         types?: any;
-        filters?: any; // noinspection JSUnusedLocalSymbols
         [key: string]: any;
     },
 ) {
@@ -23,7 +21,7 @@ export function crudTypeRoutes(
             screen: 'crud/list',
             screenProps: { name, singular, plural, ...def, fullName: `${singular}/${plural}` },
         },
-        ...Object.entries(filters || {}).reduce(
+        ...Object.entries(def.list.filters || {}).reduce(
             (acc, [k, v]: [string, any]) => [
                 ...acc,
                 ...crudTypeFilterRoutes(name, { plural: plural as string, ...def }, k, v),
