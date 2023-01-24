@@ -8,6 +8,7 @@ import mergeTranslatedKeysIntoLocaleKeys from './utils/mergeTranslatedKeysIntoLo
 import { deepSort } from '@genstackio/deep';
 import AbstractTranslatorService from './AbstractTranslatorService';
 import prio from './utils/prio';
+import cleanData from "./utils/cleanData";
 
 export class TranslatorService extends AbstractTranslatorService {
     async translateText(text: string, sourceLocale, targetLocale, config?: any, options?: any): Promise<string> {
@@ -51,7 +52,7 @@ export class TranslatorService extends AbstractTranslatorService {
             replacer: options?.replacer,
         });
 
-        let result = await mergeTranslatedKeysIntoLocaleKeys(translatedKeys, data);
+        let result = await mergeTranslatedKeysIntoLocaleKeys(translatedKeys, config?.clean ? cleanData(data, refData) : data);
 
         if (!!options?.sort) {
             result = deepSort(result);
