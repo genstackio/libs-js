@@ -197,7 +197,7 @@ export class Sdk extends BaseSdk {
     ) {
         const response = await this.searchIndex(name, {
             query,
-            from: offset,
+            ...((!!offset && (null !== offset)) ? {from: offset} : {}),
             size: limit,
             ...def,
             urlParams: { ...(sort ? { sort } : {}), track_total_hits: true, ...(def?.urlParams || {}) },
