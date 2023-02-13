@@ -25,7 +25,7 @@ export async function execute(config: config, context: context) {
 }
 
 // noinspection JSUnusedLocalSymbols
-async function initExecution(config: config, context: context): Promise<execution> {
+async function initExecution(config: config, {actions, ...ctx}: context): Promise<execution> {
     let definition: execution_definition = await parse(config?.definition, {});
     const params: any = await parse(config?.params, {});
 
@@ -41,7 +41,7 @@ async function initExecution(config: config, context: context): Promise<executio
         config,
         definition,
         params,
-        ctx: {...params},
+        ctx: {...ctx, ...params},
         status: 'initialized',
         result: undefined,
         details: {},
