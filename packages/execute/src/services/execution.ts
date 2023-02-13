@@ -13,6 +13,7 @@ import * as defaultActions from '../actions';
 import { v4 as uuidv4 } from 'uuid';
 import { parse } from './config';
 import YAML from 'yaml';
+import {replaceVars} from "./vars";
 
 export async function execute(config: config, context: context) {
     const execution = await initExecution(config, context);
@@ -40,7 +41,7 @@ async function initExecution(config: config, context: context): Promise<executio
         config,
         definition,
         params,
-        ctx: {},
+        ctx: {...params},
         status: 'initialized',
         result: undefined,
         details: {},
@@ -143,6 +144,7 @@ async function processExecutionOrder(order: execution_order, execution: executio
         throw new OrderError(order, undefined, e);
     }
     try {
+        preparedOrder = replaceVars(preparedOrder, execution.ctx) as execution_order_prepared;
         return [await processExecutionPreparedOrder(preparedOrder, execution.ctx, execution, context), preparedOrder];
     } catch (e: any) {
         throw new OrderError(order, preparedOrder, e);
@@ -218,6 +220,7 @@ async function prepareExecutionOrder(
         required: order.required,
     };
 }
+
 
 // noinspection JSUnusedLocalSymbols
 async function processExecutionPreparedOrder(

@@ -313,4 +313,78 @@ describe('execute', () => {
             ],
         });
     });
+    it('replace context vars if referenced in params', async () => {
+        const a = jest.fn();
+        const d = jest.fn();
+        const c = jest.fn();
+        a.mockImplementation((params: any, ctx: any) => {
+            ctx.thePickedValueIs = params.value;
+
+            return {
+                z: ctx.thePickedValueIs,
+            }
+        });
+        d.mockImplementation((params: any, ctx: any) => {
+            return {
+                t: params.bla,
+            }
+        });
+        await expect(
+            execute(
+                {
+                    definition: {
+                        steps: ['a(value=$x)', 'd(bla=this is the $x value)'],
+                    },
+                    params: {
+                        x: 42,
+                    },
+                },
+                { actions: { a, d, c } } as any,
+            ),
+        ).resolves.toEqual({
+            config: {
+                definition: {
+                    steps: ['a(value=$x)', 'd(bla=this is the $x value)'],
+                },
+                params: {
+                    x: 42,
+                },
+            },
+            ctx: {
+                x: 42,
+                thePickedValueIs: 42,
+            },
+            definition: {
+                steps: ['a(value=$x)', 'd(bla=this is the $x value)'],
+                tasks: [],
+            },
+            details: {
+                status: 'success',
+            },
+            errors: [],
+            orders: [
+                { id: expect.any(String), name: undefined, type: 'a', params: {value: '$x'}, required: true },
+                { id: expect.any(String), name: undefined, type: 'd', params: {bla: 'this is the $x value'}, required: true },
+            ],
+            parallel: false,
+            params: {
+                x: 42,
+            },
+            result: {
+                z: 42,
+                t: 'this is the 42 value',
+            },
+            status: 'success',
+            successes: [
+                [
+                    { z: 42 },
+                    { id: expect.any(String), name: undefined, type: 'a', params: {value: 42}, required: true },
+                ],
+                [
+                    { t: 'this is the 42 value' },
+                    { id: expect.any(String), name: undefined, type: 'd', params: {bla: 'this is the 42 value'}, required: true },
+                ],
+            ],
+        });
+    });
 });
