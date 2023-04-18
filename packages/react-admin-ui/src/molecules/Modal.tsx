@@ -1,4 +1,4 @@
-import { MouseEventHandler } from 'react';
+import {MouseEventHandler} from 'react';
 import clsx from 'clsx';
 import Row from '../atoms/Row';
 import Div from '../atoms/Div';
@@ -21,7 +21,7 @@ export function Modal({
 }: ModalProps) {
     const { modalCorner = 'rounded-md' } = useAmbiance();
     return (
-        <MuiModal open={opened} className={clsx('flex justify-center items-center', className)}>
+        <MuiModal onClose={onClose} open={opened} className={clsx('flex justify-center items-center', className)}>
             <Div b={'xs'} full className={clsx('bg-clear border-disabled sm:w-8/12', modalCorner)}>
                 <Row center m={'md'} responsive={false} reverse spaced>
                     <Button color={'dark'} label={'X'} onClick={onClose} />
