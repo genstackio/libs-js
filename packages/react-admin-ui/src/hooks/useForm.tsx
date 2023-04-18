@@ -41,14 +41,15 @@ export function useForm(
     );
 
     const SubmitButton = useCallback(
-        ({ className = undefined }: { className?: class_name }) => {
+        ({ className = undefined, overridenClassName, ...props }: { className?: class_name, [key: string]: any }) => {
             return (
                 <Div center flex mt={'lg'}>
                     <Button
                         loading={submitting}
-                        className={clsx('w-full items-center justify-center', className)}
                         variant={'contained'}
                         color={color as box_color}
+                        {...(overridenClassName ? {className: overridenClassName} : {className: clsx('w-full items-center justify-center', className)})}
+                        {...props}
                     >
                         {tf(['submit_label', 'form_generic_submit_label'])}
                     </Button>
