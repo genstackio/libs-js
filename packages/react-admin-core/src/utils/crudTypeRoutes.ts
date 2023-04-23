@@ -16,12 +16,12 @@ export function crudTypeRoutes(
     const singular = name;
     plural = plural || `${name}s`;
     return [
-        def.list && {
+        def?.list && {
             path: `/${plural}/page/:pPage/:pSize/:pMode/:pCursors?`,
             screen: 'crud/list',
             screenProps: { name, singular, plural, ...def, fullName: `${singular}/${plural}` },
         },
-        ...Object.entries(def.list.filters || {}).reduce(
+        ...Object.entries(def?.list?.filters || {}).reduce(
             (acc, [k, v]: [string, any]) => [
                 ...acc,
                 ...crudTypeFilterRoutes(name, { plural: plural as string, ...def }, k, v),
