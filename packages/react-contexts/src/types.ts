@@ -40,8 +40,10 @@ export type cart_item = {
 
 export type table_context_value = {
     renderers?: Record<string, table_context_renderer>;
+    cellComponents?: Record<string, table_context_cellcomponent>;
 }
 export type table_context_renderer = (col: any) => (params: any) => any;
+export type table_context_cellcomponent = any;
 
 export type user_context_value = {
     user: user | undefined;

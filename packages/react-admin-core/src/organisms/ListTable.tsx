@@ -22,7 +22,7 @@ export function ListTable({
     rowsPerPageOptions = defaultRowsPerPageOptions,
 }: ListTableProps) {
     const { t } = useTranslation();
-    const {renderers} = useTableContext();
+    const {renderers, cellComponents} = useTableContext();
 
     return (
         <>
@@ -50,6 +50,7 @@ export function ListTable({
                     defaultRowsPerPage={defaultRowsPerPage}
                     total={total}
                     renderers={renderers}
+                    cellComponents={cellComponents}
                 />
             )}
         </>

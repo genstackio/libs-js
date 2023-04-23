@@ -21,6 +21,10 @@ export const rating = (col) => (params: GridCellParams) => <Rating value={colval
 export const spinner = (col) => (params: GridCellParams) => <Spinner />;
 export const tag = (col) => (params: GridCellParams) => <Tag text={colval(params, col) as string} />;
 export const custom = (col) => (params: GridCellParams) => col.render!(params.getValue(params.id, col.id), params);
+export const component = (col) => (params: GridCellParams) => {
+    const Comp = (col?.components || {})[col.component || ''] || undefined;
+    return Comp ? <Comp value={params.getValue(params.id, col.id)} row={params.row} col={col} params={params} /> : null;
+}
 
 export const unknown = () => undefined;
 

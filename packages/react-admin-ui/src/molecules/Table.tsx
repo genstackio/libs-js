@@ -9,6 +9,7 @@ import { AsComponent } from '../as';
 import { WithColorOfBox, WithItemsOfTable, WithColumnsOfTable } from '../withs';
 import * as defaultFormatters from '../utils/table/formatters';
 import * as defaultRenderers from '../utils/table/renderers';
+import * as defaultCellComponents from '../utils/table/cell-components';
 
 const tailwindColors = tailwindConfig.theme.extend.colors;
 const tailwindTextColors = tailwindConfig.theme.extend.textColors;
@@ -72,10 +73,12 @@ export function Table({
     total,
     formatters,
     renderers,
+    cellComponents,
     ...props
 }: TableProps) {
     formatters = useMemo(() => ({ ...defaultFormatters, ...(formatters || {}) }), [formatters]);
     renderers = useMemo(() => ({ ...defaultRenderers, ...(renderers || {}) }), [renderers]);
+    cellComponents = useMemo(() => ({ ...defaultCellComponents, ...(cellComponents || {}) }), [cellComponents]);
     let classes = useStyles({ color, striped } as any);
     classes = useMemo(() => {
         classes['root'] = clsx(classes['root'], rootClassName);
@@ -107,7 +110,7 @@ export function Table({
                 headerName: label,
                 width: width || 150,
                 valueFormatter: convertFormat(col, formatters),
-                renderCell: renderCell(col, renderers),
+                renderCell: renderCell(col, renderers, cellComponents),
                 ...rest,
             },
         ];
@@ -145,7 +148,8 @@ export function Table({
     );
 }
 
-function renderCell(col, renderMap) {
+function renderCell(col, renderMap, cellComponents) {
+    if (!!col.component && 'string' === typeof col.component) return renderMap['component']({...col, components: cellComponents});
     if (!!col.render && 'function' === typeof col.render) return renderMap['custom'](col);
     let mode = 'unknown';
     if (!!col.format && 'string' === typeof col.render) mode = col.format;
@@ -184,6 +188,7 @@ export interface TableProps
     cellClassName?: class_name;
     formatters?: { [key: string]: table_column_formatter };
     renderers?: { [key: string]: table_column_renderer };
+    cellComponents?: { [key: string]: any };
 }
 
 // noinspection JSUnusedGlobalSymbols
