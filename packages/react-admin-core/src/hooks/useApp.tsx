@@ -14,7 +14,7 @@ import {
     request_upload_infos,
     logos_context_value,
     fields_context_value,
-    clean_data_context_value,
+    clean_data_context_value, table_context_value,
 } from '@genstackio/react-contexts/lib/types';
 import { FullscreenProvider as BaseFullscreenProvider } from '@genstackio/react-contexts/lib/contexts/FullscreenContext';
 import { FullScreen } from 'react-full-screen';
@@ -87,6 +87,7 @@ export function useApp({
     login = undefined,
     register = undefined,
     drawer = undefined,
+    table = undefined,
 }: {
     importer?: importer_function;
     importers?: importers;
@@ -108,6 +109,7 @@ export function useApp({
     login?: login_context_value;
     register?: register_context_value;
     drawer?: drawer_context_value;
+    table?: table_context_value;
 }) {
     translations = translations || defaultTranslations;
     routes = routes || defaultRoutes;
@@ -160,6 +162,7 @@ export function useApp({
             cleanData,
             login,
             register,
+            table,
         }),
         [
             cleanData,
@@ -190,6 +193,7 @@ export function useApp({
             login,
             register,
             drawer,
+            table,
         ],
     );
 }
