@@ -38,6 +38,11 @@ export type cart_item = {
     type?: string;
 };
 
+export type table_context_value = {
+    renderers?: Record<string, table_context_renderer>;
+}
+export type table_context_renderer = (col: any) => (params: any) => any;
+
 export type user_context_value = {
     user: user | undefined;
     setUser: (user) => any | undefined;

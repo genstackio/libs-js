@@ -11,6 +11,7 @@ export * from './useCleanData';
 export * from './useDarkMode';
 export * from './useDarkModeToggle';
 export * from './useFavorites';
+export * from './useTableContext';
 export * from './useHasMounted';
 export * from './useLazyQueryApi';
 export * from './useLocation';

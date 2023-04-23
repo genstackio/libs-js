@@ -2,6 +2,7 @@ import Alert from '@genstackio/react-admin-ui/lib/atoms/Alert';
 import Spinner from '@genstackio/react-admin-ui/lib/atoms/Spinner';
 import Table from '@genstackio/react-admin-ui/lib/molecules/Table';
 import { useTranslation } from 'react-i18next';
+import {useTableContext} from "@genstackio/react-contexts";
 
 const defaultItems = [];
 const defaultRowsPerPageOptions = [10, 20, 50, 100];
@@ -21,6 +22,7 @@ export function ListTable({
     rowsPerPageOptions = defaultRowsPerPageOptions,
 }: ListTableProps) {
     const { t } = useTranslation();
+    const {renderers} = useTableContext();
 
     return (
         <>
@@ -47,6 +49,7 @@ export function ListTable({
                     columns={columns}
                     defaultRowsPerPage={defaultRowsPerPage}
                     total={total}
+                    renderers={renderers}
                 />
             )}
         </>

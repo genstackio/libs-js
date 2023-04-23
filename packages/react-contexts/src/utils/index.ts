@@ -16,6 +16,7 @@ export * from './createDefaultPageContextValue';
 export * from './createDefaultPaymentContextValue';
 export * from './createDefaultProductContextValue';
 export * from './createDefaultSectionsContextValue';
+export * from './createDefaultTableContextValue';
 export * from './createDefaultLocalesContextValue';
 export * from './createDefaultImagesContextValue';
 export * from './createDefaultStorageContextValue';

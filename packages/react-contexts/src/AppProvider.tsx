@@ -24,6 +24,7 @@ import { CleanDataContextProvider } from './contexts/CleanDataContext';
 import { LoginContextProvider } from './contexts/LoginContext';
 import { RegisterContextProvider } from './contexts/RegisterContext';
 import { DrawerContextProvider } from './contexts/DrawerContext';
+import { TableContextProvider } from './contexts/TableContext';
 import {
     dark_mode_context_value,
     favorites_context_value,
@@ -44,7 +45,7 @@ import {
     clean_data_context_value,
     login_context_value,
     register_context_value,
-    drawer_context_value,
+    drawer_context_value, table_context_value,
 } from './types';
 
 export function AppProvider({
@@ -86,6 +87,7 @@ export function AppProvider({
     login,
     register,
     drawer,
+    table,
 }: AppProviderProps) {
     let content = children || '';
     const finalImporter = useMemo(() => importerBuilder(importer, importers), [importer, importers, importerBuilder]);
@@ -122,6 +124,7 @@ export function AppProvider({
     lists && (content = <ListFactoryProvider value={lists}>{content}</ListFactoryProvider>);
     breadcrumbs && (content = <BreadcrumbsFactoryProvider value={breadcrumbs}>{content}</BreadcrumbsFactoryProvider>);
     cleanData && (content = <CleanDataContextProvider value={cleanData}>{content}</CleanDataContextProvider>);
+    table && (content = <TableContextProvider value={table}>{content}</TableContextProvider>);
 
     return <ErrorBoundary component={error}>{content}</ErrorBoundary>;
 }
@@ -165,6 +168,7 @@ export interface AppProviderProps {
     login?: login_context_value;
     register?: register_context_value;
     drawer?: drawer_context_value;
+    table?: table_context_value;
 }
 
 // noinspection JSUnusedGlobalSymbols
