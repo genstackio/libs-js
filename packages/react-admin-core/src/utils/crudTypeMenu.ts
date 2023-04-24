@@ -20,7 +20,7 @@ export function crudTypeMenu(
             acc[section].push({
                 type: 'item',
                 target: `/${plural}`,
-                activePrefix: `/${singular}`,
+                activePrefix: new RegExp(`^/${singular}($|/.*$)`),
                 label: t(`menu_${plural}_label`),
                 icon,
                 priority,
