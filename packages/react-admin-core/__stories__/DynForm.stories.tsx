@@ -19,7 +19,6 @@ function Template(args) {
             ]
         }
     }, 'view1', {});
-
     const onClick = useCallback((e: any) => {
         e.preventDefault();
         e.stopPropagation();
