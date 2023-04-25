@@ -13,6 +13,9 @@ import { FullscreenProvider } from '@genstackio/react-contexts/lib/contexts/Full
 import { ApiProvider } from '@genstackio/react-contexts/lib/contexts/ApiContext';
 import { DarkModeProvider } from '@genstackio/react-contexts/lib/contexts/DarkModeContext';
 import icons from '@genstackio/react-admin-ui/__stories__/configs/icons';
+import {ImporterProvider} from "@genstackio/react-contexts/lib/contexts/ImporterContext";
+import buildImporter from "../src/utils/buildImporter";
+import {FieldsProvider} from "@genstackio/react-contexts/lib/contexts/FieldsContext";
 
 const translationNames = Object.keys(translations);
 translationNames.sort();
@@ -48,6 +51,9 @@ function Provider(args) {
     const handle = useFullScreenHandle();
     const iconsProviderValue = icons;
     const [darkMode, setDarkMode] = useState<any>('default');
+    const importerValue = useMemo(() => buildImporter(undefined, {}), []);
+    const fieldsValue = useMemo(() => ({
+    }), []);
     const handleSetDarkMode = useCallback(
         (value) => {
             switch (value) {
@@ -73,7 +79,11 @@ function Provider(args) {
                         <StylesProvider injectFirst>
                             <I18nextProvider i18n={i18n}>
                                 <IconsProvider value={iconsProviderValue}>
-                                    <DarkModeProvider value={darkModeValue}>{args.children}</DarkModeProvider>
+                                    <ImporterProvider value={importerValue}>
+                                        <FieldsProvider value={fieldsValue}>
+                                            <DarkModeProvider value={darkModeValue}>{args.children}</DarkModeProvider>
+                                        </FieldsProvider>
+                                    </ImporterProvider>
                                 </IconsProvider>
                             </I18nextProvider>
                         </StylesProvider>
