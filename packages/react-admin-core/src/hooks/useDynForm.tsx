@@ -29,7 +29,7 @@ export function useDynForm(definition: any, view: string, props: any, context: a
                 <Contents content={content} options={options} />
             </Form>
         </DynamicFormContextProvider>
-    ), [content, options]);
+    ), [value, Form, content, options]);
 
     const state = useMemo(() => ({
         isSubmitting: form.rhf.formState.isSubmitting,
