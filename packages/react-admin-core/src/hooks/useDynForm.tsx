@@ -24,16 +24,28 @@ export function useDynForm(definition: any, view: string, props: any, context: a
 
     const DynForm = ({children}: any) => (
         <DynamicFormContextProvider value={value}>
-            <Form customChildren={children} className={'w-full'}>
+            <Form customChildren={children} className={'w-full'} submitting={form.rhf.formState.isSubmitting}>
                 <Contents content={content} options={options} />
             </Form>
         </DynamicFormContextProvider>
     );
 
     const state = useMemo(() => ({
-    }), []);
+        ...form.rhf.formState,
+    }), [form.rhf.formState]);
 
-    return useMemo(() => [form.rhf.handleSubmit, DynForm, state], [form.rhf.handleSubmit, DynForm, state]) as [Function, ComponentType, any];
+    return useMemo(() => [form.rhf.handleSubmit, DynForm, state, form.rhf], [form.rhf.handleSubmit, DynForm, state, form.rhf]) as [Function, ComponentType<any>, {
+        isDirty: boolean;
+        dirtyFields: any;
+        isSubmitted: boolean;
+        isSubmitSuccessful: boolean;
+        submitCount: number;
+        touchedFields: any;
+        isSubmitting: boolean;
+        isValidating: boolean;
+        isValid: boolean;
+        errors: any;
+    }, any];
 }
 
 export default useDynForm;

@@ -10,7 +10,7 @@ export default {
 };
 
 function Template(args) {
-    const [handleSubmit, DynForm] = useDynForm({
+    const [handleSubmit, DynForm, {isSubmitting}] = useDynForm({
         view1: {
             content: [
                 '$name',
@@ -22,14 +22,19 @@ function Template(args) {
     const onClick = useCallback((e: any) => {
         e.preventDefault();
         e.stopPropagation();
-        handleSubmit((data: any) => {
-            alert(JSON.stringify(data, null, 4));
+        handleSubmit(async (data: any) => {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    alert(JSON.stringify(data, null, 4));
+                    resolve(undefined);
+                }, 1000);
+            });
         })();
     }, [handleSubmit]);
     return (
         <div>
             <DynForm />
-            <Button onClick={onClick}>display data</Button>
+            <Button loading={isSubmitting} disabled={isSubmitting} onClick={onClick}>display data</Button>
         </div>
     );
 }
