@@ -20,6 +20,8 @@ const defaultImporters = {
         Loadable(() => import(`@genstackio/react-admin-core/lib/drawers/${path}Drawer`)),
     row_action: ({ path }: { path: string }) =>
         Loadable(() => import(`@genstackio/react-admin-core/lib/rowActions/${path}RowAction`)),
+    misc: ({ path }: { path: string }) =>
+        Loadable(() => import(`@genstackio/react-admin-core/lib/misc/${path}`)),
 };
 
 export function buildImporter(importer?: importer_context_params, importers?: importers) {
