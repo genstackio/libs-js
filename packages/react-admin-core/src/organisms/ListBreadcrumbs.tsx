@@ -1,8 +1,8 @@
 import useComponent from '@genstackio/react-contexts/lib/hooks/useComponent';
-import DefaultListBreadcrumbs, { BaseListBreadcrumbsProps } from '../misc/DefaultListBreadcrumbs';
+import { BaseListBreadcrumbsProps } from '../misc/DefaultListBreadcrumbs';
 
 export function ListBreadcrumbs(props: ListBreadcrumbsProps) {
-    const Comp = useComponent('misc', 'list_breadcrumbs') || DefaultListBreadcrumbs;
+    const Comp = useComponent('misc', 'default_list_breadcrumbs');
 
     return <Comp {...props} />;
 }

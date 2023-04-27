@@ -1,8 +1,8 @@
 import useComponent from '@genstackio/react-contexts/lib/hooks/useComponent';
-import DefaultListError, { BaseListErrorProps } from '../misc/DefaultListError';
+import { BaseListErrorProps } from '../misc/DefaultListError';
 
 export function ListError(props: ListErrorProps) {
-    const Comp = useComponent('misc', 'list_error') || DefaultListError;
+    const Comp = useComponent('misc', 'default_list_error');
 
     return <Comp {...props} />;
 }

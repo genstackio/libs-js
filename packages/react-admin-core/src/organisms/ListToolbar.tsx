@@ -1,8 +1,8 @@
 import useComponent from '@genstackio/react-contexts/lib/hooks/useComponent';
-import DefaultListToolbar, { BaseListToolbarProps } from '../misc/DefaultListToolbar';
+import { BaseListToolbarProps } from '../misc/DefaultListToolbar';
 
 export function ListToolbar(props: ListToolbarProps) {
-    const Comp = useComponent('misc', 'list_toolbar') || DefaultListToolbar;
+    const Comp = useComponent('misc', 'default_list_toolbar');
 
     return <Comp {...props} />;
 }
