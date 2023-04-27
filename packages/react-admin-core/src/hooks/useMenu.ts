@@ -24,8 +24,9 @@ export function useMenu(
                     item['active'] = (item['active'] as Function)(location.pathname);
                 } else {
                     if (item['activePrefix']) {
-                        item['active'] =
-                            item['activePrefix']?.test ? item['activePrefix'].test(location.pathname || '') : (item['activePrefix'] === (location.pathname || '').slice(0, item['activePrefix'].length));
+                        item['active'] = item['activePrefix']?.test
+                            ? item['activePrefix'].test(location.pathname || '')
+                            : item['activePrefix'] === (location.pathname || '').slice(0, item['activePrefix'].length);
                     } else {
                         item['active'] = location.pathname === item['target'];
                     }

@@ -322,12 +322,12 @@ describe('execute', () => {
 
             return {
                 z: ctx.thePickedValueIs,
-            }
+            };
         });
         d.mockImplementation((params: any, ctx: any) => {
             return {
                 t: params.bla,
-            }
+            };
         });
         await expect(
             execute(
@@ -363,8 +363,14 @@ describe('execute', () => {
             },
             errors: [],
             orders: [
-                { id: expect.any(String), name: undefined, type: 'a', params: {value: '$x'}, required: true },
-                { id: expect.any(String), name: undefined, type: 'd', params: {bla: 'this is the $x value'}, required: true },
+                { id: expect.any(String), name: undefined, type: 'a', params: { value: '$x' }, required: true },
+                {
+                    id: expect.any(String),
+                    name: undefined,
+                    type: 'd',
+                    params: { bla: 'this is the $x value' },
+                    required: true,
+                },
             ],
             parallel: false,
             params: {
@@ -378,11 +384,17 @@ describe('execute', () => {
             successes: [
                 [
                     { z: 42 },
-                    { id: expect.any(String), name: undefined, type: 'a', params: {value: 42}, required: true },
+                    { id: expect.any(String), name: undefined, type: 'a', params: { value: 42 }, required: true },
                 ],
                 [
                     { t: 'this is the 42 value' },
-                    { id: expect.any(String), name: undefined, type: 'd', params: {bla: 'this is the 42 value'}, required: true },
+                    {
+                        id: expect.any(String),
+                        name: undefined,
+                        type: 'd',
+                        params: { bla: 'this is the 42 value' },
+                        required: true,
+                    },
                 ],
             ],
         });

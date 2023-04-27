@@ -10,6 +10,11 @@ import { share_icon_type } from './mappings/share-icon-types';
 import { ApexOptions } from 'apexcharts';
 import { GridCellParams, GridColDef } from '@material-ui/data-grid';
 
+export interface BaseCell {
+    value: any;
+    row: Record<string, any>;
+}
+
 export { corner } from './mappings/corners';
 export { alignment } from './mappings/alignments';
 export { padding } from './mappings/paddings';

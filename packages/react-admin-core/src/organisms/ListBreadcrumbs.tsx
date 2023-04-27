@@ -1,15 +1,13 @@
-import ScreenHeader from '@genstackio/react-admin-ui/lib/organisms/ScreenHeader';
-import { breadcrumb_item, breadcrumb_item_adhoc } from '@genstackio/react-admin-ui/lib/types';
+import useComponent from '@genstackio/react-contexts/lib/hooks/useComponent';
+import DefaultListBreadcrumbs, { BaseListBreadcrumbsProps } from '../misc/DefaultListBreadcrumbs';
 
-export function ListBreadcrumbs({ breadcrumbs }: ListBreadcrumbsProps) {
-    return !!breadcrumbs.length ? (
-        <ScreenHeader items={breadcrumbs as breadcrumb_item_adhoc[]} className={'mt-3 mb-5'} />
-    ) : null;
+export function ListBreadcrumbs(props: ListBreadcrumbsProps) {
+    const Comp = useComponent('misc', 'list_breadcrumbs') || DefaultListBreadcrumbs;
+
+    return <Comp {...props} />;
 }
 
-export interface ListBreadcrumbsProps {
-    breadcrumbs: breadcrumb_item[];
-}
+export type ListBreadcrumbsProps = BaseListBreadcrumbsProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default ListBreadcrumbs;

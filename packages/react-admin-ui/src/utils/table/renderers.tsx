@@ -24,7 +24,7 @@ export const custom = (col) => (params: GridCellParams) => col.render!(params.ge
 export const component = (col) => (params: GridCellParams) => {
     const Comp = (col?.components || {})[col.component || ''] || undefined;
     return Comp ? <Comp value={params.getValue(params.id, col.id)} row={params.row} col={col} params={params} /> : null;
-}
+};
 
 export const unknown = () => undefined;
 

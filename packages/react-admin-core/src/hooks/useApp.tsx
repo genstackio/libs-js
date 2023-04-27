@@ -14,7 +14,8 @@ import {
     request_upload_infos,
     logos_context_value,
     fields_context_value,
-    clean_data_context_value, table_context_value,
+    clean_data_context_value,
+    table_context_value,
 } from '@genstackio/react-contexts/lib/types';
 import { FullscreenProvider as BaseFullscreenProvider } from '@genstackio/react-contexts/lib/contexts/FullscreenContext';
 import { FullScreen } from 'react-full-screen';

@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
-import buildListRouteUri from "../utils/buildListRouteUri";
+import buildListRouteUri from '../utils/buildListRouteUri';
 
 export function useListPageChangeCallback({
     name,
@@ -31,11 +31,35 @@ export function useListPageChangeCallback({
             if ('page' === navigationMode) {
                 let u = '';
                 if (nextPage === 0) {
-                    u = buildListRouteUri(listRoute, {name, filterName, pPage: String(page.index), pSize: String(page.size), pMode: searchMode ? 'search' : 'default', pCursors: ''});
+                    u = buildListRouteUri(listRoute, {
+                        name,
+                        filterName,
+                        pPage: String(page.index),
+                        pSize: String(page.size),
+                        pMode: searchMode ? 'search' : 'default',
+                        pCursors: '',
+                    });
                 } else if (nextPage > page.index) {
-                    u = buildListRouteUri(listRoute, {name, filterName, pPage: String(nextPage + 1), pSize: String(page.size), pMode: searchMode ? 'search' : 'default', pCursors: [...((page.previousCursors as unknown as any) || []), cursor, nextCursor].join(':')});
+                    u = buildListRouteUri(listRoute, {
+                        name,
+                        filterName,
+                        pPage: String(nextPage + 1),
+                        pSize: String(page.size),
+                        pMode: searchMode ? 'search' : 'default',
+                        pCursors: [...((page.previousCursors as unknown as any) || []), cursor, nextCursor].join(':'),
+                    });
                 } else if (nextPage < page.index) {
-                    u = buildListRouteUri(listRoute, {name, filterName, pPage: String(nextPage + 1), pSize: String(page.size), pMode: searchMode ? 'search' : 'default', pCursors: [...(page.previousCursors.slice(0, -1) || []), page.previousCursors.slice(-1)[0]].join(':')});
+                    u = buildListRouteUri(listRoute, {
+                        name,
+                        filterName,
+                        pPage: String(nextPage + 1),
+                        pSize: String(page.size),
+                        pMode: searchMode ? 'search' : 'default',
+                        pCursors: [
+                            ...(page.previousCursors.slice(0, -1) || []),
+                            page.previousCursors.slice(-1)[0],
+                        ].join(':'),
+                    });
                 }
                 u && history.push(u);
                 return;

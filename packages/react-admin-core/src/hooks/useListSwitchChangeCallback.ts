@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
-import buildListRouteUri from "../utils/buildListRouteUri";
+import buildListRouteUri from '../utils/buildListRouteUri';
 
 export function useListSwitchChangeCallback({
     name,
@@ -24,7 +24,14 @@ export function useListSwitchChangeCallback({
     return useCallback(
         (e: any) => {
             e.stopPropagation();
-            const u = buildListRouteUri(listRoute, {name, filterName, pPage: String(1), pSize: String(page.size), pMode: !searchMode ? 'search' : 'default', pCursors: ''});
+            const u = buildListRouteUri(listRoute, {
+                name,
+                filterName,
+                pPage: String(1),
+                pSize: String(page.size),
+                pMode: !searchMode ? 'search' : 'default',
+                pCursors: '',
+            });
             u && history.push(u);
             setPage({ size: page.size, index: 0, previousCursors: [], currentCursor: undefined });
             setSearchMode(!searchMode);

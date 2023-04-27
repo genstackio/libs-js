@@ -13,7 +13,7 @@ import * as defaultActions from '../actions';
 import { v4 as uuidv4 } from 'uuid';
 import { parse } from './config';
 import YAML from 'yaml';
-import {replaceVars} from "./vars";
+import { replaceVars } from './vars';
 
 export async function execute(config: config, context: context) {
     const execution = await initExecution(config, context);
@@ -25,7 +25,7 @@ export async function execute(config: config, context: context) {
 }
 
 // noinspection JSUnusedLocalSymbols
-async function initExecution(config: config, {actions, ...ctx}: context): Promise<execution> {
+async function initExecution(config: config, { actions, ...ctx }: context): Promise<execution> {
     let definition: execution_definition = await parse(config?.definition, {});
     const params: any = await parse(config?.params, {});
 
@@ -41,7 +41,7 @@ async function initExecution(config: config, {actions, ...ctx}: context): Promis
         config,
         definition,
         params,
-        ctx: {...ctx, ...params},
+        ctx: { ...ctx, ...params },
         status: 'initialized',
         result: undefined,
         details: {},
@@ -220,7 +220,6 @@ async function prepareExecutionOrder(
         required: order.required,
     };
 }
-
 
 // noinspection JSUnusedLocalSymbols
 async function processExecutionPreparedOrder(

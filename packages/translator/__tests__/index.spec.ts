@@ -86,7 +86,7 @@ describe('translateI18n', () => {
                 },
                 bla: true,
             },
-            {clean: true},
+            { clean: true },
         ],
     ].forEach(([name, plugins, data, refData, sourceLocale, targetLocale, expected, config]: any) =>
         it(name, async () => {

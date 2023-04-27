@@ -1,4 +1,4 @@
-import {MouseEventHandler} from 'react';
+import { MouseEventHandler } from 'react';
 import clsx from 'clsx';
 import Row from '../atoms/Row';
 import Div from '../atoms/Div';

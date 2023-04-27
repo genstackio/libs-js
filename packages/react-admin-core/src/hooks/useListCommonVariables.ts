@@ -5,9 +5,9 @@ import { useCallback, useMemo, useState } from 'react';
 import useList from './useList';
 import useConditionalMutationApi from '@genstackio/react-context-api/lib/hooks/useConditionalMutationApi';
 import useBreadcrumbs from './useBreadcrumbs';
-import buildDisplayRouteUri from "../utils/buildDisplayRouteUri";
-import buildEditRouteUri from "../utils/buildEditRouteUri";
-import buildNewRouteUri from "../utils/buildNewRouteUri";
+import buildDisplayRouteUri from '../utils/buildDisplayRouteUri';
+import buildEditRouteUri from '../utils/buildEditRouteUri';
+import buildNewRouteUri from '../utils/buildNewRouteUri';
 
 const defaultSortModel = [];
 const defaultFilters = {};
@@ -89,23 +89,19 @@ export function useListCommonVariables({
 
     const goDoc = useCallback(
         (id) => {
-            history.push(
-                buildDisplayRouteUri(displayRoute, {name, id, singularName}),
-            );
+            history.push(buildDisplayRouteUri(displayRoute, { name, id, singularName }));
         },
         [name, history, singularName, displayRoute],
     );
     const goNew = useCallback(() => {
-        history.push(buildNewRouteUri(newRoute, {name, singularName}));
+        history.push(buildNewRouteUri(newRoute, { name, singularName }));
     }, [name, history, singularName, newRoute]);
 
     onNewClick = onNewClick || (list['globalActions'] || []).includes('add') ? goNew : undefined;
 
     const goEdit = useCallback(
         (id) => {
-            history.push(
-                buildEditRouteUri(editRoute, {name, id, singularName}),
-            );
+            history.push(buildEditRouteUri(editRoute, { name, id, singularName }));
         },
         [name, history, singularName, editRoute],
     );
@@ -165,7 +161,6 @@ export function useListCommonVariables({
     const key = `${searchMode ? 'search' : 'find'}${
         filterName ? `${filterName[0].toUpperCase()}${filterName.slice(1)}` : ''
     }${name[0].toUpperCase() + name.slice(1)}`;
-
 
     return useMemo(
         () => ({

@@ -1,16 +1,13 @@
-import Alert from '@genstackio/react-admin-ui/lib/atoms/Alert';
+import useComponent from '@genstackio/react-contexts/lib/hooks/useComponent';
+import DefaultListError, { BaseListErrorProps } from '../misc/DefaultListError';
 
-export function ListError({ error }: ListErrorProps) {
-    return !!error ? (
-        <Alert color={'danger'} className={'mb-2'}>
-            {error.message}
-        </Alert>
-    ) : null;
+export function ListError(props: ListErrorProps) {
+    const Comp = useComponent('misc', 'list_error') || DefaultListError;
+
+    return <Comp {...props} />;
 }
 
-export interface ListErrorProps {
-    error?: { message: string };
-}
+export type ListErrorProps = BaseListErrorProps;
 
 // noinspection JSUnusedGlobalSymbols
 export default ListError;

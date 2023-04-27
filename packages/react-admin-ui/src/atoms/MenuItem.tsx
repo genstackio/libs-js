@@ -14,7 +14,8 @@ import {
     WithColorOfBox,
     WithIcon,
     WithLabel,
-    WithMargin, WithPadding,
+    WithMargin,
+    WithPadding,
     WithTarget,
     WithVariantOfMenu,
 } from '../withs';

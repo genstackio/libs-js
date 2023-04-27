@@ -149,7 +149,8 @@ export function Table({
 }
 
 function renderCell(col, renderMap, cellComponents) {
-    if (!!col.component && 'string' === typeof col.component) return renderMap['component']({...col, components: cellComponents});
+    if (!!col.component && 'string' === typeof col.component)
+        return renderMap['component']({ ...col, components: cellComponents });
     if (!!col.render && 'function' === typeof col.render) return renderMap['custom'](col);
     let mode = 'unknown';
     if (!!col.format && 'string' === typeof col.render) mode = col.format;
