@@ -68,8 +68,9 @@ export function useListDocVariables(vars: {
             switchDefaultValues,
             handleSwitchChange,
             displayPage,
+            total: searchMode ? total : undefined,
         }),
-        [items, loading, nextCursor, switchDefaultValues, handleSwitchChange, displayPage],
+        [items, loading, nextCursor, switchDefaultValues, handleSwitchChange, displayPage, searchMode],
     );
 
     useEffect(() => {

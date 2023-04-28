@@ -4,7 +4,7 @@ import Tag from '@genstackio/react-admin-ui/lib/atoms/Tag';
 import SwitchField from '@genstackio/react-admin-ui/lib/atoms/fields/SwitchField';
 import { useTranslation } from 'react-i18next';
 import { MenuItem } from '@genstackio/react-admin-ui';
-import buildListRouteUri from '../utils/buildListRouteUri';
+import { buildListRouteUri } from '../utils/buildListRouteUri';
 
 export function DefaultListToolbar({
     name,
@@ -23,6 +23,7 @@ export function DefaultListToolbar({
     handleSwitchChange,
     listRoute,
     searchMode,
+    total,
 }: DefaultListToolbarProps) {
     const { t } = useTranslation();
 
@@ -34,11 +35,12 @@ export function DefaultListToolbar({
             {hasFilters && (
                 <div className={'flex mb-2 space-x-2'}>
                     {filterNames.map((f) => (
-                        <div key={f} className={'flex-1 flex flex-col'}>
+                        <div key={f} className={`flex-1 flex flex-col`}>
                             <MenuItem
                                 m={'none'}
                                 active={f === filterName}
-                                label={t([filters[f]?.label || '', f || ''])}
+                                label={`${t([filters[f]?.label || '', f || ''])}${total ? ` (${total})` : ''}`}
+                                color={f === filterName ? 'primary' : 'secondary'}
                                 target={buildListRouteUri(listRoute, {
                                     name,
                                     filterName: f,
@@ -106,6 +108,7 @@ export interface BaseListToolbarProps {
     listRoute: string;
     name: string;
     searchMode: boolean;
+    total?: number;
 }
 
 // noinspection JSUnusedGlobalSymbols

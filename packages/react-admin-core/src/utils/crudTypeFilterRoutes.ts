@@ -1,6 +1,6 @@
 export function crudTypeFilterRoutes(
     parentName: string,
-    { plural: parentPlural }: { plural: string },
+    { plural: parentPlural, ...parentDef }: { plural: string },
     name: string,
     { plural, ...def }: { plural?: string; [key: string]: any },
 ) {
@@ -14,6 +14,7 @@ export function crudTypeFilterRoutes(
                 filterName: name,
                 singular: parentSingular,
                 plural: parentPlural,
+                ...parentDef,
                 ...def,
                 fullName: `${parentSingular}/filters/${name}`,
             },
@@ -26,6 +27,7 @@ export function crudTypeFilterRoutes(
                 filterName: name,
                 singular: parentSingular,
                 plural: parentPlural,
+                ...parentDef,
                 ...def,
                 fullName: `${parentSingular}/filters/${name}`,
             },
