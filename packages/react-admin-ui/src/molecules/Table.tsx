@@ -80,7 +80,7 @@ export function Table({
     renderers = useMemo(() => ({ ...defaultRenderers, ...(renderers || {}) }), [renderers]);
     cellComponents = useMemo(() => ({ ...defaultCellComponents, ...(cellComponents || {}) }), [cellComponents]);
     let classes = useStyles({ color, striped } as any);
-    
+
     classes = useMemo(() => {
         classes['root'] = clsx(classes['root'], rootClassName);
         classes['row'] = clsx(classes['row'], rowClassName);
