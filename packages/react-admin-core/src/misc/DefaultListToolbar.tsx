@@ -39,7 +39,9 @@ export function DefaultListToolbar({
                             <MenuItem
                                 m={'none'}
                                 active={f === filterName}
-                                label={`${t([filters[f]?.label || '', f || ''])}${total ? ` (${total})` : ''}`}
+                                label={`${t([filters[f]?.label || '', f || ''])}${
+                                    f === filterName && !!total ? ` (${total})` : ''
+                                }`}
                                 color={f === filterName ? 'primary' : 'secondary'}
                                 target={buildListRouteUri(listRoute, {
                                     name,
