@@ -16,6 +16,10 @@ export function crudTypeFilterRoutes(
                 plural: parentPlural,
                 ...parentDef,
                 ...def,
+                list: {
+                    ...(parentDef?.['list'] || {}),
+                    ...(def?.['list'] || {}),
+                },
                 fullName: `${parentSingular}/filters/${name}`,
             },
         },
@@ -29,6 +33,10 @@ export function crudTypeFilterRoutes(
                 plural: parentPlural,
                 ...parentDef,
                 ...def,
+                list: {
+                    ...(parentDef?.['list'] || {}),
+                    ...(def?.['list'] || {}),
+                },
                 fullName: `${parentSingular}/filters/${name}`,
             },
         },
