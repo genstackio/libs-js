@@ -18,7 +18,8 @@
     "strict": true,
     "lib": [
       "dom",
-      "es2018"
+      "es2018",
+      "es2020.promise"
     ],
     "jsx": "react-jsx"
   },

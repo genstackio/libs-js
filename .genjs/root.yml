@@ -1,6 +1,7 @@
 type: monorepo-js-libs
 
 vars:
+  npm_client: yarn
   postcss: true
   storybooks: true
   svg_components: true
@@ -11,17 +12,17 @@ vars:
     deployable_storybooks: true
     generate_target: true
     globals:
-        c: {defaultValue: demo}
-        t: {defaultValue: $(c)}
+      c: { defaultValue: demo }
+      t: { defaultValue: $(c) }
     targets:
       migrate: "true"
       pdf-generator: cd ./packages/pdf-generator && mkdir -p generated && ./bin/pdf-generator __fixtures__/$(c).json generated/$(t).pdf
       qrcode-generator: cd ./packages/qrcode-generator && mkdir -p generated && ./bin/qrcode-generator __fixtures__/$(c).json > generated/$(t).svg
       start-react-admin-ui: make package-storybook p=react-admin-ui
       start-react-admin-core: make package-storybook p=react-admin-core
-      format: yarn lint
       package-watch: cd packages/$(p) && yarn watch
       watch-figma-plugin-react-admin: make package-watch p=figma-plugin-react-admin
-
+      package-format: yarn eslint 'packages/$(p)/**/*.{js,ts,tsx}' --quiet --fix
+      format: yarn eslint '*/**/*.{js,ts,tsx}' --fix
   readme:
     name: libs-js
