@@ -49,7 +49,15 @@ export function useListCommonVariables({
     filters?: any;
     listRoute?: string;
     filterListRoute?: string;
-    columns?: { id: string; format?: any; label?: string; width?: number; render?: Function }[];
+    columns?: {
+        id: string;
+        format?: any;
+        label?: string;
+        width?: number;
+        render?: Function;
+        if?: Function;
+        filters?: string[];
+    }[];
     navigationMode?: string;
     listFirstPageRoute?: string;
     searchSwitch?: boolean;
@@ -191,7 +199,15 @@ export function useListCommonVariables({
             name,
             navigationMode,
             listRoute,
-            columns,
+            columns: columns
+                ? columns.filter((x) =>
+                      x.if
+                          ? !!x.if({ searchMode, filterName, name, singularName, navigationMode })
+                          : x.filters?.length
+                          ? x.filters.includes(filterName)
+                          : true,
+                  )
+                : undefined,
             listFirstPageRoute,
             key,
         }),

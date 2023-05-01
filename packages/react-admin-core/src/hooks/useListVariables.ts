@@ -16,7 +16,15 @@ export function useListVariables(props: {
     filterName?: string;
     filters?: any;
     listRoute?: string;
-    columns?: { id: string; format?: any; label?: string; width?: number; render?: Function }[];
+    columns?: {
+        id: string;
+        format?: any;
+        label?: string;
+        width?: number;
+        render?: Function;
+        if?: Function;
+        filters?: string[];
+    }[];
     navigationMode?: string;
     listFirstPageRoute?: string;
     searchSwitch?: boolean;

@@ -51,6 +51,9 @@ invalidate-cache: ## Invalidate the CloudFront CDN cache
 migrate:
 	@true
 
+new: ## Execute the yo ./packages/generator-package 2>/dev/null script (from package.json)
+	@yarn --silent yo ./packages/generator-package 2>/dev/null
+
 package-build: ## Build
 	@cd packages/$(p) && yarn --silent build
 package-build-storybook: ## Build the Storybook to a deployable local directory
@@ -106,6 +109,7 @@ watch-figma-plugin-react-admin:
 		install install-packages install-root \
 		invalidate-cache \
 		migrate \
+		new \
 		package-build package-build-storybook package-clear-test package-format package-generate-svg-components package-install package-storybook package-test package-watch \
 		pdf-generator \
 		pr \
