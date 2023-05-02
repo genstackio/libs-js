@@ -29,7 +29,7 @@ export function Modal({
                 </Row>
                 <hr />
                 {children || ''}
-                {buttonsItems.length && (
+                {!!buttonsItems.length && (
                     <div>
                         <hr />
                         <Div flex m={'md'} spaced={4} className={'justify-end'}>
