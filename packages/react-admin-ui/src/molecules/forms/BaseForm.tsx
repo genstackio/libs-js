@@ -17,6 +17,8 @@ import {
     WithFooter,
     WithErrors,
 } from '../../withs';
+import {flag} from "../../types";
+import useNestedAwareSubmit from "../../hooks/useNestedAwareSubmit";
 
 const defaultErrors = {};
 
@@ -32,15 +34,18 @@ export function BaseForm({
     submitting,
     subtitle,
     title,
+    nested = false,
 }: InternalBaseFormProps) {
     const { handleSubmit } = rhf;
     const error = errors && (errors[''] || errors['*'] || errors['_']);
+
+    const nestedAwareSubmit = useNestedAwareSubmit(handleSubmit(onSubmit as any), nested);
 
     return (
         <Column className={className}>
             <FormHeader>{header}</FormHeader>
             <Column center>
-                <form aria-disabled={submitting} onSubmit={handleSubmit(onSubmit as any)} className={'w-full'}>
+                <form aria-disabled={submitting} onSubmit={nestedAwareSubmit} className={'w-full'}>
                     <Text color={color} text={title} variant={'title6'} />
                     <Text color={color} text={subtitle} variant={'body'} className={'mb-4'} />
                     <Alert color={'danger'} mb={'md'} message={error?.message} />
@@ -53,6 +58,7 @@ export function BaseForm({
 }
 export interface InternalBaseFormProps extends Omit<BaseFormProps, 'children'>, WithChildren {
     rhf: { handleSubmit: Function };
+    nested?: flag;
 }
 
 export interface BaseFormProps

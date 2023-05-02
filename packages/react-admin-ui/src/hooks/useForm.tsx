@@ -10,10 +10,12 @@ import { class_name } from '../types';
 
 const defaultDefaultValues = {};
 const defaultErrors = {};
+const defaultOptions = {};
 
 export function useForm(
     { defaultValues = defaultDefaultValues, submitting = false, errors = defaultErrors, color = 'primary', ...props },
     name: string | undefined = undefined,
+    {nested = false}: {nested?: boolean} = defaultOptions
 ) {
     const rhf = useRhfForm({ defaultValues });
     const { t } = useTranslation();
@@ -74,9 +76,9 @@ export function useForm(
                     : customChildren
                 : props.children;
             /* eslint react/no-children-prop: 0 */
-            return <BaseForm {...form} {...props} children={computedChildren} />;
+            return <BaseForm {...form} {...props} children={computedChildren} nested={nested} />;
         },
-        [form],
+        [form, nested],
     );
 
     if (name) {
