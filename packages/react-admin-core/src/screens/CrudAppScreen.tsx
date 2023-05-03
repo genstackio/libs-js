@@ -1,7 +1,7 @@
 import { ErrorBoundary } from '@genstackio/react-contexts/lib/ErrorBoundary';
 
-function Component({ e }: any) {
-    return <p>error: {e.message}</p>;
+function Component({ error }: any) {
+    return <p>error: {error?.message || '?'}</p>;
 }
 
 export function CrudAppScreen({ children }: any) {
