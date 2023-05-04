@@ -947,7 +947,6 @@ export default {
         translation: {
             ...common,
 
-            
             field_distance_value_label: 'Distance',
             field_distance_unit_label: 'Unit',
             field_size_value_label: 'Size',
