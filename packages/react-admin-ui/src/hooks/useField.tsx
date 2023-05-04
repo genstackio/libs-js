@@ -68,7 +68,10 @@ export function useField(
 
     name = `${name}${subName ? '.' : ''}${subName || ''}`;
 
-    const i18nKey = name.toLowerCase().replace(/\./g, '_');
+    const i18nKeys = [
+        name.toLowerCase().replace(/\./g, '_'),
+        kind.toLowerCase().replace(/\./g, '_'),
+    ];
 
     options = useMemo(
         () => ({
@@ -81,17 +84,17 @@ export function useField(
         ? 'string' === typeof label
             ? t(label)
             : label
-        : t([`field_${i18nKey}_label`, `field_${kind.toLowerCase()}_label`, '']);
+        : t([...i18nKeys.map(x => `field_${x}_label`), '']);
     helper = helper
         ? 'string' === typeof helper
             ? t(helper)
             : helper
-        : t([`field_${i18nKey}_helper`, `field_${kind.toLowerCase()}_helper`, '']);
+        : t([...i18nKeys.map(x => `field_${x}_helper`), '']);
     placeholder = placeholder
         ? 'string' === typeof placeholder
             ? t(placeholder)
             : placeholder
-        : t([`field_${i18nKey}_placeholder`, `field_${kind.toLowerCase()}_placeholder`, '']);
+        : t([...i18nKeys.map(x => `field_${x}_placeholder`), '']);
 
     const errorData = errors ? errors[name] || errors['all'] : undefined;
     const error = errorData ? errorData.message || t(['constraints_required']) : undefined;
