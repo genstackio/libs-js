@@ -11,6 +11,31 @@ const common = {
     locale_fr_ch: 'Français (CH)',
     locale_fr_be: 'Français (BE)',
     locale_fr_ca: 'Français (CA)',
+
+    unit_size_mm: 'mm',
+    unit_size_cm: 'cm',
+    unit_size_dm: 'dm',
+    unit_size_m: 'm',
+    unit_size_ft: 'ft',
+    unit_size_yd: 'yd',
+    unit_size_in: 'inch',
+
+    unit_volume_m3: 'm³',
+    unit_volume_l: 'L',
+
+    unit_distance_m: 'm',
+    unit_distance_km: 'km',
+    unit_distance_yd: 'yd',
+    unit_distance_mi: 'mi',
+
+    unit_charge_g: 'g',
+    unit_charge_kg: 'kg',
+    unit_charge_n: 'N',
+    unit_charge_kn: 'kN',
+
+    unit_pressure_knm2: 'kNm²',
+    unit_pressure_kn: 'kN',
+    unit_pressure_kndm2: 'kNdm²',
 };
 
 export default {

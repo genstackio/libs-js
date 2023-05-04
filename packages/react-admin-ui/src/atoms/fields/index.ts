@@ -159,3 +159,8 @@ export * from './YamlField';
 export * from './YearField';
 export * from './YoutubeUrlField';
 export * from './ZipCodeField';
+export * from './DistanceField';
+export * from './SizeField';
+export * from './PressureField';
+export * from './VolumeField';
+export * from './ChargeField';
