@@ -67,9 +67,11 @@ export function useField(
     name = (name || defaults.name || kind) as string;
 
     name = `${name}${subName ? '.' : ''}${subName || ''}`;
+    const fullKind = `${kind}${subName ? '.' : ''}${subName || ''}`;
 
     const i18nKeys = [
         name.toLowerCase().replace(/\./g, '_'),
+        fullKind.toLowerCase().replace(/\./g, '_'),
         kind.toLowerCase().replace(/\./g, '_'),
     ];
 
