@@ -15,7 +15,7 @@ const defaultOptions = {};
 export function useForm(
     { defaultValues = defaultDefaultValues, submitting = false, errors = defaultErrors, color = 'primary', ...props },
     name: string | undefined = undefined,
-    {nested = false}: {nested?: boolean} = defaultOptions
+    { nested = false }: { nested?: boolean } = defaultOptions,
 ) {
     const rhf = useRhfForm({ defaultValues });
     const { t } = useTranslation();

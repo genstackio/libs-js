@@ -17,8 +17,8 @@ import {
     WithFooter,
     WithErrors,
 } from '../../withs';
-import {flag} from "../../types";
-import useNestedAwareSubmit from "../../hooks/useNestedAwareSubmit";
+import { flag } from '../../types';
+import useNestedAwareSubmit from '../../hooks/useNestedAwareSubmit';
 
 const defaultErrors = {};
 

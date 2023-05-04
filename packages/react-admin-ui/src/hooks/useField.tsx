@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import Icon from '../atoms/Icon';
 import { WithAny, WithDefaultValues, WithLabel, WithOptions } from '../withs';
 import { useGetUploadParams } from '@genstackio/react-contexts';
+import objectProperty from '../utils/objectProperty';
 
 const defaultDefaults = {};
 
@@ -45,6 +46,7 @@ export function useField(
         deps,
         inputProps,
         fieldsetProps,
+        subName,
         ...extra
     }: field_def_params,
     defaults: { name?: string; kind?: string } = defaultDefaults,
@@ -53,6 +55,11 @@ export function useField(
     type = (type || 'text') as string;
     kind = (kind || defaults.kind || type) as string;
     name = (name || defaults.name || kind) as string;
+
+    name = `${name}${subName ? '.' : ''}${subName || ''}`;
+
+    const i18nKey = name.toLowerCase().replace(/\./g, '_');
+
     options = useMemo(
         () => ({
             ...(options || {}),
@@ -64,17 +71,17 @@ export function useField(
         ? 'string' === typeof label
             ? t(label)
             : label
-        : t([`field_${name.toLowerCase()}_label`, `field_${kind.toLowerCase()}_label`, '']);
+        : t([`field_${i18nKey}_label`, `field_${kind.toLowerCase()}_label`, '']);
     helper = helper
         ? 'string' === typeof helper
             ? t(helper)
             : helper
-        : t([`field_${name.toLowerCase()}_helper`, `field_${kind.toLowerCase()}_helper`, '']);
+        : t([`field_${i18nKey}_helper`, `field_${kind.toLowerCase()}_helper`, '']);
     placeholder = placeholder
         ? 'string' === typeof placeholder
             ? t(placeholder)
             : placeholder
-        : t([`field_${name.toLowerCase()}_placeholder`, `field_${kind.toLowerCase()}_placeholder`, '']);
+        : t([`field_${i18nKey}_placeholder`, `field_${kind.toLowerCase()}_placeholder`, '']);
 
     const errorData = errors ? errors[name] || errors['all'] : undefined;
     const error = errorData ? errorData.message || t(['constraints_required']) : undefined;
@@ -107,7 +114,8 @@ export function useField(
         },
         [register, valueAs, deps, name, options],
     );
-    defaultValue = undefined !== defaultValue ? defaultValue : defaultValues ? defaultValues[name] : undefined;
+    defaultValue =
+        undefined !== defaultValue ? defaultValue : defaultValues ? objectProperty(defaultValues, name) : undefined;
 
     convertValue && (defaultValue = convertValue(defaultValue));
     prependIcon = prependIcon ? <Icon icon={prependIcon} /> : undefined;
@@ -217,6 +225,7 @@ export function useField(
 
 export interface field_def_params extends WithLabel, WithAny, WithOptions, WithDefaultValues {
     name?: string;
+    subName?: string;
     type?: string;
     prepend?: rich_text;
     prependIcon?: icon;

@@ -56,6 +56,7 @@ export interface AsField
         WithConvertValue,
         WithDeps,
         WithKind {
+    subName?: string;
     inputProps?: Function;
     fieldsetProps?: Function;
 }
