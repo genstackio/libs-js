@@ -4,10 +4,12 @@ import { icon, register, control, rich_text } from '../types';
 import { useTranslation } from 'react-i18next';
 import Icon from '../atoms/Icon';
 import { WithAny, WithDefaultValues, WithLabel, WithOptions } from '../withs';
-import { useGetUploadParams } from '@genstackio/react-contexts';
+import { useGetUploadParams, useValidatorsContext } from '@genstackio/react-contexts';
 import objectProperty from '../utils/objectProperty';
+import * as baseValidators from '../validators';
 
 const defaultDefaults = {};
+const defaultValidators = {};
 
 const defaultSetValueAsBoolean = (value: any) => {
     return !!value;
@@ -47,11 +49,19 @@ export function useField(
         inputProps,
         fieldsetProps,
         subName,
+        maxLength,
+        minLength,
+        max,
+        min,
+        pattern,
+        validators = defaultValidators,
         ...extra
     }: field_def_params,
     defaults: { name?: string; kind?: string } = defaultDefaults,
 ) {
     const { t } = useTranslation();
+    const customValidators = useValidatorsContext();
+    const finalValidators = useMemo(() => ({ ...baseValidators, ...customValidators }), [customValidators]);
     type = (type || 'text') as string;
     kind = (kind || defaults.kind || type) as string;
     name = (name || defaults.name || kind) as string;
@@ -110,9 +120,36 @@ export function useField(
             if (deps) {
                 computedExtraOptions['deps'] = deps;
             }
-            return register(name, { ...options, ...computedExtraOptions, ...extraOptions });
+            const builtValidators = buildValidators(validators, finalValidators);
+
+            return register(name, {
+                ...options,
+                ...(undefined !== maxLength ? { maxLength } : {}),
+                ...(undefined !== minLength ? { minLength } : {}),
+                ...(undefined !== max ? { max } : {}),
+                ...(undefined !== min ? { min } : {}),
+                ...(undefined !== pattern
+                    ? {
+                          pattern:
+                              'string' === typeof pattern
+                                  ? new RegExp(pattern)
+                                  : 'object' === typeof pattern
+                                  ? {
+                                        ...pattern,
+                                        value:
+                                            'string' === typeof pattern['value']
+                                                ? new RegExp(pattern['value'])
+                                                : pattern['value'],
+                                    }
+                                  : pattern,
+                      }
+                    : {}),
+                ...(undefined !== builtValidators ? { validate: builtValidators } : {}),
+                ...computedExtraOptions,
+                ...extraOptions,
+            });
         },
-        [register, valueAs, deps, name, options],
+        [register, valueAs, deps, name, options, maxLength, minLength, min, max, pattern, finalValidators],
     );
     defaultValue =
         undefined !== defaultValue ? defaultValue : defaultValues ? objectProperty(defaultValues, name) : undefined;
@@ -223,6 +260,43 @@ export function useField(
     );
 }
 
+function buildValidators(validators, allValidators) {
+    if (!validators) return undefined;
+    if ('function' === typeof validators) return validators;
+    if ('object' !== typeof validators) return undefined;
+    return Object.entries(validators).reduce((acc, [k, v]) => {
+        if ('function' !== typeof v) v = buildValidatorFunction(v, k, allValidators);
+        acc[k] = v;
+        return acc;
+    }, {} as Record<string, any>);
+}
+function buildValidatorFunction(v: any, _: any, allValidators: any) {
+    if ('string' === v) v = { type: v };
+    const { type, ...config } = v;
+    const val = allValidators[type || ''] || undefined;
+    if (!val) return undefined;
+    const { test, check, message } = val(config);
+    return async (value: any, allValues: any) => {
+        let status = true;
+        let m: string | undefined = 'invalid';
+        if (test) {
+            status = test(value, allValues);
+            if (!status) {
+                m = message?.(value, allValues);
+            }
+        }
+        if (check) {
+            try {
+                check(value, allValues);
+            } catch (e: any) {
+                status = false;
+                m = e.message;
+            }
+        }
+
+        return status || m;
+    };
+}
 export interface field_def_params extends WithLabel, WithAny, WithOptions, WithDefaultValues {
     name?: string;
     subName?: string;
@@ -246,6 +320,11 @@ export interface field_def_params extends WithLabel, WithAny, WithOptions, WithD
     deps?: string | string[];
     inputProps?: Function;
     fieldsetProps?: Function;
+    maxLength?: number | { value: number; message: string };
+    minLength?: number | { value: number; message: string };
+    max?: number | { value: number; message: string };
+    min?: number | { value: number; message: string };
+    pattern?: string | RegExp | { value: string | RegExp; message: string };
 }
 
 export default useField;

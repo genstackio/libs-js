@@ -1,14 +1,14 @@
 import { TextFieldProps } from '../TextField';
-import NumberField from "../NumberField";
-import SelectField from "../SelectField";
-import {select_item} from "../../../types";
+import NumberField from '../NumberField';
+import SelectField from '../SelectField';
+import { select_item } from '../../../types';
 
 const defaultUnits = [
-    {value: 'pa', label: 'unit_buildingyoungmodule_pa'},
-    {value: 'mpa', label: 'unit_buildingyoungmodule_mpa'},
+    { value: 'pa', label: 'unit_buildingyoungmodule_pa' },
+    { value: 'mpa', label: 'unit_buildingyoungmodule_mpa' },
 ];
 
-export function BuildingYoungModuleField({units = defaultUnits, ...props}: BuildingYoungModuleFieldProps) {
+export function BuildingYoungModuleField({ units = defaultUnits, ...props }: BuildingYoungModuleFieldProps) {
     return (
         <div className="flex gap-4 w-full">
             <NumberField kind={'buildingYoungModule'} subName={'value'} {...props} className={'w-2/3'} />

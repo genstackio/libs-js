@@ -108,6 +108,13 @@ export type cart_context_value = {
     resetCart: () => any | undefined;
 };
 
+export type validator_sync = (config: Record<string, any>) => (value: any, allValues: any) => boolean | string;
+export type validator_async = (
+    config: Record<string, any>,
+) => (value: any, allValues: any) => Promise<boolean | string>;
+export type validator = validator_sync | validator_async;
+export type validators_context_value = Record<string, validator>;
+
 export type box_context_value = {
     color: string | undefined;
     variant: string | undefined;

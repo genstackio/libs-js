@@ -10,6 +10,7 @@ export * from './createDefaultLinkContextValue';
 export * from './createDefaultLocationContextValue';
 export * from './createDefaultFullscreenContextValue';
 export * from './createDefaultMessagesContextValue';
+export * from './createDefaultValidatorsContextValue';
 export * from './createDefaultNavigationContextValue';
 export * from './createDefaultNotificationsContextValue';
 export * from './createDefaultPageContextValue';
