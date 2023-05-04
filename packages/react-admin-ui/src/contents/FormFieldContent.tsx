@@ -6,10 +6,12 @@ export function FormFieldContent({
     disabled = undefined,
     autoFocus = undefined,
     options: { field } = {},
+    ...props
 }: FormFieldContentProps) {
     return (
         <Field
             name={name}
+            {...props}
             {...field}
             {...(undefined !== autoFocus ? { autoFocus } : {})}
             {...(undefined !== disabled ? { disabled } : {})}
