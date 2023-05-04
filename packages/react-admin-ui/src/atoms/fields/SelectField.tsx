@@ -1,9 +1,11 @@
-import { useCallback } from 'react';
+import {useCallback, useMemo} from 'react';
 import { Controller } from 'react-hook-form';
 import Select from 'react-select';
 import FieldSet from '../FieldSet';
 import useField from '../../hooks/useField';
 import { AsChoiceField } from '../../as';
+import {useTranslation} from "react-i18next";
+import {select_item} from "../../types";
 
 const defaultValues = [];
 
@@ -17,6 +19,7 @@ export function SelectField({
     const { name, label, error, helper, disabled, placeholder, options, defaultValue, extra, control } =
         useField(props);
 
+    const {t} = useTranslation();
     const handleChange = useCallback(
         (x) => (val) => {
             x && x(multiple ? (val || []).map((x: any) => x.value) : val.value);
@@ -24,6 +27,8 @@ export function SelectField({
         },
         [parentOnChange, multiple],
     );
+
+    const finalValues: select_item[] = useMemo(() => values?.map(x => !x ? x : ((x?.label && ('string' === typeof x.label)) ? {...x, label: t(x.label)} : {})) || [], [values, t])
 
     return (
         <FieldSet error={error} helper={helper} label={label} name={name} options={options} className={className}>
@@ -44,15 +49,15 @@ export function SelectField({
                         inputRef={ref}
                         isDisabled={disabled}
                         onChange={handleChange(onChange)}
-                        options={values}
+                        options={finalValues}
                         placeholder={placeholder}
                         value={
                             multiple
-                                ? values.filter((c) => {
+                                ? finalValues.filter((c) => {
                                       if (!value || !Array.isArray(value) || !value.length) return false;
                                       return value.includes(c.value);
                                   })
-                                : values.find((c) =>
+                                : finalValues.find((c) =>
                                       undefined !== value && '' !== value
                                           ? c.value === value
                                           : c.value === defaultValue,
