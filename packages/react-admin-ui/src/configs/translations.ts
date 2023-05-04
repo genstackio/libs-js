@@ -83,6 +83,17 @@ export default {
 
             field_privacypolicy_description: 'Politique de confidentialité...',
 
+            field_distance_value_label: 'Distance',
+            field_distance_unit_label: 'Unité',
+            field_size_value_label: 'Taille',
+            field_size_unit_label: 'Unité',
+            field_volume_value_label: 'Volume',
+            field_volume_unit_label: 'Unité',
+            field_charge_value_label: 'Charge',
+            field_charge_unit_label: 'Unité',
+            field_pressure_value_label: 'Pression',
+            field_pressure_unit_label: 'Unité',
+
             field_role_label: 'Rôle',
             field_image_label: 'Image',
             field_privacypolicy_label: "J'accepte la politique de confidentialité",
@@ -935,6 +946,17 @@ export default {
     'en-GB': {
         translation: {
             ...common,
+
+            field_distance_value_label: 'Distance',
+            field_distance_unit_label: 'Unit',
+            field_size_value_label: 'Size',
+            field_size_unit_label: 'Unit',
+            field_volume_value_label: 'Volume',
+            field_volume_unit_label: 'Unit',
+            field_charge_value_label: 'Charge',
+            field_charge_unit_label: 'Unit',
+            field_pressure_value_label: 'Pressure',
+            field_pressure_unit_label: 'Unit',
 
             button_delete_label: 'Delete',
             button_cancel_label: 'Cancel',
