@@ -1,5 +1,6 @@
 import { args, s, a } from '../../utils';
 import { SwitchField } from '../../../src';
+import { useForm } from 'react-hook-form';
 
 export default {
     title: 'Atoms/fields/SwitchField',
@@ -19,4 +20,10 @@ export default {
     }),
 };
 
-export const basic = s(SwitchField, {});
+const Template = (args) => {
+    const { control } = useForm();
+    const defaultValues = { checked: false };
+    return <SwitchField control={control} defaultValues={defaultValues} {...args} />;
+};
+
+export const basic = s(Template, {});
