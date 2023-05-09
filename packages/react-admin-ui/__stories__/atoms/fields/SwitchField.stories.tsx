@@ -23,12 +23,18 @@ export default {
 
 const Template = () => {
     const defaultValues = { myfield: false };
-    const { field, Form, SubmitButton} = useForm({defaultValues, onSubmit: (data: any) => {alert(JSON.stringify(data, null, 4))}});
+    const { field, Form, SubmitButton } = useForm({
+        defaultValues,
+        onSubmit: (data: any) => {
+            alert(JSON.stringify(data, null, 4));
+        },
+    });
     return (
-    <Form>
-        <SwitchField kind={'myfield'} {...field}/>
-        <SubmitButton/>
-    </Form>);
+        <Form>
+            <SwitchField kind={'myfield'} {...field} />
+            <SubmitButton />
+        </Form>
+    );
 };
 
 export const basic = s(Template, {});

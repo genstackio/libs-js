@@ -6,7 +6,7 @@ import MuiSwitch from '@material-ui/core/Switch';
 import { makeStyles } from '@material-ui/core/styles';
 import { AsField } from '../../as';
 import Div from '../Div';
-import { Controller } from 'react-hook-form'
+import { Controller } from 'react-hook-form';
 import { useMemo } from 'react';
 import convertValue from '../../utils/convertValue';
 
@@ -56,9 +56,13 @@ const useStyles = makeStyles({
     disabled: {},
 });
 
+const defaultSetValueAsBoolean = (value: any) => {
+    return !!value;
+};
+
 export function SwitchField({ className, onChange, ...props }: SwitchFieldProps) {
     const muiClasses = useStyles(props);
-    const { name, required, label, error, helper, disabled, register, options, defaultValue, extra, classes, control} =
+    const { name, required, label, error, helper, disabled, register, options, defaultValue, extra, classes, control } =
         useField({ valueAs: 'boolean', ...props });
     const transformedDefaultValue = useMemo(() => {
         return convertValue(defaultValue);
@@ -70,31 +74,35 @@ export function SwitchField({ className, onChange, ...props }: SwitchFieldProps)
                 control={control}
                 defaultValue={transformedDefaultValue}
                 rules={{ required }}
-                render={(props : any) => {
-                    // const v = convertValue((props.field || {}).value);
+                render={(props: any) => {
+                    const v = !!(props.field || {}).value;
 
                     return (
-                            <MuiSwitch
-                                classes={{
-                                    root: muiClasses.root,
-                                    switchBase: muiClasses.switchBase,
-                                    thumb: muiClasses.thumb,
-                                    track: muiClasses.track,
-                                    checked: muiClasses.checked,
-                                    disabled: muiClasses.disabled,
-                                    ...classes?.switch,
-                                }}
-                                disabled={disabled}
-                                disableRipple
-                                focusVisibleClassName={muiClasses.focusVisible}
-                                name={name}
-                                onChange={(e: any) => props.field.onChange({target: e})}
-                                required={required}
-                                {...register()}
-                                {...extra}
-                                className={className}
-                            />
-                            
+                        <MuiSwitch
+                            classes={{
+                                root: muiClasses.root,
+                                switchBase: muiClasses.switchBase,
+                                thumb: muiClasses.thumb,
+                                track: muiClasses.track,
+                                checked: muiClasses.checked,
+                                disabled: muiClasses.disabled,
+                                ...classes?.switch,
+                            }}
+                            disabled={disabled}
+                            disableRipple
+                            focusVisibleClassName={muiClasses.focusVisible}
+                            name={name}
+                            required={required}
+                            {...register({ setValueAs: defaultSetValueAsBoolean })}
+                            {...extra}
+                            value={v}
+                            checked={v}
+                            onChange={(e: any) => {
+                                props.field.onChange({ target: { value: !!e?.target?.checked } });
+                            }}
+                            onBlur={(e: any) => {}}
+                            className={className}
+                        />
                     );
                 }}
             />

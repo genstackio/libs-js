@@ -86,17 +86,17 @@ export function useField(
         ? 'string' === typeof label
             ? t(label)
             : label
-        : t([...i18nKeys.map(x => `field_${x}_label`), '']);
+        : t([...i18nKeys.map((x) => `field_${x}_label`), '']);
     helper = helper
         ? 'string' === typeof helper
             ? t(helper)
             : helper
-        : t([...i18nKeys.map(x => `field_${x}_helper`), '']);
+        : t([...i18nKeys.map((x) => `field_${x}_helper`), '']);
     placeholder = placeholder
         ? 'string' === typeof placeholder
             ? t(placeholder)
             : placeholder
-        : t([...i18nKeys.map(x => `field_${x}_placeholder`), '']);
+        : t([...i18nKeys.map((x) => `field_${x}_placeholder`), '']);
 
     const errorData = errors ? errors[name] || errors['all'] : undefined;
     const error = errorData ? errorData.message || t(['constraints_required']) : undefined;

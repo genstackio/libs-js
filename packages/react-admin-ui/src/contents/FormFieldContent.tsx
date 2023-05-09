@@ -1,5 +1,5 @@
 import Field from '../atoms/Field';
-import {WithClassName} from "../withs";
+import { WithClassName } from '../withs';
 
 export function FormFieldContent({
     className,
