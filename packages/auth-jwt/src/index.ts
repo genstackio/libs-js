@@ -24,7 +24,15 @@ const generateTokensForUser = (data, populate: Function | undefined = undefined,
     return generateTokens((populate || defaultPopulate)(data) || {}, options);
 };
 
-const generateTokens = (data, {secret: forcedSecret, duration: forcedDuration, refreshDuration: forcedRefreshDuration, refreshSecret: forcedRefreshSecret}: auth_jwt_options = {}) => {
+const generateTokens = (
+    data,
+    {
+        secret: forcedSecret,
+        duration: forcedDuration,
+        refreshDuration: forcedRefreshDuration,
+        refreshSecret: forcedRefreshSecret,
+    }: auth_jwt_options = {},
+) => {
     const jwt = require('jsonwebtoken');
     return {
         token: jwt.sign(
@@ -37,7 +45,9 @@ const generateTokens = (data, {secret: forcedSecret, duration: forcedDuration, r
         ),
         refreshToken: jwt.sign(
             {
-                exp: Math.floor(Date.now() / 1000) + (undefined !== forcedRefreshDuration ? forcedRefreshDuration : jwtRefreshTokenDuration),
+                exp:
+                    Math.floor(Date.now() / 1000) +
+                    (undefined !== forcedRefreshDuration ? forcedRefreshDuration : jwtRefreshTokenDuration),
                 ...data,
                 scope: (data['permissions'] || []).join(' '),
             },
@@ -54,17 +64,39 @@ const createAuthToken = async ({ user, password, populate = undefined }, options
     return generateTokensForUser(user, populate, options);
 };
 
-const verifyAuthToken = async (token, {refreshSecret: forcedRefreshSecreet}: auth_jwt_options = {}) => {
+const verifyAuthToken = async (
+    token,
+    refresh = false,
+    { secret: forcedSecret, refreshSecret: forcedRefreshSecret }: auth_jwt_options = {},
+) => {
     const jwt = require('jsonwebtoken');
     try {
-        return await jwt.verify(token, undefined !== forcedRefreshSecreet ? forcedRefreshSecreet : jwtRefreshSecret);
+        return await jwt.verify(
+            token,
+            refresh
+                ? undefined !== forcedRefreshSecret
+                    ? forcedRefreshSecret
+                    : jwtRefreshSecret
+                : undefined !== forcedSecret
+                ? forcedSecret
+                : jwtSecret,
+        );
     } catch (e: any) {
         throw new BadCredentialsError(undefined, e.message);
     }
-}
-const refreshAuthToken = async ({ refreshToken, fetch = undefined, populate = undefined }, options: auth_jwt_options = {}) => {
+};
+const verifyAuthAccessToken = async (token, options: auth_jwt_options = {}) => {
+    return verifyAuthToken(token, false, options);
+};
+const verifyAuthRefreshToken = async (token, options: auth_jwt_options = {}) => {
+    return verifyAuthToken(token, true, options);
+};
+const refreshAuthToken = async (
+    { refreshToken, fetch = undefined, populate = undefined },
+    options: auth_jwt_options = {},
+) => {
     let data, user;
-    data = await verifyAuthToken(refreshToken, options);
+    data = await verifyAuthRefreshToken(refreshToken, options);
     try {
         user = fetch ? await (<any>fetch)(data) : data;
     } catch (e: any) {
@@ -74,4 +106,11 @@ const refreshAuthToken = async ({ refreshToken, fetch = undefined, populate = un
     return generateTokensForUser(user, populate, options);
 };
 
-export default { createAuthToken, refreshAuthToken, generateTokens, verifyAuthToken };
+export default {
+    createAuthToken,
+    refreshAuthToken,
+    generateTokens,
+    verifyAuthToken,
+    verifyAuthAccessToken,
+    verifyAuthRefreshToken,
+};
