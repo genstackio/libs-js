@@ -19,19 +19,18 @@ export function useForm(
 ) {
     const rhf = useRhfForm({ defaultValues });
     const { t } = useTranslation();
-    const {
-        register,
-        control,
-        formState: { errors: rhfErrors },
-    } = rhf;
+    const { register, control, formState } = rhf;
+
     const field = useMemo(
-        () => ({ register, control, errors: { ...rhfErrors, ...errors }, defaultValues, disabled: submitting }),
-        [register, control, rhfErrors, errors, defaultValues, submitting],
+        () => ({ register, control, errors: { ...formState.errors, ...errors }, defaultValues, disabled: submitting }),
+        [register, control, formState, errors, defaultValues, submitting],
     );
 
+    const generalError = useMemo(() => errors && (errors[''] || errors['*'] || errors['_']), [errors]);
+
     const form = useMemo(
-        () => ({ rhf, ...props, errors: field.errors, color: color as box_color }),
-        [rhf, props, field.errors, color],
+        () => ({ rhf, ...props, errors: generalError ? { _: generalError } : {}, color: color as box_color }),
+        [rhf, props, color, generalError],
     );
 
     const tf = useCallback(
@@ -68,6 +67,9 @@ export function useForm(
         [form, field, t, tf, color, SubmitButton],
     );
 
+    const { className, header, footer, title, subtitle, onSubmit } = props;
+    const { handleSubmit } = rhf;
+
     const Form = useCallback(
         ({ customChildren = undefined, ...props }) => {
             const computedChildren = customChildren
@@ -76,9 +78,22 @@ export function useForm(
                     : customChildren
                 : props.children;
             /* eslint react/no-children-prop: 0 */
-            return <BaseForm {...form} {...props} children={computedChildren} nested={nested} />;
+            return (
+                <BaseForm
+                    color={color}
+                    className={className}
+                    header={header}
+                    footer={footer}
+                    submitting={submitting}
+                    rhf={{ handleSubmit }}
+                    onSubmit={onSubmit}
+                    {...props}
+                    children={computedChildren}
+                    nested={nested}
+                />
+            );
         },
-        [form, nested],
+        [color, nested, className, header, footer, title, subtitle, handleSubmit, onSubmit],
     );
 
     if (name) {

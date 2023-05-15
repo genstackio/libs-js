@@ -100,6 +100,7 @@ export function useField(
 
     const errorData = errors ? errors[name] || errors['all'] : undefined;
     const error = errorData ? errorData.message || t(['constraints_required']) : undefined;
+
     const enrichedRegister = useCallback(
         (extraOptions = {}) => {
             const computedExtraOptions = {};
