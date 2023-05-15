@@ -39,33 +39,19 @@ export function useDynForm(definition: any, view: string, props: any, context: a
 
     const state = useMemo(
         () => ({
-            isSubmitting: form.rhf.formState.isSubmitting,
-            isSubmitted: form.rhf.formState.isSubmitted,
-            isDirty: form.rhf.formState.isDirty,
-            isValid: form.rhf.formState.isValid,
-            isValidating: form.rhf.formState.isValidating,
+            isSubmitting: false,
         }),
-        [
-            form.rhf.formState.isSubmitting,
-            form.rhf.formState.isSubmitted,
-            form.rhf.formState.isDirty,
-            form.rhf.formState.isValid,
-            form.rhf.formState.isValidating,
-        ],
+        [],
     );
 
     return useMemo(
-        () => [form.rhf.handleSubmit, DynForm, state, form.rhf],
-        [form.rhf.handleSubmit, DynForm, state, form.rhf],
+        () => [form.rhf.handleSubmit, DynForm, state, { isSubmitting: false }],
+        [form.rhf.handleSubmit, DynForm, state],
     ) as [
         Function,
         ComponentType<any>,
         {
-            isDirty: boolean;
-            isSubmitted: boolean;
             isSubmitting: boolean;
-            isValidating: boolean;
-            isValid: boolean;
         },
         any,
     ];

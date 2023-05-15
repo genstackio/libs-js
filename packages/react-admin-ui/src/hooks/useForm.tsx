@@ -59,7 +59,7 @@ export function useForm(
                 </Div>
             );
         },
-        [color, tf],
+        [color, tf, submitting],
     );
 
     const vars = useMemo(
@@ -93,7 +93,7 @@ export function useForm(
                 />
             );
         },
-        [color, nested, className, header, footer, title, subtitle, handleSubmit, onSubmit],
+        [color, nested, className, header, footer, title, subtitle, handleSubmit, onSubmit, submitting],
     );
 
     if (name) {
