@@ -98,9 +98,11 @@ export function SwitchField({ className, onChange, ...props }: SwitchFieldProps)
                             value={v}
                             checked={v}
                             onChange={(e: any) => {
-                                props.field.onChange({ target: { value: !!e?.target?.checked } });
+                                const vvv = { target: { value: !!e?.target?.checked } };
+                                props.field.onChange(vvv);
+                                onChange && onChange(vvv);
                             }}
-                            onBlur={(e: any) => {}}
+                            onBlur={(_: any) => {}}
                             className={className}
                         />
                     );

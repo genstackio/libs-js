@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import clsx from 'clsx';
-import { useForm as useRhfForm } from 'react-hook-form';
+import { FormProvider, useForm as useRhfForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import Div from '../atoms/Div';
 import Button from '../atoms/Button';
@@ -84,20 +84,22 @@ export function useForm(
                 : props.children;
             /* eslint react/no-children-prop: 0 */
             return (
-                <BaseForm
-                    color={color}
-                    className={className}
-                    header={header}
-                    footer={footer}
-                    title={title}
-                    subtitle={subtitle}
-                    submitting={submitting}
-                    rhf={{ handleSubmit }}
-                    onSubmit={onSubmit}
-                    {...props}
-                    children={computedChildren}
-                    nested={nested}
-                />
+                <FormProvider {...rhf}>
+                    <BaseForm
+                        color={color}
+                        className={className}
+                        header={header}
+                        footer={footer}
+                        title={title}
+                        subtitle={subtitle}
+                        submitting={submitting}
+                        rhf={{ handleSubmit }}
+                        onSubmit={onSubmit}
+                        {...props}
+                        children={computedChildren}
+                        nested={nested}
+                    />
+                </FormProvider>
             );
         },
         [color, nested, className, header, footer, title, subtitle, handleSubmit, onSubmit, submitting],
