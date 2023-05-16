@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import buildListRouteUri from '../utils/buildListRouteUri';
+import stopPrevent from '@genstackio/react-admin-ui/lib/utils/stopPrevent';
 
 export function useListSwitchChangeCallback({
     name,
@@ -23,7 +24,7 @@ export function useListSwitchChangeCallback({
 
     return useCallback(
         (e: any) => {
-            e.stopPropagation();
+            stopPrevent(e);
             const u = buildListRouteUri(listRoute, {
                 name,
                 filterName,

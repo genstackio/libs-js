@@ -7,6 +7,7 @@ import { WithAny, WithDefaultValues, WithLabel, WithOptions } from '../withs';
 import { useGetUploadParams, useValidatorsContext } from '@genstackio/react-contexts';
 import objectProperty from '../utils/objectProperty';
 import * as baseValidators from '../validators';
+import { useFormContext } from 'react-hook-form';
 
 const defaultDefaults = {};
 const defaultValidators = {};
@@ -61,6 +62,7 @@ export function useField(
 ) {
     const { t } = useTranslation();
     const customValidators = useValidatorsContext();
+    const { formState: { errors: contextErrors = {} } = {} } = useFormContext();
     const finalValidators = useMemo(() => ({ ...baseValidators, ...customValidators }), [customValidators]);
     type = (type || 'text') as string;
     kind = (kind || defaults.kind || type) as string;
@@ -98,7 +100,8 @@ export function useField(
             : placeholder
         : t([...i18nKeys.map((x) => `field_${x}_placeholder`), '']);
 
-    const errorData = errors ? errors[name] || errors['all'] : undefined;
+    const allErrors = { ...contextErrors, ...(errors || {}) };
+    const errorData = allErrors[name] || allErrors['all'] || undefined;
     const error = errorData ? errorData.message || t(['constraints_required']) : undefined;
 
     const enrichedRegister = useCallback(

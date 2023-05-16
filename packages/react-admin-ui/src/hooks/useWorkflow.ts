@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import { workflow_step } from '../types';
+import stopPrevent from '../utils/stopPrevent';
 
 // noinspection JSUnusedLocalSymbols
 function computePreviousStep(currentStep, steps) {
@@ -30,8 +31,7 @@ export const useWorkflow = ({
     const handlePrevious = useCallback(
         (data = {}) =>
             (e) => {
-                e.preventDefault();
-                e.stopPropagation();
+                stopPrevent(e);
                 const step = computePreviousStep(state.currentStep, steps);
                 setState({ ...state, currentStep: step || state.currentStep, data: { ...state.data, ...data } });
             },
@@ -63,16 +63,14 @@ export const useWorkflow = ({
     const handleCancel = useCallback(
         (reason = {}) =>
             (e) => {
-                e.preventDefault();
-                e.stopPropagation();
+                stopPrevent(e);
                 onCancel && onCancel(reason, state.data);
             },
         [onCancel, state],
     );
     const handleSave = useCallback(
         (data) => (e) => {
-            e.preventDefault();
-            e.stopPropagation();
+            stopPrevent(e);
             setState({ ...state, data: { ...state.data, ...data } });
         },
         [setState, state],

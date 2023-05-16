@@ -1,11 +1,11 @@
 import { useCallback } from 'react';
 import { Drawer as BaseDrawer } from '@material-ui/core';
+import stopPrevent from '@genstackio/react-admin-ui/lib/utils/stopPrevent';
 
 export function Drawer({ opened = false, onClose, position = 'right', children }: DrawerProps) {
     const onCloseDrawer = useCallback(
         (e: any) => {
-            e.stopPropagation();
-            e.preventDefault();
+            stopPrevent(e);
             onClose && onClose();
         },
         [onClose],

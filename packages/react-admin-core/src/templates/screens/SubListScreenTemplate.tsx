@@ -18,6 +18,7 @@ import ScreenHeader from '@genstackio/react-admin-ui/lib/organisms/ScreenHeader'
 import useBreadcrumbs from '../../hooks/useBreadcrumbs';
 import useBreadcrumbsFactory from '@genstackio/react-contexts/lib/hooks/useBreadcrumbsFactory';
 import clsx from 'clsx';
+import stopPrevent from '@genstackio/react-admin-ui/lib/utils/stopPrevent';
 
 const rowsPerPageOptions = [10, 20, 50, 100];
 
@@ -447,7 +448,7 @@ function SubListScreenTemplate({
     const breadcrumbs = useBreadcrumbs(`${parentSingularName}__${name}`, breadcrumbsFactory, { parentId } as any);
     const handleSwitchChange = useCallback(
         (e: any) => {
-            e.stopPropagation();
+            stopPrevent(e);
             const u = listRoute
                 .replace('{parentName}', parentName)
                 .replace('{parentId}', parentId)

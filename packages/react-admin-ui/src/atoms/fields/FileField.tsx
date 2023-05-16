@@ -7,6 +7,7 @@ import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 import { Controller } from 'react-hook-form';
 import { ImageRender, OtherRender, PdfRender } from '../renders';
+import stopPrevent from '../../utils/stopPrevent';
 const styles = {
     dropzone: { width: '100%', minHeight: 100, maxHeight: 250, border: 'none' },
 };
@@ -74,8 +75,7 @@ export function FileField({ className, ...props }: FileFieldProps) {
                 name={name}
                 render={({ field: { ref, value, onChange, ...field } }: any) => {
                     const onClear = (e: any) => {
-                        e.stopPropagation();
-                        e.preventDefault();
+                        stopPrevent(e);
                         onChange && onChange(undefined);
                     };
                     const url = !!value ? value._previewUrl || value.url : undefined;

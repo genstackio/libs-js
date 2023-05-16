@@ -11,6 +11,7 @@ import bgClass from '../mappings/bgs';
 import shortenLocale from '../utils/shortenLocale';
 import { AsComponent } from '../as';
 import { WithColorOfBox, WithLocales } from '../withs';
+import stopPrevent from '../utils/stopPrevent';
 
 const defaultLocales = [];
 
@@ -19,7 +20,7 @@ export function LocaleChange({ className, color = 'primary', locales = defaultLo
     const [opened, setOpened] = useState(false);
     const onLocaleChange = useCallback(
         (value) => (e) => {
-            e.stopPropagation();
+            stopPrevent(e);
             i18n.changeLanguage(value);
             setOpened(false);
         },

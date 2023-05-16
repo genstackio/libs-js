@@ -6,6 +6,7 @@ import SectionHeader from '../atoms/SectionHeader';
 import boxColorClass from '../mappings/box-colors';
 import { AsBox } from '../as';
 import { WithItemsOfMenu } from '../withs';
+import stopPrevent from '../utils/stopPrevent';
 
 const defaultItems = [];
 
@@ -33,7 +34,7 @@ export function Menu({ className, color = 'primary', items = defaultItems, varia
     const [activeGroup, setActiveGroup] = useState<number | undefined>(defaultActiveGroup);
     const handleSectionClick = useCallback(
         (i: number) => (e: any) => {
-            e.stopPropagation();
+            stopPrevent(e);
             setActiveGroup(activeGroup === i ? undefined : i);
         },
         [setActiveGroup, activeGroup],

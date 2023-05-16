@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { menu_item } from '@genstackio/react-admin-ui/lib/types';
 import { useHistory, useLocation } from 'react-router-dom';
 import { menu_ctx } from '../types';
+import stopPrevent from '@genstackio/react-admin-ui/lib/utils/stopPrevent';
 
 export function useMenu(
     name: string,
@@ -38,8 +39,7 @@ export function useMenu(
                     item['target'] = {
                         href: target,
                         onClick: (e: any) => {
-                            !!e && !!e.preventDefault && e.preventDefault();
-                            !!e && !!e.stopPropagation() && e.stopPropagation();
+                            stopPrevent(e);
                             history.push(target);
                         },
                     };

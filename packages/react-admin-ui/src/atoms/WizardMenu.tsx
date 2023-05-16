@@ -6,12 +6,12 @@ import WizardStep from './WizardStep';
 import { wizard_step } from '../types';
 import { AsComponent } from '../as';
 import { WithOnChange } from '../withs';
+import stopPrevent from '../utils/stopPrevent';
 
 export function WizardMenu({ className, currentStep, onChange, steps, ...props }: WizardMenuProps) {
     const handleChange = useCallback(
         (id) => (e) => {
-            e.stopPropagation();
-            e.preventDefault();
+            stopPrevent(e);
             onChange && onChange(id);
         },
         [onChange],

@@ -1,6 +1,7 @@
 import { ComponentType, useCallback, useState } from 'react';
 import ConfirmModal from '../molecules/ConfirmModal';
 import { confirmable_options } from '../types';
+import stopPrevent from '../utils/stopPrevent';
 
 export function useConfirmable({
     confirmTitle,
@@ -22,8 +23,7 @@ export function useConfirmable({
     }, [setOpened, onConfirm]);
     const onClick = useCallback(
         (e) => {
-            e.stopPropagation();
-            e.preventDefault();
+            stopPrevent(e);
             setOpened(true);
         },
         [setOpened, onConfirm],
