@@ -4,8 +4,8 @@ export function useNestedAwareSubmit(fn: Function, nested = false) {
     return useCallback(
         (e: any) => {
             if (!nested) return fn(e);
-            e.stopPropagation();
-            e.preventDefault();
+            e?.stopPropagation && e.stopPropagation();
+            e?.preventDefault && e.preventDefault();
             return fn(e);
         },
         [fn, nested],
