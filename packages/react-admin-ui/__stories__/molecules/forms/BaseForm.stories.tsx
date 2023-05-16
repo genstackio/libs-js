@@ -1,5 +1,5 @@
 import { args, a, s } from '../../utils';
-import { BaseForm, BirthDateField, FirstNameField, InstagramField, IpAddressField, UsernameField } from '../../../src';
+import { useForm, BaseForm, FirstNameField, InstagramField, IpAddressField, UsernameField } from '../../../src';
 
 export default {
     title: 'Molecules/forms/BaseForm',
@@ -13,20 +13,20 @@ export default {
     }),
 };
 
-export const basic = s(BaseForm, {
-    rhf: {
-        handleSubmit: () => console.log('Clicked'),
-    },
+const Template = (props) => {
+    const { Form } = useForm({}, 'myform');
+
+    return <Form {...props} />;
+};
+
+export const basic = s(Template, {
     title: 'Je suis un titre',
     subtitle: 'Je suis un sous-titre',
     children:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
 });
 
-export const both = s(BaseForm, {
-    rhf: {
-        handleSubmit: () => console.log('Clicked'),
-    },
+export const both = s(Template, {
     title: 'Je suis un titre',
     subtitle: 'Je suis un sous-titre',
     children:
@@ -38,15 +38,12 @@ export const both = s(BaseForm, {
     ),
     footer: (
         <>
-            <UsernameField />, <FirstNameField />, <BirthDateField />
+            <UsernameField />, <FirstNameField />
         </>
     ),
 });
 
-export const withHeader = s(BaseForm, {
-    rhf: {
-        handleSubmit: () => console.log('Clicked'),
-    },
+export const withHeader = s(Template, {
     title: 'Je suis un titre',
     subtitle: 'Je suis un sous-titre',
     children:
@@ -58,17 +55,14 @@ export const withHeader = s(BaseForm, {
     ),
 });
 
-export const withFooter = s(BaseForm, {
-    rhf: {
-        handleSubmit: () => console.log('Clicked'),
-    },
+export const withFooter = s(Template, {
     title: 'Je suis un titre',
     subtitle: 'Je suis un sous-titre',
     children:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
     footer: (
         <>
-            <UsernameField />, <FirstNameField />, <BirthDateField />
+            <UsernameField />, <FirstNameField />
         </>
     ),
 });

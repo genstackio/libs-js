@@ -3,7 +3,7 @@ import Button from '@genstackio/react-admin-ui/lib/atoms/Button';
 import Tag from '@genstackio/react-admin-ui/lib/atoms/Tag';
 import SwitchField from '@genstackio/react-admin-ui/lib/atoms/fields/SwitchField';
 import { useTranslation } from 'react-i18next';
-import { MenuItem } from '@genstackio/react-admin-ui';
+import { MenuItem, useForm } from '@genstackio/react-admin-ui';
 import { buildListRouteUri } from '../utils/buildListRouteUri';
 
 export function DefaultListToolbar({
@@ -29,6 +29,8 @@ export function DefaultListToolbar({
 
     const filterNames = Object.keys(filters || {});
     const hasFilters = !!filterNames.length;
+
+    const { field } = useForm({}, 'list_toolbar');
 
     return hasFilters || !!onNewClick || displayPage ? (
         <div className={'w-full flex flex-col'}>
@@ -79,6 +81,7 @@ export function DefaultListToolbar({
                     {!!searchSwitch && (
                         <div className={'flex flex-col justify-center -mt-2'}>
                             <SwitchField
+                                {...field}
                                 name={'searchMode'}
                                 defaultValues={switchDefaultValues}
                                 label={'opensearch'}

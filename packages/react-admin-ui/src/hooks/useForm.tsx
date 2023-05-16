@@ -6,7 +6,6 @@ import Div from '../atoms/Div';
 import Button from '../atoms/Button';
 import BaseForm from '../molecules/forms/BaseForm';
 import { box_color } from '../mappings/box-colors';
-import { class_name } from '../types';
 
 const defaultDefaultValues = {};
 const defaultErrors = {};
@@ -42,7 +41,7 @@ export function useForm(
     );
 
     const SubmitButton = useCallback(
-        ({ className = undefined, overridenClassName, ...props }: { className?: class_name; [key: string]: any }) => {
+        ({ className = undefined, overridenClassName, ...props }: any) => {
             return (
                 <Div center flex mt={'lg'}>
                     <Button
@@ -62,12 +61,18 @@ export function useForm(
         [color, tf, submitting],
     );
 
+    if (name) {
+        form['title'] = t([`form_${name}_title`, '']) || undefined;
+        form['subtitle'] = t([`form_${name}_subtitle`, '']) || undefined;
+    }
+
+    const { className, header, footer, title, subtitle, onSubmit } = form as any;
+
     const vars = useMemo(
         () => ({ form, field, t, tf, color: color as box_color, SubmitButton }),
         [form, field, t, tf, color, SubmitButton],
     );
 
-    const { className, header, footer, title, subtitle, onSubmit } = props;
     const { handleSubmit } = rhf;
 
     const Form = useCallback(
@@ -84,6 +89,8 @@ export function useForm(
                     className={className}
                     header={header}
                     footer={footer}
+                    title={title}
+                    subtitle={subtitle}
                     submitting={submitting}
                     rhf={{ handleSubmit }}
                     onSubmit={onSubmit}
@@ -95,11 +102,6 @@ export function useForm(
         },
         [color, nested, className, header, footer, title, subtitle, handleSubmit, onSubmit, submitting],
     );
-
-    if (name) {
-        form['title'] = t([`form_${name}_title`, '']) || undefined;
-        form['subtitle'] = t([`form_${name}_subtitle`, '']) || undefined;
-    }
 
     return { ...vars, Form };
 }
