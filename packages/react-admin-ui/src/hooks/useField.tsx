@@ -92,7 +92,7 @@ export function useField(
         }),
         [options, required],
     );
-    label = noplaceholder
+    label = nolabel
         ? undefined
         : label
         ? 'string' === typeof label
