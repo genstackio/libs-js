@@ -1,6 +1,6 @@
 {
     "name": "@genstackio/react-i18n",
-    "version": "0.1.8",
+    "version": "0.1.9",
     "description": "React I18N for web interfaces",
     "license": "MIT",
     "main": "lib/index.js",
