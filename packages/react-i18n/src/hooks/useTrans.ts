@@ -14,4 +14,5 @@ export function useTrans<N extends Namespace = DefaultNamespace, TKPrefix extend
     return useTranslation<N, TKPrefix>(ns, options);
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default useTrans;

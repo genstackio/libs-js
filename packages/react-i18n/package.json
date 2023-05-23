@@ -2,7 +2,7 @@
     "name": "@genstackio/react-i18n",
     "version": "0.1.8",
     "description": "React I18N for web interfaces",
-    "license": "ISC",
+    "license": "MIT",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "directories": {
@@ -12,6 +12,9 @@
     "files": [
         "lib"
     ],
+    "publishConfig": {
+        "access": "public"
+    },
     "repository": {
         "type": "git",
         "url": "ssh://git@github.com/genstackio/libs-js.git"
@@ -40,5 +43,6 @@
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "source-map-loader": "^4.0.0"
-    }
+    },
+    "gitHead": "9dfeb118db78e70c0bf07552d90846634dfeb18d"
 }
