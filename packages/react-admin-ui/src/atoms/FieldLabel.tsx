@@ -4,12 +4,13 @@ import { AsComponent } from '../as';
 import { WithName, WithLabel, WithOptions } from '../withs';
 
 const stylings: any = {
-    defaults: { format: 'capitalize' },
+    defaults: { format: 'upperfirst' },
     formats: {
         capital: 'capitalize',
         normal: '',
         uppercase: 'uppercase',
         lowercase: 'lowercase',
+        upperfirst: '',
     },
 };
 
@@ -23,6 +24,10 @@ export function FieldLabel({
 }: FieldLabelProps) {
     if (!label) return null;
 
+    label =
+        'upperfirst' === format && 'string' === typeof label
+            ? `${label.slice(0, 1).toUpperCase()}${label.slice(1)}`
+            : label;
     return (
         <label
             htmlFor={name}
@@ -42,7 +47,7 @@ export function FieldLabel({
 
 export interface FieldLabelProps extends AsComponent, Required<WithName>, WithLabel, WithOptions {
     error?: flag;
-    format?: 'normal' | 'capital' | 'uppercase' | 'lowercase';
+    format?: 'normal' | 'capital' | 'uppercase' | 'lowercase' | 'upperfirst';
 }
 
 // noinspection JSUnusedGlobalSymbols
