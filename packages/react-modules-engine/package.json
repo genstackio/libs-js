@@ -1,6 +1,6 @@
 {
     "name": "@genstackio/react-modules-engine",
-    "version": "0.1.14",
+    "version": "0.1.15",
     "description": "React Modules Engine for web interfaces",
     "license": "MIT",
     "main": "lib/index.js",
