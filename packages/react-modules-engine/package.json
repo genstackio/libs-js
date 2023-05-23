@@ -1,6 +1,6 @@
 {
     "name": "@genstackio/react-modules-engine",
-    "version": "0.1.13",
+    "version": "0.1.14",
     "description": "React Modules Engine for web interfaces",
     "license": "MIT",
     "main": "lib/index.js",
@@ -28,11 +28,11 @@
         "build-storybook": "build-storybook -c .storybook -o public"
     },
     "dependencies": {
-        "@genstackio/deep": "^0.1.1",
         "@genstackio/clone": "^0.1.2",
-        "@genstackio/react-error-boundary": "^0.1.0",
+        "@genstackio/deep": "^0.1.1",
+        "@genstackio/react-error-boundary": "^0.1.1",
         "@genstackio/react-i18n": "^0.1.7",
-        "@genstackio/react-types": "^0.1.8",
+        "@genstackio/react-types": "^0.1.9",
         "clsx": "^1.1.1"
     },
     "peerDependencies": {

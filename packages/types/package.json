@@ -1,6 +1,6 @@
 {
     "name": "@genstackio/types",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "description": "Types",
     "license": "MIT",
     "main": "lib/index.js",
