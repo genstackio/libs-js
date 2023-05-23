@@ -1,0 +1,66 @@
+{
+    "name": "@genstackio/react-modules-engine",
+    "version": "0.1.13",
+    "description": "React Modules Engine for web interfaces",
+    "license": "MIT",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "directories": {
+        "lib": "lib",
+        "test": "__tests__"
+    },
+    "files": [
+        "lib",
+        "translations"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@github.com/genstackio/libs-js.git"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "build": "tsc",
+        "test": "../../node_modules/.bin/jest -c ../../jest.config.js --rootDir=`pwd`",
+        "story": "start-storybook -c .storybook -p 6029",
+        "start-storybook": "start-storybook -c .storybook -p 6029",
+        "build-storybook": "build-storybook -c .storybook -o public"
+    },
+    "dependencies": {
+        "@genstackio/deep": "^0.1.1",
+        "@genstackio/clone": "^0.1.2",
+        "@genstackio/react-error-boundary": "^0.1.0",
+        "@genstackio/react-i18n": "^0.1.7",
+        "@genstackio/react-types": "^0.1.8",
+        "clsx": "^1.1.1"
+    },
+    "peerDependencies": {
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/preset-env": "^7.18.10",
+        "@babel/preset-react": "^7.18.6",
+        "@babel/preset-typescript": "^7.18.6",
+        "@storybook/addon-a11y": "^6.5.10",
+        "@storybook/addon-actions": "^6.5.10",
+        "@storybook/addon-docs": "^6.5.10",
+        "@storybook/addon-essentials": "^6.5.10",
+        "@storybook/addon-links": "^6.5.10",
+        "@storybook/addon-postcss": "^2.0.0",
+        "@storybook/addon-storysource": "^6.5.10",
+        "@storybook/addon-viewport": "^6.5.10",
+        "@storybook/preset-typescript": "^3.0.0",
+        "@storybook/react": "^6.5.10",
+        "@types/react": "^17.0.11",
+        "@types/react-dom": "^17.0.8",
+        "babel-loader": "^8.2.5",
+        "babel-plugin-react-require": "^3.1.3",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "source-map-loader": "^4.0.0",
+        "storybook-addon-themes": "^6.1.0"
+    }
+}
