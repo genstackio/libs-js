@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useCallback } from 'react';
 
 export function usePdfTranslation(): { i18n: any; t: Function; ready: boolean } {
-    const { type } = {type: undefined};
+    const { type } = { type: undefined };
     const { t, ...rest } = useTranslation();
     const enhancedT = useCallback(
         (key: string | string[], opts?: any) => {

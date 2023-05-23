@@ -62,7 +62,7 @@ export function useField(
 ) {
     const { t } = useTranslation();
     const customValidators = useValidatorsContext();
-    const { formState = {} }: {formState?: any} = useFormContext() || {};
+    const { formState = {} }: { formState?: any } = useFormContext() || {};
     const contextErrors = formState.errors || {};
     const finalValidators = useMemo(() => ({ ...baseValidators, ...customValidators }), [customValidators]);
     type = (type || 'text') as string;

@@ -29,15 +29,15 @@ function Provider({ locale = 'fr_FR', children }) {
     return (
         <TemplateContextProvider value={templateContextValue}>
             <CustomizationContextProvider value={customizationContextValue}>
-                    <ModuleLayoutsContextProvider value={moduleLayoutsProviderValue}>
-                        <ModuleAliasesContextProvider value={moduleAliasesProviderValue}>
-                            <ModuleGroupsContextProvider value={moduleGroupsProviderValue}>
-                                <TemplatesContextProvider value={templatesContextValue}>
-                                    <I18nProvider value={i18n}>{children}</I18nProvider>
-                                </TemplatesContextProvider>
-                            </ModuleGroupsContextProvider>
-                        </ModuleAliasesContextProvider>
-                    </ModuleLayoutsContextProvider>
+                <ModuleLayoutsContextProvider value={moduleLayoutsProviderValue}>
+                    <ModuleAliasesContextProvider value={moduleAliasesProviderValue}>
+                        <ModuleGroupsContextProvider value={moduleGroupsProviderValue}>
+                            <TemplatesContextProvider value={templatesContextValue}>
+                                <I18nProvider value={i18n}>{children}</I18nProvider>
+                            </TemplatesContextProvider>
+                        </ModuleGroupsContextProvider>
+                    </ModuleAliasesContextProvider>
+                </ModuleLayoutsContextProvider>
             </CustomizationContextProvider>
         </TemplateContextProvider>
     );

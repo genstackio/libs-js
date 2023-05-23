@@ -2,8 +2,7 @@ import translations from '../src/translations';
 
 const localeList = Object.keys(translations);
 
-export const defaults = {
-};
+export const defaults = {};
 
 export const args = {
     flag: { control: { type: 'boolean' } },
