@@ -36,7 +36,7 @@ export function SelectorField({
     wrapperComponent: WrapperComponent = DefaultWrapperComponent,
     component: Component = DefaultComponent,
     ...props
-}: ComponentFieldProps) {
+}: SelectorFieldProps) {
     const { className, required, defaultValue, name, error, disabled, options, control, label, helper, extra } =
         useField({ kind: 'component', ...props });
     const convert = useCallback((v: any) => (marshall ? marshall(v, props) : v), [marshall, props]);
@@ -91,7 +91,7 @@ export function SelectorField({
     );
 }
 
-export interface ComponentFieldProps extends AsTextField {
+export interface SelectorFieldProps extends AsTextField {
     component?: any;
     wrapperComponent?: any;
     wrapperClassName?: class_name;
