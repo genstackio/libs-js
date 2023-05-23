@@ -12,7 +12,22 @@ export function CodeEditorField({
     height = 500,
     ...props
 }: CodeEditorFieldProps) {
-    const { className, required, defaultValue, name, error, disabled, options, control, label, helper } = useField({
+    const {
+        className,
+        required,
+        defaultValue,
+        name,
+        error,
+        disabled,
+        options,
+        control,
+        label,
+        helper,
+        labelFormat,
+        labelClassName,
+        errorClassName,
+        helperClassName,
+    } = useField({
         kind: 'codeeditor',
         ...props,
     });
@@ -20,7 +35,18 @@ export function CodeEditorField({
         return convertValue(defaultValue);
     }, [defaultValue]);
     return (
-        <FieldSet error={error} label={label} helper={helper} name={name} options={options} className={className}>
+        <FieldSet
+            error={error}
+            label={label}
+            helper={helper}
+            name={name}
+            options={options}
+            className={className}
+            labelFormat={labelFormat}
+            labelClassName={labelClassName}
+            errorClassName={errorClassName}
+            helperClassName={helperClassName}
+        >
             <Controller
                 name={name}
                 control={control}

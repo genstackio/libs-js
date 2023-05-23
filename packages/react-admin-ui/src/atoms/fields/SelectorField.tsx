@@ -2,7 +2,7 @@ import { Controller } from 'react-hook-form';
 import useField from '../../hooks/useField';
 import FieldSet from '../FieldSet';
 import { AsTextField } from '../../as';
-import {forwardRef, useCallback} from 'react';
+import { forwardRef, useCallback } from 'react';
 import clsx from 'clsx';
 import stopPrevent from '../../utils/stopPrevent';
 import { class_name } from '../../types';
@@ -37,12 +37,38 @@ export function SelectorField({
     component: Component = DefaultComponent,
     ...props
 }: SelectorFieldProps) {
-    const { className, required, defaultValue, name, error, disabled, options, control, label, helper, extra } =
-        useField({ kind: 'component', ...props });
+    const {
+        className,
+        required,
+        defaultValue,
+        name,
+        error,
+        disabled,
+        options,
+        control,
+        label,
+        helper,
+        extra,
+        labelClassName,
+        labelFormat,
+        errorClassName,
+        helperClassName,
+    } = useField({ kind: 'component', ...props });
     const convert = useCallback((v: any) => (marshall ? marshall(v, props) : v), [marshall, props]);
     const unconvert = useCallback((v: any) => (unmarshall ? unmarshall(v, props) : v), [unmarshall, props]);
     return (
-        <FieldSet error={error} label={label} helper={helper} name={name} options={options} className={className}>
+        <FieldSet
+            error={error}
+            label={label}
+            helper={helper}
+            name={name}
+            options={options}
+            className={className}
+            labelFormat={labelFormat}
+            labelClassName={labelClassName}
+            errorClassName={errorClassName}
+            helperClassName={helperClassName}
+        >
             <Controller
                 name={name}
                 control={control}

@@ -5,10 +5,36 @@ import { AsTextField } from '../../as';
 import { WithRows } from '../../withs';
 
 export function TextareaField({ className, ...props }: TextareaFieldProps) {
-    const { name, required, label, error, helper, disabled, register, placeholder, options, extra } = useField(props);
+    const {
+        name,
+        required,
+        label,
+        error,
+        helper,
+        disabled,
+        register,
+        placeholder,
+        options,
+        labelClassName,
+        labelFormat,
+        errorClassName,
+        helperClassName,
+        extra,
+    } = useField(props);
 
     return (
-        <FieldSet error={error} helper={helper} label={label} name={name} options={options} className={className}>
+        <FieldSet
+            error={error}
+            helper={helper}
+            label={label}
+            name={name}
+            options={options}
+            className={className}
+            labelFormat={labelFormat}
+            labelClassName={labelClassName}
+            errorClassName={errorClassName}
+            helperClassName={helperClassName}
+        >
             <textarea
                 className={clsx(
                     'text-sm sm:text-base w-full border rounded placeholder-disabled ' +

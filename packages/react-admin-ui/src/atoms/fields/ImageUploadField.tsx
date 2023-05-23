@@ -33,6 +33,10 @@ export function ImageUploadField({ className, ...props }: ImageUploadFieldProps)
         required,
         register,
         classes,
+        labelClassName,
+        labelFormat,
+        errorClassName,
+        helperClassName,
     } = useField({ kind: 'image', ...props });
 
     const handleChange = useCallback(
@@ -44,7 +48,18 @@ export function ImageUploadField({ className, ...props }: ImageUploadFieldProps)
     );
 
     return (
-        <FieldSet error={error} helper={helper} label={label} name={name} options={options} className={className}>
+        <FieldSet
+            error={error}
+            helper={helper}
+            label={label}
+            name={name}
+            options={options}
+            className={className}
+            labelFormat={labelFormat}
+            labelClassName={labelClassName}
+            errorClassName={errorClassName}
+            helperClassName={helperClassName}
+        >
             <Controller
                 control={control}
                 defaultValue={defaultValue}

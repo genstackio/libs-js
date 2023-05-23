@@ -18,12 +18,27 @@ export function ComponentField({ marshall, unmarshall, component: Component, ...
         control,
         label,
         helper,
+        labelClassName,
+        labelFormat,
+        errorClassName,
+        helperClassName,
         extra,
     } = useField({ kind: 'component', ...props });
     const convert = useCallback((v: any) => (marshall ? marshall(v, props) : v), [marshall, props]);
     const unconvert = useCallback((v: any) => (unmarshall ? unmarshall(v, props) : v), [unmarshall, props]);
     return (
-        <FieldSet error={error} label={label} helper={helper} name={name} options={options} className={className}>
+        <FieldSet
+            error={error}
+            label={label}
+            helper={helper}
+            name={name}
+            options={options}
+            className={className}
+            labelFormat={labelFormat}
+            labelClassName={labelClassName}
+            errorClassName={errorClassName}
+            helperClassName={helperClassName}
+        >
             <Controller
                 name={name}
                 control={control}

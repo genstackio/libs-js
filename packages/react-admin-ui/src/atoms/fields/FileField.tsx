@@ -54,6 +54,10 @@ export function FileField({ className, ...props }: FileFieldProps) {
         required,
         register,
         classes,
+        labelFormat,
+        labelClassName,
+        errorClassName,
+        helperClassName,
     } = useField({ kind: 'image', ...props });
 
     const handleChange = useCallback(
@@ -68,7 +72,18 @@ export function FileField({ className, ...props }: FileFieldProps) {
     const Comp = fileTypeComponents[fileType || ''];
 
     return (
-        <FieldSet error={error} helper={helper} label={label} name={name} options={options} className={className}>
+        <FieldSet
+            error={error}
+            helper={helper}
+            label={label}
+            name={name}
+            options={options}
+            className={className}
+            labelFormat={labelFormat}
+            labelClassName={labelClassName}
+            errorClassName={errorClassName}
+            helperClassName={helperClassName}
+        >
             <Controller
                 control={control}
                 defaultValue={defaultValue}

@@ -41,6 +41,10 @@ export function CheckboxField({ className, onChange, ...props }: CheckboxFieldPr
         register,
         options,
         defaultValue = false,
+        labelClassName,
+        labelFormat,
+        errorClassName,
+        helperClassName,
         extra,
         classes,
     } = useField(props, { kind: 'checkbox' });
@@ -54,6 +58,10 @@ export function CheckboxField({ className, onChange, ...props }: CheckboxFieldPr
             options={options}
             className={className}
             classes={classes}
+            labelFormat={labelFormat}
+            labelClassName={labelClassName}
+            errorClassName={errorClassName}
+            helperClassName={helperClassName}
         >
             <Row center responsive={false} className={classes?.container}>
                 <Checkbox

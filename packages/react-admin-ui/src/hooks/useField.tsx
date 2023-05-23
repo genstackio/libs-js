@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import clsx from 'clsx';
-import { icon, register, control, rich_text } from '../types';
+import { icon, register, control, rich_text, flag, class_name } from '../types';
 import { useTranslation } from 'react-i18next';
 import Icon from '../atoms/Icon';
 import { WithAny, WithDefaultValues, WithLabel, WithOptions } from '../withs';
@@ -38,6 +38,10 @@ export function useField(
         defaultValues = undefined,
         options = undefined,
         label,
+        labelFormat,
+        labelClassName,
+        helperClassName,
+        errorClassName,
         /* eslint @typescript-eslint/no-empty-function: 0 */
         register = (name: string, options: any) => {},
         control,
@@ -54,6 +58,9 @@ export function useField(
         minLength,
         max,
         min,
+        nohelper,
+        nolabel,
+        noplaceholder,
         pattern,
         validators = defaultValidators,
         ...extra
@@ -85,17 +92,23 @@ export function useField(
         }),
         [options, required],
     );
-    label = label
+    label = noplaceholder
+        ? undefined
+        : label
         ? 'string' === typeof label
             ? t(label)
             : label
         : t([...i18nKeys.map((x) => `field_${x}_label`), '']);
-    helper = helper
+    helper = nohelper
+        ? undefined
+        : helper
         ? 'string' === typeof helper
             ? t(helper)
             : helper
         : t([...i18nKeys.map((x) => `field_${x}_helper`), '']);
-    placeholder = placeholder
+    placeholder = noplaceholder
+        ? undefined
+        : placeholder
         ? 'string' === typeof placeholder
             ? t(placeholder)
             : placeholder
@@ -179,6 +192,10 @@ export function useField(
         className?: string;
         name: string;
         label?: any;
+        labelFormat?: any;
+        labelClassName?: class_name;
+        errorClassName?: class_name;
+        helperClassName?: class_name;
         placeholder?: any;
         error: any;
         required?: boolean;
@@ -204,6 +221,10 @@ export function useField(
             name: name!,
             label,
             placeholder,
+            labelClassName,
+            labelFormat,
+            errorClassName,
+            helperClassName,
             error,
             required,
             helper,
@@ -266,6 +287,10 @@ export function useField(
             appendIcon,
             classes,
             inputProps,
+            labelClassName,
+            labelFormat,
+            errorClassName,
+            helperClassName,
         ],
     );
 }
@@ -308,6 +333,9 @@ function buildValidatorFunction(v: any, _: any, allValidators: any) {
     };
 }
 export interface field_def_params extends WithLabel, WithAny, WithOptions, WithDefaultValues {
+    nolabel?: flag;
+    nohelper?: flag;
+    noplaceholder?: flag;
     name?: string;
     subName?: string;
     type?: string;
@@ -325,6 +353,10 @@ export interface field_def_params extends WithLabel, WithAny, WithOptions, WithD
     control?: control;
     field?: boolean;
     classes?: any;
+    labelClassName?: class_name;
+    errorClassName?: class_name;
+    helperClassName?: class_name;
+    labelFormat?: any;
     valueAs?: 'string' | 'number' | 'date' | 'boolean' | ((value: any) => any);
     convertValue?: Function;
     deps?: string | string[];

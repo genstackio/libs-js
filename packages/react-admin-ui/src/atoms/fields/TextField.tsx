@@ -29,6 +29,10 @@ export function TextField({ inline, ...props }: TextFieldProps) {
         classes,
         inputProps,
         fieldsetProps,
+        labelClassName,
+        labelFormat,
+        errorClassName,
+        helperClassName,
     } = useField(props);
 
     const ctx = useMemo(() => ({ variant, prepend: !!prepend, append: !!append }), [variant, prepend, append]);
@@ -59,6 +63,10 @@ export function TextField({ inline, ...props }: TextFieldProps) {
         className,
         classes,
         inline,
+        labelClassName,
+        labelFormat,
+        errorClassName,
+        helperClassName,
     };
     inputProps && (finalInputProps = inputProps(finalInputProps));
     fieldsetProps && (finalFieldsetProps = fieldsetProps(finalFieldsetProps));

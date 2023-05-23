@@ -17,8 +17,22 @@ export function SelectField({
     sort = false,
     ...props
 }: SelectFieldProps) {
-    const { name, label, error, helper, disabled, placeholder, options, defaultValue, extra, control } =
-        useField(props);
+    const {
+        name,
+        label,
+        error,
+        helper,
+        disabled,
+        placeholder,
+        options,
+        defaultValue,
+        extra,
+        control,
+        labelClassName,
+        labelFormat,
+        errorClassName,
+        helperClassName,
+    } = useField(props);
 
     const { t } = useTranslation();
     const handleChange = useCallback(
@@ -53,7 +67,18 @@ export function SelectField({
     }, [values, t, sort]);
 
     return (
-        <FieldSet error={error} helper={helper} label={label} name={name} options={options} className={className}>
+        <FieldSet
+            error={error}
+            helper={helper}
+            label={label}
+            name={name}
+            options={options}
+            className={className}
+            labelFormat={labelFormat}
+            labelClassName={labelClassName}
+            errorClassName={errorClassName}
+            helperClassName={helperClassName}
+        >
             <Controller
                 control={control}
                 defaultValue={defaultValue}

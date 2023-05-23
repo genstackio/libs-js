@@ -3,14 +3,32 @@ import { flag } from '../types';
 import { AsComponent } from '../as';
 import { WithName, WithLabel, WithOptions } from '../withs';
 
-export function FieldLabel({ className, error, label, name, options = {} }: FieldLabelProps) {
+const stylings: any = {
+    defaults: { format: 'capitalize' },
+    formats: {
+        capital: 'capitalize',
+        normal: '',
+        uppercase: 'uppercase',
+        lowercase: 'lowercase',
+    },
+};
+
+export function FieldLabel({
+    className,
+    error,
+    label,
+    name,
+    format = stylings.defaults.format,
+    options = {},
+}: FieldLabelProps) {
     if (!label) return null;
 
     return (
         <label
             htmlFor={name}
             className={clsx(
-                'mb-1 text-xs sm:text-sm tracking-wide text-dark capitalize',
+                'mb-1 text-xs sm:text-sm tracking-wide text-dark',
+                stylings.formats[format || stylings.defaults.format],
                 options.required && 'font-bold',
                 error && 'text-danger',
                 className,
@@ -24,6 +42,7 @@ export function FieldLabel({ className, error, label, name, options = {} }: Fiel
 
 export interface FieldLabelProps extends AsComponent, Required<WithName>, WithLabel, WithOptions {
     error?: flag;
+    format?: 'normal' | 'capital' | 'uppercase' | 'lowercase';
 }
 
 // noinspection JSUnusedGlobalSymbols
