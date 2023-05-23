@@ -28,6 +28,7 @@ import {
     WithDeps,
     WithConvertValue,
 } from './withs';
+import {class_name, flag} from "./types";
 
 export type AsComponent = WithClassName;
 
@@ -59,6 +60,14 @@ export interface AsField
     subName?: string;
     inputProps?: Function;
     fieldsetProps?: Function;
+    labelFormat?: any;
+    labelClassName?: class_name;
+    errorClassName?: class_name;
+    helperClassName?: class_name;
+    nolabel?: flag;
+    nohelper?: flag;
+    noplaceholder?: flag;
+
 }
 
 export interface AsFlagField extends AsField, WithDefaultValueAsBoolean {}
