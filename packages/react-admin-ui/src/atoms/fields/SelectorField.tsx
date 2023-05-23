@@ -2,12 +2,12 @@ import { Controller } from 'react-hook-form';
 import useField from '../../hooks/useField';
 import FieldSet from '../FieldSet';
 import { AsTextField } from '../../as';
-import { useCallback } from 'react';
+import {forwardRef, useCallback} from 'react';
 import clsx from 'clsx';
 import stopPrevent from '../../utils/stopPrevent';
 import { class_name } from '../../types';
 
-const DefaultWrapperComponent = React.forwardRef<any>(({ className, children }: any, ref) => {
+const DefaultWrapperComponent = forwardRef<any>(({ className, children }: any, ref) => {
     return (
         <div className={clsx(className || 'flex flex-col space-y-4')} ref={ref}>
             {children}
