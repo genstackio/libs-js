@@ -12,11 +12,18 @@ const defaultErrors = {};
 const defaultOptions = {};
 
 export function useForm(
-    { defaultValues = defaultDefaultValues, submitting = false, errors = defaultErrors, color = 'primary', ...props },
+    {
+        defaultValues = defaultDefaultValues,
+        submitting = false,
+        errors = defaultErrors,
+        color = 'primary',
+        mode = undefined,
+        ...props
+    },
     name: string | undefined = undefined,
     { nested = false }: { nested?: boolean } = defaultOptions,
 ) {
-    const rhf = useRhfForm({ defaultValues });
+    const rhf = useRhfForm({ defaultValues, ...(mode ? { mode } : {}) });
     const { t } = useTranslation();
     const { register, control, formState } = rhf;
 

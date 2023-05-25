@@ -30,6 +30,8 @@ export function TextField({ inline, ...props }: TextFieldProps) {
         inputProps,
         fieldsetProps,
         labelClassName,
+        center,
+        rounded,
         labelFormat,
         errorClassName,
         helperClassName,
@@ -43,6 +45,8 @@ export function TextField({ inline, ...props }: TextFieldProps) {
             fieldVariantClass({ ...ctx, type: 'input' }),
             error && 'border border-danger focus:border-danger ring-red-300',
             classes?.input,
+            center && 'text-center',
+            rounded && 'rounded',
         ),
         defaultValue,
         disabled,
@@ -67,6 +71,7 @@ export function TextField({ inline, ...props }: TextFieldProps) {
         labelFormat,
         errorClassName,
         helperClassName,
+        center,
     };
     inputProps && (finalInputProps = inputProps(finalInputProps));
     fieldsetProps && (finalFieldsetProps = fieldsetProps(finalFieldsetProps));
@@ -81,6 +86,7 @@ export function TextField({ inline, ...props }: TextFieldProps) {
                     fieldVariantClass({ ...ctx, type: 'container' }),
                     error && 'border-danger ring-red-300',
                     classes?.container,
+                    rounded && 'rounded',
                 )}
             >
                 {prepend && (

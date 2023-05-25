@@ -53,6 +53,8 @@ export function SelectorField({
         labelFormat,
         errorClassName,
         helperClassName,
+        center,
+        rounded,
     } = useField({ kind: 'component', ...props });
     const convert = useCallback((v: any) => (marshall ? marshall(v, props) : v), [marshall, props]);
     const unconvert = useCallback((v: any) => (unmarshall ? unmarshall(v, props) : v), [unmarshall, props]);
@@ -68,6 +70,8 @@ export function SelectorField({
             labelClassName={labelClassName}
             errorClassName={errorClassName}
             helperClassName={helperClassName}
+            center={center}
+            rounded={rounded}
         >
             <Controller
                 name={name}
@@ -97,6 +101,8 @@ export function SelectorField({
                             name={name}
                             kind={props.kind}
                             disabled={disabled}
+                            center={center}
+                            rounded={rounded}
                             {...extra}
                         >
                             {(values || []).map((item: any, i: number) => (
@@ -107,6 +113,8 @@ export function SelectorField({
                                     selected={undefined !== v?.value && item?.value === v?.value}
                                     onToggle={createOnToggle(item)}
                                     onClick={createOnClick(item)}
+                                    center={center}
+                                    rounded={rounded}
                                 />
                             ))}
                         </WrapperComponent>

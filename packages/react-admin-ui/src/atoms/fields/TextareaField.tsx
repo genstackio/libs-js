@@ -19,6 +19,8 @@ export function TextareaField({ className, ...props }: TextareaFieldProps) {
         labelFormat,
         errorClassName,
         helperClassName,
+        center,
+        rounded,
         extra,
     } = useField(props);
 
@@ -34,6 +36,8 @@ export function TextareaField({ className, ...props }: TextareaFieldProps) {
             labelClassName={labelClassName}
             errorClassName={errorClassName}
             helperClassName={helperClassName}
+            center={center}
+            rounded={rounded}
         >
             <textarea
                 className={clsx(

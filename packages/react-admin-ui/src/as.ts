@@ -27,6 +27,7 @@ import {
     WithValueAs,
     WithDeps,
     WithConvertValue,
+    WithCenter,
 } from './withs';
 import { class_name, flag } from './types';
 
@@ -56,6 +57,7 @@ export interface AsField
         WithValueAs,
         WithConvertValue,
         WithDeps,
+        WithCenter,
         WithKind {
     subName?: string;
     inputProps?: Function;

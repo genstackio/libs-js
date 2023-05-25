@@ -27,6 +27,8 @@ export function CodeEditorField({
         labelClassName,
         errorClassName,
         helperClassName,
+        center,
+        rounded,
     } = useField({
         kind: 'codeeditor',
         ...props,
@@ -46,6 +48,8 @@ export function CodeEditorField({
             labelClassName={labelClassName}
             errorClassName={errorClassName}
             helperClassName={helperClassName}
+            center={center}
+            rounded={rounded}
         >
             <Controller
                 name={name}

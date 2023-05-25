@@ -1,9 +1,10 @@
 import clsx from 'clsx';
 import Div from './Div';
 import { AsComponent } from '../as';
-import { WithHelper } from '../withs';
+import { WithCenter, WithHelper } from '../withs';
+import { flag } from '../types';
 
-export function FieldHelper({ className, helper }: FieldHelperProps) {
+export function FieldHelper({ className, helper, center }: FieldHelperProps) {
     if (!helper) return null;
 
     return (
@@ -13,14 +14,16 @@ export function FieldHelper({ className, helper }: FieldHelperProps) {
             ml={'xs'}
             mt={'xs'}
             vcenter
-            className={clsx('font-medium tracking-wide text-xs text-disabled', className)}
+            className={clsx('font-medium tracking-wide text-xs text-disabled', className, center && 'items-center')}
         >
             {helper}
         </Div>
     );
 }
 
-export interface FieldHelperProps extends AsComponent, WithHelper {}
+export interface FieldHelperProps extends AsComponent, WithHelper, WithCenter {
+    rounded?: flag;
+}
 
 // noinspection JSUnusedGlobalSymbols
 export default FieldHelper;

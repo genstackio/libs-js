@@ -42,6 +42,8 @@ export function useField(
         labelClassName,
         helperClassName,
         errorClassName,
+        center,
+        rounded,
         /* eslint @typescript-eslint/no-empty-function: 0 */
         register = (name: string, options: any) => {},
         control,
@@ -214,6 +216,8 @@ export function useField(
         classes?: any;
         inputProps?: Function;
         fieldsetProps?: Function;
+        center?: flag;
+        rounded?: flag;
     }>(
         () => ({
             control,
@@ -225,6 +229,8 @@ export function useField(
             labelFormat,
             errorClassName,
             helperClassName,
+            center,
+            rounded,
             error,
             required,
             helper,
@@ -291,6 +297,8 @@ export function useField(
             labelFormat,
             errorClassName,
             helperClassName,
+            center,
+            rounded,
         ],
     );
 }
@@ -333,6 +341,8 @@ function buildValidatorFunction(v: any, _: any, allValidators: any) {
     };
 }
 export interface field_def_params extends WithLabel, WithAny, WithOptions, WithDefaultValues {
+    center?: flag;
+    rounded?: flag;
     nolabel?: flag;
     nohelper?: flag;
     noplaceholder?: flag;

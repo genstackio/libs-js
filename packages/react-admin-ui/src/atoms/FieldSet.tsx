@@ -3,9 +3,9 @@ import FieldLabel from './FieldLabel';
 import FieldError from './FieldError';
 import Div from './Div';
 import { AsWrapper } from '../as';
-import { WithClasses, WithError, WithHelper, WithLabel, WithName, WithOptions } from '../withs';
+import { WithCenter, WithClasses, WithError, WithHelper, WithLabel, WithName, WithOptions } from '../withs';
 import clsx from 'clsx';
-import { class_name } from '../types';
+import { class_name, flag } from '../types';
 
 export function FieldSet({
     children,
@@ -17,6 +17,8 @@ export function FieldSet({
     label,
     labelFormat,
     labelClassName,
+    center,
+    rounded,
     name,
     options,
     classes,
@@ -33,7 +35,12 @@ export function FieldSet({
                             format={labelFormat}
                             name={name}
                             options={options}
-                            className={clsx(classes?.label, 'flex-1', labelClassName)}
+                            className={clsx(
+                                classes?.label,
+                                'flex-1',
+                                labelClassName,
+                                center && 'inline-block w-full text-center',
+                            )}
                         />
                     </Div>
                 )}
@@ -44,13 +51,27 @@ export function FieldSet({
                             format={labelFormat}
                             name={name}
                             options={options}
-                            className={clsx(classes?.label, labelClassName)}
+                            className={clsx(
+                                classes?.label,
+                                labelClassName,
+                                center && 'inline-block w-full text-center',
+                            )}
                         />
                         <Div>{children}</Div>
                     </>
                 )}
-                <FieldError error={error} className={clsx(classes?.error, errorClassName)} />
-                <FieldHelper helper={helper} className={clsx(classes?.helper, helperClassName)} />
+                <FieldError
+                    error={error}
+                    className={clsx(classes?.error, errorClassName)}
+                    rounded={rounded}
+                    center={center}
+                />
+                <FieldHelper
+                    helper={helper}
+                    className={clsx(classes?.helper, helperClassName)}
+                    rounded={rounded}
+                    center={center}
+                />
             </Div>
         </Div>
     );
@@ -63,12 +84,14 @@ export interface FieldSetProps
         WithHelper,
         WithError,
         WithOptions,
+        WithCenter,
         WithClasses {
     inline?: boolean;
     labelFormat?: 'normal' | 'capital' | 'uppercase' | 'lowercase';
     labelClassName?: class_name;
     errorClassName?: class_name;
     helperClassName?: class_name;
+    rounded?: flag;
 }
 
 // noinspection JSUnusedGlobalSymbols

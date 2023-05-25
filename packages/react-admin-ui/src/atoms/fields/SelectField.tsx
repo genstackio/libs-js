@@ -32,6 +32,8 @@ export function SelectField({
         labelFormat,
         errorClassName,
         helperClassName,
+        center,
+        rounded,
     } = useField(props);
 
     const { t } = useTranslation();
@@ -78,6 +80,8 @@ export function SelectField({
             labelClassName={labelClassName}
             errorClassName={errorClassName}
             helperClassName={helperClassName}
+            center={center}
+            rounded={rounded}
         >
             <Controller
                 control={control}

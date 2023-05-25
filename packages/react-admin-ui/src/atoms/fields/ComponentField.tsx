@@ -22,7 +22,9 @@ export function ComponentField({ marshall, unmarshall, component: Component, ...
         labelFormat,
         errorClassName,
         helperClassName,
+        center,
         extra,
+        rounded,
     } = useField({ kind: 'component', ...props });
     const convert = useCallback((v: any) => (marshall ? marshall(v, props) : v), [marshall, props]);
     const unconvert = useCallback((v: any) => (unmarshall ? unmarshall(v, props) : v), [unmarshall, props]);
@@ -38,6 +40,8 @@ export function ComponentField({ marshall, unmarshall, component: Component, ...
             labelClassName={labelClassName}
             errorClassName={errorClassName}
             helperClassName={helperClassName}
+            center={center}
+            rounded={rounded}
         >
             <Controller
                 name={name}
@@ -60,6 +64,8 @@ export function ComponentField({ marshall, unmarshall, component: Component, ...
                             className={clsx('w-full border p-2', className)}
                             classes={classes}
                             disabled={disabled}
+                            center={center}
+                            rounded={rounded}
                             {...extra}
                             value={v}
                             onChange={handleOnChange}
