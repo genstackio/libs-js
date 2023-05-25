@@ -6,6 +6,7 @@ import useField from '../../hooks/useField';
 import { AsChoiceField } from '../../as';
 import { useTranslation } from 'react-i18next';
 import { select_item } from '../../types';
+import findValue from '../../utils/findValue';
 
 const defaultValues = [];
 
@@ -111,37 +112,6 @@ export function SelectField({
     );
 }
 
-function findValue(finalValues, value, defaultValue, multiple = false) {
-    if (multiple) {
-        if (!value || !Array.isArray(value) || !value.length) return [];
-        return finalValues.reduce((acc, c) => {
-            if (c?.options?.length) {
-                return c.options.reduce((acc2, cc) => {
-                    if (value.includes(cc.value)) acc2.push(cc);
-                    return acc2;
-                }, acc);
-            }
-            if (value.includes(c.value)) {
-                acc.push(c);
-            }
-            return acc;
-        }, []);
-    }
-    const zz = undefined !== value && '' !== value ? value : defaultValue;
-    const xx = finalValues.reduce((acc, c) => {
-        if (c?.options?.length) {
-            return c.options.reduce((acc2, cc) => {
-                if (zz === cc.value) acc2.push(cc);
-                return acc2;
-            }, acc);
-        }
-        if (zz === c.value) {
-            acc.push(c);
-        }
-        return acc;
-    }, []);
-    return xx?.length ? xx[0] : undefined;
-}
 export interface SelectFieldProps extends AsChoiceField {
     multiple?: boolean;
     sort?: boolean;

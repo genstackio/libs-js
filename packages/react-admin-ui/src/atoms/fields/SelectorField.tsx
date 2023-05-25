@@ -6,6 +6,7 @@ import { forwardRef, useCallback } from 'react';
 import clsx from 'clsx';
 import stopPrevent from '../../utils/stopPrevent';
 import { class_name } from '../../types';
+import findValue from '../../utils/findValue';
 
 const DefaultWrapperComponent = forwardRef<any>(({ className, children }: any, ref) => {
     return (
@@ -35,6 +36,7 @@ export function SelectorField({
     unmarshall,
     wrapperComponent: WrapperComponent = DefaultWrapperComponent,
     component: Component = DefaultComponent,
+    multiple,
     ...props
 }: SelectorFieldProps) {
     const {
@@ -80,10 +82,22 @@ export function SelectorField({
                 rules={{ required }}
                 render={({ field }: any) => {
                     const rawValue = (field || {}).value;
-                    const v = convert(undefined !== rawValue ? values.find((x) => x.value === rawValue) : undefined);
+                    const v = convert(
+                        undefined !== rawValue ? findValue(values, rawValue, defaultValue, multiple) : undefined,
+                    );
                     const handleOnChange = disabled
                         ? undefined
                         : (e: any) => {
+                              if (multiple) {
+                                  const vv = e.value;
+                                  let rv = rawValue || [];
+                                  if (rv.find((x) => x === vv)) {
+                                      rv = rv.filter((x) => x !== vv);
+                                  } else {
+                                      rv = [...rv, vv];
+                                  }
+                                  return field.onChange({ target: unconvert({ value: rv }) });
+                              }
                               return field.onChange({ target: unconvert(e ? e : { value: undefined }) });
                           };
                     const createOnToggle = (item: any) => () => {
@@ -110,7 +124,11 @@ export function SelectorField({
                                     key={item?.value || i}
                                     {...item}
                                     className={itemClassName}
-                                    selected={undefined !== v?.value && item?.value === v?.value}
+                                    selected={
+                                        (undefined !== v?.value || multiple) && multiple
+                                            ? (v || []).filter((x) => x?.value === item?.value)?.length > 0
+                                            : item?.value === v?.value
+                                    }
                                     onToggle={createOnToggle(item)}
                                     onClick={createOnClick(item)}
                                     center={center}
@@ -133,6 +151,7 @@ export interface SelectorFieldProps extends AsTextField {
     marshall?: Function;
     unmarshall?: Function;
     values?: any[];
+    multiple?: boolean;
 }
 
 // noinspection JSUnusedGlobalSymbols
