@@ -36,6 +36,7 @@ export function SelectorField({
     unmarshall,
     wrapperComponent: WrapperComponent = DefaultWrapperComponent,
     component: Component = DefaultComponent,
+    itemProps,
     multiple,
     ...props
 }: SelectorFieldProps) {
@@ -122,6 +123,7 @@ export function SelectorField({
                             {(values || []).map((item: any, i: number) => (
                                 <Component
                                     key={item?.value || i}
+                                    {...(itemProps || {})}
                                     {...item}
                                     className={itemClassName}
                                     selected={
@@ -148,6 +150,7 @@ export interface SelectorFieldProps extends AsTextField {
     wrapperComponent?: any;
     wrapperClassName?: class_name;
     itemClassName?: class_name;
+    itemProps?: Record<string, any>;
     marshall?: Function;
     unmarshall?: Function;
     values?: any[];
