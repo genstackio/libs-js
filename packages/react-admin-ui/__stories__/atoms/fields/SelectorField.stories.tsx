@@ -94,3 +94,19 @@ export const withImages = s(Template, {
         { value: 'https://statics.gotombola.co/tenants/gotombola/images/patterns/png/wet_snow.png', label: 'Wet Snow' },
     ],
 });
+
+export const withMultiple = s(Template, {
+    values: [
+        { value: 1, label: 'First value' },
+        {
+            value: 2,
+            label: (
+                <p>
+                    Second <b>value</b>
+                </p>
+            ),
+        },
+        { value: 3, label: 'Third value' },
+    ],
+    multiple: true,
+});
