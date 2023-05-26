@@ -32,7 +32,7 @@ export function Route({
     const Component = useComponent('screen', screenName, component, !!screenName);
     const render = useCallback(
         (props: any) => {
-            if (redirect) return <Redirect to={props.redirect} />;
+            if (redirect) return <Redirect to={redirect} />;
 
             return (
                 // pass the sub-routes down to keep nesting
