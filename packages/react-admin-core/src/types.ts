@@ -9,6 +9,7 @@ export type route = {
     component?: any;
     requiredRoles?: string[];
     loadingComponent?: any;
+    redirect?: string;
 };
 
 export type user_context_value = { user: undefined | { id: string; email: string }; setUser: Function };

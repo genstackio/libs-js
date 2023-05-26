@@ -20,6 +20,7 @@ export function Route({
     screenProps = undefined,
     requiredRoles = undefined,
     loadingComponent = undefined,
+    redirect = undefined,
 }: route) {
     if (secured) {
         if (!user) {
@@ -31,7 +32,7 @@ export function Route({
     const Component = useComponent('screen', screenName, component, !!screenName);
     const render = useCallback(
         (props: any) => {
-            if (props.redirect) return <Redirect to={props.redirect} />;
+            if (redirect) return <Redirect to={props.redirect} />;
 
             return (
                 // pass the sub-routes down to keep nesting
