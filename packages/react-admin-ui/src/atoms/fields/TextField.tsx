@@ -40,7 +40,7 @@ export function TextField({ inline, ...props }: TextFieldProps) {
     const ctx = useMemo(() => ({ variant, prepend: !!prepend, append: !!append }), [variant, prepend, append]);
     let finalInputProps = {
         className: clsx(
-            'z-20 text-sm sm:text-base w-full placeholder-disabled focus:bg-clear ' +
+            'z-20 text-base w-full placeholder-disabled focus:bg-clear ' +
                 'focus:border-indigo-400 focus:outline-none py-2 pr-2 pl-2 focus:ring-4',
             fieldVariantClass({ ...ctx, type: 'input' }),
             error && 'border border-danger focus:border-danger ring-red-300',
@@ -82,7 +82,7 @@ export function TextField({ inline, ...props }: TextFieldProps) {
                 flex
                 full
                 className={clsx(
-                    'text-sm sm:text-base',
+                    'text-base',
                     fieldVariantClass({ ...ctx, type: 'container' }),
                     error && 'border-danger ring-red-300',
                     classes?.container,

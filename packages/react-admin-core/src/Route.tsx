@@ -1,4 +1,4 @@
-import {Redirect, Route as BaseRoute} from 'react-router-dom';
+import { Redirect, Route as BaseRoute } from 'react-router-dom';
 import { route } from './types';
 import { useCallback } from 'react';
 import Routes from './Routes';

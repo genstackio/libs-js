@@ -32,7 +32,7 @@ export function FieldLabel({
         <label
             htmlFor={name}
             className={clsx(
-                'mb-1 text-xs sm:text-sm tracking-wide text-dark',
+                'mb-1 text-sm tracking-wide text-dark',
                 stylings.formats[format || stylings.defaults.format],
                 options.required && 'font-bold',
                 error && 'text-danger',
