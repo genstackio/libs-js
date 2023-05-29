@@ -47,12 +47,18 @@ function createPreset(): preset {
     function pclasses(key: string, keys: string[] | undefined = undefined) {
         return function (params: clsxm_params) {
             const { disablable = false, hoverable = false, disabled = false, ...attributes } = params;
-            const { common = {}, nonDisabled = {}, hoverable: hoverableStyles = {} } = ({} = get(key).styles);
+            const {
+                common = {},
+                nonDisabled = {},
+                hoverable: hoverableStyles = {},
+                disabled: disabledStyles = {},
+            } = ({} = get(key).styles);
             const k = buildStyleKey(attributes, keys || ['variant', 'color']);
             return clsx(
                 p.overrides[`${key}.styles.common.${k}`] || common[k],
                 disablable && !disabled && (p.overrides[`${key}.styles.nonDisabled.${k}`] || nonDisabled[k]),
                 hoverable && !disabled && (p.overrides[`${key}.styles.hoverable.${k}`] || hoverableStyles[k]),
+                disablable && disabled && (p.overrides[`${key}.styles.disabled.${k}`] || disabledStyles[k]),
             );
         };
     }

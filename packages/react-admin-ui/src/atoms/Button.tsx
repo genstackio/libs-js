@@ -80,7 +80,7 @@ export function Button({
                 buttonClass({ size, color, variant, disabled }),
                 cornerClass(corner),
                 'py-2 px-4 inline-flex items-center box-border',
-                disabled && 'opacity-50 cursor-not-allowed',
+                disabled && 'cursor-not-allowed',
                 'justify-center',
                 className,
             )}

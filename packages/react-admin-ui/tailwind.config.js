@@ -165,7 +165,9 @@ module.exports = {
     },
     variants: {
         animation: ['responsive', 'hover', 'focus'],
-        extend: {},
+        extend: {
+            backgroundColor: ['disabled'],
+        },
     },
     plugins: [],
 };
