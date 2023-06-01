@@ -32,3 +32,11 @@ export type list_ctx = {
     user: any;
     history: any;
 };
+
+export type uploader_builder_options = {
+    configure?: Function;
+    loadIdentity?: Function;
+    init?: Function;
+    clean?: Function;
+    fetch?: Function;
+};
