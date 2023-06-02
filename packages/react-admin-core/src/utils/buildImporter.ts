@@ -43,9 +43,9 @@ export function buildImporter(importer?: importer_context_params, importers?: im
             if (x2) return x2(y);
             return undefined;
         };
-    } else if (!importers) {
-        return importer;
     }
+    if (!importers) return importer;
+
     return (name: string, key: string) => {
         const y = { name, path: pathize(name) };
         const zz = (importers as any)[key] || [undefined, []];

@@ -11,6 +11,7 @@ import { action } from '@storybook/addon-actions';
 import * as mocks from './mocks';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import { FullscreenProvider } from '@genstackio/react-contexts/lib/contexts/FullscreenContext';
+import { ImporterProvider } from '@genstackio/react-contexts/lib/contexts/ImporterContext';
 import themes from './configs/themes';
 import { IconsProvider } from '@genstackio/react-contexts/lib/IconsProvider';
 import icons from './configs/icons';
@@ -18,6 +19,7 @@ import { DarkModeProvider } from '@genstackio/react-contexts/lib/contexts/DarkMo
 import preset from '@genstackio/react-admin-ui/lib/preset';
 import { AmbianceProvider } from '@genstackio/react-contexts/lib/contexts/AmbianceContext';
 import { ambiance_context_value } from '@genstackio/react-contexts/lib/types';
+import buildImporter from '@genstackio/react-admin-core/lib/utils/buildImporter';
 
 const translationNames = Object.keys(translations);
 translationNames.sort();
@@ -72,23 +74,27 @@ function Provider(args) {
 
     const ambiance: ambiance_context_value = useMemo(() => ({}), []);
 
+    const importerProviderValue = useMemo(() => buildImporter(), []);
+
     return (
         <FullScreen handle={handle}>
-            <FullscreenProvider value={handle}>
-                <ApiProvider value={apiProviderValue}>
-                    <LocalesProvider value={locales}>
-                        <StylesProvider injectFirst>
-                            <AmbianceProvider value={ambiance}>
-                                <I18nextProvider i18n={i18n}>
-                                    <IconsProvider value={iconsProviderValue}>
-                                        <DarkModeProvider value={darkModeValue}>{args.children}</DarkModeProvider>
-                                    </IconsProvider>
-                                </I18nextProvider>
-                            </AmbianceProvider>
-                        </StylesProvider>
-                    </LocalesProvider>
-                </ApiProvider>
-            </FullscreenProvider>
+            <ImporterProvider value={importerProviderValue}>
+                <FullscreenProvider value={handle}>
+                    <ApiProvider value={apiProviderValue}>
+                        <LocalesProvider value={locales}>
+                            <StylesProvider injectFirst>
+                                <AmbianceProvider value={ambiance}>
+                                    <I18nextProvider i18n={i18n}>
+                                        <IconsProvider value={iconsProviderValue}>
+                                            <DarkModeProvider value={darkModeValue}>{args.children}</DarkModeProvider>
+                                        </IconsProvider>
+                                    </I18nextProvider>
+                                </AmbianceProvider>
+                            </StylesProvider>
+                        </LocalesProvider>
+                    </ApiProvider>
+                </FullscreenProvider>
+            </ImporterProvider>
         </FullScreen>
     );
 }
