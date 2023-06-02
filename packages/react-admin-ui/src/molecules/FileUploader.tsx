@@ -1,4 +1,6 @@
-import { useCallback } from 'react';
+// noinspection JSUnusedLocalSymbols
+
+import {forwardRef, useCallback} from 'react';
 import Dropzone from 'react-dropzone-uploader/dist/react-dropzone-uploader';
 import Column from '../atoms/Column';
 import { rich_text } from '../types';
@@ -13,7 +15,7 @@ const defaultStyles = {
     },
 };
 
-export function FileUploader({
+export const FileUploader = forwardRef(({
     styles = defaultStyles,
     className,
     nonEmptyPlaceholder,
@@ -27,7 +29,7 @@ export function FileUploader({
     getUploadParams,
     url,
     ...props
-}: FileUploaderProps) {
+}: FileUploaderProps, ref: any) => {
     getUploadParams = getUploadParams || useCallback(() => ({ url: url }), [url]);
     const handleChangeStatus = useCallback(
         ({ meta, file, remove }, status) => {
@@ -75,7 +77,7 @@ export function FileUploader({
             />
         </Column>
     );
-}
+});
 
 export interface FileUploaderProps extends AsBox, WithTitle, WithPlaceholder, WithOnSubmit, WithDisabled {
     accept?: string;
