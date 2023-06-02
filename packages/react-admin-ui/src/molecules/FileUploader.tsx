@@ -3,7 +3,7 @@ import Dropzone from 'react-dropzone-uploader/dist/react-dropzone-uploader';
 import Column from '../atoms/Column';
 import { rich_text } from '../types';
 import { AsBox } from '../as';
-import { WithOnSubmit, WithPlaceholder, WithTitle } from '../withs';
+import { WithDisabled, WithOnSubmit, WithPlaceholder, WithTitle } from '../withs';
 import clsx from 'clsx';
 
 const defaultStyles = {
@@ -14,7 +14,6 @@ const defaultStyles = {
 };
 
 export function FileUploader({
-    accept,
     styles = defaultStyles,
     className,
     nonEmptyPlaceholder,
@@ -71,7 +70,6 @@ export function FileUploader({
                 inputWithFilesContent={nonEmptyPlaceholder || placeholder}
                 onSubmit={handleSubmit as any}
                 styles={styles}
-                accept={accept}
                 submitButtonContent={submitLabel}
                 {...props}
             />
@@ -79,7 +77,7 @@ export function FileUploader({
     );
 }
 
-export interface FileUploaderProps extends AsBox, WithTitle, WithPlaceholder, WithOnSubmit {
+export interface FileUploaderProps extends AsBox, WithTitle, WithPlaceholder, WithOnSubmit, WithDisabled {
     accept?: string;
     styles?: any;
     nonEmptyPlaceholder?: string;
@@ -90,6 +88,10 @@ export interface FileUploaderProps extends AsBox, WithTitle, WithPlaceholder, Wi
     url?: string;
     getUploadParams?: Function;
     autoUpload?: boolean;
+    maxSizeBytes?: number;
+    minSizeBytes?: number;
+    multiple?: boolean;
+    maxFiles?: number;
 }
 
 // noinspection JSUnusedGlobalSymbols

@@ -76,6 +76,9 @@ export function ImageField({ className, onChange, getUploadParams, value, ...pro
 export interface ImageFieldProps extends AsField {
     getUploadParams?: Function;
     value?: { url: string };
+    accept?: string;
+    maxSizeBytes?: number;
+    minSizeBytes?: number;
 }
 
 // noinspection JSUnusedGlobalSymbols

@@ -133,6 +133,9 @@ export function FileField({ className, ...props }: FileFieldProps) {
 
 export interface FileFieldProps extends AsField {
     value?: { url: string };
+    accept?: string;
+    maxSizeBytes?: number;
+    minSizeBytes?: number;
 }
 
 // noinspection JSUnusedGlobalSymbols

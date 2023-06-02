@@ -121,6 +121,9 @@ export function ImageUploadField({ className, ...props }: ImageUploadFieldProps)
 
 export interface ImageUploadFieldProps extends AsField {
     value?: { url: string };
+    accept?: string;
+    maxSizeBytes?: number;
+    minSizeBytes?: number;
 }
 
 // noinspection JSUnusedGlobalSymbols
