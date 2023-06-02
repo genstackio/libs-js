@@ -26,7 +26,6 @@ export function Condition({ condition, children }) {
         };
     }, [watch, getValues, setResult]);
 
-    console.log(getValues());
     if (!result) return null;
 
     return children?.();
