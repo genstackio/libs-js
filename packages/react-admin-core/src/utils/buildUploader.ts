@@ -4,9 +4,14 @@ import { uploader_builder_options } from '../types';
 
 const defaultInitFn = async (init: any, userContext: any) => init;
 const defaultCleanFn = async (result: any, userContext: any) => result;
-const defaultLoadIdentityFn = async (userContext: any) => {
+const defaultLoadIdentityFn = async (userContext: any, _: any, { anonymousify }: { anonymousify?: Function } = {}) => {
     const headers: Record<string, any> = {};
-    const { token } = userContext.getTokens() || {};
+    let { token } = userContext.getTokens() || {};
+
+    if (!token && anonymousify) {
+        token = await anonymousify();
+    }
+
     token && (headers['Authorization'] = `bearer ${token}`);
 
     return { headers };
@@ -24,6 +29,7 @@ export function buildUploader(url: string | undefined, options: uploader_builder
         init: initFn,
         clean: cleanFn,
         fetch: fetchFn,
+        anonymousify = false,
     } = options;
     initFn = initFn || defaultInitFn;
     cleanFn = cleanFn || defaultCleanFn;
@@ -34,7 +40,8 @@ export function buildUploader(url: string | undefined, options: uploader_builder
         const config = (await configureFn!({ url }, userContext, xx)) || { url };
         url = config?.url;
         if (!url) throw new Error(`No upload url endpoint available`);
-        const { headers = {} }: { headers: Record<string, any> } = (await loadIdentityFn!(userContext, xx)) || {};
+        const { headers = {} }: { headers: Record<string, any> } =
+            (await loadIdentityFn!(userContext, xx, { anonymousify })) || {};
         const init = { headers };
         const r = await (
             await fetchFn!({ url: url!, options: await initFn!(init, userContext, xx) }, userContext, xx)

@@ -39,4 +39,5 @@ export type uploader_builder_options = {
     init?: Function;
     clean?: Function;
     fetch?: Function;
+    anonymousify?: () => string | undefined | Promise<string | undefined>;
 };
