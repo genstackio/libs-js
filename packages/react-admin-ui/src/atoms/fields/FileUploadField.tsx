@@ -1,24 +1,44 @@
 import { useCallback } from 'react';
-import Image from '../Image';
 import FieldSet from '../FieldSet';
 import useField from '../../hooks/useField';
 import FileUploader from '../../molecules/FileUploader';
 import { AsField } from '../../as';
-import Div from '../Div';
-import Button from '../Button';
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 import { Controller } from 'react-hook-form';
 import stopPrevent from '../../utils/stopPrevent';
-
-
+import { ImageRender, OtherRender, PdfRender } from '../renders';
 const styles = {
     dropzone: { width: '100%', minHeight: 100, maxHeight: 250, border: 'none' },
 };
 
-export function ImageUploadField({ className, ...props }: ImageUploadFieldProps) {
-    const { t } = useTranslation();
+const mapping = {
+    'application/pdf': 'pdf',
+    'image/png': 'img',
+    'image/jpeg': 'img',
+    'image/jpg': 'img',
+    'image/svg+xml': 'img',
+    pdf: 'pdf',
+    png: 'img',
+    jpeg: 'img',
+    jpg: 'img',
+    svg: 'img',
+};
 
+const getFileTypeFromContentTypeOrFilename = (v) => {
+    return mapping[v?.contentType || getFileNameExtension(v?.url || '')] || 'other';
+};
+const getFileNameExtension = (v: string) => {
+    return v.slice(v.lastIndexOf('.') + 1);
+};
+const fileTypeComponents = {
+    pdf: PdfRender,
+    img: ImageRender,
+    other: OtherRender,
+};
+
+export function FileUploadField({ className, ...props }: FileUploadFieldProps) {
+    const { t } = useTranslation();
     const {
         getUploadParams,
         name,
@@ -40,7 +60,7 @@ export function ImageUploadField({ className, ...props }: ImageUploadFieldProps)
         helperClassName,
         center,
         rounded,
-    } = useField({ kind: 'image', ...props });
+    } = useField({ kind: 'file', ...props });
 
     const handleChange = useCallback(
         (x: any) => (val: any) => {
@@ -49,6 +69,9 @@ export function ImageUploadField({ className, ...props }: ImageUploadFieldProps)
         },
         [],
     );
+
+    const fileType = getFileTypeFromContentTypeOrFilename(defaultValue);
+    const Comp = fileTypeComponents[fileType || ''];
 
     return (
         <FieldSet
@@ -75,23 +98,11 @@ export function ImageUploadField({ className, ...props }: ImageUploadFieldProps)
                         onChange && onChange(undefined);
                     };
                     const url = !!value ? value._previewUrl || value.url : undefined;
+                    const name = !!value ? value.name || 'has-file' : undefined;
                     const isDirty = !!value && !!value._previewUrl;
                     return (
                         <>
-                            {!!url && (
-                                <Div className={'text-center'}>
-                                    <Image className={'w-full max-h-36'} url={url} objectFit={'contain'} />
-                                    {isDirty && (
-                                        <p className={'m-4 text-center text-red-500'}>{t('field_image_dirty_label')}</p>
-                                    )}
-                                    <Button
-                                        size={'xs'}
-                                        color={'danger'}
-                                        label={t('button_clear_image_label')}
-                                        onClick={onClear}
-                                    />
-                                </Div>
-                            )}
+                            {!!url && <Comp url={url} name={name} isDirty={isDirty} onClear={onClear} t={t} />}
                             {!url && (
                                 <FileUploader
                                     {...field}
@@ -120,7 +131,7 @@ export function ImageUploadField({ className, ...props }: ImageUploadFieldProps)
     );
 }
 
-export interface ImageUploadFieldProps extends AsField {
+export interface FileUploadFieldProps extends AsField {
     value?: { url: string };
     accept?: string;
     maxSizeBytes?: number;
@@ -128,4 +139,4 @@ export interface ImageUploadFieldProps extends AsField {
 }
 
 // noinspection JSUnusedGlobalSymbols
-export default ImageUploadField;
+export default FileUploadField;
