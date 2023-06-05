@@ -36,8 +36,9 @@ const fileTypeComponents = {
     img: ImageRender,
     other: OtherRender,
 };
+const defaultCustomFileTypeComponents: Record<string, any> = {};
 
-export function FileUploadField({ className, ...props }: FileUploadFieldProps) {
+export function FileUploadField({ className, customFileTypeComponents = defaultCustomFileTypeComponents, ...props }: FileUploadFieldProps) {
     const { t } = useTranslation();
     const {
         getUploadParams,
@@ -71,7 +72,7 @@ export function FileUploadField({ className, ...props }: FileUploadFieldProps) {
     );
 
     const fileType = getFileTypeFromContentTypeOrFilename(defaultValue);
-    const Comp = fileTypeComponents[fileType || ''];
+    const Comp = {...fileTypeComponents, ...customFileTypeComponents}[fileType || ''];
 
     return (
         <FieldSet
@@ -136,6 +137,7 @@ export interface FileUploadFieldProps extends AsField {
     accept?: string;
     maxSizeBytes?: number;
     minSizeBytes?: number;
+    customFileTypeComponents?: Record<string, any>;
 }
 
 // noinspection JSUnusedGlobalSymbols

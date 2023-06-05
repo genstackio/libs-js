@@ -61,6 +61,7 @@ export default {
             button_confirm_label: 'Confirmer',
             button_clear_label: 'Effacer',
             button_clear_image_label: "Effacer l'image",
+            button_clear_file_label: "Effacer le fichier",
             button_defined_label: 'Définir',
             button_reset_label: 'Reset',
 
