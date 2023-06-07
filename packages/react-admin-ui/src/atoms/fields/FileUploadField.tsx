@@ -38,7 +38,11 @@ const fileTypeComponents = {
 };
 const defaultCustomFileTypeComponents: Record<string, any> = {};
 
-export function FileUploadField({ className, customFileTypeComponents = defaultCustomFileTypeComponents, ...props }: FileUploadFieldProps) {
+export function FileUploadField({
+    className,
+    customFileTypeComponents = defaultCustomFileTypeComponents,
+    ...props
+}: FileUploadFieldProps) {
     const { t } = useTranslation();
     const {
         getUploadParams,
@@ -72,7 +76,7 @@ export function FileUploadField({ className, customFileTypeComponents = defaultC
     );
 
     const fileType = getFileTypeFromContentTypeOrFilename(defaultValue);
-    const Comp = {...fileTypeComponents, ...customFileTypeComponents}[fileType || ''];
+    const Comp = { ...fileTypeComponents, ...customFileTypeComponents }[fileType || ''];
 
     return (
         <FieldSet
@@ -96,7 +100,7 @@ export function FileUploadField({ className, customFileTypeComponents = defaultC
                 render={({ field: { ref, value, onChange, ...field } }: any) => {
                     const onClear = (e: any) => {
                         stopPrevent(e);
-                        onChange && onChange(undefined);
+                        onChange && onChange({ url: undefined });
                     };
                     const url = !!value ? value._previewUrl || value.url : undefined;
                     const name = !!value ? value.name || 'has-file' : undefined;

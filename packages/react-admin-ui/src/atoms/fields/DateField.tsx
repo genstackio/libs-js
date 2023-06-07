@@ -4,7 +4,7 @@ import ComponentField from './ComponentField';
 import convertToDateInput from '../../utils/convertToDateInput';
 import convertFromDateInput from '../../utils/convertFromDateInput';
 
-const DateComponent = forwardRef(({ center, ...props }: any, ref) => {
+const DateComponent = forwardRef(({ center, rounded, ...props }: any, ref) => {
     return <input ref={ref} {...props} />;
 });
 function marshall(v: any, { type }) {

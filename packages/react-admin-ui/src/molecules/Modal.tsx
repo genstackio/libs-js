@@ -4,7 +4,7 @@ import Row from '../atoms/Row';
 import Div from '../atoms/Div';
 import Button from '../atoms/Button';
 import MuiModal from '@material-ui/core/Modal';
-import {action_item, class_name} from '../types';
+import { action_item, class_name } from '../types';
 import { AsWrapper } from '../as';
 import { WithOpened, WithTitle } from '../withs';
 import useAmbiance from '@genstackio/react-contexts/lib/hooks/useAmbiance';
@@ -22,8 +22,8 @@ const stylings = {
         xl: 'sm:w-4/5',
         full: '',
         custom: '',
-    }
-}
+    },
+};
 export function Modal({
     buttonsItems = defaultButtonsItems,
     children,
@@ -37,7 +37,16 @@ export function Modal({
     const { modalCorner = 'rounded-md' } = useAmbiance();
     return (
         <MuiModal onClose={onClose} open={opened} className={clsx('flex justify-center items-center', className)}>
-            <Div b={'xs'} full className={clsx('bg-clear border-disabled', stylings.sizes[size || stylings.defaults.size], size === 'custom' && customSizeClassName, modalCorner)}>
+            <Div
+                b={'xs'}
+                full
+                className={clsx(
+                    'bg-clear border-disabled',
+                    stylings.sizes[size || stylings.defaults.size],
+                    size === 'custom' && customSizeClassName,
+                    modalCorner,
+                )}
+            >
                 <Row center m={'md'} responsive={false} reverse spaced>
                     <Button color={'dark'} label={'X'} onClick={onClose} />
                     {title && <div className={'text-xl font-bold'}>{title}</div>}

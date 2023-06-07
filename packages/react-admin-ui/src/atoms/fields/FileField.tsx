@@ -95,7 +95,7 @@ export function FileField({ className, ...props }: FileFieldProps) {
                 render={({ field: { ref, value, onChange, ...field } }: any) => {
                     const onClear = (e: any) => {
                         stopPrevent(e);
-                        onChange && onChange(undefined);
+                        onChange && onChange({ url: undefined });
                     };
                     const url = !!value ? value._previewUrl || value.url : undefined;
                     const name = !!value ? value.name || 'has-file' : undefined;

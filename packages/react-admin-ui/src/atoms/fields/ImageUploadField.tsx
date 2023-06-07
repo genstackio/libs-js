@@ -11,7 +11,6 @@ import { useTranslation } from 'react-i18next';
 import { Controller } from 'react-hook-form';
 import stopPrevent from '../../utils/stopPrevent';
 
-
 const styles = {
     dropzone: { width: '100%', minHeight: 100, maxHeight: 250, border: 'none' },
 };
@@ -72,7 +71,7 @@ export function ImageUploadField({ className, ...props }: ImageUploadFieldProps)
                 render={({ field: { ref, value, onChange, ...field } }: any) => {
                     const onClear = (e: any) => {
                         stopPrevent(e);
-                        onChange && onChange(undefined);
+                        onChange && onChange({ url: undefined });
                     };
                     const url = !!value ? value._previewUrl || value.url : undefined;
                     const isDirty = !!value && !!value._previewUrl;
@@ -109,7 +108,7 @@ export function ImageUploadField({ className, ...props }: ImageUploadFieldProps)
                                     onFileUpload={handleChange(onChange)}
                                     {...register()}
                                     {...extra}
-                                    className={clsx('', classes?.uploader)}
+                                    className={clsx('', classes?.uploader, rounded && 'rounded')}
                                 />
                             )}
                         </>

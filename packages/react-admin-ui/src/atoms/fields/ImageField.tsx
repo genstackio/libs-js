@@ -37,7 +37,7 @@ export function ImageField({ className, onChange, getUploadParams, value, ...pro
     }, []);
 
     const onClear = useCallback(() => {
-        onChange && onChange(undefined);
+        onChange && onChange({ url: undefined });
     }, [onChange]);
     return (
         <Div mb={'sm'} className={clsx(classes?.root, className)}>
