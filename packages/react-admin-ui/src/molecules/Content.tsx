@@ -1,30 +1,35 @@
 import useComponent from '@genstackio/react-contexts/lib/hooks/useComponent';
 import { useFormContext } from 'react-hook-form';
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
+import {expression_context_value} from "@genstackio/react-contexts/lib/types";
+import useExpressionContext from "@genstackio/react-contexts/lib/hooks/useExpressionContext";
 
 const defaultComponentProps = {};
 
-function buildTestFn(condition: any) {
-    if (!condition) return () => true;
+function buildTestFn(condition: any, expressionContext: expression_context_value) {
+    if (!condition) return async () => true;
 
-    return (data) => Number(data.text) > 10;
+    return async (data) => !!(await expressionContext.eval(condition, data));
 }
 
 export function Condition({ condition, children }) {
     const { watch, getValues } = useFormContext() || {};
     const [result, setResult] = useState<boolean>(false);
+    const conditionContext = useExpressionContext();
 
     useEffect(() => {
-        const testFn = buildTestFn(condition);
+        const testFn = buildTestFn(condition, conditionContext);
         const fn = (data: any) => {
-            setResult(testFn(data));
+            testFn(data).then(newResult => {
+                (newResult !== result) && setResult(newResult);
+            });
         };
         const subscription = watch(fn);
         fn(getValues());
         return () => {
             subscription.unsubscribe();
         };
-    }, [watch, getValues, setResult]);
+    }, [watch, getValues, setResult, result, condition]);
 
     if (!result) return null;
 
@@ -35,9 +40,7 @@ export function Content({ props: componentProps = defaultComponentProps, if: con
 
     let content = <Component {...props} {...componentProps} />;
 
-    if (condition) content = <Condition condition={condition}>{() => content}</Condition>;
-
-    return content;
+    return condition ? <Condition condition={condition}>{() => content}</Condition> : content;
 }
 
 export interface ContentProps {

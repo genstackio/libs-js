@@ -10,6 +10,7 @@ export * from './useCart';
 export * from './useCleanData';
 export * from './useDarkMode';
 export * from './useDarkModeToggle';
+export * from './useExpressionContext';
 export * from './useValidatorsContext';
 export * from './useFavorites';
 export * from './useTableContext';

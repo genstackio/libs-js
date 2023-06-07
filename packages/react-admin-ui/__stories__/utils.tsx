@@ -18,8 +18,10 @@ import icons from './configs/icons';
 import { DarkModeProvider } from '@genstackio/react-contexts/lib/contexts/DarkModeContext';
 import preset from '@genstackio/react-admin-ui/lib/preset';
 import { AmbianceProvider } from '@genstackio/react-contexts/lib/contexts/AmbianceContext';
+import { ExpressionContextProvider } from '@genstackio/react-contexts/lib/contexts/ExpressionContext';
 import { ambiance_context_value } from '@genstackio/react-contexts/lib/types';
 import buildImporter from '@genstackio/react-admin-core/lib/utils/buildImporter';
+import buildExpressionContextValueForMozjexl from "../src/utils/buildExpressionContextValueForMozjexl";
 
 const translationNames = Object.keys(translations);
 translationNames.sort();
@@ -76,26 +78,30 @@ function Provider(args) {
 
     const importerProviderValue = useMemo(() => buildImporter(), []);
 
+    const ecpv = useMemo(() => buildExpressionContextValueForMozjexl(), []);
+
     return (
-        <FullScreen handle={handle}>
-            <ImporterProvider value={importerProviderValue}>
-                <FullscreenProvider value={handle}>
-                    <ApiProvider value={apiProviderValue}>
-                        <LocalesProvider value={locales}>
-                            <StylesProvider injectFirst>
-                                <AmbianceProvider value={ambiance}>
-                                    <I18nextProvider i18n={i18n}>
-                                        <IconsProvider value={iconsProviderValue}>
-                                            <DarkModeProvider value={darkModeValue}>{args.children}</DarkModeProvider>
-                                        </IconsProvider>
-                                    </I18nextProvider>
-                                </AmbianceProvider>
-                            </StylesProvider>
-                        </LocalesProvider>
-                    </ApiProvider>
-                </FullscreenProvider>
-            </ImporterProvider>
-        </FullScreen>
+        <ExpressionContextProvider value={ecpv}>
+            <FullScreen handle={handle}>
+                <ImporterProvider value={importerProviderValue}>
+                    <FullscreenProvider value={handle}>
+                        <ApiProvider value={apiProviderValue}>
+                            <LocalesProvider value={locales}>
+                                <StylesProvider injectFirst>
+                                    <AmbianceProvider value={ambiance}>
+                                        <I18nextProvider i18n={i18n}>
+                                            <IconsProvider value={iconsProviderValue}>
+                                                <DarkModeProvider value={darkModeValue}>{args.children}</DarkModeProvider>
+                                            </IconsProvider>
+                                        </I18nextProvider>
+                                    </AmbianceProvider>
+                                </StylesProvider>
+                            </LocalesProvider>
+                        </ApiProvider>
+                    </FullscreenProvider>
+                </ImporterProvider>
+            </FullScreen>
+        </ExpressionContextProvider>
     );
 }
 

@@ -1,5 +1,8 @@
 import { ComponentType, LazyExoticComponent } from 'react';
 
+export type expression_context_value = {
+    eval: (expression: any, data: any) => any;
+}
 export type storage = {
     setItem: Function;
     getItem: Function;
