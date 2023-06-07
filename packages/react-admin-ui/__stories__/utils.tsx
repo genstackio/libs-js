@@ -21,7 +21,7 @@ import { AmbianceProvider } from '@genstackio/react-contexts/lib/contexts/Ambian
 import { ExpressionContextProvider } from '@genstackio/react-contexts/lib/contexts/ExpressionContext';
 import { ambiance_context_value } from '@genstackio/react-contexts/lib/types';
 import buildImporter from '@genstackio/react-admin-core/lib/utils/buildImporter';
-import buildExpressionContextValueForMozjexl from "../src/utils/buildExpressionContextValueForMozjexl";
+import buildExpressionContextValueForMozjexl from '../src/utils/buildExpressionContextValueForMozjexl';
 
 const translationNames = Object.keys(translations);
 translationNames.sort();
@@ -91,7 +91,9 @@ function Provider(args) {
                                     <AmbianceProvider value={ambiance}>
                                         <I18nextProvider i18n={i18n}>
                                             <IconsProvider value={iconsProviderValue}>
-                                                <DarkModeProvider value={darkModeValue}>{args.children}</DarkModeProvider>
+                                                <DarkModeProvider value={darkModeValue}>
+                                                    {args.children}
+                                                </DarkModeProvider>
                                             </IconsProvider>
                                         </I18nextProvider>
                                     </AmbianceProvider>

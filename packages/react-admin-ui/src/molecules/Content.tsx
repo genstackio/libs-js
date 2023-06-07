@@ -1,8 +1,8 @@
 import useComponent from '@genstackio/react-contexts/lib/hooks/useComponent';
 import { useFormContext } from 'react-hook-form';
-import {useEffect, useState} from 'react';
-import {expression_context_value} from "@genstackio/react-contexts/lib/types";
-import useExpressionContext from "@genstackio/react-contexts/lib/hooks/useExpressionContext";
+import { useEffect, useState } from 'react';
+import { expression_context_value } from '@genstackio/react-contexts/lib/types';
+import useExpressionContext from '@genstackio/react-contexts/lib/hooks/useExpressionContext';
 
 const defaultComponentProps = {};
 
@@ -20,8 +20,8 @@ export function Condition({ condition, children }) {
     useEffect(() => {
         const testFn = buildTestFn(condition, conditionContext);
         const fn = (data: any) => {
-            testFn(data).then(newResult => {
-                (newResult !== result) && setResult(newResult);
+            testFn(data).then((newResult) => {
+                newResult !== result && setResult(newResult);
             });
         };
         const subscription = watch(fn);
@@ -38,7 +38,7 @@ export function Condition({ condition, children }) {
 export function Content({ props: componentProps = defaultComponentProps, if: condition, ...props }: ContentProps) {
     const Component = useComponent('content', props.type);
 
-    let content = <Component {...props} {...componentProps} />;
+    const content = <Component {...props} {...componentProps} />;
 
     return condition ? <Condition condition={condition}>{() => content}</Condition> : content;
 }
