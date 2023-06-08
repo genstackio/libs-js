@@ -4,11 +4,11 @@ import Div from '../Div';
 import Column from '../Column';
 import FieldSet from '../FieldSet';
 import useField from '../../hooks/useField';
-import { flag, icon, rich_text } from '../../types';
+import {class_name, flag, icon, rich_text} from '../../types';
 import { fieldVariantClass } from '../../mappings/field-variants';
 import { AsTextField } from '../../as';
 
-export function TextField({ inline, ...props }: TextFieldProps) {
+export function TextField({ inline, inputClassName, ...props }: TextFieldProps) {
     const {
         className,
         name,
@@ -47,6 +47,7 @@ export function TextField({ inline, ...props }: TextFieldProps) {
             classes?.input,
             center && 'text-center',
             rounded && 'rounded',
+            inputClassName,
         ),
         defaultValue,
         disabled,
@@ -126,6 +127,7 @@ export interface TextFieldProps extends AsTextField {
     twoOf5?: flag;
     inline?: boolean;
     step?: any;
+    inputClassName?: class_name;
 }
 
 // noinspection JSUnusedGlobalSymbols

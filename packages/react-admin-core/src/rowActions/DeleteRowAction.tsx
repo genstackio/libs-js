@@ -3,7 +3,10 @@ import { useCallback } from 'react';
 
 export function DeleteRowAction({ doc, actions, singularName }: DeleteRowActionProps) {
     const onClick = useCallback(
-        () => (actions?.onDelete ? actions.onDelete(doc?.id) : undefined),
+        () => {
+            const fn = actions?.onDelete || actions?.delete;
+            return fn?.(doc?.id);
+        },
         [actions?.onDelete, doc?.id],
     );
 

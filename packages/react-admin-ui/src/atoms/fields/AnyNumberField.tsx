@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import TextField, { TextFieldProps } from './TextField';
 import clsx from "clsx";
 
-export function AnyNumberField({ options = undefined, className, ...props }: AnyNumberFieldProps) {
+export function AnyNumberField({ options = undefined, inputClassName, ...props }: AnyNumberFieldProps) {
     options = useMemo(
         () => ({
             ...(options || {}),
@@ -10,7 +10,7 @@ export function AnyNumberField({ options = undefined, className, ...props }: Any
         [options],
     );
 
-    return <TextField kind={'number'} type={'number'} step={'any'} {...props} valueAs={'number'} className={clsx('appearance-none', className)} />;
+    return <TextField kind={'number'} type={'number'} step={'any'} {...props} valueAs={'number'} inputClassName={clsx('appearance-none', inputClassName)} />;
 }
 
 export type AnyNumberFieldProps = TextFieldProps;
