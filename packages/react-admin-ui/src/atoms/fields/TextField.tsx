@@ -125,6 +125,7 @@ export interface TextFieldProps extends AsTextField {
     threeOf5?: flag;
     twoOf5?: flag;
     inline?: boolean;
+    step?: any;
 }
 
 // noinspection JSUnusedGlobalSymbols
