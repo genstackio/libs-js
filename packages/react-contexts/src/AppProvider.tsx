@@ -25,6 +25,7 @@ import { LoginContextProvider } from './contexts/LoginContext';
 import { RegisterContextProvider } from './contexts/RegisterContext';
 import { DrawerContextProvider } from './contexts/DrawerContext';
 import { TableContextProvider } from './contexts/TableContext';
+import { ExpressionContextProvider } from './contexts/ExpressionContext';
 import {
     dark_mode_context_value,
     favorites_context_value,
@@ -46,7 +47,7 @@ import {
     login_context_value,
     register_context_value,
     drawer_context_value,
-    table_context_value,
+    table_context_value, expression_context_value,
 } from './types';
 
 export function AppProvider({
@@ -89,9 +90,11 @@ export function AppProvider({
     register,
     drawer,
     table,
+    expression,
 }: AppProviderProps) {
     let content = children || '';
     const finalImporter = useMemo(() => importerBuilder(importer, importers), [importer, importers, importerBuilder]);
+    expression && (content = <ExpressionContextProvider value={expression}>{content}</ExpressionContextProvider>);
     login && (content = <LoginContextProvider value={login}>{content}</LoginContextProvider>);
     register && (content = <RegisterContextProvider value={register}>{content}</RegisterContextProvider>);
     drawer && (content = <DrawerContextProvider value={drawer}>{content}</DrawerContextProvider>);
@@ -131,6 +134,7 @@ export function AppProvider({
 }
 
 export interface AppProviderProps {
+    expression?: expression_context_value;
     cleanData?: clean_data_context_value;
     themeProvider?: any;
     translationProvider?: any;

@@ -13,7 +13,7 @@ import coreTranslations from './configs/translations';
 import adminUiTranslations from '@genstackio/react-admin-ui/lib/configs/translations';
 import Routes from './Routes';
 import Route from './Route';
-import { ambiance_context_value } from '@genstackio/react-contexts/lib/types';
+import {ambiance_context_value, expression_context_value} from '@genstackio/react-contexts/lib/types';
 import buildImporter from './utils/buildImporter';
 import AppDrawer from './organisms/AppDrawer';
 
@@ -132,6 +132,7 @@ export interface BaseAppProps {
     ambiance?: ambiance_context_value;
     fields?: fields_context_value;
     logos?: logos_context_value;
+    expression?: expression_context_value;
     translations?:
         | { [key: string]: { [key: string]: { [key: string]: string } } }
         | { [key: string]: { [key: string]: { [key: string]: string } } }[];
