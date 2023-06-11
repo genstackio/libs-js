@@ -3,7 +3,10 @@ export function pathize(name: string) {
     name = `${a.slice(0, 1).toUpperCase()}${a.slice(1)}`;
     if (b.length) {
         a = `${a.slice(0, 1).toLowerCase()}${a.slice(1)}`;
-        const c = b.map((x) => `${x.slice(0, 1).toUpperCase()}${x.slice(1)}`).join('/');
+        const lastIndex = b.length - 1;
+        const c = b
+            .map((x, index: number) => (index === lastIndex ? `${x.slice(0, 1).toUpperCase()}${x.slice(1)}` : x))
+            .join('/');
         name = `${a}/${c}`;
     }
     return name
