@@ -2,13 +2,10 @@ import Button from '@genstackio/react-admin-ui/lib/atoms/Button';
 import { useCallback } from 'react';
 
 export function DeleteRowAction({ doc, actions, singularName }: DeleteRowActionProps) {
-    const onClick = useCallback(
-        () => {
-            const fn = actions?.onDelete || actions?.delete;
-            return fn?.(doc?.id);
-        },
-        [actions?.onDelete, doc?.id],
-    );
+    const onClick = useCallback(() => {
+        const fn = actions?.onDelete || actions?.delete;
+        return fn?.(doc?.id);
+    }, [actions?.onDelete, doc?.id]);
 
     return (
         <Button

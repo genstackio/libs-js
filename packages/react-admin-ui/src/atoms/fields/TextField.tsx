@@ -4,7 +4,7 @@ import Div from '../Div';
 import Column from '../Column';
 import FieldSet from '../FieldSet';
 import useField from '../../hooks/useField';
-import {class_name, flag, icon, rich_text} from '../../types';
+import { class_name, flag, icon, rich_text } from '../../types';
 import { fieldVariantClass } from '../../mappings/field-variants';
 import { AsTextField } from '../../as';
 

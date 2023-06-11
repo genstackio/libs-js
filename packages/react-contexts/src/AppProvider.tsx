@@ -47,7 +47,8 @@ import {
     login_context_value,
     register_context_value,
     drawer_context_value,
-    table_context_value, expression_context_value,
+    table_context_value,
+    expression_context_value,
 } from './types';
 
 export function AppProvider({

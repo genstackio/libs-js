@@ -1,10 +1,10 @@
 export function pathize(name: string) {
-    let [a, b] = name.split(/\//g);
+    let [a, ...b] = name.split(/\//g);
     name = `${a.slice(0, 1).toUpperCase()}${a.slice(1)}`;
-    if (b) {
+    if (b.length) {
         a = `${a.slice(0, 1).toLowerCase()}${a.slice(1)}`;
-        b = `${b.slice(0, 1).toUpperCase()}${b.slice(1)}`;
-        name = `${a}/${b}`;
+        const c = b.map((x) => `${x.slice(0, 1).toUpperCase()}${x.slice(1)}`).join('/');
+        name = `${a}/${c}`;
     }
     return name
         .split(/_/g)

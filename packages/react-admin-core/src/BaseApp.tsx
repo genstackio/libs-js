@@ -13,7 +13,7 @@ import coreTranslations from './configs/translations';
 import adminUiTranslations from '@genstackio/react-admin-ui/lib/configs/translations';
 import Routes from './Routes';
 import Route from './Route';
-import {ambiance_context_value, expression_context_value} from '@genstackio/react-contexts/lib/types';
+import { ambiance_context_value, expression_context_value } from '@genstackio/react-contexts/lib/types';
 import buildImporter from './utils/buildImporter';
 import AppDrawer from './organisms/AppDrawer';
 
