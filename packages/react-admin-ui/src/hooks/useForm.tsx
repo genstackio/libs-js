@@ -48,9 +48,9 @@ export function useForm(
     );
 
     const SubmitButton = useCallback(
-        ({ className = undefined, overridenClassName, ...props }: any) => {
+        ({ className = undefined, mt = 'lg', containerProps, overridenClassName, ...props }: any) => {
             return (
-                <Div center flex mt={'lg'}>
+                <Div center flex mt={mt} {...(containerProps || {})}>
                     <Button
                         loading={submitting}
                         variant={'contained'}
