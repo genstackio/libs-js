@@ -10,7 +10,7 @@ export function buildPageResizedActions(newPageSize, ctx: page_resized_ctx) {
     const actions: any[] = [];
 
     'page' === ctx.navigationMode && actions.push(buildPageResizedActionForPageMode(newPageSize, ctx));
-    'state' === ctx.navigationMode && actions.push(buildPageResizedActionForStateMode(newPageSize, ctx));
+    /*'state' === */ ctx.navigationMode && actions.push(buildPageResizedActionForStateMode(newPageSize, ctx));
 
     return actions.filter((x) => !!x);
 }

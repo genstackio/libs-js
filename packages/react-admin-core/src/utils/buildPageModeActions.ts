@@ -6,7 +6,7 @@ export function buildPageModeActions(searchMode, ctx: page_mode_ctx) {
     const actions: any[] = [];
 
     'page' === ctx.navigationMode && actions.push(buildPageModeActionForPageMode(searchMode, ctx));
-    'state' === ctx.navigationMode && actions.push(buildPageModeActionForStateMode(searchMode, ctx));
+    /* 'state' === */ ctx.navigationMode && actions.push(buildPageModeActionForStateMode(searchMode, ctx));
 
     return actions.filter((x) => !!x);
 }

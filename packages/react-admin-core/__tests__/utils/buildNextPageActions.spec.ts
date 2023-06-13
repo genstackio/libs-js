@@ -14,12 +14,10 @@ describe('buildNextPageActions', () => {
 
         expect(r).toEqual([
             { type: 'history_push', config: { uri: '/mytypes/page/2/10/default/:' } },
-            /*
             {
                 type: 'page_state',
                 config: { state: { index: 1, currentCursor: undefined, previousCursors: [''], size: 10 } },
             },
-             */
         ]);
     });
     it('1 => 2', () => {
@@ -35,12 +33,10 @@ describe('buildNextPageActions', () => {
 
         expect(r).toEqual([
             { type: 'history_push', config: { uri: '/mytypes/page/3/10/default/:c1:' } },
-            /*
             {
                 type: 'page_state',
                 config: { state: { index: 2, currentCursor: undefined, previousCursors: ['', 'c1'], size: 10 } },
             },
-             */
         ]);
     });
     it('1 => 2 (listRoute="")', () => {
@@ -56,12 +52,10 @@ describe('buildNextPageActions', () => {
 
         expect(r).toEqual([
             { type: 'history_push', config: { uri: '' } },
-            /*
             {
                 type: 'page_state',
                 config: { state: { index: 2, currentCursor: undefined, previousCursors: ['', 'c1'], size: 10 } },
             },
-             */
         ]);
     });
     it('1 => 2 (searchMode=true)', () => {
@@ -78,12 +72,10 @@ describe('buildNextPageActions', () => {
 
         expect(r).toEqual([
             { type: 'history_push', config: { uri: '/mytypes/page/3/10/search/:c1:' } },
-            /*
             {
                 type: 'page_state',
                 config: { state: { index: 2, currentCursor: undefined, previousCursors: ['', 'c1'], size: 10 } },
             },
-             */
         ]);
     });
     it('1 => 2 (searchMode=false)', () => {
@@ -100,12 +92,10 @@ describe('buildNextPageActions', () => {
 
         expect(r).toEqual([
             { type: 'history_push', config: { uri: '/mytypes/page/3/10/default/:c1:' } },
-            /*
             {
                 type: 'page_state',
                 config: { state: { index: 2, currentCursor: undefined, previousCursors: ['', 'c1'], size: 10 } },
             },
-             */
         ]);
     });
     it('1 => 1', () => {
@@ -134,9 +124,7 @@ describe('buildNextPageActions', () => {
 
         expect(r).toEqual([
             { type: 'history_push', config: { uri: '/mytypes/page/1/10/default/' } },
-            /*
             { type: 'page_state', config: { state: { index: 0, currentCursor: '', previousCursors: [], size: 10 } } },
-             */
         ]);
     });
     it('0 => undefined', () => {
@@ -152,12 +140,10 @@ describe('buildNextPageActions', () => {
 
         expect(r).toEqual([
             { type: 'history_push', config: { uri: '/mytypes/page/2/10/default/:' } },
-            /*
             {
                 type: 'page_state',
                 config: { state: { index: 1, currentCursor: undefined, previousCursors: [''], size: 10 } },
             },
-             */
         ]);
     });
     it('2 => 1', () => {
@@ -173,12 +159,10 @@ describe('buildNextPageActions', () => {
 
         expect(r).toEqual([
             { type: 'history_push', config: { uri: '/mytypes/page/2/10/default/:c1' } },
-            /*
             {
                 type: 'page_state',
                 config: { state: { index: 1, currentCursor: 'c1', previousCursors: [''], size: 10 } },
             },
-             */
         ]);
     });
     it('0 => 1 (20 rows)', () => {
@@ -194,12 +178,10 @@ describe('buildNextPageActions', () => {
 
         expect(r).toEqual([
             { type: 'history_push', config: { uri: '/mytypes/page/2/20/default/:' } },
-            /*
             {
                 type: 'page_state',
                 config: { state: { index: 1, currentCursor: undefined, previousCursors: [''], size: 20 } },
             },
-             */
         ]);
     });
 });

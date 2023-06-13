@@ -8,7 +8,7 @@ export function buildNextPageActions(nextPage, ctx: next_page_ctx) {
     const actions: any[] = [];
 
     'page' === ctx.navigationMode && actions.push(buildNextPageActionForPageMode(nextPage, ctx));
-    'state' === ctx.navigationMode && actions.push(buildNextPageActionForStateMode(nextPage, ctx));
+    /*'state' === */ ctx.navigationMode && actions.push(buildNextPageActionForStateMode(nextPage, ctx));
 
     return actions.filter((x) => !!x);
 }
