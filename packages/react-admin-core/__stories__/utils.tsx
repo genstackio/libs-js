@@ -101,7 +101,7 @@ export function a(x: any = {}) {
 }
 
 export function s(Component, args, opts: any = {}) {
-    return st(Component, args, { ...opts, provider: Provider, providerProps: { locale: true } });
+    return st(Component, args, { ...opts, provider: Provider, providerProps: { locale: true, mocks: true } });
 }
 
 export const args = {

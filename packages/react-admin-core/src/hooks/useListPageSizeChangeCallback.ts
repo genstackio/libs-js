@@ -10,7 +10,9 @@ export function useListPageSizeChangeCallback({
     setPage,
     page,
     filterName,
+    navigationMode,
 }: {
+    navigationMode: string;
     listRoute: string;
     name: string;
     searchMode: boolean;
@@ -22,18 +24,24 @@ export function useListPageSizeChangeCallback({
 
     return useCallback(
         (params: GridPageChangeParams) => {
-            const u = buildListRouteUri(listRoute, {
-                name,
-                filterName,
-                pPage: String(1),
-                pSize: String(params.pageSize),
-                pMode: searchMode ? 'search' : 'default',
-                pCursors: '',
-            });
-            u && history.push(u);
-            setPage({ ...page, size: params.pageSize, index: 0, previousCursors: [], currentCursor: undefined });
+            if ('page' === navigationMode) {
+                const u = buildListRouteUri(listRoute, {
+                    name,
+                    filterName,
+                    pPage: String(1),
+                    pSize: String(params.pageSize),
+                    pMode: searchMode ? 'search' : 'default',
+                    pCursors: '',
+                });
+                u && history.push(u);
+                return;
+            }
+            if ('state' === navigationMode) {
+                setPage({ ...page, size: params.pageSize, index: 0, previousCursors: [], currentCursor: undefined });
+                return;
+            }
         },
-        [history, listRoute, name, setPage, page, searchMode, filterName],
+        [history, listRoute, name, setPage, page, searchMode, filterName, navigationMode],
     );
 }
 
