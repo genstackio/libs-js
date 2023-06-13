@@ -3,13 +3,19 @@ import { useCallback } from 'react';
 export function useListDocDeleteCallback({
     deleteDoc,
     setPage,
-    page,
+    pageSize,
+    pageIndex,
+    pagePreviousCursors,
+    pageCurrentCursor,
     fetchSortVariables,
     refetch,
 }: {
     deleteDoc: Function;
     setPage: Function;
-    page: any;
+    pageSize: number;
+    pageIndex: number;
+    pagePreviousCursors: string[];
+    pageCurrentCursor: string;
     fetchSortVariables: any;
     refetch: Function;
 }) {
@@ -17,23 +23,14 @@ export function useListDocDeleteCallback({
         (id) => () => {
             deleteDoc({ variables: { id } });
             setPage({
-                size: page.size,
-                index: page.index,
-                previousCursors: page.previousCursors,
-                currentCursor: page.currentCursor,
+                size: pageSize,
+                index: pageIndex,
+                previousCursors: pagePreviousCursors,
+                currentCursor: pageCurrentCursor,
             });
-            refetch({ variables: { offset: page.currentCursor, limit: page.size, ...fetchSortVariables } });
+            refetch({ variables: { offset: pageCurrentCursor, limit: pageSize, ...fetchSortVariables } });
         },
-        [
-            fetchSortVariables,
-            deleteDoc,
-            setPage,
-            page.size,
-            page.index,
-            page.previousCursors,
-            page.currentCursor,
-            refetch,
-        ],
+        [fetchSortVariables, deleteDoc, setPage, pageSize, pageIndex, pagePreviousCursors, pageCurrentCursor, refetch],
     );
 }
 

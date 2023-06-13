@@ -11,8 +11,10 @@ export function useListPageChangeCallback({
     name,
     listRoute,
     navigationMode,
-    page,
     setPage,
+    pageSize,
+    pageIndex,
+    pagePreviousCursors,
     cursor,
     nextCursor,
     searchMode,
@@ -22,8 +24,10 @@ export function useListPageChangeCallback({
     filterName?: string;
     listRoute: string;
     navigationMode: string;
-    page: any;
     setPage: Function;
+    pageSize: number;
+    pageIndex: number;
+    pagePreviousCursors: string[];
     cursor?: string;
     nextCursor?: string;
     searchMode: boolean;
@@ -34,9 +38,9 @@ export function useListPageChangeCallback({
         ({ page: nextPage }) => {
             const actionList = buildNextPageActions(nextPage, {
                 name,
-                pageIndex: page.index,
-                pageSize: page.size,
-                pagePreviousCursors: page.previousCursors || [],
+                pageIndex,
+                pageSize,
+                pagePreviousCursors,
                 listRoute,
                 filterName,
                 cursor,
@@ -54,12 +58,12 @@ export function useListPageChangeCallback({
             history,
             listRoute,
             name,
-            page.size,
+            pageSize,
             cursor,
             nextCursor,
             setPage,
-            page.previousCursors,
-            page.index,
+            pagePreviousCursors,
+            pageIndex,
             filterName,
         ],
     );

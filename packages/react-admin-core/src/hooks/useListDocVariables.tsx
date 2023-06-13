@@ -7,7 +7,29 @@ import useListPageChangeCallback from './useListPageChangeCallback';
 import useListSwitchChangeCallback from './useListSwitchChangeCallback';
 import useListSortModelChangeCallback from './useListSortModelChangeCallback';
 
-export function useListDocVariables(vars: {
+export function useListDocVariables({
+    columns: rawColumns,
+    goDoc,
+    goEdit,
+    goPublicPage,
+    singularName,
+    list,
+    setSortModel,
+    setSearchMode,
+    listRoute,
+    name,
+    filterName,
+    deleteDoc,
+    queryName,
+    fetchSortVariables,
+    searchMode,
+    cursor,
+    page,
+    navigationMode,
+    key,
+    setPage,
+    pPage,
+}: {
     name: string;
     queryName: string;
     searchMode: boolean;
@@ -28,21 +50,75 @@ export function useListDocVariables(vars: {
     goDoc: Function;
     goPublicPage: Function;
     list: any;
+    columns?: any;
 }) {
-    const { searchMode, cursor, page, navigationMode, key, setPage, pPage } = vars;
+    const { data, loading, error, refetch } = useListDocPage({
+        queryName,
+        cursor,
+        pageSize: page.size,
+        fetchSortVariables,
+    });
 
-    const { data, loading, error, refetch } = useListDocPage(vars);
+    const onDelete = useListDocDeleteCallback({
+        deleteDoc,
+        setPage,
+        pageSize: page.size,
+        pageIndex: page.index,
+        pagePreviousCursors: page.previousCursors,
+        pageCurrentCursor: page.currentCursor,
+        fetchSortVariables,
+        refetch,
+    });
+    const onPageSizeChange = useListPageSizeChangeCallback({
+        listRoute,
+        name,
+        searchMode,
+        setPage,
+        filterName,
+        navigationMode,
+    });
 
-    const onDelete = useListDocDeleteCallback({ ...vars, refetch });
-    const onPageSizeChange = useListPageSizeChangeCallback(vars);
-    const onPageChange = useListPageChangeCallback(vars);
-    const handleSwitchChange = useListSwitchChangeCallback(vars);
-    const onSortModelChange = useListSortModelChangeCallback(vars);
+    const nextCursor = ((data || {})[key] || {})['cursor'];
 
-    const columns = useListColumns({ onDelete, ...vars });
+    const onPageChange = useListPageChangeCallback({
+        name,
+        listRoute,
+        navigationMode,
+        setPage,
+        pageSize: page.size,
+        pageIndex: page.index,
+        pagePreviousCursors: page.previousCursors,
+        cursor,
+        nextCursor,
+        searchMode,
+        filterName,
+    });
+    const handleSwitchChange = useListSwitchChangeCallback({
+        name,
+        listRoute,
+        setSearchMode,
+        searchMode,
+        pageSize: page.size,
+        setPage,
+        filterName,
+        navigationMode,
+    });
+    const onSortModelChange = useListSortModelChangeCallback({
+        setSortModel,
+    });
+
+    const columns = useListColumns({
+        columns: rawColumns,
+        searchMode,
+        list,
+        goDoc,
+        goEdit,
+        onDelete,
+        goPublicPage,
+        singularName,
+    });
     const total = searchMode ? ((data || {})[key] || {})['count'] || 0 : undefined;
     const items = ((data || {})[key] || {})['items'] || [];
-    const nextCursor = ((data || {})[key] || {})['cursor'];
     const displayPage = (!!items.length || !loading) && (page.index > 0 || !!nextCursor);
 
     const switchDefaultValues = useMemo(() => ({ searchMode }), [searchMode]);

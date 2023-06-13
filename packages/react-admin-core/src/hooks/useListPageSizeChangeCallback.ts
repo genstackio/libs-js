@@ -23,7 +23,6 @@ export function useListPageSizeChangeCallback({
     name: string;
     searchMode: boolean;
     setPage: Function;
-    page: any;
     filterName?: string;
 }) {
     const history = useHistory();

@@ -17,7 +17,7 @@ export function useListSwitchChangeCallback({
     listRoute,
     setSearchMode,
     searchMode,
-    page,
+    pageSize,
     setPage,
     filterName,
     navigationMode,
@@ -27,8 +27,8 @@ export function useListSwitchChangeCallback({
     listRoute: string;
     setSearchMode: Function;
     searchMode: boolean;
-    page: any;
     setPage: Function;
+    pageSize: number;
     filterName?: string;
 }) {
     const history = useHistory();
@@ -41,13 +41,13 @@ export function useListSwitchChangeCallback({
                 listRoute,
                 filterName,
                 navigationMode,
-                pageSize: page.size,
+                pageSize: pageSize,
             });
             (actionList || []).forEach((action) =>
                 (actions[action?.type || ''] || undefined)?.(action.config, { history, setPage, setSearchMode }),
             );
         },
-        [history, listRoute, name, setSearchMode, searchMode, setPage, page.size, filterName, navigationMode],
+        [history, listRoute, name, setSearchMode, searchMode, setPage, pageSize, filterName, navigationMode],
     );
 }
 
