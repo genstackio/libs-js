@@ -36,8 +36,7 @@ export function useListPageChangeCallback({
 
     return useCallback(
         (params: any) => {
-            console.log('page_changed', params);
-            const { page: nextPage } = params;
+            const { page: nextPage } = 'number' === typeof params ? { page: params } : params;
             const actionList = buildNextPageActions(nextPage, {
                 name,
                 pageIndex,

@@ -91,8 +91,6 @@ export function useListCommonVariables({
 
     const list = useList(name, listFactory, {});
 
-    console.log(page, { pPage, pSize, pMode, pCursors });
-
     const [sortModel, setSortModel] = useState<any[]>(defaultSortModel);
     const [searchMode, setSearchMode] = useState<boolean>(pMode ? 'search' === pMode : search);
     const singularName = forcedSingularName || name.slice(0, -1);

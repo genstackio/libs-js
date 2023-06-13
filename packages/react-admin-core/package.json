@@ -28,7 +28,7 @@
     },
     "dependencies": {
         "@loadable/component": "^5.15.0",
-        "@material-ui/data-grid": "^4.0.0-alpha.30",
+        "@material-ui/data-grid": "4.0.0-alpha.30",
         "@material-ui/icons": "^4.11.2",
         "@material-ui/lab": "^4.0.0-alpha.58",
         "i18next": "^20.3.2",

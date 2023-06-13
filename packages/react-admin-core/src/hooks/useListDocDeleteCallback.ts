@@ -20,7 +20,7 @@ export function useListDocDeleteCallback({
     refetch: Function;
 }) {
     return useCallback(
-        (id) => () => {
+        (id) => {
             deleteDoc({ variables: { id } });
             setPage({
                 size: pageSize,
