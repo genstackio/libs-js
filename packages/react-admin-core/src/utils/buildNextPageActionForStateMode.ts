@@ -11,7 +11,7 @@ export function buildNextPageActionForStateMode(
                 state: {
                     size: pageSize,
                     index: nextPage,
-                    previousCursors: [...((pagePreviousCursors as unknown as any) || []), cursor],
+                    previousCursors: [...pagePreviousCursors, cursor],
                     currentCursor: nextCursor,
                 },
             },

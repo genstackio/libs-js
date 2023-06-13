@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
-import buildNextPageAction from '../utils/buildNextPageAction';
+import buildNextPageActions from '../utils/buildNextPageActions';
 
 const actions = {
     history_push: ({ uri }, { history }) => history.push(uri),
@@ -32,11 +32,11 @@ export function useListPageChangeCallback({
 
     return useCallback(
         ({ page: nextPage }) => {
-            const action = buildNextPageAction(nextPage, {
+            const actionList = buildNextPageActions(nextPage, {
                 name,
                 pageIndex: page.index,
                 pageSize: page.size,
-                pagePreviousCursors: page.previousCursors,
+                pagePreviousCursors: page.previousCursors || [],
                 listRoute,
                 filterName,
                 cursor,
@@ -44,7 +44,9 @@ export function useListPageChangeCallback({
                 searchMode,
                 navigationMode,
             });
-            (actions[action?.type || ''] || undefined)?.(action.config, { history, setPage });
+            (actionList || []).forEach((action) =>
+                (actions[action?.type || ''] || undefined)?.(action.config, { history, setPage }),
+            );
         },
         [
             searchMode,

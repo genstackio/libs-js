@@ -15,18 +15,17 @@ export function buildNextPageActionForPageMode(
         listRoute,
     }: next_page_ctx,
 ) {
-    nextPage === undefined && (nextPage = pageIndex + 1);
+    const pSize = String(pageSize);
+    const pPage = String(nextPage + 1);
+    const pMode = !!searchMode ? 'search' : 'default';
+    const common = { name, filterName, pPage, pSize, pMode };
 
     if (nextPage === 0)
         return {
             type: 'history_push',
             config: {
                 uri: buildListRouteUri(listRoute, {
-                    name,
-                    filterName,
-                    pPage: String(1),
-                    pSize: String(pageSize || 10),
-                    pMode: searchMode ? 'search' : 'default',
+                    ...common,
                     pCursors: '',
                 }),
             },
@@ -37,12 +36,8 @@ export function buildNextPageActionForPageMode(
             type: 'history_push',
             config: {
                 uri: buildListRouteUri(listRoute, {
-                    name,
-                    filterName,
-                    pPage: String(nextPage + 1),
-                    pSize: String(pageSize || 10),
-                    pMode: searchMode ? 'search' : 'default',
-                    pCursors: [...((pagePreviousCursors as unknown as any) || []), cursor, nextCursor].join(':'),
+                    ...common,
+                    pCursors: [...pagePreviousCursors, cursor, nextCursor].join(':'),
                 }),
             },
         };
@@ -52,12 +47,8 @@ export function buildNextPageActionForPageMode(
             type: 'history_push',
             config: {
                 uri: buildListRouteUri(listRoute, {
-                    name,
-                    filterName,
-                    pPage: String(nextPage + 1),
-                    pSize: String(pageSize || 10),
-                    pMode: searchMode ? 'search' : 'default',
-                    pCursors: [...(pagePreviousCursors.slice(0, -1) || []), pagePreviousCursors.slice(-1)[0]].join(':'),
+                    ...common,
+                    pCursors: [...pagePreviousCursors.slice(0, -1), pagePreviousCursors.slice(-1)[0]].join(':'),
                 }),
             },
         };
