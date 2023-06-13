@@ -35,7 +35,9 @@ export function useListPageChangeCallback({
     const history = useHistory();
 
     return useCallback(
-        ({ page: nextPage }) => {
+        (params: any) => {
+            console.log('page_changed', params);
+            const { page: nextPage } = params;
             const actionList = buildNextPageActions(nextPage, {
                 name,
                 pageIndex,
