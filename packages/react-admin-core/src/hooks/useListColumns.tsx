@@ -35,13 +35,16 @@ export function useListColumns({
 
     return useMemo(() => {
         if (columns) return columns;
-        const xx = ((searchMode ? (list as any)['opensearchColumns'] || list['columns'] : list['columns']) || []).map(
-            (c: any) => {
-                const cc = { ...c };
-                cc['label'] = 'string' === typeof cc['label'] ? t(cc['label'] || '') : cc['label'];
-                return cc;
-            },
-        );
+        list = list || {};
+        const xx = (
+            (searchMode
+                ? ((list as any) || {})['opensearchColumns'] || (list || {})['columns']
+                : (list || {})['columns']) || []
+        ).map((c: any) => {
+            const cc = { ...c };
+            cc['label'] = 'string' === typeof cc['label'] ? t(cc['label'] || '') : cc['label'];
+            return cc;
+        });
         if (list['actions'] && list['actions'].length) {
             xx.push({
                 id: 'actions',

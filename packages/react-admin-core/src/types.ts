@@ -41,3 +41,16 @@ export type uploader_builder_options = {
     fetch?: Function;
     anonymousify?: () => string | undefined | Promise<string | undefined>;
 };
+
+export type next_page_ctx = {
+    navigationMode: string;
+    searchMode?: boolean;
+    name: string;
+    filterName?: string;
+    cursor?: string;
+    nextCursor?: string;
+    pageIndex: number;
+    pageSize: number;
+    pagePreviousCursors: string[];
+    listRoute: string;
+};
