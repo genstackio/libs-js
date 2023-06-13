@@ -54,3 +54,19 @@ export type next_page_ctx = {
     pagePreviousCursors: string[];
     listRoute: string;
 };
+
+export type page_resized_ctx = {
+    navigationMode: string;
+    searchMode?: boolean;
+    name: string;
+    filterName?: string;
+    listRoute: string;
+};
+
+export type page_mode_ctx = {
+    navigationMode: string;
+    pageSize: number;
+    name: string;
+    filterName?: string;
+    listRoute: string;
+};

@@ -1,7 +1,16 @@
 import { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
-import buildListRouteUri from '../utils/buildListRouteUri';
 import stopPrevent from '@genstackio/react-admin-ui/lib/utils/stopPrevent';
+import buildPageModeActions from '../utils/buildPageModeActions';
+
+const actions = {
+    history_push: ({ uri }, { history }) => history.push(uri),
+    page_state: ({ state }, { setPage }) => setPage(state),
+    page_state_and_mode: ({ state, searchMode }, { setPage, setSearchMode }) => {
+        setPage(state);
+        setSearchMode(searchMode);
+    },
+};
 
 export function useListSwitchChangeCallback({
     name,
@@ -11,7 +20,9 @@ export function useListSwitchChangeCallback({
     page,
     setPage,
     filterName,
+    navigationMode,
 }: {
+    navigationMode: string;
     name: string;
     listRoute: string;
     setSearchMode: Function;
@@ -25,19 +36,18 @@ export function useListSwitchChangeCallback({
     return useCallback(
         (e: any) => {
             stopPrevent(e);
-            const u = buildListRouteUri(listRoute, {
+            const actionList = buildPageModeActions(!searchMode, {
                 name,
+                listRoute,
                 filterName,
-                pPage: String(1),
-                pSize: String(page.size),
-                pMode: !searchMode ? 'search' : 'default',
-                pCursors: '',
+                navigationMode,
+                pageSize: page.size,
             });
-            u && history.push(u);
-            setPage({ size: page.size, index: 0, previousCursors: [], currentCursor: undefined });
-            setSearchMode(!searchMode);
+            (actionList || []).forEach((action) =>
+                (actions[action?.type || ''] || undefined)?.(action.config, { history, setPage, setSearchMode }),
+            );
         },
-        [history, listRoute, name, setSearchMode, searchMode, setPage, page.size, filterName],
+        [history, listRoute, name, setSearchMode, searchMode, setPage, page.size, filterName, navigationMode],
     );
 }
 

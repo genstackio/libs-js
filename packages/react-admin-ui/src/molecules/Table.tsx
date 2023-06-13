@@ -53,7 +53,7 @@ const useStyles = makeStyles({
 
 const defaultColumns = [];
 const defaultItems = [];
-const defaultRowsPerPageOptions = [10, 20, 50, 100, 200, 500];
+const defaultRowsPerPageOptions = [10, 20, 50, 100];
 
 export function Table({
     cellClassName,
