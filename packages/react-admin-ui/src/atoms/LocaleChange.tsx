@@ -47,7 +47,7 @@ export function LocaleChange({ className, color = 'primary', locales = defaultLo
                 <Row responsive={false} pointer spaced={2}>
                     <FlagIcon locale={i18n.language} />
                     <Text text={shortenLocale(i18n.language)} variant={'subsection'} />
-                    <Popper anchorEl={anchorEl} open={opened} placement={'bottom-start'} transition>
+                    <Popper anchorEl={anchorEl} open={opened} placement={'bottom-start'} transition className={'z-50'}>
                         <Div mt={'md'} className={'max-w-xxs divide-y bg-clear'}>
                             {locales.map(({ value, language }, index) => (
                                 <Div
