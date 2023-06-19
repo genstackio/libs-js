@@ -1,6 +1,6 @@
 {
     "name": "@genstackio/react-ps",
-    "version": "0.1.9",
+    "version": "0.2.0",
     "description": "React PDF System for PDFs",
     "license": "MIT",
     "main": "lib/index.js",
@@ -31,8 +31,8 @@
         "@genstackio/amount": "^0.1.3",
         "@genstackio/date": "^0.1.2",
         "@genstackio/react-contexts-type": "^0.1.12",
-        "@genstackio/react-i18n": "^0.1.7",
-        "@genstackio/react-modules-engine": "^0.1.15",
+        "@genstackio/react-i18n": "^0.2.0",
+        "@genstackio/react-modules-engine": "^0.2.0",
         "@genstackio/react-types": "^0.1.9",
         "@genstackio/replace": "^0.2.0",
         "@ohoareau/pdf-generator": "^0.3.16",
