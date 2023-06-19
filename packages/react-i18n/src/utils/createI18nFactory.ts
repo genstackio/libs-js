@@ -26,7 +26,7 @@ export function createI18nFactory(
         return createI18nFromLocaleAndResources(
             locale,
             resources,
-            config.defaultLocale!,
+            config.defaultLocale,
             config.fallbackLocale!,
             backends,
             options,

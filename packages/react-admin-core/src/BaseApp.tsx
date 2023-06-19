@@ -16,6 +16,7 @@ import Route from './Route';
 import { ambiance_context_value, expression_context_value } from '@genstackio/react-contexts/lib/types';
 import buildImporter from './utils/buildImporter';
 import AppDrawer from './organisms/AppDrawer';
+import LanguageDetector from 'i18next-browser-languagedetector';
 
 // warning: we create default values (objects) here to avoid react re-rendering with always-different-objects
 const defaultTranslations = {};
@@ -43,6 +44,8 @@ export function BaseApp({
     defaultLocale = undefined,
     fallbackLocale = undefined,
     requiredRoles = undefined,
+    localeBackends: rawLocaleBackends = undefined,
+    localeOptions = undefined,
     upload = undefined,
     ...props
 }: BaseAppProps) {
@@ -53,6 +56,12 @@ export function BaseApp({
         () => [...(Array.isArray(translations) ? translations : [translations]), coreTranslations, adminUiTranslations],
         [translations],
     );
+    const computedLocaleBackends = useMemo(() => {
+        if ((defaultLocale === 'autodetect' || fallbackLocale === 'autodetect') && !rawLocaleBackends?.length) {
+            return [LanguageDetector];
+        }
+        return rawLocaleBackends;
+    }, [rawLocaleBackends]);
     const {
         api,
         baseTheme,
@@ -79,6 +88,8 @@ export function BaseApp({
         })),
         defaultLocale,
         fallbackLocale,
+        localeBackends: computedLocaleBackends,
+        localeOptions,
         upload,
     });
     return (
@@ -139,6 +150,8 @@ export interface BaseAppProps {
     locales?: string[];
     defaultLocale?: string;
     fallbackLocale?: string;
+    localeBackends?: any[];
+    localeOptions?: any;
     [key: string]: any;
 }
 

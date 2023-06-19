@@ -1,7 +1,6 @@
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
 import translations from '../configs/translations';
 import mergeI18nResources from './mergeI18nResources';
+import createI18nFromLocaleAndResources from '@genstackio/react-i18n/lib/utils/createI18nFromLocaleAndResources';
 
 const defaultLocale = 'fr-FR';
 const defaultFallbackLocale = 'fr-FR';
@@ -10,27 +9,23 @@ export function i18nFactory({
     fallbackLng = undefined,
     lng = undefined,
     resources = undefined,
+    backends = undefined,
+    options = {},
 }: {
     fallbackLng?: string;
     lng?: string;
     resources?: any;
+    backends?: any[];
+    options?: any;
 }) {
-    resources = mergeI18nResources(resources);
-    const i = i18n.createInstance();
-    // noinspection JSIgnoredPromiseFromCall
-    i.use(initReactI18next).init({
-        resources: resources || translations,
-        fallbackLng: fallbackLng || defaultFallbackLocale,
-        lng: lng || defaultLocale,
-        keySeparator: false,
-        interpolation: {
-            escapeValue: false,
-        },
-        react: {
-            useSuspense: true,
-        },
-    });
-    return i;
+    return createI18nFromLocaleAndResources(
+        lng || defaultLocale,
+        mergeI18nResources(resources) || translations,
+        defaultLocale,
+        fallbackLng || defaultFallbackLocale,
+        backends,
+        { suspense: true, ...options },
+    );
 }
 
 export default i18nFactory;

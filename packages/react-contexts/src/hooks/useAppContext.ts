@@ -28,6 +28,7 @@ function defaultStorageKeyFactory(key: string) {
 }
 
 const defaultApiOptions = {};
+const defaultLocaleOptions = {};
 
 const storage: storage | undefined = (() => {
     const s = 'undefined' === typeof localStorage ? undefined : localStorage;
@@ -58,6 +59,8 @@ export function useAppContext({
     locales,
     defaultLocale = 'en-US',
     fallbackLocale = 'en-US',
+    localeBackends = undefined,
+    localeOptions = defaultLocaleOptions,
     getImage,
     fullscreen,
     upload,
@@ -216,8 +219,14 @@ export function useAppContext({
     );
 
     const i18n = useMemo(() => {
-        return i18nFactory({ lng: formatLng(locale), resources: translations });
-    }, [locale, translations]);
+        return i18nFactory({
+            lng: formatLng(locale),
+            resources: translations,
+            backends: localeBackends,
+            fallbackLng: formatLng(fallbackLocale),
+            options: localeOptions,
+        });
+    }, [locale, translations, fallbackLocale, localeBackends, localeOptions]);
 
     const localesProviderValue: locales_context_value = useMemo(
         () => ({
