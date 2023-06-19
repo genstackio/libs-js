@@ -249,6 +249,8 @@ export type theme = { [key: string]: any };
 export type themes = { default: theme; [key: string]: theme };
 
 export type app_context_params = {
+    localeOptions?: any;
+    localeBackends?: any[];
     storageKeyFactory?: (k: string) => string;
     themes?: any;
     theme?: any;

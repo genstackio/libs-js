@@ -22,9 +22,8 @@
   "dependencies": {
     "@genstackio/react-context-api": "^0.1.2",
     "@ohoareau/apollo-client-jwt": "^0.1.5",
-    "i18next": "^20.3.2",
-    "isomorphic-fetch": "^3.0.0",
-    "react-i18next": "^11.11.0"
+    "@genstackio/react-i18n": "^0.1.9",
+    "isomorphic-fetch": "^3.0.0"
   },
   "peerDependencies": {
     "@stripe/react-stripe-js": "^1.4.1",
