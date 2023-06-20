@@ -43,6 +43,7 @@ export interface ListScreenTemplateProps {
     search?: boolean;
     searchSwitch?: boolean;
     deletable?: boolean;
+    sortBuilder?: Function;
 }
 
 // noinspection JSUnusedGlobalSymbols

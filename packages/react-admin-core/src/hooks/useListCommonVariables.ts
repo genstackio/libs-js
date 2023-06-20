@@ -34,6 +34,7 @@ export function useListCommonVariables({
     queryName: forcedQueryName,
     rowsPerPageOptions,
     rowHeight,
+    sortBuilder,
 }: {
     name: string;
     singularName?: string;
@@ -64,6 +65,7 @@ export function useListCommonVariables({
     queryName?: string;
     rowsPerPageOptions?: number[];
     rowHeight?: number;
+    sortBuilder?: Function;
 }) {
     const history = useHistory();
     const listFactory = useListFactory();
@@ -128,8 +130,13 @@ export function useListCommonVariables({
 
     const cursor = page.currentCursor;
     const fetchSortVariables = useMemo(
-        () => (sortModel.length ? { sort: `${sortModel[0].field}:${sortModel[0].sort}` } : {}),
-        [sortModel],
+        () =>
+            sortBuilder
+                ? sortBuilder(sortModel)
+                : sortModel.length
+                ? { sort: `${sortModel[0].field}:${sortModel[0].sort}` }
+                : {},
+        [sortModel, sortBuilder],
     );
 
     listRoute = (filterName ? filterListRoute : listRoute) || listRoute;

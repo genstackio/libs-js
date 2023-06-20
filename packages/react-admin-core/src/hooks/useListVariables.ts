@@ -28,6 +28,7 @@ export function useListVariables(props: {
     navigationMode?: string;
     listFirstPageRoute?: string;
     searchSwitch?: boolean;
+    sortBuilder?: Function;
 }) {
     const {
         breadcrumbsProps,
