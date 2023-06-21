@@ -1,5 +1,6 @@
 export function convertLocaleToFlagName(locale: string) {
-    return locale.split(/-/)[1].toLowerCase();
+    const [a, b] = (locale || '').split(/-/);
+    return (b || a || '').toLowerCase();
 }
 
 export default convertLocaleToFlagName;
