@@ -109,7 +109,7 @@ function SubListScreenTemplate({
         },
         [name, history, parentName, parentId, singularName, editRoute],
     );
-    const goPublicPage = useCallback((url) => {
+    const goUrl = useCallback((url) => {
         'undefined' !== typeof window && url && window.open(url);
     }, []);
 
@@ -312,7 +312,14 @@ function SubListScreenTemplate({
                                 break;
                             case 'go_public_page':
                                 if (!doc?.row?.publicPageUrl && !doc?.row?.publicPageShortUrl) return null;
-                                onClick = () => goPublicPage(doc?.row?.publicPageUrl || doc?.row?.publicPageShortUrl);
+                                onClick = () => goUrl(doc?.row?.publicPageUrl || doc?.row?.publicPageShortUrl);
+                                color = 'dark';
+                                variant = 'contained';
+                                icon = 'fa-fas--up-right-from-square';
+                                break;
+                            case 'go_private_page':
+                                if (!doc?.row?.privatePageUrl && !doc?.row?.privatePageShortUrl) return null;
+                                onClick = () => goUrl(doc?.row?.privatePageUrl || doc?.row?.privatePageShortUrl);
                                 color = 'dark';
                                 variant = 'contained';
                                 icon = 'fa-fas--up-right-from-square';
@@ -348,7 +355,7 @@ function SubListScreenTemplate({
             });
         }
         return xx;
-    }, [handleUp, handleDown, list, t, goDoc, goEdit, handleDelete, singularName, forcedColumns, goPublicPage]);
+    }, [handleUp, handleDown, list, t, goDoc, goEdit, handleDelete, singularName, forcedColumns, goUrl]);
 
     const key = `${searchMode ? 'search' : 'find'}${parentSingularName[0].toUpperCase()}${parentSingularName.slice(1)}${
         name[0].toUpperCase() + name.slice(1)
