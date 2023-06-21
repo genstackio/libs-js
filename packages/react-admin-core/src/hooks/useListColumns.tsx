@@ -10,6 +10,7 @@ export function useListColumns({
     goEdit,
     onDelete,
     goPublicPage,
+    goPrivatePage,
     singularName,
 }: {
     columns?: any;
@@ -18,6 +19,7 @@ export function useListColumns({
     goDoc?: Function;
     goEdit?: Function;
     goPublicPage?: Function;
+    goPrivatePage?: Function;
     onDelete?: Function;
     singularName?: string;
 }) {
@@ -29,8 +31,9 @@ export function useListColumns({
             ...(goEdit ? { edit: goEdit } : {}),
             ...(onDelete ? { delete: onDelete } : {}),
             ...(goPublicPage ? { displayPublicPage: goPublicPage } : {}),
+            ...(goPrivatePage ? { displayPrivatePage: goPrivatePage } : {}),
         }),
-        [goDoc, goEdit, onDelete, goPublicPage],
+        [goDoc, goEdit, onDelete, goPublicPage, goPrivatePage],
     );
 
     return useMemo(() => {
