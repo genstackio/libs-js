@@ -115,9 +115,12 @@ export function useListCommonVariables({
         },
         [name, history, singularName, editRoute],
     );
-    const goPublicPage = useCallback((url) => {
+    const goUrl = useCallback((url) => {
         'undefined' !== typeof window && url && window.open(url);
     }, []);
+
+    const goPublicPage = goUrl;
+    const goPrivatePage = goUrl;
 
     const [deleteDoc] = useConditionalMutationApi(
         deletable,
@@ -197,6 +200,7 @@ export function useListCommonVariables({
             goNew,
             goEdit,
             goPublicPage,
+            goPrivatePage,
             onNewClick,
             cursor,
             deleteDoc,
@@ -237,6 +241,7 @@ export function useListCommonVariables({
             goNew,
             goEdit,
             goPublicPage,
+            goPrivatePage,
             onNewClick,
             cursor,
             deleteDoc,

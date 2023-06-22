@@ -12,6 +12,7 @@ export function useListDocVariables({
     goDoc,
     goEdit,
     goPublicPage,
+    goPrivatePage,
     singularName,
     list,
     setSortModel,
@@ -49,6 +50,7 @@ export function useListDocVariables({
     goEdit: Function;
     goDoc: Function;
     goPublicPage: Function;
+    goPrivatePage: Function;
     list: any;
     columns?: any;
 }) {
@@ -115,6 +117,7 @@ export function useListDocVariables({
         goEdit,
         onDelete,
         goPublicPage,
+        goPrivatePage,
         singularName,
     });
     const total = searchMode ? ((data || {})[key] || {})['count'] || 0 : undefined;
