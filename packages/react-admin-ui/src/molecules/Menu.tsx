@@ -42,13 +42,18 @@ export function Menu({ className, color = 'primary', items = defaultItems, varia
 
     return (
         <div className={clsx(boxColorClass('clear'), className)}>
-            {groups.map(({ type, items: groupItems = [], ...item }, index) => {
+            {groups.map(({ type, items: groupItems = [], menuItemComponent: ForcedMenuItemComp, menuFoldComponent: ForcedMenuFoldComp, sectionHeaderComponent: ForcedSectionHeaderComp, ...item }, index) => {
                 const active = activeGroup === index;
+
+                const SHC = ForcedSectionHeaderComp || SectionHeaderComp;
+                const MIC = ForcedMenuItemComp || MenuItemComp;
+                const MFC = ForcedMenuFoldComp || MenuFoldComp;
+
                 return (
                     <Fragment key={index}>
                         {'section' === type && (
                             <>
-                                <SectionHeaderComp
+                                <SHC
                                     active={active}
                                     color={color}
                                     subtitle={item.description}
@@ -67,18 +72,18 @@ export function Menu({ className, color = 'primary', items = defaultItems, varia
                                     {groupItems.map(({ type: subType, ...subItem }: any, index2) => (
                                         <Fragment key={index2}>
                                             {'menu' === subType && (
-                                                <MenuFoldComp color={color} variant={'light'} {...subItem} />
+                                                <MFC color={color} variant={'light'} {...subItem} />
                                             )}
                                             {'item' === subType && (
-                                                <MenuItemComp color={color} variant={'light'} {...subItem} />
+                                                <MIC color={color} variant={'light'} {...subItem} />
                                             )}
                                         </Fragment>
                                     ))}
                                 </div>
                             </>
                         )}
-                        {'menu' === type && <MenuFoldComp color={color} variant={'light'} {...item} />}
-                        {'item' === type && <MenuItemComp color={color} variant={'light'} {...item} />}
+                        {'menu' === type && <MFC color={color} variant={'light'} {...item} />}
+                        {'item' === type && <MIC color={color} variant={'light'} {...item} />}
                     </Fragment>
                 );
             })}
