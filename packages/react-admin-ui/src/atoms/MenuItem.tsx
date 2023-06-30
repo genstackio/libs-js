@@ -20,6 +20,7 @@ import {
     WithVariantOfMenu,
 } from '../withs';
 import useAmbiance from '@genstackio/react-contexts/lib/hooks/useAmbiance';
+import {class_name} from "../types";
 
 export function MenuItem({
     active = false,
@@ -32,6 +33,7 @@ export function MenuItem({
     p = 'md',
     target,
     variant,
+    iconClassName,
 }: MenuItemProps) {
     const { menuItemCorner = 'rounded-small' } = useAmbiance();
     return (
@@ -50,7 +52,7 @@ export function MenuItem({
             <Row center responsive={false} spaced={4}>
                 {icon && (
                     <Div flex className={'w-6'}>
-                        <Icon className={'flex-1'} icon={icon} />
+                        <Icon className={clsx('flex-1', iconClassName)} icon={icon} />
                     </Div>
                 )}
                 <Text text={label} variant={'description'} className={'flex-1'} />
@@ -70,7 +72,9 @@ export interface MenuItemProps
         WithVariantOfMenu,
         WithMargin,
         WithPadding,
-        WithBadges {}
+        WithBadges {
+    iconClassName?: class_name;
+}
 
 // noinspection JSUnusedGlobalSymbols
 export default MenuItem;
