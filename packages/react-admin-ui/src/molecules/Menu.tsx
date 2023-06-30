@@ -14,7 +14,7 @@ const maxStyles = {
     maxHeight: 1000,
 };
 
-export function Menu({ className, color = 'primary', items = defaultItems, variant = 'contained' }: MenuProps) {
+export function Menu({ className, color = 'primary', items = defaultItems, variant = 'contained', sectionHeaderComponent: SectionHeaderComp = SectionHeader, menuItemComponent: MenuItemComp = MenuItem, menuFoldComponent: MenuFoldComp = MenuFold }: MenuProps) {
     const { activeGroup: defaultActiveGroup, groups } = useMemo(() => {
         return items.reduce(
             (acc: any, i: any) => {
@@ -48,7 +48,7 @@ export function Menu({ className, color = 'primary', items = defaultItems, varia
                     <Fragment key={index}>
                         {'section' === type && (
                             <>
-                                <SectionHeader
+                                <SectionHeaderComp
                                     active={active}
                                     color={color}
                                     subtitle={item.description}
@@ -67,18 +67,18 @@ export function Menu({ className, color = 'primary', items = defaultItems, varia
                                     {groupItems.map(({ type: subType, ...subItem }: any, index2) => (
                                         <Fragment key={index2}>
                                             {'menu' === subType && (
-                                                <MenuFold color={color} variant={'light'} {...subItem} />
+                                                <MenuFoldComp color={color} variant={'light'} {...subItem} />
                                             )}
                                             {'item' === subType && (
-                                                <MenuItem color={color} variant={'light'} {...subItem} />
+                                                <MenuItemComp color={color} variant={'light'} {...subItem} />
                                             )}
                                         </Fragment>
                                     ))}
                                 </div>
                             </>
                         )}
-                        {'menu' === type && <MenuFold color={color} variant={'light'} {...item} />}
-                        {'item' === type && <MenuItem color={color} variant={'light'} {...item} />}
+                        {'menu' === type && <MenuFoldComp color={color} variant={'light'} {...item} />}
+                        {'item' === type && <MenuItemComp color={color} variant={'light'} {...item} />}
                     </Fragment>
                 );
             })}
@@ -86,7 +86,11 @@ export function Menu({ className, color = 'primary', items = defaultItems, varia
     );
 }
 
-export interface MenuProps extends AsBox, WithItemsOfMenu {}
+export interface MenuProps extends AsBox, WithItemsOfMenu {
+    menuItemComponent?: any;
+    menuFoldComponent?: any;
+    sectionHeaderComponent?: any;
+}
 
 // noinspection JSUnusedGlobalSymbols
 export default Menu;
