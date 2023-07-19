@@ -72,7 +72,14 @@ export function FileUploadField({
         (x: any) => (val: any, ctx: any) => {
             const xx = { _previewUrl: val.previewUrl, url: val.fileUrl, name: val.name, contentType: val.type };
             x && x(xx);
-            onUploaded && onUploaded(xx, ctx);
+            onUploaded?.(xx, {
+                ...ctx,
+                onChange: x,
+                reset: () => {
+                    ctx.remove?.();
+                    x({ url: undefined });
+                },
+            });
         },
         [onUploaded],
     );
