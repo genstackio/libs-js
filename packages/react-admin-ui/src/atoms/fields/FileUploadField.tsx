@@ -41,6 +41,7 @@ const defaultCustomFileTypeComponents: Record<string, any> = {};
 export function FileUploadField({
     className,
     customFileTypeComponents = defaultCustomFileTypeComponents,
+    onUploaded,
     ...props
 }: FileUploadFieldProps) {
     const { t } = useTranslation();
@@ -68,11 +69,12 @@ export function FileUploadField({
     } = useField({ kind: 'file', ...props });
 
     const handleChange = useCallback(
-        (x: any) => (val: any) => {
+        (x: any) => (val: any, ctx: any) => {
             const xx = { _previewUrl: val.previewUrl, url: val.fileUrl, name: val.name, contentType: val.type };
             x && x(xx);
+            onUploaded && onUploaded(xx, ctx);
         },
-        [],
+        [onUploaded],
     );
 
     const fileType = getFileTypeFromContentTypeOrFilename(defaultValue);
@@ -143,6 +145,7 @@ export interface FileUploadFieldProps extends AsField {
     minSizeBytes?: number;
     customFileTypeComponents?: Record<string, any>;
     autoSubmit?: boolean;
+    onUploaded?: Function;
 }
 
 // noinspection JSUnusedGlobalSymbols
