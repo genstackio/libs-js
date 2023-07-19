@@ -54,8 +54,10 @@ export const FileUploader = forwardRef(
                         }
                         break;
                     case 'done':
-                        onFileUpload && onFileUpload(meta, { file, remove });
-                        autoSubmit && handleSubmit(xx, [{ remove }]);
+                        if (!autoUpload) {
+                            onFileUpload && onFileUpload(meta, { file, remove });
+                            autoSubmit && handleSubmit(xx, [{ remove }]);
+                        }
                         break;
                     case 'removed':
                         onFileRemove && onFileRemove(meta, { file });
