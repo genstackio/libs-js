@@ -29,42 +29,46 @@ export const FileUploader = forwardRef(
             submitLabel,
             autoUpload = false,
             getUploadParams,
+            autoSubmit = false,
             url,
             ...props
         }: FileUploaderProps,
         ref: any,
     ) => {
-        getUploadParams = getUploadParams || useCallback(() => ({ url: url }), [url]);
-        const handleChangeStatus = useCallback(
-            ({ meta, file, remove }, status) => {
-                switch (status) {
-                    case 'headers_received':
-                        if (autoUpload) {
-                            onFileUpload && onFileUpload(meta);
-                        }
-                        break;
-                    case 'done':
-                        onFileUpload && onFileUpload(meta);
-                        break;
-                    case 'removed':
-                        onFileRemove && onFileRemove(meta);
-                        break;
-                    case 'aborted':
-                        if (autoUpload) {
-                            remove();
-                        }
-                        onFileAbort && onFileAbort(meta);
-                        break;
-                }
-            },
-            [onFileUpload, onFileRemove, onFileAbort, autoUpload],
-        );
         const handleSubmit = useCallback(
             ({ meta }, allFiles) => {
                 allFiles.forEach((f) => f.remove());
                 onSubmit && onSubmit();
             },
             [onSubmit],
+        );
+        getUploadParams = getUploadParams || useCallback(() => ({ url: url }), [url]);
+        const handleChangeStatus = useCallback(
+            (xx, status) => {
+                const { meta, file, remove } = xx;
+                switch (status) {
+                    case 'headers_received':
+                        if (autoUpload) {
+                            onFileUpload && onFileUpload(meta, { file, remove });
+                            autoSubmit && handleSubmit(xx, [{ remove }]);
+                        }
+                        break;
+                    case 'done':
+                        onFileUpload && onFileUpload(meta, { file, remove });
+                        autoSubmit && handleSubmit(xx, [{ remove }]);
+                        break;
+                    case 'removed':
+                        onFileRemove && onFileRemove(meta, { file });
+                        break;
+                    case 'aborted':
+                        if (autoUpload) {
+                            remove();
+                        }
+                        onFileAbort && onFileAbort(meta, { file, remove });
+                        break;
+                }
+            },
+            [onFileUpload, onFileRemove, onFileAbort, autoUpload],
         );
 
         return (
@@ -99,6 +103,7 @@ export interface FileUploaderProps extends AsBox, WithTitle, WithPlaceholder, Wi
     minSizeBytes?: number;
     multiple?: boolean;
     maxFiles?: number;
+    autoSubmit?: boolean;
 }
 
 // noinspection JSUnusedGlobalSymbols

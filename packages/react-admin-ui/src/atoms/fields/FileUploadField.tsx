@@ -142,6 +142,7 @@ export interface FileUploadFieldProps extends AsField {
     maxSizeBytes?: number;
     minSizeBytes?: number;
     customFileTypeComponents?: Record<string, any>;
+    autoSubmit?: boolean;
 }
 
 // noinspection JSUnusedGlobalSymbols
