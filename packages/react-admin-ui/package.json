@@ -1,6 +1,6 @@
 {
     "name": "@genstackio/react-admin-ui",
-    "version": "0.22.7",
+    "version": "0.22.8",
     "description": "React Components for Genstackio",
     "license": "MIT",
     "main": "lib/index.js",
