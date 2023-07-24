@@ -85,7 +85,7 @@ export function LoginScreen({
     );
 
     const TemplateComp = useMemo(() => {
-        if (templateComponent) return templateComponent;
+        if (!layout && templateComponent) return templateComponent;
         const l = layouts[layout || 'default'] || layouts['default'];
         if (!l) return defaultTemplate;
         return l;
