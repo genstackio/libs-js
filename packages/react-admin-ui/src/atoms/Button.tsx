@@ -46,6 +46,7 @@ export function Button({
     onClick,
     size = 'md',
     variant = 'contained',
+    'data-intercom-target': dataIntercomTarget = undefined,
 }: ButtonProps) {
     const { buttonCorner = 'rounded-xxsmall' } = useAmbiance();
     corner = (corner || buttonCorner) as any;
@@ -71,6 +72,8 @@ export function Button({
 
     if (!label && !children && !icon && !endIcon) return null;
 
+    const xtra = dataIntercomTarget ? { 'data-intercom-target': dataIntercomTarget } : {};
+
     let content = (
         <button
             autoFocus={autoFocus}
@@ -84,6 +87,7 @@ export function Button({
                 'justify-center',
                 className,
             )}
+            {...xtra}
         >
             <BoxProvider value={box}>
                 {loading && (

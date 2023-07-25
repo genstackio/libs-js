@@ -119,6 +119,7 @@ export function Div({
     wrap = false,
     h = undefined,
     w = undefined,
+    'data-intercom-target': dataIntercomTarget = undefined,
 }: DivProps) {
     if ('boolean' === typeof row) {
         col = !row;
@@ -194,10 +195,11 @@ export function Div({
 
     const content = box ? <BoxProvider value={box as any}>{children || ''}</BoxProvider> : children || '';
 
+    const xtra = dataIntercomTarget ? { 'data-intercom-target': dataIntercomTarget } : {};
     if (onClick) {
         if ('string' === typeof onClick) {
             return (
-                <a href={onClick as string}>
+                <a href={onClick as string} {...xtra}>
                     <div id={id} className={cls}>
                         {content}
                     </div>
@@ -206,7 +208,7 @@ export function Div({
         }
         if ('object' === typeof onClick && !!onClick.href) {
             return (
-                <a href={onClick.href} {...(onClick.onClick ? { onClick: onClick.onClick as any } : {})}>
+                <a href={onClick.href} {...(onClick.onClick ? { onClick: onClick.onClick as any } : {})} {...xtra}>
                     <div id={id} className={cls}>
                         {content}
                     </div>
@@ -215,14 +217,14 @@ export function Div({
         }
 
         return (
-            <div id={id} onClick={onClick as any} className={cls}>
+            <div id={id} onClick={onClick as any} className={cls} {...xtra}>
                 {content}
             </div>
         );
     }
 
     return (
-        <div id={id} className={cls}>
+        <div id={id} className={cls} {...xtra}>
             {content}
         </div>
     );

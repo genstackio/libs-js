@@ -20,7 +20,7 @@ import {
     WithVariantOfMenu,
 } from '../withs';
 import useAmbiance from '@genstackio/react-contexts/lib/hooks/useAmbiance';
-import {class_name} from "../types";
+import { class_name } from '../types';
 
 export function MenuItem({
     active = false,

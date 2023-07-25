@@ -14,7 +14,15 @@ const maxStyles = {
     maxHeight: 1000,
 };
 
-export function Menu({ className, color = 'primary', items = defaultItems, variant = 'contained', sectionHeaderComponent: SectionHeaderComp = SectionHeader, menuItemComponent: MenuItemComp = MenuItem, menuFoldComponent: MenuFoldComp = MenuFold }: MenuProps) {
+export function Menu({
+    className,
+    color = 'primary',
+    items = defaultItems,
+    variant = 'contained',
+    sectionHeaderComponent: SectionHeaderComp = SectionHeader,
+    menuItemComponent: MenuItemComp = MenuItem,
+    menuFoldComponent: MenuFoldComp = MenuFold,
+}: MenuProps) {
     const { activeGroup: defaultActiveGroup, groups } = useMemo(() => {
         return items.reduce(
             (acc: any, i: any) => {
@@ -42,51 +50,63 @@ export function Menu({ className, color = 'primary', items = defaultItems, varia
 
     return (
         <div className={clsx(boxColorClass('clear'), className)}>
-            {groups.map(({ type, items: groupItems = [], menuItemComponent: ForcedMenuItemComp, menuFoldComponent: ForcedMenuFoldComp, sectionHeaderComponent: ForcedSectionHeaderComp, ...item }, index) => {
-                const active = activeGroup === index;
+            {groups.map(
+                (
+                    {
+                        type,
+                        items: groupItems = [],
+                        menuItemComponent: ForcedMenuItemComp,
+                        menuFoldComponent: ForcedMenuFoldComp,
+                        sectionHeaderComponent: ForcedSectionHeaderComp,
+                        ...item
+                    },
+                    index,
+                ) => {
+                    const active = activeGroup === index;
 
-                const SHC = ForcedSectionHeaderComp || SectionHeaderComp;
-                const MIC = ForcedMenuItemComp || MenuItemComp;
-                const MFC = ForcedMenuFoldComp || MenuFoldComp;
+                    const SHC = ForcedSectionHeaderComp || SectionHeaderComp;
+                    const MIC = ForcedMenuItemComp || MenuItemComp;
+                    const MFC = ForcedMenuFoldComp || MenuFoldComp;
 
-                return (
-                    <Fragment key={index}>
-                        {'section' === type && (
-                            <>
-                                <SHC
-                                    active={active}
-                                    color={color}
-                                    subtitle={item.description}
-                                    title={item.label}
-                                    variant={variant}
-                                    onClick={handleSectionClick(index) as any}
-                                    hoverable={!!groupItems.length}
-                                />
-                                <div
-                                    className={clsx(
-                                        'overflow-y-scroll max-h-0 transition transition-all easy-in-out duration-500',
-                                        active ? '' : 'max-h-0',
-                                    )}
-                                    {...(active ? { style: maxStyles } : {})}
-                                >
-                                    {groupItems.map(({ type: subType, ...subItem }: any, index2) => (
-                                        <Fragment key={index2}>
-                                            {'menu' === subType && (
-                                                <MFC color={color} variant={'light'} {...subItem} />
-                                            )}
-                                            {'item' === subType && (
-                                                <MIC color={color} variant={'light'} {...subItem} />
-                                            )}
-                                        </Fragment>
-                                    ))}
-                                </div>
-                            </>
-                        )}
-                        {'menu' === type && <MFC color={color} variant={'light'} {...item} />}
-                        {'item' === type && <MIC color={color} variant={'light'} {...item} />}
-                    </Fragment>
-                );
-            })}
+                    return (
+                        <Fragment key={index}>
+                            {'section' === type && (
+                                <>
+                                    <SHC
+                                        active={active}
+                                        color={color}
+                                        subtitle={item.description}
+                                        title={item.label}
+                                        variant={variant}
+                                        onClick={handleSectionClick(index) as any}
+                                        hoverable={!!groupItems.length}
+                                    />
+                                    <div
+                                        className={clsx(
+                                            'overflow-y-scroll max-h-0 transition transition-all easy-in-out duration-500',
+                                            active ? '' : 'max-h-0',
+                                        )}
+                                        {...(active ? { style: maxStyles } : {})}
+                                    >
+                                        {groupItems.map(({ type: subType, ...subItem }: any, index2) => (
+                                            <Fragment key={index2}>
+                                                {'menu' === subType && (
+                                                    <MFC color={color} variant={'light'} {...subItem} />
+                                                )}
+                                                {'item' === subType && (
+                                                    <MIC color={color} variant={'light'} {...subItem} />
+                                                )}
+                                            </Fragment>
+                                        ))}
+                                    </div>
+                                </>
+                            )}
+                            {'menu' === type && <MFC color={color} variant={'light'} {...item} />}
+                            {'item' === type && <MIC color={color} variant={'light'} {...item} />}
+                        </Fragment>
+                    );
+                },
+            )}
         </div>
     );
 }

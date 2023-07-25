@@ -28,10 +28,11 @@ import {
     WithDeps,
     WithConvertValue,
     WithCenter,
+    WithIntercomSupport,
 } from './withs';
 import { class_name, flag } from './types';
 
-export type AsComponent = WithClassName;
+export interface AsComponent extends WithClassName, WithIntercomSupport {}
 
 export interface AsBox extends AsComponent, WithBox {}
 export interface AsBoxWrapper extends AsWrapper, WithBox {}

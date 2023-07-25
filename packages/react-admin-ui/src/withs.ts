@@ -828,3 +828,6 @@ export interface WithEllipsis {
 export interface WithUpper {
     upper?: flag;
 }
+export interface WithIntercomSupport {
+    'data-intercom-target'?: string;
+}
