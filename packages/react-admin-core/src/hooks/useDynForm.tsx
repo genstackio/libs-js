@@ -26,11 +26,12 @@ export function useDynForm(definition: any, view: string, props: any, context: a
 
     const DynForm = useMemo(
         () =>
-            ({ children }: any) =>
+            ({ children, dynChildren }: any) =>
                 (
                     <DynamicFormContextProvider value={value}>
                         <Form customChildren={children} className={'w-full'}>
                             <Contents content={content} options={options} />
+                            {!!dynChildren && dynChildren({ options, value })}
                         </Form>
                     </DynamicFormContextProvider>
                 ),
