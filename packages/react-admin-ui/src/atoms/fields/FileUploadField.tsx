@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+
 import FieldSet from '../FieldSet';
 import useField from '../../hooks/useField';
 import FileUploader from '../../molecules/FileUploader';
@@ -8,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { Controller } from 'react-hook-form';
 import stopPrevent from '../../utils/stopPrevent';
 import { ImageRender, OtherRender, PdfRender } from '../renders';
+
 const styles = {
     dropzone: { width: '100%', minHeight: 100, maxHeight: 250, border: 'none' },
 };
@@ -134,7 +136,7 @@ export function FileUploadField({
                                     onFileUpload={handleChange(onChange)}
                                     {...register()}
                                     {...extra}
-                                    className={clsx('', classes?.uploader)}
+                                    className={clsx('', classes?.uploader, rounded && 'rounded')}
                                 />
                             )}
                         </>

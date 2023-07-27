@@ -15,7 +15,7 @@ const styles = {
     dropzone: { width: '100%', minHeight: 100, maxHeight: 250, border: 'none' },
 };
 
-export function ImageUploadField({ className, ...props }: ImageUploadFieldProps) {
+export function ImageUploadField({ className, onUploaded, ...props }: ImageUploadFieldProps) {
     const { t } = useTranslation();
 
     const {
@@ -42,9 +42,17 @@ export function ImageUploadField({ className, ...props }: ImageUploadFieldProps)
     } = useField({ kind: 'image', ...props });
 
     const handleChange = useCallback(
-        (x: any) => (val: any) => {
+        (x: any) => (val: any, ctx: any) => {
             const xx = { _previewUrl: val.previewUrl, url: val.fileUrl, name: val.name, contentType: val.type };
             x && x(xx);
+            onUploaded?.(xx, {
+                ...ctx,
+                onChange: x,
+                reset: () => {
+                    ctx.remove?.();
+                    x({ url: undefined });
+                },
+            });
         },
         [],
     );
@@ -124,6 +132,8 @@ export interface ImageUploadFieldProps extends AsField {
     accept?: string;
     maxSizeBytes?: number;
     minSizeBytes?: number;
+    autoSubmit?: boolean;
+    onUploaded?: Function;
 }
 
 // noinspection JSUnusedGlobalSymbols
