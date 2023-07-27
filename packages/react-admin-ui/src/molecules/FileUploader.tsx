@@ -51,26 +51,29 @@ export const FileUploader = forwardRef(
                 switch (status) {
                     case 'headers_received':
                         if (autoUpload) {
-                            onFileUpload && onFileUpload(meta, { file, remove }) && (called[file] = true);
+                            if (onFileUpload) {
+                                onFileUpload(meta, { file, remove });
+                                called[meta.url] = true;
+                            }
                             autoSubmit && handleSubmit(xx, [{ remove }]);
                         }
                         break;
                     case 'done':
                         if (autoUpload) {
-                            onFileUpload && !called[file] && onFileUpload(meta, { file, remove });
+                            onFileUpload && !called[meta.url] && onFileUpload(meta, { file, remove });
                             autoSubmit && handleSubmit(xx, [{ remove }]);
                         }
-                        delete called[file];
+                        delete called[meta.url];
                         break;
                     case 'removed':
-                        delete called[file];
+                        delete called[meta.url];
                         onFileRemove && onFileRemove(meta, { file });
                         break;
                     case 'aborted':
                         if (autoUpload) {
                             remove();
                         }
-                        delete called[file];
+                        delete called[meta.url];
                         onFileAbort && onFileAbort(meta, { file, remove });
                         break;
                 }
