@@ -15,6 +15,8 @@ const defaultStyles = {
     },
 };
 
+const called: Record<string, boolean> = {};
+
 export const FileUploader = forwardRef(
     (
         {
@@ -49,23 +51,26 @@ export const FileUploader = forwardRef(
                 switch (status) {
                     case 'headers_received':
                         if (autoUpload) {
-                            onFileUpload && onFileUpload(meta, { file, remove });
+                            onFileUpload && onFileUpload(meta, { file, remove }) && (called[file] = true);
                             autoSubmit && handleSubmit(xx, [{ remove }]);
                         }
                         break;
                     case 'done':
-                        if (!autoUpload) {
-                            onFileUpload && onFileUpload(meta, { file, remove });
+                        if (autoUpload) {
+                            onFileUpload && !called[file] && onFileUpload(meta, { file, remove });
                             autoSubmit && handleSubmit(xx, [{ remove }]);
                         }
+                        delete called[file];
                         break;
                     case 'removed':
+                        delete called[file];
                         onFileRemove && onFileRemove(meta, { file });
                         break;
                     case 'aborted':
                         if (autoUpload) {
                             remove();
                         }
+                        delete called[file];
                         onFileAbort && onFileAbort(meta, { file, remove });
                         break;
                 }
