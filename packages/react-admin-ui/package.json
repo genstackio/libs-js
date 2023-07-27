@@ -118,5 +118,6 @@
         "storybook-addon-themes": "^6.1.0",
         "storybook-tailwind-dark-mode": "^1.0.9",
         "tailwindcss": "^2.2.4"
-    }
+    },
+    "gitHead": "951ae2afc7ab9e5b8cb380cdbf7b5a1f951034f2"
 }
