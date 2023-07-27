@@ -78,7 +78,7 @@ export const FileUploader = forwardRef(
                         break;
                 }
             },
-            [onFileUpload, onFileRemove, onFileAbort, autoUpload],
+            [onFileUpload, onFileRemove, autoUpload, onFileAbort],
         );
 
         return (
