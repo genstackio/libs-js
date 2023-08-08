@@ -239,6 +239,18 @@ export type page_context_value = {
     lang: string;
 };
 
+export type ssr_page_context_value = {
+    data: any;
+    assets?: any;
+    styles?: any[];
+    scripts?: any[];
+    assetPrefix?: string;
+    assetEntrypoint: string;
+    locale?: string;
+    applicationContext?: any;
+};
+
+
 export type fullscreen_context_value = {
     active: boolean;
     enter: () => Promise<void>;
