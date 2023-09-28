@@ -99,7 +99,7 @@ export function SelectorField({
                                   }
                                   return field.onChange({ target: unconvert({ value: rv }) });
                               }
-                              return field.onChange({ target: unconvert(e ? e : { value: undefined }) });
+                              return field.onChange({ target: unconvert(e ? e : { value: defaultValue }) });
                           };
                     const createOnToggle = (item: any) => () => {
                         handleOnChange && handleOnChange(item?.value === v?.value ? undefined : item);
