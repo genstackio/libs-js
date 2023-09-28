@@ -84,7 +84,7 @@ export function SelectorField({
                 render={({ field }: any) => {
                     const rawValue = (field || {}).value;
                     const v = convert(
-                        undefined !== rawValue ? findValue(values, rawValue, defaultValue, multiple) : undefined,
+                        undefined !== rawValue ? findValue(values, rawValue, undefined, multiple) : undefined,
                     );
                     const handleOnChange = disabled
                         ? undefined
