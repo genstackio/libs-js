@@ -1,4 +1,4 @@
-import { Redirect, Route as BaseRoute } from 'react-router-dom';
+import { Redirect, Route as BaseRoute, useLocation } from 'react-router-dom';
 import { route } from './types';
 import { useCallback } from 'react';
 import Routes from './Routes';
@@ -30,9 +30,22 @@ export function Route({
         }
     }
     const Component = useComponent('screen', screenName, component, !!screenName);
+    const qs = useLocation().search;
     const render = useCallback(
         (props: any) => {
-            if (redirect) return <Redirect to={redirect} />;
+            if (redirect) {
+                return (
+                    <Redirect
+                        to={
+                            'object' === typeof redirect
+                                ? redirect
+                                : (!!qs && '?' !== qs)
+                                ? { pathname: redirect, search: qs }
+                                : redirect
+                        }
+                    />
+                );
+            }
 
             return (
                 // pass the sub-routes down to keep nesting
