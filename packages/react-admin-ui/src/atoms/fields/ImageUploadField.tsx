@@ -87,11 +87,25 @@ export function ImageUploadField({ className, onUploaded, ...props }: ImageUploa
                         <>
                             {!!url && (
                                 <Div className={'text-center'}>
-                                    <Image className={'w-full max-h-36'} url={url} objectFit={'contain'} />
+                                    <Div className={'text-center flex justify-center items-center'}>
+                                        <div className={clsx('w-auto', rounded && 'rounded overflow-hidden')}>
+                                            <Image
+                                                className={clsx(
+                                                    'w-full max-h-36',
+                                                    rounded && 'rounded overflow-hidden',
+                                                )}
+                                                url={url}
+                                                objectFit={'contain'}
+                                            />
+                                        </div>
+                                    </Div>
                                     {isDirty && (
-                                        <p className={'m-4 text-center text-red-500'}>{t('field_image_dirty_label')}</p>
+                                        <p className={'mt-1 text-sm text-center text-red-500'}>
+                                            {t('field_image_dirty_label')}
+                                        </p>
                                     )}
                                     <Button
+                                        className={'mt-1 text-xxs py-1 px-2'}
                                         size={'xs'}
                                         color={'danger'}
                                         label={t('button_clear_image_label')}
