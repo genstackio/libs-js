@@ -10,6 +10,7 @@ export function CodeEditorField({
     language = 'json',
     width = undefined,
     height = 500,
+    asString = false,
     ...props
 }: CodeEditorFieldProps) {
     const {
@@ -61,7 +62,7 @@ export function CodeEditorField({
                     const handleOnChange = disabled
                         ? undefined
                         : (e: any) => {
-                              return props.field.onChange({ target: { name: name, value: { content: e } } });
+                              return props.field.onChange({ target: { name: name, value: asString ? e : { content: e } } });
                           };
                     return (
                         <MonacoEditor
@@ -82,6 +83,7 @@ export interface CodeEditorFieldProps extends AsTextField {
     width?: any;
     height?: any;
     language?: string;
+    asString?: boolean;
 }
 
 export default CodeEditorField;

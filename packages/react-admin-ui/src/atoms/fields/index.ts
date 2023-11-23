@@ -114,6 +114,8 @@ export * from './PythonField';
 export * from './QuantityField';
 export * from './QuerySelectField';
 export * from './RankField';
+export * from './RawJsonField';
+export * from './RawYamlField';
 export * from './RedditUrlField';
 export * from './RememberPasswordField';
 export * from './RoleField';
