@@ -47,7 +47,7 @@ export function DisplayScreen({
     pollInterval = needIsPollable ? pollInterval || 2000 : undefined;
 
     const toolbarComponent = useComponent('toolbar', name, undefined, toolbar);
-    const extraToolbarComponent = useComponent('toolbar', name, undefined, extraToolbar);
+    const extraToolbarComponent = useComponent('extra_toolbar', name, undefined, extraToolbar);
 
     const tabsList = useMemo(
         () =>
