@@ -14,6 +14,7 @@ function DisplayScreenTemplate({
     deletable = true,
     editable = true,
     toolbarComponent,
+    extraToolbarComponent,
     id,
     name,
     infoClassName,
@@ -55,6 +56,7 @@ function DisplayScreenTemplate({
     const tabProps = useMemo(() => ({ doc, reload }), [doc, reload]);
 
     const ToolbarComponent = toolbarComponent;
+    const ExtraToolbarComponent = extraToolbarComponent;
 
     const fetchedProperties: { label: any; value: any }[] = properties.map((key) => {
         return { value: doc[key], label: key };
@@ -123,6 +125,11 @@ function DisplayScreenTemplate({
                     {!!ToolbarComponent && <ToolbarComponent doc={doc} reload={reload} />}
                 </div>
             )}
+            {!!ExtraToolbarComponent && (
+                <div className={'mb-4 space-x-2 flex items-center'}>
+                    <ExtraToolbarComponent doc={doc} reload={reload} />
+                </div>
+            )}
             {!tabs.length && !!doc && !children && !!fetchedProperties && !!fetchedProperties.length && (
                 <Infos items={fetchedProperties} className={infoClassName || 'w-1/3 md:w-1/2 xs:w-full'} />
             )}
@@ -144,6 +151,7 @@ export interface DisplayScreenTemplateProps {
     children?: any;
     infoClassName?: string;
     toolbarComponent?: any;
+    extraToolbarComponent?: any;
     pollInterval?: number;
     isPollable?: Function;
     deletable?: boolean;
