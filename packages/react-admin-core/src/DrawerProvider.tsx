@@ -1,18 +1,18 @@
 import { DrawerContextProvider } from '@genstackio/react-contexts/lib/contexts/DrawerContext';
 import useDrawerProviderValue from '@genstackio/react-contexts/lib/hooks/useDrawerProviderValue';
-import AppDrawer from './organisms/AppDrawer';
+import AppDrawer, { AppDrawerProps } from './organisms/AppDrawer';
 
-export function DrawerProvider({ children, dynamic = false }: DrawerProviderProps) {
+export function DrawerProvider({ children, dynamic = false, ...props }: DrawerProviderProps) {
     const value = useDrawerProviderValue();
     return (
         <DrawerContextProvider value={value}>
-            <AppDrawer />
+            <AppDrawer {...props} />
             {children ? (dynamic ? children(value) : children) : false}
         </DrawerContextProvider>
     );
 }
 
-export interface DrawerProviderProps {
+export interface DrawerProviderProps extends AppDrawerProps {
     children?: any;
     dynamic?: boolean;
 }

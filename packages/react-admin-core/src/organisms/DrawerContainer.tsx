@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 
 const sizes = {
+    custom: '',
     xs: 'w-screen sm:w-[200px] md:w-[300px] lg:w-[400px]',
     sm: 'w-screen sm:w-[200px] md:w-[400px] lg:w-[500px]',
     md: 'w-screen sm:w-[300px] md:w-[500px] lg:w-[700px]',
@@ -8,9 +9,9 @@ const sizes = {
     xl: 'w-screen sm:w-[500px] md:w-[700px] lg:w-[900px]',
 };
 
-export function DrawerContainer({ children, className, size = 'md' }: DrawerContainerProps) {
+export function DrawerContainer({ children, className, size = 'md', raw = false }: DrawerContainerProps) {
     return (
-        <div className={clsx(sizes[size || 'md'] || sizes['md'], 'p-4 flex flex-col', className)}>
+        <div className={clsx(sizes[size || 'md'] || sizes['md'], !raw && 'p-4 flex flex-col', className)}>
             {children || false}
         </div>
     );
@@ -19,7 +20,8 @@ export function DrawerContainer({ children, className, size = 'md' }: DrawerCont
 export interface DrawerContainerProps {
     className?: string;
     children?: any;
-    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'custom';
+    raw?: boolean;
 }
 
 // noinspection JSUnusedGlobalSymbols
