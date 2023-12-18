@@ -133,8 +133,8 @@ export interface ButtonProps
         WithConfirm {
     spinnerClassName?: class_name;
     container?: flag;
-    containerClassName?: class_name;
     clicked?: boolean;
+    containerClassName?: class_name;
 }
 
 // noinspection JSUnusedGlobalSymbols
