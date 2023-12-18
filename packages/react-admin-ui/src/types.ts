@@ -229,6 +229,7 @@ export type confirmable_options = {
     confirmKind?: string;
     onConfirm?: Function;
     onCancel?: Function;
+    clicked?: flag;
 };
 
 export type content_item_mosaic_item = {

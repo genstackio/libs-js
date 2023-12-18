@@ -1,4 +1,4 @@
-import { ComponentType, useCallback, useState } from 'react';
+import { ComponentType, useCallback, useEffect, useState } from 'react';
 import ConfirmModal from '../molecules/ConfirmModal';
 import { confirmable_options } from '../types';
 import stopPrevent from '../utils/stopPrevent';
@@ -11,6 +11,7 @@ export function useConfirmable({
     confirm = true,
     onConfirm,
     onCancel,
+    clicked = false,
 }: confirmable_options): [Function, ComponentType<any>] {
     const [opened, setOpened] = useState<boolean>(false);
     const handleCancel = useCallback(() => {
@@ -51,7 +52,12 @@ export function useConfirmable({
         [confirm, confirmTitle, confirmText, onConfirm, handleCancel, opened],
     );
 
-    return [confirm ? onClick : onConfirm, Confirmable] as [Function, ComponentType<any>];
+    const callback = confirm ? onClick : onConfirm;
+
+    useEffect(() => {
+        clicked && callback && callback(undefined);
+    }, [clicked, callback]);
+    return [callback, Confirmable] as [Function, ComponentType<any>];
 }
 
 export default useConfirmable;

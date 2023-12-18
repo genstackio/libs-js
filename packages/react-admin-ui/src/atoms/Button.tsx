@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import clsx from 'clsx';
 import Icon from './Icon';
 import buttonClass from '../mappings/buttons';
@@ -46,6 +46,7 @@ export function Button({
     onClick,
     size = 'md',
     variant = 'contained',
+    clicked = false,
     'data-intercom-target': dataIntercomTarget = undefined,
 }: ButtonProps) {
     const { buttonCorner = 'rounded-xxsmall' } = useAmbiance();
@@ -66,6 +67,7 @@ export function Button({
         confirmDanger,
         confirmTitle,
         confirmText,
+        clicked,
     });
     disabled = disabled || loading;
     const box = useMemo(() => ({ color, variant }), [color, variant]);
@@ -111,6 +113,9 @@ export function Button({
 
     content = <Confirmable>{content}</Confirmable>;
 
+    useEffect(() => {
+        !confirm && clicked && !!onClick && 'function' === typeof onClick && onClick(undefined);
+    }, [confirm, clicked, onClick]);
     return container ? <div className={containerClassName}>{content}</div> : content;
 }
 
@@ -129,6 +134,7 @@ export interface ButtonProps
     spinnerClassName?: class_name;
     container?: flag;
     containerClassName?: class_name;
+    clicked?: boolean;
 }
 
 // noinspection JSUnusedGlobalSymbols
