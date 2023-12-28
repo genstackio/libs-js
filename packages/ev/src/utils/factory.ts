@@ -30,7 +30,7 @@ export function factory() {
             return acc;
         }, Promise.resolve({ found: false, value: undefined }));
         if (!found) return undefined;
-        return { v: value, t: undefined === options.ttl ? defaultOptions.ttl : options.ttl };
+        return { v: value, t: Date.now() + (undefined === options.ttl ? defaultOptions.ttl : options.ttl) };
     };
     // noinspection JSUnusedLocalSymbols
     const cacheItem = async (key: string, item: item, options: options = {}) => {
