@@ -22,9 +22,15 @@ export function factory() {
         return item.v;
     };
     const fetchItem = async (key: string, options: options = {}) => {
-        const found = providers.find((p) => p.provider.findOne(key, options));
+        const { found, value = undefined } = await providers.reduce(async (acc, p) => {
+            const localAcc = await acc;
+            if (localAcc?.found) return localAcc;
+            const r = await p.provider.findOne(key, options);
+            if (!!r) return { found: true, p, value: r };
+            return acc;
+        }, Promise.resolve({ found: false, value: undefined }));
         if (!found) return undefined;
-        return { v: found, t: undefined === options.ttl ? defaultOptions.ttl : options.ttl };
+        return { v: value, t: undefined === options.ttl ? defaultOptions.ttl : options.ttl };
     };
     // noinspection JSUnusedLocalSymbols
     const cacheItem = async (key: string, item: item, options: options = {}) => {
