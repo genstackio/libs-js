@@ -54,6 +54,7 @@ export * from './FlyerImageField';
 export * from './FullNameField';
 export * from './GenderField';
 export * from './GolangField';
+export * from './HiddenField';
 export * from './ImageField';
 export * from './ImageUploadField';
 export * from './InstagramField';
