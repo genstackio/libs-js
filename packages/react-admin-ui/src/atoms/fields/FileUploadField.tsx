@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { Controller } from 'react-hook-form';
 import stopPrevent from '../../utils/stopPrevent';
 import { ImageRender, OtherRender, PdfRender } from '../renders';
+import {class_name} from "../../types";
 
 const styles = {
     dropzone: { width: '100%', minHeight: 100, maxHeight: 250, border: 'none' },
@@ -44,6 +45,7 @@ export function FileUploadField({
     className,
     customFileTypeComponents = defaultCustomFileTypeComponents,
     onUploaded,
+    innerClassName,
     ...props
 }: FileUploadFieldProps) {
     const { t } = useTranslation();
@@ -103,6 +105,7 @@ export function FileUploadField({
             helperClassName={helperClassName}
             center={center}
             rounded={rounded}
+            innerClassName={innerClassName}
         >
             <Controller
                 control={control}
@@ -155,6 +158,7 @@ export interface FileUploadFieldProps extends AsField {
     customFileTypeComponents?: Record<string, any>;
     autoSubmit?: boolean;
     onUploaded?: Function;
+    innerClassName?: class_name;
 }
 
 // noinspection JSUnusedGlobalSymbols
