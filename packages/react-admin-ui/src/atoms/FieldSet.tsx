@@ -23,10 +23,11 @@ export function FieldSet({
     options,
     classes,
     inline,
+    innerClassName,
 }: FieldSetProps) {
     return (
         <Div mb={inline ? undefined : 'sm'} className={clsx(className, classes?.root)}>
-            <Div className={'focus-within:font-bold'}>
+            <Div className={clsx('focus-within:font-bold', innerClassName)}>
                 {!!inline && (
                     <Div flex vcenter spaced={2}>
                         <Div>{children}</Div>
@@ -91,6 +92,7 @@ export interface FieldSetProps
     labelClassName?: class_name;
     errorClassName?: class_name;
     helperClassName?: class_name;
+    innerClassName?: class_name;
     rounded?: flag;
 }
 
