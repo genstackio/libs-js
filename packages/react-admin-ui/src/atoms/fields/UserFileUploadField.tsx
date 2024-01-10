@@ -6,5 +6,4 @@ export function UserFileUploadField(props: UserFileUploadFieldProps) {
 
 export type UserFileUploadFieldProps = FileUploadFieldProps;
 
-// noinspection JSUnusedGlobalSymbols
 export default UserFileUploadField;

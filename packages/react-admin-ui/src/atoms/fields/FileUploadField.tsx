@@ -164,5 +164,4 @@ export interface FileUploadFieldProps extends AsField {
     innerInnerClassName?: class_name;
 }
 
-// noinspection JSUnusedGlobalSymbols
 export default FileUploadField;

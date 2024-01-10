@@ -98,5 +98,4 @@ export interface FieldSetProps
     rounded?: flag;
 }
 
-// noinspection JSUnusedGlobalSymbols
 export default FieldSet;
