@@ -7,11 +7,11 @@ import convertFromDateInput from '../../utils/convertFromDateInput';
 const DateComponent = forwardRef(({ center, rounded, ...props }: any, ref) => {
     return <input ref={ref} {...props} />;
 });
-function marshall(v: any, { type }) {
-    return convertToDateInput(v, type);
+function marshall(v: any, { type, marshallOptions = {} }) {
+    return convertToDateInput(v, type, marshallOptions);
 }
-function unmarshall(v: any, { type }: any) {
-    return convertFromDateInput(v?.target?.value, type);
+function unmarshall(v: any, { type, unmarshallOptions = {} }: any) {
+    return convertFromDateInput(v?.target?.value, type, unmarshallOptions);
 }
 
 export function DateField({ ...props }: DateFieldProps) {
