@@ -10,6 +10,7 @@ export function CurrencyField(props: CurrencyFieldProps) {
         { label: 'MAD (Moroccan Dirham)', value: 'MAD' },
         { label: 'MUR (Mauritian Rupee)', value: 'MUR' },
         { label: 'XBT (Bitcoin)', value: 'XBT' },
+        { label: 'XOF (Franc CFA)', value: 'XOF' },
     ];
 
     return <SelectField kind={'currency'} values={currencies} {...props} />;
