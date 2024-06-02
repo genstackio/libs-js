@@ -37,7 +37,7 @@ function SubListScreenTemplate({
     listRoute = '/{parentName}/{parentId}/{name}/page/{pPage}/{pSize}/{pMode}/{pCursors}',
     displayRoute = '/{name}/{id}',
     editRoute = '/{name}/{id}/edit',
-    newRoute = '/{singularName}/new',
+    newRoute = '/{parentName}/{parentId}/{singularName}/new',
     defaultRowsPerPage = 10,
     onNewClick,
 }: SubListScreenTemplateProps) {

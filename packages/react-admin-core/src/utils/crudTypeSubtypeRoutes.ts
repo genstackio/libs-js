@@ -50,6 +50,20 @@ export function crudTypeSubtypeRoutes(
                 fullName: `${parentSingular}/${singular}`,
             },
         },
+        def.new && {
+            path: `/${parentPlural}/:parentId/${singular}/new`,
+            screen: 'crud/subNew',
+            screenProps: {
+                name,
+                singular,
+                plural,
+                parentName,
+                parentSingular,
+                parentPlural,
+                ...def,
+                fullName: `${parentSingular}/${singular}`,
+            },
+        },
     ];
 }
 
