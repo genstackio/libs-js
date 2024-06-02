@@ -1,15 +1,28 @@
 import Field from '../atoms/Field';
 import { WithClassName } from '../withs';
 
+const defaultForcedDisabledFields: Record<string, boolean> = {};
+const defaultForcedRequiredFields: Record<string, boolean> = {};
+const defaultForcedAutoFocusFields: Record<string, boolean> = {};
+
 export function FormFieldContent({
     className,
     name,
-    required = undefined,
-    disabled = undefined,
-    autoFocus = undefined,
+    required: rawRequired = undefined,
+    disabled: rawDisabled = undefined,
+    autoFocus: rawAutoFocus = undefined,
     errors = undefined,
-    options: { field } = {},
+    options: {
+        field,
+        forcedDisabledFields = defaultForcedDisabledFields,
+        forcedRequiredFields = defaultForcedRequiredFields,
+        forcedAutoFocusFields = defaultForcedAutoFocusFields,
+    } = {},
 }: FormFieldContentProps) {
+    const disabled = rawDisabled || !!forcedDisabledFields?.[name];
+    const required = rawRequired || !!forcedRequiredFields?.[name];
+    const autoFocus = rawAutoFocus || !!forcedAutoFocusFields?.[name];
+
     return (
         <Field
             name={name}

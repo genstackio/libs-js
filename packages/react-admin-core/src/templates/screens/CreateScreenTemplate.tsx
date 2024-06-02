@@ -55,6 +55,10 @@ export interface CreateScreenTemplateProps {
     breadcrumbs?: any;
     actionProps?: any;
     action: ComponentType<{ onSuccess: Function; className?: string; [key: string]: any }>;
+    defaultValues?: Record<string, unknown>;
+    forcedRequiredFields?: Record<string, boolean>;
+    forcedDisabledFields?: Record<string, boolean>;
+    forcedAutoFocusFields?: Record<string, boolean>;
 }
 
 export default CreateScreenTemplate;
