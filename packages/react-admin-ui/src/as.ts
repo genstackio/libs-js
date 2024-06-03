@@ -71,6 +71,7 @@ export interface AsField
     nohelper?: flag;
     noplaceholder?: flag;
     rounded?: flag;
+    labelPrefixContent?: any;
 }
 
 export interface AsFlagField extends AsField, WithDefaultValueAsBoolean {}

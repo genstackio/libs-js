@@ -74,6 +74,7 @@ export * from './TabPanel';
 export * from './TextBlock';
 export * from './Timeline';
 export * from './TimelineItem';
+export * from './TranslationsDrawerContent';
 export * from './charts/UsageChart';
 export * from './StatsChartHeader';
 export * from './UserToolbar';

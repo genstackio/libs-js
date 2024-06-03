@@ -3,7 +3,16 @@ import FieldLabel from './FieldLabel';
 import FieldError from './FieldError';
 import Div from './Div';
 import { AsWrapper } from '../as';
-import { WithCenter, WithClasses, WithError, WithHelper, WithLabel, WithName, WithOptions } from '../withs';
+import {
+    WithCenter,
+    WithClasses,
+    WithError,
+    WithHelper,
+    WithLabel,
+    WithName,
+    WithOptions,
+    WithTranslatable,
+} from '../withs';
 import clsx from 'clsx';
 import { class_name, flag } from '../types';
 
@@ -25,6 +34,9 @@ export function FieldSet({
     inline,
     innerClassName,
     innerInnerClassName,
+    translatable,
+    translatableType = 'text',
+    labelPrefixContent,
 }: FieldSetProps) {
     return (
         <Div mb={inline ? undefined : 'sm'} className={clsx(className, classes?.root)}>
@@ -41,7 +53,7 @@ export function FieldSet({
                                 classes?.label,
                                 'flex-1',
                                 labelClassName,
-                                center && 'inline-block w-full text-center',
+                                center && !translatable && 'inline-block w-full text-center',
                             )}
                         />
                     </Div>
@@ -52,6 +64,9 @@ export function FieldSet({
                             label={label}
                             format={labelFormat}
                             name={name}
+                            translatable={translatable}
+                            translatableType={translatableType}
+                            labelPrefixContent={labelPrefixContent}
                             options={options}
                             className={clsx(
                                 classes?.label,
@@ -87,6 +102,7 @@ export interface FieldSetProps
         WithError,
         WithOptions,
         WithCenter,
+        WithTranslatable,
         WithClasses {
     inline?: boolean;
     labelFormat?: 'normal' | 'capital' | 'uppercase' | 'lowercase';
@@ -96,6 +112,8 @@ export interface FieldSetProps
     innerClassName?: class_name;
     innerInnerClassName?: class_name;
     rounded?: flag;
+    translatableType?: string;
+    labelPrefixContent?: any;
 }
 
 export default FieldSet;

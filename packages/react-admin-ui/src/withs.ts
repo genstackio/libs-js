@@ -831,3 +831,7 @@ export interface WithUpper {
 export interface WithIntercomSupport {
     'data-intercom-target'?: string;
 }
+
+export interface WithTranslatable {
+    translatable?: flag | string;
+}

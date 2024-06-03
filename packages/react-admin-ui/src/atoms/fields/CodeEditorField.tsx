@@ -62,7 +62,9 @@ export function CodeEditorField({
                     const handleOnChange = disabled
                         ? undefined
                         : (e: any) => {
-                              return props.field.onChange({ target: { name: name, value: asString ? e : { content: e } } });
+                              return props.field.onChange({
+                                  target: { name: name, value: asString ? e : { content: e } },
+                              });
                           };
                     return (
                         <MonacoEditor

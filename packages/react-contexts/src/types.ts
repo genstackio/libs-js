@@ -250,7 +250,6 @@ export type ssr_page_context_value = {
     applicationContext?: any;
 };
 
-
 export type fullscreen_context_value = {
     active: boolean;
     enter: () => Promise<void>;
@@ -336,3 +335,15 @@ export type content = {
 export type clean_data_fn = (raw: any, keptKeys: (string | string[])[], createMode: boolean) => any;
 
 export type clean_data_context_value = clean_data_fn;
+
+export type translation_locales_context_value = {
+    locales: string[];
+    getFlagIconUrl?: (locale: string) => string | undefined;
+    getItem: (type: string, id: string, options?: Record<string, unknown>) => Promise<unknown>;
+    saveItem: (
+        type: string,
+        id: string,
+        data: Record<string, unknown>,
+        options?: Record<string, unknown>,
+    ) => Promise<unknown>;
+};

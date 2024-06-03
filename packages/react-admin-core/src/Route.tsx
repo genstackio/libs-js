@@ -39,7 +39,7 @@ export function Route({
                         to={
                             'object' === typeof redirect
                                 ? redirect
-                                : (!!qs && '?' !== qs)
+                                : !!qs && '?' !== qs
                                 ? { pathname: redirect, search: qs }
                                 : redirect
                         }

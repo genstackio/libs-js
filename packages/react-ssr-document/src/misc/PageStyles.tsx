@@ -8,11 +8,11 @@ export function PageStyles({ context, styles: extraStyles = [] }: PageStylesProp
     return (
         <>
             {(assets[assetEntrypoint || ''] || {}).css && (
-                <link rel='stylesheet' href={`${assetPrefix}${assets[assetEntrypoint || ''].css}`} />
+                <link rel="stylesheet" href={`${assetPrefix}${assets[assetEntrypoint || ''].css}`} />
             )}
             {allStyles.map((v: any, i: number) => {
                 if (/^(http[s]?:\/\/|\/[^\/\s*]+)/i.test(v)) {
-                    return <link key={v as string} rel='stylesheet' href={v as string} />;
+                    return <link key={v as string} rel="stylesheet" href={v as string} />;
                 }
                 return <style key={i} dangerouslySetInnerHTML={{ __html: v as string }} />;
             })}
