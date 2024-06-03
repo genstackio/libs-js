@@ -56,6 +56,7 @@ export default {
         translation: {
             ...common,
 
+            translations_form_button_save_label: 'Enregistrer',
             button_delete_label: 'Supprimer',
             button_cancel_label: 'Annuler',
             button_confirm_label: 'Confirmer',
@@ -311,6 +312,10 @@ export default {
             form_create_token_submit_label: 'Créer',
 
             form_generic_submit_label: 'Envoyer',
+            form_generic_cancel_label: 'Annuler',
+
+            translations_form_no_locales: 'Aucune langue paramétré pour la traduction',
+            translations_form_default_value: 'Laissez le champ vide pour utiliser la valeur par défaut',
 
             locales_change_value: 'Choisissez votre langue',
 
@@ -605,6 +610,8 @@ export default {
             field_year_label: 'Année',
             field_year_placeholder: 'Année',
             field_year_helper: 'Année',
+
+            translations: 'Traductions',
         },
         tablePagination: {
             labelRowsPerPage: 'Eléments par page :',
@@ -874,6 +881,10 @@ export default {
             form_create_token_submit_label: 'Creare',
 
             form_generic_submit_label: 'Mandare',
+            form_generic_cancel_label: 'Annullamento',
+
+            translations_form_no_locales: 'Nessuna lingua impostata per la traduzione',
+            translations_form_default_value: 'Mantenere vuoto per utilizzare il valore predefinito',
 
             locales_change_value: 'Scegli la tua lingua',
 
@@ -959,11 +970,17 @@ export default {
 
             field_mainjs_label: 'JS',
             field_mainjs_helper: 'JS',
+
+            translations: 'Traduzioni',
+
+            translations_form_button_save_label: 'Risparmiare',
         },
     },
     'en-GB': {
         translation: {
             ...common,
+
+            translations_form_button_save_label: 'Save',
 
             field_buildingdistance_value_label: 'Distance',
             field_buildingdistance_unit_label: 'Unit',
@@ -1198,6 +1215,10 @@ export default {
             form_create_token_submit_label: 'Create',
 
             form_generic_submit_label: 'Submit',
+            form_generic_cancel_label: 'Cancel',
+
+            translations_form_no_locales: 'No language set for translation',
+            translations_form_default_value: 'Keep empty to use default value',
 
             locales_change_value: 'Select your language',
 
@@ -1305,6 +1326,8 @@ export default {
 
             field_mainjs_label: 'JS',
             field_mainjs_helper: 'JS',
+
+            translations: 'Translations',
         },
         tablePagination: {
             labelRowsPerPage: 'Rows per page:',

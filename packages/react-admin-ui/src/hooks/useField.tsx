@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { icon, register, control, rich_text, flag, class_name } from '../types';
 import { useTranslation } from 'react-i18next';
 import Icon from '../atoms/Icon';
-import { WithAny, WithDefaultValues, WithLabel, WithOptions } from '../withs';
+import { WithAny, WithDefaultValues, WithLabel, WithOptions, WithTranslatable } from '../withs';
 import { useGetUploadParams, useValidatorsContext } from '@genstackio/react-contexts';
 import objectProperty from '../utils/objectProperty';
 import * as baseValidators from '../validators';
@@ -65,6 +65,7 @@ export function useField(
         noplaceholder,
         pattern,
         validators = defaultValidators,
+        translatable,
         ...extra
     }: field_def_params,
     defaults: { name?: string; kind?: string } = defaultDefaults,
@@ -218,6 +219,7 @@ export function useField(
         fieldsetProps?: Function;
         center?: flag;
         rounded?: flag;
+        translatable?: flag | string;
     }>(
         () => ({
             control,
@@ -268,6 +270,7 @@ export function useField(
             classes,
             inputProps,
             fieldsetProps,
+            translatable,
         }),
         [
             control,
@@ -299,6 +302,7 @@ export function useField(
             helperClassName,
             center,
             rounded,
+            translatable,
         ],
     );
 }
@@ -340,7 +344,7 @@ function buildValidatorFunction(v: any, _: any, allValidators: any) {
         return status || m;
     };
 }
-export interface field_def_params extends WithLabel, WithAny, WithOptions, WithDefaultValues {
+export interface field_def_params extends WithLabel, WithAny, WithOptions, WithDefaultValues, WithTranslatable {
     center?: flag;
     rounded?: flag;
     nolabel?: flag;

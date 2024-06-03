@@ -1,7 +1,9 @@
 import clsx from 'clsx';
 import { flag } from '../types';
 import { AsComponent } from '../as';
-import { WithName, WithLabel, WithOptions } from '../withs';
+import { WithName, WithLabel, WithOptions, WithTranslatable } from '../withs';
+import useTranslatable from '../hooks/useTranslatable';
+import { useTranslation } from 'react-i18next';
 
 const stylings: any = {
     defaults: { format: 'upperfirst' },
@@ -19,35 +21,66 @@ export function FieldLabel({
     error,
     label,
     name,
+    translatable,
+    translatableType,
     format = stylings.defaults.format,
+    labelPrefixContent,
     options = {},
 }: FieldLabelProps) {
+    const { t } = useTranslation();
+    const [onToggleTranslatableModal, translatableChildren] = useTranslatable(
+        'string' === typeof translatable ? translatable : name, translatableType,
+    );
+
     if (!label) return null;
 
     label =
         'upperfirst' === format && 'string' === typeof label
             ? `${label.slice(0, 1).toUpperCase()}${label.slice(1)}`
             : label;
-    return (
-        <label
-            htmlFor={name}
-            className={clsx(
-                'mb-1 text-sm tracking-wide text-dark',
-                stylings.formats[format || stylings.defaults.format],
-                options.required && 'font-bold',
-                error && 'text-danger',
-                className,
+
+    let content = (
+        <>
+            {!!labelPrefixContent && (
+                <div className={'inline flex gap-1 items-center'}>{labelPrefixContent} {label} {!!options?.required && '*'}</div>
             )}
-        >
-            {label}
-            {!!options?.required && '*'}
-        </label>
+            {!labelPrefixContent && label}
+            {!labelPrefixContent && !!options?.required && '*'}
+        </>
+    );
+
+    if (!translatable) content = <span>{content}</span>;
+
+    return (
+        <>
+            <label
+                htmlFor={name}
+                className={clsx(
+                    'mb-1 text-sm tracking-wide text-dark',
+                    stylings.formats[format || stylings.defaults.format],
+                    options.required && 'font-bold',
+                    error && 'text-danger',
+                    !!translatable && 'flex justify-between items-center',
+                    className,
+                )}
+            >
+                {content}
+                {!!translatable && (
+                    <p onClick={onToggleTranslatableModal as any} className={'cursor-pointer hover:underline'}>
+                        {t('translations')}
+                    </p>
+                )}
+            </label>
+            {translatableChildren}
+        </>
     );
 }
 
-export interface FieldLabelProps extends AsComponent, Required<WithName>, WithLabel, WithOptions {
+export interface FieldLabelProps extends AsComponent, Required<WithName>, WithLabel, WithOptions, WithTranslatable {
     error?: flag;
     format?: 'normal' | 'capital' | 'uppercase' | 'lowercase' | 'upperfirst';
+    translatableType?: string;
+    labelPrefixContent?: any;
 }
 
 // noinspection JSUnusedGlobalSymbols

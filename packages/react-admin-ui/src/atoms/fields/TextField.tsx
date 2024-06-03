@@ -7,8 +7,9 @@ import useField from '../../hooks/useField';
 import { class_name, flag, icon, rich_text } from '../../types';
 import { fieldVariantClass } from '../../mappings/field-variants';
 import { AsTextField } from '../../as';
+import { WithTranslatable } from '../../withs';
 
-export function TextField({ inline, inputClassName, ...props }: TextFieldProps) {
+export function TextField({ inline, inputClassName, labelPrefixContent, ...props }: TextFieldProps) {
     const {
         className,
         name,
@@ -35,6 +36,7 @@ export function TextField({ inline, inputClassName, ...props }: TextFieldProps) 
         labelFormat,
         errorClassName,
         helperClassName,
+        translatable,
     } = useField(props);
 
     const ctx = useMemo(() => ({ variant, prepend: !!prepend, append: !!append }), [variant, prepend, append]);
@@ -73,6 +75,8 @@ export function TextField({ inline, inputClassName, ...props }: TextFieldProps) 
         errorClassName,
         helperClassName,
         center,
+        translatable,
+        labelPrefixContent,
     };
     inputProps && (finalInputProps = inputProps(finalInputProps));
     fieldsetProps && (finalFieldsetProps = fieldsetProps(finalFieldsetProps));
@@ -116,7 +120,7 @@ export function TextField({ inline, inputClassName, ...props }: TextFieldProps) 
     );
 }
 
-export interface TextFieldProps extends AsTextField {
+export interface TextFieldProps extends AsTextField, WithTranslatable {
     type?: string;
     append?: rich_text;
     appendIcon?: icon;

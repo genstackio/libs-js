@@ -13,5 +13,6 @@ export * from './OrganizationForm';
 export * from './RegisterForm';
 export * from './SendOtpForgotPasswordForm';
 export * from './ShowcaseForm';
+export * from './TranslationsForm';
 export * from './UnlockForm';
 export * from './UserProfileForm';

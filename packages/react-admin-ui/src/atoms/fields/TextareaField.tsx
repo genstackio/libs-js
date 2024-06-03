@@ -4,7 +4,7 @@ import useField from '../../hooks/useField';
 import { AsTextField } from '../../as';
 import { WithRows } from '../../withs';
 
-export function TextareaField({ className, ...props }: TextareaFieldProps) {
+export function TextareaField({ className, labelPrefixContent, ...props }: TextareaFieldProps) {
     const {
         name,
         required,
@@ -22,6 +22,7 @@ export function TextareaField({ className, ...props }: TextareaFieldProps) {
         center,
         rounded,
         extra,
+        translatable,
     } = useField(props);
 
     return (
@@ -38,6 +39,9 @@ export function TextareaField({ className, ...props }: TextareaFieldProps) {
             helperClassName={helperClassName}
             center={center}
             rounded={rounded}
+            translatable={translatable}
+            translatableType={'textarea'}
+            labelPrefixContent={labelPrefixContent}
         >
             <textarea
                 className={clsx(
