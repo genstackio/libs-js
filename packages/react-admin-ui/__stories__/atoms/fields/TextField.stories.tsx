@@ -31,7 +31,12 @@ const TranslatableAwareTextField = (props: any) => {
                       .split('_')[1]
                       ?.toLowerCase()}.svg`
                 : undefined,
-        getItem: async (itemType: string, itemId: string, options?: Record<string, unknown>): Promise<unknown> => {
+        getItem: async (
+            itemType: string,
+            itemId: string | undefined,
+            itemKey: string,
+            options?: Record<string, unknown>,
+        ): Promise<unknown> => {
             return new Promise((resolve) => {
                 setTimeout(() => {
                     resolve({});
@@ -40,7 +45,8 @@ const TranslatableAwareTextField = (props: any) => {
         },
         saveItem: async (
             itemType: string,
-            itemId: string,
+            itemId: string | undefined,
+            itemKey: string,
             data: Record<string, unknown>,
             options?: Record<string, unknown>,
         ): Promise<unknown> => {
@@ -49,6 +55,7 @@ const TranslatableAwareTextField = (props: any) => {
                     {
                         itemType,
                         itemId,
+                        itemKey,
                         data,
                         options,
                     },

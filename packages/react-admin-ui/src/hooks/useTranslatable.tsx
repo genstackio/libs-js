@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import TranslationsDrawer from '../organisms/TranslationsDrawer';
+import { parseTranslationCode } from '@genstackio/translation-code-parser';
 
 export function useTranslatable(translatable: string, type?: string) {
     const [opened, setOpened] = useState(false);
@@ -9,28 +10,20 @@ export function useTranslatable(translatable: string, type?: string) {
 
     const content = useMemo(() => {
         if (!translatable) return null;
-        const [itemType, itemId] = parseItemInfos(translatable);
+        const [itemType, itemId, itemKey] = parseTranslationCode(translatable);
         return (
             <TranslationsDrawer
                 opened={opened}
                 onClose={onToggleModal}
                 itemType={itemType}
                 itemId={itemId}
+                itemKey={itemKey}
                 type={type}
             />
         );
-    }, [opened, onToggleModal]);
+    }, [opened, onToggleModal, translatable]);
 
     return useMemo(() => [onToggleModal, content], [onToggleModal, content]);
 }
 
-function parseItemInfos(translatable: string) {
-    let [a, b] = translatable.split('/');
-    if (!b) {
-        b = a;
-        a = '*current*';
-    }
-
-    return [a, b];
-}
 export default useTranslatable;

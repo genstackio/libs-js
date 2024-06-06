@@ -22,6 +22,7 @@ export function TranslationLocaleTextField({ locale, iconUrl, type, ...props }: 
                 <Comp
                     kind={'translationLocale'}
                     {...props}
+                    translatable={false}
                     name={locale}
                     label={t(`locale_${locale.toLowerCase()}`, locale)}
                     className={'flex-1'}

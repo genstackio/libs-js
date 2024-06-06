@@ -50,7 +50,8 @@
         "react-monaco-editor": "^0.47.0",
         "react-player": "^2.9.0",
         "react-select": "^4.3.1",
-        "swiper": "^6.7.1"
+        "swiper": "^6.7.1",
+        "@genstackio/translation-code-parser": "^0.1.0"
     },
     "peerDependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.35",

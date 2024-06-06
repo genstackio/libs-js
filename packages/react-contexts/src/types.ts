@@ -339,10 +339,11 @@ export type clean_data_context_value = clean_data_fn;
 export type translation_locales_context_value = {
     locales: string[];
     getFlagIconUrl?: (locale: string) => string | undefined;
-    getItem: (type: string, id: string, options?: Record<string, unknown>) => Promise<unknown>;
+    getItem: (type: string, id: string | undefined, key: string, options?: Record<string, unknown>) => Promise<unknown>;
     saveItem: (
         type: string,
-        id: string,
+        id: string | undefined,
+        key: string,
         data: Record<string, unknown>,
         options?: Record<string, unknown>,
     ) => Promise<unknown>;

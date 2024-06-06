@@ -3870,6 +3870,11 @@
   resolved "https://registry.yarnpkg.com/@genstackio/replace/-/replace-0.2.0.tgz#0084ccd9c9e01af5aa0ee718824ba62e61570717"
   integrity sha512-jig2uEp3S20FTgwDDy6Upid78XyL3FIhATVLcZ9+VGpDCToZmFQ7GfeG6pVyu19mm1mDlyEqmSMZC0goHwXUrA==
 
+"@genstackio/translation-code-parser@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@genstackio/translation-code-parser/-/translation-code-parser-0.1.0.tgz#d673c6b63379283a68903ffd487a7bbe720e2df1"
+  integrity sha512-arK7LH6igHNGCfJGkSvxl72cZRHRBG1QKIpBJZ32eu+4Gc5SHL8N+WThdu9unyZdS/FbZrwS2NT5VftiLz7PNg==
+
 "@graphql-typed-document-node/core@^3.0.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@graphql-typed-document-node/core/-/core-3.1.0.tgz#0eee6373e11418bfe0b5638f654df7a4ca6a3950"

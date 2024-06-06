@@ -21,7 +21,7 @@ export function FieldLabel({
     error,
     label,
     name,
-    translatable,
+    translatable = false,
     translatableType,
     format = stylings.defaults.format,
     labelPrefixContent,
@@ -29,7 +29,8 @@ export function FieldLabel({
 }: FieldLabelProps) {
     const { t } = useTranslation();
     const [onToggleTranslatableModal, translatableChildren] = useTranslatable(
-        'string' === typeof translatable ? translatable : name, translatableType,
+        'string' === typeof translatable ? translatable : false === translatable ? '' : `.${name}`,
+        translatableType,
     );
 
     if (!label) return null;
@@ -42,7 +43,9 @@ export function FieldLabel({
     let content = (
         <>
             {!!labelPrefixContent && (
-                <div className={'inline flex gap-1 items-center'}>{labelPrefixContent} {label} {!!options?.required && '*'}</div>
+                <div className={'inline flex gap-1 items-center'}>
+                    {labelPrefixContent} {label} {!!options?.required && '*'}
+                </div>
             )}
             {!labelPrefixContent && label}
             {!labelPrefixContent && !!options?.required && '*'}

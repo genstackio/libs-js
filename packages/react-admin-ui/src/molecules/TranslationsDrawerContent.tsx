@@ -4,7 +4,13 @@ import useTranslationLocalesContext from '@genstackio/react-contexts/lib/hooks/u
 import Spinner from '../atoms/Spinner';
 import { useTranslation } from 'react-i18next';
 
-export function TranslationsDrawerContent({ itemType, itemId, onClose, type }: TranslationsDrawerContentProps) {
+export function TranslationsDrawerContent({
+    itemType,
+    itemId,
+    itemKey,
+    onClose,
+    type,
+}: TranslationsDrawerContentProps) {
     const { t } = useTranslation();
     const { locales, saveItem, getItem, getFlagIconUrl } = useTranslationLocalesContext();
     const [{ data, loading, called }, setState] = useState<{
@@ -21,18 +27,18 @@ export function TranslationsDrawerContent({ itemType, itemId, onClose, type }: T
     useEffect(() => {
         if (data || called) return;
 
-        const p = getItem(itemType, itemId);
+        const p = getItem(itemType, itemId, itemKey);
         p.then((data) => {
             setState({ called: true, data, loading: false, error: undefined });
         });
         p.catch((e: any) => {
             setState({ called: true, data: undefined, loading: false, error: e });
         });
-    }, [setState, data, called, getItem]);
+    }, [setState, data, called, getItem, itemType, itemId, itemKey]);
 
     const onSubmit = useCallback(
         (data: any) => {
-            const p = saveItem(itemType, itemId, data);
+            const p = saveItem(itemType, itemId, itemKey, data);
             p.then(() => {
                 onClose?.();
             });
@@ -41,7 +47,7 @@ export function TranslationsDrawerContent({ itemType, itemId, onClose, type }: T
                 onClose?.();
             });
         },
-        [onClose, saveItem, itemId, itemType],
+        [onClose, saveItem, itemId, itemType, itemKey],
     );
 
     if (!data || loading) return <Spinner />;
@@ -71,7 +77,8 @@ export function TranslationsDrawerContent({ itemType, itemId, onClose, type }: T
 
 export interface TranslationsDrawerContentProps {
     itemType: string;
-    itemId: string;
+    itemId?: string;
+    itemKey: string;
     onClose?: Function;
     type?: string;
 }

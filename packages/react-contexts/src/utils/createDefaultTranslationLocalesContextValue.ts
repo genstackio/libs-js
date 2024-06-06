@@ -6,12 +6,13 @@ export const createDefaultTranslationLocalesContextValue = (
     defaultValue || {
         locales: [],
         getFlagIconUrl: (locale: string) => undefined,
-        getItem: async (type: string, id: string, options?: Record<string, unknown>) => {
+        getItem: async (type: string, id: string | undefined, key: string, options?: Record<string, unknown>) => {
             return {};
         },
         saveItem: async (
             type: string,
-            id: string,
+            id: string | undefined,
+            key: string,
             data: Record<string, unknown>,
             options?: Record<string, unknown>,
         ) => {
