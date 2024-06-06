@@ -1,6 +1,6 @@
 {
     "name": "@genstackio/react-ssr-document",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "React SSR Document",
     "license": "MIT",
     "main": "lib/index.js",
@@ -25,7 +25,7 @@
         "test": "../../node_modules/.bin/jest -c ../../jest.config.js --rootDir=`pwd`"
     },
     "dependencies": {
-        "@genstackio/react-contexts": "^0.9.2",
+        "@genstackio/react-contexts": "^0.9.3",
         "@genstackio/react-types": "^0.1.9",
         "serialize-javascript": "^6.0.1"
     },
