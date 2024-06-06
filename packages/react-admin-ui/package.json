@@ -30,7 +30,7 @@
     },
     "dependencies": {
         "@date-io/date-fns": "^2.10.11",
-        "@genstackio/translation-code-parser": "^0.1.0",
+        "@genstackio/translation-code-parser": "^0.1.1",
         "@loadable/component": "^5.15.0",
         "@material-ui/data-grid": "4.0.0-alpha.30",
         "@material-ui/icons": "^4.11.2",
