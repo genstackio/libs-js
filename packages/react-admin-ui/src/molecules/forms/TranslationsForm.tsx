@@ -1,8 +1,8 @@
 import { BaseFormProps } from './BaseForm';
 import { useTranslation } from 'react-i18next';
-import useForm from '../../hooks/useForm';
 import TranslationLocaleTextField from '../../atoms/fields/TranslationLocaleTextField';
 import Button from '../../atoms/Button';
+import useNestedForm from '../../hooks/useNestedForm';
 
 const defaultLocales: string[] = [];
 
@@ -11,10 +11,11 @@ export function TranslationsForm({
     getFlagIconUrl,
     onCancel,
     type,
+    defaultValues,
     ...props
 }: TranslationsFormProps) {
     const { t } = useTranslation();
-    const { Form, SubmitButton, field } = useForm(props, 'translations');
+    const { Form, SubmitButton, field } = useNestedForm({ ...props, value: defaultValues });
 
     return (
         <Form>
