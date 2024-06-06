@@ -7,7 +7,6 @@ import useField from '../../hooks/useField';
 import { class_name, flag, icon, rich_text } from '../../types';
 import { fieldVariantClass } from '../../mappings/field-variants';
 import { AsTextField } from '../../as';
-import { WithTranslatable } from '../../withs';
 
 export function TextField({ inline, inputClassName, labelPrefixContent, ...props }: TextFieldProps) {
     const {
@@ -120,7 +119,7 @@ export function TextField({ inline, inputClassName, labelPrefixContent, ...props
     );
 }
 
-export interface TextFieldProps extends AsTextField, WithTranslatable {
+export interface TextFieldProps extends AsTextField {
     type?: string;
     append?: rich_text;
     appendIcon?: icon;

@@ -29,6 +29,7 @@ import {
     WithConvertValue,
     WithCenter,
     WithIntercomSupport,
+    WithTranslatable,
 } from './withs';
 import { class_name, flag } from './types';
 
@@ -75,7 +76,7 @@ export interface AsField
 }
 
 export interface AsFlagField extends AsField, WithDefaultValueAsBoolean {}
-export interface AsTextField extends AsField, WithValue {}
+export interface AsTextField extends AsField, WithValue, WithTranslatable {}
 
 export interface AsChoiceField extends AsField, WithValuesOfSelect, WithDefaultValue {}
 
