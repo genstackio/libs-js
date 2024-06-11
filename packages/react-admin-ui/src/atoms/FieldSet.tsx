@@ -80,6 +80,7 @@ export function FieldSet({
                             {children}
                             {generatable && (
                                 <GeneratableButton
+                                    fieldName={name}
                                     name={
                                         'string' === typeof generatable ? generatable : !generatable ? '' : `.${name}`
                                     }

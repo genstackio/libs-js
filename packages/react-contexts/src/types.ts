@@ -351,4 +351,5 @@ export type translation_locales_context_value = {
 
 export type generate_context_value = {
     generateItem: (name: string) => Promise<unknown>;
+    iconName?: string;
 };

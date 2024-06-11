@@ -1,13 +1,17 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import Spinner from '../atoms/Spinner';
 import { Div, Icon } from '../atoms';
 import useGenerateContext from '@genstackio/react-contexts/lib/hooks/useGenerateContext';
 import { useFormContext } from 'react-hook-form';
 import stopPrevent from '../utils/stopPrevent';
 
-export function GeneratableButton({ name }: GeneratableButtonProps) {
-    const { generateItem } = useGenerateContext();
+const defaultIconName = 'fa-fas--magic';
+
+export function GeneratableButton({ name, fieldName = undefined }: GeneratableButtonProps) {
+    const { generateItem, iconName = defaultIconName } = useGenerateContext();
     const { setValue } = useFormContext();
+    const fName = useMemo(() => fieldName || name, [fieldName, name]);
+
     const [{ loading }, setState] = useState<{
         data: unknown;
         loading: boolean;
@@ -25,13 +29,13 @@ export function GeneratableButton({ name }: GeneratableButtonProps) {
             const p = generateItem(name);
             p.then((value) => {
                 setState({ data: value, loading: false, error: undefined });
-                setValue(name, value);
+                setValue(fName, value);
             });
             p.catch((e) => {
                 setState({ data: undefined, loading: false, error: e });
             });
         },
-        [setState, setValue, generateItem],
+        [setState, setValue, generateItem, fName],
     );
 
     return (
@@ -41,7 +45,7 @@ export function GeneratableButton({ name }: GeneratableButtonProps) {
                 <Icon
                     onClick={onClick}
                     className={'ml-4 cursor-pointer text-primary hover:text-secondary'}
-                    icon={'fa-fas--magic'}
+                    icon={iconName}
                 />
             )}
         </Div>
@@ -50,6 +54,7 @@ export function GeneratableButton({ name }: GeneratableButtonProps) {
 
 export interface GeneratableButtonProps {
     name: string;
+    fieldName?: string;
 }
 
 export default GeneratableButton;
