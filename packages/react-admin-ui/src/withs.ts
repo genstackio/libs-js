@@ -835,3 +835,7 @@ export interface WithIntercomSupport {
 export interface WithTranslatable {
     translatable?: flag | string;
 }
+
+export interface WithGeneratable {
+    generatable?: flag | string;
+}

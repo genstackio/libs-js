@@ -6,15 +6,16 @@ import { AsWrapper } from '../as';
 import {
     WithCenter,
     WithClasses,
-    WithError,
+    WithError, WithGeneratable,
     WithHelper,
     WithLabel,
     WithName,
     WithOptions,
-    WithTranslatable,
-} from '../withs';
+    WithTranslatable
+} from "../withs";
 import clsx from 'clsx';
 import { class_name, flag } from '../types';
+import { GeneratableButton } from "../molecules";
 
 export function FieldSet({
     children,
@@ -35,6 +36,7 @@ export function FieldSet({
     innerClassName,
     innerInnerClassName,
     translatable,
+    generatable,
     translatableType = 'text',
     labelPrefixContent,
 }: FieldSetProps) {
@@ -74,7 +76,16 @@ export function FieldSet({
                                 center && 'inline-block w-full text-center',
                             )}
                         />
-                        <Div className={innerInnerClassName}>{children}</Div>
+                        <Div className={clsx(generatable && 'relative', innerInnerClassName)}>
+                            {children}
+                            {generatable && (
+                                <GeneratableButton
+                                    name={
+                                        'string' === typeof generatable ? generatable : !generatable ? '' : `.${name}`
+                                    }
+                                />
+                            )}
+                        </Div>
                     </>
                 )}
                 <FieldError
@@ -103,6 +114,7 @@ export interface FieldSetProps
         WithOptions,
         WithCenter,
         WithTranslatable,
+        WithGeneratable,
         WithClasses {
     inline?: boolean;
     labelFormat?: 'normal' | 'capital' | 'uppercase' | 'lowercase';

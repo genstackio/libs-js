@@ -66,6 +66,7 @@ export function useField(
         pattern,
         validators = defaultValidators,
         translatable,
+        generatable,
         ...extra
     }: field_def_params,
     defaults: { name?: string; kind?: string } = defaultDefaults,
@@ -220,6 +221,7 @@ export function useField(
         center?: flag;
         rounded?: flag;
         translatable?: flag | string;
+        generatable?: flag | string;
     }>(
         () => ({
             control,
@@ -271,6 +273,7 @@ export function useField(
             inputProps,
             fieldsetProps,
             translatable,
+            generatable,
         }),
         [
             control,
@@ -303,6 +306,7 @@ export function useField(
             center,
             rounded,
             translatable,
+            generatable,
         ],
     );
 }

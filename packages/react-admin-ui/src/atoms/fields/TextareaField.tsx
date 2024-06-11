@@ -23,6 +23,7 @@ export function TextareaField({ className, labelPrefixContent, ...props }: Texta
         rounded,
         extra,
         translatable,
+        generatable,
     } = useField(props);
 
     return (
@@ -41,6 +42,7 @@ export function TextareaField({ className, labelPrefixContent, ...props }: Texta
             rounded={rounded}
             translatable={translatable}
             translatableType={'textarea'}
+            generatable={generatable}
             labelPrefixContent={labelPrefixContent}
         >
             <textarea

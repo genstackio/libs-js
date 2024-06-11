@@ -1,6 +1,8 @@
 import { args, s, a } from '../../utils';
-import { TextareaField } from '../../../src';
+import { TextareaField } from "../../../src";
 import { TranslationLocalesContextProvider } from '@genstackio/react-contexts/lib/contexts/TranslationLocalesContext';
+import useForm from "../../../src/hooks/useForm";
+import { GenerateContextProvider } from "@genstackio/react-contexts/lib/contexts/GenerateContext";
 
 export default {
     title: 'Atoms/fields/TextareaField',
@@ -30,7 +32,12 @@ const TranslatableAwareTextareaField = (props: any) => {
                       .split('_')[1]
                       ?.toLowerCase()}.svg`
                 : undefined,
-        getItem: async (itemType: string, itemId: string | undefined, itemKey: string, options?: Record<string, unknown>): Promise<unknown> => {
+        getItem: async (
+            itemType: string,
+            itemId: string | undefined,
+            itemKey: string,
+            options?: Record<string, unknown>,
+        ): Promise<unknown> => {
             return new Promise((resolve) => {
                 setTimeout(() => {
                     resolve({});
@@ -68,8 +75,33 @@ const TranslatableAwareTextareaField = (props: any) => {
     );
 };
 
+const GeneratableAwareTextareaField = (props: any) => {
+    const { Form, field } = useForm({}, 'generatable');
+    const value = {
+        generateItem: async (name: string): Promise<unknown> => {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve('Hello');
+                }, 1000);
+            });
+        },
+    };
+
+    return (
+        <Form>
+            <GenerateContextProvider value={value}>
+                <TextareaField {...props} {...field} />
+            </GenerateContextProvider>
+        </Form>
+    );
+};
+
 export const basic = s(TextareaField, {});
 
 export const withTranslatable = s(TranslatableAwareTextareaField, {
     translatable: true,
+});
+
+export const withGeneratable = s(GeneratableAwareTextareaField, {
+    generatable: true,
 });
