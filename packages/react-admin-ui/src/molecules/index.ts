@@ -31,6 +31,7 @@ export * from './FileUploader';
 export * from './forms';
 export * from './Gallery';
 export * from './GalleryItem';
+export * from './GeneratableButton';
 export * from './Heading';
 export * from './HeadingLeft';
 export * from './Infos';

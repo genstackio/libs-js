@@ -1,6 +1,8 @@
 import { args, s, a } from '../../utils';
 import { TextField } from '../../../src';
 import { TranslationLocalesContextProvider } from '@genstackio/react-contexts/lib/contexts/TranslationLocalesContext';
+import { GenerateContextProvider } from '@genstackio/react-contexts/lib/contexts/GenerateContext';
+import useForm from '../../../src/hooks/useForm';
 
 export default {
     title: 'Atoms/fields/TextField',
@@ -74,6 +76,27 @@ const TranslatableAwareTextField = (props: any) => {
     );
 };
 
+const GeneratableAwareTextField = (props: any) => {
+    const { Form, field } = useForm({}, 'generatable');
+    const value = {
+        generateItem: async (name: string): Promise<unknown> => {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve('Hello');
+                }, 1000);
+            });
+        },
+    };
+
+    return (
+        <Form>
+            <GenerateContextProvider value={value}>
+                <TextField {...props} {...field} />
+            </GenerateContextProvider>
+        </Form>
+    );
+};
+
 export const basic = s(TextField, {});
 
 export const inlined = s(TextField, { inline: true });
@@ -115,4 +138,8 @@ export const showcase = s(
 
 export const withTranslatable = s(TranslatableAwareTextField, {
     translatable: true,
+});
+
+export const withGeneratable = s(GeneratableAwareTextField, {
+    generatable: true,
 });

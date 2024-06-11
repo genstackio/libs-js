@@ -348,3 +348,7 @@ export type translation_locales_context_value = {
         options?: Record<string, unknown>,
     ) => Promise<unknown>;
 };
+
+export type generate_context_value = {
+    generateItem: (name: string) => Promise<unknown>;
+};
