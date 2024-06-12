@@ -60,7 +60,7 @@ export function TranslationsDrawerContent({
         <div className={'w-full flex flex-col justify-between items-center gap-4'}>
             <div className={'w-full rounded-md p-4 text-left bg-light flex flex-col gap-2'}>
                 <p className={'font-semibold'}>{t('translations_form_default_value')}</p>
-                {!!defaultValue && <pre className={'mt-2'}>{defaultValue as string}</pre>}
+                {!!defaultValue && <pre className={'mt-2 whitespace-pre-wrap'}>{defaultValue as string}</pre>}
             </div>
             {!locales?.length ? (
                 <div>{t('translations_form_no_locales')}</div>
