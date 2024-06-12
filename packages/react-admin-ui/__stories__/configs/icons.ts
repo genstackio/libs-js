@@ -25,9 +25,13 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons/faArrowLeft';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons/faArrowRight';
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 import { faMagic } from '@fortawesome/free-solid-svg-icons/faMagic';
+import { faLanguage } from '@fortawesome/free-solid-svg-icons/faLanguage';
+import { faGlobe } from '@fortawesome/free-solid-svg-icons/faGlobe';
 
 const icons = {
     fa: [
+        faGlobe,
+        faLanguage,
         faCheckSquare,
         faMoon,
         faLightbulb,

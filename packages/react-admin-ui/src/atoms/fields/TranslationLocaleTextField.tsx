@@ -4,7 +4,13 @@ import Image from '../Image';
 import { useMemo } from 'react';
 import TextareaField from './TextareaField';
 
-export function TranslationLocaleTextField({ locale, iconUrl, type, ...props }: TranslationLocaleTextFieldProps) {
+export function TranslationLocaleTextField({
+    locale,
+    iconUrl,
+    type,
+    autotranslatable,
+    ...props
+}: TranslationLocaleTextFieldProps) {
     const { t } = useTranslation();
 
     const Comp = useMemo(() => {
@@ -23,6 +29,8 @@ export function TranslationLocaleTextField({ locale, iconUrl, type, ...props }: 
                     kind={'translationLocale'}
                     {...props}
                     translatable={false}
+                    autotranslatable={autotranslatable}
+                    autotranslatableTargetLocale={locale}
                     name={locale}
                     label={t(`locale_${locale.toLowerCase()}`, locale)}
                     className={'flex-1'}

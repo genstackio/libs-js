@@ -3,6 +3,7 @@ import { TextField } from '../../../src';
 import { TranslationLocalesContextProvider } from '@genstackio/react-contexts/lib/contexts/TranslationLocalesContext';
 import { GenerateContextProvider } from '@genstackio/react-contexts/lib/contexts/GenerateContext';
 import useForm from '../../../src/hooks/useForm';
+import { TranslateContextProvider } from '@genstackio/react-contexts/lib/contexts/TranslateContext';
 
 export default {
     title: 'Atoms/fields/TextField',
@@ -69,10 +70,81 @@ const TranslatableAwareTextField = (props: any) => {
         },
     };
 
+    const { Form, field } = useForm({}, 'generatable');
+
     return (
-        <TranslationLocalesContextProvider value={value}>
-            <TextField {...props} />
-        </TranslationLocalesContextProvider>
+        <Form>
+            <TranslationLocalesContextProvider value={value}>
+                <TextField {...props} {...field} />
+            </TranslationLocalesContextProvider>
+        </Form>
+    );
+};
+const TranslatableAwareAndTranslationGeneratableTextField = (props: any) => {
+    const value = {
+        locales: ['fr_FR', 'en_GB'],
+        getFlagIconUrl: (locale: string) =>
+            !!locale
+                ? `https://statics.gotombola.co/tenants/gotombola/images/icons/flags/4x3/${locale
+                      .split('_')[1]
+                      ?.toLowerCase()}.svg`
+                : undefined,
+        getItem: async (
+            itemType: string,
+            itemId: string | undefined,
+            itemKey: string,
+            options?: Record<string, unknown>,
+        ): Promise<unknown> => {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve({});
+                }, 1000);
+            });
+        },
+        saveItem: async (
+            itemType: string,
+            itemId: string | undefined,
+            itemKey: string,
+            data: Record<string, unknown>,
+            options?: Record<string, unknown>,
+        ): Promise<unknown> => {
+            alert(
+                JSON.stringify(
+                    {
+                        itemType,
+                        itemId,
+                        itemKey,
+                        data,
+                        options,
+                    },
+                    null,
+                    4,
+                ),
+            );
+            return undefined;
+        },
+    };
+    const value0 = {
+        referenceLocale: 'fr_FR',
+        translateItem: async (_: string, text: string, sourceLocale: string, targetLocale: string): Promise<unknown> => {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve(`this is the translated text of "${text}" from ${sourceLocale} to ${targetLocale}`);
+                }, 1000);
+            });
+        },
+    };
+
+    const { Form, field } = useForm({}, 'generatable');
+
+    return (
+        <Form>
+            <TranslateContextProvider value={value0}>
+                <TranslationLocalesContextProvider value={value}>
+                    <TextField {...props} {...field} />
+                </TranslationLocalesContextProvider>
+            </TranslateContextProvider>
+        </Form>
     );
 };
 
@@ -138,6 +210,10 @@ export const showcase = s(
 
 export const withTranslatable = s(TranslatableAwareTextField, {
     translatable: true,
+});
+export const withTranslatableAndTranslationGeneratable = s(TranslatableAwareAndTranslationGeneratableTextField, {
+    translatable: true,
+    translationGeneratable: true,
 });
 
 export const withGeneratable = s(GeneratableAwareTextField, {

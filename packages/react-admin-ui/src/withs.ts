@@ -839,3 +839,12 @@ export interface WithTranslatable {
 export interface WithGeneratable {
     generatable?: flag | string;
 }
+
+export interface WithTranslationGeneratable {
+    translationGeneratable?: flag | string;
+}
+
+export interface WithAutotranslatable {
+    autotranslatable?: flag | string;
+    autotranslatableTargetLocale?: string;
+}

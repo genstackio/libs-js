@@ -6,16 +6,20 @@ import { AsWrapper } from '../as';
 import {
     WithCenter,
     WithClasses,
-    WithError, WithGeneratable,
+    WithError,
+    WithGeneratable,
     WithHelper,
     WithLabel,
     WithName,
     WithOptions,
-    WithTranslatable
-} from "../withs";
+    WithTranslatable,
+    WithTranslationGeneratable,
+    WithAutotranslatable,
+} from '../withs';
 import clsx from 'clsx';
 import { class_name, flag } from '../types';
-import { GeneratableButton } from "../molecules";
+import GeneratableButton from '../molecules/GeneratableButton';
+import TranslationGeneratableButton from '../molecules/TranslationGeneratableButton';
 
 export function FieldSet({
     children,
@@ -37,6 +41,9 @@ export function FieldSet({
     innerInnerClassName,
     translatable,
     generatable,
+    translationGeneratable,
+    autotranslatable,
+    autotranslatableTargetLocale,
     translatableType = 'text',
     labelPrefixContent,
 }: FieldSetProps) {
@@ -68,6 +75,7 @@ export function FieldSet({
                             name={name}
                             translatable={translatable}
                             translatableType={translatableType}
+                            translationGeneratable={translationGeneratable}
                             labelPrefixContent={labelPrefixContent}
                             options={options}
                             className={clsx(
@@ -76,13 +84,31 @@ export function FieldSet({
                                 center && 'inline-block w-full text-center',
                             )}
                         />
-                        <Div className={clsx(generatable && 'relative', innerInnerClassName)}>
+                        <Div
+                            className={clsx(
+                                (generatable || translationGeneratable || autotranslatable) && 'relative',
+                                innerInnerClassName,
+                            )}
+                        >
                             {children}
                             {generatable && (
                                 <GeneratableButton
                                     fieldName={name}
                                     name={
                                         'string' === typeof generatable ? generatable : !generatable ? '' : `.${name}`
+                                    }
+                                />
+                            )}
+                            {autotranslatable && (
+                                <TranslationGeneratableButton
+                                    targetLocale={autotranslatableTargetLocale || ''}
+                                    fieldName={name}
+                                    name={
+                                        'string' === typeof autotranslatable
+                                            ? autotranslatable
+                                            : !autotranslatable
+                                            ? ''
+                                            : `.${name}`
                                     }
                                 />
                             )}
@@ -116,6 +142,8 @@ export interface FieldSetProps
         WithCenter,
         WithTranslatable,
         WithGeneratable,
+        WithTranslationGeneratable,
+        WithAutotranslatable,
         WithClasses {
     inline?: boolean;
     labelFormat?: 'normal' | 'capital' | 'uppercase' | 'lowercase';

@@ -1,8 +1,10 @@
+import { useMemo } from 'react';
 import { BaseFormProps } from './BaseForm';
 import { useTranslation } from 'react-i18next';
 import TranslationLocaleTextField from '../../atoms/fields/TranslationLocaleTextField';
 import Button from '../../atoms/Button';
 import useNestedForm from '../../hooks/useNestedForm';
+import { ReferenceTranslationContextProvider } from '@genstackio/react-contexts/lib/contexts/ReferenceTranslationContext';
 
 const defaultLocales: string[] = [];
 
@@ -12,24 +14,31 @@ export function TranslationsForm({
     onCancel,
     type,
     defaultValues,
+    referenceValue = undefined,
+    referenceLocale,
+    autotranslatable,
     ...props
 }: TranslationsFormProps) {
     const { t } = useTranslation();
     const { Form, SubmitButton, field } = useNestedForm({ ...props, value: defaultValues });
+    const rtcpv = useMemo(() => ({ referenceValue, referenceLocale }), [referenceValue, referenceLocale]);
 
     return (
         <Form>
             <div className={'w-full flex flex-col gap-2'}>
-                {locales.map((l, i) => (
-                    <TranslationLocaleTextField
-                        key={i}
-                        locale={l}
-                        {...field}
-                        iconUrl={getFlagIconUrl?.(l)}
-                        type={type}
-                        autoFocus={i === 0}
-                    />
-                ))}
+                <ReferenceTranslationContextProvider value={rtcpv}>
+                    {locales.map((l, i) => (
+                        <TranslationLocaleTextField
+                            key={i}
+                            locale={l}
+                            {...field}
+                            iconUrl={getFlagIconUrl?.(l)}
+                            type={type}
+                            autoFocus={i === 0}
+                            autotranslatable={autotranslatable}
+                        />
+                    ))}
+                </ReferenceTranslationContextProvider>
                 <div className={'w-full flex items-center place-items-center gap-2 pt-8'}>
                     <SubmitButton
                         mt={'none'}
@@ -56,6 +65,9 @@ export interface TranslationsFormProps extends BaseFormProps {
     mainValue?: string;
     onCancel?: Function;
     type?: string;
+    referenceValue?: string;
+    referenceLocale: string;
+    autotranslatable?: string;
 }
 
 // noinspection JSUnusedGlobalSymbols

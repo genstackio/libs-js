@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { flag } from '../types';
 import { AsComponent } from '../as';
-import { WithName, WithLabel, WithOptions, WithTranslatable } from '../withs';
+import { WithName, WithLabel, WithOptions, WithTranslatable, WithTranslationGeneratable } from '../withs';
 import useTranslatable from '../hooks/useTranslatable';
 import { useTranslation } from 'react-i18next';
 
@@ -23,14 +23,21 @@ export function FieldLabel({
     name,
     translatable = false,
     translatableType,
+    translationGeneratable = false,
     format = stylings.defaults.format,
     labelPrefixContent,
     options = {},
 }: FieldLabelProps) {
     const { t } = useTranslation();
     const [onToggleTranslatableModal, translatableChildren] = useTranslatable(
+        name,
         'string' === typeof translatable ? translatable : false === translatable ? '' : `.${name}`,
         translatableType,
+        'string' === typeof translationGeneratable
+            ? translationGeneratable
+            : false === translationGeneratable
+            ? ''
+            : `.${name}`,
     );
 
     if (!label) return null;
@@ -79,7 +86,13 @@ export function FieldLabel({
     );
 }
 
-export interface FieldLabelProps extends AsComponent, Required<WithName>, WithLabel, WithOptions, WithTranslatable {
+export interface FieldLabelProps
+    extends AsComponent,
+        Required<WithName>,
+        WithLabel,
+        WithOptions,
+        WithTranslatable,
+        WithTranslationGeneratable {
     error?: flag;
     format?: 'normal' | 'capital' | 'uppercase' | 'lowercase' | 'upperfirst';
     translatableType?: string;

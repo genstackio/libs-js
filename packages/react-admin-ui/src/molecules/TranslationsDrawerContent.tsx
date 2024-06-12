@@ -3,6 +3,7 @@ import TranslationsForm from './forms/TranslationsForm';
 import useTranslationLocalesContext from '@genstackio/react-contexts/lib/hooks/useTranslationLocalesContext';
 import Spinner from '../atoms/Spinner';
 import { useTranslation } from 'react-i18next';
+import useTranslateContext from '@genstackio/react-contexts/lib/hooks/useTranslateContext';
 
 export function TranslationsDrawerContent({
     itemType,
@@ -10,9 +11,12 @@ export function TranslationsDrawerContent({
     itemKey,
     onClose,
     type,
+    defaultValue,
+    autotranslatable,
 }: TranslationsDrawerContentProps) {
     const { t } = useTranslation();
     const { locales, saveItem, getItem, getFlagIconUrl } = useTranslationLocalesContext();
+    const { referenceLocale } = useTranslateContext();
     const [{ data, loading, called }, setState] = useState<{
         data: unknown;
         loading: boolean;
@@ -56,20 +60,22 @@ export function TranslationsDrawerContent({
         <div className={'w-full flex flex-col justify-between items-center gap-4'}>
             <div className={'w-full rounded-md p-4 text-left bg-light flex flex-col gap-2'}>
                 <p className={'font-semibold'}>{t('translations_form_default_value')}</p>
+                {!!defaultValue && <pre className={'mt-2'}>{defaultValue as string}</pre>}
             </div>
             {!locales?.length ? (
                 <div>{t('translations_form_no_locales')}</div>
             ) : (
-                <>
-                    <TranslationsForm
-                        locales={locales}
-                        onSubmit={onSubmit}
-                        defaultValues={data as any}
-                        getFlagIconUrl={getFlagIconUrl}
-                        onCancel={onClose}
-                        type={type}
-                    />
-                </>
+                <TranslationsForm
+                    locales={locales}
+                    onSubmit={onSubmit}
+                    referenceValue={defaultValue as string | undefined}
+                    referenceLocale={referenceLocale}
+                    defaultValues={data as any}
+                    autotranslatable={autotranslatable}
+                    getFlagIconUrl={getFlagIconUrl}
+                    onCancel={onClose}
+                    type={type}
+                />
             )}
         </div>
     );
@@ -81,6 +87,8 @@ export interface TranslationsDrawerContentProps {
     itemKey: string;
     onClose?: Function;
     type?: string;
+    defaultValue?: unknown;
+    autotranslatable?: string;
 }
 
 export default TranslationsDrawerContent;

@@ -1,17 +1,22 @@
 import { useCallback, useMemo, useState } from 'react';
 import Spinner from '../atoms/Spinner';
 import { Div, Icon } from '../atoms';
-import useGenerateContext from '@genstackio/react-contexts/lib/hooks/useGenerateContext';
+import useTranslateContext from '@genstackio/react-contexts/lib/hooks/useTranslateContext';
 import { useFormContext } from 'react-hook-form';
 import stopPrevent from '../utils/stopPrevent';
+import useReferenceTranslationContext from '@genstackio/react-contexts/lib/hooks/useReferenceTranslationContext';
 
-const defaultIconName = 'fa-fas--magic';
+const defaultIconName = 'fa-fas--globe';
 
-export function GeneratableButton({ name, fieldName = undefined }: GeneratableButtonProps) {
-    const { generateItem, iconName = defaultIconName } = useGenerateContext();
-    const { setValue } = useFormContext() || {};
+export function TranslationGeneratableButton({
+    name,
+    fieldName = undefined,
+    targetLocale,
+}: TranslationGeneratableButtonProps) {
+    const { translateItem, iconName = defaultIconName } = useTranslateContext();
+    const { setValue } = useFormContext();
     const fName = useMemo(() => fieldName || name, [fieldName, name]);
-
+    const { referenceValue, referenceLocale } = useReferenceTranslationContext();
     const [{ loading }, setState] = useState<{
         data: unknown;
         loading: boolean;
@@ -26,16 +31,16 @@ export function GeneratableButton({ name, fieldName = undefined }: GeneratableBu
         (event) => {
             stopPrevent(event);
             setState({ data: undefined, loading: true, error: undefined });
-            const p = generateItem(name);
+            const p = translateItem(name, referenceValue || '', referenceLocale, targetLocale);
             p.then((value) => {
                 setState({ data: value, loading: false, error: undefined });
-                setValue?.(fName, value);
+                setValue(fName, value);
             });
             p.catch((e) => {
                 setState({ data: undefined, loading: false, error: e });
             });
         },
-        [setState, setValue, generateItem, fName],
+        [setState, setValue, translateItem, fName, referenceValue, referenceLocale, targetLocale],
     );
 
     return (
@@ -52,9 +57,10 @@ export function GeneratableButton({ name, fieldName = undefined }: GeneratableBu
     );
 }
 
-export interface GeneratableButtonProps {
+export interface TranslationGeneratableButtonProps {
     name: string;
     fieldName?: string;
+    targetLocale: string;
 }
 
-export default GeneratableButton;
+export default TranslationGeneratableButton;

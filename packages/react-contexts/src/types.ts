@@ -353,3 +353,13 @@ export type generate_context_value = {
     generateItem: (name: string) => Promise<unknown>;
     iconName?: string;
 };
+
+export type translate_context_value = {
+    translateItem: (name: string, text: string, sourceLocale: string, targetLocale: string) => Promise<unknown>;
+    iconName?: string;
+    referenceLocale: string;
+};
+export type reference_translation_context_value = {
+    referenceValue?: string;
+    referenceLocale: string;
+};

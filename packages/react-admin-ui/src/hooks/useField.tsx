@@ -67,6 +67,9 @@ export function useField(
         validators = defaultValidators,
         translatable,
         generatable,
+        translationGeneratable,
+        autotranslatable,
+        autotranslatableTargetLocale,
         ...extra
     }: field_def_params,
     defaults: { name?: string; kind?: string } = defaultDefaults,
@@ -222,6 +225,9 @@ export function useField(
         rounded?: flag;
         translatable?: flag | string;
         generatable?: flag | string;
+        translationGeneratable?: flag | string;
+        autotranslatable?: flag | string;
+        autotranslatableTargetLocale?: string;
     }>(
         () => ({
             control,
@@ -274,6 +280,9 @@ export function useField(
             fieldsetProps,
             translatable,
             generatable,
+            translationGeneratable,
+            autotranslatable,
+            autotranslatableTargetLocale,
         }),
         [
             control,
@@ -307,6 +316,9 @@ export function useField(
             rounded,
             translatable,
             generatable,
+            translationGeneratable,
+            autotranslatable,
+            autotranslatableTargetLocale,
         ],
     );
 }

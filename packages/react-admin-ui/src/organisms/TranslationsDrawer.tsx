@@ -10,6 +10,8 @@ export function TranslationsDrawer({
     opened = false,
     onClose,
     type,
+    defaultValue = undefined,
+    autotranslatable,
 }: TranslationsDrawerProps) {
     return (
         <Drawer opened={opened} onClose={onClose}>
@@ -20,6 +22,8 @@ export function TranslationsDrawer({
                     itemId={itemId}
                     itemKey={itemKey}
                     type={type}
+                    defaultValue={defaultValue}
+                    autotranslatable={autotranslatable}
                 />
             </DrawerContainer>
         </Drawer>
@@ -33,6 +37,8 @@ export interface TranslationsDrawerProps {
     itemId?: string;
     itemKey: string;
     type?: string;
+    defaultValue?: unknown;
+    autotranslatable?: string;
 }
 
 export default TranslationsDrawer;

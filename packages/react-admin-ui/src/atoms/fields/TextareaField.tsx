@@ -24,6 +24,9 @@ export function TextareaField({ className, labelPrefixContent, ...props }: Texta
         extra,
         translatable,
         generatable,
+        translationGeneratable,
+        autotranslatable,
+        autotranslatableTargetLocale,
     } = useField(props);
 
     return (
@@ -43,6 +46,9 @@ export function TextareaField({ className, labelPrefixContent, ...props }: Texta
             translatable={translatable}
             translatableType={'textarea'}
             generatable={generatable}
+            translationGeneratable={translationGeneratable}
+            autotranslatable={autotranslatable}
+            autotranslatableTargetLocale={autotranslatableTargetLocale}
             labelPrefixContent={labelPrefixContent}
         >
             <textarea

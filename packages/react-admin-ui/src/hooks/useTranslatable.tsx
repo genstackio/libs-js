@@ -1,8 +1,12 @@
 import { useCallback, useMemo, useState } from 'react';
-import TranslationsDrawer from '../organisms/TranslationsDrawer';
-import { parseTranslationCode } from '@genstackio/translation-code-parser';
+import Translatable from '../organisms/Translatable';
 
-export function useTranslatable(translatable: string, type?: string) {
+export function useTranslatable(
+    fieldName: string,
+    translatable: string,
+    type: string | undefined,
+    translationGeneratable: string | undefined,
+) {
     const [opened, setOpened] = useState(false);
     const onToggleModal = useCallback(() => {
         setOpened(!opened);
@@ -10,18 +14,17 @@ export function useTranslatable(translatable: string, type?: string) {
 
     const content = useMemo(() => {
         if (!translatable) return null;
-        const [itemType, itemId, itemKey] = parseTranslationCode(translatable);
         return (
-            <TranslationsDrawer
+            <Translatable
+                translatable={translatable}
+                translationGeneratable={translationGeneratable}
                 opened={opened}
                 onClose={onToggleModal}
-                itemType={itemType}
-                itemId={itemId}
-                itemKey={itemKey}
+                name={fieldName}
                 type={type}
             />
         );
-    }, [opened, onToggleModal, translatable]);
+    }, [opened, onToggleModal, translatable, fieldName, type]);
 
     return useMemo(() => [onToggleModal, content], [onToggleModal, content]);
 }

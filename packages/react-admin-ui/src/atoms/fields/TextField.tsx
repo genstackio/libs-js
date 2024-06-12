@@ -37,6 +37,9 @@ export function TextField({ inline, inputClassName, labelPrefixContent, ...props
         helperClassName,
         translatable,
         generatable,
+        translationGeneratable,
+        autotranslatable,
+        autotranslatableTargetLocale,
     } = useField(props);
 
     const ctx = useMemo(() => ({ variant, prepend: !!prepend, append: !!append }), [variant, prepend, append]);
@@ -77,6 +80,9 @@ export function TextField({ inline, inputClassName, labelPrefixContent, ...props
         center,
         translatable,
         generatable,
+        translationGeneratable,
+        autotranslatable,
+        autotranslatableTargetLocale,
         labelPrefixContent,
     };
     inputProps && (finalInputProps = inputProps(finalInputProps));
