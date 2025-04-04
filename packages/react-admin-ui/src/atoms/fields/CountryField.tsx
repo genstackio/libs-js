@@ -20,6 +20,10 @@ export function CountryField(props: CountryFieldProps) {
         { value: 'MQ', label: t('country_mq') },
         { value: 'GP', label: t('country_gp') },
         { value: 'DE', label: t('country_de') },
+        { value: 'NL', label: t('country_nl') },
+        { value: 'BR', label: t('country_br') },
+        { value: 'IL', label: t('country_il') },
+        { value: 'AT', label: t('country_at') },
     ];
     countries.sort((a, b) => (a.label > b.label ? 1 : a.label < b.label ? -1 : 0));
 
