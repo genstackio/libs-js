@@ -34,6 +34,7 @@ function SubListScreenTemplate({
     name,
     singularName,
     columns: forcedColumns = undefined,
+    customColumns = undefined,
     listRoute = '/{parentName}/{parentId}/{name}/page/{pPage}/{pSize}/{pMode}/{pCursors}',
     displayRoute = '/{name}/{id}',
     editRoute = '/{name}/{id}/edit',
@@ -258,8 +259,11 @@ function SubListScreenTemplate({
     );
 
     const columns = useMemo(() => {
-        if (forcedColumns) return forcedColumns;
-        const xx = (list['columns'] || []).map((c) => {
+        let cols: any[] | undefined;
+        if (customColumns) cols = customColumns;
+        if (!cols && forcedColumns) return forcedColumns;
+        if (!cols) cols = list['columns'] || [];
+        const xx = cols.map((c) => {
             const cc = { ...c };
             cc['label'] = 'string' === typeof cc['label'] ? t(cc['label'] || '') : cc['label'];
             return cc;
@@ -355,7 +359,7 @@ function SubListScreenTemplate({
             });
         }
         return xx;
-    }, [handleUp, handleDown, list, t, goDoc, goEdit, handleDelete, singularName, forcedColumns, goUrl]);
+    }, [handleUp, handleDown, list, t, goDoc, goEdit, handleDelete, singularName, forcedColumns, customColumns, goUrl]);
 
     const key = `${searchMode ? 'search' : 'find'}${parentSingularName[0].toUpperCase()}${parentSingularName.slice(1)}${
         name[0].toUpperCase() + name.slice(1)
@@ -593,6 +597,7 @@ export interface SubListScreenTemplateProps {
     name: string;
     onNewClick?: Function;
     columns?: { id: string; format?: any; label?: string; width?: number; render?: Function }[];
+    customColumns?: { id: string; format?: any; label?: string; width?: number; render?: Function }[];
     list?: list;
     breadcrumbs?: breadcrumb_item[];
     defaultRowsPerPage?: number;
