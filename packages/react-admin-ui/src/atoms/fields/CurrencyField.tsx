@@ -12,6 +12,7 @@ export function CurrencyField(props: CurrencyFieldProps) {
         { label: 'XBT (Bitcoin)', value: 'XBT' },
         { label: 'XOF (Franc CFA / UEMOA)', value: 'XOF' },
         { label: 'XAF (Franc CFA / CEMAC)', value: 'XAF' },
+        { label: 'XPF (Franc CFP)', value: 'XPF' },
     ];
 
     return <SelectField kind={'currency'} values={currencies} {...props} />;
